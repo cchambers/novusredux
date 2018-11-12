@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>683</ClientId>
+	<Name>[FF9500]Left Library Bookshelf[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

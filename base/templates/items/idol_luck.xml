@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[FF0000]Ancient Idol[-]</Name>
+	<ClientId>324</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<StringVariable Name="ResourceType">Magic</StringVariable>
+    	<StringVariable Name="IdolScript">idol_animal</StringVariable>
+    	<StringVariable Name="PluralName">Ancient Idols</StringVariable>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="idol"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

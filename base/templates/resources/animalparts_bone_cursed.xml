@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Cursed Bones[-]</Name>
+	<ClientId>909</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">CursedBones</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

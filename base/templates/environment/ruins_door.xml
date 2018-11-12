@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>336</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+		<LuaModule Name="lock_object_ruins"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

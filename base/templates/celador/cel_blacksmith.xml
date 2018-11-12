@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Samogh the Blacksmith</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="PlayAnim">anvil_strike</StringVariable>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MyPath">TownGuardPath</StringVariable>
+		<StringVariable Name="RepairSkill">MetalsmithSkill</StringVariable>
+		<StringVariable Name="CraftOrderSkill">MetalsmithSkill</StringVariable>
+		<DoubleVariable Name="PlayFreq">2</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_blacksmith">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						Metalsmith = 100,
+					},
+					EquipTable= {
+						BodyPartHead= {
+							{"head_male02",176},
+						},
+						BodyPartHair= {
+							{"hair_male_messy",4},
+						},
+						BodyPartFacialHair= {
+							{"facial_hair_beard_chops2",4},
+						},
+						RightHand= {
+							"tool_hammer",
+						},
+						Chest= {
+							"npc_blacksmith",
+						},
+						Legs= {
+							"clothing_legs_thief",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "",
+							DisplayName = "",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "armor_chain_tunic",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "3.779999, 0.5041351, 0.7369995",
+							Rotation = "-9.220756E-05, 89.99986, 327.5452",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "armor_chain_leggings",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "4.845001, 0.4381351, 0.6300049",
+							Rotation = "-5.122642E-06, 90, 326.1103",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "armor_chain_helm",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "6.027008, 0.4841347, 0.4490356",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "weapon_dagger",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "7.333008, 0.3491344, 0.3460083",
+							Rotation = "18.46116, 243.82, 212.6469",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "weapon_warfork",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "7.290009, 0.7001343, 1.018005",
+							Rotation = "324.1383, 358.9053, 0.4287489",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "weapon_mace",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "7.488007, 0.6971359, 0.7560425",
+							Rotation = "315.5138, 0.8635432, 178.7788",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "weapon_longsword",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "7.039001, 0.2931347, 0.4040527",
+							Rotation = "339.5815, 59.24136, 329.1877",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "shield_buckler",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "7.568024, 0.3831348, 0.5100098",
+							Rotation = "35.09634, 180, -7.46366E-13",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>2</ClientId>
+	<Color>0xFFF0FF00</Color>
+	<Name>Refugee Camp House Controller</Name>
+	<ObjectVariableComponent />
+	<ScriptEngineComponent>
+		<LuaModule Name="scene_item_spawner">
+			<Initializer>
+				{
+					ItemInventory= {
+						{
+							Template = "shield_buckler_rusty",
+							RelativeLoc = "20.73401, 0.323423, 4.195",
+							Rotation = "0, 180, 112.6199",
+						},
+						{
+							Template = "resource_metalscraps",
+							RelativeLoc = "6.867004, 0.1234231, 9.961998",
+						},
+						{
+							Template = "ingredient_olive_oil",
+							RelativeLoc = "3.368011, 1.143423, 8.342003",
+						},
+						{
+							Template = "resource_metalscraps",
+							RelativeLoc = "-9.656006, 0.922423, -3.038002",
+						},
+						{
+							Template = "bandage",
+							RelativeLoc = "-13.995, 0.9564232, -0.3030014",
+						},
+						{
+							Template = "skill_cooking",
+							RelativeLoc = "2.546997, 1.125423, 8.202003",
+						},
+						{
+							Template = "resource_leatherscraps",
+							RelativeLoc = "-13.97501, 0.9664229, -0.02999878",
+						},
+						{
+							Template = "tool_cookingpot",
+							RelativeLoc = "3.059998, 1.051423, 7.996002",
+						},
+						{
+							Template = "item_bread",
+							RelativeLoc = "-11.03, 1.098423, -8.158997",
+						},
+						{
+							Template = "tool_hatchet",
+							RelativeLoc = "16.608, 0.2028491, 5.049576",
+							Rotation = "-1.399416E-08, 120.1244, 180",
+						},
+						{
+							Template = "tool_hatchet",
+							RelativeLoc = "3.044525, 0.09642303, 7.155624",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "ingredient_onion",
+							RelativeLoc = "2.89801, 1.143423, 8.533005",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

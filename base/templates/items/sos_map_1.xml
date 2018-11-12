@@ -1,0 +1,52 @@
+<ObjectTemplate>
+  <Name>[FF0000]Soaked Map[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="sos_map">
+				<Initializer>
+				{
+				RegionalNames = 
+                    {
+                        "Pyros Landing",
+                        "Ysel Lake",
+                        "Misty Basin",
+                        "Ysel Lake",
+
+                        "West Valusia",
+                        "Yoln's Bluff",
+                        "The Brooks",
+                        "East Valusia",
+                        "Valus",
+                        "Bel Lake",
+                        "Belhaven",
+                        "Caester Run",
+                        "Cape Worth",
+                        "Ceyr Pond",
+
+                        "Vilewood",
+                        "Spiritwood",
+                        "The Brushwoods",
+
+                        "Helm",
+                        "Mer Beach",
+                        "Lume Coast",
+                        "Lake Denir",
+
+                        "Eldeir",
+                        "Lake Tethys",
+                        "Everdale",
+                        "Black Grove",
+                        "Cast Lake",
+                    },
+                    
+                    Rewards =
+                    {
+                    	"sunken_treasure_1"
+                    }
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

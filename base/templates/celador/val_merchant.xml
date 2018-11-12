@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Guy the Trader</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_general_store">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						Bashing = 50,
+					},
+					EquipTable= {
+
+						Chest= {
+							"armor_leather_leggings",
+						},
+						Legs= {
+							"clothing_padded_chest",
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "tools",
+							DisplayName = "Tools for Sale",
+						},
+						{
+							Name = "consumables",
+							DisplayName = "Groceries for Sale",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "note",
+							Price = 10,
+							Amount = 100,
+							RelativeLoc = "-0.07000732, 0.9055977, -1.445923",
+							Rotation = "0.7383265, 168.5693, 0.0190373",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "torch",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-2.203003, 0.9080009, -1.432983",
+							Rotation = "359.3423, 302.1366, 0.3359878",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bandage",
+							Price = 0,
+							Amount = 500,
+							RelativeLoc = "1.044983, 0.9039993, -1.445923",
+							Rotation = "0, 149.9997, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "rune_blank",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.967957, 0.9080009, -1.372925",
+							Rotation = "0, 339.9998, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "map_southern_hills",
+							Price = 200,
+							Amount = 50,
+							RelativeLoc = "-1.090027, 0.8889999, -1.437988",
+							Rotation = "0, 149.9997, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>926</ClientId>
+	<Name>[FF9500]Bronze Cauldron[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

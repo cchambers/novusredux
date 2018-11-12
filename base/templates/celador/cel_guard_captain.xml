@@ -1,0 +1,51 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Eldeir Village Guard Captain</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>	
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MyPath">TownGuardPath</StringVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<BoolVariable Name="IsGuard">true</BoolVariable>
+      	<BoolVariable Name="noloot">True</BoolVariable>
+      	<DoubleVariable Name="WeaponRange">2</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_guard">
+			<Initializer>
+				{ 
+				Stats =
+					{
+					Str=40,
+					Agi=30,
+					Int=21
+					},
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = { "head_male02","head_male03","head_male04","head_male05", },
+						RightHand = { "weapon_longsword" },
+						LeftHand = { "shield_curvedshield" },
+						Head = { "npc_heavy_captain_helm" },
+						Chest = { "npc_heavy_captain_tunic" },
+						Legs = { "npc_heavy_captain_leggings" },
+						Backpack = { "backpack" }			
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

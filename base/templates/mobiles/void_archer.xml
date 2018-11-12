@@ -1,0 +1,69 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>Void Marksman</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Void</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">59</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_worshiper">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Bashing=80,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = {""},	
+						Backpack = { "backpack" },	
+						Chest = {  "armor_bone_chest" },	
+						Legs = {  "armor_bone_leggings" },		
+						Head = {  "armor_bone_helm" },	
+						RightHand = {{ Template = "weapon_bonebow", Unique = true }},
+						LeftHand = {{  Weight = 70, Template = "torch", Unique = true }},			
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.ArcherRich,
+						TemplateDefines.LootTable.Humanoid,
+						{
+							NumCoins = math.random(500,650),
+						},
+					},	
+				ScavengeTables =
+					{
+					},					
+					WeaponAbilities = { primary="Powershot" },	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

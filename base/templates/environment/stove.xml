@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>397</ClientId>
+	<Name>[FF9500]Stove[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="lightable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

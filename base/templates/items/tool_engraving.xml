@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Engraving Tool[-]</Name>
+	<ClientId>391</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="tool_engraving"/>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>691</ClientId>
+	<Name>[FF9500]Library Tent Top[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

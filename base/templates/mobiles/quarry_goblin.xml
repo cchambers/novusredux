@@ -1,0 +1,47 @@
+<ObjectTemplate>
+	<ClientId>1140</ClientId>
+	<Name>Goblin</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+		<ScaleModifier>0.8</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">104</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Goblin</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">48</DoubleVariable>
+		<DoubleVariable Name="Attack">21</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
+		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_orc">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Bashing=15,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },	
+						RightHand = {{"weapon_mace"}}						
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Three,
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

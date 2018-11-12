@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Bronze Ore[-]</Name>
+	<ClientId>596</ClientId>
+	<Hue>808</Hue>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BronzeOre</StringVariable>
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

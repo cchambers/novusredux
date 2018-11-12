@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Portal</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="TeleportRange">1.5</DoubleVariable>		
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter_map"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

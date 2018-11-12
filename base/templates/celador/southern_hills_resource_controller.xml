@@ -1,0 +1,146 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Resource Controller</Name>
+	<Tag>MapResourceController</Tag>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>		
+		<LuaModule Name="map_resource_controller">
+			<Initializer>
+				{
+					ResourceRegions = {
+						{
+							Region = "SouthernHillsNorthMine",
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 80,
+										Count = 20, 
+									},
+								}
+							},
+						},		
+						{
+							Region = "SouthernHillsSouthMine",
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 80,
+										Count = 20, 
+									},
+								}
+							},
+						},		
+						{
+							Region = "SouthernHillsOrcMine",
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 60,
+										Count = 20, 
+									},
+									CopperOre = {
+										AvailablityPct = 20,
+										Count = 12, 
+									},
+									BronzeOre = {
+										AvailablityPct = 10,
+										Count = 12, 
+									},
+									SteelOre = {
+										AvailablityPct = 7,
+										Count = 12, 
+									},
+									ObsidianOre = {
+										AvailablityPct = 3,
+										Count = 12, 
+									},
+								}
+							},
+						},		
+						{
+							Region = "GuardZoneLarge",
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 10,
+										Count = 8,
+									},
+								}
+							},
+						},
+						{
+							-- Global values
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 20,
+										Count = 8,
+									},
+									Blightwood = {					
+										AvailablityPct = 5,
+										Count = 8, 
+									},
+								}
+							},
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 10,
+										Count = 20, 
+									},
+								}
+							},
+						},						
+					},
+
+					SpawnedSources = 
+					{						
+						{ MaxCount = 100, Region = "SouthernHillsSouth" ,     Resource = "Moss"},
+						{ MaxCount = 100, Region = "SouthernHillsEast",   Resource = "Moss"},
+						{ MaxCount = 100, Region = "SouthernHillsWest",   Resource = "Moss"},
+						{ MaxCount = 100, Region = "SouthernHillsSouth" ,     Resource = "Ginseng"},
+						{ MaxCount = 100, Region = "SouthernHillsEast",   Resource = "Ginseng"},
+						{ MaxCount = 100, Region = "SouthernHillsWest",   Resource = "Ginseng"},
+						{ MaxCount = 100, Region = "SouthernHillsSouth",      Resource = "LemonGrass" },
+						{ MaxCount = 100, Region = "SouthernHillsEast",      Resource = "LemonGrass" },
+						{ MaxCount = 100, Region = "SouthernHillsWest",      Resource = "LemonGrass" },
+						{ MaxCount = 100, Region = "SouthernHillsSouth",      Resource =  "Mushrooms"},
+						{ MaxCount = 100, Region = "SouthernHillsEast",      Resource =  "Mushrooms"},
+						{ MaxCount = 100, Region = "SouthernHillsWest", Resource =  "Mushrooms"},
+						{ MaxCount = 100,  Region = "SouthernHillsSouth",    Resource =  "Cotton"},
+						{ MaxCount = 100,  Region = "SouthernHillsWest",    Resource =  "Cotton"},
+						{ MaxCount = 100, Region = "SouthernHillsEast" ,     Resource = "Cotton"},
+						{ MaxCount = 60,  Region = "SouthernHillsSouth",    Resource =  "Kindling"},
+						{ MaxCount = 150,  Region = "SouthernHillsWest",    Resource =  "Kindling"},
+						{ MaxCount = 150, Region = "SouthernHillsEast" ,     Resource = "Kindling"},
+
+					},
+				}
+			</Initializer>
+		</LuaModule>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Shovel[-]</Name>
+	<ClientId>211</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="shovel"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

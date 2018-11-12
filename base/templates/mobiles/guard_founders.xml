@@ -1,0 +1,48 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Bouncer</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Founders</StringVariable>
+		<BoolVariable Name="IsGuard">true</BoolVariable>
+     	<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_founders_guard">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					MobTraits =
+					{
+						Toughness=3,
+					},
+					Skills = 
+					{ 
+						Bashing=100,  
+					},	
+
+					EquipTable = {
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Chest = {{"founders_chest3_base"}},
+						Legs = {{"founders_legs3_base"}},
+						Head = {{"founders_helm3_base"}},
+						RightHand = { "weapon_longsword_faith" },
+						Backpack = { "backpack" },	
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

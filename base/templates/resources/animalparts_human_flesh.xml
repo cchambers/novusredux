@@ -1,0 +1,31 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Human Flesh[-]</Name>
+	<ClientId>110</ClientId>
+	<Color>0xFFFFC0DB</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="IsRaw">true</BoolVariable>
+		<DoubleVariable Name="FoodValue">9.0</DoubleVariable>
+		<DoubleVariable Name="CookingDifficulty">5.0</DoubleVariable>
+		<StringVariable Name="ResourceType">HumanMeat</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						HealthRegenMod = { 
+							Multiplier = 1.05,
+						},
+						ManaRegenMod = { 
+							Multiplier = .95,
+						},
+						StaminaRegenMod = { 
+							Multiplier = .95,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

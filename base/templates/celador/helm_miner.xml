@@ -1,0 +1,96 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Villager</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>	
+		<StringVariable Name="WanderRegion">HelmMinersGuild</StringVariable>
+		<StringVariable Name="MyPath"></StringVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+    	<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+    	<DoubleVariable Name="Armor">62</DoubleVariable>
+   		<DoubleVariable Name="Attack">38</DoubleVariable>
+   		<DoubleVariable Name="Karma">2500</DoubleVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_villager">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+          			Skills = 
+          			{ 
+          			Bashing = 50, 
+          			},  
+			        MobTraits =
+			        	{
+			            Toughness = 3,
+			        	},
+					EquipTable = 
+					{						
+						
+						BodyPartHead = TemplateDefines.MaleHeads,
+
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+
+						Chest = 
+						{ 
+							{"clothing_chest_thief",},
+						},
+
+						Legs = 
+						{ 
+							{"clothing_padded_leggings",},
+						},
+
+						Head = 
+						{ 
+							{"clothing_bandana_helm",},
+							{"clothing_pirate_helm",}, 
+						},
+
+						RightHand = 
+						{
+							"tool_mining_pick",
+						}
+						
+					},
+					VillagerNames = {
+						"Bryan",
+						"Robert",
+						"Anthony",
+						"Martin",
+						"Gregory",
+						"Vincent",
+						"Pierre",
+						"Shawn",
+						"Malcolm",
+						"Allan",
+						"Edmund",
+						"Daryl",
+						"Isaac",
+						"Joseph",
+						"Michael",
+						"Jeremy",
+						"Samson",
+						"Gustave",
+						"Fulbert",
+						"Melvin",
+						"Marc",
+						"Garrett",
+						"Luke",
+					},
+					VillagerJobs = {
+						"Miner",
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Group Name="Main" Exclude="False">
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawn_position 193.3 -0.057 91.209 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>outcast_spawn_position 193.3 -0.057 91.209 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnController</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>corruption_spawn_controller 193.289 -0.031 91.199 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>CorruptionExit</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>portal_red_universe_select 193.1 0 93.699 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="DestinationMap">NewCelador</StringVariable>
+				<StringVariable Name="DestinationSubregion">UpperPlains</StringVariable>
+				<StringVariable Name="PortalName">[B768D5]Exit to Upper Plains[-]</StringVariable>
+				<DoubleVariable Name="DestinationFacing">67</DoubleVariable>
+				<LocVariable Name="Destination">-334.87,0,118.36</LocVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>

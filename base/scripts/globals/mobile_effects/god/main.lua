@@ -1,0 +1,1 @@
+require 'globals.mobile_effects.god.godfreeze'

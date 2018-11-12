@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Dr. Paws the Innkeeper</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_bartender">
+			<Initializer>
+				{
+					Stats= {
+						Str = 25,
+						Agi = 25,
+						Int = 25,
+					},
+					Skills= {
+						Skills = { Cooking = 100, },
+					},
+					EquipTable= {
+						Chest= {
+							{"merchant_clothing_chest", },
+						},
+						Legs= {
+							{"clothing_mayor_legs", },
+						},
+						BodyPartHead= {
+							{"head_male03", 809},
+						},
+						BodyPartHair= {
+							{"hair_male_buzzcut",768},
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "item_ale",
+							Price = 0,
+							RelativeLoc = "1.649902, 1.063766, -1.621094",
+							Rotation = "0, 71.87572, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "item_bread",
+							Price = 0,
+							RelativeLoc = "1.674561, 1.060867, -0.8193359",
+							Rotation = "0, 179.5608, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "cooked_stew",
+							Price = 0,
+							RelativeLoc = "1.686523, 1.059872, -0.06420898",
+							Rotation = "0, 179.5608, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_wine",
+							Price = 0,
+							RelativeLoc = "1.691406, 1.06287, 0.697998",
+							Rotation = "0, 71.87574, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bind_portal_stone",
+							Price = 0,
+							RelativeLoc = "1.694092, 1.055767, 1.526123",
+							Rotation = "0, 26.87589, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

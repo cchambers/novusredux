@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>50</ClientId>
+	<Name>[FF9500]Bed Roll[-]</Name>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="AngleOffset">-90</DoubleVariable>	
+		<BoolVariable Name="LowBed">true</BoolVariable>	
+	</ObjectVariableComponent>
+		<ScriptEngineComponent>		
+			<LuaModule Name="bed"/>
+		</ScriptEngineComponent>	
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

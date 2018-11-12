@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Ashunturath[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "The end of the world is at hand! Stay not from the true path believers, for our time is coming! \n\nThe end of the world is upon us! For in three months hence, the old ones will destroy Aria and all will be set upon fire and brimstone! A light in the sky, will come and ravage the world.\n\n All will be remade, and the stars themselves will burn out and fall to the ground! The ground will shake and the sky will shatter, and the World Tree will burn out brightly in the coming apocalypse!\n\nBlessed be Ashunturath, the prophet of all that is to be known, for he communed this divine wisdom after our defeat by the armies of Caliphis, cursed be the god Yaahe, and his two daughters. \n\nYour victory is but temporary, and the Dead Ones shall feast on your souls in the coming fire. Know this, that the makers of the universe shall suffer, and that the Ancient Ones, of a million names will be spoken.\n\nIn preperation for the end of all things, know that Yaahe is a corruption of the word Yesahtu, and that to pronounce the million names of the elder gods, one must speak in the Vile Tongue of the Ancients. \n\nSpeak not with your throat, but speak with thrashing your tongue back and forth, inhaling the aether as you speak. As you pronounce your words of praise, rock your head back and forth to know how quick your neck can split in defiance of the Gods. Raise your hands, and utter your praises, turn your thoughts to the putrid, and the defiled. \n\nThink not of purity, for such is a myth in the End Times, and that all purity is corrupted in time. Know that nothing that is pure should be pure, and your desire should be to defile all in the name of the Elder Gods. \n\nFor the word of Ashunturath shall be spread, and all should know it's purpose, defiler of all things."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

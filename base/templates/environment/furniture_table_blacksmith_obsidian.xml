@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>52</ClientId>
+	<Name>[FF9500]Obsidian Blacksmith Table[-]</Name>
+	<Hue>893</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

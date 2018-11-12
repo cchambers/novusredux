@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>1111</ClientId>
+	<Name>[FF9500]Cerberus Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>	
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">CerberusAttack</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="statue_effect" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

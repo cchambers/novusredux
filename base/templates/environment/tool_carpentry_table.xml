@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[FF9500]Carpentery Table[-]</Name>
+	<ClientId>636</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">WoodsmithSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">woodsmith</StringVariable>
+		<StringVariable Name="ToolSound">Woodsmith</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="crafting_woodsmith"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

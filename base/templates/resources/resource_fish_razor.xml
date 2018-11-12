@@ -1,0 +1,19 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Razor Fish[-]</Name>
+	<ClientId>628</ClientId>
+	<ScaleModifier>0.4</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="FilletType">animalparts_razor_fish_fillet</StringVariable>
+		<StringVariable Name="ResourceType">RazorFish</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="fish">
+			<Initializer>
+				{	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

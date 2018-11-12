@@ -1,0 +1,67 @@
+<ObjectTemplate>
+  <Name>[FF0000]Ornate Map[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="Difficulty">70</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="treasure_map">
+				<Initializer>
+				{
+				RegionalNames = 
+                    {
+                        "Denir",
+                        "Eastern Range Peninsula",
+                        "Lake Denir",
+                        "Mount Aris",
+                        "Dagger Isle",
+                        "Ysel Lake",
+                        "West Peninsula",
+                        "Old Fool's Road",
+                        "CrossRoads",
+                        "Serpent's Pass",
+                        "Howling Cape",
+                        "Misty Basin",
+                        "East Valusia",
+                        "The Brooks",
+                        "West Valusia",
+                        "Yoln's Bluff",
+                        "Steel Coast",
+                        "Hunter's Brae",
+                        "Bel Lake",
+                        "Caester Run",
+                        "Black Forest",
+                        "Radiant Woodlands",
+                        "Treacher Path",
+                        "Spider Nest",
+                        "Spiritwood",
+                        "The Brushwoods",
+                        "Vilewood",
+                        "Nosca Grove",
+                        "Spirit Isle",
+                        "Isle of Spears",
+                        "Treacher Path",
+                        "Yir Copse",
+                        "Spider Nest",
+                        "Ruin of the Artificers",
+                        "Gazer Isle",
+                        "Arid Lake",
+                        "Flat Wilds",
+                        "Gold Coast",
+                        "Jhalir",
+                        "Scorched Print",
+                        "Scaled Path",
+                        "The Dunes",
+                        "Withering Sands",
+                        "Soldier's Rest",
+                    },
+				Rewards = 
+					{
+						"buried_treasure_3",
+					},
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

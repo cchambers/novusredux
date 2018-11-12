@@ -1,0 +1,56 @@
+<ObjectTemplate>
+	<ClientId>1579</ClientId>
+	<Name>Lava Golem</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<SharedStateEntry name="Variation" type="string" value="Lava"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">310</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Golem</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">53</DoubleVariable>
+		<DoubleVariable Name="Attack">27</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton_mage">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						Toughness = 2,
+						Armored = 2,
+						BowResistance = 2
+					},
+				Skills = 
+					{ 
+					Bashing=70,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Fourteen,
+					},	
+					AvailableSpells = {"Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment", "Meteor"},
+					EquipTable = {
+						Backpack = { "backpack" }						
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

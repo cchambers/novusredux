@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<TemplateName></TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<MobileComponent>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="MeatTemplate">player_head</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=30, Agi=30, Int=10, Con=10, Wis=10, Will=10 },
+					Skills = { },
+					EquipTable = {
+								   Chest = { { "clothing_chest_blacksmith" } },
+			                       RightHand = { "tool_mining_pick" },
+			                       Legs = {"clothing_legs_thief"},
+			                       Backpack = { "backpack"}
+			                     },
+			     	SpawnLoot = { true },
+                    LootTables = {
+                    	TemplateDefines.LootTable.NewbiePlayer,
+                    	{
+                    		NumItems = 1,
+                    		LootItems = {
+			        			{ Template = "weapon_kryss", Unique = true },
+			        		},
+                    	}
+                    },
+                    HotbarActions = {
+                    	{ Slot=21, Type="Object", Name="tool_mining_pick"},
+                    	{ Slot=22, Type="Object", Name="weapon_kryss"},
+                    	{ Slot=23, Type="Object", Name="tool_hunting_knife"},
+                    	{ Slot=24, Type="Object", Name="torch"},
+                    	{ Slot=25, Type="Object", Name="item_bread"},
+                    }
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

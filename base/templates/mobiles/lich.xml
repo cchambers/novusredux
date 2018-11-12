@@ -1,0 +1,67 @@
+<ObjectTemplate>
+	<ClientId>1584</ClientId>
+	<Name>Lich</Name>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="GhostMale"/>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<ScaleModifier>0.6</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">420</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">true</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">50</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					BashingVulnerability=1,
+					},
+				Skills = 
+					{  
+					MagicAffinity=100,
+					Evocation=100, 
+					Bashing=70,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.MagePoor,
+						TemplateDefines.LootTable.ScrollsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.Skeleton,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(260,350),
+						},
+					},	
+				ScavengeTables =
+					{
+					},
+				AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

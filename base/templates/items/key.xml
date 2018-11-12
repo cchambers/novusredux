@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[FF0000]Blank Key[-]</Name>
+	<ClientId>117</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="key"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

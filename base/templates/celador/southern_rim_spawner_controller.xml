@@ -1,0 +1,107 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>		
+				<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					--Rebel Camp
+	 					{ Count = 2, TemplateId = "rebel",    Region = "RebelCampOuter2" }, 
+	 					{ Count = 2, TemplateId = "rebel_female",    Region = "RebelCampOuter2" }, 
+
+	 					{ Count = 2, TemplateId = "rebel_female",    Region = "RebelCampInner1" },
+	 					{ Count = 2, TemplateId = "rebel",    Region = "RebelCampInner1" },  
+
+	 					{ Count = 1, TemplateId = "rebel_looter_female",    Region = "RebelCampInner2" },
+	 					{ Count = 1, TemplateId = "rebel_looter",    Region = "RebelCampInner2" }, 
+
+	 					{ Count = 2, TemplateId = "rebel_looter_female",    Region = "RebelCampInner2" },
+	 					{ Count = 2, TemplateId = "rebel_looter",    Region = "RebelCampInner2" }, 
+
+	 					{ Count = 3, TemplateId = "rebel_sharpshooter_female",    Region = "RebelCampInner" },
+	 					{ Count = 3, TemplateId = "rebel_sharpshooter",    Region = "RebelCampInner" }, 
+
+	 					{ Count = 2, TemplateId = "rebel_female",    Region = "RebelCampInner3" },
+	 					{ Count = 2, TemplateId = "rebel",    Region = "RebelCampInner3" }, 
+
+	 					{ Count = 2, TemplateId = "rebel_sharpshooter_female",    Region = "RebelCampInner6" },
+	 					{ Count = 2, TemplateId = "rebel_looter",    Region = "RebelCampInner6" }, 
+
+	 					{ Count = 2, TemplateId = "rebel_looter_female",    Region = "RebelCampInner7" },
+	 					{ Count = 4, TemplateId = "rebel",    Region = "RebelCampInner7" }, 
+
+ 					--Orc Camp
+						{ Count = 3, TemplateId = "goblin_warrior",    Region = "OrcCampInner"},
+						{ Count = 4, TemplateId = "goblin_mage",    Region = "OrcCampOuter"},
+						{ Count = 6, TemplateId = "goblin",    Region = "OrcCampOuter"},
+					
+					--Wolves
+						{ Count = 5, TemplateId = "rabid_wolf",    Region = "WolvesDen"}, 
+						{ Count = 1, TemplateId = "dire_wolf",    Region = "WolvesDenDire", DelayMin=30, Chance=5},
+
+					--WaterfallMine
+						{ Count = 5, TemplateId = "rock_golem",    Region = "WaterfallMine", DelayMin=30, Chance=50}, 
+
+					--PyrosLandingInn
+						{ Count = 3, TemplateId = "pyros_chef",    Region = "PyrosLandingInn", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--PyrosTradeGuild
+						{ Count = 1, TemplateId = "guildleader_trade",    Region = "PyrosLandingTradersGuild"},
+						{ Count = 5, TemplateId = "pyros_trader",    Region = "PyrosLandingTradersGuild", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--PyrosTailor
+						{ Count = 1, TemplateId = "pyros_weaver",    Region = "PyrosLandingTailor", SpawnTime = 4, SpawnDuration = 18},
+
+					--PyrosStable
+						{ Count = 1, TemplateId = "pyros_stable_master",    Region = "PyrosLandingStable"},
+						{ Count = 6, TemplateId = "chicken",    Region = "PyrosLandingStable"},
+
+					--PyrosLandingDocks
+						{ Count = 15, TemplateId = "pyros_villager_docks",    Region = "PyrosLandingVilDocks", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 10, TemplateId = "pyros_villager",    Region = "PyrosLandingVilMain", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 10, TemplateId = "pyros_villager",    Region = "PyrosLandingVilEast", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 1, TemplateId = "pyros_mayor",    Region = "PyrosLandingMayor"}, 
+
+						{ Count = 6, TemplateId = "pyros_fisher",    Region = "PyrosLandingVilDocks", SpawnTime = 4, SpawnDuration = 18},
+
+					--Pyros at night
+						{ Count = 3, TemplateId = "pyros_villager",    Region = "PyrosLandingVilMain", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 3, TemplateId = "pyros_villager",    Region = "PyrosLandingVilEast", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 3, TemplateId = "pyros_fisher",    Region = "PyrosLandingVilDocks", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 7, TemplateId = "pyros_villager_docks",    Region = "PyrosLandingVilDocks", SpawnTime = 23, SpawnDuration = 5},
+
+					--Graveyard
+						{ Count = 8, TemplateId =  "skeleton", Region = "PyrosGraveyard" }, 
+						{ Count = 4, TemplateId =  "zombie", Region = "PyrosGraveyard" }, 
+
+						--TAMING
+						--39.1+
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim30" }, 
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim31" },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim32" },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim33" },
+						--57.1+
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernRim50" }, 
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernRim51" }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernRim52" }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernRim53" }, 
+						--71.1+
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernRim50", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernRim51", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernRim52", DelayMin=4 }, 
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernRim53", DelayMin=4}, 
+
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

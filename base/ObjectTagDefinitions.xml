@@ -1,0 +1,1038 @@
+<!-- Object tags are assigned to client ids and tell the server what the properties the client understands about that object -->
+<ObjectTags>
+	<ObjectTag>
+		<Name>DefaultProperties</Name>
+		<SharedStateEntry name="TooltipString" type="string" value=""/>
+		<SharedStateEntry name="Weight" type="int" value="-1"/>
+        <SharedStateEntry name="DefaultInteraction" type="string" value="Use"/>
+        <SharedStateEntry name="NoInteract" type="bool" value="False"/>
+        <SharedStateEntry name="DenyPickup" type="bool" value="False"/>
+	</ObjectTag>
+    <ObjectTag>
+        <Name>Human</Name>
+        <ClientId>1</ClientId>
+        <ClientId>208</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Male</Name>
+        <ClientId>1</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Female</Name>
+        <ClientId>208</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Undead</Name>
+        <ClientId>268</ClientId>
+        <ClientId>269</ClientId>
+        <ClientId>271</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Horse</Name>
+        <ClientId>59</ClientId>        
+    </ObjectTag>        
+    <ObjectTag>
+        <Name>CanEquipArmor</Name>
+        <ClientId>1</ClientId>
+        <ClientId>208</ClientId>
+        <ClientId>918</ClientId>
+        <ClientId>269</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>CanEquipWeapon</Name>
+        <ClientId>1</ClientId>
+        <ClientId>208</ClientId>
+        <ClientId>267</ClientId> <!-- Demon -->
+        <ClientId>268</ClientId> <!-- Ghoul -->
+        <ClientId>269</ClientId> <!-- Skeleton -->
+        <ClientId>270</ClientId> <!-- Werebat (Vampire) -->
+        <ClientId>271</ClientId> <!-- Ghoul (Decrepit) -->
+        <ClientId>273</ClientId> <!-- Werebat (Engorged) -->
+        <ClientId>322</ClientId> <!-- Greater Demon -->
+        <ClientId>209</ClientId> <!-- Ogre -->
+        <ClientId>921</ClientId> <!-- Void Ogre -->
+        <ClientId>824</ClientId>
+        <ClientId>1137</ClientId>
+        <ClientId>1139</ClientId>
+        <ClientId>1140</ClientId>
+        <ClientId>1141</ClientId>
+    </ObjectTag>
+	<ObjectTag>
+		<Name>Door</Name>
+		<SharedStateEntry name="IsOpen" type="bool" value="False"/>
+        <SharedStateEntry name="PlayClosedIdle" type="bool" value="False"/>
+        <SharedStateEntry name="DefaultInteraction" type="string" value="Open/Close"/>
+		<ClientId>33</ClientId>
+		<ClientId>82</ClientId>
+        <ClientId>213</ClientId>
+        <ClientId>214</ClientId>
+        <ClientId>300</ClientId>
+        <ClientId>301</ClientId>
+        <ClientId>302</ClientId>
+        <ClientId>130</ClientId>
+        <ClientId>336</ClientId>
+        <ClientId>344</ClientId>
+        <ClientId>345</ClientId>
+        <ClientId>381</ClientId>
+        <ClientId>800</ClientId>
+        <ClientId>886</ClientId>
+        <ClientId>1188</ClientId>  
+        <ClientId>1207</ClientId>
+        <ClientId>1747</ClientId>
+        <ClientId>1809</ClientId>        
+	</ObjectTag>
+    <ObjectTag>
+        <Name>Lightable</Name>
+        <SharedStateEntry name="IsLit" type="bool" value="False"/>
+        <ClientId>96</ClientId>
+        <ClientId>181</ClientId>
+        <ClientId>397</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>LockableDoor</Name>
+        <SharedStateEntry name="IsLocked" type="bool" value="False"/>
+        <ClientId>301</ClientId>
+        <ClientId>336</ClientId>
+        <ClientId>344</ClientId>
+        <ClientId>345</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>DestructableObject</Name>
+        <SharedStateEntry name="IsDestroyed" type="bool" value="false"/>
+        <ClientId>305</ClientId>
+        <ClientId>306</ClientId>
+        <ClientId>307</ClientId>
+        <ClientId>617</ClientId>
+        <ClientId>618</ClientId>
+        <ClientId>619</ClientId>
+        <ClientId>620</ClientId>
+        <ClientId>614</ClientId>
+        <ClientId>615</ClientId>
+        <ClientId>616</ClientId>     
+        <ClientId>641</ClientId>   
+        <ClientId>925</ClientId>
+        <ClientId>1021</ClientId>
+    </ObjectTag>
+       <ObjectTag>
+        <Name>ToggleSwitch</Name>
+        <SharedStateEntry name="IsActivated" type="bool" value="false"/>
+        <ClientId>312</ClientId>
+        <ClientId>316</ClientId>       
+        <ClientId>1586</ClientId> 
+    </ObjectTag>
+    <ObjectTag>
+        <Name>TriggerTrap</Name>
+        <SharedStateEntry name="IsTriggered" type="bool" value="false"/>
+        <ClientId>313</ClientId>
+        <ClientId>985</ClientId>
+        <ClientId>986</ClientId>
+        <ClientId>314</ClientId>
+        <ClientId>315</ClientId>
+        <ClientId>821</ClientId>
+        <ClientId>822</ClientId>
+        <ClientId>887</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>AnimatedTrap</Name>
+        <SharedStateEntry name="AnimationParamater" type="double" value="0"/>
+        <ClientId>822</ClientId>
+        <ClientId>347</ClientId>
+    </ObjectTag>
+	<ObjectTag>
+		<Name>Container</Name>
+		<SharedStateEntry name="NumItems" type="int" value="0"/>
+		<SharedStateEntry name="Capacity" type="int" value="0"/>
+        <SharedStateEntry name="MaxWeight" type="int" value="0"/>
+        <ClientId>28</ClientId>
+        <ClientId>29</ClientId>
+		<ClientId>34</ClientId>
+		<ClientId>36</ClientId>  
+        <ClientId>6</ClientId>
+        <ClientId>311</ClientId>
+        <ClientId>416</ClientId>
+        <ClientId>439</ClientId>
+        <ClientId>440</ClientId>
+        <ClientId>457</ClientId>
+        <ClientId>460</ClientId>
+        <ClientId>462</ClientId>
+        <ClientId>468</ClientId>
+        <ClientId>480</ClientId>
+        <ClientId>491</ClientId>
+        <ClientId>554</ClientId>
+        <ClientId>555</ClientId>
+        <ClientId>675</ClientId>
+        <ClientId>678</ClientId>
+        <ClientId>679</ClientId>
+        <ClientId>983</ClientId>
+        <ClientId>1096</ClientId>
+        <ClientId>1874</ClientId>
+        <ClientId>1875</ClientId>
+        <ClientId>1868</ClientId>
+        <ClientId>12</ClientId>
+        <ClientId>387</ClientId>
+        <ClientId>2120</ClientId>
+        <SharedStateEntry name="DefaultInteraction" type="string" value="Open"/>
+	</ObjectTag>
+    <ObjectTag>
+        <Name>Mobile</Name>
+        <ClientId>1</ClientId>
+        <ClientId>11</ClientId>
+        <ClientId>20</ClientId>
+        <ClientId>21</ClientId>
+        <ClientId>22</ClientId>
+        <ClientId>32</ClientId>
+        <ClientId>38</ClientId>
+        <ClientId>39</ClientId>
+        <ClientId>40</ClientId>
+        <ClientId>59</ClientId>
+        <ClientId>133</ClientId>
+        <ClientId>134</ClientId>
+        <ClientId>135</ClientId>
+        <ClientId>136</ClientId>
+        <ClientId>189</ClientId>
+        <ClientId>205</ClientId>
+        <ClientId>208</ClientId>
+        <ClientId>209</ClientId>
+        <ClientId>219</ClientId>
+        <ClientId>223</ClientId>
+        <ClientId>262</ClientId>
+        <ClientId>263</ClientId>
+        <ClientId>264</ClientId>
+        <ClientId>267</ClientId>
+        <ClientId>268</ClientId>
+        <ClientId>269</ClientId>
+        <ClientId>270</ClientId>
+        <ClientId>271</ClientId>
+        <ClientId>272</ClientId>
+        <ClientId>289</ClientId>
+        <ClientId>303</ClientId>
+        <ClientId>304</ClientId>
+        <ClientId>322</ClientId>
+        <ClientId>569</ClientId>
+        <ClientId>626</ClientId>
+        <ClientId>743</ClientId>
+        <ClientId>824</ClientId>
+        <ClientId>866</ClientId>
+        <ClientId>871</ClientId>
+        <ClientId>918</ClientId>
+        <ClientId>921</ClientId>
+        <ClientId>922</ClientId>
+        <ClientId>932</ClientId>
+        <ClientId>1020</ClientId>
+        <ClientId>1137</ClientId>
+        <ClientId>1138</ClientId>
+        <ClientId>1139</ClientId>
+        <ClientId>1140</ClientId>
+        <ClientId>1141</ClientId>
+        <ClientId>1142</ClientId>
+        <ClientId>1143</ClientId>
+        <ClientId>1147</ClientId>
+        <ClientId>1182</ClientId>
+        <ClientId>1213</ClientId>
+        <ClientId>1250</ClientId>
+        <ClientId>1251</ClientId>
+        <ClientId>1273</ClientId>
+        <ClientId>1277</ClientId>
+        <ClientId>1278</ClientId>
+        <ClientId>1279</ClientId>
+        <ClientId>1280</ClientId>
+        <ClientId>1579</ClientId>
+        <ClientId>1580</ClientId>
+        <ClientId>1581</ClientId>
+        <ClientId>1582</ClientId>
+        <ClientId>1583</ClientId>
+        <ClientId>1584</ClientId>
+        <ClientId>1585</ClientId>
+        <ClientId>1876</ClientId>
+
+        <SharedStateEntry name="AudioIdentifierOverride" type="string" value=""/>
+        <SharedStateEntry name="CombatMode" type="bool" value="False" restriction="runtime"/>
+        <SharedStateEntry name="IsDead" type="bool" value="False" restriction="runtime"/>
+        <SharedStateEntry name="Pose" type="string" value="Standing" restriction="runtime"/>
+        <SharedStateEntry name="CombatStance" type="string" value="Passive" restriction="runtime"/>
+        <!-- This allows them to hold objects on thier body -->
+        <SharedStateEntry name="Capacity" type="int" value="2000" restriction="runtime"/>
+        <SharedStateEntry name="DisplayName" type="string" value=""/>
+        <SharedStateEntry name="Title" type="string" value=""/>
+        <SharedStateEntry name="BodyOffset" type="double" value="0.8"/>
+        <SharedStateEntry name="DefaultInteraction" type="string" value="Interact"/>
+        <SharedStateEntry name="IsFlying" type="bool" value="False"/>
+        <SharedStateEntry name="IsSneaking" type="bool" value="False"/>
+        <!-- factions is used to determine friendly or hostile default interactions (combat flag) -->
+        <SharedStateEntry name="Faction" type="string" value="None"/>
+        <SharedStateEntry name="FriendlyFactions" type="string" value=""/>
+        <SharedStateEntry name="IsJumping" type="bool" value="false"/>
+        <SharedStateEntry name="IsBoss" type="bool" value="false"/>
+        <SharedStateEntry name="NoHealthBar" type="bool" value="false"/>
+      </ObjectTag>  
+	<ObjectTag>
+		<Name>Backpack</Name>
+		<SharedStateEntry name="EquipSlot" type="string" value="Backpack" restriction="readonly"/>
+		<SharedStateEntry name="ContainerWindowType" type="string" value="Backpack" restriction="readonly"/>        
+		<ClientId>34</ClientId>
+	</ObjectTag>
+    <ObjectTag>
+        <Name>HorseBackpack</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Backpack" restriction="readonly"/>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Backpack" restriction="readonly"/>        
+        <ClientId>2120</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Familiar</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Familiar" restriction="readonly"/>
+        <ClientId>1097</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Weapon</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="RightHand" restriction="readonly"/>
+        <ClientId>58</ClientId>
+        <ClientId>126</ClientId>
+        <ClientId>128</ClientId>
+        <ClientId>129</ClientId>
+        <ClientId>154</ClientId>
+        <ClientId>184</ClientId>
+        <ClientId>190</ClientId>
+        <ClientId>191</ClientId>
+        <ClientId>192</ClientId>
+        <ClientId>193</ClientId>
+        <ClientId>194</ClientId>
+        <ClientId>220</ClientId>
+        <ClientId>222</ClientId>
+        <ClientId>285</ClientId>
+        <ClientId>116</ClientId>
+        <ClientId>855</ClientId>
+        <ClientId>858</ClientId>
+        <ClientId>859</ClientId>
+        <ClientId>860</ClientId>
+        <ClientId>861</ClientId>
+        <ClientId>862</ClientId>
+        <ClientId>863</ClientId>
+        <ClientId>864</ClientId>
+        <ClientId>914</ClientId>
+        <ClientId>915</ClientId>
+        <ClientId>916</ClientId>
+        <ClientId>917</ClientId>
+        <ClientId>920</ClientId>
+        <ClientId>923</ClientId>
+        <ClientId>930</ClientId>
+        <ClientId>931</ClientId>
+        <ClientId>634</ClientId>
+        <ClientId>635</ClientId>        
+        <ClientId>1118</ClientId>        
+        <ClientId>1119</ClientId>        
+        <ClientId>1120</ClientId>        
+        <ClientId>1121</ClientId>        
+        <ClientId>1122</ClientId>        
+        <ClientId>1123</ClientId>        
+        <ClientId>1124</ClientId>        
+        <ClientId>1125</ClientId>        
+        <ClientId>1126</ClientId>        
+        <ClientId>1127</ClientId>        
+        <ClientId>1128</ClientId>        
+        <ClientId>1129</ClientId>       
+        <ClientId>1130</ClientId>       
+        <ClientId>1131</ClientId>       
+        <ClientId>1132</ClientId>       
+        <ClientId>1133</ClientId>       
+        <ClientId>1134</ClientId>       
+        <ClientId>1135</ClientId>
+        <ClientId>1145</ClientId>
+        <ClientId>1248</ClientId> 
+        <ClientId>1334</ClientId> 
+        <ClientId>1335</ClientId>   
+        <ClientId>1337</ClientId>   
+        <ClientId>1338</ClientId>   
+        <ClientId>1339</ClientId>   
+        <ClientId>1340</ClientId>   
+        <ClientId>1341</ClientId>
+        <ClientId>1342</ClientId>
+        <ClientId>1343</ClientId>
+        <ClientId>1344</ClientId>
+        <ClientId>1345</ClientId>     
+        <ClientId>1442</ClientId> 
+        <ClientId>1443</ClientId>
+        <ClientId>1444</ClientId>
+        <ClientId>1445</ClientId>
+        <ClientId>1446</ClientId>
+        <ClientId>1447</ClientId>
+        <ClientId>1448</ClientId>
+        <ClientId>1449</ClientId>
+        <ClientId>1450</ClientId>
+        <ClientId>1451</ClientId>
+        <ClientId>1452</ClientId>
+        <ClientId>1453</ClientId>
+        <ClientId>1454</ClientId>
+        <ClientId>1455</ClientId>
+        <ClientId>1456</ClientId>
+        <ClientId>1457</ClientId>
+        <ClientId>1458</ClientId>
+        <ClientId>1459</ClientId>
+        <ClientId>1460</ClientId>
+        <ClientId>1461</ClientId>
+        <ClientId>1462</ClientId>
+        <ClientId>1463</ClientId>
+        <ClientId>1464</ClientId>
+        <ClientId>1465</ClientId>
+        <ClientId>1466</ClientId>
+        <ClientId>1467</ClientId>
+        <ClientId>1468</ClientId>
+        <ClientId>1469</ClientId>
+        <ClientId>1470</ClientId>
+        <ClientId>1471</ClientId>
+        <ClientId>1472</ClientId>
+        <ClientId>1490</ClientId>
+        <ClientId>1491</ClientId>
+        <ClientId>1492</ClientId>
+        <ClientId>1493</ClientId>
+        <ClientId>1494</ClientId>
+        <ClientId>1495</ClientId>
+        <ClientId>1496</ClientId>
+        <ClientId>1497</ClientId>
+        <ClientId>1498</ClientId>
+        <ClientId>1499</ClientId>
+        <ClientId>1500</ClientId>
+        <ClientId>1501</ClientId>
+        <ClientId>1502</ClientId>
+        <ClientId>1503</ClientId>
+        <ClientId>1504</ClientId>
+        <ClientId>1505</ClientId>
+        <ClientId>1506</ClientId>
+        <ClientId>1507</ClientId>
+        <ClientId>1508</ClientId>
+        <ClientId>1509</ClientId>
+        <ClientId>1510</ClientId>
+        <ClientId>1511</ClientId>
+        <ClientId>1512</ClientId>
+        <ClientId>1513</ClientId>
+        <ClientId>1514</ClientId>
+        <ClientId>1515</ClientId>
+        <ClientId>1516</ClientId>
+        <ClientId>1517</ClientId>
+        <ClientId>1518</ClientId>
+
+
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Shield</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="LeftHand" restriction="readonly"/>
+        <ClientId>37</ClientId>
+        <ClientId>57</ClientId>
+        <ClientId>127</ClientId>
+        <ClientId>155</ClientId>
+        <ClientId>156</ClientId>
+        <ClientId>157</ClientId>
+        <ClientId>856</ClientId>
+        <ClientId>857</ClientId>
+        <ClientId>1208</ClientId>    
+        <ClientId>1336</ClientId>
+        <ClientId>1519</ClientId>
+        <ClientId>1520</ClientId>  
+        <ClientId>1521</ClientId>
+        <ClientId>1522</ClientId>
+        <ClientId>1523</ClientId>
+        <ClientId>1524</ClientId>
+        <ClientId>1525</ClientId>
+        <ClientId>1526</ClientId>
+        <ClientId>1527</ClientId>
+        <ClientId>1528</ClientId>
+        <ClientId>1529</ClientId>   
+        <ClientId>1530</ClientId> 
+        <ClientId>1531</ClientId> 
+
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Head</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Head" restriction="readonly"/>
+        <ClientId>55</ClientId>
+        <ClientId>102</ClientId>
+        <ClientId>105</ClientId>
+        <ClientId>124</ClientId>
+        <ClientId>134</ClientId>
+        <ClientId>137</ClientId>
+        <ClientId>140</ClientId>
+        <ClientId>143</ClientId>
+        <ClientId>146</ClientId>
+        <ClientId>149</ClientId>
+        <ClientId>527</ClientId>
+        <ClientId>528</ClientId>
+        <ClientId>529</ClientId>
+        <ClientId>531</ClientId>
+        <ClientId>532</ClientId>
+        <ClientId>533</ClientId>
+        <ClientId>608</ClientId>
+        <ClientId>609</ClientId>
+        <ClientId>610</ClientId>
+        <ClientId>611</ClientId>
+        <ClientId>612</ClientId>
+        <ClientId>613</ClientId>
+        <ClientId>813</ClientId>
+        <ClientId>814</ClientId>
+        <ClientId>815</ClientId>
+        <ClientId>816</ClientId>
+        <ClientId>817</ClientId>
+        <ClientId>818</ClientId>
+        <ClientId>839</ClientId>
+        <ClientId>842</ClientId>
+        <ClientId>845</ClientId>
+        <ClientId>850</ClientId>
+        <ClientId>854</ClientId>
+        <ClientId>868</ClientId>
+        <ClientId>869</ClientId>
+        <ClientId>1026</ClientId>
+        <ClientId>1027</ClientId>
+        <ClientId>1028</ClientId>
+        <ClientId>1474</ClientId>
+        <ClientId>1477</ClientId>
+        <ClientId>1480</ClientId>
+        <ClientId>1482</ClientId>
+        <ClientId>1485</ClientId>        
+        <ClientId>1488</ClientId>
+        <ClientId>1745</ClientId>
+        <ClientId>1844</ClientId>
+        <ClientId>1845</ClientId>
+        <ClientId>1846</ClientId>
+        <ClientId>1872</ClientId>
+        <ClientId>1873</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Chest</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Chest" restriction="readonly"/>
+        <ClientId>54</ClientId>
+        <ClientId>101</ClientId>
+        <ClientId>104</ClientId>
+        <ClientId>119</ClientId>
+        <ClientId>121</ClientId>
+        <ClientId>123</ClientId>
+        <ClientId>133</ClientId>
+        <ClientId>136</ClientId>
+        <ClientId>139</ClientId>
+        <ClientId>142</ClientId>
+        <ClientId>145</ClientId>
+        <ClientId>148</ClientId>  
+        <ClientId>201</ClientId>
+        <ClientId>202</ClientId>
+        <ClientId>203</ClientId>
+        <ClientId>217</ClientId>
+        <ClientId>273</ClientId>
+        <ClientId>276</ClientId>
+        <ClientId>279</ClientId>
+        <ClientId>283</ClientId>
+        <ClientId>534</ClientId>
+        <ClientId>535</ClientId>
+        <ClientId>536</ClientId>
+        <ClientId>540</ClientId>
+        <ClientId>541</ClientId>
+        <ClientId>543</ClientId>
+        <ClientId>552</ClientId>
+        <ClientId>281</ClientId>
+        <ClientId>801</ClientId>
+        <ClientId>803</ClientId>
+        <ClientId>805</ClientId>
+        <ClientId>807</ClientId>
+        <ClientId>809</ClientId>
+        <ClientId>811</ClientId>
+        <ClientId>838</ClientId>
+        <ClientId>841</ClientId>
+        <ClientId>844</ClientId>
+        <ClientId>847</ClientId>
+        <ClientId>849</ClientId>
+        <ClientId>852</ClientId>
+        <ClientId>867</ClientId>
+        <ClientId>870</ClientId>
+        <ClientId>882</ClientId>
+        <ClientId>898</ClientId>
+        <ClientId>919</ClientId>
+        <ClientId>1025</ClientId>
+        <ClientId>1030</ClientId>
+        <ClientId>1031</ClientId>
+        <ClientId>1473</ClientId>
+        <ClientId>1476</ClientId>
+        <ClientId>1479</ClientId>
+        <ClientId>1481</ClientId>
+        <ClientId>1484</ClientId>
+        <ClientId>1487</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Legs</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Legs" restriction="readonly"/>
+        <ClientId>56</ClientId>
+        <ClientId>103</ClientId>
+        <ClientId>106</ClientId>
+        <ClientId>120</ClientId>
+        <ClientId>122</ClientId>
+        <ClientId>125</ClientId>
+        <ClientId>135</ClientId>
+        <ClientId>138</ClientId>
+        <ClientId>141</ClientId>
+        <ClientId>144</ClientId>
+        <ClientId>147</ClientId>
+        <ClientId>150</ClientId>
+        <ClientId>274</ClientId>
+        <ClientId>275</ClientId>
+        <ClientId>280</ClientId>
+        <ClientId>284</ClientId>
+        <ClientId>537</ClientId>
+        <ClientId>538</ClientId>
+        <ClientId>539</ClientId>
+        <ClientId>542</ClientId>
+        <ClientId>553</ClientId>
+        <ClientId>282</ClientId>
+        <ClientId>802</ClientId>
+        <ClientId>804</ClientId>
+        <ClientId>806</ClientId>
+        <ClientId>808</ClientId>
+        <ClientId>810</ClientId>
+        <ClientId>812</ClientId>
+        <ClientId>840</ClientId>
+        <ClientId>843</ClientId>
+        <ClientId>846</ClientId>
+        <ClientId>848</ClientId>
+        <ClientId>851</ClientId>
+        <ClientId>853</ClientId>
+        <ClientId>1029</ClientId>
+        <ClientId>1032</ClientId>
+        <ClientId>1033</ClientId>
+        <ClientId>1475</ClientId>
+        <ClientId>1478</ClientId>
+        <ClientId>1483</ClientId>
+        <ClientId>1486</ClientId>
+        <ClientId>1489</ClientId>
+        <ClientId>1503</ClientId>
+        <ClientId>1743</ClientId>
+        <ClientId>1744</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Cloak</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Cloak" restriction="readonly"/>
+        <ClientId>1869</ClientId>
+        <ClientId>1870</ClientId>
+        <ClientId>1871</ClientId>
+        <ClientId>2097</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>BodyPartHead</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="BodyPartHead" restriction="readonly"/>
+        <ClientId>159</ClientId>
+        <ClientId>161</ClientId>   
+        <ClientId>221</ClientId> 
+        <ClientId>545</ClientId>  
+        <ClientId>295</ClientId>
+        <ClientId>296</ClientId>
+        <ClientId>297</ClientId>
+        <ClientId>298</ClientId>        
+        <ClientId>546</ClientId>
+        <ClientId>547</ClientId>
+        <ClientId>548</ClientId>
+        <ClientId>549</ClientId>
+        <ClientId>550</ClientId>
+        <ClientId>551</ClientId>
+        <ClientId>987</ClientId>
+        <ClientId>1019</ClientId>
+        <ClientId>819</ClientId>
+        <ClientId>820</ClientId>
+        <ClientId>933</ClientId>        
+    </ObjectTag>
+    <ObjectTag>
+        <Name>BodyPartHair</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="BodyPartHair" restriction="readonly"/>
+        <ClientId>158</ClientId>
+        <ClientId>160</ClientId> 
+        <ClientId>218</ClientId> 
+        <ClientId>530</ClientId> 
+        <ClientId>544</ClientId> 
+        <ClientId>299</ClientId>
+        <ClientId>556</ClientId>
+        <ClientId>557</ClientId>
+        <ClientId>558</ClientId>
+        <ClientId>559</ClientId>
+        <ClientId>560</ClientId>
+        <ClientId>561</ClientId>
+        <ClientId>587</ClientId>
+        <ClientId>588</ClientId>
+        <ClientId>589</ClientId>
+        <ClientId>590</ClientId>
+        <ClientId>591</ClientId>
+        <ClientId>592</ClientId>
+        <ClientId>593</ClientId>
+        <ClientId>594</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>BodyPartFacialHair</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="BodyPartFacialHair" restriction="readonly"/>
+        <ClientId>1878</ClientId>
+        <ClientId>1879</ClientId> 
+        <ClientId>1880</ClientId> 
+        <ClientId>1881</ClientId> 
+        <ClientId>1882</ClientId> 
+        <ClientId>1883</ClientId>
+        <ClientId>1884</ClientId>
+        <ClientId>1885</ClientId>
+        <ClientId>1886</ClientId>
+        <ClientId>1887</ClientId>
+        <ClientId>1888</ClientId>
+        <ClientId>1889</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Mount</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Mount" restriction="readonly"/>
+        <ClientId>59</ClientId>
+        <!--<ClientId>133</ClientId>
+        <ClientId>1138</ClientId>
+        <ClientId>1143</ClientId>-->
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Trade</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Trade" restriction="readonly"/>
+        <ClientId>1868</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Announcment Board</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <ClientId>1096</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+    	<Name>Treasure Chest</Name>
+    	<SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
+    	<ClientId>36</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Coffin</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Coffin" restriction="readonly"/>
+        <ClientId>1894</ClientId>
+        <ClientId>1</ClientId>
+        <ClientId>208</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Bone Chest</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="BoneChest" restriction="readonly"/>
+        <ClientId>311</ClientId>        
+    </ObjectTag>    
+    <ObjectTag>
+        <Name>Crate</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Crate" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="TempPack" restriction="readonly"/>
+        <ClientId>29</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Lockbox</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Lockbox" restriction="readonly"/>
+        <ClientId>554</ClientId>
+    </ObjectTag>
+     <ObjectTag>
+        <Name>Pouch</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Pouch" restriction="readonly"/>
+        <ClientId>555</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>TradePouch</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Trade" restriction="readonly"/>
+        <ClientId>1868</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Barrel</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Wine" restriction="readonly"/>
+        <VisualState id="1" name="Depleted" collisionEnabled="true"/>
+        <ClientId>12</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Ceramic Pot</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Pot1" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>224</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Small Ceramic Pot</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Pot2" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>225</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Tall Ceramic Pot</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Pot3" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>226</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Human Skull</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="HumanSkull" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>317</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Bones</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Bones" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>24</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Sacred Cactus</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="SacredCactus" restriction="readonly"/>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>328</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Dragons Den Stage 1</Name>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>1274</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Dragons Den Stage 2</Name>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>1275</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Dragons Den Stage 3</Name>
+        <VisualState id="1" name="Hidden" collisionEnabled="true"/>
+        <ClientId>1276</ClientId>
+    </ObjectTag>
+        <ObjectTag>
+        <Name>Catacombs Portal Animation</Name>
+        <ClientId>873</ClientId>
+    </ObjectTag>
+        <ObjectTag>
+        <Name>Catacombs Portal Bone Pile</Name>
+        <ClientId>874</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Large Tree</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Tree" restriction="readonly"/>
+        <VisualState id="1" name="Stump" collisionEnabled="true"/>
+        <VisualState id="2" name="Hidden" collisionEnabled="false"/>
+        <VisualState id="3" name="HighQuality" collisionEnabled="true"/>
+        <ClientId>84</ClientId>
+        <ClientId>85</ClientId>
+        <ClientId>86</ClientId>
+        <ClientId>87</ClientId>
+        <ClientId>88</ClientId>
+        <ClientId>89</ClientId>
+        <ClientId>90</ClientId>
+        <ClientId>91</ClientId>
+        <ClientId>93</ClientId>
+        <ClientId>408</ClientId>
+        <!-- Fall trees -->
+        <ClientId>1034</ClientId>
+        <ClientId>1035</ClientId>
+        <ClientId>1036</ClientId>
+        <ClientId>1037</ClientId>
+        <ClientId>1038</ClientId>
+        <ClientId>1039</ClientId>
+        <ClientId>1040</ClientId>
+        <ClientId>1041</ClientId>
+        <ClientId>1180</ClientId>
+        <ClientId>1212</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Black Forest Tree</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="BlackForestTree" restriction="readonly"/>
+        <VisualState id="1" name="Stump" collisionEnabled="true"/>
+        <VisualState id="2" name="Hidden" collisionEnabled="false"/>
+        <VisualState id="3" name="HighQuality" collisionEnabled="true"/>
+        <ClientId>396</ClientId>
+        <ClientId>398</ClientId>
+        <ClientId>411</ClientId>
+        <ClientId>404</ClientId>
+        <ClientId>405</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>SkeletonPile</Name>
+        <VisualState id="1" name="Healthy" collisionEnabled="true"/>
+        <VisualState id="2" name="Damaged" collisionEnabled="true"/>
+        <VisualState id="3" name="Destroyed" collisionEnabled="true"/>
+        <ClientId>641</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Stone</Name>
+        <SharedStateEntry name="ResourceSourceId" type="string" value="Rock" restriction="readonly"/>
+        <VisualState id="1" name="Depleted" collisionEnabled="true"/>
+        <VisualState id="2" name="IronVein" collisionEnabled="true"/>
+        <VisualState id="3" name="BronzeVein" collisionEnabled="true"/>
+        <VisualState id="4" name="CopperVein" collisionEnabled="true"/>
+        <VisualState id="5" name="SteelVein" collisionEnabled="true"/>
+        <VisualState id="6" name="ObsidianVein" collisionEnabled="true"/>
+        <ClientId>23</ClientId>
+        <ClientId>1161</ClientId>
+        <ClientId>1162</ClientId>
+        <ClientId>1163</ClientId>
+        <ClientId>1164</ClientId>
+        <ClientId>1165</ClientId>
+        <ClientId>1166</ClientId>
+        <ClientId>1167</ClientId>
+        <ClientId>1168</ClientId>
+        <ClientId>1169</ClientId>
+        <ClientId>1170</ClientId>
+        <ClientId>1171</ClientId>
+        <ClientId>1172</ClientId>
+        <ClientId>1173</ClientId>
+        <ClientId>1174</ClientId>
+        <ClientId>1175</ClientId>
+        <ClientId>1176</ClientId>
+        <ClientId>1177</ClientId>
+        <ClientId>1178</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>LargeObject</Name>
+        <SharedStateEntry name="ObjectOffset" type="double" value="0.8"/>
+        <ClientId>308</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>HarvestForageObject</Name>
+        <SharedStateEntry name="ObjectOffset" type="double" value="0.2"/>
+        <ClientId>584</ClientId>
+        <ClientId>44</ClientId>
+        <ClientId>27</ClientId>
+        <ClientId>43</ClientId>
+        <ClientId>42</ClientId>
+        <ClientId>605</ClientId>
+        <ClientId>586</ClientId>
+        <ClientId>317</ClientId>
+        <ClientId>318</ClientId>
+        <ClientId>292</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>CatacombsSection</Name>
+        <VisualState id="1" name="Hidden" collisionEnabled="false"/>
+        <ClientId>748</ClientId>
+        <ClientId>749</ClientId>
+        <ClientId>750</ClientId>
+        <ClientId>751</ClientId>
+        <ClientId>752</ClientId>
+        <ClientId>753</ClientId>
+        <ClientId>754</ClientId>
+        <ClientId>755</ClientId>
+        <ClientId>756</ClientId>
+        <ClientId>757</ClientId>
+        <ClientId>758</ClientId>
+        <ClientId>759</ClientId>
+        <ClientId>760</ClientId>
+        <ClientId>761</ClientId>
+        <ClientId>762</ClientId>
+        <ClientId>763</ClientId>
+        <ClientId>764</ClientId>
+        <ClientId>765</ClientId>
+        <ClientId>766</ClientId>
+        <ClientId>767</ClientId>
+        <ClientId>768</ClientId>
+        <ClientId>769</ClientId>
+        <ClientId>770</ClientId>
+        <ClientId>771</ClientId>
+        <ClientId>772</ClientId>
+        <ClientId>773</ClientId>
+        <ClientId>774</ClientId>
+        <ClientId>775</ClientId>
+        <ClientId>776</ClientId>
+        <ClientId>777</ClientId>
+        <ClientId>778</ClientId>
+        <ClientId>779</ClientId>
+        <ClientId>780</ClientId>
+        <ClientId>781</ClientId>
+        <ClientId>782</ClientId>
+        <ClientId>783</ClientId>
+        <ClientId>784</ClientId>
+        <ClientId>785</ClientId>
+        <ClientId>786</ClientId>
+        <ClientId>787</ClientId>
+        <ClientId>788</ClientId>
+        <ClientId>789</ClientId>
+        <ClientId>790</ClientId>
+        <ClientId>791</ClientId>
+        <ClientId>695</ClientId>
+        <ClientId>696</ClientId>
+        <ClientId>697</ClientId>
+        <ClientId>698</ClientId>
+        <ClientId>699</ClientId>
+        <ClientId>700</ClientId>
+        <ClientId>701</ClientId>
+        <ClientId>702</ClientId>
+        <ClientId>703</ClientId>
+        <ClientId>704</ClientId>
+        <ClientId>705</ClientId>
+        <ClientId>706</ClientId>
+        <ClientId>707</ClientId>
+        <ClientId>708</ClientId>
+        <ClientId>709</ClientId>
+        <ClientId>710</ClientId>
+        <ClientId>711</ClientId>
+        <ClientId>712</ClientId>
+        <ClientId>713</ClientId>
+        <ClientId>714</ClientId>
+        <ClientId>715</ClientId>
+        <ClientId>716</ClientId>
+        <ClientId>717</ClientId>
+        <ClientId>718</ClientId>
+        <ClientId>719</ClientId>
+        <ClientId>720</ClientId>
+        <ClientId>721</ClientId>
+        <ClientId>722</ClientId>
+        <ClientId>723</ClientId>
+        <ClientId>724</ClientId>
+        <ClientId>725</ClientId>
+        <ClientId>726</ClientId>
+        <ClientId>727</ClientId>
+        <ClientId>728</ClientId>
+        <ClientId>729</ClientId>
+        <ClientId>730</ClientId>
+        <ClientId>731</ClientId>
+        <ClientId>732</ClientId>
+        <ClientId>733</ClientId>
+        <ClientId>734</ClientId>
+        <ClientId>735</ClientId>
+        <ClientId>736</ClientId>
+        <ClientId>737</ClientId>
+        <ClientId>738</ClientId>
+        <ClientId>739</ClientId>
+        <ClientId>740</ClientId>
+        <ClientId>741</ClientId>
+        <ClientId>742</ClientId>
+        <ClientId>745</ClientId>
+        <ClientId>746</ClientId>
+        <ClientId>825</ClientId>
+        <ClientId>829</ClientId>
+        <ClientId>830</ClientId>
+        <ClientId>831</ClientId>
+        <ClientId>832</ClientId>
+        <ClientId>834</ClientId>
+        <ClientId>835</ClientId>
+        <ClientId>836</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>PentagramAnimation</Name>
+        <VisualState id="1" name="Hidden"/>
+        <ClientId>873</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>SacrificialBonePile</Name>
+        <VisualState id="1" name="Medium"/>
+        <VisualState id="2" name="Large"/>
+        <VisualState id="3" name="Hidden"/>
+        <ClientId>874</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Jukebox</Name>
+        <VisualState id="1" name="MusicOff"/>
+        <VisualState id="2" name="MusicOn"/>
+        <ClientId>1068</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>HasVariation</Name>
+        <SharedStateEntry name="Variation" type="string" value=""/>
+        <ClientId>22</ClientId>
+        <ClientId>38</ClientId>
+        <ClientId>59</ClientId>
+        <ClientId>135</ClientId>
+        <ClientId>919</ClientId>
+        <ClientId>1141</ClientId>
+        <ClientId>1147</ClientId>
+        <ClientId>1137</ClientId>
+        <ClientId>1142</ClientId>
+        <ClientId>1250</ClientId>
+        <ClientId>1251</ClientId>
+        <ClientId>1579</ClientId>
+        <ClientId>269</ClientId>
+        <ClientId>1876</ClientId>
+        <ClientId>1877</ClientId>        
+
+        <!-- DAB TEST: Test armor variation for Jim -->
+        <ClientId>54</ClientId>
+    </ObjectTag>
+</ObjectTags>

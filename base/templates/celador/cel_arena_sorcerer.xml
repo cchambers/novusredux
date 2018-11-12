@@ -1,0 +1,49 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Legas the Sorcerer</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>	
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+	     <StringVariable Name= "QuestName">FoundersQuest</StringVariable>
+	     <StringVariable Name= "QuestTask">ReturnToRakh</StringVariable>
+	     <StringVariable Name= "QuestRequiredTask">KillLegas</StringVariable>
+    	<BoolVariable Name="noloot">True</BoolVariable>
+    	<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_arena_sorcerer">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+					Bashing=50, 
+					Evocation=100, 
+					MagicAffinity=100, 
+					},	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					EquipTable = 
+					{
+						RightHand = { "weapon_staff" },
+						LeftHand = { "" },
+						BodyPartHead = { {"head_male04",809}, },
+						BodyPartHair = { {"hair_male_nobleman",4}, },
+						BodyPartFacialHair = { {"facial_hair_beard_mustache_long",4}, },
+						Chest = { {"clothing_ornate_robe",486}, },
+						Legs = { "" },
+						Backpack = { "backpack" }			
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

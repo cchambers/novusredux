@@ -1,0 +1,1 @@
+CeladorLocations = CeladorData.CeladorLocations

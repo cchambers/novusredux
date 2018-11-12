@@ -1,0 +1,77 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Treasure Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="TrapChance">5</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="trapped_object"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(700,1000),
+				    	},
+						--spells
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 25, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 25, Template = "lscroll_fireball", Unique = true },
+								{ Chance = 25, Template = "lscroll_heal", Unique = true },
+								{ Chance = 25, Template = "lscroll_electricbolt", Unique = true },
+								{ Chance = 25, Template = "lscroll_icelance", Unique = true },
+
+								{ Chance = 12, Template = "lscroll_resurrect", Unique = true },
+								{ Chance = 12, Template = "lscroll_teleport", Unique = true },
+								{ Chance = 12, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 12, Template = "lscroll_bombardment", Unique = true },
+								{ Chance = 12, Template = "lscroll_portal", Unique = true },
+								{ Chance = 5, Template = "lscroll_walloffire", Unique = true },
+
+							}
+						},
+						--ingredients
+						{
+							NumItems = math.random(1,2),
+							LootItems = 
+							{									
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+								{ Chance = 10, Template = "magnifying_glass", Unique = true },
+								{ Chance = 5, Template = "tool_shovel", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "animalparts_meat", Unique = true },
+								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
+								{ Chance = 5, Template = "resource_clothscraps", Unique = true },
+								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },
+								{ Chance = 5, Template = "ingredient_mushroom", Unique = true },
+								{ Chance = 5, Template = "ingredient_ginsengroot", Unique = true },
+								{ Chance = 5, Template = "resource_iron", Unique = true },
+								{ Chance = 5, Template = "resource_iron_ore", Unique = true },
+								{ Chance = 5, Template = "metal_scraps", Unique = true },
+								{ Chance = 20, Template = "cooked_stew", Unique = true },
+								{ Chance = 10, Template = "magnifying_glass", Unique = true },
+								{ Chance = 1, Template = "sapphire_gem" },
+								{ Chance = 1, Template = "ruby_gem" },
+								{ Chance = 1, Template = "emerald_gem" },
+								{ Chance = 1, Template = "topaz_gem" },
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

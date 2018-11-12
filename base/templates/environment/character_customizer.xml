@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<Name>Transmorgifier</Name>
+	<ClientId>176</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="limbo_transmorgifier"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>564</ClientId>
+	<Name>[FF9500]Blue Book[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Rewriteable">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="book"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

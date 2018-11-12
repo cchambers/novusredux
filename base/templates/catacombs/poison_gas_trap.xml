@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="TrapKey">PoisonGas</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="poison_gas_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

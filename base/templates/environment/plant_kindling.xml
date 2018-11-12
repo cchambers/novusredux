@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Kindling</Name>
+	<ClientId>2158</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Kindling</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

@@ -1,0 +1,10 @@
+<!-- NOTE: This is the campfires used as decorations in the world not the one made by players -->
+<ObjectTemplate>
+  <Name>[FF0000]Campfire[-]</Name>
+	<ClientId>96</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="IsLit" type="bool" value="True"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="HeatSource">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Assassin's Tunic[-]</Name>
+	<ClientId>1487</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="8"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>
+   		<StringVariable Name="ArmorType">Assassin</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

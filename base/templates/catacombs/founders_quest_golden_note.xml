@@ -1,0 +1,16 @@
+<ObjectTemplate>
+  <Name>[00FF00]Golden Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<Color>0xFFD7D700</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Let it be known to all those who seek out true knowledge. For there will be a man in the outlands, who sees the Deciever for whom he is. His name shalt be Beauregard, and though he may perish, I Ardeaus of the Wayun, shall give my blessings onto him. For he fights in the Way for the Way of all in the Land of Celador."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

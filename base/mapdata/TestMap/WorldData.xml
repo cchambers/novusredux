@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<MapDefinition ExtentsX="2048" ExtentsZ="2048" />
+	<RegionDefinition>
+		<RegionName>Housing</RegionName>
+		<RegionBounds>
+			<Rect>[(-120,0.05,-120)(130,0.05,-120)(130,0.05,130)(-120,0.05,130)(-120,-0.05,-120)(130,-0.05,-120)(130,-0.05,130)(-120,-0.05,130)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(250,0.1,250)</Size>
+			<Position>(5,0,5)</Position>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</RegionBounds>
+	</RegionDefinition>
+	<RegionDefinition>
+		<RegionName>Water</RegionName>
+		<RegionBounds>
+			<Rect>[(-120,0.05,-120)(130,0.05,-120)(130,0.05,130)(-120,0.05,130)(-120,-0.05,-120)(130,-0.05,-120)(130,-0.05,130)(-120,-0.05,130)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(250,0.1,250)</Size>
+			<Position>(5,0,5)</Position>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</RegionBounds>
+	</RegionDefinition>
+</WorldData>

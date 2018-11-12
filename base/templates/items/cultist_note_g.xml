@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "A call to arms by the High Priest: In the next night, we shall send forth our warriors, and call to the bretheren across the land, and all will partake in a raid on the Eldeir Village. Those who wish to seek glory in servitude to the Elder Gods and their Incarnation on Celador, the Star Dweller shalt join and commit this sacred raid on the heretics. May fate be upon you."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

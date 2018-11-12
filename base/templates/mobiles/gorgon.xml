@@ -1,0 +1,72 @@
+<ObjectTemplate>
+	<ClientId>1277</ClientId>
+	<Name>Gorgon</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">980</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
+		<StringVariable Name= "MobileKind">Reptile</StringVariable>
+		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_dragon">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Might=3,
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.ArcherRich,			
+						TemplateDefines.LootTable.MapsRich,	
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.PotionsRich,			
+						{
+							NumCoins = math.random(400,600),
+						},
+					},	
+				ScavengeTables =
+					{
+					},
+					WeaponAbilities = { primary="Poison" },			
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 1,	
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

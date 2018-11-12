@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[FF0000]Cultist Map[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="treasure_map">
+				<Initializer>
+				{
+				MapRegions = {
+					NewCelador = { "Plains", "Highlands", "BlackForest", "LowerRuins","CultistRuins","TopRuins","Graveyard" }
+				},
+				Rewards = 
+					{
+					"cultist_relic",
+					},
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

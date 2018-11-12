@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Group Name="Main" Exclude="False">
+		<DynamicObject>
+			<Name>BookShelfObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>furniture_bookshelf_wooden -12.649 -0.097 10.288 0 40.215 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>spawn_position 0.298 -0.032 -19.409 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Transmorgifier</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>character_customizer -12.911 0.09 2.778 0 307.273 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>BookShelfObject</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>furniture_bookshelf_wooden -10.63 -0.097 12.677 0 40.215 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>ChestObject</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>chest_starting_essence -5.886 -0.037 -18.51 0 205.117 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>CraftTableObject</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>workbench_alchemy -10.958 -0.05 10.781 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>PortalLimboObject</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>teleporter_limbo 0 -0.006 0 0 212.998 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Candelabra</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>furniture_candelabra -8.569 -0.039 11.8 0 83.83 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Candelabra</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>furniture_candelabra -11.72 -0.039 8.489 0 2.868 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>MapController</Name>
+			<Id>10</Id>
+			<ObjectCreationParams>limbo_controller 0.5 0 0.5 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Shrine</Name>
+			<Id>11</Id>
+			<ObjectCreationParams>shrine 2.049 -0.023 16.888 0 2.318 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>

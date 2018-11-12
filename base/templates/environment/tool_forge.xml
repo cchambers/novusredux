@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[FF9500]Forge[-]</Name>
+	<ClientId>47</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">MetalsmithSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">Blacksmith</StringVariable>
+		<StringVariable Name="GuideEventId">NearForge</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+	</ScriptEngineComponent>
+</ObjectTemplate>

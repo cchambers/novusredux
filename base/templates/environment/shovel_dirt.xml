@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>27</ClientId>
+		<ScriptEngineComponent>		
+			<LuaModule Name="decay"/>
+		</ScriptEngineComponent>	
+</ObjectTemplate>

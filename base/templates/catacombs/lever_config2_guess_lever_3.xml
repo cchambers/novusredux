@@ -1,0 +1,22 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_lever">
+			<Initializer>
+			{
+				Spawns = 
+				{
+					{"bloodsucker_swarm",Loc(240.08, 1.553528, -43.58),45},
+					{"bloodsucker_swarm",Loc(247.41, 1.553528, -43.58),45},
+					{"bloodsucker_swarm",Loc(254.1, 1.557541, -43.58),45},
+					{"bloodsucker_swarm",Loc(264.89, 1.557541, -43.58),45},
+					{"bloodsucker_swarm",Loc(269.6, 1.557541, -43.58),45},
+				},
+				Time = 900,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

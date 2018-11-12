@@ -1,0 +1,48 @@
+<ObjectTemplate>
+	<ClientId>11</ClientId>
+	<Name>Sewer Lurker</Name>
+	<ScaleModifier>0.5</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="0.25"/>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">15</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Arachnid</StringVariable>
+		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<StringVariable Name="MonsterAR">38</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">9</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">11</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
+		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default">
+			<Initializer>				
+				{ 
+					Stats = { Str=math.random(20,30), Agi=math.random(15,20), Int=math.random(15,20), },
+				Skills = 
+					{ 
+					Channeling=math.random(60.1,70.1), 
+					Melee=math.random(70.1,80),
+					},
+					EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+					LootTables = 
+					{ 
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(20,75),
+						},
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1185</ClientId>
+	<Name>[FF9500]Pair of Dice[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

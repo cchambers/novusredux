@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Colt the Scribe</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_alchemist">
+			<Initializer>
+				{
+					Stats= {
+						Str = 50,
+						Agi = 80,
+						Int = 20,
+					},
+					Skills= {
+						Inscription = 100,
+					},
+					EquipTable= {
+						BodyPartHair= {
+							{"hair_male_messy","0xFF380000"},
+						},
+						Chest= {
+							{"armor_leather_chest" ,"0xFFFFCCCC"},
+						},
+						Legs= {
+							{"armor_leather_leggings","0xFFFFCCCC"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "book_red",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.859375, 0.9720039, 1.54126",
+							Rotation = "90, 270.0003, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "spellbook_noob",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.879639, 0.9600029, -1.145996",
+							Rotation = "90, 270.0001, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_engraving",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.5354, 0.9190025, 0.6518555",
+							Rotation = "2.235955E-06, 270.0003, 9.886095E-07",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "map_atlas_blank",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.852051, 0.9770012, -0.2900391",
+							Rotation = "90, 270.0001, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "resource_blankscroll",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "1.764893, 0.8906097, 2.544922",
+							Rotation = "90, 236.0758, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

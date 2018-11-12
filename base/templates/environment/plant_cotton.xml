@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Cotton Plant</Name>
+	<ClientId>605</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Cotton</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

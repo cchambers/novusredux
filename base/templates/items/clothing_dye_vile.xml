@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>361</ClientId>
+  	<Name>Vile Clothing Dye</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<Hue>941</Hue>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">VileDye</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

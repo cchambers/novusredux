@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>19</ClientId>
+	<Name>[FF9500]Open Barrel[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

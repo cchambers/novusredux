@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>329</ClientId>
+	<Name>[bdbdbd]A Flute[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="instrument"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

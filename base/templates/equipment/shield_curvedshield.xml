@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Curved Shield[-]</Name>
+	<ClientId>1519</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ShieldType">CurvedShield</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

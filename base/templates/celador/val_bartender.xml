@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Hefner the Innkeeper</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_bartender">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						Cooking = 100,
+					},
+					EquipTable= {
+						Chest= {
+							{"merchant_clothing_chest"},
+						},
+						Legs= {
+							{"clothing_mayor_legs"},
+						},
+						BodyPartHead= {
+							{"head_male03", 809},
+						},
+						BodyPartHair= {
+							{"hair_male_buzzcut",768},
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "item_ale",
+							Price = 0,
+							RelativeLoc = "-1.843994, 1.010567, -1.219971",
+							Rotation = "0, 26.87587, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "item_bread",
+							Price = 0,
+							RelativeLoc = "-0.9779663, 1.007668, -1.244873",
+							Rotation = "0, 134.5609, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "cooked_stew",
+							Price = 0,
+							RelativeLoc = "-0.07800293, 1.006672, -1.256836",
+							Rotation = "0, 134.5609, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_wine",
+							Price = 0,
+							RelativeLoc = "0.6389771, 1.00967, -1.261963",
+							Rotation = "0, 26.87589, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bind_portal_stone",
+							Price = 0,
+							RelativeLoc = "1.500977, 0.959568, -1.281982",
+							Rotation = "0, 26.87589, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

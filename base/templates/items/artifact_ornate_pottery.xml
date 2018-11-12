@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>333</ClientId>
+	<Name>[FF9500]Ancient Ornate Pottery Artifact[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="artifact"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

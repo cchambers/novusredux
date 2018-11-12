@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Guy the Trader</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_general_store">
+			<Initializer>
+				{
+					Skills= {
+						Healing = 100,
+					},
+					EquipTable= {
+						BodyPartHead= {
+							{"head_male04", 182},
+						},
+						BodyPartHair= {
+							{"hair_male_windswept", 768},
+						},
+						Chest= {
+							"armor_leather_leggings",
+						},
+						Legs= {
+							"clothing_padded_chest",
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "tools",
+							DisplayName = "Tools for Sale",
+						},
+						{
+							Name = "consumables",
+							DisplayName = "Groceries for Sale",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "note",
+							Price = 10,
+							Amount = 100,
+							RelativeLoc = "3.684082, 0.7470131, -1.403015",
+							Rotation = "0.7383265, 168.5693, 0.0190373",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "torch",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "2.510986, 0.7920151, -1.453003",
+							Rotation = "359.3423, 302.1366, 0.3359878",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bandage",
+							Price = 0,
+							Amount = 500,
+							RelativeLoc = "4.986084, 0.7510147, -1.445923",
+							Rotation = "0, 149.9997, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "rune_blank",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "6.116943, 0.7556152, -1.372925",
+							Rotation = "0, 339.9998, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "map_eastern_frontier",
+							Price = 200,
+							Amount = 50,
+							RelativeLoc = "1.291992, 0.7300148, -1.403992",
+							Rotation = "0, 149.9997, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

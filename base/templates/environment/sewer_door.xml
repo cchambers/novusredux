@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>302</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="locked">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

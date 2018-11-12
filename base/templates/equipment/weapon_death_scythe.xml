@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Death's Scythe[-]</Name>
+	<ClientId>931</ClientId>
+	<Hue>0</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Scythe</StringVariable>
+		<StringVariable Name="Executioner">Undead</StringVariable>
+		<DoubleVariable Name="AttackBonus">50</DoubleVariable>
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+		<BoolVariable Name="Cursed">True</BoolVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

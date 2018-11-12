@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>264</ClientId>
+	<Name>Buxley the Wolf</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
+		<StringVariable Name="NaturalWeaponType">Gladius</StringVariable>
+		<StringVariable Name="NaturalEnemy">Prey</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_wolf_pet">
+			<Initializer>
+				{
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+					Bashing = 50, 
+					Evocation = 100, 
+					},	
+					MobTraits =
+					{
+						Toughness = 3,
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

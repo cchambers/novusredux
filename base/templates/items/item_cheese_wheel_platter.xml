@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Cheese Wheel Platter[-]</Name>
+	<ClientId>940</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FoodValue">1.0</DoubleVariable>
+		<DoubleVariable Name="CookingDifficulty">1.0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						StaminaRegenMod = { 
+							Multiplier = 1.01,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<WorldTemplateObjects>
+  <StaticObject>
+    <ObjectCreationParams>1041 1 -54.566 2.039 10.467 0 281.052 0 0.742 0.742 0.742</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 2 30.331 0.128 -51.122 0 90 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 3 15.891 1.637 -87.096 285.713 112.877 75.329 1.592 1.592 1.592</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 4 19.155 2.016 -70.6 0 0 0 0.657 0.657 0.657</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 5 -74.986 2.337 -32.298 0 281.052 0 0.759 0.759 0.759</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 6 -81.749 4.387 -30.972 0 319.301 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 7 38.052 2.014 -13.196 0 285.339 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 8 -65.31 1.91 5.531 0 281.052 0 0.442 0.442 0.442</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 9 -25.078 3.191 20.729 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 10 -69.699 2.1 -1.282 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 11 -72.411 2.103 -26.898 0 68.514 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 12 -67.987 2.041 -36.622 0.407 278.01 357.114 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 13 -65.354 2.046 1.692 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 14 -30.006 0.037 -57.271 270 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 15 -64.952 -0.969 -58.074 324.859 0 0 1.252 1.252 1.252</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 16 -27.748 1.682 11.672 356.302 0 0 0.852 0.852 0.852</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 17 -15.658 2.427 0.93 356.291 3.543 359.77 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 18 -72.495 2.1 -12.46 0 319.301 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 19 -40.506 2.039 11.835 356.302 267.664 0 0.721 0.721 0.721</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 20 -73.635 2.046 -6.178 0 0 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 21 -22.112 2.312 -82.484 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 22 -70.761 2.306 -30.267 0 0 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 23 -49.715 1.957 -84.631 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 24 -14.3 2.178 25.19 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 25 -24.519 0.864 -2.616 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 26 -59.356 2.664 18.824 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 27 -47.634 2.1 18.721 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 28 13.603 2.039 -24.453 0 108.708 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 29 14.352 2.039 -37.515 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 30 -38.947 0.037 -20.396 270 316.585 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 31 -48.596 2.312 -95.368 0 296.093 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 32 -76.074 4.513 1.72 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 33 -48.139 2.039 15.546 0 281.052 0 0.667 0.667 0.667</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 34 38.789 2.016 -66.636 0 0 0 0.717 0.717 0.717</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 35 -62.478 2.041 -36.772 0 261.5 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 36 -59.015 3.191 9.876 0 226.518 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 37 -74.511 1.346 -25.449 0 109.212 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 38 -63.589 2.039 -50.882 0 300.403 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 39 -38.955 1.863 -74.472 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 40 35.075 2.014 0.775 0 59.664 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 41 41.606 2.014 0.869 0 64.41 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 42 -19.076 1.957 -79.911 0 57.517 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 43 -67.795 3.191 9.004 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 44 -49.736 2.297 -99.814 0 16.303 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 45 25.415 2.039 -15.096 0 242.461 0 0.919 0.919 0.919</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 46 39.727 1.064 -68.768 0 0 154.472 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 47 -20.085 2.1 19.507 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 48 -42.151 2.297 -100.234 0 335.221 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 49 -70.325 1.923 -37.173 0 0 0 0.668 0.668 0.668</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 50 -55.423 1.957 -93.519 0 57.596 0 0.889 0.889 0.889</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 51 -62.802 2.1 7.781 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 52 -40.921 2.046 -6.463 0 310.384 0 0.74 0.74 0.74</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 53 -81.836 4.926 -11.448 0 319.301 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 54 -14.878 2.039 16.789 0 281.052 0 0.648 0.648 0.648</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 55 -34.188 2.111 10.079 0 42.736 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 56 -1.39 0.128 9.049 1.347 37.789 358.586 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 57 13.682 0.129 3.452 0 354.167 358.046 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 58 30.523 0.127 9.686 1.55 121.652 5.14 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>182 59 14.665 7.092 15.655 0 96.02 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 60 -72.606 1.82 -43.36 0 68.514 0 0.743 0.743 0.743</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 61 -12.969 1.573 13.461 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 62 -53.444 2.297 -98.265 0 31.33 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 63 -24.021 2.046 14.612 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 64 -75.548 2.337 -20.788 0 281.052 0 0.759 0.759 0.759</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 65 49.554 2.039 -7.968 0 315.507 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 66 -89.168 6.376 -14.163 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 67 29.678 2.014 -19.04 0 350.53 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 68 -45.168 2.039 12.569 356.302 184.452 0 0.852 0.852 0.852</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 69 26.923 -1.299 -4.316 289.501 180 180 1.918 1.918 1.918</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 70 -11.604 2.326 0.424 0.256 9.236 358.425 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 71 -32.469 1.438 -109.628 0 0 0 0.899 0.899 0.899</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 72 34.901 1.256 -8.232 354.416 49.445 1.666 0.621 0.621 0.621</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 73 47.347 1.66 -26.502 0.659 93.55 349.491 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 74 -45.902 2.297 -105.401 0 6.194 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 75 -41.602 2.046 15.863 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 76 -17.962 2.663 14.683 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 77 -72.286 2.046 -18.738 0 319.301 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 78 -70.167 1.835 -8.624 0 109.212 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 79 -28.207 2.1 24.112 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 80 21.171 6.141 -83.072 0 328.423 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 81 -69.754 5.38 18.644 0 226.518 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 82 -75.886 2.742 -16.614 0 109.212 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 83 -82.426 3.631 -33.432 0 0 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 84 -37.667 2.1 20.759 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 85 29.177 1.678 -77.16 0 0 0 0.657 0.657 0.657</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 86 -35.392 1.581 15.227 0 281.052 0 0.742 0.742 0.742</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 87 -82.213 3.313 -43.478 0 0 0 0.7 0.7 0.7</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 88 -52.628 3.191 19.943 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 89 -36.468 2.041 0.327 0 19.429 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 90 -64.07 0.129 -75.471 0 354.167 358.046 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 91 -72.036 0.127 -59.377 1.55 121.652 5.14 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 92 -68.055 0.128 -91.048 1.347 37.789 358.586 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>183 93 -76.308 7.092 -75.773 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 94 44.681 1.256 -39.151 0 0 0 0.883 0.883 0.883</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 95 -59.748 2.163 -103.658 0 296.093 0 0.664 0.664 0.664</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 96 47.266 2.039 -23.416 0 83.769 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 97 -58.51 1.399 14.029 0 0 0 0.459 0.459 0.459</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 98 15.391 2.458 -74.538 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 99 36.608 2.014 -1.926 0 59.664 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 100 -40.43 2.041 0.171 0 338.193 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 101 13.351 2.01 -20.652 0 71.596 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 102 -24.668 1.399 10.026 0 0 0 0.459 0.459 0.459</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 103 -74.693 2.376 -36.89 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 104 -41.886 2.297 -105.287 0 353.977 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 105 51.501 2.039 -13.812 0 73.091 0 0.845 0.845 0.845</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 106 -53.73 1.74 -107.612 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 107 25.874 1.947 -98.19 0 0 0 0.718 0.718 0.718</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 108 -16.942 3.297 19.973 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 109 41.337 -0.042 -64.023 0 0 88.398 1.592 1.592 1.592</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 110 -72.238 1.91 -15.88 0 281.052 0 0.374 0.374 0.374</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 111 -1.422 0.037 -32.207 270 271.084 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 112 -61.565 2.1 14.34 0 226.518 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>23 113 27.468 3.791 -78.38 0 21.212 88.398 1.592 1.592 1.592</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 114 -70.956 2.024 -46.729 0 0 0 0.67 0.67 0.67</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 115 -43.257 2.337 -7.144 0 281.052 0 0.533 0.533 0.533</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 116 -79.618 3.497 -21.454 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 117 -74.202 1.616 -51.563 0 319.301 0 0.771 0.771 0.771</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 118 40.114 2.014 3.678 0 59.664 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>0 119 -6.235 0.128 -89.834 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 120 -19.065 2.734 24.798 0 0 0 0.856 0.856 0.856</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 121 -42.66 3.191 21.981 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 122 31.579 1.868 -9.919 0 27.971 0 0.883 0.883 0.883</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 123 -19.779 2.341 0.889 344.327 356.487 1.085 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 124 -39.516 2.297 -97.413 0 298.047 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 125 -20.39 2.039 11.222 0 281.052 0 0.742 0.742 0.742</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 126 11.777 2.458 -76.567 0 75.356 0 0.835 0.835 0.835</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 127 -33.201 3.191 25.335 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1034 128 -67.205 3.137 14.179 0 226.518 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1041 129 -74.671 0.658 -1.683 0 281.052 0 1.089 1.089 1.089</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 130 -32.143 2.046 19.217 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 131 -62.92 1.978 -28.48 0 275.689 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 132 25.148 2.014 -19.376 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 133 35.941 2.014 -16.596 0 318.522 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1040 134 -51.57 2.046 13.825 0 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>406 135 -68.008 2.041 -32.842 0 270.384 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+</WorldTemplateObjects>

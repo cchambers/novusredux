@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>499</ClientId>
+	<Name>[FF9500]Sorcerer's Curtians[-]</Name>
+	<Color>0xFF643F91</Color>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>Blank Scroll</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BlankScroll</StringVariable>
+		<StringVariable Name="PluralName">Blank Scrolls</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.5</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

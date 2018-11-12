@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>45</ClientId>
+	<Name>[FF9500]Anvil[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent/>					
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -1,0 +1,35 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Gulthan the Seer</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">UndeadGraveyard</StringVariable>
+		<BoolVariable Name="AI-CanWander">false</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_graveyard_seer">
+			<Initializer>
+				{
+					Stats = { Str=120, Agi=120, Int=110 },
+					Skills = { Melee = 100, Blocking = 100 },
+					AvailableSpells = { "Heal", "Teleport","Resurrect","Spikepath","Auraoffire"},
+					EquipTable = {
+						RightHand = { "weapon_maul_crude"},
+						LeftHand = { "torch"},
+						BodyPartHead = { "head_cultist" },
+						BodyPartHair = { "hair_cultist" },
+						Chest = { {"npc_cultist_chest","0xFFCFCFCF"} },
+			            Legs = { {"npc_cultist_legs","0xFFCFCFCF"} }, 
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

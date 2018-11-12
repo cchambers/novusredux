@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Group Name="Main" Exlude="False">
+		<DynamicObject>
+			<Name>FoundersController</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>founders_controller 18.666 -4.53 26.222 0 355.437 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner 22.51 0.526 15.038 0 63.971 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 24.149 0.526 11.67 0 63.971 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner 45.594 0.526 22.829 0 291.708 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>simple_mob_spawner 35.388 0.526 41.666 0 243.447 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>simple_mob_spawner 31.916 0.526 39.985 0 63.212 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.736 0.127 -5.07 0 353.578 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.543 -0.006 12.208 0 178.445 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>simple_mob_spawner -11.527 0.404 -4.263 0 177.72 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>10</Id>
+			<ObjectCreationParams>simple_mob_spawner -2.322 0.225 16.937 0 208.539 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>11</Id>
+			<ObjectCreationParams>simple_mob_spawner 3.358 -0.041 -8.288 0 154.184 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>12</Id>
+			<ObjectCreationParams>simple_mob_spawner -2.548 -0.178 -18.047 0 48.062 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>13</Id>
+			<ObjectCreationParams>simple_mob_spawner 5.25 -0.178 -21.388 0 321.458 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Guard</Name>
+			<Id>14</Id>
+			<ObjectCreationParams>simple_mob_spawner 8.02 -0.178 -20.145 0 335.877 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Portal</Name>
+			<Id>15</Id>
+			<ObjectCreationParams>founders_portal 29.815 -0.192 63.844 0 154.253 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Transmorgifier</Name>
+			<Id>16</Id>
+			<ObjectCreationParams>character_customizer -4.07 0.154 7.111 359.488 334.053 1.455 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Receptionist</Name>
+			<Id>17</Id>
+			<ObjectCreationParams>simple_mob_spawner 16.43 0.375 14.222 0 116.274 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_receptionist</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Doorman</Name>
+			<Id>18</Id>
+			<ObjectCreationParams>simple_mob_spawner 17.895 0.375 9.368 0 38.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_doorman</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NPC</Name>
+			<Id>19</Id>
+			<ObjectCreationParams>simple_mob_spawner 20.2 0.2 -5.717 0 333.117 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_creep</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DJ</Name>
+			<Id>20</Id>
+			<ObjectCreationParams>simple_mob_spawner 14.5 0.916 10.616 0 260.045 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_founders</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NPC</Name>
+			<Id>21</Id>
+			<ObjectCreationParams>simple_mob_spawner -9.201 0.1 18.023 0 275.105 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_admiral</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Bartender</Name>
+			<Id>22</Id>
+			<ObjectCreationParams>simple_mob_spawner 1.138 0.032 0.97 0 225.246 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_bartender_liza</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Bartender</Name>
+			<Id>23</Id>
+			<ObjectCreationParams>simple_mob_spawner 4.375 0.236 3.286 0 39.33 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_bartender_rorus</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>VIPMerchant</Name>
+			<Id>24</Id>
+			<ObjectCreationParams>simple_mob_spawner 10.732 0.01 -12.303 0 282.04 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_vip_merchant_2</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>PedesiiSpawner</Name>
+			<Id>25</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.346 0.01 -20.204 0 337.04 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (1)</Name>
+			<Id>26</Id>
+			<ObjectCreationParams>furniture_bench_founders 1.99 -0.015 -6.098 358.717 356.295 359.984 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (4)</Name>
+			<Id>27</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -5.135 0.009 -3.584 359.066 39.23 359.101 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (5)</Name>
+			<Id>28</Id>
+			<ObjectCreationParams>furniture_bench_founders -6.742 0.032 -2.312 359.061 38.458 359.127 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (6)</Name>
+			<Id>29</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -8.847 -0.121 5.096 0.346 101.291 358.765 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (7)</Name>
+			<Id>30</Id>
+			<ObjectCreationParams>furniture_bench_founders -8.46 -0.072 7.044 0.346 101.291 358.765 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (8)</Name>
+			<Id>31</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -8.069 -0.026 9.01 0.346 101.291 358.765 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (9)</Name>
+			<Id>32</Id>
+			<ObjectCreationParams>furniture_bench_founders -7.907 -0.1 13.739 359.571 66.098 358.79 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (10)</Name>
+			<Id>33</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -8.725 -0.059 15.586 359.571 66.098 358.79 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (11)</Name>
+			<Id>34</Id>
+			<ObjectCreationParams>furniture_bench_founders -8.005 0.031 19.909 1.124 146.957 359.385 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (12)</Name>
+			<Id>35</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -9.689 0.013 18.798 1.124 146.957 359.385 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (13)</Name>
+			<Id>36</Id>
+			<ObjectCreationParams>furniture_bench_founders -6.15 0.057 21.29 1.124 146.957 359.385 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (14)</Name>
+			<Id>37</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -4.467 0.077 22.399 1.124 146.957 359.385 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (15)</Name>
+			<Id>38</Id>
+			<ObjectCreationParams>furniture_bench_founders -1.006 -0.154 20.562 0.87 222.796 0.939 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (16)</Name>
+			<Id>39</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -2.496 -0.125 21.913 0.87 222.796 0.939 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (17)</Name>
+			<Id>40</Id>
+			<ObjectCreationParams>furniture_bench_founders 0.828 -0.143 18.868 0.87 222.796 0.939 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (18)</Name>
+			<Id>41</Id>
+			<ObjectCreationParams>furniture_bench_founders02 2.319 -0.172 17.517 0.87 222.796 0.939 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (19)</Name>
+			<Id>42</Id>
+			<ObjectCreationParams>furniture_bench_founders 0.97 -0.141 12.475 1.275 170.311 359.881 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (20)</Name>
+			<Id>43</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -1.008 -0.151 12.104 1.275 170.311 359.881 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (21)</Name>
+			<Id>44</Id>
+			<ObjectCreationParams>furniture_bench_founders -19.599 -0.126 -9.935 1.174 199.117 0.509 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (22)</Name>
+			<Id>45</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -17.68 -0.151 -10.564 1.174 199.117 0.509 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (24)</Name>
+			<Id>46</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -15.574 -0.309 -11.366 1.174 199.117 0.509 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (23)</Name>
+			<Id>47</Id>
+			<ObjectCreationParams>furniture_bench_founders -19.694 -0.138 -7.085 0.432 105.582 358.795 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (25)</Name>
+			<Id>48</Id>
+			<ObjectCreationParams>furniture_bench_founders -18.729 -0.121 -3.127 0.432 105.582 358.795 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (26)</Name>
+			<Id>49</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -18.187 -0.082 -1.21 0.432 105.582 358.795 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (27)</Name>
+			<Id>50</Id>
+			<ObjectCreationParams>furniture_bench_founders -14.543 -0.023 1.815 1.171 151.764 359.48 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (28)</Name>
+			<Id>51</Id>
+			<ObjectCreationParams>furniture_bench_founders02 -16.309 -0.042 0.873 1.171 151.764 359.48 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (29)</Name>
+			<Id>52</Id>
+			<ObjectCreationParams>furniture_bench_founders 14.42 -0.111 -6.802 1.11 205.46 0.637 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (30)</Name>
+			<Id>53</Id>
+			<ObjectCreationParams>furniture_bench_founders02 16.225 -0.131 -7.602 1.11 205.46 0.637 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (31)</Name>
+			<Id>54</Id>
+			<ObjectCreationParams>furniture_bench_founders 12.612 -0.092 -5.945 1.11 205.46 0.637 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (32)</Name>
+			<Id>55</Id>
+			<ObjectCreationParams>furniture_bench_founders02 20.895 0.032 0.493 0.301 251.97 1.243 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (33)</Name>
+			<Id>56</Id>
+			<ObjectCreationParams>furniture_bench_founders 22.186 -0.048 -3.272 0.301 251.97 1.243 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object (34)</Name>
+			<Id>57</Id>
+			<ObjectCreationParams>furniture_bench_founders02 21.513 -0.006 -1.414 0.301 251.97 1.243 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench02Object</Name>
+			<Id>58</Id>
+			<ObjectCreationParams>furniture_bench_founders 4.005 -0.009 -5.967 358.717 356.295 359.984 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersBench01Object</Name>
+			<Id>59</Id>
+			<ObjectCreationParams>furniture_bench_founders02 5.991 -0.006 -5.834 0 356.519 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>60</Id>
+			<ObjectCreationParams>furniture_stool_founders02 0.469 0.019 4.638 0 132.636 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>61</Id>
+			<ObjectCreationParams>furniture_stool_founders 6.578 0.016 0.745 0 289.022 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>62</Id>
+			<ObjectCreationParams>furniture_stool_founders 2.868 0.015 -1.327 0 353.661 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>63</Id>
+			<ObjectCreationParams>furniture_stool_founders -1.366 0.016 -0.809 0 48.823 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>64</Id>
+			<ObjectCreationParams>furniture_stool_founders -0.568 0.015 3.045 0 129.882 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>65</Id>
+			<ObjectCreationParams>furniture_stool_founders 2.598 0.015 6.157 0 186.179 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>66</Id>
+			<ObjectCreationParams>furniture_stool_founders02 -1.684 0.019 1.213 0 115.612 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>67</Id>
+			<ObjectCreationParams>furniture_stool_founders02 0.527 0.019 -1.664 0 2.115 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>68</Id>
+			<ObjectCreationParams>furniture_stool_founders02 4.881 0.019 -1.003 0 8.694 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>69</Id>
+			<ObjectCreationParams>furniture_stool_founders02 7.243 0.019 2.651 0 294.92 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool01Object</Name>
+			<Id>70</Id>
+			<ObjectCreationParams>furniture_stool_founders 6.736 0.015 5.052 0 237.039 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersStool02Object</Name>
+			<Id>71</Id>
+			<ObjectCreationParams>furniture_stool_founders02 4.682 0.022 6.25 0 188.031 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable03Object</Name>
+			<Id>72</Id>
+			<ObjectCreationParams>furniture_table_founders03 19.166 -0.14 -1.217 0 340.122 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable04Object</Name>
+			<Id>73</Id>
+			<ObjectCreationParams>furniture_table_founders04 -13.487 -0.092 -7.967 0 192.341 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable02Object</Name>
+			<Id>74</Id>
+			<ObjectCreationParams>furniture_table_founders02 14.588 -0.006 -4.538 0 191.457 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable01Object</Name>
+			<Id>75</Id>
+			<ObjectCreationParams>furniture_table_founders01 -14.937 -0.098 -7.921 0 196.195 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable03Object (1)</Name>
+			<Id>76</Id>
+			<ObjectCreationParams>furniture_table_founders03 -16.336 -0.098 -7.611 0 195.675 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable02Object (1)</Name>
+			<Id>77</Id>
+			<ObjectCreationParams>furniture_table_founders02 -17.77 -0.095 -7.432 0 191.457 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable04Object (1)</Name>
+			<Id>78</Id>
+			<ObjectCreationParams>furniture_table_founders04 -5.861 -0.098 8.626 0 91.5 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable03Object (2)</Name>
+			<Id>79</Id>
+			<ObjectCreationParams>furniture_table_founders03 -6.21 -0.141 5.63 0 195.675 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable03Object (3)</Name>
+			<Id>80</Id>
+			<ObjectCreationParams>furniture_table_founders03 0.902 -0.131 15.093 0 162.796 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable04Object (2)</Name>
+			<Id>81</Id>
+			<ObjectCreationParams>furniture_table_founders04 0.388 -0.128 16.134 0 163.24 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable02Object (2)</Name>
+			<Id>82</Id>
+			<ObjectCreationParams>furniture_table_founders02 -0.27 -0.125 14.446 0 161.36 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable02Object (3)</Name>
+			<Id>83</Id>
+			<ObjectCreationParams>furniture_table_founders02 -7.348 -0.125 17.774 0 240.148 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable01Object (1)</Name>
+			<Id>84</Id>
+			<ObjectCreationParams>furniture_table_founders01 -3.595 -0.123 20.333 0 143.807 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable01Object (2)</Name>
+			<Id>85</Id>
+			<ObjectCreationParams>furniture_table_founders01 20.106 -0.131 -3.845 0 173.74 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersTable04Object (3)</Name>
+			<Id>86</Id>
+			<ObjectCreationParams>furniture_table_founders04 15.743 -0.131 -5.013 0 297.566 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_pedesii</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>MerchantTable (1)</Name>
+			<Id>87</Id>
+			<ObjectCreationParams>furniture_founders_table_merchant 4.94 -0.136 -17.319 0 334.674 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>MerchantTable (2)</Name>
+			<Id>88</Id>
+			<ObjectCreationParams>furniture_founders_table_merchant 9.399 -0.135 -9.52 0 300.352 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersItemProjectionObject (3)</Name>
+			<Id>89</Id>
+			<ObjectCreationParams>founders_projection 9.741 0.79 -8.953 0 208.003 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>FoundersItemProjectionObject</Name>
+			<Id>90</Id>
+			<ObjectCreationParams>founders_projection 9.081 0.791 -10.05 0 208.003 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NPC</Name>
+			<Id>91</Id>
+			<ObjectCreationParams>simple_mob_spawner -18.798 0.404 -8.59 0 47.484 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">founders_alien</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>92</Id>
+			<ObjectCreationParams>spawn_position 30.621 -0.041 62.041 0 157.52 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>JukeboxObject</Name>
+			<Id>93</Id>
+			<ObjectCreationParams>jukebox -1.159 -0.006 -5.32 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>MerchantTable (3)</Name>
+			<Id>94</Id>
+			<ObjectCreationParams>furniture_founders_table_merchant 8.64 -0.135 -13.949 0 256.325 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>

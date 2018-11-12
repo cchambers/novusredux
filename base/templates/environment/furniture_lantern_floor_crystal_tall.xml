@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1072</ClientId>
+	<Name>[FF9500]Tall Crystal Floor Lantern[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,17 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Controller</Name>
+	<Tag>MapController</Tag>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="shard_time_controller">
+			<Initializer>
+				{
+					DaylightDurationSecs = 60 * 60,
+					NighttimeDurationSecs = 0,
+				}
+			</Initializer>
+		</LuaModule>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

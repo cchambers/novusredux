@@ -1,0 +1,167 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Merchant</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<BoolVariable Name="NoDisrobe">True</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_camp_merchant">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+					Names = {
+						"Bryan the Merchant",
+						"Robert the Merchant",
+						"Anthony the Merchant",
+						"Martin the Merchant",
+						"Gregory the Merchant",
+						"Vincent the Merchant",
+						"Pierre the Merchant",
+						"Shawn the Merchant",
+						"Malcolm the Merchant",
+						"Allan the Merchant",
+						"Edmund the Merchant",
+						"Daryl the Merchant",
+						"Isaac the Merchant",
+						"Joseph the Merchant",
+						"Michael the Merchant",
+						"Jeremy the Merchant",
+						"Samson the Merchant",
+						"Gustave the Merchant",
+						"Fulbert the Merchant",
+						"Melvin the Merchant",
+						"Marc the Merchant",
+						"Garrett the Merchant",
+						"Luke the Merchant",
+					},
+					
+					EquipTable = {
+
+						BodyPartHead = TemplateDefines.MaleHeads,
+
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+
+						Chest= {
+							"merchant_clothing_chest",
+						},
+						Legs= {
+							"merchant_clothing_legs",
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+
+					TaskItems = 
+					{
+						
+					 },
+
+					ItemInventory= {
+						{
+							Template = "lscroll_fireball",
+							Price = 0,
+							RelativeLoc = "2.061996, 1.281, 0.977005",
+							Rotation = "0, 359, 0",
+						},
+						{
+							Template = "potion_lheal",
+							Price = 0,
+							RelativeLoc = "2.018005, 1.325, 1.283005",
+						},
+						{
+							Template = "bandage",
+							Price = 0,
+							Amount = 500,
+							RelativeLoc = "1.537003, 1.349, 0.4130096",
+							Rotation = "353.4353, 324.9486, 358.8103",
+						},
+						{
+							Template = "cooked_stew",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "2.219009, 1.309, 2.153015",
+						},
+						{
+							Template = "ingredient_ginsengroot",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "2.09201, 1.394, 2.110016",
+						},
+						{
+							Template = "ingredient_lemongrass",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "2.320999, 1.344, 2.309006",
+						},
+						{
+							Template = "ingredient_mushroom",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "2.315002, 1.315, 2.448013",
+						},
+						{
+							Template = "lscroll_heal",
+							Price = 0,
+							RelativeLoc = "1.753006, 1.336, 0.8140106",
+							Rotation = "6.670107E-09, 12.5626, 359.4597",
+						},
+						{
+							Template = "lscroll_cure",
+							Price = 0,
+							RelativeLoc = "1.753998, 0.514, 1.246017",
+							Rotation = "337.1874, 321.2522, 86.90692",
+						},
+						{
+							Template = "lscroll_poison",
+							Price = 0,
+							RelativeLoc = "1.958008, 0.3829956, 1.512009",
+							Rotation = "350.0175, 321.2398, 83.76522",
+						},
+						{
+							Template = "lscroll_greater_heal",
+							Price = 0,
+							RelativeLoc = "2.056, 0.41, 1.851013",
+							Rotation = "340.4709, 320.8009, 86.45572",
+						},
+						{
+							Template = "lscroll_portal",
+							Price = 0,
+							RelativeLoc = "2.061996, 1.325, 1.505005",
+							Rotation = "0, 359.5489, 0",
+						},
+						{
+							Template = "item_bread",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "2.501007, 1.292, 1.84201",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="guard_protect" />
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

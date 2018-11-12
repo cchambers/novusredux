@@ -1,0 +1,84 @@
+<ObjectTemplate>
+	<ClientId>921</ClientId>
+	<Name>Void Ogre</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value="2.0"/>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">5000</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Void</StringVariable>
+		<StringVariable Name="MobileKind">Giant</StringVariable>
+		<BoolVariable Name="AI-StationedLeash">true</BoolVariable>
+		<DoubleVariable Name="AI-LeashDistance">15</DoubleVariable>
+		<BoolVariable Name="AI-Leash">true</BoolVariable>
+		<DoubleVariable Name="MeatCount">10</DoubleVariable>
+		<StringVariable Name="NaturalWeaponType">BattleAxe</StringVariable>
+		<StringVariable Name="NaturalArmor">VeryHeavy</StringVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_ogre">
+			<Initializer>
+				{ 
+					Stats = { Str=650, Agi=117, Int=65 },
+					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100},				
+					BodyOffset = 2.5,
+					LootTables = 
+					{
+						TemplateDefines.LootTable.Boss,
+						TemplateDefines.LootTable.BossWeapons,
+						TemplateDefines.LootTable.ScrollsBoss,
+						{
+							NumItems = math.random(1,4),
+							LootItems = 
+							{ 
+							    { Weight = 50, Template = "animalparts_ogre_tooth" },
+							    { Weight = 40, Template = "animalparts_beast_leather_hide" },
+							    { Weight = 40, Template = "animalparts_bone_marrow" },
+							    { Weight = 10, Template = "animalparts_fabled_beast_leather_hide" },				
+							},
+						},
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+							    { Chance = 20, Template = "contempt_skull" },	
+							},
+						},
+					},
+					Names = {
+						"Warpslash the Unholy","Oozeghast the Evil","Horngloom the Soul-Eater","Nazgrogh the Wicked",
+					},
+					EquipTable =
+					{
+						Backpack = { "backpack" },			
+					},
+					CombatAbilitiesOld = 
+					{
+						Magicblast = {
+							AlwaysUsable = true,
+							AbilityTriggertype={
+								Instant = true,
+							},
+							CombatAbilityCritChanceModifier = 1.1,
+							CooldownTimer = 15,
+							Duration = 5,
+							CompletionDelay = 1,
+							combatAbilityScriptOnUser = "ca_magicblast_script",
+							ResetSwingTime = true,
+							StaminaCost = 40,
+							AbilitySlot = "Stance",
+							TooltipString = "Type: Instant\nSends a shockwave around targets, dealing magic damage, increasing crit chance by 10% and stunning targets in radius for 3 seconds. (Resets Swing)",
+							AssociatedSkill = "MeleeSkill",
+							LevelRequired = 0,
+							ManaCostDivisor = 2,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,69 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+					    { Count = 2, TemplateId = "void_rookie", Region = "RoomA8", DelayMin=2 },
+					    { Count = 1, TemplateId = "void_mage_apprentice", Region = "RoomA8", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_rookie", Region = "RoomA9", DelayMin=2 },
+					    { Count = 1, TemplateId = "void_mage_apprentice", Region = "RoomA9", DelayMin=2 },
+
+					    { Count = 3, TemplateId = "void_mage_apprentice", Region = "RoomA10", DelayMin=2 },
+
+					    { Count = 3, TemplateId = "void_rookie", Region = "RoomA11", DelayMin=2 },
+					  
+					    { Count = 2, TemplateId = "void_mage_apprentice", Region = "RoomA1", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_veteran", Region = "RoomA12", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_veteran", Region = "RoomA14", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_mage", Region = "RoomA6", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_mage", Region = "RoomA1", DelayMin=2 },
+
+					    { Count = 4, TemplateId = "void_archer", Region = "RoomA4a", DelayMin=2 },
+					    { Count = 2, TemplateId = "void_rookie", Region = "RoomA4b", DelayMin=2 },
+					    { Count = 2, TemplateId = "void_archer", Region = "RoomA4c", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_mage", Region = "RoomA18", DelayMin=2 },
+
+					    { Count = 2, TemplateId = "void_mage_apprentice", Region = "RoomA2", DelayMin=2 },
+
+        				-----------------------------------------------------------------------------------------------------------------------------------------
+
+					    { Count = 1, TemplateId = "catacombs_wayward_male", Region = "FollowerHubRegion" }, 
+					    { Count = 1, TemplateId = "catacombs_wayward_male", Region = "FollowerHubRegion" }, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_female", Region = "FollowerHubRegion"}, 
+					    { Count = 1, TemplateId = "catacombs_wayward_female", Region = "FollowerHubRegion"}, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_male_leather", Region = "FollowerHubRegion" }, 
+					    { Count = 1, TemplateId = "catacombs_wayward_male_leather", Region = "FollowerHubRegion" }, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_female_leather_dark", Region = "FollowerHubRegion"}, 
+					    { Count = 1, TemplateId = "catacombs_wayward_female_leather_dark", Region = "FollowerHubRegion"}, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_female_leather", Region = "FollowerHubRegion"}, 
+					    { Count = 1, TemplateId = "catacombs_wayward_female_leather", Region = "FollowerHubRegion" }, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_male_leather_dark", Region = "FollowerHubRegion" },  
+					    { Count = 1, TemplateId = "catacombs_wayward_male_leather_dark", Region = "FollowerHubRegion"}, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_male_purple", Region = "FollowerHubRegion"}, 
+					    { Count = 1, TemplateId = "catacombs_wayward_male_purple", Region = "FollowerHubRegion" }, 
+
+					    { Count = 1, TemplateId = "catacombs_wayward_female_purple", Region = "FollowerHubRegion" },   
+					    { Count = 1, TemplateId = "catacombs_wayward_female_purple", Region = "FollowerHubRegion"}, 
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,122 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Sunken Treasure[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(800,1000),
+				    	},
+
+						--rare
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{	
+								{ Chance = 50,Template = "packed_pillow_round", Unique = true },
+								{ Chance = 25,Template = "packed_pillow_square", Unique = true },
+								{ Chance = 20,Template = "packed_painting3", Unique = true },
+								{ Chance = 10,Template = "packed_painting2", Unique = true },
+								{ Chance = 5,Template = "packed_rug_ornate_blue", Unique = true },
+								{ Chance = 1,Template = "packed_rug_ornate_red", Unique = true },
+								{ Chance = 1,Template = "packed_painting1", Unique = true },
+							}
+						},
+
+						--ingredients
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 5,
+							LootItems = 
+							{									
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
+								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
+								{ Weight = 10, Template = "tool_mining_pick", Unique = true },
+    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
+								{ Weight = 10, Template = "tool_shovel", Unique = true },
+								{ Weight = 25, Template = "bandage", Unique = true },
+								{ Weight = 1, Template = "sapphire_gem", Unique = true },
+								{ Weight = 1, Template = "ruby_gem", Unique = true },
+								{ Weight = 1, Template = "emerald_gem", Unique = true },
+								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 5, Template = "sos_map", Unique = true },
+								{ Weight = 4, Template = "sos_map_1", Unique = true },
+								{ Weight = 3, Template = "sos_map_2", Unique = true },
+								{ Weight = 2, Template = "sos_map_3", Unique = true },
+							}
+						},
+
+						--regs
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+							}
+						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_cure", Unique = true },
+								{ Weight = 5, Template = "lscroll_poison", Unique = true },
+								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Weight = 5, Template = "lscroll_defence", Unique = true },
+
+							},
+						},	
+
+						--ScrollsMed
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 2,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+								{ Weight = 5, Template = "lscroll_attack", Unique = true },
+							},
+						},	
+
+						--ScrollsHigh
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
+								{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
+								{ Weight = 5, Template = "lscroll_meteor", Unique = true },
+								{ Weight = 5, Template = "lscroll_portal", Unique = true },
+							},
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

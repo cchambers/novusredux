@@ -1,0 +1,35 @@
+<ObjectTemplate>
+	<ClientId>922</ClientId>
+	<Color>0x9900CC</Color>
+	<Name>Energy Vortex</Name>
+	<ScaleModifier>.8</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>0.8</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">140</DoubleVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<StringVariable Name="MobileTeamType">EV</StringVariable>
+		<BoolVariable Name="HasSkillCap">True</BoolVariable>
+		<BoolVariable Name="DoesNotBleed">true</BoolVariable>
+		<StringVariable Name="MonsterAR">40</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">14</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">17</DoubleVariable>
+		<BoolVariable Name="AutoUnstable">True</BoolVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_imp_minion">
+			<Initializer>
+				{ 
+					Stats = { Str=200, Agi=200, Int=100 },
+					Skills = 
+					{ 
+						Channeling = 120,
+						Melee = 100,
+					},
+				}			
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

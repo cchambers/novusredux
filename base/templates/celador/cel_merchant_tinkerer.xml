@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Mel the Tinkerer</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="RepairSkill">FabricationSkill</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_tinkerer">
+			<Initializer>
+				{
+					Stats= {
+						Str = 50,
+						Agi = 80,
+						Int = 20,
+					},
+					Skills= {
+						Mining = 100,
+					},
+					EquipTable= {
+						BodyPartHead= {
+							"head_male02",
+						},
+						BodyPartHair= {
+							{"hair_male","0xFF554838"},
+						},
+						Chest= {
+							{"armor_leather_chest" ,"0xFFCCCCFF"},
+						},
+						leggings= {
+							{"armor_leather_leggings","0xFFCCCCFF"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "",
+							DisplayName = "",
+						},
+						{
+							Name = "",
+							DisplayName = "",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "resource_iron_ore",
+							Price = 0,
+							Amount = 500,
+							RelativeLoc = "-2.062012, 0.5620003, -5.570007",
+							Rotation = "4.268869E-07, 164.3624, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_mining_pick",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-1.601013, 0.9470005, -1.322998",
+							Rotation = "0, 261.2647, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_hatchet",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-2.278015, 0.9390011, -2.374023",
+							Rotation = "-1.125473E-07, 254.7134, -4.117832E-07",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "key",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-2.846008, 0.6700001, -5.131042",
+							Rotation = "0, 138.1038, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_shovel",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-3.097992, 0.8970013, -2.699036",
+							Rotation = "90, 167.8998, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_hunting_knife",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "0.598999, 0.01172638, 1.207947",
+							Rotation = "1.707547E-06, 25.82778, 323.5539",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_cookingpot",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-3.662994, 0.8160019, -4.649048",
+							Rotation = "1.276693E-06, 318.3895, -1.133919E-06",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

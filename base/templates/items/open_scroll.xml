@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>685</ClientId>
+	<Name>[FF9500]Open Scroll[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

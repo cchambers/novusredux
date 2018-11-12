@@ -1,0 +1,31 @@
+<ObjectTemplate>
+	<ClientId>1096</ClientId>
+	<Name>[FF9500]Message Board[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="1000"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="FakeContainer">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="message_board">
+			<Initializer>
+				{
+					Sections = {
+						Main = {
+							DisplayName = "Owner's Notes",
+							Restriction = "HouseOwner",
+						},
+						Merchant = {
+							DisplayName = "Merchant Advertisements",
+							Restriction = "None",
+						},
+						Other = {
+							DisplayName = "General Postings",
+							Restriction = "None",
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

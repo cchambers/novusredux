@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<TemplateName>New Tamer</TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<MobileComponent>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="MeatTemplate">player_head</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=20, Agi=30, Int=20, Con=10, Wis=10, Will=10 },
+					Skills = { },
+					EquipTable = {
+								   Chest = { {"clothing_tattered_shirt_chest","8F690A"} },
+			                       Legs = { {"clothing_tattered_legs","0xFF888888" }    }, 
+			                       RightHand = { "tool_crook" }
+			                     },
+			        SpawnLoot = { true },
+                    LootTables = {
+                    	TemplateDefines.LootTable.NewbiePlayer,
+                    	{
+                    		NumItems = 1,
+                    		LootItems = {
+			        			{ Template = "weapon_kryss", Unique = true },
+			        		},
+                    	}
+                    },
+                    HotbarActions = {
+                    	{ Slot=21, Type="Object", Name="tool_crook"},
+                    	{ Slot=22, Type="Object", Name="weapon_kryss"},
+                    	{ Slot=23, Type="Object", Name="tool_hunting_knife"},
+                    	{ Slot=24, Type="Object", Name="torch"},
+                    	{ Slot=25, Type="Object", Name="bandage"},
+                    	{ Slot=26, Type="Object", Name="item_bread"},
+                    }
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

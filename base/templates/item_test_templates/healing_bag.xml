@@ -1,0 +1,33 @@
+<ObjectTemplate>
+	<ClientId>554</ClientId>
+	<Name>[0078ff]Healing Items[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{
+					   
+						-- Regs
+						{						
+						    NumItems = 4,
+							LootItems = 
+							{ 	
+								{ Template = "bandage", StackCount = 100, Unique = true },
+								{ Template = "gauze", StackCount = 100, Unique = true },
+								{ Template = "healing_salve", StackCount = 100, Unique = true },
+								{ Template = "tinderbox", StackCount = 100, Unique = true },								
+							} 
+						},							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

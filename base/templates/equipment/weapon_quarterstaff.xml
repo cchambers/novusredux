@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Quarterstaff[-]</Name>
+	<ClientId>1130</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Quarterstaff</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

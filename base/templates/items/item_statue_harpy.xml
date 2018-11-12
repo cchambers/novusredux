@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>2067</ClientId>
+	<Name>[FF9500]Harpy Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">BansheeAttack</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="statue_effect" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

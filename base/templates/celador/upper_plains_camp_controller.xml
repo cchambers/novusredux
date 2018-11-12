@@ -1,0 +1,23 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Camp Controller</Name>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="camp_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+						{ Count = 20, Prefab = "BanditCamp",  Region = "Housing" }, 
+						{ Count = 10, Prefab = "LargeBanditCamp",  Region = "Housing" }, 
+						{ Count = 20, Prefab = "SmallGoblinCamp",  Region = "Housing" }, 
+						{ Count = 10, Prefab = "GoblinCamp",  Region = "Housing" }, 
+						{ Count = 20, Prefab = "UndeadGraveyardCamp",  Region = "Housing" }, 
+						{ Count = 20, Prefab = "Farm",  Region = "Housing" }, 	
+						{ Count = 10, Prefab = "MobileMerchant",  Region = "Housing" },				
+					},
+				}
+			</Initializer>	
+		</LuaModule>				
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Lemon Grass Shoot[-]</Name>
+	<ClientId>9</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">LemonGrassShoot</StringVariable>
+		<DoubleVariable Name="CookingDifficulty">15.0</DoubleVariable>
+		<DoubleVariable Name="FoodValue">6.0</DoubleVariable>		
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+			<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						foodEffectDurationMod = {
+							Multiplier = 1.1,
+							},
+						foodFillingnessMod = 
+							{
+								Multiplier = 1.15,
+							},
+					},
+				}
+			</Initializer></LuaModule>
+			</ScriptEngineComponent>	
+</ObjectTemplate>

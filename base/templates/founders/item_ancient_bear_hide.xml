@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Hide of the Ancient Bear[-]</Name>
+	<ClientId>624</ClientId>
+	<Color>0xFF70593A</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

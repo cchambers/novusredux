@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Counter Weight[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="EnhancementName">Balance</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="enhancement_tool"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

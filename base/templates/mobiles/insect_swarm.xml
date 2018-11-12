@@ -1,0 +1,30 @@
+<ObjectTemplate>
+	<ClientId>626</ClientId>
+	<Name>Insect Swarm</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>0.6</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">100</DoubleVariable>
+		<DoubleVariable Name="DecayTime">4</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Insects</StringVariable>
+		<StringVariable Name="NaturalWeaponType">Cutlass</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Mandibles</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default_animal">
+			<Initializer>				
+				{ 
+					Stats = { Str=15, Agi=120, Int=5 },
+					Skills = 
+					{ 
+						Melee = 70, 
+						Slashing = 60,
+						Dodge = 100,
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

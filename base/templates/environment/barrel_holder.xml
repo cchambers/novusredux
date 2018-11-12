@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>98</ClientId>
+	<Name>[FF9500]Barrel Holder[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,34 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Gregory the Demon Worshiper</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">450</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">UndeadGraveyard</StringVariable>
+		<BoolVariable Name="AI-CanWander">true</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_graveyard_demon_priest">
+			<Initializer>
+				{
+					Stats = { Str=120, Agi=120, Int=110 },
+					Skills = { Melee = 100, Blocking = 100, Manifestation = 100, Channeling = 100, MagicAffinity = 100, Dodge = 90, Blocking = 90},
+					AvailableSpells = {"Souldrain","Voidblast","Spawnskeleton","Fireball", "Heal", "Grimaura","Teleport","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
+					EquipTable = {
+						RightHand = { "torch"},
+						BodyPartHead = { "head_male04" },
+						Chest = {  {"padded_chest_worshipper_crude" } },	
+						Legs = {  {"padded_legs_worshipper_crude" } },		
+						Head = {  {"padded_helm_worshipper_crude"  } },	
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

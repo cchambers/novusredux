@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Mead[-]</Name>
+	<ClientId>353</ClientId>
+	<Color>0xFFFFFFA7</Color>
+	<ScaleModifier>1.4</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Mead</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable" />
+	</ScriptEngineComponent>	
+</ObjectTemplate>

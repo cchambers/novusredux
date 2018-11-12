@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Michael the Chef</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="RepairSkill">FabricationSkill</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_tailor">
+			<Initializer>
+				{
+					Stats= {
+						Str = 50,
+						Agi = 80,
+						Int = 20,
+					},
+					Skills= {
+						Cooking = 100,
+					},
+					EquipTable= {
+						BodyPartHead= {
+							"head_male02",
+						},
+						BodyPartHair= {
+							{"hair_male","0xFF554838"},
+						},
+						Chest= {
+							{"armor_leather_chest" ,"0xFFCCCCFF"},
+						},
+						leggings= {
+							{"armor_leather_leggings","0xFFCCCCFF"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "",
+							DisplayName = "",
+						},
+						{
+							Name = "",
+							DisplayName = "",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "ingredient_tomato",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-2.310974, 1.18, -0.9859619",
+							Rotation = "12.31664, 321.7188, 35.42723",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_potato",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-1.382935, 1.131725, -1.001953",
+							Rotation = "0, 25.82762, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_onion",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-3.117004, 1.172001, -0.9769287",
+							Rotation = "0.9946254, 64.85776, 325.6051",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_green_pepper",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-3.898987, 1.155724, -1.033936",
+							Rotation = "0, 335.7336, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_cabbage",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-2.734985, 0.07799911, -1.463013",
+							Rotation = "-1.024528E-05, 268.9395, 34.80983",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_broccoli",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-3.802979, 0.04719925, -1.582031",
+							Rotation = "44.40036, 33.71733, 357.0106",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>1057</ClientId>
+  	<Name>[FFFFFF]Shrinking Potion[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name= "UserScript">potion_shrinking_effect</StringVariable>
+		<StringVariable Name= "ItemCannotUseMessage">You have already drank a size potion.</StringVariable>
+		<StringVariable Name= "ItemUseMessage">You quaff the potion...</StringVariable>
+		<StringVariable Name= "UseTimer">SizePotionTimer</StringVariable>
+		<BoolVariable Name="DestroyOnUse">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="script_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

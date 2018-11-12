@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Crude Padded Helm[-]</Name>
+	<ClientId>105</ClientId>
+	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="2"/>				
+	<ScriptEngineComponent/>
+</ObjectTemplate>

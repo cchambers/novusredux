@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[FF9500]Cultist King's Ceremonial Armor[-]</Name>
+	<ClientId>101</ClientId>
+	<Hue>830</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ArmorType">Light</StringVariable>
+   		<DoubleVariable Name="MaxDurability">70</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

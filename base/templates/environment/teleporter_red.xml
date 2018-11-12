@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>178</ClientId>
+	<ObjectVariableComponent>	
+		<StringVariable Name="MobileTeamType">Fire</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="faction_teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

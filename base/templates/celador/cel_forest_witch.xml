@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Vivia the Witch</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+	    <StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+	    <BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_forest_witch">
+			<Initializer>
+				{
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+					Bashing = 50, 
+					Evocation = 100, 
+					},	
+					MobTraits =
+					{
+						Toughness = 3,
+					},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					EquipTable = {
+						BodyPartHead= {
+							"head_female05",
+						},
+						BodyPartHair= {
+							"hair_female_bun",
+						},
+						RightHand= {
+							"weapon_staff",
+						},
+						Chest= {
+							{"clothing_dress_chest","0xFF0D0D0D"},
+						},
+						Legs= {
+							"scale_legs_base",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

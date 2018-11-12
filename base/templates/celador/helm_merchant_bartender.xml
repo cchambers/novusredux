@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Magica the Innkeeper</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_bartender">
+			<Initializer>
+				{
+					Stats= {
+						Str = 25,
+						Agi = 25,
+						Int = 25,
+					},
+					Skills= {
+						Cooking = 100,
+					},
+					EquipTable= {
+						RightHand= {
+							"",
+						},
+						Chest= {
+							"clothing_mayor_chest",
+						},
+						Legs= {
+							"clothing_mayor_legs",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "item_ale",
+							Price = 0,
+							RelativeLoc = "-1.292969, 0.996563, -1.59198",
+							Rotation = "0, 26.87587, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "item_bread",
+							Price = 0,
+							RelativeLoc = "-0.427002, 0.9936638, -1.616882",
+							Rotation = "0, 134.5609, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "cooked_stew",
+							Price = 0,
+							RelativeLoc = "0.375, 0.9926682, -1.628845",
+							Rotation = "0, 134.5609, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_wine",
+							Price = 0,
+							RelativeLoc = "1.189941, 0.9956665, -1.633972",
+							Rotation = "0, 26.87589, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bind_portal_stone",
+							Price = 0,
+							RelativeLoc = "1.941895, 0.9595642, -1.656982",
+							Rotation = "0, 26.87589, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

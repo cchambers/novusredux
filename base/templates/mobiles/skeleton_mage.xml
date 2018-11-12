@@ -1,0 +1,66 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Name>Bone Magi</Name>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="Variation" type="string" value="White"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">48</DoubleVariable>
+		<DoubleVariable Name="Attack">17</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">9</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Evocation = 100,
+					Bashing=45,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },	
+						RightHand = { { "weapon_staff" } },					
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.MagePoor,
+						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.Skeleton,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(30,75),
+						},
+					},		
+				ScavengeTables =
+					{
+					},
+
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning"},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

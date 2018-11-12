@@ -1,0 +1,52 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						{ Count = 3, TemplateId = "lizardman", Region = "RoomA5", DelayMin=4 }, 
+						{ Count = 1, TemplateId = "lizardman_scout", Region = "RoomA5", DelayMin=4 }, 
+
+						{ Count = 1, TemplateId = "lizardman", Region = "RoomA8", DelayMin=4 }, 
+						{ Count = 2, TemplateId = "lizardman_scout", Region = "RoomA8", DelayMin=4 }, 
+					   
+					    { Count = 3, TemplateId = "lizardman_scout", Region = "RoomA9", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "lizardman", Region = "RoomA10", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA11", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA12", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA14", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "viper", Region = "RoomA13", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "viper", Region = "RoomA16", DelayMin=4 }, 
+
+						{ Count = 2, TemplateId = "gorgon", Region = "RoomA3", DelayMin=4 },
+
+						{ Count = 2,TemplateId = "gorgon", Region = "RoomA6", DelayMin=4 },
+
+						{ Count = 4, TemplateId = "lizardman_mage", Region = "RoomA19", DelayMin=4 },
+						{ Count = 4, TemplateId = "lizardman", Region = "RoomA19", DelayMin=4 },
+
+						{ Count = 4, TemplateId = "lizardman_mage", Region = "RoomA20", DelayMin=4 },
+
+						{ Count = 3, TemplateId = "lizardman_dagger", Region = "RoomA22", DelayMin=4 },
+
+						{ Count = 3, TemplateId = "lizardman_scout", Region = "RoomA23", DelayMin=4 },
+
+						{ Count = 3, TemplateId = "deception_drake", Region = "RoomA15", DelayMin=4 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

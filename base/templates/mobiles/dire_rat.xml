@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<ClientId>20</ClientId>
+	<Color>0xFFDE922F</Color>
+	<Name>Dire Rat</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="0.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1.1</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">180</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Rats</StringVariable>
+		<StringVariable Name="NaturalEnemy">Snakes</StringVariable>
+		<StringVariable Name="NaturalArmor">Light</StringVariable>
+		<BoolVariable Name="CanBeTamed">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default_animal">
+			<Initializer>				
+				{ 
+					Stats = { Str=65, Agi=70, Int=20 },
+					Skills = 
+					{ 
+						Melee = 75, 
+						Slashing = 45,
+						Dodge = 35,
+					},
+				}
+			</Initializer>
+		</LuaModule>
+		
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 2,
+					AnimalParts =
+					{
+						{ ResourceType="RatEar", RarityPct=50, Count=1 },
+						{ ResourceType="LeatherHide", RarityPct=80, Count=1 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

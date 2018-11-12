@@ -1,0 +1,42 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Bronwin Soulfire</Name>
+	<SharedStateEntry name="Title" type="string" value="Gatekeeper"/>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<StringVariable Name="RuneTemplate">rune_oasis</StringVariable>
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_gatekeeper">
+			<Initializer>
+				{
+					EquipTable = {
+						RightHand= {
+							"",
+						},
+						Chest= {
+							{"clothing_ornate_robe","AC58FA"},
+						},
+						Legs= {
+							"",
+						},
+					},
+					Destinations = {
+						ServerSettings.Teleport.Destination.PyrosLanding,
+						ServerSettings.Teleport.Destination.Crossroads,
+						ServerSettings.Teleport.Destination.EldeirVillage,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

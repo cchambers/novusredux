@@ -1,0 +1,32 @@
+<ObjectTemplate>
+  <Name>[FF0000]Stone House Blacksmith Blueprint[-]</Name>
+	<ClientId>638</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="housing_blueprint">
+			<Initializer>
+				{
+					BlueprintInfo = {
+						East = {
+							TemplateName = "stone_house_blacksmith_east", 
+							DoorTemplate = "tudor_door_fine",
+				      		DoorLoc = Loc(2.423,2.1,3.583), 
+				      		SignTemplate = "house_control_sign_stone",
+				      		SignLoc = Loc(3.728,3.888,6.825),
+				      		SignRot = 270,
+						},
+						South = {
+							TemplateName = "stone_house_blacksmith_south", 
+							DoorTemplate = "tudor_door_fine",
+				      		DoorLoc = Loc(-4.923706,2.1,-2.006622), 
+				      		DoorRot = 90,
+				      		SignTemplate = "house_control_sign_stone",
+				      		SignLoc = Loc(-6.3237,3.91,-3.296631)
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

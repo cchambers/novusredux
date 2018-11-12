@@ -1,0 +1,70 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Color>0xFF6C6C8C</Color>
+	<ScaleModifier>1.6</ScaleModifier>
+	<Name>Das Oras</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value=".75"/>
+	<SharedStateEntry name="Variation" type="string" value="White"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">1200</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },	
+						LeftHand = {{"shield_buckler"}},
+						RightHand = {{"weapon_broadsword"}},
+						Chest = {{"armor_plate_tunic"}},	
+						Head = {{"armor_plate_helm"}},	
+						Legs = {{"armor_plate_leggings"}},					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.SkeletonRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.Rich,
+						{
+							NumCoins = math.random(500,650),
+						},
+					},
+				ScavengeTables =
+					{
+					},		
+					WeaponAbilities = { primary="Slash" },		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

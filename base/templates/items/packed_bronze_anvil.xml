@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>Bronze Anvil</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">tool_anvil_bronze</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="packed_object"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

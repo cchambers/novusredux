@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Cheese Wheel[-]</Name>
+	<ClientId>939</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">CheeseWheel</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

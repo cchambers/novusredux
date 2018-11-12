@@ -1,0 +1,43 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Name>Skeleton Minion</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">80</DoubleVariable>
+		<StringVariable Name="NaturalArmor">Medium</StringVariable>
+		<StringVariable Name="AutoDestroyVersion">0.3.4</StringVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<BoolVariable Name="HasSkillCap">True</BoolVariable>
+		<BoolVariable Name="OnlyEquipWeapons">True</BoolVariable>
+		<BoolVariable Name="AutoUnstable">True</BoolVariable>
+		<BoolVariable Name="DoesNotBleed">true</BoolVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_follower">
+			<Initializer>
+				{ 
+					
+				Stats = { Str=40, Agi=30, Int=5, },
+				Skills = 
+				{ 
+					Melee = 40, 
+					Slashing = 50,
+					Bashing = 50,
+					Piercing = 50,
+					Dodge = 40,
+				},
+									
+				EquipTable = 
+					{
+						Backpack = { "backpack" },						
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,32 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Color>0xC100FFFF</Color>
+	<Name>Ghost of the Dead Hero</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">10000</DoubleVariable>
+		<BoolVariable Name="IsGhost">true</BoolVariable>
+		<StringVariable Name="MobileTeamType">UndeadGraveyard</StringVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_dead_hero">
+			<Initializer>
+				{
+					Stats = { Str=99, Agi=99, Int=99 },
+					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100 },
+					EquipTable = {
+						BodyPartHead = { "head_male02" },
+						BodyPartHair = { "" },
+						Chest = { "plate_chest_champion" },
+			            Legs = { "plate_legs_champion" }, 
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>2070</ClientId>
+	<Name>[FF9500]Skeleton Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">SkeletonAttack</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="statue_effect" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

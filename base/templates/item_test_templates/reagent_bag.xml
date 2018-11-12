@@ -1,0 +1,33 @@
+<ObjectTemplate>
+	<ClientId>555</ClientId>
+	<Name>[0078ff]Reagent Bag[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{
+					   
+						-- Regs
+						{						
+						    NumItems = 4,
+							LootItems = 
+							{ 	
+								{ Template = "ingredient_ginsengroot", StackCount = 100, Unique = true },
+								{ Template = "ingredient_lemongrass", StackCount = 100, Unique = true },
+								{ Template = "ingredient_mushroom", StackCount = 100, Unique = true },
+								{ Template = "ingredient_moss", StackCount = 100, Unique = true },
+							} 
+						},							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

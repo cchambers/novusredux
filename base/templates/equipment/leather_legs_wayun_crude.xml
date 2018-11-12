@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Crude Wayun Leather Legs[-]</Name>
+	<ClientId>806</ClientId>
+	<Hue>800</Hue>
+	<SharedStateEntry name="Weight" type="int" value="3"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ArmorClass">Light</StringVariable>
+   		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<ClientId>34</ClientId>
+	<Name>[0078ff]Bag of Refined Resources[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 18,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "resource_stone", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_iron_ingots", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_iron_ingots_gleaming", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cobalt_ingots", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cobalt_ingots_crystallized", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_boards", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_boards_durable", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_blightwood_boards", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_bolt_of_fabric", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_bolt_of_fabric_quilted", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_silk_fabric", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_silk_fabric_royal", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_plant_fabric", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_leather_tanned", Unique = true, StackCount = 1000 },								
+								{ Chance = 100, Template = "resource_gilded_leather", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_fabled_beast_leather", Unique = true, StackCount = 1000 },								
+								{ Chance = 100, Template = "resource_beast_leather", Unique = true, StackCount = 1000 },
+								
+								
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

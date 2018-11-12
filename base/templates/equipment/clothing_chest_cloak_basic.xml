@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Cloak[-]</Name>
+  <ClientId>2097</ClientId>
+  <Hue>0</Hue>
+    <SharedStateEntry name="Weight" type="int" value="1"/>	
+    <ObjectVariableComponent>
+   		<BoolVariable Name="CanDye">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>510</ClientId>
+	<Name>[FF9500]Monolith[-]</Name>
+	<Color>0xFF272727</Color>
+	<ScaleModifier>0.4</ScaleModifier>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="attackable">True</BoolVariable>
+	</ObjectVariableComponent>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>		
+	<ScriptEngineComponent>
+		<!--LuaModule Name="single_monolith"/-->
+	</ScriptEngineComponent>
+</ObjectTemplate>

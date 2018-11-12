@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>498</ClientId>
+	<Name>[FF9500]Small Dome Tent[-]</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<Color>0xFF96897A</Color>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

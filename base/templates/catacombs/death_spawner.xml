@@ -1,0 +1,23 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Death Spawner</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="BossTemplate">grim_reaper</StringVariable>
+		<StringVariable Name="TrapKey">DeathLair</StringVariable>
+		<StringVariable Name="Region">DeathLair</StringVariable>
+		<DoubleVariable Name="Range">15</DoubleVariable>
+		<DoubleVariable Name="Timer">7</DoubleVariable>
+		<DoubleVariable Name="ResetTime">1800</DoubleVariable>
+		<StringVariable Name="BossSpawnMessage">ForceCharge</StringVariable>
+		<StringVariable Name="Dialog">You have ventured too far, mortal. You trespass on things you CANNOT comprehend! 
+
+			Only in the shadow that is the Void will you find the truth - There is NOTHING after Death. 
+
+			And now, I shall claim what is mine...</StringVariable>
+		<StringVariable Name="Name">[D70000]Death[-]</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="catacombs_boss_spawner"/>
+		<LuaModule Name="proximity_activate"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

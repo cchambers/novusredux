@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]Bowl of Mrs. Paw's Soup[-]</Name>
+	<ClientId>7</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="IsRaw">false</BoolVariable >
+		<DoubleVariable Name="FoodValue">17.0</DoubleVariable>
+		<BoolVariable Name = "cooked">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

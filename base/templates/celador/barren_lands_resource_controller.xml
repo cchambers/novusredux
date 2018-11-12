@@ -1,0 +1,129 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Resource Controller</Name>
+	<Tag>MapResourceController</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="map_resource_controller">
+			<Initializer>
+				{
+					ResourceRegions = {
+						{
+							Region = "BarrensMine1",
+							Rock = 
+							{								
+								RegenRate = (10 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 60,
+										Count = 20, 
+									},
+									CopperOre = {
+										AvailablityPct = 20,
+										Count = 12, 
+									},
+									BronzeOre = {
+										AvailablityPct = 10,
+										Count = 12, 
+									},
+									SteelOre = {
+										AvailablityPct = 7,
+										Count = 12, 
+									},
+									ObsidianOre = {
+										AvailablityPct = 3,
+										Count = 12, 
+									},
+								}
+							},
+						},
+						{
+							Region = "BarrensMine2",
+							Rock = 
+							{								
+								RegenRate = (10 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 60,
+										Count = 20, 
+									},
+									CopperOre = {
+										AvailablityPct = 20,
+										Count = 12, 
+									},
+									BronzeOre = {
+										AvailablityPct = 10,
+										Count = 12, 
+									},
+									SteelOre = {
+										AvailablityPct = 7,
+										Count = 12, 
+									},
+									ObsidianOre = {
+										AvailablityPct = 3,
+										Count = 12, 
+									},
+								}
+							},
+						},
+						{
+							Region = "GuardZoneLarge",
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 10,
+										Count = 8,
+									},
+								}
+							},
+						},
+						{
+							-- Global values
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 20,
+										Count = 8,
+									},
+									Blightwood = {					
+										AvailablityPct = 5,
+										Count = 8, 
+									},
+								}
+							},
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 5,
+										Count = 20, 
+									},
+								}
+							},
+						},						
+					},
+
+					SpawnedSources = 
+					{						
+						{ MaxCount = 250, Region = "Subregion-BarrenLands" , Resource = "Cactus"},
+						{ MaxCount = 250, Region = "Subregion-BarrenLands" , Resource = "Kindling"},
+					},
+				}
+			</Initializer>
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,48 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Cultist Guard</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<DoubleVariable Name="BaseHealth">220</DoubleVariable>
+		<BoolVariable Name="AI-StationedLeash">true</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_cultist_guard_top_ruins">
+			<Initializer>
+				{ 
+					Stats = { Str=80, Agi=60, Int=10 },
+					Skills = { Melee = 80, Slashing = 60, Bashing = 60, Piercing = 40, Blocking = 40 },
+					EquipTable = {
+						BodyPartHead = { "head_cultist" },
+						BodyPartHair = { "" },
+						RightHand = { "weapon_mace", "weapon_broadsword" },
+						LeftHand = { "shield_buckler" },
+						Chest = {{"npc_cultist_chest"}},
+						Legs = {{"npc_cultist_legs"}},
+						Backpack = { "backpack" }		
+					},
+					LootTables = { 
+					TemplateDefines.LootTable.Rich,
+						{
+							NumItems = math.random(1,2),
+							NumCoins = math.random(30,50),
+							LootItems = 
+							{ 
+								{ Weight = 10, Template = "treasure_map", Unique = true },
+								{ Weight = 50, Template = "potion_lheal" },
+								{ Weight = 10, Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 10, Template = "potion_refresh" },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

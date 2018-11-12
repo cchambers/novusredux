@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Simple Mob Spawner</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<Name>Pool of Heroes</Name>
+	<ClientId>308</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="pool_of_heroes"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

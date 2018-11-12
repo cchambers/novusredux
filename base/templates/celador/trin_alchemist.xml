@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Jared the Alchemist</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_alchemist">
+			<Initializer>
+				{
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills= {
+						Alchemy = 100,
+					},
+					MobTraits =
+					{
+						Toughness = 3,
+					},
+					EquipTable = {
+						BodyPartHead = TemplateDefines.MaleHeads,
+
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+
+						Chest= {
+							{"armor_leather_chest" ,},
+						},
+						Legs= {
+							{"armor_leather_leggings",},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "ingredient_moss",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-4.838, 1.136, -1.4989",
+							Rotation = "0, -64.58768, 0",
+						},
+						{
+							Template = "ingredient_ginsengroot",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-5.18, 1.181, -2.131",
+							Rotation = "0, -9.149, 0",
+						},
+						{
+							Template = "ingredient_mushroom",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-4.815, 0.473, -1.4149",
+							Rotation = "0, -64.58768, 0",
+						},
+						{
+							Template = "ingredient_lemongrass",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-5.183, 0.4781, -2.0989",
+							Rotation = "0, 66.2849, 0",
+						},
+						{
+							Template = "potion_lheal",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-5.19, 1.9449, -2.164",
+						},
+						{
+							Template = "potion_lmana",
+							RelativeLoc = "-4.813, 1.9449, -1.38",
+						},
+						{
+							Template = "lscroll_heal",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-5.51, 0.60, 6.74",
+							Rotation = "0, 0, 0",
+						},
+						{
+							Template = "lscroll_fireball",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-1.733, 0.9340668, -0.09199",
+							Rotation = "0, 23.23, 0",
+						},
+						{
+							Template = "lscroll_ruin",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-0.475, 0.934, -1.3349",
+							Rotation = "0, 23.23, 0",
+						},
+						{
+							Template = "lscroll_poison",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-0.924, 0.934, -0.438",
+							Rotation = "0, 23.23, 0",
+						},
+						{
+							Template = "lscroll_cure",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-0.171, 0.934, -0.906",
+							Rotation = "0, 23.23, 0",
+						},
+						{
+							Template = "spellbook",
+							Price = 0,
+							RelativeLoc = "0.9289, 1.014, -1.621",
+							Rotation = "0, 23.23, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "resource_blankscroll",
+							Price = 0,
+							Amount = 1000,
+							RelativeLoc = "0.3869, 0.934, -1.425",
+							Rotation = "0, -48.02, 0",
+						},
+						{
+							Template = "rune_blank",
+							Amount = 50,
+							RelativeLoc = "-1.30, 0.93, -0.71",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

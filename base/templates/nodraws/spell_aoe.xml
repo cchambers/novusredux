@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>00FF00</Color>
+	<Name></Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Dangerous">True</BoolVariable>	
+		<DoubleVariable Name="DecayTime">6</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="decay"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

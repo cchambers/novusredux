@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>473</ClientId>
+	<Name>[FF9500]Cultist Flag[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

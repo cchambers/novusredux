@@ -1,0 +1,43 @@
+<ObjectTemplate>
+	<ClientId>1137</ClientId>
+	<Name>Old Karvra Warrior</Name>
+	<SharedStateEntry name="Variation" type="string" value="BrownWarrior"/>
+	<ScaleModifier>1</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name= "MobileTeamType">Karvra</StringVariable>
+		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.0</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_lizardmen">
+			<Initializer>
+				{ 
+					Stats = { Str=65, Agi=65, Int=15 },
+					Skills = { Melee = 80, Slashing = 80, Bashing = 80, Piercing = 80, Blocking = 55 },
+					EquipTable = {
+						Backpack = { "backpack" },	
+						RightHand = { "weapon_broadsword" },
+						LeftHand = { "shield_curvedshield" },				
+
+					},
+					LootTables = { 
+						{
+							NumItems = math.random(1,2),
+							NumCoins = math.random(10,20),
+							LootItems = 
+							{ 
+								{ Weight = 50, Template = "potion_lheal" },
+								{ Weight = 10, Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 10, Template = "potion_refresh" },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

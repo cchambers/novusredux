@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Indiana the Stable Master</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_stable_master">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						AnimalTaming = 100,
+						AnimalLore = 100,
+					},
+					EquipTable= {
+						Chest= {
+							"armor_leather_chest",
+						},
+						Legs= {
+							"armor_leather_leggings",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "horse",
+							Price = 500,
+							RelativeLoc = "4.999939, 0.3932343, -6.75",
+							Rotation = "0, 295.4123, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "bay_horse",
+							Price = 500,
+							RelativeLoc = "1.639954, 0.3932343, -9.919922",
+							Rotation = "0, 178.7475, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "chestnut_horse",
+							Price = 500,
+							RelativeLoc = "-0.210083, 0.3932343, -6.099976",
+							Rotation = "0, 256.8173, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_crook",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-1.702026, 0.4832344, -0.3699951",
+							Rotation = "270, 125.2161, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

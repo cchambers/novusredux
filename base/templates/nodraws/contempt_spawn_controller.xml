@@ -1,0 +1,71 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					   	{ Count = 3, TemplateId = "ork_mage", Region = "RoomA18", DelayMin=4 },
+
+					   	{ Count = 4, TemplateId = "ork_warrior", Region = "RoomA20", DelayMin=4 }, 
+
+					   	{ Count = 6, TemplateId = "ork_mage", Region = "RoomA19", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA20", DelayMin=4 },
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA19", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA24", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA23", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA22", DelayMin=4 }, 
+
+					    --fire trap hallway
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA25", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA26", DelayMin=4 }, 
+
+					 
+
+					    --Wraith room
+					    
+
+
+					    --necromancer room
+					    { Count = 4, TemplateId = "ork_chief", Region = "RoomA4", DelayMin=4 }, 
+
+						--ghoul room after necromancer room
+					    { Count = 2, TemplateId = "ork_warrior", Region = "RoomA2", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "ork_archer", Region = "RoomA1", DelayMin=4 },  
+
+					    { Count = 2, TemplateId = "ork_chief", Region = "RoomA3", DelayMin=4 },
+
+					    --hallway right before spider room
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA6", DelayMin=4 }, 
+
+					    --First spike trap room
+					    { Count = 2, TemplateId = "troll", Region = "RoomA12", DelayMin=4 }, 
+
+					    --First spike trap room
+					    { Count = 2, TemplateId = "ork_mage", Region = "RoomA13", DelayMin=4 },
+
+					    --First spike trap droom
+					    { Count = 2, TemplateId = "troll", Region = "RoomA14", DelayMin=4 }, 
+
+						-----------------------------------------------------------
+
+						--First spike trap droom
+					    { Count = 3, TemplateId = "contempt_ogre", Region = "RoomA15", DelayMin=4 }, 
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

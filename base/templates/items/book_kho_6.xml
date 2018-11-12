@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 6[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "There are those souls that wish to escape the depths of the Burning Void, that of evil-doers and SCUM that desire to escape the eternal torments of the Void God for their injustices committed in life. For He have no mercy for those that commit injustice, and those who seek wickedness, shalt see it paid in FULL! That which mortals do not understand the hatred of the Gods, shalt know the truth when they seek escape from the Void. For a being of great evil and wickedness awaits them, spawned in the fires of the eternal damnation that awaits those who refuse His vengance, and seek solace above. All sins are counted, and punished accordingly for their trespasses in life. For they shall know the WRATH of the Light-Bringer, and that there is no solace for the Damned. For His Guardian awaits those who attempt to seek freedom and devours their souls with eternal hatred, fueled by the power of the Void itself. Let all who read this beware of the fate that befalls them, should they oppose the Void and the wrath of the Dark One! FOR THERE IS NO GREATER GOOD, THEN TO DEVOUR THE SOULS OF THE WICKED!!!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

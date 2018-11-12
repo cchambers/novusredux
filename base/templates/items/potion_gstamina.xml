@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[00FF00]Greater Stamina Potion[-]</Name>
+	<ClientId>114</ClientId>
+	<Color>0xFFFDFF00</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<!-- Stackable objvars -->
+		<StringVariable Name="ResourceType">PotionGreaterStamina</StringVariable>
+		<StringVariable Name="PluralName">Greater Stamina Potions</StringVariable>
+	</ObjectVariableComponent>				
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>799</ClientId>
+	<Name>Gate Wheel (Enter Outlands)</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="DoorTemplate">soldiers_wall_door</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="door_switch"/>		
+	</ScriptEngineComponent>	
+</ObjectTemplate>

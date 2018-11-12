@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Wayun Caped Cloth Shirt[-]</Name>
+  <ClientId>803</ClientId>
+  <Hue>139</Hue>
+    <SharedStateEntry name="Weight" type="int" value="1"/>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

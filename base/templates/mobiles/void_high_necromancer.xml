@@ -1,0 +1,85 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>High Void Necromancer</Name>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<MobileComponent>
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Void</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.4</DoubleVariable>
+		<StringVariable Name="NaturalArmor">Medium</StringVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_worshiper">
+			<Initializer>
+				{ 
+					Stats = { Str=100, Agi=100, Int=200 },
+					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Manifestation = 100, Channeling = 100, Necromancy = 100, Necromancy = 100, MagicAffinity = 100, },
+					EquipTable = {
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = {""},	
+						Backpack = { "backpack" },	
+						RightHand = {{  Weight = 45, Template = "weapon_staff", Unique = true },
+								{  Weight = 5, Template = "weapon_staff", Unique = true },
+								{  Weight = 1, Template = "weapon_staff", Unique = true }},
+						LeftHand = {{  Weight = 45, Template = "shield_bone_fractured", Unique = true },
+								{  Weight = 5, Template = "shield_bone_banded", Unique = true },
+								{  Weight = 1, Template = "shield_bone_fortified", Unique = true }},
+					},
+					LootTables = 
+					{
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.FilthyRichWeapons,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsNecro,
+						TemplateDefines.LootTable.Humanoid,
+						{
+							NumItems = math.random(0,1),
+							LootItems =  
+							{
+								{ Chance = 100, Template = "animalparts_bone_marrow", Unique = true, StackCount = math.random(2,3) },  
+							},
+						},
+
+						--Chest Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 45, Template = "padded_chest_worshipper_blood_crude", Unique = true },
+								{  Weight = 5, Template = "padded_chest_worshipper_blood_coarse", Unique = true },
+								{  Weight = 1, Template = "padded_chest_worshipper_blood_finewoven", Unique = true },
+							},
+						},
+						--Legs Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 45, Template = "padded_legs_worshipper_blood_crude", Unique = true },
+								{  Weight = 5, Template = "padded_legs_worshipper_blood_coarse", Unique = true },
+								{  Weight = 1, Template = "padded_legs_worshipper_blood_finewoven", Unique = true },
+							},
+						},
+						--Head Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 45, Template = "padded_helm_worshipper_blood_crude", Unique = true },
+								{  Weight = 5, Template = "padded_helm_worshipper_blood_coarse", Unique = true },
+								{  Weight = 1, Template = "padded_helm_worshipper_blood_finewoven", Unique = true },
+							},
+						},
+					},
+					AvailableSpells = {"Spawnskeleton","Grimaura", "Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment", "Meteor"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

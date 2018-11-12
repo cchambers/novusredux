@@ -1,0 +1,2107 @@
+Simple Textures:
+Accept_Knife Width:52 Height:53
+AcceptMyCheck_Click Width:23 Height:21
+AcceptMyCheck_Default Width:23 Height:21
+AcceptMyCheck_Hover Width:23 Height:21
+AcceptTheirCheck_Click Width:23 Height:21
+AcceptTheirCheck_Hover Width:23 Height:21
+ActivatedIconGlow_1 Width:78 Height:78
+ActivatedIconGlow_2 Width:78 Height:78
+ActivatedIconGlow_3 Width:78 Height:78
+ActivatedIconGlow_4 Width:78 Height:78
+ActivatedIconGlow_5 Width:78 Height:78
+Aggressed Width:41 Height:41
+Aggressor Width:41 Height:41
+Background Width:48 Height:56
+BackgroundBorder Width:115 Height:4
+BackgroundGradient Width:7 Height:118
+BackpackIcon_Default Width:63 Height:72
+BackpackIcon_Hover Width:63 Height:81
+BackpackIcon_Open-Click Width:63 Height:77
+BasicWindow_BG Width:72 Height:72
+BasicWindow_CloseButton_Click Width:22 Height:22
+BasicWindow_CloseButton_Default Width:22 Height:22
+BasicWindow_CloseButton_Hover Width:22 Height:22
+BasicWindow_Header Width:34 Height:34
+BasicWindow_Panel Width:20 Height:20
+Blank Width:4 Height:4
+Blank_NoAlpha Width:4 Height:4
+Button_Click Width:26 Height:26
+Button_Default Width:26 Height:26
+Button_Disabled Width:26 Height:26
+Button_Hover Width:26 Height:26
+CategorySelection_Click Width:16 Height:16
+CategorySelection_Default Width:16 Height:16
+CategorySelection_Disabled Width:16 Height:16
+CategorySelection_Hover Width:16 Height:16
+CharacterSelectionButton Width:32 Height:32
+CharacterSelectionButton_Click Width:32 Height:32
+CharacterSelectionButton_Hover Width:32 Height:32
+CharacterWindow_CloseButton_Click Width:16 Height:16
+CharacterWindow_CloseButton_Default Width:16 Height:16
+CharacterWindow_CloseButton_Hover Width:16 Height:16
+CharacterWindow_Frame Width:265 Height:385
+CharacterWindow_InfoPage Width:257 Height:309
+Checkbox_Off Width:32 Height:32
+Checkbox_On Width:32 Height:32
+CircleCloseButton_Frame Width:32 Height:32
+ContainerListView_BG Width:5 Height:105
+ConversationWindow_Bullet_Click Width:22 Height:18
+ConversationWindow_Bullet_Default Width:15 Height:12
+ConversationWindow_Bullet_Hover Width:20 Height:18
+ConversationWindow_Bullet_HoverHighlight Width:23 Height:27
+ConversationWindow_CloseButton_Click Width:46 Height:28
+ConversationWindow_CloseButton_Default Width:39 Height:28
+ConversationWindow_CloseButton_Hover Width:46 Height:28
+CraftingCategory_Anvil1 Width:62 Height:62
+CraftingCategory_Anvil2 Width:62 Height:62
+CraftingCategory_Anvil3 Width:62 Height:62
+CraftingCategory_Anvil4 Width:62 Height:62
+CraftingCategory_Anvil5 Width:62 Height:62
+CraftingCategory_Bashing Width:64 Height:64
+CraftingCategory_BeastLeather Width:64 Height:64
+CraftingCategory_Beds Width:64 Height:64
+CraftingCategory_Blightwood Width:64 Height:64
+CraftingCategory_Bones Width:64 Height:64
+CraftingCategory_BuffsPotions Width:64 Height:64
+CraftingCategory_Casting Width:64 Height:64
+CraftingCategory_Chairs Width:64 Height:64
+CraftingCategory_Cobalt Width:64 Height:64
+CraftingCategory_CraftingStations Width:64 Height:64
+CraftingCategory_CrystallizedCobalt Width:64 Height:64
+CraftingCategory_Crystals Width:64 Height:64
+CraftingCategory_DecorativeItems Width:64 Height:64
+CraftingCategory_DurableWood Width:64 Height:64
+CraftingCategory_FabledBeastLeather Width:64 Height:64
+CraftingCategory_Fabric Width:64 Height:64
+CraftingCategory_FencesWalls Width:64 Height:64
+CraftingCategory_GildedLeather Width:64 Height:64
+CraftingCategory_GleamingIron Width:64 Height:64
+CraftingCategory_Head Width:64 Height:64
+CraftingCategory_HealingPotions Width:64 Height:64
+CraftingCategory_Iron Width:64 Height:64
+CraftingCategory_Legs Width:64 Height:64
+CraftingCategory_Lighting Width:64 Height:64
+CraftingCategory_Materials1 Width:62 Height:62
+CraftingCategory_Materials2 Width:62 Height:62
+CraftingCategory_Materials3 Width:62 Height:62
+CraftingCategory_PetArmor Width:64 Height:64
+CraftingCategory_Piercing Width:64 Height:64
+CraftingCategory_PlantFabric Width:64 Height:64
+CraftingCategory_QuiltedFabric Width:64 Height:64
+CraftingCategory_Ranged Width:64 Height:64
+CraftingCategory_RoyalSilkFabric Width:64 Height:64
+CraftingCategory_Shield Width:64 Height:64
+CraftingCategory_SilkFabric Width:64 Height:64
+CraftingCategory_Slashing Width:64 Height:64
+CraftingCategory_Storage Width:64 Height:64
+CraftingCategory_Tables Width:64 Height:64
+CraftingCategory_TannedLeather Width:64 Height:64
+CraftingCategory_Tools Width:64 Height:64
+CraftingCategory_Torso Width:64 Height:64
+CraftingCategory_VileBlightwood Width:64 Height:64
+CraftingCategory_Wood Width:64 Height:64
+CreateNewCharacterBox Width:32 Height:32
+Divider Width:110 Height:1
+DownButton_Click Width:16 Height:14
+DownButton_Default Width:16 Height:14
+DownButton_Hover Width:16 Height:14
+DropDownButton_Click Width:24 Height:24
+DropDownButton_Default Width:24 Height:24
+DropDownButton_Hover Width:24 Height:24
+DropHeaderBackground Width:16 Height:16
+ExpandDownButton_Click Width:32 Height:32
+ExpandDownButton_Default Width:32 Height:32
+ExpandDownButton_Hover Width:32 Height:32
+FancyDivider Width:169 Height:10
+Favorite_Filled Width:22 Height:22
+Favorite_Unfilled Width:22 Height:22
+FemaleButton Width:73 Height:85
+FemaleClickButton Width:73 Height:85
+FemaleHoverButton Width:73 Height:85
+FireFactionSymbolSmall Width:39 Height:51
+FrameBackground Width:5 Height:5
+GodButton_Click Width:44 Height:42
+GodButton_Default Width:44 Height:42
+GodButton_Hover Width:44 Height:42
+HeaderRow_Bar Width:21 Height:21
+HouseDecorationWindow_Button_Click Width:20 Height:20
+HouseDecorationWindow_Button_Default Width:20 Height:20
+HouseDecorationWindow_Button_Hover Width:20 Height:20
+HouseDecorationWindow_EastButtonClick Width:26 Height:48
+HouseDecorationWindow_EastButtonDefault Width:26 Height:48
+HouseDecorationWindow_EastButtonHover Width:26 Height:48
+HouseDecorationWindow_NorthButtonClick Width:48 Height:26
+HouseDecorationWindow_NorthButtonDefault Width:48 Height:26
+HouseDecorationWindow_NorthButtonHover Width:48 Height:26
+HouseDecorationWindow_RotateCCW_Click Width:20 Height:20
+HouseDecorationWindow_RotateCCW_Default Width:20 Height:20
+HouseDecorationWindow_RotateCCW_Hover Width:20 Height:20
+HouseDecorationWindow_RotateCW_Click Width:20 Height:20
+HouseDecorationWindow_RotateCW_Default Width:20 Height:20
+HouseDecorationWindow_RotateCW_Hover Width:20 Height:20
+HouseDecorationWindow_SouthButtonClick Width:48 Height:26
+HouseDecorationWindow_SouthButtonDefault Width:48 Height:26
+HouseDecorationWindow_SouthButtonHover Width:48 Height:26
+HouseDecorationWindow_WestButtonClick Width:26 Height:48
+HouseDecorationWindow_WestButtonDefault Width:26 Height:48
+HouseDecorationWindow_WestButtonHover Width:26 Height:48
+IconHighlight_Click Width:30 Height:30
+IconHighlight_Hover Width:30 Height:30
+Key_Default Width:32 Height:32
+Key_Hover Width:32 Height:32
+lock Width:19 Height:27
+LockButton_Click Width:16 Height:18
+LockButton_Default Width:16 Height:18
+LockButton_Hover Width:16 Height:18
+LockCircleButton_Click Width:44 Height:42
+LockCircleButton_Default Width:44 Height:42
+LockCircleButton_Hover Width:44 Height:42
+LootAllButton_Click Width:32 Height:32
+LootAllButton_Default Width:32 Height:32
+LootAllButton_Hover Width:32 Height:32
+MaleButton Width:73 Height:85
+MaleClickButton Width:73 Height:85
+MaleHoverButton Width:73 Height:85
+MaximizeButton_Click Width:32 Height:32
+MaximizeButton_Default Width:32 Height:32
+MaximizeButton_Hover Width:32 Height:32
+MinimizeButton_Click Width:32 Height:32
+MinimizeButton_Default Width:32 Height:32
+MinimizeButton_Hover Width:32 Height:32
+MinusButton_Click Width:24 Height:24
+MinusButton_Default Width:24 Height:24
+MinusButton_Hover Width:24 Height:24
+mouse_left_click_icon Width:14 Height:20
+mouse_right_click_icon Width:14 Height:20
+NextArrow Width:7 Height:11
+NextArrow_Click Width:7 Height:11
+NextArrow_Disabled Width:7 Height:11
+NextArrow_Hover Width:7 Height:11
+NextButton_Click Width:289 Height:58
+NextButton_Default Width:289 Height:58
+NextButton_Hover Width:289 Height:58
+NextEndArrow_Click Width:7 Height:11
+NextEndArrow_Default Width:7 Height:11
+NextEndArrow_Hover Width:7 Height:11
+PlusButton_Click Width:24 Height:24
+PlusButton_Default Width:24 Height:24
+PlusButton_Hover Width:24 Height:24
+Prestige_CircleButton_Click Width:44 Height:44
+Prestige_CircleButton_Default Width:44 Height:44
+Prestige_CircleButton_Hover Width:44 Height:44
+Prestige_DisciplineButton_Click Width:161 Height:26
+Prestige_DisciplineButton_Default Width:161 Height:26
+Prestige_DisciplineButton_Hover Width:161 Height:26
+Prestige_Divider Width:7 Height:7
+Prestige_IconFrame_Click Width:16 Height:16
+Prestige_IconFrame_Default Width:16 Height:16
+Prestige_IconFrame_Hover Width:16 Height:16
+Prestige_StaticIconFrame Width:45 Height:46
+Prestige_TitleHeader Width:191 Height:28
+PrestigeTab_Click Width:74 Height:52
+PrestigeTab_Default Width:63 Height:52
+PrestigeTab_Hover Width:74 Height:52
+PreviousArrow Width:7 Height:11
+PreviousArrow_Click Width:7 Height:11
+PreviousArrow_Disabled Width:7 Height:11
+PreviousArrow_Hover Width:7 Height:11
+PreviousEndArrow_Click Width:7 Height:11
+PreviousEndArrow_Default Width:7 Height:11
+PreviousEndArrow_Hover Width:7 Height:11
+RadioButton_ClickSelection Width:10 Height:10
+RadioButton_DefaultEmpty Width:10 Height:10
+RadioButton_Hover Width:10 Height:10
+Scroll_Divider Width:16 Height:5
+ScrollBar2Unsliced Width:24 Height:22
+ScrollBarScroller_Unsliced Width:18 Height:14
+ScrollBarUnsliced Width:20 Height:34
+Skill_Alchemy Width:84 Height:84
+Skill_AnimalKen Width:84 Height:84
+Skill_AnimalLore Width:84 Height:84
+Skill_Archery Width:84 Height:84
+Skill_Bashing Width:84 Height:84
+Skill_BeastMastery Width:84 Height:84
+Skill_Blocking Width:84 Height:84
+Skill_Butchery Width:84 Height:84
+Skill_Channeling Width:84 Height:84
+Skill_Cooking Width:84 Height:84
+Skill_Dodge Width:84 Height:84
+Skill_Endurance Width:84 Height:84
+Skill_Evocation Width:84 Height:84
+Skill_Fabrication Width:84 Height:84
+Skill_Fieldmage Width:84 Height:84
+Skill_FirstAid Width:84 Height:84
+Skill_Fishing Width:84 Height:84
+Skill_Foraging Width:84 Height:84
+Skill_Gladiator Width:84 Height:84
+Skill_Inscription Width:84 Height:84
+Skill_Knight Width:84 Height:84
+Skill_Lancing Width:84 Height:84
+Skill_LightArmorProficiency Width:84 Height:84
+Skill_Lumberjack Width:84 Height:84
+Skill_MagicAffinity Width:84 Height:84
+Skill_Manifestation Width:84 Height:84
+Skill_Marksmanship Width:84 Height:84
+Skill_Melee Width:84 Height:84
+Skill_Metalsmith Width:84 Height:84
+Skill_Mining Width:84 Height:84
+Skill_Necromancy Width:84 Height:84
+Skill_Piercing Width:84 Height:84
+Skill_Regeneration Width:84 Height:84
+Skill_Rogue Width:84 Height:84
+Skill_Salvage Width:84 Height:84
+Skill_Slashing Width:84 Height:84
+Skill_Sorcerer Width:84 Height:84
+Skill_Veterinary Width:84 Height:84
+Skill_Woodsmith Width:84 Height:84
+SkillBook Width:39 Height:64
+SkillBookHover Width:39 Height:64
+SkillExpBarFull Width:4 Height:7
+SkillIconsFrame Width:130 Height:130
+SkillLevelBarDivider Width:2 Height:14
+SkillLevelBarFrame Width:48 Height:18
+SkillLevelLabelBarFrame Width:29 Height:30
+SkillPrestige Width:40 Height:64
+SkillPrestigeHover Width:40 Height:64
+SkillSliderDiamond_ActiveDrag Width:34 Height:34
+SkillSliderDiamond_Default Width:34 Height:34
+SkillSliderDiamond_Hover Width:34 Height:34
+SkillTab_Click Width:76 Height:58
+SkillTab_Default Width:76 Height:58
+SkillTab_Hover Width:76 Height:58
+SkillTracker_BG Width:36 Height:36
+SpellIndex_ListFrame Width:73 Height:32
+SplitStackButton_Click Width:21 Height:21
+SplitStackButton_Default Width:21 Height:21
+SplitStackButton_Hover Width:21 Height:21
+SplitStackCancelButton_Click Width:21 Height:21
+SplitStackCancelButton_Default Width:21 Height:21
+SplitStackCancelButton_Hover Width:21 Height:21
+SplitStackFrame Width:49 Height:25
+StatBarFrame Width:9 Height:8
+SystemMessageElement_Gold Width:241 Height:80
+Tab_Bar Width:21 Height:21
+Tab_Label Width:23 Height:24
+TextDivider Width:25 Height:25
+TextFieldChatUnsliced Width:24 Height:24
+TitleBackground Width:181 Height:9
+TitleDivider Width:181 Height:10
+Track_Filled Width:22 Height:22
+Track_Unfilled Width:22 Height:22
+TradeWindow_BG Width:530 Height:262
+UpButton_Click Width:16 Height:14
+UpButton_Default Width:16 Height:14
+UpButton_Hover Width:16 Height:14
+UpButtonSquare_Click Width:24 Height:24
+UpButtonSquare_Default Width:24 Height:24
+UpButtonSquare_Hover Width:24 Height:24
+UtilityBar_Frame Width:166 Height:58
+UtilityBar_SmallBlueFrame Width:166 Height:44
+UtilityBar_SmallGreenFrame Width:166 Height:44
+UtilityBar_SmallGreyFrame Width:166 Height:44
+UtilityBar_SmallRedFrame Width:166 Height:44
+UtilityBar_SmalPurpleFrame Width:166 Height:44
+UtilityBar_StatusFrame Width:27 Height:27
+UtilityBar_StatusFrameSingle Width:27 Height:10
+Warning Width:41 Height:41
+WaterFactionSymbolSmall Width:39 Height:51
+XPBarFrameBackground Width:5 Height:5
+AbilityDock_AbilitySlot Width:52 Height:59
+AbilityDock_BG Width:110 Height:91
+AbilityDock_Center_Background Width:104 Height:97
+CombatTarget_Icon Width:32 Height:32
+DiamondButton_DBackground Width:46 Height:45
+DiamondButton_Icon_Hover_Run Width:32 Height:32
+DiamondButtons_Active_Default_House Width:32 Height:32
+DiamondButtons_Glow Width:32 Height:32
+DiamondButtons_Icon_Active_AggroStance Width:32 Height:32
+DiamondButtons_Icon_Active_AutoTarget Width:32 Height:32
+DiamondButtons_Icon_Active_BalancedStance Width:32 Height:32
+DiamondButtons_Icon_Active_Character Width:32 Height:32
+DiamondButtons_Icon_Active_DefenseStance Width:32 Height:32
+DiamondButtons_Icon_Active_GodPowers Width:32 Height:32
+DiamondButtons_Icon_Active_Map Width:32 Height:32
+DiamondButtons_Icon_Active_Pet Width:32 Height:32
+DiamondButtons_Icon_Active_PVPFlag Width:32 Height:32
+DiamondButtons_Icon_Active_Quest Width:32 Height:32
+DiamondButtons_Icon_Active_Run Width:32 Height:32
+DiamondButtons_Icon_Active_Settings Width:32 Height:32
+DiamondButtons_Icon_Active_Skills Width:32 Height:32
+DiamondButtons_Icon_Active_Walk Width:32 Height:32
+DiamondButtons_Icon_Active_ZoomIn Width:32 Height:32
+DiamondButtons_Icon_Active_ZoomOut Width:32 Height:32
+DiamondButtons_Icon_Default_AggroStance Width:32 Height:32
+DiamondButtons_Icon_Default_AutoTarget Width:32 Height:32
+DiamondButtons_Icon_Default_BalancedStance Width:32 Height:32
+DiamondButtons_Icon_Default_Character Width:32 Height:32
+DiamondButtons_Icon_Default_DefensiveStance Width:32 Height:32
+DiamondButtons_Icon_Default_GodPowers Width:32 Height:32
+DiamondButtons_Icon_Default_House Width:32 Height:32
+DiamondButtons_Icon_Default_Map Width:32 Height:32
+DiamondButtons_Icon_Default_Pet Width:32 Height:32
+DiamondButtons_Icon_Default_PVPFlag Width:32 Height:32
+DiamondButtons_Icon_Default_Quest Width:32 Height:32
+DiamondButtons_Icon_Default_Run Width:32 Height:32
+DiamondButtons_Icon_Default_Settings Width:32 Height:32
+DiamondButtons_Icon_Default_Skills Width:32 Height:32
+DiamondButtons_Icon_Default_Walk Width:32 Height:32
+DiamondButtons_Icon_Default_ZoomIn Width:32 Height:32
+DiamondButtons_Icon_Default_ZoomOut Width:32 Height:32
+DiamondButtons_Icon_Hover_AggroStance Width:32 Height:32
+DiamondButtons_Icon_Hover_AutoTarget Width:32 Height:32
+DiamondButtons_Icon_Hover_BalancedStance Width:32 Height:32
+DiamondButtons_Icon_Hover_Character Width:32 Height:32
+DiamondButtons_Icon_Hover_DefensiveStance Width:32 Height:32
+DiamondButtons_Icon_Hover_GodPowers Width:32 Height:32
+DiamondButtons_Icon_Hover_House Width:32 Height:32
+DiamondButtons_Icon_Hover_Map Width:32 Height:32
+DiamondButtons_Icon_Hover_Pet Width:32 Height:32
+DiamondButtons_Icon_Hover_PVPFlag Width:32 Height:32
+DiamondButtons_Icon_Hover_Quest Width:32 Height:32
+DiamondButtons_Icon_Hover_Settings Width:32 Height:32
+DiamondButtons_Icon_Hover_Skills Width:32 Height:32
+DiamondButtons_Icon_Hover_Walk Width:32 Height:32
+DiamondButtons_Icon_Hover_ZoomIn Width:32 Height:32
+DiamondButtons_Icon_Hover_ZoomOut Width:32 Height:32
+EmptySlotIcon Width:48 Height:48
+HealthStatusBarBackground Width:321 Height:33
+HealthStatusBarFrame Width:321 Height:33
+ManaStatusBarBackground Width:273 Height:29
+ManaStatusBarFrame Width:245 Height:14
+MiniMapCompassFrame Width:224 Height:224
+PageButtonBackground Width:17 Height:55
+PageButtonDefault Width:10 Height:11
+PageButtonHover Width:10 Height:11
+SelfTarget_Icon Width:32 Height:32
+SpellAbilInvalid Width:50 Height:50
+StaminaStatusBarBackground Width:273 Height:29
+StaminaStatusBarFrame Width:245 Height:14
+StatusBarFullBlue Width:4 Height:14
+StatusBarFullRed Width:4 Height:14
+StatusBarFullYellow Width:4 Height:14
+StatusIcon_Backpack Width:76 Height:76
+StatusIcon_Backpack_Active Width:76 Height:76
+StatusIcon_Backpack_Default Width:76 Height:76
+StatusIcon_Backpack_Hover Width:76 Height:76
+StatusIcon_Combat Width:76 Height:76
+StatusIcon_Combat_Hover Width:76 Height:76
+StatusIcon_Glow Width:76 Height:76
+StatusIcon_Passive Width:76 Height:76
+StatusIcon_Passive_Hover Width:76 Height:76
+Target_background Width:68 Height:81
+SpellAbilFrame Width:50 Height:50
+AbilityDock_KeyBinding Width:36 Height:31
+ReleaseButton_Hover_03 Width:400 Height:61
+ReleaseButton_Dark_03 Width:400 Height:61
+ReleaseButton_Click_03 Width:400 Height:61
+ReleaseButton_Default_03 Width:400 Height:61
+ReleaseButtonBase Width:460 Height:253
+AbilityBar_Frame_Click Width:58 Height:58
+AbilityBar_Frame_Default Width:58 Height:58
+AbilityBar_Frame_Hover Width:58 Height:58
+AbilityBar_Frame_NoHotkey_Click Width:58 Height:58
+AbilityBar_Frame_NoHotkey_Default Width:58 Height:58
+AbilityBar_Frame_NoHotkey_Hover Width:58 Height:58
+adrenalinerush Width:64 Height:64
+anatomy Width:220 Height:220
+attack_target Width:64 Height:64
+auraoffire Width:64 Height:64
+backpack Width:64 Height:64
+backstab Width:64 Height:64
+barrage Width:64 Height:64
+bindtoportal Width:64 Height:64
+blank Width:32 Height:32
+Blank_Gold Width:56 Height:56
+Blank_Silver Width:56 Height:56
+chainlightning Width:64 Height:64
+charge Width:64 Height:64
+chargedblast Width:64 Height:64
+cloak Width:64 Height:64
+combat_target Width:64 Height:64
+CraftingQualityFrame1 Width:42 Height:42
+CraftingQualityFrame2 Width:42 Height:42
+CraftingQualityFrame3 Width:42 Height:42
+CraftingQualityFrame4 Width:42 Height:42
+CraftingQualityFrame5 Width:42 Height:42
+crosscut Width:64 Height:64
+defend Width:64 Height:64
+detecthidden Width:64 Height:64
+disarmtrap Width:64 Height:64
+dominate Width:64 Height:64
+drivingstrike Width:64 Height:64
+earthquake Width:220 Height:220
+evaluate Width:64 Height:64
+evasion Width:64 Height:64
+eviscerate Width:64 Height:64
+exploit Width:64 Height:64
+feed Width:64 Height:64
+fielddressing Width:220 Height:220
+fireball Width:64 Height:64
+fishing Width:64 Height:64
+flamewave Width:64 Height:64
+flurry Width:64 Height:64
+followthrough Width:64 Height:64
+food Width:64 Height:64
+force_peace Width:64 Height:64
+forcestab Width:64 Height:64
+god button Width:64 Height:64
+grimaura Width:64 Height:64
+hatchetlumberjacking Width:220 Height:220
+hatchetmilling Width:220 Height:220
+heal Width:64 Height:64
+heel Width:64 Height:64
+human Width:64 Height:64
+hunger Width:220 Height:220
+huntingknifeforaging Width:220 Height:220
+huntingknifeskinning Width:220 Height:220
+icelance Width:64 Height:64
+icestorm Width:64 Height:64
+impale Width:64 Height:64
+input Width:17 Height:17
+intimidate Width:64 Height:64
+ItemSlot Width:41 Height:41
+ItemSlot_Click Width:37 Height:39
+ItemSlot_Hover Width:37 Height:39
+lifetransfer Width:64 Height:64
+LighterSlotIcon Width:48 Height:48
+lightning Width:64 Height:64
+lunge Width:64 Height:64
+magicalguide Width:220 Height:220
+miningpickmining Width:220 Height:220
+miningpicksmelting Width:220 Height:220
+onslaught Width:220 Height:220
+pet_aggressive Width:64 Height:64
+pet_attack_target Width:64 Height:64
+pet_calm Width:64 Height:64
+pet_defensive Width:64 Height:64
+pet_follow Width:64 Height:64
+pet_guard Width:64 Height:64
+pet_passive Width:64 Height:64
+pet_soulbound Width:64 Height:64
+pet_summon Width:64 Height:64
+pet_taunt Width:64 Height:64
+picklock Width:64 Height:64
+pickpocket Width:64 Height:64
+pillaroffire Width:64 Height:64
+placetrap Width:64 Height:64
+pommel Width:64 Height:64
+PrestigeFrame1_Click Width:46 Height:46
+PrestigeFrame1_Default Width:46 Height:46
+PrestigeFrame1_Hover Width:46 Height:46
+PrestigeFrame2_Click Width:46 Height:46
+PrestigeFrame2_Default Width:46 Height:46
+PrestigeFrame2_Hover Width:46 Height:46
+primaryability Width:64 Height:64
+pulverize Width:64 Height:64
+pummel Width:64 Height:64
+puncture Width:64 Height:64
+reanimateskeleton Width:64 Height:64
+regenfocus Width:64 Height:64
+release Width:220 Height:220
+rend Width:64 Height:64
+ressurect Width:64 Height:64
+restore Width:64 Height:64
+resurrect Width:64 Height:64
+riposte Width:64 Height:64
+secondaryability Width:64 Height:64
+settings button Width:64 Height:64
+shadowrun Width:64 Height:64
+shield_bash Width:64 Height:64
+shockwave Width:64 Height:64
+skills Width:64 Height:64
+souldrain Width:64 Height:64
+SpellBackground Width:3 Height:3
+SpellFrame1 Width:46 Height:46
+SpellFrame1_Click Width:46 Height:46
+SpellFrame1_Hover Width:46 Height:46
+SpellFrame2 Width:46 Height:46
+SpellFrame2_Click Width:46 Height:46
+SpellFrame2_Hover Width:46 Height:46
+spikepath Width:64 Height:64
+sprint Width:64 Height:64
+stable Width:220 Height:220
+stanceability Width:64 Height:64
+stay Width:64 Height:64
+steal Width:64 Height:64
+stealth Width:64 Height:64
+summonimp Width:64 Height:64
+sunder Width:64 Height:64
+tamecreature Width:64 Height:64
+target_self Width:64 Height:64
+taunt Width:64 Height:64
+teleport Width:64 Height:64
+track Width:64 Height:64
+transference Width:64 Height:64
+transience Width:64 Height:64
+voidblast Width:64 Height:64
+walloffire Width:64 Height:64
+wideswept Width:64 Height:64
+Acid Arrow Width:64 Height:64
+Acid Splash Width:64 Height:64
+Arcane Arrow Width:64 Height:64
+Arcane Shackles Width:64 Height:64
+Arcane Shield2 Width:64 Height:64
+Arrow Storm Width:64 Height:64
+Ball Lightning 01 Width:64 Height:64
+Ball Lightning 02 Width:64 Height:64
+Bash Width:64 Height:64
+Berserker Rage Width:64 Height:64
+Black Forest Width:64 Height:64
+Blazing Speed Width:64 Height:64
+Blessed Hammer Width:64 Height:64
+Blink Strike Width:64 Height:64
+Blizzard Width:64 Height:64
+Block Width:64 Height:64
+Burning Arrow Width:64 Height:64
+Charge Width:64 Height:64
+Chill Width:64 Height:64
+Cleave Width:64 Height:64
+Cold Mastery Width:64 Height:64
+Dawn Width:64 Height:64
+Deep Cuts Width:64 Height:64
+Deflect Width:64 Height:64
+Dispel Width:64 Height:64
+Divine Aura 01 Width:64 Height:64
+Divine Aura 02 Width:64 Height:64
+Dual Wield Width:64 Height:64
+Eclipse Width:64 Height:64
+Eclipse2 Width:64 Height:64
+Electic Web Width:64 Height:64
+Elemental Arrow Width:64 Height:64
+Elemental Shield Width:64 Height:64
+Fan of Daggers Width:64 Height:64
+Far Sight Width:64 Height:64
+Fatal Strike Width:64 Height:64
+Feral Rage Width:64 Height:64
+Fiery Arrow Width:64 Height:64
+Fire and Ice Width:64 Height:64
+Fire Bolt Width:64 Height:64
+Fire Demon Width:64 Height:64
+Fire Mastery Width:64 Height:64
+Fire Nova Width:64 Height:64
+Fire Shackles Width:64 Height:64
+Fire Shackles2 Width:64 Height:64
+Fire Shield Width:64 Height:64
+Fire Shield2 Width:64 Height:64
+Fire Spark Width:64 Height:64
+Fireball Width:64 Height:64
+Flame Mark Width:64 Height:64
+Flame Wall Width:64 Height:64
+Flame Whirl Width:64 Height:64
+Flashing Strike Width:64 Height:64
+Force Push 01 Width:64 Height:64
+Force Push 02 Width:64 Height:64
+Freezing Arrow Width:64 Height:64
+Frost Bolt Width:64 Height:64
+Frost Orb Width:64 Height:64
+Gust of Wind Width:64 Height:64
+Hammer Smash Width:64 Height:64
+Healing Hands Width:64 Height:64
+Hellstorm Width:64 Height:64
+Hellstorm 02 Width:64 Height:64
+Hellstorm 03 Width:64 Height:64
+Holy Blast Width:64 Height:64
+Holy Light Width:64 Height:64
+Holy Mastery Width:64 Height:64
+Holy Shield Width:64 Height:64
+Ice Barrier Width:64 Height:64
+Icy Arrow Width:64 Height:64
+Ignite Width:64 Height:64
+Illuminate Width:64 Height:64
+Imbue Fire Width:64 Height:64
+Imbue Frost Width:64 Height:64
+Imbue Holy Width:64 Height:64
+Imbue Lightning Width:64 Height:64
+Imbue Unholy Width:64 Height:64
+Immolation Width:64 Height:64
+Leap Width:64 Height:64
+Lightning Bolt Width:64 Height:64
+Lightning Dagger Width:64 Height:64
+Lightning Dagger 02 Width:64 Height:64
+Lightning Dagger 03 Width:64 Height:64
+Lightning Mastery Width:64 Height:64
+Lightning Nova Width:64 Height:64
+Lightning Orb Width:64 Height:64
+Lightning Reflexes Width:64 Height:64
+Lightning Surge Width:64 Height:64
+Maelstrom Width:64 Height:64
+Magic Barrier Width:64 Height:64
+Martial Arts 01 Width:64 Height:64
+Martial Arts 02 Width:64 Height:64
+Martial Arts 03 Width:64 Height:64
+Meteor 01 Width:64 Height:64
+Meteor 02 Width:64 Height:64
+Meteor 03 Width:64 Height:64
+Meteor 04 Width:64 Height:64
+Multishot Width:64 Height:64
+Natures Grace Width:64 Height:64
+Night Width:64 Height:64
+Pathfinding Width:64 Height:64
+Phantom Width:64 Height:64
+Poison Arrow Width:64 Height:64
+Poison Claws Width:64 Height:64
+Poison Cloud Width:64 Height:64
+Poison Skull Width:64 Height:64
+Poison Splash Width:64 Height:64
+Quick Shot Width:64 Height:64
+Quick Step Width:64 Height:64
+Raise Undead Width:64 Height:64
+Regrowth Width:64 Height:64
+Revenge2 Width:64 Height:64
+Sap2 Width:64 Height:64
+Seismic Slam 01 Width:64 Height:64
+Seismic Slam 02 Width:64 Height:64
+Seismic Slam 03 Width:64 Height:64
+Sharpshooter Width:64 Height:64
+Shield Breaker Width:64 Height:64
+Shieldwall Width:64 Height:64
+Shock Wave Width:64 Height:64
+Shred Width:64 Height:64
+Slash Width:64 Height:64
+Soothing Water Width:64 Height:64
+Spectral Ball Width:64 Height:64
+Spell Shield Width:64 Height:64
+Stab Width:64 Height:64
+Starfall 01 Width:64 Height:64
+Starfall 02 Width:64 Height:64
+Stone Skin Width:64 Height:64
+Strike Width:64 Height:64
+Summon Bat 01 Width:64 Height:64
+Summon Bat 02 Width:64 Height:64
+Summon Bat 03 Width:64 Height:64
+Summon Bat 04 Width:64 Height:64
+Summon Bear Width:64 Height:64
+Summon Black Horse Width:64 Height:64
+Summon Brown Horse Width:64 Height:64
+Summon Crow Width:64 Height:64
+Summon Grey Pony Width:64 Height:64
+Summon Raven 01 Width:64 Height:64
+Summon Raven 02 Width:64 Height:64
+Summon Raven 03 Width:64 Height:64
+Summon Raven 04 Width:64 Height:64
+Summon Raven 05 Width:64 Height:64
+Summon Spirit Bear Width:64 Height:64
+Summon Spirit Wolf Width:64 Height:64
+Summon White Horse Width:64 Height:64
+Summon Wolf Width:64 Height:64
+Sure Strike Width:64 Height:64
+Terrify Width:64 Height:64
+Thunder Storm Width:64 Height:64
+Thunder Strike Width:64 Height:64
+Thunder Strike 02 Width:64 Height:64
+Thunder Strike 03 Width:64 Height:64
+Thunder Strike 04 Width:64 Height:64
+Tornado Width:64 Height:64
+Track Beasts Width:64 Height:64
+Tracking Width:64 Height:64
+Unholy Blast Width:64 Height:64
+Unholy Mastery Width:64 Height:64
+Volcanic Eruption Width:64 Height:64
+Weapon Throw Width:64 Height:64
+Whirling Axe Width:64 Height:64
+Whirlwind Width:64 Height:64
+Wild Shot Width:64 Height:64
+Windshot Width:64 Height:64
+Wrath of Nature 01 Width:64 Height:64
+Wrath of Nature02 Width:64 Height:64
+3ColumnTab_Active Width:30 Height:32
+3ColumnTab_Off Width:30 Height:32
+AbilitiesTab_Active Width:30 Height:32
+AbilitiesTab_Off Width:30 Height:32
+AbilityHotbar_DiamondFrame Width:72 Height:75
+AbilityHotbar_DiamondFrame_Click Width:68 Height:60
+AbilityHotbar_DiamondFrame_Hover Width:68 Height:60
+AbilityHotbar_Middle Width:74 Height:76
+AbilityHotbar_PrestigeFrame_Click Width:72 Height:62
+AbilityHotbar_PrestigeFrame_Default Width:72 Height:75
+AbilityHotbar_PrestigeFrame_Hover Width:72 Height:62
+AbilityHotbar_Sides_L Width:210 Height:76
+AbilityHotbar_Sides_R Width:211 Height:76
+AmountSelectionWindowBackground Width:51 Height:25
+AmountSelectionWindowCheckButtonClick Width:19 Height:19
+AmountSelectionWindowCheckButtonDefault Width:19 Height:19
+AmountSelectionWindowCheckButtonHover Width:19 Height:19
+AmountSelectionWindowCloseButtonClick Width:19 Height:19
+AmountSelectionWindowCloseButtonDefault Width:19 Height:19
+AmountSelectionWindowCloseButtonHover Width:19 Height:19
+arrow_small Width:64 Height:32
+ArrowFrameBackground Width:84 Height:151
+ArrowFrameBackground1 Width:46 Height:79
+ArrowFrameBackground2 Width:31 Height:49
+ArrowLeft_Active Width:9 Height:17
+ArrowLeft_Default Width:9 Height:17
+ArrowLeft_Hover Width:9 Height:17
+ArrowRight_Active Width:9 Height:17
+ArrowRight_Default Width:9 Height:17
+ArrowRight_Hover Width:9 Height:17
+Blank_Slot Width:61 Height:62
+BossHealth_EndCaps Width:90 Height:23
+BossHealth_Frame Width:47 Height:16
+button Width:17 Height:17
+cancel Width:32 Height:21
+cancel_active Width:32 Height:21
+Category2SelectionBoxClick Width:34 Height:34
+Category2SelectionBoxDefault Width:34 Height:34
+Category2SelectionBoxHover Width:34 Height:34
+CategoryTitleFrame_Click Width:10 Height:10
+CategoryTitleFrame_Default Width:10 Height:10
+CategoryTitleFrame_Hover Width:10 Height:10
+CategoryTitleFrameDivider Width:5 Height:36
+ChamferFrameBackground Width:90 Height:88
+CharacterButton_Click Width:43 Height:42
+CharacterButton_Default Width:43 Height:42
+CharacterButton_Hover Width:43 Height:42
+CharacterTab_Active Width:30 Height:32
+CharacterTab_Off Width:30 Height:32
+CharacterWindowIcon_HoverGlow Width:43 Height:43
+Checkbox32px_Off Width:32 Height:32
+Checkbox32px_Off_Ornaments Width:32 Height:32
+Checkbox32px_On Width:32 Height:32
+Checkmark Width:21 Height:20
+CircleButtonSmall_Click Width:22 Height:22
+CircleButtonSmall_Default Width:22 Height:22
+CircleButtonSmall_Hover Width:22 Height:22
+close_button Width:20 Height:20
+coin_symbol Width:7 Height:7
+CollapseArrow1 Width:7 Height:11
+CollapseArrow2 Width:11 Height:7
+CombatStatus Width:110 Height:104
+CombatToggleButton_Active_Click Width:43 Height:42
+CombatToggleButton_Active_Default Width:43 Height:42
+CombatToggleButton_Active_Hover Width:43 Height:42
+CombatToggleButton_Passive_Click Width:43 Height:42
+CombatToggleButton_Passive_Default Width:43 Height:42
+CombatToggleButton_Passive_Hover Width:43 Height:42
+commit Width:32 Height:21
+commit_active Width:32 Height:21
+CraftingCategorySelectionActive Width:66 Height:66
+CraftingCategorySelectionDefault Width:13 Height:13
+CraftingCategorySelectionHover Width:64 Height:64
+CraftingItemsFrame Width:42 Height:42
+CraftingNoItemsFrame Width:42 Height:42
+CraftingQualityFrameHighlight Width:50 Height:50
+CraftingTabDivider Width:3 Height:3
+CraftingWindowBackground Width:356 Height:128
+CraftingWindowBlankUserAction Width:32 Height:32
+CraftingWindowSectionBackground Width:100 Height:132
+CraftingWindowSectionHeader Width:221 Height:28
+CraftingWindowWeaponTypeHighlight Width:38 Height:38
+CraftResourceOutline Width:32 Height:32
+DiamondButton_DBackground_DropShadow Width:52 Height:52
+DownButton_default Width:16 Height:16
+DownButton_hover Width:16 Height:16
+DynamicBar Width:183 Height:86
+EquipSlotBG Width:41 Height:40
+EvocationTab_Click Width:73 Height:52
+EvocationTab_Default Width:55 Height:52
+EvocationTab_Hover Width:73 Height:52
+ExpandBackgroundGradient Width:23 Height:25
+Familiar_Slot Width:61 Height:62
+FireFactionSymbolLarge Width:97 Height:128
+FullBody_Slot Width:61 Height:60
+FullBorder Width:15 Height:15
+GreyOutImage Width:8 Height:8
+GroupUI_Frame Width:162 Height:36
+GroupUI_Health Width:4 Height:6
+GroupUI_Mana Width:4 Height:3
+GroupUI_Stamina Width:4 Height:3
+Head_Slot Width:61 Height:60
+Header2CloseButton_Click Width:32 Height:32
+Header2CloseButton_Default Width:32 Height:32
+Header2CloseButton_Hover Width:32 Height:32
+Header2FrameBackground Width:90 Height:88
+Header2TitleBox Width:264 Height:42
+HeaderCloseButton_Click Width:26 Height:24
+HeaderCloseButton_Dark Width:26 Height:24
+HeaderCloseButton_Default Width:26 Height:24
+HeaderCloseButton_Hover Width:26 Height:24
+healthbar_compactframe Width:18 Height:10
+healthbar_frame Width:28 Height:18
+HelpButton_Glow01 Width:50 Height:50
+HelpButton_Glow02 Width:50 Height:50
+HelpButton_Glow03 Width:50 Height:50
+HelpButton_Glow04 Width:50 Height:50
+HelpButton_Glow05 Width:50 Height:50
+HelpButton_Glow06 Width:50 Height:50
+HelpButton_Glow07 Width:50 Height:50
+HelpButton_Glow08 Width:50 Height:50
+HelpButton_Glow09 Width:50 Height:50
+HelpButton_Glow10 Width:50 Height:50
+HorizontalWindowDivider Width:152 Height:2
+HouseDecorationWindow_RotateCCW Width:20 Height:20
+HouseDecorationWindow_RotateCW Width:20 Height:20
+InfoFrame Width:12 Height:12
+InformationLightBackgroundColor Width:4 Height:4
+InventoryCategorySelectionBubble Width:10 Height:10
+InventoryCategorySelectionFilled Width:4 Height:4
+InventoryContainerSelectionButton Width:26 Height:26
+InventoryContainerSelectionButton_Active Width:26 Height:26
+InventoryContainerSelectionButton_Hover Width:26 Height:26
+InventoryDiamondButtons_Click_Close Width:36 Height:31
+InventoryDiamondButtons_Click_LootAll Width:36 Height:31
+InventoryDiamondButtons_Click_SizeDown Width:36 Height:31
+InventoryDiamondButtons_Click_SizeUp Width:36 Height:31
+InventoryDiamondButtons_Default_Close Width:36 Height:31
+InventoryDiamondButtons_Default_LootAll Width:36 Height:31
+InventoryDiamondButtons_Default_SizeDown Width:36 Height:31
+InventoryDiamondButtons_Default_SizeUp Width:36 Height:31
+InventoryDiamondButtons_Hover_Close Width:36 Height:31
+InventoryDiamondButtons_Hover_LootAll Width:36 Height:31
+InventoryDiamondButtons_Hover_SizeDown Width:36 Height:31
+InventoryDiamondButtons_Hover_SizeUp Width:36 Height:31
+InventoryDivider Width:122 Height:2
+InventoryItemSelectionButton Width:26 Height:26
+InventoryItemSelectionButton_Active Width:26 Height:26
+InventoryItemSelectionButton_Hover Width:26 Height:26
+InventoryListViewButton_Click Width:136 Height:25
+InventoryListViewButton_Default Width:136 Height:25
+InventoryListViewButton_Hover Width:136 Height:25
+InventoryQuantitySymbol Width:6 Height:6
+InventorySplitStackSelectionButton_Active Width:19 Height:19
+InventorySplitStackSelectionButton_Default Width:19 Height:19
+InventorySplitStackSelectionButton_Hover Width:19 Height:19
+InventoryStorageContainerSymbol Width:7 Height:9
+InventoryTabSymbol_All Width:16 Height:15
+InventoryTabSymbol_Armor Width:16 Height:12
+InventoryTabSymbol_Documents Width:11 Height:11
+InventoryTabSymbol_Furniture Width:11 Height:11
+InventoryTabSymbol_Miscellaneous Width:11 Height:11
+InventoryTabSymbol_Potions Width:19 Height:15
+InventoryTabSymbol_Resources Width:11 Height:11
+InventoryTabSymbol_Tools Width:11 Height:11
+InventoryTabSymbol_Weapons Width:14 Height:13
+InventoryWeightSymbol Width:10 Height:9
+InventoryWindow_Background Width:10 Height:137
+InventoryWindow_GradientBottomCover Width:4 Height:49
+InventoryWindow_NameplateDesign Width:4 Height:33
+InventoryWindowTabBarBase Width:31 Height:32
+InventoryWindowTabBarSelection Width:24 Height:23
+Key_Slot Width:43 Height:43
+KeyBinding_1 Width:36 Height:35
+KeyBinding_2 Width:36 Height:35
+KeyBinding_3 Width:36 Height:35
+KeyBinding_4 Width:36 Height:35
+KeyBinding_5 Width:36 Height:35
+KeyBinding_6 Width:36 Height:35
+KeyBindingGlow Width:49 Height:48
+keyboard_key_icon Width:18 Height:16
+KeysButton_Active Width:32 Height:32
+KeysButton_Default Width:32 Height:32
+KeysButton_Hover Width:32 Height:32
+Kingthings_0 Width:255 Height:51
+LargeTextFieldUnsliced Width:103 Height:44
+LeaderIcon Width:19 Height:19
+LeftHand_Slot Width:61 Height:60
+Legs_Slot Width:61 Height:59
+location_arrow Width:35 Height:40
+location_corpse Width:50 Height:50
+location_home Width:50 Height:50
+location_town Width:94 Height:94
+location_town_selected Width:94 Height:94
+Lock_GoldDiamond Width:47 Height:51
+Lock_SilverDiamond Width:47 Height:51
+LockButton_default Width:16 Height:16
+LockButton_hover Width:16 Height:16
+LockedAbilityIcons Width:56 Height:56
+manabar Width:5 Height:6
+manabar_compactframe Width:18 Height:8
+manabar_frame Width:13 Height:12
+ManifestationTab_Click Width:74 Height:52
+ManifestationTab_Default Width:63 Height:52
+ManifestationTab_Hover Width:74 Height:52
+marker_circle1 Width:50 Height:50
+marker_circle2 Width:50 Height:50
+marker_diamond1 Width:50 Height:50
+marker_diamond2 Width:50 Height:50
+marker_diamond3 Width:50 Height:50
+marker_diamond4 Width:50 Height:50
+marker_diamond5 Width:50 Height:50
+MedButton_Purp_Click_Merged Width:31 Height:31
+MedButton_Purp_Default_Merged Width:31 Height:31
+MedButton_Purp_Hover_Merged Width:31 Height:31
+MedButton_Red_Click_Merged Width:31 Height:31
+MedButton_Red_Default_Merged Width:31 Height:31
+MedButton_Red_Hover_Merged Width:31 Height:31
+MedButton_Standard_Click_Merged Width:31 Height:31
+MedButton_Standard_Hover_Merged Width:31 Height:31
+MediumButton_Standard_Default_Merged Width:31 Height:31
+MinimapFrame Width:173 Height:173
+MiniMapGlassFrame Width:203 Height:203
+MinimapNorth Width:159 Height:159
+MobHealth_EndCaps Width:45 Height:22
+MobHealth_Frame Width:47 Height:16
+ObjectButton_Unsliced Width:118 Height:20
+ObjectPictureFrame Width:39 Height:39
+ornatearrow_L Width:90 Height:43
+ornatearrow_L_highlight Width:90 Height:43
+ornatearrow_R Width:90 Height:43
+ornatearrow_R_highlight Width:90 Height:43
+pageflapL_click Width:153 Height:88
+pageflapL_default Width:114 Height:88
+pageflapL_hover Width:114 Height:88
+pageflapR_click Width:145 Height:89
+pageflapR_default Width:121 Height:89
+pageflapR_hover Width:121 Height:89
+PageHighlightFrame Width:4 Height:4
+PartialBorder Width:15 Height:77
+PartyHealth_EndCaps Width:58 Height:21
+PartyHealth_Frame Width:47 Height:16
+pentagram_marker Width:69 Height:73
+PermianSlabSerif_0 Width:511 Height:204
+PermianSlabSerifBold_24_0 Width:255 Height:241
+PersonSilhouette Width:210 Height:142
+PlusSign Width:21 Height:21
+PlusSign_Mini Width:5 Height:5
+progess_bar_empty Width:80 Height:80
+progess_bar_full Width:80 Height:80
+ProgressBarBG Width:137 Height:19
+ProgressBarFrame Width:137 Height:19
+ProgressBarFull Width:4 Height:19
+PVPFlagButton_Click Width:43 Height:42
+PVPFlagButton_Default Width:43 Height:42
+PVPFlagButton_Hover Width:43 Height:42
+RightHand_Slot Width:61 Height:60
+rotate Width:32 Height:21
+rotate_active Width:32 Height:21
+scale Width:32 Height:21
+scale_active Width:32 Height:21
+Scrolbar2 Width:18 Height:25
+ScrollBar_Unsliced Width:20 Height:51
+Scrollbar2_Scroller Width:14 Height:12
+SearchBarFrame Width:23 Height:24
+SearchSymbol_Active Width:13 Height:14
+SearchSymbol_Default Width:13 Height:14
+SearchSymbol_Hover Width:13 Height:14
+SectionBackground Width:49 Height:50
+SectionDividerBar Width:36 Height:7
+SectionDividerBar_Half Width:17 Height:7
+SectionDividerFrames_nobackground Width:32 Height:32
+SettingsButton Width:26 Height:26
+SettingsButton_Click Width:43 Height:42
+SettingsButton_Default Width:43 Height:42
+SettingsButton_Hover Width:43 Height:42
+SimpleButton_Click Width:22 Height:22
+SimpleButton_Default Width:22 Height:22
+SimpleButton_Hover Width:22 Height:22
+SimpleButton_Inactive Width:22 Height:22
+Skill_Firstaid Width:82 Height:82
+SkillIconsPrestigeFrame Width:145 Height:145
+SkillItemFrame Width:257 Height:64
+SkillItemFrame_Highlighted Width:257 Height:64
+SkillLevelBarFull Width:4 Height:14
+SkillLevelLabelBarFrameLine Width:4 Height:5
+SkillLevelProgressBar Width:4 Height:12
+SkillLevelProgressRefillBar Width:4 Height:12
+SkillsButton Width:43 Height:42
+SkillsButton_Click Width:43 Height:42
+SkillsButton_Default Width:43 Height:42
+SkillsButton_Hover Width:43 Height:42
+SkillsCategoryDivider Width:8 Height:3
+SkillsCategoryTitleFrame Width:35 Height:35
+SkillsDarkBackground Width:10 Height:10
+SkillsSectionGradient Width:4 Height:100
+SkillsSelectionFrame_Active Width:29 Height:29
+SkillsSelectionFrame_Default Width:29 Height:29
+SkillsSelectionFrame_Hover Width:29 Height:29
+SkillsTab_Active Width:30 Height:32
+SkillsTab_Off Width:30 Height:32
+SkillTrackerFrame Width:99 Height:29
+SkillWindowMinimize_Click Width:30 Height:136
+SkillWindowMinimize_Default Width:30 Height:136
+SkillWindowMinimize_Hover Width:30 Height:136
+SpellbookCloseButton_Click Width:22 Height:22
+SpellbookCloseButton_Default Width:22 Height:22
+SpellbookCloseButton_Hover Width:22 Height:22
+SpellIndexInfo_Divider Width:5 Height:4
+SpellInfo_IconFrame Width:12 Height:12
+SpellInfo_ReagentFrame Width:16 Height:16
+StaminaBar Width:5 Height:5
+StaminaBar_Frame Width:13 Height:20
+star Width:60 Height:56
+star_filled Width:60 Height:56
+StatusBar_Frame Width:80 Height:80
+StatusBarBG Width:4 Height:14
+StatusBarBG2 Width:143 Height:62
+StatusBarFrame Width:103 Height:14
+StealthButton_Click Width:43 Height:42
+StealthButton_Default Width:43 Height:42
+StealthButton_Hover Width:43 Height:42
+SystemMessage_Center Width:460 Height:76
+SystemMessage_Left Width:119 Height:67
+SystemMessage_Right Width:120 Height:67
+TabActive Width:6 Height:29
+TabFrameBackground Width:23 Height:23
+TabInactive Width:6 Height:29
+TabSelectionBackground Width:25 Height:25
+TargetingWindowBase_Health Width:77 Height:33
+TargetingWindowBase_StatBar Width:167 Height:21
+TargetingWindowCapDesign Width:47 Height:82
+Textbox_Major_Elements Width:121 Height:120
+Textbox_NoBG Width:108 Height:108
+TextBoxBG Width:4 Height:4
+TextboxHeaderUnsliced Width:279 Height:129
+TextFieldButton_Blue_Click_Dropdown Width:24 Height:23
+TextFieldButton_Blue_Click_Plus Width:23 Height:23
+TextFieldButton_Blue_Click_UpArrow Width:24 Height:23
+TextFieldButton_Blue_Dark_Dropdown Width:24 Height:23
+TextFieldButton_Blue_Dark_Plus Width:23 Height:23
+TextFieldButton_Blue_Dark_UpArrow Width:24 Height:23
+TextFieldButton_Blue_Default_Dropdown Width:24 Height:23
+TextFieldButton_Blue_Default_Plus Width:23 Height:23
+TextFieldButton_Blue_Default_UpArrow Width:24 Height:23
+TextFieldButton_Blue_Hover_Dropdown Width:24 Height:23
+TextFieldButton_Blue_Hover_Plus Width:23 Height:23
+TextFieldButton_Blue_Hover_UpArrow Width:24 Height:23
+TextFieldButton_Click_Dropdown Width:32 Height:32
+TextFieldButton_Click_Minus Width:32 Height:32
+TextFieldButton_Click_Plus Width:32 Height:32
+TextFieldButton_Click_UpArrow Width:32 Height:32
+TextFieldButton_Click_X Width:32 Height:32
+TextFieldButton_Dark_Dropdown Width:32 Height:32
+TextFieldButton_Dark_Minus Width:32 Height:32
+TextFieldButton_Dark_Plus Width:32 Height:32
+TextFieldButton_Dark_UpArrow Width:32 Height:32
+TextFieldButton_Dark_X Width:32 Height:32
+TextFieldButton_Default_Dropdown Width:32 Height:32
+TextFieldButton_Default_Minus Width:32 Height:32
+TextFieldButton_Default_Plus Width:32 Height:32
+TextFieldButton_Default_UpArrow Width:32 Height:32
+TextFieldButton_Default_X Width:32 Height:32
+TextFieldButton_Hover_Dropdown Width:32 Height:32
+TextFieldButton_Hover_Minus Width:32 Height:32
+TextFieldButton_Hover_Plus Width:32 Height:32
+TextFieldButton_Hover_UpArrow Width:32 Height:32
+TextFieldButton_Hover_X Width:32 Height:32
+ThinFrameBackgroundDark Width:10 Height:10
+ThinFrameBackgroundExpand Width:10 Height:10
+ThinFrameBackgroundInfo Width:10 Height:10
+ThinFrameInfoDivider_Horizontal Width:6 Height:6
+ThinFrameInfoDivider_Vertical Width:5 Height:5
+TitleBar Width:106 Height:36
+tooltip_merged Width:23 Height:23
+TopGradient Width:4 Height:100
+Torso_Slot Width:61 Height:58
+TradeWindow_AcceptedCheckBox Width:53 Height:18
+TradeWindow_AcceptedCheckBox_Click Width:26 Height:26
+TradeWindow_AcceptedCheckBox_Hover Width:26 Height:26
+TradeWindow_Arrow_MyOffer Width:211 Height:20
+TradeWindow_Arrow_TheirOffer Width:211 Height:20
+TradeWindow_Background Width:355 Height:39
+translate Width:32 Height:21
+translate_active Width:32 Height:21
+unlock Width:24 Height:30
+UpButton_default Width:16 Height:16
+UpButton_hover Width:16 Height:16
+VerticalWindowDivider Width:2 Height:152
+WaterFactionSymbolLarge Width:100 Height:139
+WindowBackgroundFancy Width:296 Height:378
+WindowDivider Width:8 Height:37
+WindowNoFrame Width:103 Height:82
+XPBarActive Width:5 Height:5
+ConversationWindow_BG Width:877 Height:200
+Gravestone Width:953 Height:981
+HueSwatch Width:4 Height:4
+Instructions_Abilities Width:386 Height:110
+Instructions_AbilityBar Width:118 Height:58
+Instructions_CharacterWindow Width:798 Height:488
+Instructions_CombatBasics Width:777 Height:777
+Instructions_Inventory Width:649 Height:439
+Instructions_ItemBar Width:90 Height:165
+Instructions_MageCombatBasics Width:777 Height:777
+Instructions_Mini Width:164 Height:164
+Instructions_MiniMap Width:601 Height:291
+Instructions_Movement_Interaction Width:777 Height:777
+Instructions_SpellBar Width:58 Height:492
+Instructions_Spells Width:1313 Height:525
+PrestigeBook Width:789 Height:455
+QuestCompletionRibbonDesign Width:1040 Height:314
+ScrollParchmentUIWindow Width:616 Height:751
+SkillBook Width:789 Height:455
+Spellbook Width:789 Height:455
+
+ClientIds with 2D Textures:
+3
+6
+7
+8
+9
+10
+12
+17
+25
+26
+27
+29
+30
+31
+33
+34
+35
+36
+37
+44
+45
+46
+47
+48
+50
+51
+53
+54
+55
+56
+57
+58
+60
+61
+62
+63
+78
+80
+81
+94
+96
+98
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+132
+143
+146
+149
+154
+155
+156
+157
+158
+159
+160
+161
+165
+171
+173
+179
+180
+184
+185
+186
+190
+191
+192
+193
+194
+204
+206
+207
+210
+211
+215
+216
+217
+218
+220
+221
+222
+224
+225
+226
+231
+232
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+253
+254
+255
+256
+265
+278
+279
+280
+281
+282
+283
+284
+285
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+317
+318
+320
+321
+323
+324
+325
+326
+328
+329
+330
+331
+332
+333
+334
+335
+337
+338
+339
+340
+341
+342
+348
+349
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+382
+383
+384
+385
+386
+387
+388
+389
+393
+394
+397
+399
+400
+402
+406
+410
+414
+415
+416
+418
+421
+423
+427
+428
+429
+430
+437
+439
+440
+444
+445
+447
+449
+450
+451
+452
+454
+457
+460
+462
+464
+466
+468
+469
+473
+476
+478
+480
+483
+484
+487
+488
+491
+495
+497
+498
+499
+502
+506
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+554
+555
+556
+557
+558
+559
+560
+561
+563
+564
+565
+566
+570
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+598
+599
+600
+601
+602
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+617
+618
+619
+620
+621
+622
+623
+624
+625
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+653
+674
+675
+678
+679
+693
+694
+796
+797
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+828
+838
+839
+840
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+869
+870
+874
+878
+879
+881
+882
+894
+898
+904
+905
+906
+907
+908
+909
+910
+911
+912
+914
+915
+916
+917
+919
+920
+923
+930
+931
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+984
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1017
+1018
+1019
+1021
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1042
+1043
+1048
+1049
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1097
+1098
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+1128
+1129
+1130
+1131
+1132
+1133
+1134
+1135
+1136
+1145
+1148
+1150
+1183
+1184
+1185
+1186
+1187
+1189
+1190
+1191
+1192
+1193
+1194
+1208
+1211
+1214
+1215
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1227
+1234
+1235
+1236
+1241
+1242
+1243
+1244
+1245
+1246
+1247
+1248
+1252
+1253
+1254
+1255
+1256
+1257
+1258
+1259
+1260
+1261
+1281
+1282
+1283
+1284
+1285
+1286
+1287
+1334
+1335
+1336
+1337
+1338
+1339
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1348
+1349
+1350
+1351
+1352
+1353
+1354
+1355
+1356
+1357
+1358
+1359
+1360
+1361
+1362
+1363
+1364
+1365
+1366
+1367
+1368
+1369
+1370
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1384
+1388
+1389
+1390
+1391
+1393
+1394
+1395
+1396
+1397
+1398
+1399
+1400
+1407
+1408
+1409
+1410
+1411
+1412
+1413
+1414
+1415
+1416
+1417
+1418
+1419
+1420
+1423
+1424
+1425
+1426
+1427
+1441
+1442
+1443
+1444
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453
+1454
+1455
+1456
+1457
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484
+1485
+1486
+1487
+1488
+1489
+1490
+1491
+1492
+1493
+1494
+1495
+1496
+1497
+1498
+1499
+1500
+1501
+1502
+1503
+1504
+1505
+1506
+1507
+1508
+1509
+1510
+1511
+1512
+1513
+1514
+1515
+1516
+1517
+1518
+1519
+1520
+1521
+1522
+1523
+1524
+1525
+1526
+1527
+1528
+1529
+1530
+1531
+1725
+1732
+1733
+1734
+1735
+1738
+1743
+1744
+1745
+1746
+1781
+1782
+1785
+1786
+1787
+1788
+1797
+1798
+1810
+1811
+1817
+1820
+1829
+1833
+1834
+1844
+1845
+1846
+1847
+1848
+1849
+1850
+1851
+1852
+1853
+1854
+1857
+1859
+1868
+1878
+1879
+1880
+1881
+1882
+1883
+1884
+1885
+1886
+1887
+1888
+1889
+1890
+1891
+1892
+1893
+1894
+1895
+1896
+1897
+1898
+1899
+1900
+1901
+1902
+1903
+1904
+1905
+1911
+1912
+1913
+1914
+1915
+1916
+1917
+1918
+1919
+1920
+1921
+1922
+1923
+1924
+1925
+1926
+1927
+1928
+1929
+1930
+1931
+1932
+1933
+1934
+1975
+1979
+1980
+1981
+1982
+1983
+1984
+1985
+1986
+1987
+1988
+1989
+1990
+1991
+1992
+1993
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+2017
+2018
+2019
+2020
+2021
+2022
+2023
+2024
+2025
+2026
+2027
+2028
+2029
+2030
+2031
+2032
+2033
+2035
+2036
+2037
+2046
+2047
+2048
+2049
+2064
+2065
+2066
+2067
+2068
+2069
+2070
+2071
+2095
+2097
+2098
+2099
+2100
+2101
+2102
+2103
+2104
+2105
+2106
+2107
+2108
+2109
+2110
+2111
+2112
+2113
+2114
+2116
+2120
+2122

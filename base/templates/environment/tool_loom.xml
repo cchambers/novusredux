@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[FF9500]Loom[-]</Name>
+	<ClientId>627</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">FabricationSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">fabrication</StringVariable>
+		<StringVariable Name="ToolSound">Fabrication</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="fabrication_crafting"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

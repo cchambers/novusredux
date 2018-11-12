@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Name>Kraft(R) the Master Crafter</Name>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="PrestigeClass">Crafter</StringVariable>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_prestige_trainer" >
+			<Initializer>
+				{
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+					Bashing = 50, 
+					},	
+					MobTraits =
+					{
+						Toughness = 3,
+					},
+					EquipTable = 
+					{
+						RightHand = { "weapon_staff" },
+            			BodyPartHead = 
+            			{ 
+            				{"head_male02", 182},
+            			},
+
+						Chest = { "clothing_apron_chest"},
+						Legs = { "clothing_legs_pants"},
+						Backpack = { "backpack" }		
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
+
+						

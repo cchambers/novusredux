@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>656</ClientId>
+	<Name>[FF9500]Short Cellar Chest[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

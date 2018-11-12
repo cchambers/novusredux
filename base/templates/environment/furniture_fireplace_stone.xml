@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>80</ClientId>
+	<Name>[FF9500]Stone Fireplace[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

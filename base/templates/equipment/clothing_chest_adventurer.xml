@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Adventurer's Shirt[-]</Name>
+  <ClientId>273</ClientId>
+  <Hue>139</Hue>
+    <SharedStateEntry name="Weight" type="int" value="1"/>		
+	<ScriptEngineComponent/>
+	<ObjectVariableComponent>
+   		<BoolVariable Name="CanDye">true</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

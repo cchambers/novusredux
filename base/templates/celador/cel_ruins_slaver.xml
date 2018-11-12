@@ -1,0 +1,49 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Haruus the Slave Trader</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Cultists</StringVariable>
+		<BoolVariable Name="AI-CanWander">false</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="NoDisrobe">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_slave_trader">
+			<Initializer>
+				{
+					Stats = { Str=90, Agi=90, Int=90 },
+					Skills = { Melee = 50, Blocking = 50 },
+					EquipTable = {
+						RightHand = {"weapon_dagger_crude"},
+						LeftHand = {""},
+						Backpack = {"backpack"},
+						BodyPartHead = { "head_male02" },
+						BodyPartHair = { {"hair_cultist","0xFFFFFFFF" } },
+						Chest = { {"npc_cultist_chest","0xFFFFFFFF"} },
+			            Legs = { {"merchant_clothing_legs","0xFFFFFFFF"} }, 
+					},
+					LootTables = { 
+						TemplateDefines.LootTable.Average,
+						{
+							NumItems = math.random(0,3),
+							LootItems = 
+							{ 
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

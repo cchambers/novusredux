@@ -1,0 +1,51 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Enuas the Priest</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<BoolVariable Name="AI-CanWander">true</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="NoDisrobe">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_ruins_priest">
+			<Initializer>
+				{
+					Stats = { Str=120, Agi=120, Int=110 },
+					Skills = { Manifestation = 100, Channeling = 100, MagicAffinity = 100, Bashing = 100, Melee = 100 },
+					AvailableSpells = {"Fireball","Lightning","Icelance", "Heal", "Teleport","Bombardment","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
+					EquipTable = {
+						RightHand = { ""},
+						LeftHand = { "weapon_staff"},
+						BodyPartHead = { "head_male04" },
+						Backpack = {"backpack"},
+						BodyPartHair = { {"hair_male_rougish", ""} },
+						Chest = { {"npc_cultist_chest","0xFFFFFFFF"} },
+			            Legs = { {"padded_legs_crude","0xFFFFFFFF"} }, 
+					},
+					LootTables = { 
+						TemplateDefines.LootTable.Rich,
+						{
+							NumItems = math.random(0,3),
+							LootItems = 
+							{ 
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

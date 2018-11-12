@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<TemplateName>Male</TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="base_mobile_advanced"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

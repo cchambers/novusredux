@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[2E64FE]Team Stone (No Team)[-]</Name>
+	<ScaleModifier>2.0</ScaleModifier>
+	<ClientId>250</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="temp_twotowers_teammaker"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,39 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Hughe the Slave</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<BoolVariable Name="AI-CanWander">false</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<!--<LuaModule Name="npc_ruins_hughe">-->
+		<LuaModule Name="ai_slave">
+			<Initializer>
+				{ 
+					Stats = { Str=10, Agi=20, Int=60 },
+					Skills = { Melee = 40, Slashing = 40, Bashing = 20, Piercing = 20, Blocking = 50 },
+					EquipTable = {
+						BodyPartHair = { "" },
+						RightHand = { "","",""},
+						LeftHand = { "",""},
+						Chest = { "" },
+						Legs = { "clothing_legs_beggar" },
+						Backpack = { "backpack" },	
+						Head = { "" },	
+					},
+					LootTables = { 
+						{
+							NumCoins = math.random(0,3),
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

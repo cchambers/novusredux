@@ -1,0 +1,71 @@
+<ObjectTemplate>
+	<ClientId>1213</ClientId>
+	<Name>Hobgoblin</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<ScaleModifier>0.8</ScaleModifier>
+		<BaseRunSpeed>.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Giant</StringVariable>
+		<StringVariable Name= "MobileKind">Giant</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">59</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default_animal">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					BowResistance = 2,
+					},
+				Skills = 
+					{ 
+					Bashing=50,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Average,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(125,175),
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{				
+					AnimalParts =
+					{
+						{ ResourceType="LeatherHide", RarityPct=60, Count=2 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

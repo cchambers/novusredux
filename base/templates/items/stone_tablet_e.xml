@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[00FF00]Stone Tablet[-]</Name>
+	<ClientId>338</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="AnotherLanguage">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Praise be to the King of Kings, Sikarbaal the Lord and Master of all the Pheonos! He who is of the Gods, the one from heaven! In this day, the year 323 of our calender, our king sailed across the Mithontaal Sea, and conquered the Sea-Raiders! It was he, who fought long and hard to accomplish the unaccomplishable, and managed to win over the hearts and minds of the Gods! \n\nWe Give thanks to you, Vurmraal, Lord of the Sea!\nWe give thanks to you, Abd'Luthal, Lord of the Sky\n We give thanks to you, Bodashtart, Mistress of the Plants and the Animals, Goddess of the Hunt!\n And thanks to you, Hamon of the Waayuu- He who is Lord of the Stars, that he shall return and give us the blessings of the Gateways, so that we may see the Throne of the Gods again!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

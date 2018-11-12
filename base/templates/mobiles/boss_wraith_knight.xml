@@ -1,0 +1,65 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Color>0xFF000000</Color>
+	<ScaleModifier>1.9</ScaleModifier>
+	<Name>Fel-Wraith Knight</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">120000</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">1000</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_wraith">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Bashing=110,  
+					Channeling = 110,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },		
+						Chest = { { "clothing_deep_red_robes", "0xFFB01F15" } },	
+						RightHand = {{"weapon_bone_dagger"}},		
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.TwentyTwo,
+						TemplateDefines.LootTable.TwentyTwo,
+						TemplateDefines.LootTable.TwentyTwo,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+					},	
+				ScavengeTables =
+					{
+					},		
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
