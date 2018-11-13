@@ -1,7 +1,7 @@
 require 'base_ai_mob'
 require 'incl_regions'
 
-AI.Settings.MaxAgeScale = 1.5 --Maximum scale that a mob can age.
+AI.Settings.MaxAgeScale = 100 --Maximum scale that a mob can age.
 
 AI.StateMachine.AllStates.Idle = {   
         GetPulseFrequencyMS = function() return 1000 end,
