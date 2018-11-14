@@ -274,7 +274,7 @@ SpellData = {
 			Circle = 8,
 		},	
 		Electricbolt = {
-			PowerWords = "Nex Vul",
+			PowerWords = "Corp Por",
 			Icon = "Ball Lightning 01",
 			manaCost = 20,
 			upkeepCost = 0,
@@ -357,7 +357,7 @@ SpellData = {
 			},
 		},
 		Recall = {
-			PowerWords = "Kor Vul",
+			PowerWords = "Kal Ort Por",
 			Circle = 3,
 			CastTime = 5,
 			Icon = "Fire Spark",
@@ -373,7 +373,7 @@ SpellData = {
 			SpellHitSFX = "Restoration",
 			SpellTooltipString = "Teleports you to the location marked on the targetted rune. Cannot be used in Dungeons, Barren Lands, and Black Forest.",
 			SpellFXArgs = "Bone=Ground",
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			SpellDisplayName = "Recall",
 			BeneficialSpellType = true,

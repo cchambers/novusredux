@@ -130,14 +130,14 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Accuracy with projectile weapons",
 			SkillType = "CombatTypeSkill",
-			Skip = true,
+			--Skip = true,
 		},
 		NecromancySkill = {
 			DisplayName = "Necromancy",
 			PrimaryStat = "Intelligence",
 			Description = "[$3289]",
 			SkillType = "CombatTypeSkill",
-			Skip = true,
+			--Skip = true,
 		},
 		CookingSkill = {
 			DisplayName = "Cooking",
@@ -186,7 +186,7 @@ SkillData = {
 			Description = "The ability to play a musical instrument well.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
-			Skip = true
+			-- Skip = true
 		},
 		InscriptionSkill = {
 			DisplayName = "Inscription",
@@ -200,7 +200,7 @@ SkillData = {
 			PrimaryStat = "Intelligence",
 			Description = "Use music to accomplish more than sound.",
 			SkillType = "CombatTypeSkill",
-			Skip = true,
+			-- Skip = true,
 			GainFactor = 2.5,
 		},
 		AnimalTamingSkill = {

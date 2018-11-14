@@ -3,7 +3,7 @@ ServerSettings.Skills = {
 		
 	PlayerSkillCap = {
 		Single = 100,
-		Total = 600,
+		Total = 3000,
 	},
 
 	-- multiplies all gain chances by this amount, set to 1 for no effect, lower for slower gains, higher for quicker gains.
