@@ -2837,7 +2837,7 @@ RegisterCommand{ Command="quest", AccessLevel = AccessLevel.Mortal, Func=Default
 RegisterCommand{ Command="bugreport", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.BugReport, Desc="Send a bug report" }
 RegisterCommand{ Command="say", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Say, Desc="Say something."}
 RegisterCommand{ Command="roll", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Roll, Desc="Roll between 0.0 and 100.0"}
---RegisterCommand{ Command="region", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Region, Desc="Say something to the entire region."}	
+RegisterCommand{ Command="re", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Region, Desc="Say something to the entire region."}	
 RegisterCommand{ Command="who", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Who, Desc="Lists players on the server" }
 RegisterCommand{ Command="stats", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Stats, Desc="Prints out your stats" }
 RegisterCommand{ Command="where", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Where, Desc="Prints location on the map" }
@@ -2865,7 +2865,7 @@ RegisterCommand{ Command="playtime", AccessLevel = AccessLevel.Mortal, Func=Defa
 RegisterCommand{ Command="karma", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Karma, Desc="Give you details on your Karma."}
 RegisterCommand{ Command="resethotbar", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Resethotbar, Usage="<command_name>", Desc="Resets your hotbars removing all items." }
 
---RegisterCommand{ Command="pets", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Pet, Usage="<command_name>", Desc="Opens your pet window." }
+RegisterCommand{ Command="pets", AccessLevel = AccessLevel.Mortal, Func=DefaultCommandFuncs.Pet, Usage="<command_name>", Desc="Opens your pet window." }
 RegisterCommand{ Command="tell", AccessLevel = AccessLevel.Immortal, Func=DefaultCommandFuncs.Tell, Usage="<name|id>", Desc="Send a private message to another player." }
 RegisterCommand{ Command="follow", AccessLevel = AccessLevel.Immortal, Func=DefaultCommandFuncs.Follow, Desc="Automatically follow a mob."}
 RegisterCommand{ Command="cloak", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=DefaultCommandFuncs.Cloak, Usage="[<name|id>]", Desc="[$2476]" }
