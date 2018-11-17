@@ -1,6 +1,6 @@
 <ObjectTemplate>
   <Name>[2E64FE]Guild Stone[-]</Name>
-	<ScaleModifier>1.0</ScaleModifier>
+	<ScaleModifier>0.6</ScaleModifier>
 	<ClientId>250</ClientId>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
