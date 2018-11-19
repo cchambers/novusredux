@@ -33,7 +33,7 @@ function HandleLoaded()
 	mPoisonTicks = ticks
 	AddBuffIcon(this,"Poison Cloud", "Poisoned", "Poison Cloud", "1-3 damage every 2 seconds." .. "\nCannot be healed.", true)
 	if this:IsPlayer() then
-		this:SystemMessage("[33CC33]You feel nauseous.[-]")
+		this:SystemMessage("[33CC33]You feel nauseated.[-]")
 	end
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3.5), "PoisonEffectTickTimer", myPoisonSource)
 	this:PlayEffect("PoisonSpellEffect")

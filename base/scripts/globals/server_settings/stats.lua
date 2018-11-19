@@ -1,9 +1,9 @@
 ServerSettings.Stats = {
 	PlayerBaseHealth = 150,
 	NPCBaseHealth = 100,
-	IndividualStatMin = 10,
-	IndividualPlayerStatCap = 50,
-	TotalPlayerStatsCap = 150,
+	IndividualStatMin = 1,
+	IndividualPlayerStatCap = 100,
+	TotalPlayerStatsCap = 600,
 	IndividualNPCStatCap = 1000,
 	TotalNPCStatsCap = 10000,
 	WalkSpeedModifier = 1.5,

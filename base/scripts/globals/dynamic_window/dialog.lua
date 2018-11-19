@@ -71,6 +71,7 @@ function TextFieldDialog.Show(args)
     	RegisterSingleEventHandler(EventType.DynamicWindowResponse,args.DialogId,
 			function(user,buttonId,fieldData)
 				if(buttonId == "Enter") then
+					DebugMessage("wtf " .. fieldData.entry)
 					args.ResponseFunc(user,fieldData.entry)
 				else
 					args.ResponseFunc(user)

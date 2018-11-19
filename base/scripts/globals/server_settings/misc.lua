@@ -13,12 +13,12 @@ ServerSettings.Misc = {
 	FoodStarvationDivder = 5,		
 	
 	CorpseDecayTimeSecs = 900,
-	EnforceBadWordFilter = true,
+	EnforceBadWordFilter = false,
 	
 	BankWeightLimit = 10000,
 	BackpackBaseWeightLimit = 200,
 	DefaultContainerWeightLimit = 2000,
-	CoinWeight = 0.1,
+	CoinWeight = 0.0001,
 	PetDecayTime = 3600,
 	NonCombatMaps = {
 		"Founders"
