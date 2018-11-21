@@ -1,0 +1,5 @@
+RegisterEventHandler(EventType.Message,"Profession",function(profession)	
+	this:SendMessage("ChangeMobileToTemplate",profession,{KeepAppearance=true, Quiet=false})
+	this:SetObjVar("ChoseClass","Custom")
+	this:DelModule("change_profession")
+end)

@@ -1,0 +1,5 @@
+require 'globals.dynamic_window.hud'
+require 'globals.dynamic_window.dialog'
+require 'globals.dynamic_window.prestige'
+require 'globals.dynamic_window.tabwindow'
+require 'globals.dynamic_window.tutorialbook'
