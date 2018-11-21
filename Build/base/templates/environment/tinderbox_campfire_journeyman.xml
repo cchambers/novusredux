@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[FF0000]Journeyman Campfire[-]</Name>
+	<ClientId>96</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseBonus">12</DoubleVariable>
+		<BoolVariable Name="HeatSource">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="tinderbox_campfire" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

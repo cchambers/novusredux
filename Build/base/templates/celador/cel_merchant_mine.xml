@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Jalye the Excavator</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="merchant_mine">
+			<Initializer>
+				{
+					Stats = {
+						Str = 50,
+						Agi = 80,
+						Int = 20,
+					},
+					Skills = {
+						Bashing = 50,
+						Mining = 20,
+					},
+					EquipTable = {
+						BodyPartHead= {
+							"head_female04",
+						},
+						BodyPartHair= {
+							{"hair_female","0xFFB9B184"},
+						},
+						Chest= {
+							"clothing_sewn_chest",
+						},
+						Legs= {
+							"clothing_sewn_leggings",
+						},
+					},
+
+					RestockIntervalSeconds = 14400,
+					ItemInventory= {
+						{
+							Template = "tool_mining_pick",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-0.4798279, 0.6220264, -2.002075",
+							Rotation = "0, 314.1196, 0",
+							UniqueId = "pick1"
+						},
+						{
+							Template = "tool_shovel",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.557983, -0.2458973, -2.396973",
+							Rotation = "4.698276, 0, 0",
+						},
+						{
+							Template = "tool_mining_pick",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "0.009185791, 0.6220264, -2.063965",
+							Rotation = "0, 314.1196, 0",
+							UniqueId = "pick2"
+						},
+						{
+							Template = "map_upper_plains",
+							Price = 20,
+							RelativeLoc = "0.22, 0.56, -2.28",
+							UniqueId = "map1"
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>1048</ClientId>
+	<Name>[FF9500]Crystal Lounge Chair[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="chair"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

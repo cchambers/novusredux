@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Barrel Fish[-]</Name>
+	<ClientId>633</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="FilletType">animalparts_barrel_fish_fillet</StringVariable>
+		<StringVariable Name="ResourceType">BarrelFish</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="fish">
+			<Initializer>
+				{	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book of Oshothabh[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "In the year of 1049 of our lords, the ancient ones. We exist for the purpose of death and desire as dictated by our Gods. I send this letter to you, Routhlan, in the hopes that you will know my wrath and fury. \n\nI am Grulta of Wesselton, lord of all and defender against the false king of the old religion. Cursed be the Mother Goddesses, praise be to the new gods. Your gods will wither and shudder out, the Old Ones will prevail. Praise be to the Star Dweller, that he may return and desolate the world with his fetid evil. May the Goddess Eva be corruped by the tentacles of Cu'tlataha, and the Goddess Lithia be desolated like a stuck pig. \n\nWe will carve the corpse of the fallen kingdom, and remake it into the image of the accurrsed. Our rituals must be done daily to ensure your downfall, and we know your beaten army has nothing against the True Religion. \n\nYour defeat at the Fields of Plentathor will be known to all who believe, and your weakness will be communed as our strength. \n\nI, Grulta of the Stardweller, renounce my alegiance to the King of Wessleton, and join the Brotherhood in the wars to come. For the Elder Ones have spoken."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

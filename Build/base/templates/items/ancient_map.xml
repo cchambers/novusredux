@@ -1,0 +1,33 @@
+<ObjectTemplate>
+  <Name>[FF0000]Ancient Map[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="treasure_map">
+				<Initializer>
+				{
+				MapRegions = {
+					NewCelador = { "LowerRuins","CultistRuins" }
+				},
+				Rewards = 
+					{
+					"artifact_small_statue",
+					"artifact_pendant",
+					"artifact_ornate_pottery",
+					"artifact_ornate_goblet",
+					"artifact_mask",
+					"artifact_gold_bracelet",
+					"artifact_flute",
+					"idol_demon",
+					"idol_debuff",
+					"idol_flimsy",
+					"idol_hunger",
+					"idol_animal",
+					"idol_clumsyness",
+					},
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

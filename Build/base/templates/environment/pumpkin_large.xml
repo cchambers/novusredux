@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>615</ClientId>
+	<Name>[FF9500]Small Pumpkin[-]</Name>
+		<ObjectVariableComponent>					
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="destroy_on_use"/>
+	</ScriptEngineComponent>	
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

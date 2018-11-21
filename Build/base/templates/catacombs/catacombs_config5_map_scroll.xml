@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[5882FA]Map of Catacombs, Page 5[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="MapName">CatacombsConfig5</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="memorize_map"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

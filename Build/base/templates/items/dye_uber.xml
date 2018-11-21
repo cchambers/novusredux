@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>361</ClientId>
+  	<Name>Uber Dye</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<Hue>100</Hue>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">UberDye</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

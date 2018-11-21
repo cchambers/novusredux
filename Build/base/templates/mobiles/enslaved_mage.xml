@@ -1,0 +1,95 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Enslaved Villager</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">230</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">21</DoubleVariable>
+		<DoubleVariable Name="Power">11</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_enslaved_mage">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Evocation=100,
+					Manifestation=100,
+					Bashing=55,
+					MagicAffinity=100,  
+					},	
+				VillagerNames = {
+						"Ciric",
+						"Bali",
+						"Vas",
+						"Riax",
+						"Mornove",
+						"Cthuku",
+						"Vorgnem",
+						"Logrus",
+						"Khimalor",
+						"Gion'harg",
+						"Nelor",
+						"Hugo",
+						"Cafen",
+						"Raxresh",
+						"Sonulf",
+						"Anmor",
+						"Cthefar",
+						"Dresh'ka",
+						"Mictan",
+						"Rakdark",
+						"Zarazel",
+						"Zaramal",
+						"Kaul",
+					},
+					VillagerJobs = {
+						"Insane",
+						"Demented",
+						"Vile",
+						"Wicked",
+					},
+				EquipTable = 
+					{
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Head = {{ "clothing_mage_hat_helm", }},
+						Chest = { {"clothing_short_sleeve_shirt_chest",774},{"clothing_short_sleeve_shirt_chest",199},{"clothing_short_sleeve_shirt_chest",352},"clothing_padded_leggings","clothing_chest_thief", },
+						Legs = { {"clothing_legs_pants",774},{"clothing_legs_pants",199},{"clothing_legs_pants",352},"clothing_padded_leggings","clothing_skirt_legs" },
+						Backpack = { "backpack" },
+						RightHand = { { "spellbook" }},					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Eleven,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.Humanoid,
+					},		
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[FF0000]Work Station[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolType">Workbench</StringVariable>		
+		<StringVariable Name="ToolSkill">MetalsmithSkill</StringVariable>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name = "metalsmith_crafting"/>
+		<LuaModule Name = "tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

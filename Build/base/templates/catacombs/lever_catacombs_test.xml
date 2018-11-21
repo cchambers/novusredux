@@ -1,0 +1,18 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_lever">
+			<Initializer>
+			{
+				Spawns = 
+				{
+					{"skeleton_knight",Loc(243,0,-17),15},
+				},
+				Time = 15,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

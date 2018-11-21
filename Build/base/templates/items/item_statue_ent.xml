@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>2065</ClientId>
+	<Name>[FF9500]Ent Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">EntAttack</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="statue_effect" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Four Eyed Salar[-]</Name>
+	<ClientId>632</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="FilletType">animalparts_foureyed_salar_fish_fillet</StringVariable>
+		<StringVariable Name="ResourceType">SalarFish</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="fish">
+			<Initializer>
+				{	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

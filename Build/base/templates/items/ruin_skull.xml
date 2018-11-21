@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[FF0000]Skull of Ruin[-]</Name>
+	<ClientId>317</ClientId>
+	<Color>0x99cc00</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="UnitWeight">0.025</DoubleVariable>
+		<StringVariable Name="ResourceType">RuinSkull</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Sulfurous Ash[-]</Name>
+	<ClientId>579</ClientId>
+	<Color>FFF700</Color>
+	<Hue>30</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Sulfurous Ash</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

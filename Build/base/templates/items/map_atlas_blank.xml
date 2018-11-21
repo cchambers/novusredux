@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>Atlas</Name>
+	<ClientId>487</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">MapAtlas</StringVariable>
+		<StringVariable Name = "WorldMap">NewCelador</StringVariable>
+		<BoolVariable Name = "HandlesDrop">true</BoolVariable>	
+		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="map_atlas"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

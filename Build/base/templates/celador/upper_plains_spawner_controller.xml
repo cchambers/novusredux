@@ -1,0 +1,97 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>		
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						--Starter Mobs
+						{ Count = 10, TemplateId =  "rabbit", Region = "StarterMobs" }, 
+						{ Count = 6, TemplateId =  "rat", Region = "StarterMobs" }, 
+					
+						--Horses
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses1", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses1", DelayMin=4 },
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses2", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses2", DelayMin=4 },
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses3", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses3", DelayMin=4 },
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses4", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses4", DelayMin=4 },
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
+						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses6", DelayMin=4 },
+						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses6", DelayMin=4 },
+						
+
+						--EldeirGraveyard
+						{ Count = 5, TemplateId = "zombie",    Region = "EldeirGraveyard" },
+						{ Count = 6, TemplateId = "skeleton",    Region = "EldeirGraveyard" }, 
+						{ Count = 3, TemplateId = "skeleton_archer",    Region = "EldeirGraveyard" },
+
+						--HauntedRuins
+						{ Count = 4, TemplateId = "lich",    Region = "AbandonedRuins" },
+						--AbandonedShrine
+						{ Count = 4, TemplateId = "lich",    Region = "AbandonedShrine" },
+
+						--BanditCamp
+						{ Count = 4, TemplateId = "bandit",    Region = "BanditCampEasy1" },
+						{ Count = 2, TemplateId = "bandit_archer",    Region = "BanditCampEasy1" },
+						{ Count = 4, TemplateId = "bandit",    Region = "BanditCampEasy2" },
+						{ Count = 2, TemplateId = "bandit_archer",    Region = "BanditCampEasy2" },
+
+						--Giants	
+						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp1" }, 
+						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp2" }, 
+						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp3" }, 
+						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp4" }, 
+						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp5" }, 
+
+						--villagers
+						{ Count = 7, TemplateId = "cel_villager",    Region = "EldeirVillage" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 7, TemplateId = "cel_villager_female",    Region = "EldeirVillage" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 4, TemplateId = "cel_villager_beggar",    Region = "RefugeeCamp" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 4, TemplateId = "cel_villager_beggar_female",    Region = "RefugeeCamp" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 4, TemplateId = "chicken",    Region = "Market" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 4, TemplateId = "chicken",    Region = "RefugeeCamp" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 4, TemplateId = "cel_lumber",    Region = "EldeirLumber" , SpawnTime = 4, SpawnDuration = 18}, 
+
+						--villagers at night
+						{ Count = 4, TemplateId = "cel_villager",    Region = "EldeirVillage" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 4, TemplateId = "cel_villager_female",    Region = "EldeirVillage" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 2, TemplateId = "cel_villager_beggar",    Region = "RefugeeCamp" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 2, TemplateId = "cel_villager_beggar_female",    Region = "RefugeeCamp" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 4, TemplateId = "chicken",    Region = "Market" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 4, TemplateId = "chicken",    Region = "RefugeeCamp" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 4, TemplateId = "cel_lumber",    Region = "EldeirLumber" , SpawnTime = 23, SpawnDuration = 5}, 
+
+						--TAMING
+						--39.1+
+						{ Count = 8, TemplateId = "black_bear",    Region = "UpperPlains30", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "black_bear",    Region = "UpperPlains31", DelayMin=4 },
+						{ Count = 8, TemplateId = "black_bear",    Region = "UpperPlains32", DelayMin=4 },
+						--57.1+
+						{ Count = 8, TemplateId = "great_hart",    Region = "UpperPlains50", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "great_hart",    Region = "UpperPlains51", DelayMin=4 }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "UpperPlains52", DelayMin=4 }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "UpperPlains53", DelayMin=4 }, 
+						--71.1+
+						{ Count = 4, TemplateId = "whitetail",    Region = "UpperPlains50", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "UpperPlains51", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "UpperPlains52", DelayMin=4 }, 
+						{ Count = 4, TemplateId = "whitetail",    Region = "UpperPlains53", DelayMin=4 }, 
+
+						--Spiders
+						{ Count = 20, TemplateId = "spider_large",    Region = "BlackForestPlains" }, 
+ 
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

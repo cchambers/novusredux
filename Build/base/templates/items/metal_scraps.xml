@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <ClientId>216</ClientId>
+    <Name>[FF0000]Metal Scraps[-]</Name>
+  <SharedStateEntry name="Weight" type="int" value="1" />
+  <ObjectVariableComponent>
+    <StringVariable Name="ResourceType">metal_scraps</StringVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="stackable" />
+  </ScriptEngineComponent>
+</ObjectTemplate>

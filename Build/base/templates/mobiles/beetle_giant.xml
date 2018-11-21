@@ -1,0 +1,56 @@
+<ObjectTemplate>
+	<ClientId>304</ClientId>
+	<Name>Giant Beetle</Name>
+	<ScaleModifier>2.5</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Insect</StringVariable>
+		<StringVariable Name= "MobileKind">Insect</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">49</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">148.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default_animal">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Bashing=60,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Average,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(125,175),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

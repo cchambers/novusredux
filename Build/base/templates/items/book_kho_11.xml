@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 11[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Let it be known that we use the term burning as a metaphor, and that one should use fire sparingly as it gives power to that of Kho's enemy, that of the Fire God who's fury is a rival to the True God. Also when you kill, take pleasure in torturing your enemies, as you are helping them turn. This is the Truth that Kho brings. For what are we to know the Void God himself? There are those that do not know the Void, what it is, what it entails. Pity them, for all those who have died know now the truth. For in the end, we all shall meet him. For those whom the False Gods prevent from joining Him in the Void, know that they too will eventually be consumed by the Void. The Void WILL consume all. And we all shall meet the Master. For his reach is infinite, and the entirety of the Void will be known to all. The Void itself cannot be measured, cannot be fathomed. For when you see it, you will know what it is. It cannot be described, only that the Underworld sits on the edge of it. Praise be to the Void. All beings in the cosmos will know it in due time. All beings will baske in the nothingness. All will know the infinite reach, and that there is nothing beyond the grave. Nothing but servitude. Servitude to the master. For those who are both alive and dead, the undead, are between the passing. When they pass, their souls will be restored to the Void God. All things will know the Void as it is. For when something goes into the Void, nothing comes out. When the Void reaches all, they shalt know the truth. That once you have entered the Void, there is no escape."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

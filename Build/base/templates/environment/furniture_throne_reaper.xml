@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>928</ClientId>
+	<ScaleModifier>0.5</ScaleModifier>
+	<Name>[FF9500]Reaper's Throne[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="chair"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

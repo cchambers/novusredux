@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="TrapKey">TestTrap</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="trap_lever">
+			<Initializer>
+			{
+				Time = 15,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

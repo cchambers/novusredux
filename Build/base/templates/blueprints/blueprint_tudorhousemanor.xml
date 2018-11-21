@@ -1,0 +1,32 @@
+<ObjectTemplate>
+  <Name>[FF0000]Tudor House Manor Blueprint[-]</Name>
+	<ClientId>638</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="housing_blueprint">
+			<Initializer>
+				{
+					BlueprintInfo = {
+						East = {
+							TemplateName = "tudor_house_manor_east",
+							DoorTemplate = "tudor_door", 
+				      		DoorLoc = Loc(2.533905,1.5,-1.971405), 
+				      		SignTemplate = "house_control_sign_tudor",
+				      		SignLoc = Loc(3.325928,3.688,0.5905914),
+				      		SignRot = 270,
+						},
+						South = {
+							TemplateName = "tudor_house_manor_south", 
+							DoorTemplate = "tudor_door",
+				      		DoorLoc = Loc(-1.96,1.5,-2.557), 
+				      		DoorRot = 90,
+				      		SignTemplate = "house_control_sign_tudor",
+				      		SignLoc = Loc(-2.991,3.54,-3.31)
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

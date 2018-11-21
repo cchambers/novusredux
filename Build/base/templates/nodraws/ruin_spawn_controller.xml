@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						{ Count = 3, TemplateId = "skeleton", Region = "RoomA5", DelayMin=4 }, 
+						{ Count = 1, TemplateId = "skeleton_archer", Region = "RoomA5", DelayMin=4 }, 
+
+						{ Count = 2, TemplateId = "skeleton", Region = "RoomA8", DelayMin=4 }, 
+						{ Count = 2, TemplateId = "skeleton_archer", Region = "RoomA8", DelayMin=4 }, 
+					   
+					    { Count = 3, TemplateId = "skeleton_archer", Region = "RoomA9", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "skeleton", Region = "RoomA10", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA11", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA12", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA14", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "lich", Region = "RoomA13", DelayMin=4 }, 
+
+					    { Count = 3, TemplateId = "skeleton_mage", Region = "RoomA16", DelayMin=4 }, 
+
+					    { Count = 4, TemplateId = "ruin_lich_lord", Region = "RoomA15", DelayMin=4 }, 
+
+						{ Count = 2, TemplateId = "mummy", Region = "RoomA3", DelayMin=4 },
+
+						{ Count = 2, TemplateId = "mummy", Region = "RoomA6", DelayMin=4 },
+
+						{ Count = 6, TemplateId = "zombie", Region = "RoomA19", DelayMin=4 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

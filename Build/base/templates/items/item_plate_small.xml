@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>968</ClientId>
+	<Name>[FF9500]Small Plate[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

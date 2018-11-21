@@ -1,0 +1,95 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>		
+				<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					--Helm
+	 					{ Count = 1, TemplateId = "guildleader_mining",    Region = "HelmMinersGuild2" }, 
+	 					{ Count = 1, TemplateId = "helm_miner",    Region = "HelmMinersGuild2", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 1, TemplateId = "helm_miner_female",    Region = "HelmMinersGuild2", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 2, TemplateId = "helm_miner",    Region = "HelmMinersGuild1", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 1, TemplateId = "helm_miner_female",    Region = "HelmMinersGuild1", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 2, TemplateId = "helm_miner_female",    Region = "HelmMinersGuild3", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 4, TemplateId = "helm_miner",    Region = "HelmMinersGuild3", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 4, TemplateId = "helm_miner_miner",    Region = "HelmMine", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 10, TemplateId = "helm_villager_upper",    Region = "HelmUpper", SpawnTime = 4, SpawnDuration = 18}, 
+	 					{ Count = 10, TemplateId = "helm_villager_lower",    Region = "HelmLower", SpawnTime = 4, SpawnDuration = 18}, 
+
+	 				--Helm at night
+	 					{ Count = 1, TemplateId = "helm_miner_female",    Region = "HelmMinersGuild3", SpawnTime = 23, SpawnDuration = 5}, 
+	 					{ Count = 2, TemplateId = "helm_miner",    Region = "HelmMinersGuild3", SpawnTime = 23, SpawnDuration = 5}, 
+	 					{ Count = 2, TemplateId = "helm_miner_miner",    Region = "HelmMine", SpawnTime = 23, SpawnDuration = 5}, 
+	 					{ Count = 5, TemplateId = "helm_villager_upper",    Region = "HelmUpper", SpawnTime = 23, SpawnDuration = 5}, 
+	 					{ Count = 5, TemplateId = "helm_villager_lower",    Region = "HelmLower", SpawnTime = 23, SpawnDuration = 5},
+
+	 				--HelmStable
+						{ Count = 6, TemplateId = "chicken",    Region = "HelmStable"},
+
+					--HelmBlacksmithGuild
+						{ Count = 1, TemplateId = "guildleader_blacksmith",    Region = "HelmBlacksmithGuild"},
+						{ Count = 1, TemplateId = "helm_blacksmith",    Region = "HelmBlacksmithGuild", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--HelmInn
+						{ Count = 3, TemplateId = "helm_chef",    Region = "HelmInn", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--HelmGraveyard
+						{ Count = 5, TemplateId = "zombie",    Region = "EasternGraveyard" },
+						{ Count = 6, TemplateId = "skeleton",    Region = "EasternGraveyard" }, 
+						{ Count = 3, TemplateId = "skeleton_archer",    Region = "EasternGraveyard" },
+
+					--EasternAbandoned
+						{ Count = 5, TemplateId = "zombie",    Region = "EasternAbandoned" },
+
+					--EasternAbandoned2
+						{ Count = 3, TemplateId = "lich",    Region = "EasternAbandoned2" },
+
+					--EasternShrine
+						{ Count = 5, TemplateId = "lich",    Region = "EasternShrine" },
+
+					--EasternCamp
+						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp1" },
+						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp2" },
+						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp3" },
+						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp1" },
+						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp2" },
+						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp3" },
+
+					--Beach1
+						{ Count = 5, TemplateId = "giantcrab",    Region = "Beach1" },
+
+					--Beach2
+						{ Count = 8, TemplateId = "giantcrab",    Region = "Beach2" },
+
+					--TAMING
+					--39.1+
+					{ Count = 8, TemplateId = "black_bear",    Region = "Eastern30", DelayMin=4 }, 
+					{ Count = 8, TemplateId = "black_bear",    Region = "Eastern31", DelayMin=4 },
+					{ Count = 8, TemplateId = "black_bear",    Region = "Eastern32", DelayMin=4 },
+					{ Count = 8, TemplateId = "black_bear",    Region = "Eastern33", DelayMin=4 },
+					--57.1+
+					{ Count = 8, TemplateId = "great_hart",    Region = "Eastern50", DelayMin=4 }, 
+					{ Count = 8, TemplateId = "great_hart",    Region = "Eastern51", DelayMin=4}, 
+					{ Count = 6, TemplateId = "great_hart",    Region = "Eastern52", DelayMin=4 }, 
+					{ Count = 6, TemplateId = "great_hart",    Region = "Eastern53", DelayMin=4 }, 
+					--71.1+
+					{ Count = 4, TemplateId = "whitetail",    Region = "Eastern50", DelayMin=4 }, 
+					{ Count = 3, TemplateId = "whitetail",    Region = "Eastern51", DelayMin=4 }, 
+					{ Count = 3, TemplateId = "whitetail",    Region = "Eastern52", DelayMin=4 }, 
+					{ Count = 4, TemplateId = "whitetail",    Region = "Eastern53", DelayMin=4 }, 
+
+					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears1" },
+					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears2" },
+					{ Count = 1, TemplateId = "dire_bear",    Region = "DireBear", DelayMin=30, Chance=5},
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

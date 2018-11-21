@@ -1,0 +1,96 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Rebel</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">210</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Rebel</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">47</DoubleVariable>
+		<DoubleVariable Name="Attack">15</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_rebels">
+			<Initializer>
+				{ 
+				RebelNames = {
+						"John",
+						"Richard",
+						"Patrick",
+						"Martin",
+						"Bill",
+						"Vincent",
+						"Pierre",
+						"Shawn",
+						"Billy",
+						"Douglas",
+						"Edmund",
+						"Daryl",
+						"William",
+						"Joseph",
+						"Michael",
+						"Jeremy",
+						"Samson",
+						"Gustave",
+						"Fulbert",
+						"Melvin",
+						"Marc",
+						"Garrett",
+						"Luke",
+					},
+				RebelJobs = {
+						"Rebel",
+					},
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=40,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { "armor_brigandine_tunic" },
+						Legs = { "armor_brigandine_leggings" },	
+						LeftHand = 	{ "shield_curvedshield" },
+						RightHand = {"weapon_broadsword", "weapon_broadsword", "weapon_war_mace"},	
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Head= {	"", "armor_brigandine_helm" },		
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.WarriorPoor,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Poor,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(50,100),
+						},
+					},			
+				ScavengeTables =
+					{
+					},			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

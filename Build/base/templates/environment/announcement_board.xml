@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>1096</ClientId>
+	<Name>[FF9500]Announcement Board[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="1000"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="FakeContainer">true</BoolVariable>
+		<BoolVariable Name="NoReset">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="message_board"/>
+		<LuaModule Name="noreset_autodestroy"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

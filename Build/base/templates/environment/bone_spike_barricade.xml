@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>887</ClientId>
+	<Name>[FF9500]Bone Spike Barricade[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="catacombs_cerberus_barricade"/>
+	</ScriptEngineComponent>
+	<ObjectVariableComponent/>
+</ObjectTemplate>

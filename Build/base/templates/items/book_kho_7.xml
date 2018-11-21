@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 7[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Praise be to the Prince of Darkness, Lord of the Underworld. For it is he that seeks only the justice that the evil ones will suffer in the eternal damnnation below. For those who redeem themselves in the Void will then be seen fit to join us in the struggle after their punishment. For they know the truth of the Void. The initiates will ask \"What is the Void?\" And to them we have an answer. The answer is just this: The Void is nothing. That is the truth. There is Nothing in the Void, and the God of the Void dwells in the realm of Nothingness. And is absolute nothing not the answer to everything. Nothing should exist, for if something exists, the Void is not spread. For beyond the first passing, those that are rejected by the False Gods are drawn into the Void. They alone have the honor of being chosen for non-existance that is the Void. And when they meet Him, His Judge sorts those who are to remain existing in The Underworld, or True Damnnation, that of Non-Existance in the Nothingness. For The Creatures of Darkness that are not born of Nothing itself are born in the Hells, the most feared part of the Underworld. This much is true. For there are many realms of the Dead, and none is more desired than the Underworld, on the Edge of the Void and before that of the Hells. For those who are sent to the Void are gone forever, playthings to Him before eternal destruction. Do not think this is a sad fate. The Void God loves those who seek the Void itself, and that is the greatest honor is it not? To go with the God of the Void? Those who are sent to the Hells are tortured forever for their sins, as punishment for their injustices committed in life, only those that join the Void God are forgiven. And those who are sent to the Underworld are most blessed of all. For it is there that the servants of the Void are recruited. There they reside. But remember, they reside there for one reason alone, so that they can spread nothingness across the cosmos. Remember that all things are temporary, and that all will become nothing, until the Void consumes all, and the Void God remakes it in His image."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

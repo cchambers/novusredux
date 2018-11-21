@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[00FF00]Stone Tablet[-]</Name>
+	<ClientId>338</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="AnotherLanguage">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "I have the tale of our God Hamoch of the Masters, written down here for posterity. It was in the Age of the Begotten, when all men were sworn by oath to the Masters, that they would be honest and true. He of the Sand, Hamoch, slept by a riverbed, where he encountered the Goddess Bodashtart living amongst the rivers. Hamoch asked that if she would submit to him and begot his son, Hamon who would live amongst the stars. The goddess said \"Your skill with a sword is none, king of the desert, you have no valor.\" to which Hamoch replied \"I have much skill with the sword, I am Hamoch, lord of the desert, I shalt slay anything with my sword!\" She made a deal, if he proved her wrong, by killing the highest flying bird with a wooden stick, she would agree to his request. if he should fail, the desert would turn into forests and trees and the animals would live amongst them. Having found a stick, he tossed the stick at a heron, but the bird dodged it. Again and again he tried to strike the bird with a stick, but the goddess laughed at him, saying \"You shant hit the bird, you can't even hit a hen with that stick!\". To which Hamoch replied: \"Why yes I can!\" Finding the nearest chicken coup, he grabbed a hen, and waited for the heron to land. When it had, he threw the chicken into the air, and threw his stick at the hen, whacking it until it hit the ground. When all was done, the goddess wept for the chicken, and Hamoch said \"Do not fret, for there will be more birds, are you not the goddess of all animals?\" To which the Goddess said \"I care but for all of them, but not you!\". Yet a deal was a deal, he had proved her wrong, and the Goddess begot Hamon, who would grow to be her most unfavored son. He left for the stars, after being chased out by the birds and the beasts and the plauges, giving us the gift of the gates for all time."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

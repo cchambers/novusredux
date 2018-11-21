@@ -1,0 +1,71 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Cultist King Alexis</Name>
+	<ScaleModifier>1.25</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">310</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">53</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_cultist_king">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=2,
+					Might=2,
+					},
+				Skills = 
+					{ 
+					Bashing=100,
+					Evocation=100,
+					MagicAffinity=100,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = { "head_cultist" },
+						BodyPartHair = {{"hair_cultist" ,"0x7a6841"}},	
+						Backpack = { "backpack" },	
+						RightHand = {{"weapon_spear"}},
+						Chest = {{"armor_cultist_king_chest"}},
+						Head = {{"armor_cultist_king_helm"}},
+						Legs = {{"npc_cultist_legs"}},				
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.WarriorRich,				
+						{
+							NumCoins = math.random(250,350),
+							NumItems = 2,
+							LootItems = 
+							{ 
+								{ Chance = 10, Template = "armor_cultist_king_helm", Unique = true },
+								{ Chance = 10, Template = "armor_cultist_king_chest", Unique = true },
+							},
+						},
+					},		
+				ScavengeTables =
+					{
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

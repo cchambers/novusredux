@@ -1,0 +1,67 @@
+<ObjectTemplate>
+	<Name>Awakening Ent Controller</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="AwakeningId">Ent</StringVariable>		
+		<DoubleVariable Name="SleepDuration">5</DoubleVariable>	
+		<DoubleVariable Name="SpawnSpeedMultiplier">0.01</DoubleVariable>	
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="awakening_controller">
+			<Initializer>
+				{
+					StageInfo = {
+						-- Stage 1 (Rats/Bats)
+						{ 
+							KillCount = 500, 
+							SystemMessage = "Level 2."
+						}, 
+						-- Stage 2 (Harpies/Spiders)
+						{ 
+							KillCount = 200, 
+							PermanentObjectTag = "Great Tree Stage 3", 
+							MaxDuration = TimeSpan.FromMinutes(30),
+							SystemMessage = "Level 3."
+						}, 
+						-- Stage 3 (Vile Spiders/Ent Mages)
+						{ 
+							KillCount = 80, 
+							PermanentObjectTag = "Great Tree Stage 4", 
+							MaxDuration = TimeSpan.FromMinutes(30),
+							SystemMessage = "Level 4."
+						}, 
+						-- Stage 4 (Barkas)
+						{ 
+							KillCount = 1, 
+							PermanentObjectTag = "Great Tree Stage 5",
+							SystemMessage = "Level 5."
+						}, 
+					},
+				}
+			</Initializer>
+		</LuaModule>		
+		<LuaModule Name="awakening_spawn_controller">
+			<Initializer>
+				{
+					AwakeningSpawnInfo = {
+						-- Stage 1
+						{
+							{ Count = 60, TemplateId = "awakening_rat",  Region = "GreatTree", DelayMin=0 }, 
+							{ Count = 60, TemplateId = "awakening_bat",  Region = "GreatTree", DelayMin=0 }, 
+						},
+						-- Stage 2
+						{
+							{ Count = 40, TemplateId = "awakening_harpy",  Region = "GreatTree", DelayMin=0 }, 
+							{ Count = 30, TemplateId = "awakening_spider",  Region = "GreatTree", DelayMin=0 }, 
+						},
+						-- Stage 3
+						{
+							{ Count = 15, TemplateId = "awakening_vile_spider",  Region = "GreatTree", DelayMin=0 },
+							{ Count = 25, TemplateId = "awakening_ent",  Region = "GreatTree", DelayMin=0 },
+						}							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

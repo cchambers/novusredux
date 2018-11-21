@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 2[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "When the Void itself was young, Kho was born. For Kho was born of the Void, born of the stars, and the heavens. When he was born as a manifestation of all the dispair of passing into the afterlife, to end all suffering. And it is the Passing into the Void that is most important among all things, is it not? \n\nThe Lord of Legions has many servants, but Kho itself only one is supreme. He of Light and Dark demands only the obedience of all life. For all life must perish, and death has always existed since the beginning of time, and the Void. All things perish, all things die and corrupt into nothing. For it is from this that our God's most powerful servant, came to be. \n\nAs the ages past, and the damned grew countless, a need arose more than ever to claim the souls of those who had perished, and thus His servant grew more and more powerful. His servant leads our pushes into the reaches of the cosmos, across all places and things, and the stars themselves know the terror that our God brings. \n\nFor his servant has walked among many a world, swallowing souls for the reaping, the harvest. All things must perish. All things must be drained. All life must be harvested. All life must be drained. \n\nFor foremost among the servants of the God of Good and Evil, Judger of All Things is that of Death. And Death hungers for souls forever."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Eye of a Dragon[-]</Name>
+	<ClientId>906</ClientId>
+	<Color>0xFF70593A</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

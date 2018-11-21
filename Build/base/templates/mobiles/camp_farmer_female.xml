@@ -1,0 +1,64 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Farmer</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">49</DoubleVariable>
+		<DoubleVariable Name="Attack">9</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_farmer">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=60,  
+					},	
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Ten,
+					},
+				ScavengeTables =
+					{
+					},			
+					EquipTable = {
+						Chest = { "clothing_tattered_shirt_chest" },
+						Legs = { "armor_scale_leggings" },
+						Head = { "clothing_mage_hat_helm" },
+						BodyPartHead = {"head_blacksmith"},
+						Backpack = { "backpack" },	
+					},
+					Names = {
+						"Betty Sue the Farmer",
+						"Gretchen the Farmer",
+						"Willa the Farmer",
+						"Tabitha the Farmer",
+						"Leigh the Farmer",
+						"Rohnda the Farmer",
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

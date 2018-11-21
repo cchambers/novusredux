@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Slice of Apple Pie[-]</Name>
+	<ClientId>944</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">ApplePieSlice</StringVariable>
+		<StringVariable Name="PluralName">Slices of Apple Pie</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

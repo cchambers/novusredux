@@ -1,0 +1,71 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Grid Controller</Name>
+	<Tag>MapGridController</Tag>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="SpawnMultiplier">1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="grid_spawner">
+			<Initializer>
+				{
+					GridSize = 256,
+					ExcludeRegions = {"NoHousing"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+
+					GridInfo = {
+				        { GridLoc = {4,1}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {4,0}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {4,-1}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {4,-3}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,0}, SpawnMultiplier = 0.9, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,-1}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,-2}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,-3}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {5,-4}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,1}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,0}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,-1}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,-2}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,-3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,-4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {6,-5}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,1}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,0}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,-1}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,-2}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,-3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,-4}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {7,-5}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,0}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-2}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-3}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-4}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-5}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {8,-6}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-1}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-2}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-3}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-5}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {9,-6}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-1}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-2}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-3}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-4}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-5}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {10,-6}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {11,-1}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {11,-2}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {11,-3}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {11,-4}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },
+				        { GridLoc = {11,-5}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },				        
+					}
+				}
+			</Initializer>
+		</LuaModule>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

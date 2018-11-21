@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Poniard[-]</Name>
+	<ClientId>1342</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Poniard</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

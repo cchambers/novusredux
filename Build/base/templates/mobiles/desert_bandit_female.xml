@@ -1,0 +1,106 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Desert Bandit</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name= "MobileTeamType">Bandits</StringVariable>
+		<DoubleVariable Name="BaseHealth">150</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.1</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_bandit">
+			<Initializer>
+				{ 
+					Stats = {  Str=20, Agi=20, Int=20 },
+					Skills = { Melee = 30, Slashing = 40, Bashing = 40, Piercing = 40, Blocking = 20, Dodge = 20 },
+					EquipTable = {
+						Backpack = { "backpack" },	
+						BodyPartHead = TemplateDefines.FemaleHeads,	
+						BodyPartHair = TemplateDefines.FemaleHairVillage,
+					},
+					LootTables = { 
+						{
+							NumItems = math.random(1,2),
+							NumCoins = math.random(10,20),
+							LootItems = 
+							{ 
+								{ Weight = 50, Template = "potion_health" },
+								{ Weight = 70, Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 10, Template = "potion_refresh" },
+								{ Weight = 5, Template  = "treasure_map" },
+								{ Weight = 10, Template = "potion_refresh" },
+								{ Weight = 5, Template  = "ancient_map" },
+								{ Weight = 5, Template  = "treasure_map" },
+								{ Weight = 10, Template = "potion_refresh" },
+								{ Chance = 1, Template = "sapphire_gem" },
+								{ Chance = 1, Template = "ruby_gem" },
+								{ Chance = 1, Template = "emerald_gem" },
+							},
+						},
+						-- Right Hand weapon equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "weapon_scimitar_crude", Unique = true },
+								{  Weight = 50, Template = "weapon_kryss_crude", Unique = true },
+								{  Weight = 50, Template = "tool_hunting_knife", Unique = true },
+								{  Weight = 50, Template = "weapon_long_spear_crude", Unique = true },
+							},
+						
+						},
+						-- Left Hand weapon equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "shield_buckler_crude", Unique = true },
+							},
+						
+						},
+						--Chest Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "clothing_chest_beggar",Color="B8A365", Unique = true },
+							},
+						},
+						--Legs Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "clothing_legs_beggar",Color="B8A365", Unique = true },
+								{  Weight = 50, Template = "clothing_legs_pants",Color="B8A365", Unique = true },
+							},
+						},
+						-- Head equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "leather_helm_wayun_dark_crude", Unique = true },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="goon_spawner">
+			<Initializer>
+				{
+					GoonTemplates = {
+						"desert_bandit_goon_female",
+						"desert_bandit_goon",
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>1042</ClientId>
+	<Name>[FF9500]Stool[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="chair"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

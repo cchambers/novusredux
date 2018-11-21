@@ -1,0 +1,37 @@
+<ObjectTemplate>
+	<ClientId>922</ClientId>
+	<Color>0xFF000000</Color>
+	<Name>Void Shadow</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="GhostMale"/>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Elemental</StringVariable>
+		<StringVariable Name="NaturalWeaponType">WarChissel</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Warp</StringVariable>
+		<StringVariable Name="NaturalArmor">Light</StringVariable>
+		<DoubleVariable Name= "BaseHealth">1000</DoubleVariable>
+		<BoolVariable Name="CannotBeCaptured">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_shadow">
+			<Initializer>
+				{ 
+					Stats = { Str=195, Agi=78, Int=20 },
+					Skills = { Melee = 100, Bashing = 100 },
+					EquipTable = {
+						BodyPartHead = TemplateDefines.MaleHeads,
+						},
+					LootTables = 
+					{
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

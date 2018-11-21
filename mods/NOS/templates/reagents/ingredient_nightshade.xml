@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Nightshade[-]</Name>
+	<ClientId>604</ClientId>
+	<Color>0xFFF51A8B</Color>
+	<Hue>10</Hue>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Nightshade</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

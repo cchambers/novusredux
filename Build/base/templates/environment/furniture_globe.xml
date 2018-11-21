@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>2000</ClientId>
+	<Name>Globe</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

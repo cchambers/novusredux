@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Sacred Dew Flower Extract[-]</Name>
+	<ClientId>1052</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SacredDewFlower</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

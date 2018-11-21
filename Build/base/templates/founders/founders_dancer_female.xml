@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Dancer</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>	
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<StringVariable Name="WanderRegion">DanceFloor</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+    	<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_dancer">
+			<Initializer>
+				{ 
+					Stats = { Str=20, Agi=20, Int=10 },
+					Skills = { Melee = 10, Blocking = 10 },
+					EquipTable = 
+					{						
+						BodyPartHead = TemplateDefines.FoundersDancersFemaleHeads,
+						BodyPartHair = TemplateDefines.FemaleHairFounders,
+						Chest = {"founders_chest_base","founders_chest2_base","founders_chest3_base"},
+						Legs = {"founders_legs_base","founders_legs2_base","founders_legs3_base"},
+						Backpack = { "backpack" },	
+					},
+					Names = {
+							"Lois",
+							"Amelia",
+							"Jane","May",
+							"Rosalie","Keya",
+							"Barbara",
+							"Ellen" ,
+							"Emily" ,
+							"Julie" ,
+							"Kaylee" ,
+							"Adriana" ,
+							"Bonnie" ,
+							"Catherine" ,
+							"Emma" ,
+							"Carolyn" ,
+							"Yvonne" ,
+							"Rhonda" ,
+							"Jodi","Tonya" ,
+							"Megan" ,
+							"Kennedy" ,
+							},
+				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,74 @@
+<ObjectTemplate>
+	<ClientId>59</ClientId>
+	<Color>0xFF222222</Color>
+	<Name>Nightmare</Name>
+	<SetScale>1</SetScale>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">2600</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">44</DoubleVariable>
+		<DoubleVariable Name="Attack">69</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
+		<StringVariable Name="MountType">Horse</StringVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_horse">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=100, 
+					MagicAffinity=100,
+					Evocation=100, 
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						{
+							NumCoins = math.random(1100,1400),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 1,
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

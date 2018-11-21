@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Color>0xC100FFFF</Color>
+	<Name>Ghost of the Druid</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<BoolVariable Name="IsGhost">true</BoolVariable>
+		<StringVariable Name="MobileTeamType">UndeadGraveyard</StringVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_ghost_druid">
+			<Initializer>
+				{
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+					Bashing = 50, 
+					},	
+					MobTraits =
+					{
+						Toughness = 3,
+					},
+					EquipTable = { 
+									Chest = {{"clothing_short_sleeve_shirt_chest","3B4022"}},
+									Legs = {{"clothing_skirt_legs","3B4022"}},
+									Head = {{ "clothing_bandit_hood_helm","3B4022"} },	
+								   	--BodyPartHead = { "head_male02" },
+									RightHand = { "weapon_long_spear_crude"},
+									LeftHand = { "shield_buckler_crude" },
+			                     },
+			        AvailableSpells = {"Heal"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

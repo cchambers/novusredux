@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>414</ClientId>
+	<Name>[FF9500]Arena Flag[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

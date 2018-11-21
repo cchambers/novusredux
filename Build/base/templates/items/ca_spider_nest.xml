@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>306</ClientId>
+	<ScaleModifier>0.6</ScaleModifier>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="spawned_spider_nest"/>
+		<LuaModule Name="decay"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

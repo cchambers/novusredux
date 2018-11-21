@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[D7D700]Holy Water[-]</Name>
+	<ClientId>570</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="holy_water"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

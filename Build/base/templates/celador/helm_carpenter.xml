@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Issac the Carpenter</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="RepairSkill">WoodsmithSkill</StringVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_carpenter">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						Woodsmith = 100,
+						Lumberjack = 100,
+					},
+					EquipTable= {
+						BodyPartHead= {
+							{"head_male03",176},
+						},
+						BodyPartHair= {
+							{"hair_male_nobleman",8},
+						},
+						Chest= {
+							{"clothing_padded_chest" ,8},
+						},
+						Legs= {
+							{"armor_leather_leggings"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "arrow",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "1.184082, 0.9359398, 0.401001",
+							Rotation = "0, 226.5062, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "tool_crook",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.050049, 0.959938, 1.760986",
+							Rotation = "-2.668043E-08, 214.9357, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "weapon_shortbow",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "1.168945, 0.9209404, -0.8270264",
+							Rotation = "8.427107, 224.3259, 6.473193E-07",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "blueprint_woodhouse_worthless",
+							Price = 0,
+							Amount = 100,
+							RelativeLoc = "7.202881, 0.9559402, -0.2030029",
+							Rotation = "0, -0.0001673396, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "blueprint_woodhousecottage",
+							Price = 0,
+							Amount = 100,
+							RelativeLoc = "8.416016, 0.9527054, -0.2009277",
+							Rotation = "0, -0.0001673396, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "blueprint_terracottahousecottage",
+							Price = 0,
+							Amount = 100,
+							RelativeLoc = "10.99194, 0.9527054, -0.2524414",
+							Rotation = "0, -0.0001673396, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "blueprint_terracottahousetuscan",
+							Price = 0,
+							Amount = 100,
+							RelativeLoc = "9.768066, 0.9527054, -0.2525024",
+							Rotation = "0, -0.0001673396, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

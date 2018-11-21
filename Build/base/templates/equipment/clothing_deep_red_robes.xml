@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[978161]Red Shadow Robes[-]</Name>
+	<ClientId>898</ClientId>
+    <Hue>196</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

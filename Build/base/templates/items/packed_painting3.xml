@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>Portrait of a Man with Eyes</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">furniture_painting3</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="packed_object"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

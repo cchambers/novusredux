@@ -1,0 +1,120 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Villager</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>	
+		<StringVariable Name="MobileTeamType">Nomads</StringVariable>
+		<StringVariable Name="MyPath">TownGuardPath</StringVariable>
+		<StringVariable Name="AutoDestroyVersion">0.3.4</StringVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<DoubleVariable Name="BaseHealth">200</DoubleVariable>		
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<BoolVariable Name="HasSkillCap">True</BoolVariable>
+		<BoolVariable Name="AutoUnstable">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect"/>
+		<LuaModule Name="ai_hireling_mercenary">
+			<Initializer>
+				{ 
+					Stats = { Str=70, Agi=50, Int=10 },
+					Skills = { Melee = 60, Slashing = 40, Bashing = 40, Piercing = 40, Blocking = 40},
+					EquipTable = {
+						BodyPartHair = TemplateDefines.MaleWaywardHair,
+						BodyPartHead = TemplateDefines.MaleWaywardHeads,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Backpack = { "backpack" },	
+						},
+					LootTables = { 
+						{
+							NumItems = math.random(1,2),
+							NumCoins = math.random(10,20),
+							LootItems = 
+							{ 
+								{ Weight = 50, Template = "potion_lheal" },
+								{ Weight = 70, Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 30, Template = "potion_refresh" },
+								{ Weight = 10, Template  = "treasure_map" },
+								{ Chance = 1, Template = "sapphire_gem" },
+								{ Chance = 1, Template = "ruby_gem" },
+								{ Chance = 1, Template = "emerald_gem" },
+								{ Weight = 5, Template  = "ancient_map" },
+							},
+						},
+						-- Right Hand weapon equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "weapon_scimitar_crude", Unique = true },
+								{  Weight = 50, Template = "weapon_kryss_crude", Unique = true },
+								{  Weight = 50, Template = "weapon_long_spear_crude", Unique = true },
+								{  Weight = 50, Template = "weapon_halberd_crude", Unique = true },
+							},
+						
+						},
+						-- Left Hand weapon equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 50, Template = "shield_buckler", Unique = true },
+							},
+						
+						},
+						--Chest Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "leather_chest_wayun_crude",Color="B8A365", Unique = true },
+							},
+						},
+						--Legs Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "leather_legs_wayun_crude", Unique = true },
+							},
+						},
+						-- Head equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "clothing_helm_raider", Unique = true },
+							},
+						},
+					},
+					VillagerNames = {
+						"Dal-Than",
+						"Ral-Tul",
+						"Hal-Fan",
+						"Nak-Tur",
+						"Dun-Wal",
+						"Sak-Weg",
+						"Nul-Dur",
+						"Wal-Dar",
+						"Sul-Far",
+						"Pal-Sek",
+						"Alu-Bar",
+						"Dar-Cur",
+						"Sal-Far",
+						"Hut-Tir",
+						"Nak-Gul",
+						"Fut-Sal",
+					},
+					VillagerJobs = {
+						"Sellsword",
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

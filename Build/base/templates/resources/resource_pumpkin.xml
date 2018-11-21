@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Pumpkin[-]</Name>
+	<ClientId>614</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Pumpkin</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

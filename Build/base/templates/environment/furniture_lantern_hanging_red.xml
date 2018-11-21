@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1080</ClientId>
+	<Name>[FF9500]Hanging Red Lantern[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

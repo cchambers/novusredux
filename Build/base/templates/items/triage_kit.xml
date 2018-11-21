@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[FF9500]Triage Kit[-]</Name>
+	<ClientId>1734</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">HealingSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">forage</StringVariable>
+		<StringVariable Name="ToolSound">fabrication</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="crafting_healing"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

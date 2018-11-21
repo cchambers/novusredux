@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Thoteggur[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Praise be to the God Thoteggur, he with his thousand eyes that see all, and his hundred arms, and thirty-two legs. For he is like a centipede, able to destroy with his four mouths, and his long body able to trample all that stand in his path. \n\nHis knowledge be known to all, that all should learn from his appearance to the Prophet Galgathine, blessed be her name. Know that these are the rituals that all should know, and that all should understand for the sake of approval of the elder gods. \n\nThe Ritual of the God Harrkoth should be done by all every 7th day, and must be done in the form of a sacrifice to one's respective gods. Those who wish for a sheep should prefer a younger one, as the blood of the innocent is better than that who has known the flesh. \n\nThe Ritual of Sarkassishth shall be done in honor of Kommen himself, every month. Snakes must be kept in good health for the ritual, as the larger the snake, the more the praise of the Star Dweller. The Prayer of Ko'talthu should be known to all who wish to achieve knowledge, and those who learn knowledge shall be posessed by the Old Ones themselves. \n\nPray daily, so that the Old Ones might know your devotion, and be posessed by spiritual truth. The Ritual of P'othattin shall be known when attempting to procreate, and that all pleasure be devoted to sacrifice of purity to the Old Ones. The Ritual of Snukkuath shall be in devotion to the God Kal'thuah for all time, for only when the world ends, he will be fully honored, blessed be his sacrifice. \n\nAnd for all who wish to live in eternal bliss, know that your cruelties and your sacrifices, and your hatred will be absolved as loyalty to the Elder Gods, and you will receive eternal bliss in the end. \n\nFor the strong shall survive as the weak perish, and only the strongest and the most wicked shall receive the reward."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

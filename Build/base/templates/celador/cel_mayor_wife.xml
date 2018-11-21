@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Sansa the Mayor's Wife</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+	    <StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+	    <BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="base_ai_npc">
+			<Initializer>
+				{
+					Stats = {
+						Str = 25,
+						Agi = 25,
+						Int = 25,
+					},
+					EquipTable = {
+						BodyPartHead= {
+							"head_female03",
+						},
+						BodyPartHair= {
+							"hair_female_bun",
+						},
+						Chest= {
+							{"clothing_dress_chest","0xFFD7D7D7"},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

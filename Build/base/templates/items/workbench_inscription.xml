@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[FF0000]Inscription Table[-]</Name>
+	<ClientId>277</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolType">InscriptionTable</StringVariable>
+		<StringVariable Name="ToolSkill">InscriptionSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">fabrication</StringVariable>
+		<StringVariable Name="ToolSound">KnifeUse</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent> 
+		<LuaModule Name="crafting_inscription"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

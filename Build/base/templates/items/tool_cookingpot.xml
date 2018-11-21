@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Cooking Pot[-]</Name>
+	<ClientId>6</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<SharedStateEntry name="Capacity" type="int" value="8"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolType">Pot</StringVariable>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="cooking_crafting">
+		</LuaModule>
+		<LuaModule Name="tool_base"/>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

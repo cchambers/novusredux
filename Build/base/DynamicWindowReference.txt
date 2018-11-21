@@ -1,0 +1,46 @@
+Window Frame Types:
+Default
+Transparent
+NoFrame
+SemiTransparent
+TriplePane
+TransparentCloseButton
+DefaultLongTitle
+TransparentDraggable
+ScrollSelection
+Character
+
+Button Types:
+Default
+Selection
+SimpleButton
+UpDownLock
+TabButton
+LeftArrow
+RightArrow
+Invisible
+CategoryButton
+SectionButton
+SkillSectionButton
+Selection2
+CombatToggle
+SkillButton
+BackpackButton
+CharacterButton
+StealthButton
+PvPButton
+HelpButton
+ScrollSelection
+Text
+BookList
+ScrollTitleText
+TextTwoColumn
+OutlineButton
+
+User Action Types:
+Square
+Diamond
+Circle
+DiamondSilver
+SquareFixed
+SquareFixedNoHotkey

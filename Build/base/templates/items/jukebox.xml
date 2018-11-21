@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>1068</ClientId>
+	<Name>Jukebox</Name>
+	<ObjectVariableComponent>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="jukebox"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

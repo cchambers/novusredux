@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1673</ClientId>
+	<Name>[FF9500]Large Fish Rack[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Mandrake Root[-]</Name>
+	<ClientId>8</ClientId>
+	<Color>0xFF663300</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Mandrake</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

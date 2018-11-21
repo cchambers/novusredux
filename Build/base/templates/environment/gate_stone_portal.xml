@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>Teleporter</Name>
+	<ClientId>278</ClientId>
+	<ObjectVariableComponent>	
+		<StringVariable Name="WindowTitle">Select Universe</StringVariable>
+		<BoolVariable Name="CreatePortalOnExit">true</BoolVariable>
+		<DoubleVariable Name="DecayTime">60</DoubleVariable>
+		<BoolVariable Name="CannotUseInCombat">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter_map"/>			
+		<LuaModule Name="decay"/>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

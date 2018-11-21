@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<!--
+    	<StringVariable Name="StartQuest">NoteQuest2</StringVariable>
+    	<BoolVariable Name="IsRebelNote">True</BoolVariable>
+    -->
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Keep your ears and toes together, we may have traitors in our midst that are selling us off to the Guardian Order at every turn. \n\nRobin, Captian of the Rebellion"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,76 @@
+<ObjectTemplate>
+	<ClientId>866</ClientId>
+	<Name>Void Guardian</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>2.0</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+    <SharedStateEntry name="BodyOffset" type="double" value="4"/>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">35000</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<StringVariable Name="MonsterAR">130</StringVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">80</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_cerberus">
+			<Initializer>				
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=50, Wil=50 },
+				MobTraits =
+					{
+					Might=3,
+					},
+				MobileEffects =
+					{
+						{"NoStun", {Permanent=true}},
+					},
+				Skills = 
+					{ 
+					Bashing=110, 
+					Evocation=110,
+					Channeling=110,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },				
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Boss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MapsBoss,
+						{
+							NumCoins = math.random(4000,6000),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					WeaponAbilities = { primary="CerberusCharge", secondary="PoisonBreath" },
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 1,
+					AnimalParts =
+   					{
+   						{ ResourceType="VileLeatherHide", Count=8 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

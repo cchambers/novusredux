@@ -1,0 +1,23 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Rosemary[-]</Name>
+	<ClientId>979</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FoodValue">1.0</DoubleVariable>
+		<DoubleVariable Name="CookingDifficulty">1.0</DoubleVariable>
+		<StringVariable Name="ResourceType">Rosemary</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						StaminaRegenMod = { 
+							Multiplier = 1.01,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

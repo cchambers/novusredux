@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Magic Bread[-]</Name>
+	<ClientId>351</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SummonedBread</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						StaminaRegenMod = { 
+							Multiplier = 1.01,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="summoned_food"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

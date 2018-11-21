@@ -1,0 +1,16 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+					Text = "To Whom It May Concern,\n\nThis is Rufus Jones, Head of the Guardian Order. Your request for legal protection shall be denied due to the henousness of your crime. You are forbidden from coming anywhere near city limits and are subject to persecution to all who seek it.\n\nSigned,\nRufus L. Jones\nHead Marshall of the Guardian Order of Petra"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

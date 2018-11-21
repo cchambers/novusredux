@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Salem the Mage</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="InventorySearchRange">15</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_merchant_mage">
+			<Initializer>
+				{
+					Stats = {
+						Str = 90,
+						Agi = 35,
+						Int = 100,
+					},
+					Skills = {
+						MagicAffinity = 100,
+						Evocation = 100,
+						Manifestation = 100,
+						Channeling = 100,
+					},
+					EquipTable = {
+						BodyPartHair= {
+							{"hair_male_bangs","0xFF380000"},
+						},
+						Chest= {
+							{"clothing_ornate_robe" ,"0xff3300"},
+						},
+						Head= {
+							{"clothing_mage_hat_helm","0xff3300"},
+						},
+						RightHand= {
+							{"weapon_staff"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "ingredient_moss",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "0.9249878, 0.5727654, 1.990967",
+						},
+						{
+							Template = "ingredient_moss",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "1.904999, 0.5727654, 2.221008",
+						},
+						{
+							Template = "ingredient_ginsengroot",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "0.9150085, 0.5727654, 2.800964",
+						},
+						{
+							Template = "ingredient_ginsengroot",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "1.945007, 0.5727654, 3.010986",
+						},
+						{
+							Template = "ingredient_mushroom",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "0.9049988, 0.5727654, 3.490967",
+						},
+						{
+							Template = "ingredient_mushroom",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "1.875, 0.5727654, 3.890991",
+						},
+						{
+							Template = "ingredient_lemongrass",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "0.9049988, 0.5727654, 4.450989",
+						},
+						{
+							Template = "ingredient_lemongrass",
+							Price = 0,
+							Amount = 999,
+							Amount = 900,
+							RelativeLoc = "1.894989, 0.5727654, 4.710999",
+						},
+						{
+							Template = "lscroll_heal",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-3.114014, 0.5727654, -0.8259888",
+						},
+						{
+							Template = "lscroll_fireball",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-4.005005, 0.5727654, -0.4689941",
+						},
+						{
+							Template = "lscroll_ruin",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-3.975006, 0.5727654, -0.09899902",
+						},
+						{
+							Template = "lscroll_poison",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-3.125, 0.5727654, -0.4689941",
+						},
+						{
+							Template = "lscroll_cure",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-3.095001, 0.5727654, -0.1190186",
+						},
+						{
+							Template = "spellbook",
+							Price = 0,
+							UnlimitedStock = false,
+							RelativeLoc = "-1.64502, 0.5727654, -0.3990479",
+						},
+						{
+							Template = "resource_blankscroll",
+							Price = 0,
+							Amount = 50,
+							RelativeLoc = "-1.675018, 0.5727654, -0.9689941",
+						},
+						{
+							Template = "weapon_staff",
+							Price = 0,
+							Amount = 20,
+							UnlimitedStock = false,
+							RelativeLoc = "-4.616028, 0.5727654, -0.4830322",
+							Rotation = "0, 270, 0",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

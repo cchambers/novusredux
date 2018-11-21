@@ -1,0 +1,62 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Hunter</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_reverse_hireling">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = { Melee = 90, Slashing = 90, Bashing = 90},
+					Names = {
+						"Gearald the Hunter",
+						"Ervin the Hunter",
+						"Randy the Hunter",
+						"Sal the Hunter",
+						"Earnest the Hunter",
+						"Ivan the Hunter",
+					},
+					EquipTable = 
+					{
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartHead = TemplateDefines.MaleHeads,	
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Backpack = { "backpack" },	
+						Head = { "armor_chain_helm" },	
+						RightHand = {{"weapon_broadsword"}},	
+						LeftHand = {{"shield_buckler"}},	
+						Chest = {{"armor_chain_tunic"}},
+						Legs = {{"armor_chain_leggings"}},			
+					},
+
+					Tasks = {
+						--Southern Rim
+						{
+							RegionalName = "Misty Caverns", 
+							Template = "rock_golem", 
+							Poi = "Waterfall Cave", 
+							RequiredLifetimePrestige = 3500,
+							RewardMin = 400,
+							RewardMax = 750,
+							Count = 4,
+						},
+					},
+
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

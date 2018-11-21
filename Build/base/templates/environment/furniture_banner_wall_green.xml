@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>885</ClientId>
+	<Name>[FF9500]Wayun Wall Banner[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

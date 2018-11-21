@@ -1,0 +1,175 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Resource Controller</Name>
+	<Tag>MapResourceController</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="map_resource_controller">
+			<Initializer>
+				{
+					ResourceRegions = {
+						{
+							Region = "BlackForestMine1",
+							Rock = 
+							{								
+								RegenRate = (10 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 60,
+										Count = 20, 
+									},
+									CopperOre = {
+										AvailablityPct = 20,
+										Count = 12, 
+									},
+									BronzeOre = {
+										AvailablityPct = 10,
+										Count = 12, 
+									},
+									SteelOre = {
+										AvailablityPct = 7,
+										Count = 12, 
+									},
+									ObsidianOre = {
+										AvailablityPct = 3,
+										Count = 12, 
+									},
+								}
+							},
+						},
+						{
+							Region = "BlackForestMine2",
+							Rock = 
+							{								
+								RegenRate = (10 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 60,
+										Count = 20, 
+									},
+									CopperOre = {
+										AvailablityPct = 20,
+										Count = 12, 
+									},
+									BronzeOre = {
+										AvailablityPct = 10,
+										Count = 12, 
+									},
+									SteelOre = {
+										AvailablityPct = 7,
+										Count = 12, 
+									},
+									ObsidianOre = {
+										AvailablityPct = 3,
+										Count = 12, 
+									},
+								}
+							},
+						},
+						{
+							Region = "GuardZoneLarge",
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 10,
+										Count = 8,
+									},
+								}
+							},
+							BlackForestTree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 10,
+										Count = 8,
+									},
+								}
+							},
+						},
+						{
+							-- Global values
+							Tree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 20,
+										Count = 8,
+									},
+									Blightwood = {					
+										AvailablityPct = 5,
+										Count = 8, 
+									},
+								}
+							},
+							BlackForestTree = {
+								RegenRate = (1 / 60), 
+								Count = 15, 
+
+								RareResources = {
+									Ash = {					
+										AvailablityPct = 20,
+										Count = 8,
+									},
+									Blightwood = {					
+										AvailablityPct = 5,
+										Count = 8, 
+									},
+								}
+							},
+							Rock = 
+							{								
+								RegenRate = (1 / 40), 
+								Count = 25, 
+
+								RareResources = {
+									IronOre = {					
+										AvailablityPct = 5,
+										Count = 20, 
+									},
+								}
+							},
+						},
+						
+					},
+					
+					SpawnedSources = 
+					{						
+						{ MaxCount = 50, Region = "Subregion-BlackForest" ,     Resource = "Ginseng"},
+						{ MaxCount = 70, Region = "Subregion-BlackForest",   Resource = "Ginseng"},
+						{ MaxCount = 70, Region = "Subregion-BlackForest",   Resource = "Ginseng"},
+						{ MaxCount = 65, Region = "Subregion-BlackForest",      Resource = "LemonGrass" },
+						{ MaxCount = 65, Region = "Subregion-BlackForest",      Resource = "LemonGrass" },
+						{ MaxCount = 65, Region = "Subregion-BlackForest",      Resource = "LemonGrass" },
+						{ MaxCount = 50, Region = "Subregion-BlackForest",      Resource =  "Mushrooms"},
+						{ MaxCount = 50, Region = "Subregion-BlackForest",      Resource =  "Mushrooms"},
+						{ MaxCount = 75, Region = "Subregion-BlackForest", Resource =  "Mushrooms"},
+						{ MaxCount = 50, Region = "Subregion-BlackForest", Resource =  "MushroomsPoison"},						
+						{ MaxCount = 75, Region = "Subregion-BlackForest",   Resource = "Ginseng"},
+						{ MaxCount = 65, Region = "Subregion-BlackForest",      Resource = "LemonGrass" },
+						{ MaxCount = 65,  Region = "Subregion-BlackForest",    Resource =  "Mushrooms"},
+						{ MaxCount = 35,  Region = "Subregion-BlackForest",    Resource =  "LemonGrass"},
+						{ MaxCount = 30,  Region = "Subregion-BlackForest",    Resource =  "Mushrooms"},
+						{ MaxCount = 20, Region = "Subregion-BlackForest",Resource = "GiantMushrooms"},
+						{ MaxCount = 30, Region = "Subregion-BlackForest",Resource = "GiantMushrooms"},
+						{ MaxCount = 50, Region = "Subregion-BlackForest",Resource = "GiantMushrooms"},
+						{ MaxCount = 30, Region = "Subregion-BlackForest",Resource = "GiantMushrooms"},
+						{ MaxCount = 40, Region = "Subregion-BlackForest",Resource = "GiantMushrooms"},
+						{ MaxCount = 200, Region = "Subregion-BlackForest",Resource = "Kindling"},
+					},
+				}
+			</Initializer>
+		</LuaModule>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

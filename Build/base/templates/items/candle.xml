@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>320</ClientId>
+	<Name>[FF9500]Candle[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<StringVariable Name="PluralName">Candles</StringVariable>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+		<StringVariable Name="ResourceType">Candle</StringVariable>
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

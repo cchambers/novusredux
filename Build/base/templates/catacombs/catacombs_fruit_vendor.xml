@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Tan-Ful the Fruit Vendor</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Wayun</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_catacombs_fruit_vendor">
+			<Initializer>
+				{
+					Stats = {
+						Str = 290,
+						Agi = 290,
+						Int = 190,
+					},
+					Skills = {
+						Bashing = 120,
+					},
+					EquipTable = {
+						BodyPartHead= {
+							{"head_male02","0xFFFFFFFF"},
+						},
+						BodyPartHair= {
+							{"hair_male_rougish","0xFF191919"},
+						},
+						Chest= {
+							{"clothing_chest_wayun",322},
+						},
+						Legs= {
+							{"clothing_legs_wayun",322},
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "1.217991, 2.286156, 1.298597",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs_dried",
+							RelativeLoc = "-0.2152176, -0.1999989, -1.585774",
+							Rotation = "0, 241.8269, 0",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "0.7529907, 2.403152, -0.0244031",
+							Rotation = "345.2951, 43.76984, 356.7477",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs_dried",
+							RelativeLoc = "-0.428009, 0.08315468, -1.729403",
+							Rotation = "0, 121.6021, 0",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs_dried",
+							RelativeLoc = "0.4229889, -0.1998463, 2.135597",
+							Rotation = "0, 241.8268, 0",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "-0.6430092, 2.458153, 0.5875974",
+							Rotation = "345.2951, 43.76984, 356.7477",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "-1.071007, 2.204155, -2.200403",
+							Rotation = "357.1975, 42.05985, 7.88879",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs_dried",
+							RelativeLoc = "-0.5440102, -0.1998463, -1.817403",
+							Rotation = "0, 93.00883, 0",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "0.182991, 2.343155, -1.770403",
+							Rotation = "345.2951, 43.76979, 356.7477",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs_dried",
+							RelativeLoc = "0.8891602, -0.1998463, 1.68774",
+							Rotation = "0, 326.4822, 0",
+							Price = "500",
+						},
+						{
+							Template = "fruit_catacombs",
+							RelativeLoc = "0.8379898, 2.286156, 0.7735972",
+							Rotation = "336.6278, 263.0528, 2.767429",
+							Price = "500",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

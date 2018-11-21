@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>618</ClientId>
+	<Name>[FF9500]Happy Jack O'Lantern[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">HalloweenJackOLanternHappy</StringVariable>
+		<StringVariable Name="DecorationTemplate">jack_o_lantern_happy</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="halloween_jack_o_lantern"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

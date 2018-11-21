@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 3[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "We are the followers of Kho, bringers of all things unholy, and devotees of the Void. For it is said that all things will be swallowed in the Void, and that we are the harbinger of darkness. For in time immemorable, we have served the Light-Bringer's will made manifest. For our goal is naught but his power, is it not? We ARE the servants of the Void. \n\nAll things wither and die, and we are but the bringers of the twilight of all things! For we alone know the truth, that death is not the end, but the beginning. That those who lived a just life shalt be given harmony ever-after, and those who committed great injustices shall be tortured forever, shall they not? For our God is the God of Light and Dark, like that of the scales, a bringer of balance. And Kho does not tolerate injustice. It all began when the first men were cast into the Void, and those that were perished became servants of the God of the Dead, God of the Twilight. Was not the cosmos born from the Void? Is our God not all knowing? \n\n In the time before time those who died faced emptyness, devoid of the light that is Kho. For when the Dead God was born, hope arose amongst the living, so that they could learn the truth of the afterlife. We thus are the heirs of all the dead and the fallen, from whence the first mortals gave themselves and sold their souls to that of Light-Bringer. It is in his eternal slavery and servitude we give ourselves so that all may know the power of the Void and the hereafter. For those who refuse to join us, the sword is the only solace for them. \n\nFor we are the Hammer of the Damned, and we alone raise the corpses of the Dead God for his armies, so that their souls can be swallowed by the Void God. For we are as needed as we need him, as the Void God draws his power from his worshippers. We exist because of death, and when death is found, we shall seek it. We put to death all, for they seek life for reasons we know not. But we know what they need. \n\nDeath is the answer. \nDeath is the answer!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

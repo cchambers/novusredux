@@ -1,18 +1,17 @@
 *.db
 *.pid
-*.XML
+ClusterConfig.xml
+AccessList.xml
+*.exe
 
 /backups
 /launcher
 /launcher_data
 /logs
 
-!/Build
-/Build/*
-!/Build/base
-/Build/base/*
-!/Build/base/templates
-!/Build/base/scripts
+/Build/*.dll
+/Build/base/luatools
+/Build/base/mapdata
 
 !/mods
 /mods/*

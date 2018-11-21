@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>		
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						{ Count = 6, TemplateId =  "ent", Region = "BlackForrestMushrooms" }, 
+
+						{ Count = 6, TemplateId =  "ent_mage", Region = "BlackForrestMushrooms2" },
+
+						{ Count = 4, TemplateId =  "troll", Region = "BlackForrestTroll" },
+
+						{ Count = 4, TemplateId =  "troll", Region = "BlackForrestTroll2" },
+
+						{ Count = 10, TemplateId =  "harpy", Region = "BlackForrestHarpies" }, 
+						{ Count = 10, TemplateId =  "harpy", Region = "BlackForrestHarpies2" },
+			
+
+						--TAMING
+						--39.1+
+					--	{ Count = 8, TemplateId = "black_bear",    Region = "BlackBear1", DelayMin=4 }, 
+					--	{ Count = 8, TemplateId = "black_bear",    Region = "BlackBear2", DelayMin=4 },
+						--53.1+
+						--{ Count = 10, TemplateId = "wolf_grey",    Region = "GreyWolves1", DelayMin=4 }, 
+						--{ Count = 10, TemplateId = "wolf_grey",    Region = "GreyWolves2", DelayMin=4 },
+						--59.1+
+						--{ Count = 8, TemplateId = "great_hart",    Region = "GreatHart1", DelayMin=4 }, 
+						--{ Count = 6, TemplateId = "great_hart",    Region = "GreatHart2", DelayMin=4 }, 
+						--{ Count = 6, TemplateId = "great_hart",    Region = "GreatHart3", DelayMin=4 }, 
+
+						--Spiders
+						{ Count = 8, TemplateId = "spider_hunter",    Region = "BlackForrestSpiders" }, 
+						{ Count = 6, TemplateId = "spider_vile",    Region = "BlackForrestSpiders" }, 
+						{ Count = 2, TemplateId = "spider_huntress",    Region = "BlackForrestSpiders", DelayMin=4, Chance=7 }, 
+
+						--Dread
+						{ Count = 1, TemplateId = "dread",    Region = "Dread2", DelayMin=4, Chance=7},
+						{ Count = 1, TemplateId = "dread_black",    Region = "Dread2", DelayMin=10, Chance=1},
+
+						--Crocs
+ 						{ Count = 12, TemplateId = "crocodile",    Region = "BlackForrestSwamp", DelayMin=4 }, 
+ 						{ Count = 2, TemplateId = "crocodile_ancient",    Region = "BlackForrestSwamp", DelayMin=30, Chance=.5 }, 
+					},
+				}
+			</Initializer>	
+		</LuaModule>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

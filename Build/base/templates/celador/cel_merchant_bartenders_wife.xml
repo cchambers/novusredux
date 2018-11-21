@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Mrs. Paws</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_bartender_wife">
+			<Initializer>
+				{
+					Stats = {
+						Str = 0,
+						Agi = 0,
+						Int = 0,
+					},
+					Skills = { Cooking = 100, },
+					EquipTable = {
+						RightHand= {
+							"",
+						},
+						Chest= {
+							"clothing_sewn_chest",
+						},
+						Legs= {
+							"clothing_sewn_leggings",
+						},
+			            BodyPartHair = { {"hair_female_shaggy","0x554838"}},
+            			BodyPartHead = {"head_female05"},
+					},
+					ItemInventory= {
+						{
+							Template = "inn_stew",
+							RelativeLoc = "-1.955994, 0.7925663, 1.175003",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

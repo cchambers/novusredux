@@ -1,0 +1,69 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Color>0xC100CCFF</Color>
+	<ScaleModifier>1.5</ScaleModifier>
+	<Name>Banshee</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Banshee"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">1500</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name= "MobileKind">Demon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_wraith">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						BodyPartHead = TemplateDefines.MaleHeads,
+						Chest = { { "clothing_simple_robe", "0xC100FFFF" } },					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.SkeletonRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						{
+							NumCoins = math.random(500,650),
+						},
+					},	
+				ScavengeTables =
+					{
+					},
+					AvailableSpells = {"Heal", "Greaterheal", "Cure"},			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,51 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Rufus the Head Guard</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>	
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<StringVariable Name="MyPath">TownGuardPath</StringVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<BoolVariable Name="IsGuard">true</BoolVariable>
+      	<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_rufus">
+			<Initializer>
+				{ 
+				Stats =
+					{
+					Str=40,
+					Agi=30,
+					Int=21
+					},
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = { "head_male02" },
+						BodyPartHair = {{"hair_male_messy","0xFF999999"}},
+						RightHand = { "weapon_longsword" },
+						LeftHand = { "shield_curvedshield" },
+						Chest = { {"armor_plate_tunic","0xFFCDAD00"} },
+						Legs = { {"armor_plate_leggings","0xFFCDAD00"} },
+						Backpack = { "backpack" }			
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

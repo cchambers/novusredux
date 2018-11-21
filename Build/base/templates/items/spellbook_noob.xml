@@ -1,0 +1,23 @@
+<ObjectTemplate>
+	<Name>[ff3333]Spellbook[-]</Name>
+	<ClientId>184</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="WeaponType">Spellbook</StringVariable>
+		<BoolVariable Name="EquipWhileCast">True</BoolVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="spellbook">
+			<Initializer>				
+				{
+					Spells = {
+						Heal = true,
+						Ruin = true,
+						Fireball = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

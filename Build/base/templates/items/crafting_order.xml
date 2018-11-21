@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[FF0000]Crafting Order[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="crafting_order">
+				<Initializer>
+				{}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

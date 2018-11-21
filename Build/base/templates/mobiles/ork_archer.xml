@@ -1,0 +1,65 @@
+<ObjectTemplate>
+	<ClientId>1141</ClientId>
+	<Name>Ork Thrower</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<SharedStateEntry name="Variation" type="string" value="Scout"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">280</DoubleVariable>
+		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
+		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">OrcSpeech</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">35</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_orc">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=70,  
+					Archery = 70,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						RightHand = {"weapon_savagebow"},						
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Average,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.ArcherPoor,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(260,350),
+						},
+					},
+				ScavengeTables =
+					{
+					},
+					WeaponAbilities = { primary="Power" },	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

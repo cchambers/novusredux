@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Wine[-]</Name>
+	<ClientId>325</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Wine</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent/>	
+</ObjectTemplate>

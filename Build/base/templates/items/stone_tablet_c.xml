@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[00FF00]Stone Tablet[-]</Name>
+	<ClientId>338</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="AnotherLanguage">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "All of the Gods be praised! We have the story of the Hidari people, on account of conquest by the King of the Pheonos, He who speaks on behalf of the people, and is exaulted by the gods! For they came in camels and boars from the desert wastes, pillaging and looting our people. We fought them long and hard with that which the farm provides. None were so vile and none were so ruthless as the Hidari, and they came with axes and bows and spears. All was lost, until the King rode into battle on the year 121 and slew down a host of Hidari, impaling the heads of all the prisoners from the road from Tacapa to Sidaon. Praise be to our king, appointed from heaven, lord of all those who follow his example, fate be upon him."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

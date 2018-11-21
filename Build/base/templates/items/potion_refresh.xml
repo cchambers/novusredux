@@ -1,0 +1,16 @@
+<ObjectTemplate>
+  <Name>[00FF00]Refresh Potion[-]</Name>
+	<ClientId>111</ClientId>
+	<Color>0xFF9600FF</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="PotionType">All</StringVariable>
+		<!-- Stackable objvars -->
+		<StringVariable Name="ResourceType">potion_refresh_regen</StringVariable>
+		<StringVariable Name="PluralName">Refresh Potions</StringVariable>
+	</ObjectVariableComponent>				
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+		<LuaModule Name="potion_regen"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,73 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Stolen Goods[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(600,800),
+				    	},
+
+						--armor
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 2,
+							LootItems = 
+							{	
+								--Rookie							
+								{ Weight = 10,Template = "armor_leather_helm", Unique = true },
+								{ Weight = 10,Template = "armor_leather_chest", Unique = true },
+								{ Weight = 10,Template = "armor_leather_leggings", Unique = true },
+								{ Weight = 10,Template = "robe_padded_leggings", Unique = true },
+								{ Weight = 10,Template = "robe_padded_helm", Unique = true },
+								{ Weight = 10,Template = "robe_padded_tunic", Unique = true },
+							}
+						},
+
+						--ingredients
+						{
+							NumItemsMin = 4,
+							NumItemsMax = 10,
+							LootItems = 
+							{									
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
+								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
+    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
+								{ Weight = 10, Template = "treasure_map", Unique = true },
+								{ Weight = 10, Template = "tool_shovel", Unique = true },
+								{ Weight = 25, Template = "bandage", Unique = true },
+								{ Weight = 1, Template = "sapphire_gem", Unique = true },
+								{ Weight = 1, Template = "ruby_gem", Unique = true },
+								{ Weight = 1, Template = "emerald_gem", Unique = true },
+								{ Weight = 1, Template = "diamond_gem", Unique = true },
+							}
+						},
+
+						--regs
+						{
+							NumItemsMin = 8,
+							NumItemsMax = 12,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

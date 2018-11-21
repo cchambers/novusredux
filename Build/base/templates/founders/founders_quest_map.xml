@@ -1,0 +1,25 @@
+<ObjectTemplate>
+  <Name>[FF0000]Gold-Encrusted Map[-]</Name>
+	<ClientId>113</ClientId>
+	<Color>0xFFFFFF00</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+      	<BoolVariable Name="NoDestroy">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="treasure_map">
+				<Initializer>
+				{
+				MapRegions = 
+					{
+						Outlands = { "Autumn" },
+					},
+				Rewards = 
+					{
+					"founders_quest_note",
+					},
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

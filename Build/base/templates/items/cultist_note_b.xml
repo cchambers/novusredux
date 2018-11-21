@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "By Decree of the Priest-King of the True Religion, it is ordered that all cultists shall now take part in the Bonding Ritual of Kephamigu, every thursday morning till noon, in accordance with the Astrolabe and the death of Lacius the Martyr as a tribute to his honor for the next three lunar cycle. Forbidding to drink blood in honor of this ritual is punishable by exocommunication."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

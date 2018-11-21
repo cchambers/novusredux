@@ -1,0 +1,41 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Color>0xFF168FB8</Color>
+	<Name>Kar'laz the Alien</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>			
+		<BoolVariable Name="noloot">True</BoolVariable>
+    	<StringVariable Name= "MobileTeamType">Pedesii</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect"/>
+		<LuaModule Name="ai_npc_founders_alien">
+			<Initializer>
+				{
+					Stats = { Str=150, Agi=80, Int=20 },
+					Skills = 
+					{ 
+						
+					},
+					EquipTable = {
+						BodyPartHead = { "head_female01" },
+						BodyPartHair = {{"hair_female_bob","0xFFFF0000"}},
+						Chest = {{"founders_chest_base","0xFF000000"}},
+						Legs = {{"founders_legs_base","0xFF000000"}},
+						Head = {{"founders_helm_base","0xFF000000"}},
+						Backpack = { "backpack" }			
+					},
+					MerchantContainers = 
+					{								
+					},
+					ItemInventory = 
+					{
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

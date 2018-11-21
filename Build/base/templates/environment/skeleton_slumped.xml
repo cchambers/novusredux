@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>891</ClientId>
+	<Name>[FF9500]Skeleton in Slumped Position[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

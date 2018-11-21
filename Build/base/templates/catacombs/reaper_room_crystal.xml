@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>925</ClientId>
+	<Name>[FF9500]Crystal[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">UndeadGraveyard</StringVariable>
+		<StringVariable Name="ControllerTemplate">grim_reaper</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<BoolVariable Name="Important">True</BoolVariable>
+		<BoolVariable Name="Attackable">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="reaper_room_crystal"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

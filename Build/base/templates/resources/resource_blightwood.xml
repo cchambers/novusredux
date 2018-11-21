@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Chopped Blightwood[-]</Name>
+	<ClientId>602</ClientId>
+	<Hue>865</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Blightwood</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

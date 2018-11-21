@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>428</ClientId>
+	<Name>[FF9500]Inn Chandelier[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>12</ClientId>
+	<Name>[FF9500]Basic Barrel[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

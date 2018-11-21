@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>647</ClientId>
+	<Name>[FF9500]Tall Clay Pot[-]</Name>
+	<ScriptEngineComponent/>		
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

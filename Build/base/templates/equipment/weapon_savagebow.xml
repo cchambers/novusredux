@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Savage Bow[-]</Name>
+	<ClientId>1337</ClientId>
+	<Hue>22</Hue>	
+	<SharedStateEntry name="Weight" type="int" value="7"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">SavageBow</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

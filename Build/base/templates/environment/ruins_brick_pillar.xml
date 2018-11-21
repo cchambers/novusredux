@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>174</ClientId>
+	<Name>[FF9500]Ruins Brick Pillar[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

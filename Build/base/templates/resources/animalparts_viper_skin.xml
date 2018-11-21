@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Pit Viper Skin[-]</Name>
+	<ClientId>244</ClientId>
+	<Color>0xFF008800</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">ViperSkin</StringVariable>
+		<StringVariable Name="PluralName">Pit Viper Skins</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>459</ClientId>
+	<Name>[FF9500]Cultist Table[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

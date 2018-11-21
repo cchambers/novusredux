@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>Map of Southern Rim</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Map</StringVariable>
+		<StringVariable Name = "WorldMap">NewCelador</StringVariable>	
+		<StringVariable Name="MapName">SouthernRim</StringVariable>
+		<BoolVariable Name = "CanAddMarkers">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+	</ScriptEngineComponent>
+</ObjectTemplate>

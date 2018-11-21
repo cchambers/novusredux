@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>Map</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name = "CanAddMarkers">true</BoolVariable>
+		<StringVariable Name="ResourceType">Map</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="world_map"></LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

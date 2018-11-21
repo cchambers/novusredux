@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClientId>1</ClientId>
+	<Hue>176</Hue>
+    <Name>Rakh the Thief</Name>
+  <ObjectVariableComponent>
+    <StringVariable Name="MobileTeamType">Villagers</StringVariable>
+    <StringVariable Name="MobileKind">Humanoid</StringVariable>
+    <DoubleVariable Name="BaseHealth">192</DoubleVariable>
+    <DoubleVariable Name="Armor">62</DoubleVariable>
+    <DoubleVariable Name="Attack">38</DoubleVariable>
+    <BoolVariable Name="noloot">True</BoolVariable>
+    <DoubleVariable Name="Karma">10000</DoubleVariable>   
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="ai_npc_village_theif">
+      <Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+          Skills = 
+          { 
+          Bashing = 50, 
+          },  
+          MobTraits =
+          {
+            Toughness = 3,
+          },
+					EquipTable = {
+						RightHand = { "weapon_poniard" },
+            Chest = {"armor_hardened_chest"},
+            Legs = {"armor_hardened_leggings"},
+            BodyPartHead = { "head_male05" },
+            Head = { "armor_hardened_helm" },  
+					},
+				}
+			</Initializer>
+    </LuaModule>
+  </ScriptEngineComponent>
+  <MobileComponent>
+    <BaseRunSpeed>1</BaseRunSpeed>
+    <MobileType>Friendly</MobileType>
+  </MobileComponent>
+</ObjectTemplate>

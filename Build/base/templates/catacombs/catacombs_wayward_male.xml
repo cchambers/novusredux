@@ -1,0 +1,66 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Wayward</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>	
+		<StringVariable Name="WanderRegion">FollowerHubRegion</StringVariable>
+		<StringVariable Name="MyPath">HubPath</StringVariable>
+    	<StringVariable Name= "MobileTeamType">Wayun</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect"/>
+		<LuaModule Name="ai_catacombs_stranger_worshiper">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+          			Skills = 
+          			{ 
+          			Bashing = 50, 
+          			},  
+			        MobTraits =
+			        {
+			            Toughness = 3,
+			        },
+					EquipTable = 
+					{						
+						BodyPartHead = TemplateDefines.MaleWaywardHeads,
+						BodyPartHair = TemplateDefines.MaleWaywardHair,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Chest = { "clothing_chest_wayun","clothing_chest_wayun_nocape"},
+						Legs = { "clothing_legs_wayun"},
+						Head = { "clothing_helm_wayun","clothing_helm_wayun_nomask",""},
+					},
+					VillagerNames = {
+						"Sai-Rus",
+						"Dra-Us",
+						"Lih-Chus",
+						"Nai-Gas",
+						"Dur-Dael",
+						"Vai-Ius",
+						"Sai-Gul",
+						"Nar-Thal",
+						"Lu-Thas",
+						"Kor-Anas",
+						"Wen-Dola",
+						"Shutal-Dul",
+						"Sai-Gaos",
+						"Pul-Tal",
+						"Dot-Thal",
+						"Quen-Thus",
+						"Ogas-Ugi",
+						"Ut-Ahl",
+						"Ear-Oas",
+						"Sol-Enius",
+						"Int-Harus",
+						"Een-Oth",
+						"Mun-Thal",
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

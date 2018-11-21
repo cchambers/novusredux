@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>800</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

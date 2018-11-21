@@ -1,0 +1,41 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Jarom the Noble</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>	
+		<StringVariable Name="WanderRegion">Market</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+    	<DoubleVariable Name="Armor">62</DoubleVariable>
+   		<DoubleVariable Name="Attack">38</DoubleVariable>
+   		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_nojob">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+          			Skills = 
+          			{ 
+          			Bashing = 50, 
+          			},  
+			        MobTraits =
+			        	{
+			            Toughness = 3,
+			        	},
+					EquipTable = 
+					{						
+						Chest = { {"clothing_short_sleeve_shirt_chest",352} },
+						Legs = { "merchant_clothing_legs" },
+						BodyPartHair = {"hair_female"},
+						BodyPartHead = {"head_female03"},
+
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

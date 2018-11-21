@@ -1,0 +1,79 @@
+<ObjectTemplate>
+	<ClientId>11</ClientId>
+	<Color>0x333333</Color>
+	<Name>Hunter</Name>
+	<ScaleModifier>2</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1.2</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Awakening</StringVariable>
+		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Bashing=75,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Potions,
+						TemplateDefines.LootTable.SpiderPoor,
+						TemplateDefines.LootTable.Maps,
+						TemplateDefines.LootTable.Rich,
+						{
+							NumCoins = math.random(200,350),
+						},
+					},
+				ScavengeTables =
+					{
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 10, Template = "animalparts_spidersilk", Unique = true, StackCount = math.random(1,2) },
+
+							},
+						},
+					},		
+					WeaponAbilities = { primary="Stab" },
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{				
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,4 @@
+<ObjectTemplate>
+	<ClientId>1841</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

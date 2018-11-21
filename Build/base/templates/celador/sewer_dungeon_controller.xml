@@ -1,0 +1,35 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Dungeon Controller</Name>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						--SewerDungeon1
+						{ Count = 4, TemplateId =  "sewer_rat", Region = "SewerDungeon1", DelayMin=4 }, 
+						{ Count = 2, TemplateId =  "sewer_bat", Region = "SewerDungeon1", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "sewer_rat", Region = "SewerDungeon2", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "sewer_rat", Region = "SewerDungeon3", DelayMin=4 }, 
+						{ Count = 2, TemplateId =  "sewer_bat", Region = "SewerDungeonH7", DelayMin=4 }, 
+						{ Count = 2, TemplateId =  "giant_bat", Region = "SewerDungeonH8", DelayMin=4 }, 
+						{ Count = 2, TemplateId =  "giant_bat", Region = "SewerDungeonH9", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "rat_giant", Region = "SewerDungeon4", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "rat_giant", Region = "SewerDungeon5", DelayMin=4 },
+						{ Count = 3, TemplateId =  "sewer_lurker", Region = "SewerDungeon6", DelayMin=4 },
+						{ Count = 3, TemplateId =  "sewer_lurker", Region = "SewerDungeon7", DelayMin=4 },
+						{ Count = 3, TemplateId =  "rat_giant", Region = "SewerDungeon8", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "rat_giant", Region = "SewerDungeon9", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "sewer_lurker", Region = "SewerDungeon10", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "sewer_lurker", Region = "SewerDungeon11", DelayMin=4 }, 
+						{ Count = 3, TemplateId =  "sewer_lurker", Region = "SewerDungeon11", DelayMin=4 },
+
+					}
+				}
+			</Initializer>	
+		</LuaModule>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

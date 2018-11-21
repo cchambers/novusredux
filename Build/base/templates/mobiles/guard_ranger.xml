@@ -1,0 +1,53 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Ranger Guard</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>3</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
+		<DoubleVariable Name="Attack">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+		<BoolVariable Name="IsNeutralGuard">true</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_guard">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						Accurate = 10,
+					},
+				Skills = 
+					{ 
+					Bashing=100,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHair = { "" },
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Backpack = { "backpack" },
+						RightHand = { "weapon_longbow" },
+						Chest = {{"armor_leather_chest",800}},
+						Legs = {{"armor_leather_leggings",800}},
+						Head = {{"armor_leather_helm",800}}				
+					},
+				LootTables = 
+					{ 
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Black Pearl[-]</Name>
+	<ClientId>358</ClientId>
+	<Color>0xFFC100FF</Color>
+	<Hue>15</Hue>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Black Pearl</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

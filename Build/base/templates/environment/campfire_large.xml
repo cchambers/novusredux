@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[FF0000]Large Campfire[-]</Name>
+	<ClientId>386</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="HeatSource">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

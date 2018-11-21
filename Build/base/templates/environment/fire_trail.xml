@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>865</ClientId>
+	<Name>[FF9500]Fire[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

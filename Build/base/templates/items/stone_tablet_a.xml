@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[00FF00]Stone Tablet[-]</Name>
+	<ClientId>338</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="AnotherLanguage">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Praise be to the great goddesses of Lila and Evef, who created the universe and know all there is to be. For they stand against the evils of the Ancient Ones, and they alone can know the strength of the afterlife! For in the age of the Masters, that of the Gods who look like man, only they were revered against the Masters and Ancient Ones. For the Masters have gone, but the afterlife remains! Have the masters not shown us the truth about the world? Have they not given us knowledge in ages past? For this is to be known, that the gods must be known for their graces, and the demons known as the Ancient Ones are that which should be opposed. For the Masters gave us knowledge, Lila and Evef given us life, but the Ancient Ones give us only death."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

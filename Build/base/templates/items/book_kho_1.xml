@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 1[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Let it be written, he who hath understanding know the Knowledge of Kho, Of the Darkness, King of the Damned. For it is written that He is Eternal, and He knows all that is to transpire. For the eternity of the Void is known to all, that Death is not the End, and that with Death, one finds solace. \n\nFor the Void is cold and dark, and there is no light there. Let it be known that the blood spilt and the men sacrificed in the name of Kho is but a great offering to him, and that the Underworld is eternal. For what is written in blood is but what is most sacred to us, and that through our words death shalt be known in all things. For we seek only the end of life, and the beginning of eternal slavery to Kho himself, God of Darkness. \n\nThe God of Twilight, the Light-Bearer is the true God, and that the Dead know him well. So seek knowledge that death is not the end, not something to fear, but to embrace. The Darkness shall overtake all, and all shall see the Light-Bearer in time. Death itself is but merely the beginning. For in time immemorable, Death was born from The Shattering itself, and given personification by Kho himself. For Death is but a God in the making of Kho, and in his likeness. For our God is real, and our god is Truth. All things corrupt and die, and so shall we.\n\nWhen Kho first was born in the Shattering, the heavens trembled as the twilight of life spread through the cosmos. For our God is a just, but ruthless God, and all those who knew the afterlife now have The Master. For Kho overthrew the Strange Gods as masters of the Afterlife, and the Underworld in the War of the Heavens. His legions grew vast, and his power grew infinite, his cruelty boundless. None who knew the power of corruption began to know it, and as our devotion grew, so did his strength. For our God is known not for deception, but cunning, and our God is known for his malice against his enemies, and a lack of mercy. For the Beast of Beasts is powerful indeed, and none shall compare!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

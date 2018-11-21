@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Brigandine Leggings[-]</Name>
+	<ClientId>1483</ClientId>
+	<Hue>800</Hue>
+	<SharedStateEntry name="Weight" type="int" value="7"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Brigandine</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

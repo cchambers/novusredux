@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Wood Boards[-]</Name>
+	<ClientId>599</ClientId>
+	<Hue>775</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Boards</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

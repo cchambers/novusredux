@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[FFBF00]Coin Purse[-]</Name>
+	<ClientId>108</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">coins</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.001</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="coins"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

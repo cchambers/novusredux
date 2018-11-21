@@ -1,0 +1,95 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+						--valus
+						{ Count = 1, TemplateId = "val_scout_trainer",    Region = "ValusScout"}, 
+						{ Count = 1, TemplateId = "val_knight_trainer",    Region = "ValusKnight"},
+						{ Count = 1, TemplateId = "val_gladiator_trainer",    Region = "ValusGladiator"},
+
+						--villagers
+						{ Count = 6, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 6, TemplateId = "val_villager_female",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 8, TemplateId = "chicken",    Region = "SouthernHillsValus"}, 
+
+						--villagers at night
+						{ Count = 3, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 3, TemplateId = "val_villager_female",    Region = "SouthernHillsValus" , SpawnTime = 23, SpawnDuration = 5}, 
+
+						--Ship
+						{ Count = 5, TemplateId =  "pirate", Region = "SouthernHillsShipBeach1" }, 
+						{ Count = 5, TemplateId =  "pirate", Region = "SouthernHillsShipBeach2" },
+						{ Count = 5, TemplateId =  "pirate_female", Region = "SouthernHillsShipBoat" }, 
+						{ Count = 4, TemplateId =  "pirate", Region = "SouthernHillsShipOuter" },
+						{ Count = 4, TemplateId =  "pirate_female", Region = "SouthernHillsShipOuter" },
+
+						--Cemetary
+						{ Count = 2, TemplateId = "skeleton",    Region = "GraveyardLowerMain" },
+						{ Count = 2, TemplateId = "skeleton_archer",    Region = "GraveyardLowerMain" },
+						{ Count = 2, TemplateId = "ghoul",    Region = "GraveyardLowerMain" },
+						{ Count = 2, TemplateId = "skeleton",    Region = "GraveyardLower2" },
+						{ Count = 2, TemplateId = "skeleton_archer",    Region = "GraveyardLower1" },
+						
+						{ Count = 2, TemplateId = "zombie",    Region = "GraveyardRoomS" }, 
+						
+						{ Count = 3, TemplateId = "zombie",    Region = "GraveyardRoomL" },
+						{ Count = 3, TemplateId = "zombie",    Region = "GraveyardMiddle1" },
+						{ Count = 1, TemplateId = "zombie",    Region = "GraveyardMiddle2" },
+						{ Count = 1, TemplateId = "zombie",    Region = "GraveyardMiddle2" },
+						{ Count = 4, TemplateId = "skeleton_mage",    Region = "GraveyardMiddle3" },
+						{ Count = 4, TemplateId = "ghoul",    Region = "GraveyardCata" }, 
+						{ Count = 3, TemplateId = "ghoul",    Region = "GraveyardUpper1" }, 
+						{ Count = 5, TemplateId = "ghoul",    Region = "GraveyardUpper2" }, 
+						{ Count = 4, TemplateId = "lich",    Region = "GraveyardCrypt" },
+
+						{ Count = 9, TemplateId = "skeleton",    Region = "GraveyardOuter" },
+						{ Count = 9, TemplateId = "ghoul",    Region = "GraveyardOuter" },
+
+						--Graveyard
+						{ Count = 8, TemplateId =  "skeleton", Region = "SouthernHillsGraveyard" }, 
+						{ Count = 4, TemplateId =  "zombie", Region = "SouthernHillsGraveyard" }, 
+
+						--Temple
+						{ Count = 3, TemplateId =  "lich", Region = "SouthernHillsTemple1" }, 
+						{ Count = 2, TemplateId =  "lich", Region = "SouthernHillsTemple2" }, 
+						{ Count = 2, TemplateId =  "lich", Region = "SouthernHillsTemple3" }, 
+						{ Count = 2, TemplateId =  "lich", Region = "SouthernHillsTempleEntrance" },
+
+						--Grotto
+						{ Count = 3, TemplateId =  "pirate_knight", Region = "SouthernHillsGrottoBeds" }, 
+						{ Count = 4, TemplateId =  "pirate_knight", Region = "SouthernHillsGrottoMain" }, 
+						{ Count = 4, TemplateId =  "pirate_knight", Region = "SouthernHillsGrottoEntrance" }, 
+						{ Count = 6, TemplateId =  "pirate_dagger", Region = "SouthernHillsGrottoTree" },
+						{ Count = 4, TemplateId =  "pirate_dagger", Region = "SouthernHillsGrottoBalcony" },
+
+						--TAMING
+						--39.1+
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills30", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills31", DelayMin=4 },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills32", DelayMin=4 },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills33", DelayMin=4 },
+						--57.1+
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernHills50", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernHills51", DelayMin=4 }, 
+						{ Count = 10, TemplateId = "great_hart",    Region = "SouthernHills52", DelayMin=4 }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernHills53", DelayMin=4 }, 
+						--71.1+
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernHills50", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernHills51", DelayMin=4 }, 
+						{ Count = 5, TemplateId = "whitetail",    Region = "SouthernHills52", DelayMin=4 }, 
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernHills53", DelayMin=4 }, 
+ 
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

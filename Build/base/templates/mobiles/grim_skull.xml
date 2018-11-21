@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<ClientId>871</ClientId>
+	<Color>0xFFFF0000</Color>
+	<Name>Grim Skull</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">1250</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="NaturalWeaponType">Spikes</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>
+		<StringVariable Name="NaturalArmor">Light</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default">
+			<Initializer>				
+				{ 
+					Stats = { Str=117, Agi=117, Int=32 },
+					Skills = 
+					{ 
+						Melee = 100, 
+						Channeling = 100,
+					},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 1,
+					AnimalParts =
+					{
+						{ ResourceType="BatEar", RarityPct=50, Count=4 },
+						{ ResourceType="Blood", RarityPct=80, Count=3 },
+						{ ResourceType="BeastEye", RarityPct=80, Count=3 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

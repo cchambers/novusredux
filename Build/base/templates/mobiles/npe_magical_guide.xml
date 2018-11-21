@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>1182</ClientId>
+	<Name>Magical Guide</Name>
+	<SharedStateEntry name="NoInteract" type="bool" value="True"/>
+	<SharedStateEntry name="DisplayName" type="string" value=" "/>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>		
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="npe_magical_guide"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

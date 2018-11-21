@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Bo'dddhlathi[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "For all those who wish to know, I am the Prophet Onalton, from the Republic of Vectras. I have left my worship of the New Gods, in return for the devotion of the Old Gods. For a thousand years, my people have lived in ignorance of the True Gods, and that all must know the way the true gods are agknowledged. \n\nYour devotion to the True Gods is paramount to all else, and anyone who strays from the path must be killed. This is known and common knowledge. But let it be known that the truth is always to be saught, and that the only truth is that of the Star Dweller. \n\nA servant of the Star Dweller, Bo'dddhlathi the Old, has spoken to me that I should address your lack of collective devotion. As should be known, one's devotion is shown best through prayer, ritual and sacrifice. Sacrifice daily an animal or a man, preferablly one that is young and innocent. Pray daily to your gods, know that the more you show your devotion the more they will favor you.\n\n Rituals as given by your lord are to be done, in any manner and in the manner the scripture proscribes. And above all else, show your gods your virtues in acts, for only those that are the most corrupt and abhorrent are to be recognized, as all those who defile themselves now shall be purified when the Star Dweller arrives. \n\nDevotion above all else, is something to be shown, and there should be no thought in your mind about heresy or being an apostate. For all those who know your truth is devotion, fear and love your elder gods, for all those who are opposed to them fear your faith. \n\nFaith is eternal, and no devotion is better than faith in Chaos and destruction. The blighted magic is better than the strongest, and know that the more you corrupt yourself, the stronger you will be, and the more that will be washed away in the Rthaugnaa, when all are awakened for the end of things."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

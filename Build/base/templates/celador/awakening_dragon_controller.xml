@@ -1,0 +1,68 @@
+<ObjectTemplate>
+	<Name>Awakening Dragon Controller</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="AwakeningId">Dragon</StringVariable>		
+		<DoubleVariable Name="SleepDuration">5</DoubleVariable>	
+		<DoubleVariable Name="SpawnSpeedMultiplier">0.01</DoubleVariable>	
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="awakening_controller">
+			<Initializer>
+				{
+					StageInfo = {
+						-- Stage 1 (Easy Lizards)
+						{ 
+							KillCount = 500, 
+							SystemMessage = "The wyverns are here."
+						}, 
+						-- Stage 2 (Hard Lizards)
+						{ 
+							KillCount = 200, 
+							PermanentObjectTag = "Dragons Den Stage 1", 
+							MaxDuration = TimeSpan.FromMinutes(30),
+							SystemMessage = "The dragons are awakening."
+						}, 
+						-- Stage 3 (Gorgon/Wyrms)
+						{ 
+							KillCount = 80, 
+							PermanentObjectTag = "Dragons Den Stage 2", 
+							MaxDuration = TimeSpan.FromMinutes(30),
+							SystemMessage = "The bigger dragons are awakening."
+						}, 
+						-- Stage 4 (Boss Dragon)
+						{ 
+							KillCount = 1, 
+							PermanentObjectTag = "Dragons Den Stage 3",
+							SystemMessage = "You have awakened Vazguhn the Ancient."
+						}, 
+					},
+				}
+			</Initializer>
+		</LuaModule>		
+		<LuaModule Name="awakening_spawn_controller">
+			<Initializer>
+				{
+					AwakeningSpawnInfo = {
+						-- Stage 1
+						{
+							{ Count = 60, TemplateId = "awakening_lizardman",  Region = "BarrensDragonsNest", DelayMin=0 }, 
+							{ Count = 60, TemplateId = "awakening_snake",  Region = "BarrensDragonsNest", DelayMin=0 }, 
+						},
+						-- Stage 2
+						{
+							{ Count = 40, TemplateId = "awakening_viper",  Region = "BarrensDragonsNest", DelayMin=0 }, 
+							{ Count = 30, TemplateId = "awakening_lizardman_scout",  Region = "BarrensDragonsNest", DelayMin=0 }, 
+							{ Count = 30, TemplateId = "awakening_lizardman_warrior",  Region = "BarrensDragonsNest", DelayMin=0 },
+						},
+						-- Stage 3
+						{
+							{ Count = 15, TemplateId = "awakening_drake",  Region = "BarrensDragonsNest", DelayMin=0 },
+							{ Count = 25, TemplateId = "awakening_gorgon",  Region = "BarrensDragonsNest", DelayMin=0 },
+						}							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,34 @@
+<ObjectTemplate>
+  <Name>[FF0000]Stone House Manor Blueprint[-]</Name>
+	<ClientId>638</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="housing_blueprint">
+			<Initializer>
+				{
+					BlueprintInfo = {
+						East = {
+							TemplateName = "terracotta_house_lodge_east", 
+							DoorTemplate = "tudor_door_fine",
+				      		DoorLoc = Loc(3.876953,1.97,2.684),
+				      		DoorRot = 180,
+				      		SignTemplate = "house_control_sign_stone",
+				      		SignLoc = Loc(5.145142,3.967,3.517914),
+				      		SignRot = -90,
+						},
+						South = {
+							TemplateName = "terracotta_house_lodge_south", 
+							DoorTemplate = "tudor_door_fine",
+				      		DoorLoc = Loc(2.690796,1.97,-3.859245), 
+				      		DoorRot = -90,
+				      		SignTemplate = "house_control_sign_stone",
+				      		SignLoc = Loc(-2.11,4.95,-4.518),
+				      		SignRot = 0,
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

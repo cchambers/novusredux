@@ -1,0 +1,66 @@
+<ObjectTemplate>
+	<ClientId>1581</ClientId>
+	<Name>Lord Barkas</Name>
+	<ScaleModifier>2</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+    <SharedStateEntry name="BodyOffset" type="double" value="6.5"/>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">30000</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Awakening</StringVariable>
+		<StringVariable Name= "MobileKind">Ent</StringVariable>
+		<StringVariable Name="MonsterAR">130</StringVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">63</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_awakening_dragon">
+			<Initializer>				
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=50, Wil=50 },
+				MobTraits =
+					{
+					Might=3,
+					},
+				MobileEffects =
+					{
+						{"NoStun", {Permanent=true}}
+					},
+				Skills = 
+					{ 
+					Bashing=110, 
+					Evocation=110,
+					Channeling=110,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.Boss,
+						{
+							NumCoins = math.random(1500,2800),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

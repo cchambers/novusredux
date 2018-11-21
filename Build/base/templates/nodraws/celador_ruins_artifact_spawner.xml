@@ -1,0 +1,60 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+			<LuaModule Name="item_spawner">
+				<Initializer>
+				{
+					MaxItems = 4,
+					ItemTemplates = 
+					{
+						"artifact_small_statue",
+						"artifact_gold_bracelet",
+						"artifact_ornate_pottery",
+						"artifact_ornate_goblet",
+						"artifact_flute",
+						"artifact_mask",
+						"artifact_pendant",
+						"stone_tablet_a",
+						"stone_tablet_b",
+						"stone_tablet_c",
+						"stone_tablet_d",
+						"stone_tablet_e",
+					},
+					ItemLocations = {
+						{Location = Loc(-1626,   0,-812),},
+						{Location = Loc(-1639,  0,-818),},
+						{Location = Loc(-1631,   0,-811),},
+						{Location = Loc(-1675,  0,-783),},
+						{Location = Loc(-1685,  0,-828),},
+						{Location = Loc(-1693,  0,-826),},
+						{Location = Loc(-1715,  0,-829),},
+						{Location = Loc(-1678,  0,-829),},
+						{Location = Loc(-1661,  0,-838),},
+						{Location = Loc(-1635,   0,-845),},
+						{Location = Loc(-1636,  0,-850),},
+						{Location = Loc(-1581,   0,-946),},
+						{Location = Loc(-1609,   0,-955),},
+						{Location = Loc(-1634,   0,-936),},
+						{Location = Loc(-1635,   0,-898),},
+						{Location = Loc(-1650,  0,-883),},
+						{Location = Loc(-1650,  0,-930),},
+						{Location = Loc(-1638,  0,-917),},
+						{Location = Loc(-1670,  0,-903),},
+						{Location = Loc(-1684,  0,-906),},
+						{Location = Loc(-1704,  0,-909),},
+						{Location = Loc(-1704,  0,-919),},
+						{Location = Loc(-1659,  0,-938),},
+						{Location = Loc(-1653,  0,-922),},
+						{Location = Loc(-1664,  0,-952),},
+						{Location = Loc(-1676,  0,-979),},
+						{Location = Loc(-1657,  0,-980),},
+						{Location = Loc(-1679,  0,-987),},
+						{Location = Loc(-1699,  0,-987),},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

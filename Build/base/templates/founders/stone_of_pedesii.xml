@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[D7D700]Stone of the Pedesii[-]</Name>
+	<ClientId>26</ClientId>
+	<Color>0xFF003FFF</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

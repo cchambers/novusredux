@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>1833</ClientId>
+	<Name>[FF9500]Warg Mount Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">WolfEnvironment</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="pet_statue" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

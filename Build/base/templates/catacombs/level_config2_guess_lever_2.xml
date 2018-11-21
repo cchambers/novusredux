@@ -1,0 +1,22 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_lever">
+			<Initializer>
+			{
+				Spawns = 
+				{
+					{"skeleton_mage_devout",Loc(140.99, 0.9570007, -8.19),45},
+					{"skeleton_mage_devout",Loc(137.9, 0.9635315, -2.72),45},
+					{"skeleton_mage_devout",Loc(143.66, 0.9635315, -2.72),45},
+					{"skeleton_mage_devout",Loc(143.66, 0.9635315, -2.72),45},
+					{"skeleton_mage_devout",Loc(141.08, 0.9635315, -2.72),45},
+				},
+				Time = 300,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

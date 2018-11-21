@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>[FF0000]Book of Kho: Chapter 4[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "As is our custom, these books are written in the blood of a martyr who died for the sake of spreading the truth. For it is our way that when our bodies become infirm and useless that we shed them, and we might migrate into the beginning of our eternal lives. For when we descend into the Underworld, we will know only true power. We come from all walks of life, all places, all nations, united in the belief that our God has shown us, the eternal truth: \n\nThat Death Is Not The End. \n\nFor these words are our cornerstone, our foundation. We therefore must commune with the dead, bringing them back to life, and worshipping the beings that the Demon-King himself created in his image that will consume all things. We desire elevation into becoming as these beings of the Void, and that we desire to become eternal slaves to the God of Twilight. For the Light-Bearer has shown us our paths, and we show him our devotion through desecration, sacrifice, and conquest. \n\nOur clothing is from that of the dead, as a mark of respect. \n\nOur weapons are forged by the dead and the damned themselves. \n\nOur prayers show our devotion. \n\nAnd for those who abandon Kho, they must be shunned and annihilated by the will of the Conclave, our eternal leaders from time immemorable, who pass on our laws so that when the cosmos are consumed by the Void, we shalt be vindicated. For it is only when all life has become one with the Void, and all know the truth of our temporary nature that the Twilight of all things will spread forever, througout the cosmos. For it is then that the Void will consume all!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

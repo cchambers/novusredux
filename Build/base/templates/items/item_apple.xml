@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Apple[-]</Name>
+	<ClientId>352</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Apple</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>School of Fish</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="SchoolOfFish">Barrelfish</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="decay"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

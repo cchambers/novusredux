@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>1578</ClientId>
+	<Name>[FF9500]Hearth[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="hearth"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

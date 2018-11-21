@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Paul the Merchant</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Wayun</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_catacombs_paul">
+			<Initializer>
+				{
+					Stats = {
+						Str = 290,
+						Agi = 290,
+						Int = 190,
+					},
+					Skills = {
+						Bashing = 120,
+					},
+					EquipTable = {
+						BodyPartHead= {
+							{"head_male02","0xFFFFFFFF"},
+						},
+						BodyPartHair= {
+							{"hair_male_messy","0xFF191919"},
+						},
+						Head= {
+							"clothing_helm_wayun",
+						},
+						Chest= {
+							"clothing_chest_wayun",
+						},
+						Legs= {
+							"clothing_legs_wayun",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "clothing_chest_wayun",
+							RelativeLoc = "1.389, 1.100325, 1.807",
+							Price = "15",
+						},
+						{
+							Template = "clothing_helm_wayun",
+							RelativeLoc = "1.216, 1.186325, 1.988",
+							Rotation = "0, 304.3483, 0",
+							Price = "15",
+						},
+						{
+							Template = "clothing_legs_wayun",
+							RelativeLoc = "1.674999, 1.154325, 1.242001",
+							Rotation = "0, 318.6669, 0",
+							Price = "15",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>
