@@ -1,4 +1,4 @@
-require 'incl_magic_sys'
+require 'default:incl_magic_sys'
 
 --[[
 
@@ -334,7 +334,7 @@ function ShowSpellBookDialog()
 
 end
 
-RegisterEventHandler(EventType.Message, "OpenCircleSpellBook", 
+RegisterEventHandler(EventType.Message, "OpenSpellBook", 
 	function(spellBook,pageType)
 		if ( spellBook == nil ) then
 			DebugMessage("[spellbook_dynamic_window|Message:OpenSpellBook] ERROR: spellBook is nil")

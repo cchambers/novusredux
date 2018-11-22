@@ -154,7 +154,7 @@ SpellData = {
 		},	
 
 		Reflectivearmor = {
-			PowerWords = "In Jux Sanct",
+			PowerWords = "Flam Sanct",
 			manaCost = 4,
 			Icon = "Elemental Shield",
 			PowerText = "Rel Armour",
@@ -179,7 +179,7 @@ SpellData = {
 			BeneficialSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellDisplayName = "Repel",
+			SpellDisplayName = "Reactive Armor",
 			Reagents = {
 				"Ginseng",
 			},
