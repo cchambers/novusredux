@@ -264,7 +264,7 @@ SpellData = {
 			Reagents = {
 				"Moss",
 			},
-			Circle = 3,
+			Circle = 2,
 		},
 		Bombardment = {
 			PowerWords = "Kal Des Flam Ylem",
@@ -1099,8 +1099,7 @@ SpellData = {
 			castTimeOffset = .1,
 			SpellPower = 5,
 			critChance = 5,
-			SpellRange = 12
-			,
+			SpellRange = 12,
 			TargetType = "targetLocation",
 			TargetRequired = true,
 			CanBeInterrupted = true,
@@ -1152,7 +1151,7 @@ SpellData = {
 			spellSkillLevel = 30,
 			SpellEnabled = true,
 			SpellFireAnim = "",
-			SpellDisplayName = "",
+			SpellDisplayName = "Ice Blade",
 			ReagentsRequired = false,
 			Reagents = {
 				"LemonGrass"

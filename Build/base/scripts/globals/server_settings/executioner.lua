@@ -7,13 +7,15 @@ ServerSettings.Executioner = {
 	-- Modifier applied to final damage of Executioner weapons when hitting the correct MobileKind for the weapon
 	LevelModifier = {
 		3, -- level 1
-		6, -- level 2
-		9, -- level 3
+		5, -- level 2
+		7, -- level 3
+		9, -- level 4
 	},
 
 	-- This will be put on the tooltip of the weapon and %s will be replaced with the MobileKind of the weapon.
 	LevelString = {
 		"%s of Ruin",
+		"%s of Might",
 		"%s of Power",
 		"%s of Vanquishing",
 	},

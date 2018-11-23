@@ -4,7 +4,7 @@
 	<ScaleModifier>0.7</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ResourceType">Spider Silk</StringVariable>
+		<StringVariable Name="ResourceType">Spidersilk</StringVariable>
 	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

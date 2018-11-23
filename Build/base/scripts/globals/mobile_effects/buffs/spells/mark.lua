@@ -15,7 +15,7 @@ MobileEffectLibrary.Mark =
 		local nearbyHouses = GetNearbyHouses(destLoc)
 		if (nearbyHouses ~= nil) then
 			for i, house in pairs(nearbyHouses) do
-				--DebugMessage("House nearby "..house)
+				DebugMessage("House nearby "..house)
 				if (IsLocInInterior(house, destLoc)) then
 					return false					
 				end
