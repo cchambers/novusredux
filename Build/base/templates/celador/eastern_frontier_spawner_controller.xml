@@ -39,33 +39,8 @@
 					--HelmInn
 						{ Count = 3, TemplateId = "helm_chef",    Region = "HelmInn", SpawnTime = 4, SpawnDuration = 18}, 
 
-					--HelmGraveyard
-						{ Count = 5, TemplateId = "zombie",    Region = "EasternGraveyard" },
-						{ Count = 6, TemplateId = "skeleton",    Region = "EasternGraveyard" }, 
-						{ Count = 3, TemplateId = "skeleton_archer",    Region = "EasternGraveyard" },
-
-					--EasternAbandoned
-						{ Count = 5, TemplateId = "zombie",    Region = "EasternAbandoned" },
-
-					--EasternAbandoned2
-						{ Count = 3, TemplateId = "lich",    Region = "EasternAbandoned2" },
-
-					--EasternShrine
-						{ Count = 5, TemplateId = "lich",    Region = "EasternShrine" },
-
-					--EasternCamp
-						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp1" },
-						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp2" },
-						{ Count = 3, TemplateId = "bandit",    Region = "EasternCamp3" },
-						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp1" },
-						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp2" },
-						{ Count = 2, TemplateId = "bandit_archer",    Region = "EasternCamp3" },
-
-					--Beach1
-						{ Count = 5, TemplateId = "giantcrab",    Region = "Beach1" },
-
 					--Beach2
-						{ Count = 8, TemplateId = "giantcrab",    Region = "Beach2" },
+						{ Count = 8, TemplateId = "crab",    Region = "Beach2" },
 
 					--TAMING
 					--39.1+

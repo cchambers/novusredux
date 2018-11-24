@@ -19,7 +19,7 @@
 		<DoubleVariable Name="Armor">62</DoubleVariable>
 		<DoubleVariable Name="Attack">44</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 				EquipTable = 
 					{
@@ -60,7 +60,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 1,	
 					AnimalParts =
 					{
 						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },

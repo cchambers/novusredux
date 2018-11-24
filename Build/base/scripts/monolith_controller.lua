@@ -59,7 +59,7 @@ function SpawnUndead(index)
 	end
 	local undead = MobList[index]
 	local amount = index+2
-	this:PlayObjectSound("LightningImpact", true)         
+	this:PlayObjectSound("event:/magic/air/magic_air_lightning_impact")         
 	for i=0,amount do
 		local spawnLocation = SpawnLocations[math.random(1,#SpawnLocations)]
 		CreateObj(undead[math.random(1,#undead)],spawnLocation,"undeadCreated")

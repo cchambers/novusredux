@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Chains[-]</Name>
+  <Name>Chains</Name>
 	<ClientId>323</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>					

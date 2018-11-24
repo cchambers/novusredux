@@ -12,18 +12,12 @@ MobileEffectLibrary.Mark =
 
 		if (IsDungeonMap()) then return false end
 
-		local nearbyHouses = GetNearbyHouses(destLoc)
-		if (nearbyHouses ~= nil) then
-			for i, house in pairs(nearbyHouses) do
-				DebugMessage("House nearby "..house)
-				if (IsLocInInterior(house, destLoc)) then
-					return false					
-				end
-			end
-		end
+		-- prevent marking inside plots
+		local plotController = Plot.GetAtLoc(destLoc)
+		if ( plotController ~= nil ) then return false end
 		
 
-		local subregionName = GetSubregionName()
+		local subregionName = ServerSettings.SubregionName
 		for i, subregion in pairs(NoMarkSubregions) do
 			if (subregionName == subregion) then
 				DebugMessage(subregionName.." "..subregion)
@@ -34,8 +28,8 @@ MobileEffectLibrary.Mark =
 	end,
 
 	ChangeRuneAppearance = function (self, target)
-		--DebugMessage(GetSubregionName())
-		local subregionName = GetSubregionName()
+		--DebugMessage(ServerSettings.SubregionName)
+		local subregionName = ServerSettings.SubregionName
 		if (subregionName == "SouthernHills") then
 			target:SetAppearanceFromTemplate("rune_valus")
 
@@ -57,9 +51,6 @@ MobileEffectLibrary.Mark =
 	end,
 
 	OnEnterState = function(self,root,target,args)
-		
-
-
 		if(not target:HasObjVar("Destination") and target:GetObjVar("ResourceType") == "Rune") then
 
 			if( target:TopmostContainer() ~= self.ParentObj or IsInBank(target)) then
@@ -80,11 +71,11 @@ MobileEffectLibrary.Mark =
 				return false
 			end
 
-			local destRegionAddress = GetRegionAddress()			
+			local destRegionAddress = ServerSettings.RegionAddress			
 			local destLoc = self.ParentObj:GetLoc()
 			local destFacing = self.ParentObj:GetFacing()
 
-			if(self:ValidateLoc(destLoc)) then
+			if(self:ValidateLoc(destLoc) or (IsGod(self.ParentObj))) then
 				self:ChangeRuneAppearance(target)
 				target:SetObjVar("RegionAddress",destRegionAddress)
 				target:SetObjVar("Destination",destLoc)
@@ -95,7 +86,7 @@ MobileEffectLibrary.Mark =
 				SetTooltipEntry(target,"regional_name","Portal to "..GetRegionalName(destLoc),1000)
 
 				self.ParentObj:PlayEffect("TeleportToEffect")
-				self.ParentObj:PlayObjectSound("CastAir",false)
+				self.ParentObj:PlayObjectSound("event:/magic/air/magic_air_cast_air",false)
 				self.ParentObj:SystemMessage("The rune is now marked for travel to this location.","info")
 			else
 				self.ParentObj:SystemMessage("This location lacks the magical energy for teleportation.","info")

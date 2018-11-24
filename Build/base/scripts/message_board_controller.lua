@@ -272,7 +272,7 @@ function (user,buttonId,buttonFields)
 	end
 	if (buttonId == "MapMarker") then
 		user:SystemMessage("[$1935]")
-		AddMapMarker(user,{Icon="marker_diamond1", Location=mSelectedNote:GetObjVar("MapMarker"), Map=mSelectedNote:GetObjVar("Region"), Tooltip=mSelectedNote:GetName().."'s' Location"},"NoteMapMarker"..mSelectedNote.Id)
+		AddDynamicMapMarker(user,{Icon="marker_diamond1", Location=mSelectedNote:GetObjVar("MapMarker"), Map=mSelectedNote:GetObjVar("Region"), Tooltip=mSelectedNote:GetName().."'s' Location"},"NoteMapMarker"..mSelectedNote.Id)
 	end
 	if (buttonId == "Note") then
 		mSelectedNote = GameObj(tonumber(blah[2]))
@@ -344,10 +344,8 @@ function(user,buttonId,buttonFields)
 					passRestriction = false
 				end
 				if (sectionRestriction == "HouseOwner") then
-					if (HasHouseAtLoc(mBoard:GetLoc())) then
-						if not IsHouseOwnerForLoc(user,mBoard:GetLoc()) then
-							passRestriction = false
-						end
+					if not Plot.IsOwnerForLoc(user,mBoard:GetLoc()) then
+						passRestriction = false
 					end
 				end	
 			else
@@ -367,12 +365,7 @@ end)
 function IsBoardOwner(user)
 	if (IsImmortal(user)) then return true end
 
-	if (HasHouseAtLoc(mBoard:GetLoc())) then
-		if IsHouseOwnerForLoc(user,mBoard:GetLoc()) then
-			return true
-		end
-	end
-	return false
+	return Plot.IsOwnerForLoc(user,mBoard:GetLoc())
 end
 
 RegisterEventHandler(EventType.Message,"StartMessageBoard",function (newBoard,newSections)

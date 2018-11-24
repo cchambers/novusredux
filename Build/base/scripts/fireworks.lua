@@ -11,7 +11,7 @@ function ValidateUse(user)
 	end
 	--Make sure it's in the backpack
 	if( this:TopmostContainer() ~= user ) then
-		user:SystemMessage("[$1810]")
+		user:SystemMessage("[$1810]","info")
 		return false
 	end
 
@@ -23,7 +23,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		if(usedType ~= "Use") then return end
 		
 		if( inUse ) then
-			user:SystemMessage("This fireworks display has already been started.")
+			user:SystemMessage("This fireworks display has already been started.","info")
 			return
 		end
 		--always make sure that that's it's in the backpack
@@ -48,17 +48,17 @@ RegisterEventHandler(
 				local angle = math.random(1,360)
 				local distance = math.random(1,10)
 				PlayEffectAtLoc("LightningCloudEffect",fireworkCenter:Project(angle,distance))
-				user:PlayObjectSound("Lightning")
+				user:PlayObjectSound("event:/magic/air/magic_air_lightning")
 			elseif( fireworkType == 2 ) then
 				local angle = math.random(1,360)
 				local distance = math.random(1,10)
 				PlayEffectAtLoc("TeleportToEffect",fireworkCenter:Project(angle,distance))
-				user:PlayObjectSound("Teleport")
+				user:PlayObjectSound("event:/magic/air/magic_air_teleport")
 			else
 				local angle = math.random(1,360)
 				local distance = math.random(1,10)
 				PlayEffectAtLoc("FireballExplosionEffect",fireworkCenter:Project(angle,distance))
-				user:PlayObjectSound("FireballImpact")
+				user:PlayObjectSound("event:/magic/fire/magic_fire_fireball_impact")
 			end
 		end
 		--make it an even number of fireworks

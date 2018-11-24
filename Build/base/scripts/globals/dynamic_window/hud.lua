@@ -11,7 +11,7 @@ function ShowStatusElement(mobileObj,args)
 	local width = 166
 	local height = (args.IsSelf and 58) or 44
 
-	local statusWindow = DynamicWindow(args.DialogId,"",width,height,args.ScreenX,args.ScreenY,"TransparentDraggable")
+	local statusWindow = DynamicWindow(args.DialogId,"",width,height,args.ScreenX,args.ScreenY,"Transparent")
 
 	-- this is a special command that handles the click client side by targeting the mob with the id of the buttonid
 	statusWindow:AddButton(0,0,"","",width,height,"","$target "..mobileObj.Id,false,"Invisible")
@@ -19,7 +19,7 @@ function ShowStatusElement(mobileObj,args)
 	statusWindow:AddImage(0,0,args.FrameImage)
 
 	local modifiedName = StripColorFromString(mobileObj:GetName())
-	statusWindow:AddLabel(16,6,modifiedName,0,0,15,"left",false,true,"SpectralSC-SemiBold")
+	statusWindow:AddLabel(16,6,modifiedName,140,20,15,"left",false,true,"SpectralSC-SemiBold")
 
 	local statusFrameImage = (args.IsSelf and "UtilityBar_StatusFrame") or "UtilityBar_StatusFrameSingle"
 	statusWindow:AddImage(14,20,statusFrameImage,135,0,"Sliced")
@@ -149,7 +149,7 @@ function UpdateHotbar(mobileObj)
 		
 		if(isNewPlayer) then
 			data = {
-					ID=id,
+					ID=	"magicalguide",
 					ActionType="CustomCommand",
 					DisplayName="Summon Guide",
 					Tooltip="Summon or talk to your magical guide.\n\nYour magical guide can help you find places and give you tips as you explore this new land.",
@@ -166,18 +166,16 @@ function UpdateHotbar(mobileObj)
 end
 
 local guardProtectionStrs = {
-		["Area-Oasis"] = "[E1BB00]Protected[-]",
-		["ForestOutpost"] = "[E1BB00]Protected[-]",
-		["GuardTower"] = "[E1BB00]Protected[-]",
-		["Guard"] = "[00FF00]Protected[-]",
-		["InstaKill"] = "[00FF00]Protected[-]"
+		["Neutral"] = "[E1BB00]Neutral[-]",
+		["Protection"] = "[00FF00]Guarded[-]",
+		["Town"] = "[FFD700]Town[-]",
 	}
 
 function UpdateRegionStatus(playerObj,areaName,curProtection)		
 	areaName = areaName or GetRegionalName(playerObj:GetLoc())
 	curProtection = curProtection or playerObj:GetObjVar("GuardProtection") or ""
 
-	local protectionStr = guardProtectionStrs[curProtection] or "[FF0000]Unprotected[-]"	
+	local protectionStr = guardProtectionStrs[curProtection] or "[FF0000]Wilderness[-]"	
 
 	local dynWindow = DynamicWindow("regionstatus","",0,0,-196,190,"Transparent","TopRight")
 	dynWindow:AddLabel(100,0,areaName,0,0,20,"center",false,true,"SpectralSC-SemiBold")

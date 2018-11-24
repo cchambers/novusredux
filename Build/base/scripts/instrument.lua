@@ -13,7 +13,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
         do return end --disabled
         if(usedType == "Play") then
             if(user:HasTimer("PlayedInstrumentRecently")) then
-                user:SystemMessage("Cannot play again yet.")
+                user:SystemMessage("Cannot play again yet.","info")
                 return
             end
 
@@ -26,12 +26,12 @@ RegisterEventHandler(EventType.Message, "UseObject",
             local delay = TimeSpan.FromMilliseconds(500)
             if(math.random(0,99) < chanceToPlayWell) then
                 --Play good music here
-                user:SystemMessage("Hey that sounds good!")
+                user:SystemMessage("Hey that sounds good!","info")
                 success = true
                 delay = TimeSpan.FromSeconds(2)
             else
                 --Play shite music here
-                user:SystemMessage("You could use more practice.")
+                user:SystemMessage("You could use more practice.","info")
             end
             --skill gain
             CheckSkillChance(user,"MusicianshipSkill", (100 - musicSkill) / 100)

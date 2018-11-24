@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[bdbdbd]Bolt of Silk Cloth[-]</Name>
+  <Name>[fff2d9]Bolt of Silk Cloth[-]</Name>
   <ClientId>992</ClientId>
   <Hue>872</Hue>
     <SharedStateEntry name="Weight" type="int" value="1" />

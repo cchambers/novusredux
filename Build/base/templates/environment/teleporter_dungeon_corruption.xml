@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<Name>Dungeon Corruption</Name>
-	<ClientId>1207</ClientId>
+	<ClientId>881</ClientId>
 	<ObjectVariableComponent>	
 		<BoolVariable Name="ChooseUniverse">False</BoolVariable>
 		<StringVariable Name="RegionAddress">Corruption</StringVariable>

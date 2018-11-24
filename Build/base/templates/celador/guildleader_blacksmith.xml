@@ -25,7 +25,7 @@
 					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
           			Skills = 
           			{ 
-          			Bashing = 50, 
+          			Brawling = 50, 
           			},  
 			        MobTraits =
 			        	{

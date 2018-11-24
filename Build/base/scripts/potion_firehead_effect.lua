@@ -5,7 +5,7 @@ end)
 
 RegisterEventHandler(EventType.Timer,"TriggerPotion",function(...)
 	this:PlayEffect("FireHeadEffect",60)
-	this:SystemMessage("Your face is on fire!")
+	this:SystemMessage("Your face is on fire!","info")
 	EndEffect()
 end)
 

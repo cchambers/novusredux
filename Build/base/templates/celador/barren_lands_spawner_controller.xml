@@ -22,10 +22,12 @@
 						{ Count = 3, TemplateId =  "half_gazer", Region = "GazerIsland2" },
 						{ Count = 3, TemplateId =  "half_gazer", Region = "GazerIsland3" },
 						{ Count = 3, TemplateId =  "gazer", Region = "GazerIsland4" },
+						{ Count = 1, TemplateId = "gazer_hq",    Region = "GazerIsland4", DelayMin=4, Chance=3},
 
 						--Oasis Graveyard
 						{ Count = 4, TemplateId =  "skeleton", Region = "OasisGraveyard" },  
 						{ Count = 4, TemplateId =  "zombie", Region = "OasisGraveyard" },
+						{ Count = 1, TemplateId = "skeleton_hq",    Region = "OasisGraveyard", DelayMin=4, Chance=10},
 
 						--Cultist Throne
 						{ Count = 4, TemplateId = "cultist_honor_guard",  Region = "CultistRuins1", DelayMin=4 },
@@ -68,10 +70,10 @@
 						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf2", DelayMin=4 },
 						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf3", DelayMin=4 },
 
-						{ Count = 1, TemplateId = "wyvern",    Region = "Drake", DelayMin=4, Chance=1},
+						--{ Count = 1, TemplateId = "wyvern",    Region = "Drake", DelayMin=4, Chance=1},
 
-						{ Count = 1, TemplateId = "dread",    Region = "Dread1", DelayMin=4, Chance=1},
-						{ Count = 1, TemplateId = "dread_black",    Region = "Dread1", DelayMin=10, Chance=1},
+						--{ Count = 1, TemplateId = "dread",    Region = "Dread1", DelayMin=4, Chance=1},
+						--{ Count = 1, TemplateId = "dread_black",    Region = "Dread1", DelayMin=10, Chance=1},
 					},
 				}
 			</Initializer>	

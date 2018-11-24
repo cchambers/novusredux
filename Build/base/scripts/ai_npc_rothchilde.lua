@@ -617,14 +617,14 @@ function Dialog.OpenWithTheXorDialog(user)
     QuickDialogMessage(this,user,"[$1317]")
     SetFactionToAmount(user,50,"Cultists")
     CreateObjInBackpack(user,"coin_purse","coins",500)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.XorServant)
-    user:SystemMessage("You have recieved 500 Copper!")
+    CheckAchievementStatus(user, "Other", "XorServant", nil, {Description = "", CustomAchievement = "Xor Servant", Reward = {Title = "Xor Servant"}})
+    user:SystemMessage("You have recieved 500 copper!","info")
 end
 
 function Dialog.OpenOnlyTheStrongDialog(user)
     QuickDialogMessage(this,user,"[$1318]")
     CreateObjInBackpack(user,"coin_purse","coins",250)
-    user:SystemMessage("You have recieved 250 Copper!")
+    user:SystemMessage("You have recieved 250 copper!","info")
 end
 
 function Dialog.OpenDontCareAboutXorDialog(user)
@@ -638,21 +638,21 @@ end
 function Dialog.OpenYouMadeATerribleMistakeDialog(user)
     SetFactionToAmount(user,-45,"Villagers")
     --SetFactionToAmount(user,-45,"Cultists")
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.Stupid)
+    user:SendMessage("CheckAchievement", "Other", "Stupid", nil, {Description = "", CustomAchievement = "Stupid", Reward = {Title = "Stupid"}})
     ChangeFactionByAmount(user,35,"Rebels")
     QuickDialogMessage(this,user,"[$1321]")
 end
 
 function Dialog.OpenValueYourLifeDialog(user)
     user:SendMessage("AdvanceQuest","OutlandsRebelQuest","SpeakToBeauregard")
-    user:SystemMessage("[D70000]You have recieved Head of a Rebel Spy!")
+    user:SystemMessage("[D70000]You have recieved Head of a Rebel Spy!","info")
     CreateObjInBackpack(user,"head_of_spy","head_created") 
     DialogReturnMessage(this,user,"[$1322]","Fine.")
 end
 
 function Dialog.OpenClearyYouDoNotValueYourLifeDialog(user)
     user:SendMessage("AdvanceQuest","OutlandsRebelQuest","SpeakToBeauregard")
-    user:SystemMessage("[D70000]You have recieved Head of a Rebel Spy!")
+    user:SystemMessage("[D70000]You have recieved Head of a Rebel Spy!","info")
     CreateObjInBackpack(user,"head_of_spy","head_created") 
     DialogReturnMessage(this,user,"[$1323]","Fine.")
 end

@@ -7,6 +7,6 @@ RegisterSingleEventHandler(EventType.ModuleAttached, "artifact",
 
 RegisterEventHandler(EventType.Message, "UseObject", 
     function(user,usedType)
-        user:SystemMessage("[$1612]")
+        user:SystemMessage("[$1612]","info")
         --user:SendMessage("StartQuest","ArcheologistQuest")
     end)

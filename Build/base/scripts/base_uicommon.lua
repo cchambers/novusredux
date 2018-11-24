@@ -29,36 +29,26 @@ function RefreshObjVarEditWindow()
 
 	newWindow:AddLabel(20, 50, "[F3F781]Type:[-]",600,0,18,"left",false)
 	
-	local buttonStates = { 
-		String = (objVarEditInfo.Type=="string") and "pressed" or "", 
-		Number = (objVarEditInfo.Type=="number") and "pressed" or "",
-		Bool = (objVarEditInfo.Type=="boolean") and "pressed" or "",
-		Table = (objVarEditInfo.Type=="table") and "pressed" or "",
-		Loc = (objVarEditInfo.Type=="Loc") and "pressed" or "",
-		GameObj = (objVarEditInfo.Type=="GameObj") and "pressed" or "",
-		PermanentObj = (objVarEditInfo.Type=="PermanentObj") and "pressed" or ""
-	}
-
 	if not(objVarEditInfo.ExcludeTypes.string) then
-		newWindow:AddButton(80, 50, "Type|string", "string", 100, 23, "", "", false,"Selection",buttonStates.String)
+		newWindow:AddButton(80, 50, "Type|string", "string", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"string"))
 	end
 	if not(objVarEditInfo.ExcludeTypes.number) then
-		newWindow:AddButton(210, 50, "Type|number", "number", 100, 23, "", "", false,"Selection",buttonStates.Number)
+		newWindow:AddButton(210, 50, "Type|number", "number", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"number"))
 	end
 	if not(objVarEditInfo.ExcludeTypes.Loc) then
-		newWindow:AddButton(340, 50, "Type|Loc", "Loc", 100, 23, "", "", false,"Selection",buttonStates.Loc)
+		newWindow:AddButton(340, 50, "Type|Loc", "Loc", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"Loc"))
 	end
 	if not(objVarEditInfo.ExcludeTypes.boolean) then
-		newWindow:AddButton(80, 80, "Type|boolean", "boolean", 100, 23, "", "", false,"Selection",buttonStates.Bool)
+		newWindow:AddButton(80, 80, "Type|boolean", "boolean", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"boolean"))
 	end
 	if not(objVarEditInfo.ExcludeTypes.table) then
-		newWindow:AddButton(210, 80, "Type|table", "table", 100, 23, "", "", false,"Selection",buttonStates.Table)	
+		newWindow:AddButton(210, 80, "Type|table", "table", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"table"))	
 	end
 	if not(objVarEditInfo.ExcludeTypes.GameObj) then
-		newWindow:AddButton(80, 110, "Type|GameObj", "GameObj", 100, 23, "", "", false,"Selection",buttonStates.GameObj)
+		newWindow:AddButton(80, 110, "Type|GameObj", "GameObj", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"GameObj"))
 	end
 	if not(objVarEditInfo.ExcludeTypes.PermanentObj) then
-		newWindow:AddButton(210, 110, "Type|PermanentObj", "PermanentObj", 100, 23, "", "", false,"Selection",buttonStates.PermanentObj)
+		newWindow:AddButton(210, 110, "Type|PermanentObj", "PermanentObj", 100, 23, "", "", false,"Selection",GetButtonState(objVarEditInfo.Type,"PermanentObj"))
 	end
 
 	newWindow:AddImage(20,150,"Divider",360,1,"Sliced")

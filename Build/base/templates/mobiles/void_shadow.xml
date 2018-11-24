@@ -3,7 +3,7 @@
 	<Color>0xFF000000</Color>
 	<Name>Void Shadow</Name>
 	<ScaleModifier>1.0</ScaleModifier>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="GhostMale"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/ghost_male/ghost_male"/>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<MobileComponent>
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -23,7 +23,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=195, Agi=78, Int=20 },
-					Skills = { Melee = 100, Bashing = 100 },
+					Skills = { Melee = 100, Brawling = 100 },
 					EquipTable = {
 						BodyPartHead = TemplateDefines.MaleHeads,
 						},

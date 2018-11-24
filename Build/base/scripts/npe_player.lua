@@ -93,7 +93,9 @@ RegisterEventHandler(EventType.Message,"UITutorialComplete",
 
 RegisterEventHandler(EventType.DynamicWindowResponse, "NewbieWelcome",
 	function ( ... )
-		DoEventTrigger("Welcome")
+		if(IsGuideSummoned()) then
+			guideObj:SendMessage("Welcome")
+		end
 		this:CloseDynamicWindow("NewbieWelcome")
 	end)
 
@@ -124,7 +126,7 @@ RegisterEventHandler(EventType.EnterView,"WorldTriggerView",
 	end)
 
 function EndNPE()	
-	RemoveMapMarker(this,"GuideWaypoint")
+	RemoveDynamicMapMarker(this,"GuideWaypoint")
 
 	this:DelObjVar("InitiateMinutes")
 	
@@ -142,7 +144,7 @@ end
 RegisterEventHandler(EventType.Message,"SetGuideWaypoint",
 	function (user,waypointName,waypointLoc,waypointObj)
 		local mapMarker = {Map="NewCelador", Icon="marker_circle1", Location=waypointLoc, Obj=waypointObj, Tooltip=waypointName, RemoveDistance=5}
-		AddMapMarker(user,mapMarker,"GuideWaypoint")
+		AddDynamicMapMarker(user,mapMarker,"GuideWaypoint")
 		user:FireTimer("UpdateMapMarkers")
 	end)
 

@@ -82,6 +82,11 @@ function ShowBuffWindow()
 		end
 		--create a buff that shows something when you mouse over it
 		displayString = displayString .. buff.Tooltip --.. " ".. tostring(index)
+
+		local timeRemaining = this:GetTimerDelay("RemoveBuffIcon|"..tostring(buff.Identifier))
+		if(timeRemaining) then
+			displayString = displayString .. "\n\nRemaining: " .. GetTimerLabelString(timeRemaining,true)
+		end
 		
 		taskWindow:AddButton(startX + (((index-1) % BUFFS_PER_ROW) * BUFF_OFFSET),math.floor((index-1)/BUFFS_PER_ROW)*BUFF_OFFSET,"","",BUFF_SIZE,BUFF_SIZE,displayString,"",false,"Invisible")
 		taskWindow:AddImage(startX + (((index-1) % BUFFS_PER_ROW) * BUFF_OFFSET),math.floor((index-1)/BUFFS_PER_ROW)*BUFF_OFFSET,buff.Icon,BUFF_SIZE,BUFF_SIZE)

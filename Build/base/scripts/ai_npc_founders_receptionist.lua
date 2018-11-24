@@ -7,6 +7,7 @@ AI.Settings.StationedLeash = true
 AI.Settings.SetIntroObjVar = false
 AI.Settings.CanConverse = false
 AI.Settings.EnableBank = true
+AI.Settings.EnableTax = true
 
 fixPrice = 20
 

@@ -12,14 +12,33 @@
 					-- order matters here!
 					FishRegions = {						
 						{
+							Region = "Area-Serpent's Pass",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},
+						{
+							Region = "Area-Ysel Lake",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},					
+						{
 							Region = "Water",
 							Fish = {
-								Barrelfish = 80,						
-								Terofish = 18,							
-								SpottedTerofish = 1,
-								FourEyeSalar = 0.8,
-								RazorFish = 0.19,
-								AetherFish = 0.01,
+								Barrelfish = 60,						
+								Terofish = 30,							
+								SpottedTerofish = 10,
 							}
 						},
 					}

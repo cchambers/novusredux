@@ -4,7 +4,6 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 			<StringVariable Name="WeaponType">Torch</StringVariable>
-			<BoolVariable Name="EquipWhileCast">True</BoolVariable>
 			<BoolVariable Name="CanBeEquippedWithTwoHandedWeapon">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent/>

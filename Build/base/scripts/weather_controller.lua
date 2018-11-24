@@ -42,20 +42,24 @@ end
 
 function OnEnterWeatherRegion(playerObj)
     DebugMessage("Weather Controller: On Enter "..tostring(playerObj))
-    if(isWeatherActive and not(playersInWeather[playerObj])) then
-        DebugMessage("Weather Controller: Sending play message")
-        local weatherEffect = this:GetObjVar("WeatherEffect")
-        playerObj:PlayLocalEffect(playerObj,weatherEffect)
+    if(not(playersInWeather[playerObj])) then
+        if(isWeatherActive) then
+            DebugMessage("Weather Controller: Sending play message")
+            local weatherEffect = this:GetObjVar("WeatherEffect")
+            playerObj:PlayLocalEffect(playerObj,weatherEffect)
+        end
         playersInWeather[playerObj] = true
     end
 end
 
 function OnLeaveWeatherRegion(playerObj)
     DebugMessage("Weather Controller: On Leave "..tostring(playerObj))
-    if(isWeatherActive and playersInWeather[playerObj]) then
-        DebugMessage("Weather Controller: Sending stop message")
-        local weatherEffect = this:GetObjVar("WeatherEffect")
-        playerObj:StopLocalEffect(playerObj,weatherEffect,1.0)
+    if(playersInWeather[playerObj]) then
+        if(isWeatherActive) then
+            DebugMessage("Weather Controller: Sending stop message")
+            local weatherEffect = this:GetObjVar("WeatherEffect")
+            playerObj:StopLocalEffect(playerObj,weatherEffect,1.0)
+        end
         playersInWeather[playerObj] = nil
     end
 end

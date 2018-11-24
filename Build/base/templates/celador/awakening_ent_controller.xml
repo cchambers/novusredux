@@ -21,20 +21,20 @@
 							KillCount = 200, 
 							PermanentObjectTag = "Great Tree Stage 3", 
 							MaxDuration = TimeSpan.FromMinutes(30),
-							SystemMessage = "Level 3."
+							SystemMessage = "The ground begins to rumble."
 						}, 
 						-- Stage 3 (Vile Spiders/Ent Mages)
 						{ 
 							KillCount = 80, 
 							PermanentObjectTag = "Great Tree Stage 4", 
 							MaxDuration = TimeSpan.FromMinutes(30),
-							SystemMessage = "Level 4."
+							SystemMessage = "The ground begins to rumble."
 						}, 
 						-- Stage 4 (Barkas)
 						{ 
 							KillCount = 1, 
 							PermanentObjectTag = "Great Tree Stage 5",
-							SystemMessage = "Level 5."
+							SystemMessage = "You have awakened Lord Barkas."
 						}, 
 					},
 				}

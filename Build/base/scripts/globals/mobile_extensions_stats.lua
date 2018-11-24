@@ -113,36 +113,42 @@ end
 
 function SetStr(target,newValue)	
 	target:SetObjVar("AttrStr",newValue)
+	target:SetStatValue("BaseStr",newValue)
 
 	RecalculateDerivedStat(target,{Strength=true})
 end
 
 function SetAgi(target,newValue)
 	target:SetObjVar("AttrAgi",newValue)
+	target:SetStatValue("BaseAgi",newValue)
 
 	RecalculateDerivedStat(target,{Agility=true})
 end
 
 function SetInt(target,newValue)
 	target:SetObjVar("AttrInt",newValue)
+	target:SetStatValue("BaseInt",newValue)
 
 	RecalculateDerivedStat(target,{Intelligence=true})
 end
 
 function SetCon(target,newValue)
 	target:SetObjVar("AttrCon",newValue)
+	target:SetStatValue("BaseCon",newValue)
 
 	RecalculateDerivedStat(target,{Constitution=true})
 end
 
 function SetWis(target,newValue)
 	target:SetObjVar("AttrWis",newValue)
+	target:SetStatValue("BaseWis",newValue)
 
 	RecalculateDerivedStat(target,{Wisdom=true})
 end
 
 function SetWill(target,newValue)
 	target:SetObjVar("AttrWill",newValue)
+	target:SetStatValue("BaseWill",newValue)
 
 	RecalculateDerivedStat(target,{Will=true})
 end

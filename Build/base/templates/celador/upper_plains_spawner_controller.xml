@@ -25,32 +25,6 @@
 						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses4", DelayMin=4 },
 						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
 						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
-						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses6", DelayMin=4 },
-						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses6", DelayMin=4 },
-						
-
-						--EldeirGraveyard
-						{ Count = 5, TemplateId = "zombie",    Region = "EldeirGraveyard" },
-						{ Count = 6, TemplateId = "skeleton",    Region = "EldeirGraveyard" }, 
-						{ Count = 3, TemplateId = "skeleton_archer",    Region = "EldeirGraveyard" },
-
-						--HauntedRuins
-						{ Count = 4, TemplateId = "lich",    Region = "AbandonedRuins" },
-						--AbandonedShrine
-						{ Count = 4, TemplateId = "lich",    Region = "AbandonedShrine" },
-
-						--BanditCamp
-						{ Count = 4, TemplateId = "bandit",    Region = "BanditCampEasy1" },
-						{ Count = 2, TemplateId = "bandit_archer",    Region = "BanditCampEasy1" },
-						{ Count = 4, TemplateId = "bandit",    Region = "BanditCampEasy2" },
-						{ Count = 2, TemplateId = "bandit_archer",    Region = "BanditCampEasy2" },
-
-						--Giants	
-						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp1" }, 
-						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp2" }, 
-						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp3" }, 
-						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp4" }, 
-						{ Count = 2, TemplateId = "giant",  Region = "GiantAreaCamp5" }, 
 
 						--villagers
 						{ Count = 7, TemplateId = "cel_villager",    Region = "EldeirVillage" , SpawnTime = 4, SpawnDuration = 18}, 

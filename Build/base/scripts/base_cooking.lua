@@ -14,7 +14,7 @@ foodBonusTable = {
 function GetMaxIngredients(objChef)
 	local cookSkill = GetSkillLevel(objChef,SK_COOKING)
 	if(cookSkill == nil) then
-		objChef:SystemMessage("[$1621]")
+		objChef:SystemMessage("[$1621]","info")
 		return 0
 	end
 	if(cookSkill == 0) then 

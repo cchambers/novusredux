@@ -52,8 +52,9 @@ function IsValidLoc(spawnLoc,excludeHousing,excludeRegions)
 		return false
 	end
 
-	if(excludeHousing and HasHouseAtLoc(spawnLoc) ) then
-		return false
+	if(excludeHousing) then
+		local plotController = Plot.GetAtLoc(spawnLoc)
+		if ( plotController ~= nil ) then return false end
 	end
 	if (excludeRegions ~= nil)then
 		for i, region in pairs (excludeRegions) do
@@ -75,7 +76,11 @@ function GetRandomPassableLocationFromRegion(region,excludeHousing, excludeRegio
         maxTries = maxTries - 1
     end
 
-    return spawnLoc
+    if(maxTries > 0) then
+	    return spawnLoc
+	end
+
+	return nil
 end 
 
 function GetRandomPassableLocation(regionName,excludeHousing,excludeRegions)
@@ -85,4 +90,27 @@ function GetRandomPassableLocation(regionName,excludeHousing,excludeRegions)
 		return nil
 	end
     return GetRandomPassableLocationFromRegion(region,excludeHousing, excludeRegions)
+end 
+
+function GetRandomPassableLocationInRadius(loc,radius,excludeHousing)
+    local maxTries = 20
+
+    local spawnDist = math.random() * radius
+    local spawnAngle = math.random() * 360
+    local spawnLoc = loc:Project(spawnAngle,spawnDist)
+
+    -- try to find a passable location
+    while(maxTries > 0 
+    		and not(IsValidLoc(spawnLoc,excludeHousing,excludeRegions)) ) do
+
+        spawnDist = math.random() * radius
+	    spawnAngle = math.random() * 360
+	    spawnLoc = loc:Project(spawnAngle,spawnDist)
+    end
+
+    if(maxTries > 0) then
+	    return spawnLoc
+	end
+
+	return nil
 end 

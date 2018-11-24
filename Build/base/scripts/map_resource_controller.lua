@@ -1,14 +1,15 @@
 require 'incl_resource_source'
 require 'incl_regions'
 
-RESOURCE_SPAWN_RATE_SECS = 30
+RESOURCE_SPAWN_RATE_SECS = 1
 DEPLETION_UPDATE_FREQ = 10
 RARE_RESOURCE_DECAY_TIME_SECS = 6 * 60 * 60
 
 --[ Begin Permanent Resources ]--
 -- Permanent resources are harvested from map objects which always exist on the map
 
-permanentSourceData = nil
+permanentSourceData = {}
+rareResourceSpawnPools = {}
 
 -- NOTE: this only works for rare resources. the default ones are not tracked if they are not depleted
 function CountResourceId(resourceId)
@@ -25,6 +26,108 @@ function GetDynamicResourceSourceInfo(resourceRegions,objRef,sourceId)
 	for i,regionSources in pairs(resourceRegions) do
 		if(regionSources[sourceId] and (not(regionSources.Region) or regionSources.Region == "Global" or objRef:IsInRegion(regionSources.Region))) then
 			return regionSources[sourceId]
+		end
+	end
+end
+
+function CheckRegen(objRef,resourceEntry,resourceRegions)
+	if(objRef.Id == 0) then
+		DebugMessage("ERROR: [UpdateDepletion] Invalid permanent id! (0)")
+		return
+	end
+
+	if(resourceEntry.Depletion == 0) then
+		return
+	end
+
+	-- if the resource type is overridden in the resource entry then this object is rare
+	-- we dont regenerate rare resources
+	local isRareResource = resourceEntry.ResourceType ~= nil	
+	if( isRareResource ) then		
+		return		
+	end
+
+	-- get our resource static info, if it doesnt exist then success is false
+	--DebugMessage("Check Regen: " .. tostring(objRef) .. " -> " .. tostring(depletionAmount))
+
+	local sourceId = GetResourceSourceId(objRef)
+	local staticSourceInfo = nil
+	if(sourceId) then
+		staticSourceInfo = ResourceData.ResourceSourceInfo[sourceId]
+	end
+
+	if( staticSourceInfo == nil ) then
+		DebugMessage("ERROR: Nil Source Info for Depletion ObjId: "..tostring(objRef.Id).." IsPermanent: "..tostring(objRef:IsPermanent()).." SourceId: "..tostring(sourceId))
+		return false,nil,"Error"
+	end
+
+	-- retrieve the dynamic resource region info if its not passed in
+	resourceRegions = resourceRegions or this:GetObjVar("ResourceRegions") or {}	
+
+	local shouldUpdateResourceEntry = true
+	
+	local initialDepletion = resourceEntry.Depletion
+	local sourceCount = 1
+	if(resourceEntry.DynamicSourceInfo) then
+		sourceCount = resourceEntry.DynamicSourceInfo.Count
+	end
+
+	-- if the resource type is overridden in the resource entry then this object is rare
+	-- we dont regenerate rare resources
+	local isRareResource = resourceEntry.ResourceType ~= nil
+	local rareInfo = nil
+	
+	if( isRareResource ) then		
+		return		
+	end
+
+	--DebugMessage("Update Depletion: " .. tostring(objRef) .. " -> " .. tostring(depletionAmount))
+
+	-- only regen if it has a regen rate, it has been accessed, depletion > 0, and not rare
+	local shouldRegen = resourceEntry.DynamicSourceInfo ~= nil 
+	        and resourceEntry.DynamicSourceInfo.RegenRate ~= nil 
+			and resourceEntry.LastAccessSecs ~= nil 
+
+	--DebugMessage("Depletion start "..tostring(resourceEntry.Depletion))
+	-- update the depletion value based on regen rate and time passed since last access
+	local curTimeSecs = ServerTimeMs() / 1000.0
+	if( shouldRegen ) then
+		local elapsedSecs = curTimeSecs - resourceEntry.LastAccessSecs
+		local regenCount = resourceEntry.DynamicSourceInfo.RegenRate * elapsedSecs
+		--DebugMessage("Regen "..tostring(elapsedSecs)..", "..tostring(regenCount))
+		resourceEntry.Depletion = math.max(0,resourceEntry.Depletion - regenCount)
+	end
+
+	--DebugMessage("New Depletion: " .. tostring(objRef) .. " -> " .. tostring(resourceEntry.Depletion))
+
+	-- update our last access time
+	resourceEntry.LastAccessSecs = curTimeSecs
+
+	-- get the resource type before we update the record (in case it changes as a result of the depletion)
+	-- the resource entry can override the default type and count for rare resources
+	local resourceType = resourceEntry.ResourceType or staticSourceInfo.ResourceType
+	local resourceCount = resourceEntry.Count or sourceCount
+	
+	-- if our depletion actually changed
+	depletionVal = resourceEntry.Depletion
+	if( depletionVal ~= initialDepletion and depletionVal == 0 and staticSourceInfo.DepletedState ~= nil ) then
+		--DebugMessage("Initiating depletions state change.")
+		objRef:SetVisualState("Default")			
+	end
+
+	--DebugMessage("Depletion result "..tostring(resourceEntry.Depletion))	
+
+	-- update the source data
+	
+	-- we keep rare resources in the table even if they are not depleted
+	if( shouldUpdateResourceEntry ) then
+		--DebugMessage("Updating permanent.")
+		if( resourceEntry.Depletion == 0 ) then
+			--DebugMessage("Clearing.")
+			permanentSourceData[objRef] = nil
+		else	
+			--DebugMessage(DumpTable(resourceEntry))
+			permanentSourceData[objRef] = resourceEntry
 		end
 	end
 end
@@ -47,12 +150,7 @@ function UpdateDepletion(objRef,depletionAmount,user,resourceRegions)
 	if( staticSourceInfo == nil ) then
 		DebugMessage("ERROR: Nil Source Info for Depletion ObjId: "..tostring(objRef.Id).." IsPermanent: "..tostring(objRef:IsPermanent()).." SourceId: "..tostring(sourceId))
 		return false,nil,"Error"
-	end
-
-	-- retrieve the dynamic resource region info if its not passed in
-	resourceRegions = resourceRegions or this:GetObjVar("ResourceRegions") or {}
-	-- get the dynamic resource source info based on the region this object is in
-	local dynamicSourceInfo = GetDynamicResourceSourceInfo(resourceRegions,objRef,sourceId)
+	end	
 
 	local depletionSuccess = true
 	local failReason = nil
@@ -62,14 +160,22 @@ function UpdateDepletion(objRef,depletionAmount,user,resourceRegions)
 	local resourceEntry = nil
 	if( objRef:IsPermanent() ) then
 		resourceEntry = permanentSourceData[objRef] or { Depletion = 0 }
+
+		if not(resourceEntry.DynamicSourceInfo) then
+			-- retrieve the dynamic resource region info if its not passed in
+			resourceRegions = resourceRegions or this:GetObjVar("ResourceRegions") or {}
+			-- get the dynamic resource source info based on the region this object is in
+			-- The resource region for every permanent should be calculated on startup and cached (this doesnt change while server is running)
+			resourceEntry.DynamicSourceInfo = GetDynamicResourceSourceInfo(resourceRegions,objRef,sourceId)
+		end
 	else
 		resourceEntry = objRef:GetObjVar("ResourceSourceData") or { Depletion = 0 }
-	end
+	end	
 
 	local initialDepletion = resourceEntry.Depletion
 	local sourceCount = 1
-	if(dynamicSourceInfo) then
-		sourceCount = dynamicSourceInfo.Count
+	if(resourceEntry.DynamicSourceInfo) then
+		sourceCount = resourceEntry.DynamicSourceInfo.Count
 	end
 
 	-- if the resource type is overridden in the resource entry then this object is rare
@@ -83,12 +189,12 @@ function UpdateDepletion(objRef,depletionAmount,user,resourceRegions)
 			return false,nil,"NoRegen"
 		end
 
-		if not(dynamicSourceInfo) then
-			DebugMessage("ERROR: Rare resource is missing it associated dynamicSourceInfo. "..tostring(objRef.Id).." IsPermanent: "..tostring(objRef:IsPermanent()).." SourceId: "..tostring(sourceId))
+		if not(resourceEntry.DynamicSourceInfo) then
+			DebugMessage("ERROR: Rare resource is missing it associated DynamicSourceInfo. "..tostring(objRef.Id).." IsPermanent: "..tostring(objRef:IsPermanent()).." SourceId: "..tostring(sourceId))
 			return false,nil,"Error"
 		end
 
-		rareInfo = dynamicSourceInfo.RareResources[resourceEntry.ResourceType]
+		rareInfo = resourceEntry.DynamicSourceInfo.RareResources[resourceEntry.ResourceType]
 
 		if(rareInfo ~= nil and rareInfo.Count ~= nil) then
 			sourceCount = rareInfo.Count
@@ -110,8 +216,8 @@ function UpdateDepletion(objRef,depletionAmount,user,resourceRegions)
 	end
 
 	-- only regen if it has a regen rate, it has been accessed, depletion > 0, and not rare
-	local shouldRegen = dynamicSourceInfo ~= nil 
-	        and dynamicSourceInfo.RegenRate ~= nil 
+	local shouldRegen = resourceEntry.DynamicSourceInfo ~= nil 
+	        and resourceEntry.DynamicSourceInfo.RegenRate ~= nil 
 			and resourceEntry.Depletion > 0
 			and resourceEntry.LastAccessSecs ~= nil 
 			and not(isRareResource)
@@ -121,8 +227,8 @@ function UpdateDepletion(objRef,depletionAmount,user,resourceRegions)
 	local curTimeSecs = ServerTimeMs() / 1000.0
 	if( shouldRegen ) then
 		local elapsedSecs = curTimeSecs - resourceEntry.LastAccessSecs
-		local regenCount = dynamicSourceInfo.RegenRate * elapsedSecs
-		--DebugMessage("Regen "..tostring(elapsedSecs)..", "..tostring(regenCount))
+		local regenCount = resourceEntry.DynamicSourceInfo.RegenRate * elapsedSecs
+--		DebugMessage("Regen "..tostring(elapsedSecs)..", "..tostring(regenCount))
 		resourceEntry.Depletion = math.max(0,resourceEntry.Depletion - regenCount)
 	end
 
@@ -227,10 +333,6 @@ function DoRareResourceDecay()
 			sourceDataModified = true
 		end
 	end
-
-	if(sourceDataModified) then
-		this:SetObjVar("permanentSourceData",permanentSourceData)
-	end
 end
 
 -- We cache the searches for resource sources that have rare resources since they never change
@@ -256,11 +358,16 @@ function GetRareSearcher(regionName,sourceId)
 	return searcher
 end
 
-function DoRareResourceCheck()			
+-- Go through every resource region and iterate through every rare resource spawn in that region
+-- Arguments to callback:
+--    regionName: Name of resource region. "Global" for the entire map
+--    sourceObjs: Array of all permanent objects in this resource region
+--    sourceId: Name of the resource node source id ("Rock" or "Tree")
+--    rareResourceType: Name of the rare resource ("Iron" or "Blightwood")
+--    rareCount: The total number of nodes in this region that should be this resource (calculated from AvailablityPct in resource_controller template)
+function ForEachRareResourceSpawn(func)
 	local resourceRegions = this:GetObjVar("ResourceRegions")
 	if(resourceRegions ~= nil) then
-		local permanentSourceDataDirty = false
-
 		-- go through all the resource regions ("Global" includes the entire map)
 		for i,regionSources in ipairs(resourceRegions) do
 			-- go through all the resource sources for this region
@@ -270,69 +377,131 @@ function DoRareResourceCheck()
 					-- find all the permanents in this resource region with the given source id 
 					local regionName = regionSources.Region or "Global"
 					local sourceObjs = GetRareSearcher(regionName,sourceId)
+					--DebugMessage("Rare Resource Source Obj - "..tostring(regionName)..":"..tostring(sourceId)..": "..tostring(#sourceObjs))
 					-- if we found matching permanents
 					if(#sourceObjs > 0) then
 						-- go through each of the rare versions
-						for rareSourceId, rareSourceInfo in pairs(sourceInfo.RareResources) do				
-							if not(ResourceData.ResourceSourceInfo[sourceId].RareResources[rareSourceId]) then
-								DebugMessage("ERROR: Rare resource does not exist in source info table. "..tostring(rareSourceId))
-							else
-								-- AvailablityPct is the fully spawned percentage of this area that is that resource type
-								if(rareSourceInfo.AvailablityPct > 0) then
-									--DebugMessage("---- DoRareResourceCheck sourceId: "..sourceId.." ResourceType: "..rareSourceId)
-
-									-- get the total number of sources on the map that should be rare
-									local rareCount = math.floor(#sourceObjs * (rareSourceInfo.AvailablityPct/100.0))
-
-									-- count the existing rares
-									local existingCount = 0
-									for objRef, sourceEntry in pairs(permanentSourceData) do
-										if( sourceEntry.ResourceType == rareSourceId and sourceEntry.ResourceRegion == regionName) then
-											existingCount = existingCount + 1
-										end
-									end
-
-									-- if we need more then we spawn one
-									--DebugMessage("Should",tostring(regionName),tostring(rareSourceId),tostring(existingCount),tostring(rareCount))
-									if( existingCount < rareCount ) then
-										--DebugMessage("---- DoRareResourceCheck searching")
-										local maxTries = 20
-										local found = false
-										local resultObj = nil
-										while(maxTries > 0 and not(resultObj)) do
-											local testObj = sourceObjs[math.random(1,#sourceObjs)]
-											-- TODO Only respawn if no players nearby
-											if( permanentSourceData[testObj] == nil and testObj:GetVisualState() ~= "Hidden") then
-												--DebugMessage("---- DoRareResourceCheck found Obj")
-												resultObj = testObj
-											else
-												maxTries = maxTries - 1
-											end
-										end
-
-										if( resultObj ~= nil ) then										
-											--DebugMessage("---- Spawning rare resource ResourceType: "..rareSourceId.." Loc: "..tostring(resultObj:GetLoc()).." ResourceRegion: "..regionName)
-											permanentSourceData[resultObj] = { ResourceType = rareSourceId, Count = rareSourceInfo.Count or 1, Depletion = 0, SpawnTime = ServerTimeMs(), ResourceRegion = regionName }
-											permanentSourceDataDirty = true
-											-- Get the visual state from the static resource source data										
-											local visualState = ResourceData.ResourceSourceInfo[sourceId].RareResources[rareSourceId].VisualState
-											if(visualState ~= nil) then
-												resultObj:SetVisualState(visualState)
-											end										
-										end
-									end
-								end
+						for rareResourceType, rareSourceInfo in pairs(sourceInfo.RareResources) do
+							-- AvailablityPct is the fully spawned percentage of this area that is that resource type
+							if(rareSourceInfo.AvailablityPct > 0) then	
+								-- the number of times you can harvest this node comes from the resource controller template				
+								local harvestCount = rareSourceInfo.Count	
+								-- the number of this node spawned in the region is based on the AvailablityPct from the resource controller template
+								local nodeCount = math.floor(#sourceObjs * (rareSourceInfo.AvailablityPct/100.0))
+								
+								-- call the callback									
+								func(regionName,sourceObjs,sourceId,rareResourceType,harvestCount,nodeCount)
 							end
 						end
 					end
 				end
 			end
 		end
+	end
+end
 
-		if(permanentSourceDataDirty) then
-			this:SetObjVar("permanentSourceData",permanentSourceData)	
+-- Resource pool is explained in the comments in global/server_settings/resources
+function CheckRareResourceSpawnPool(regionName,rareResourceType,nodeCount)	
+	-- get pool settings if they exist, if no pool specified you can always spawn a new rare resource node	
+	local resourceSettings = ServerSettings.Resources[rareResourceType]
+	if not(resourceSettings) or not(resourceSettings.ResourcePoolMultiplier) then
+		--DebugMessage("[CheckRareResourceSpawnPool]","No settings defined for resourceType: "..rareResourceType)
+		return true
+	end
+								
+	local resourcePoolMultiplier = resourceSettings.ResourcePoolMultiplier
+	local resourcePoolRegenTime = (resourceSettings and resourceSettings.ResourcePoolRegenTime) or TimeSpan.FromMinutes(10)
+
+	local resourcePoolCount = nodeCount * resourcePoolMultiplier
+
+	-- create pool for this region if it doesnt exist yet
+	if not(rareResourceSpawnPools[regionName]) then rareResourceSpawnPools[regionName] = {} end
+
+	local elementInfo = rareResourceSpawnPools[regionName][rareResourceType] or {}	
+
+	--DebugMessage("[CheckRareResourceSpawnPool]","regionName: "..regionName.." resourceType: "..rareResourceType)
+
+	-- if the element was previously completely depleted, check to see if it's regenerated yet
+	if(elementInfo.TimeDepleted) then
+		local elapsed = DateTime.UtcNow:Subtract(elementInfo.TimeDepleted)
+		if(elapsed < resourcePoolRegenTime) then
+			--DebugMessage("[CheckRareResourceSpawnPool]","Depleted")
+			-- Resource is depleted, send failed response
+			return false
+		else
+			--DebugMessage("[CheckRareResourceSpawnPool]","Depleted Regen Complete")
+			elementInfo.TimeDepleted = nil
+			elementInfo.Depletion = 0
 		end
 	end
+	
+	elementInfo.Depletion = (elementInfo.Depletion or 0) + 1
+	--DebugMessage("[CheckRareResourceSpawnPool]","New Depletion",tostring(elementInfo.Depletion))
+	
+	if(elementInfo.Depletion >= resourcePoolCount) then
+		--DebugMessage("[CheckRareResourceSpawnPool]","Full Depletion, Entering Regen")
+		elementInfo.TimeDepleted = DateTime.UtcNow
+	end		
+
+	if(elementInfo.Depletion == 0) then
+		rareResourceSpawnPools[regionName][rareResourceType] = nil
+	else
+		rareResourceSpawnPools[regionName][rareResourceType] = elementInfo
+	end
+
+	return true
+end
+
+function DoRareResourceCheck()		
+	local permanentSourceDataDirty = false	
+
+	ForEachRareResourceSpawn(
+		function(regionName,sourceObjs,sourceId,rareResourceType,harvestCount,nodeCount)
+			-- count the existing rares
+			local existingCount = 0
+			for objRef, sourceEntry in pairs(permanentSourceData) do
+				if( sourceEntry.ResourceType == rareResourceType and sourceEntry.ResourceRegion == regionName) then
+					existingCount = existingCount + 1
+				end
+			end
+
+			-- if we need more then we spawn one
+			--DebugMessage("Should",tostring(regionName),"Type",tostring(rareResourceType),"Total",tostring(#sourceObjs),"Existing",tostring(existingCount),"Target",tostring(nodeCount))
+			if( existingCount < nodeCount ) then
+				--DebugMessage("---- DoRareResourceCheck searching")
+				local maxTries = 20
+				local found = false
+				local resultObj = nil
+				while(maxTries > 0 and not(resultObj)) do
+					local testObj = sourceObjs[math.random(1,#sourceObjs)]
+					-- TODO Only respawn if no players nearby
+					if( permanentSourceData[testObj] == nil and testObj:GetVisualState() ~= "Hidden") then
+						--DebugMessage("---- DoRareResourceCheck found Obj")
+						resultObj = testObj
+					else
+						maxTries = maxTries - 1
+					end
+				end										
+
+				if( resultObj ~= nil and CheckRareResourceSpawnPool(regionName,rareResourceType,nodeCount) ) then
+					--DebugMessage("---- Spawning rare resource ResourceType: "..rareResourceType.." Loc: "..tostring(resultObj:GetLoc()).." ResourceRegion: "..regionName)
+					permanentSourceData[resultObj] = { ResourceType = rareResourceType, Count = harvestCount or 1, Depletion = 0, SpawnTime = ServerTimeMs(), ResourceRegion = regionName }
+					permanentSourceDataDirty = true
+					
+					-- Get the visual state from the static resource source data		
+					local visualState = nil
+					local rareResourceStaticData = ResourceData.ResourceSourceInfo[sourceId].RareResources[rareResourceType]
+					if not(rareResourceStaticData) then
+						DebugMessage("ERROR: Rare resource does not exist in source info table. "..tostring(rareResourceType))
+					else
+						visualState = ResourceData.ResourceSourceInfo[sourceId].RareResources[rareResourceType].VisualState
+					end
+					if(visualState ~= nil) then
+						resultObj:SetVisualState(visualState)
+					end			
+				end
+			end				
+		end)			
 end
 
 function DoSpawnedSourceCheck(sourceType,sourceEntry)
@@ -413,13 +582,11 @@ RegisterEventHandler(EventType.Timer,"UpdateDepletion",
 
 		-- this is an optimization to avoid getting the dynamic resource region info every time we call update depletion
 		local resourceRegions = this:GetObjVar("ResourceRegions")
+		--DebugMessage("UPDATING "..CountTable(permanentSourceData))
 		for objRef,entry in pairs(permanentSourceData) do
-			-- do not update the depletion on hidden trees (under houses)
-			if(objRef:GetVisualState() ~= "Hidden") then				
-				UpdateDepletion(objRef,0,nil,resourceRegions)
-			end
+    		CheckRegen(objRef,entry,resourceRegions)
 		end
-		this:SetObjVar("permanentSourceData",permanentSourceData)	
+
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(DEPLETION_UPDATE_FREQ),"UpdateDepletion")
 	end)
 
@@ -464,8 +631,24 @@ RegisterEventHandler(EventType.CreatedObject, "spawned_source",
 	end)
 
 function OnLoad()
-	permanentSourceData = this:GetObjVar("permanentSourceData") or {}
 	--DebugMessage("LOADING DATA Rare Entry Count",CountTable(permanentSourceData))
+	local clearedObjs = {}
+	local resourceRegions = this:GetObjVar("ResourceRegions") or {}
+	for i,resourceRegion in pairs(resourceRegions) do
+		for sourceId,regionSources in pairs(resourceRegion) do
+			local regionName = regionSources.Region or "Global"
+			local sourceObjs = GetRareSearcher(regionName,sourceId)
+			for i,sourceObj in pairs(sourceObjs) do
+				if not(clearedObjs[sourceObj]) then
+					local curState = sourceObj:GetVisualState()
+					if not(curState == "Hidden" or curState == "Default") then
+						sourceObj:SetVisualState("Default")
+						clearedObjs[sourceObj] = true
+					end
+				end
+			end
+		end
+	end
 
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(DEPLETION_UPDATE_FREQ),"UpdateDepletion")
 	this:FireTimer("DoResourceSpawns")	

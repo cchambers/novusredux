@@ -20,12 +20,7 @@ RegisterEventHandler(EventType.Message, "OnGroupJoin", function(groupId, member)
 			end
 			GroupInfo(this, "You have joined a group.", true)
 		else
-			local name = "Unknown"
-			if ( member:IsValid() ) then
-				name = StripColorFromString(member:GetName())
-			else
-				name = GlobalVarReadKey("User.Name", member)
-			end
+			local name = member:GetCharacterName() or "Unknown"			
 			GroupInfo(this, string.format("%s has joined your group.", name), true)
 		end
 	end)
@@ -34,7 +29,7 @@ end)
 RegisterEventHandler(EventType.Message, "OnGroupDisconnect", function(member)
 	if ( member ~= this ) then
 		CallFunctionDelayed(TimeSpan.FromMilliseconds(1), function()
-			GroupInfo(this, string.format("%s has disconnected.", GlobalVarReadKey("User.Name", member)), true)
+			GroupInfo(this, string.format("%s has disconnected.", member:GetCharacterName()), true)
 		end)
 	end
 end)
@@ -42,7 +37,7 @@ end)
 RegisterEventHandler(EventType.Message, "OnGroupConnect", function(member)
 	if ( member ~= this ) then
 		CallFunctionDelayed(TimeSpan.FromMilliseconds(1), function()
-			GroupInfo(this, string.format("%s has connected.", GlobalVarReadKey("User.Name", member)), true)
+			GroupInfo(this, string.format("%s has connected.", member:GetCharacterName()), true)
 		end)
 	end
 end)

@@ -27,7 +27,10 @@ function GetEditCharCategories()
 end
 
 function GetEditCharTemplates()
+	if(not(templateListCategory) or not(EditTemplatePresets[templateListCategory])) then return nil end
+
 	templatesListTable = {}
+
 	for i,templateName in pairs(EditTemplatePresets[templateListCategory]) do 
 		table.insert(templatesListTable,templateName)
 	end
@@ -60,6 +63,7 @@ function OpenCharEditWindow(target)
 			{ Text = "Template" },
 			{ Text = "Skills" },
 			{ Text = "Stats" },
+			{ Text = "Other" },
         }
     })	
 	
@@ -70,7 +74,7 @@ function OpenCharEditWindow(target)
 			templateListCategoryIndex = 1			
 		end
 
-		if(not(templateListCategory) or templateListCategory == "") then
+		if(not(templateListCategory) or templateListCategory == "" or not(EditTemplatePresets[templateListCategory])) then
 			if(#categories > 1) then
 				templateListCategoryIndex = 0
 				AddSelectCategory(newWindow,40,GetEditCharCategories())
@@ -116,7 +120,7 @@ function OpenCharEditWindow(target)
 			end
 		end
 		newWindow:AddScrollWindow(skillList)
-		newWindow:AddButton(30,590,"UpdateSkills:","Update",190,26,"Set your new skill values.","",false,"",checkedState)
+		newWindow:AddButton(30,590,"UpdateSkills:","Update",190,26,"Set your new skill values.","",false,"")
 	
 		newWindow:AddLabel(300,590, GetSkillTotal(target) .. " / "..ServerSettings.Skills.PlayerSkillCap.Total,100,20,18,"right")
 	elseif (mCurrentEditTab == "Stats") then			
@@ -134,9 +138,27 @@ function OpenCharEditWindow(target)
 			statList:Add(scrollElement)
 		end
 		newWindow:AddScrollWindow(statList)
-		newWindow:AddButton(30,590,"UpdateStats:","Update",190,26,"Set your new stat values.","",false,"",checkedState)		
+		newWindow:AddButton(30,590,"UpdateStats:","Update",190,26,"Set your new stat values.","",false,"")		
 
 		newWindow:AddLabel(300,590, GetTotalBaseStats(target) .. " / "..ServerSettings.Stats.TotalPlayerStatsCap,100,20,18,"right")
+	elseif(mCurrentEditTab == "Other")  then
+		local curY = 40
+		newWindow:AddLabel(24,curY+13,"[A1ADCC]Name[-]",0,35,18,"left")
+		newWindow:AddTextField(100,curY+10,200,20,"name",target:GetName())
+		newWindow:AddButton(300,curY+8,"UpdateName:","Update",80,23,"","",false,"")		
+		curY = curY + 34
+		newWindow:AddLabel(24,curY+13,"[A1ADCC]Title[-]",0,35,18,"left")
+		newWindow:AddTextField(100,curY+10,200,20,"title",target:GetSharedObjectProperty("Title"))
+		newWindow:AddButton(300,curY+8,"UpdateTitle:","Update",80,23,"","",false,"")		
+		curY = curY + 34
+		newWindow:AddLabel(24,curY+13,"[A1ADCC]Karma[-]",0,35,18,"left")
+		newWindow:AddTextField(100,curY+10,200,20,"karma",tostring(target:GetObjVar("Karma") or 0))
+		newWindow:AddButton(300,curY+8,"UpdateKarma:","Update",80,23,"","",false,"")		
+		curY = curY + 34
+		newWindow:AddLabel(24,curY+13,"[A1ADCC]Allegiance[-]",0,35,18,"left")
+		newWindow:AddTextField(100,curY+10,200,20,"allegiance",tostring(GetPlayerAllegianceName(target) or ""))
+		newWindow:AddButton(300,curY+8,"UpdateAllegiance:","Update",80,23,"","",false,"")		
+		curY = curY + 34
 	end
 
 	this:OpenDynamicWindow(newWindow)
@@ -144,6 +166,10 @@ end
 
 RegisterEventHandler(EventType.DynamicWindowResponse,"EditCharWindow",
 	function ( user, buttonId, fieldData )
+		if not(IsGod(this)) then
+			return
+		end
+
 		local result = StringSplit(buttonId,":")
 		local action = result[1]
 		local arg = result[2]
@@ -235,5 +261,23 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"EditCharWindow",
 				this:SendMessage("OpenCharacterWindow")
 			end
 			OpenCharEditWindow(mCurrentEditTarget)
+		elseif(action == "UpdateName") then
+			mCurrentEditTarget:SetName(fieldData.name)
+			mCurrentEditTarget:SendMessage("UpdateName")
+		elseif(action == "UpdateTitle") then
+			mCurrentEditTarget:SetSharedObjectProperty("Title", fieldData.title)
+		elseif(action == "UpdateKarma") then
+			mCurrentEditTarget:SetObjVar("Karma",tonumber(fieldData.karma) or 0)
+			mCurrentEditTarget:SendMessage("UpdateName")
+		elseif(action == "UpdateAllegiance") then
+			if(fieldData.allegiance == "Fire" or fieldData.allegiance == "Pyros") then
+				AllegianceRemovePlayer(mCurrentEditTarget)
+				AllegianceAddPlayer(mCurrentEditTarget,1)
+			elseif(fieldData.allegiance == "Water" or fieldData.allegiance == "Tethys") then
+				AllegianceRemovePlayer(mCurrentEditTarget)
+				AllegianceAddPlayer(mCurrentEditTarget,2)
+			else
+				AllegianceRemovePlayer(mCurrentEditTarget)
+			end			
 		end
 	end)

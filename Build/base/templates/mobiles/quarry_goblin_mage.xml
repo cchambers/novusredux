@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">104</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Goblin</StringVariable>
+		<StringVariable Name="MobileKind">Ork</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -19,7 +20,7 @@
 		<DoubleVariable Name="Attack">21</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
-		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
@@ -29,7 +30,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=15, 
+					Brawling = 15, 
 					Channeling=15,
 					Evocation=100,
 					},	

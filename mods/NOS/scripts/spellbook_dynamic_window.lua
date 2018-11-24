@@ -14,12 +14,213 @@ SPELLBOOK_CALC_WIDTH = SPELLBOOK_WIDTH * SPELLBOOK_X_OFFSET
 SPELLBOOK_CALC_HEIGHT = SPELLBOOK_HEIGHT * SPELLBOOK_Y_OFFSET
 
 mSpellBook = nil
-
-circleIndex = 3
-
--- page types are ManifestationIndex, EvocationIndex, ManifestationSpellDetail, EvocationSpellIndex
-mPageType = "EvocationIndex"
+mPageType = "CircleIndex"
 mPageNumber = 1
+
+allSpells = nil
+allSpellsIndexed = {}
+
+function ShowSpellBookDialog(from)
+	local detailPageStr = "CircleSpellDetail"
+
+	if (circle == nil) then
+		circle = 1
+	end
+
+	if (allSpells == nil) then
+		allSpells = SpellData.AllSpells
+	end
+	local bookSpells = mSpellBook:GetObjVar("SpellList") or nil
+	local spellsSorted = {}
+
+	if (bookSpells) then
+		local spellIndex = 0
+		for k, v in pairs(allSpells) do
+			spellIndex = spellIndex + 1
+			allSpellsIndexed[spellIndex] = {Name = k, Data = v}
+			if (bookSpells[k]) then
+				local nextCircle = mPageNumber + 1
+				if (v.Circle == mPageNumber) then
+					table.insert(spellsSorted, {Name = k, Data = v, id = spellIndex})
+				elseif (v.Circle == nextCircle) then
+					table.insert(spellsSorted, {Name = k, Data = v, id = spellIndex})
+				end
+			end
+		end
+
+		table.sort(
+			spellsSorted,
+			function(a, b)
+				local circleA = (a.Data.Circle or 0)
+				local circleB = (b.Data.Circle or 0)
+				if (circleA == circleB) then
+					return a.Data.SpellDisplayName < b.Data.SpellDisplayName
+				else
+					return circleA < circleB
+				end
+			end
+		)
+
+		DebugMessage("Total Spells: " .. tostring(#spellsSorted))
+	end
+
+	local dynamicWindow =
+		DynamicWindow(
+		"SpellBook",
+		"",
+		SPELLBOOK_WIDTH,
+		SPELLBOOK_HEIGHT,
+		-SPELLBOOK_WIDTH / 2,
+		-SPELLBOOK_HEIGHT / 2,
+		"TransparentDraggable",
+		"Center"
+	)
+
+	dynamicWindow:AddImage(0, 0, "Spellbook", SPELLBOOK_WIDTH, SPELLBOOK_HEIGHT)
+	dynamicWindow:AddButton(726, 22, "", "", 0, 0, "", "", true, "CloseSquare", buttonState)
+
+	dynamicWindow:AddButton(
+		3,
+		100,
+		"ChangePage|CircleIndex|1",
+		"Circles 1 & 2",
+		100,
+		40,
+		"",
+		"",
+		false,
+		"Default",
+		"default"
+	)
+	dynamicWindow:AddButton(
+		3,
+		150,
+		"ChangePage|CircleIndex|3",
+		"Circles 3 & 4",
+		100,
+		40,
+		"",
+		"",
+		false,
+		"Default",
+		"default"
+	)
+	dynamicWindow:AddButton(
+		3,
+		200,
+		"ChangePage|CircleIndex|5",
+		"Circles 5 & 6",
+		100,
+		40,
+		"",
+		"",
+		false,
+		"Default",
+		"default"
+	)
+	dynamicWindow:AddButton(
+		3,
+		250,
+		"ChangePage|CircleIndex|7",
+		"Circles 7 & 8",
+		100,
+		40,
+		"",
+		"",
+		false,
+		"Default",
+		"default"
+	)
+
+	if (mPageType == "CircleIndex") then
+		dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
+		local xOffset = 110
+		local yOffset = 90
+		local circleIndex = 0
+		for i, spellEntry in pairs(spellsSorted) do
+			if (circleIndex == 0) then
+				circleIndex = spellEntry.Data.Circle
+				local labelStr = "[412A08]Circle " .. circleIndex .. "[-]"
+				dynamicWindow:AddLabel(236, 44, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+				local labelStr = "[412A08]Circle " .. circleIndex + 1 .. "[-]"
+				dynamicWindow:AddLabel(550, 44, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+			end
+
+			if (spellEntry.Data.Circle == circleIndex) then
+			else
+				circleIndex = spellEntry.Data.Circle
+				yOffset = 90
+				xOffset = xOffset + 320
+			end
+
+			local command = "ChangePage|" .. detailPageStr .. "|" .. spellEntry.id
+			local name = spellEntry.Data.SpellDisplayName
+			local skill = spellEntry.Data.Skill
+			skill = string.sub(skill, 1, 1)
+			local circle = tostring(spellEntry.Data.Circle or 1)
+			DebugMessage("KHI " .. command .. " - " .. name)
+			dynamicWindow:AddButton(xOffset, yOffset, command, spellEntry.id .. "|" .. name, 250, 34, "", "", false, "BookList")
+			yOffset = yOffset + 36
+		end
+	end
+
+	-- IS DETAIL PAGE
+	if (mPageType == detailPageStr) then
+		DebugMessage("IS DETAIL PAGE..." .. tostring(#spellsSorted))
+		local pageActual = 1
+
+		if ((mPageNumber % 2) == 0) then
+			pageActual = mPageNumber - 1
+		else
+			pageActual = mPageNumber
+		end
+		local xOffset = 0
+		local spellStart = pageActual
+		local spellEnd = pageActual + 1
+
+		ShowSpellDetail(dynamicWindow, allSpellsIndexed[spellStart], 0)
+		ShowSpellDetail(dynamicWindow, allSpellsIndexed[spellEnd], 320)
+
+		-- dog ears
+		local isFirstPage = (pageActual == 1)
+		local isLastPage = (pageActual >= #spellsSorted)
+
+		if not (isFirstPage) then
+			local pageStr = tostring(mPageNumber - 2)
+			dynamicWindow:AddButton(
+				60,
+				24,
+				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
+				"",
+				154,
+				93,
+				"",
+				"",
+				false,
+				"BookPageDown"
+			)
+		end
+
+		if not (isLastPage) then
+			local pageStr = tostring(pageActual + 2)
+			dynamicWindow:AddButton(
+				574,
+				24,
+				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
+				"",
+				154,
+				93,
+				"",
+				"",
+				false,
+				"BookPageUp"
+			)
+		end
+	end
+
+	this:OpenDynamicWindow(dynamicWindow)
+	mOpen = true
+end
 
 function ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
 	dynamicWindow:AddLabel(
@@ -73,235 +274,6 @@ function ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
 	end
 end
 
-function ShowSpellBookDialog()
-	if (circle == nil) then
-		circle = 1
-	end
-
-	local castingSkill = "EvocationSkill"
-	if (mPageType == "ManifestationIndex" or mPageType == "ManifestationSpellDetail") then
-		castingSkill = "ManifestationSkill"
-	end
-
-	local detailPageStr =
-		(mPageType == "ManifestationIndex" or mPageType == "ManifestationSpellDetail") and "ManifestationSpellDetail" or
-		"EvocationSpellDetail"
-	local isDetailPage = (mPageType == "ManifestationSpellDetail" or mPageType == "EvocationSpellDetail")
-
-	local bookSpells = mSpellBook:GetObjVar("SpellList") or nil
-	local spellsSorted = {}
-
-	if (bookSpells) then
-		for k, v in pairs(SpellData.AllSpells) do
-			if (mPageType == "CircleIndex") then
-				local nextCircle = circleIndex + 1
-				if (v.Circle == circleIndex) then
-					table.insert(spellsSorted, {Name = k, Data = v})
-				elseif (v.Circle == nextCircle) then
-					table.insert(spellsSorted, {Name = k, Data = v})
-				end
-			elseif (bookSpells[k] and v.Skill == castingSkill) then
-				table.insert(spellsSorted, {Name = k, Data = v})
-			end
-		end
-
-		table.sort(
-			spellsSorted,
-			function(a, b)
-				local circleA = (a.Data.Circle or 0)
-				local circleB = (b.Data.Circle or 0)
-				if (circleA == circleB) then
-					return a.Name < b.Name
-				else
-					return circleA < circleB
-				end
-			end
-		)
-	end
-
-	local dynamicWindow =
-		DynamicWindow(
-		"SpellBook",
-		"",
-		SPELLBOOK_WIDTH,
-		SPELLBOOK_HEIGHT,
-		-SPELLBOOK_WIDTH / 2,
-		-SPELLBOOK_HEIGHT / 2,
-		"TransparentDraggable",
-		"Center"
-	)
-
-	dynamicWindow:AddImage(0, 0, "Spellbook", SPELLBOOK_WIDTH, SPELLBOOK_HEIGHT)
-
-	if (isDetailPage) then
-		local isFirstPage = (mPageNumber == 1)
-		local isLastPage = (mPageNumber == math.ceil(#spellsSorted / 2))
-
-		if not (isFirstPage) then
-			local pageStr = tostring(mPageNumber - 1)
-			dynamicWindow:AddButton(
-				60,
-				24,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				"",
-				154,
-				93,
-				"",
-				"",
-				false,
-				"BookPageDown"
-			)
-		end
-
-		if not (isLastPage) then
-			local pageStr = tostring(mPageNumber + 1)
-			dynamicWindow:AddButton(
-				574,
-				24,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				"",
-				154,
-				93,
-				"",
-				"",
-				false,
-				"BookPageUp"
-			)
-		end
-	end
-
-	dynamicWindow:AddButton(726, 22, "", "", 0, 0, "", "", true, "CloseSquare", buttonState)
-
-	local buttonState = ""
-	if (mPageType == "EvocationIndex" or mPageType == "EvocationSpellDetail") then
-		buttonState = "pressed"
-	end
-
-	dynamicWindow:AddButton(3, 70, "ChangePage|EvocationIndex|1", "", 78, 58, "", "", false, "EvocationTab", buttonState)
-
-	buttonState = ""
-	if (mPageType == "ManifestationIndex" or mPageType == "ManifestationSpellDetail") then
-		buttonState = "pressed"
-	end
-
-	dynamicWindow:AddButton(
-		3,
-		126,
-		"ChangePage|ManifestationIndex|1",
-		"",
-		76,
-		58,
-		"",
-		"",
-		false,
-		"ManifestationTab",
-		buttonState
-	)
-
-	dynamicWindow:AddButton(3, 200, "ChangePage|CircleIndex|1", "Circle 3-4", 76, 58, "", "", false, "Default", "default")
-
-	if (mPageType == "ManifestationIndex" or mPageType == "EvocationIndex") then
-		local labelStr = (mPageType == "ManifestationIndex") and "[412A08]Manifestation[-]" or "[412A08]Evocation[-]"
-
-		dynamicWindow:AddLabel(236, 44, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
-
-		dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
-
-		local xOffset = 110
-		local yOffset = 90
-		local spellIndex = 1
-		for i, spellEntry in pairs(spellsSorted) do
-			local pageStr = tostring(math.ceil(spellIndex / 2))
-			dynamicWindow:AddButton(
-				xOffset,
-				yOffset,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				tostring(spellEntry.Data.Circle or 1) .. "|" .. (spellEntry.Data.SpellDisplayName or spellEntry.Name),
-				250,
-				34,
-				"",
-				"",
-				false,
-				"BookList"
-			)
-
-			yOffset = yOffset + 36
-			spellIndex = spellIndex + 1
-			if (spellIndex == 9) then
-				yOffset = 48
-				xOffset = xOffset + 320
-			end
-		end
-
-		-- ADD SCROLL DROPZONE
-		dynamicWindow:AddButton(
-			xOffset,
-			yOffset,
-			"Drop",
-			"+|Drop spell scroll here bitch",
-			250,
-			34,
-			"",
-			"",
-			false,
-			"BookList",
-			"faded"
-		)
-	elseif (mPageType == "CircleIndex") then -- MY SPECIAL PAGE
-		dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
-		local xOffset = 110
-		local yOffset = 90
-		local spellIndex = 1
-		local circleIndex = 0
-		for i, spellEntry in pairs(spellsSorted) do
-			if (circleIndex == 0) then
-				circleIndex = spellEntry.Data.Circle
-				local labelStr = "[412A08]Circle " .. circleIndex .. "[-]"
-				dynamicWindow:AddLabel(236, 44, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
-				local labelStr = "[412A08]Circle " .. circleIndex+1 .. "[-]"
-				dynamicWindow:AddLabel(550, 44, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
-			end
-
-			if (spellEntry.Data.Circle == circleIndex) then
-			else
-				circleIndex = spellEntry.Data.Circle
-				yOffset = 90
-				xOffset = xOffset + 320
-			end
-
-			local pageStr = tostring(math.ceil(spellIndex / 2))
-			dynamicWindow:AddButton(
-				xOffset,
-				yOffset,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				tostring(spellEntry.Data.Circle or 1) .. "|" .. (spellEntry.Data.SpellDisplayName or spellEntry.Name),
-				250,
-				34,
-				"",
-				"",
-				false,
-				"BookList"
-			)
-			yOffset = yOffset + 36
-			spellIndex = spellIndex + 1
-		end
-	else
-		local xOffset = 0
-		local spellIndex = 1
-		local spellStart = ((mPageNumber - 1) * 2) + 1
-		for i, spellEntry in pairs(spellsSorted) do
-			if (spellIndex >= spellStart and spellIndex <= spellStart + 1) then
-				ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
-				xOffset = 320
-			end
-			spellIndex = spellIndex + 1
-		end
-	end
-
-	this:OpenDynamicWindow(dynamicWindow)
-	mOpen = true
-end
-
 RegisterEventHandler(
 	EventType.Message,
 	"OpenSpellBook",
@@ -315,7 +287,7 @@ RegisterEventHandler(
 			mPageNumber = 1
 		end
 		mSpellBook = spellBook
-		ShowSpellBookDialog()
+		ShowSpellBookDialog("open spellbook")
 	end
 )
 
@@ -328,7 +300,7 @@ RegisterEventHandler(
 			if (result[1] == "ChangePage") then
 				mPageType = result[2]
 				mPageNumber = tonumber(result[3])
-				ShowSpellBookDialog()
+				ShowSpellBookDialog("change page to " .. tostring(mPageNumber))
 				return
 			elseif (returnId == "Drop") then
 				local carriedObject = user:CarriedObject()

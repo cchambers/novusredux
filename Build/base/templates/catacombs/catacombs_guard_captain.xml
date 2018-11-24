@@ -21,7 +21,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 					EquipTable = {
 						BodyPartHead = {"head_male04"},

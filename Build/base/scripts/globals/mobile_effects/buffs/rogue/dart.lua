@@ -9,6 +9,7 @@ MobileEffectLibrary.Dart =
 
 		self.ParentObj:PlayEffect("BuffEffect_E")
 		self.ParentObj:PlayEffectWithArgs("DustTrailEffect",10.0,"Bone=Ground")
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/adrenaline_rush")
 
 	    SetMobileMod(self.ParentObj, "MoveSpeedTimes", "Dart", self.Modifier)
 

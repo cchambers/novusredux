@@ -1,7 +1,7 @@
 <ObjectTemplate>
-	<ClientId>36</ClientId>
-	<Name>[0078ff]Trash Can[-]</Name>
-	<Color>0x404040</Color>
+	<ClientId>2327</ClientId>
+	<Name>Trash Barrel</Name>
+	<Hue>0</Hue>
 	<SharedStateEntry name="Capacity" type="int" value="50"/>
 	<ObjectVariableComponent/>			
 	<ScriptEngineComponent>

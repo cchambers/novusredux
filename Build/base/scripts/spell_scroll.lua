@@ -5,12 +5,12 @@ function ValidateUse(user)
 		return false
 	end
 	if( this:TopmostContainer() ~= user or IsInBank(this)) then
-		user:SystemMessage("[FA0C0C]The scroll must be in your backpack before you can use it.")
+		user:SystemMessage("The scroll must be in your backpack before you can use it.","info")
 		return false
 	end
 
 	if not(this:HasObjVar("Spell")) then 
-		user:SystemMessage("[F7CC0A]Invalid scroll, no spell set.")
+		user:SystemMessage("Invalid scroll, no spell set.","info")
 		return false
 	end
 

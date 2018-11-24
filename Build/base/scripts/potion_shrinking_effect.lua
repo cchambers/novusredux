@@ -9,11 +9,11 @@ end)
 RegisterEventHandler(EventType.Timer,"TriggerSizePotion",function(...)
 	this:SetScale(SHRINK_SIZE*this:GetScale())
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(DURATION),"RestorePotionScale")
-	this:SystemMessage("You turn into half your size!")
+	this:SystemMessage("You turn into half your size!","info")
 end)
 
 function EndEffect()
-	this:SystemMessage("The shrinking effect has worn off.")
+	this:SystemMessage("The shrinking effect has worn off.","info")
 	this:SetScale((1/SHRINK_SIZE)*this:GetScale())
 	this:DelModule(GetCurrentModule())
 end

@@ -6,7 +6,7 @@ function ValidateUse(user)
     end
    --DebugMessage(2.5)
     if( this:TopmostContainer() ~= user ) then
-        user:SystemMessage("[$1908]")
+        user:SystemMessage("[$1908]","info")
         return false
     end
    --DebugMessage(2.6)
@@ -27,7 +27,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 
         if not( ValidateUse(user) ) then return end
 
-        user:SystemMessage("What do you wish to examine?")
+        user:SystemMessage("What do you wish to examine?","info")
         user:RequestClientTargetGameObj(this, "examine")
         glassUser = user
     end)
@@ -37,7 +37,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "examine",
        --DebugMessage(1)
         if not( ValidateUse(glassUser) ) then return end
         if( glassUser:GetLoc():Distance(target:GetLoc()) >= 3 ) then
-            glassUser:SystemMessage("You need to be close to it to examine it.")
+            glassUser:SystemMessage("You need to be close to it to examine it.","info")
             return
         end
 		SetMobileModExpire(this, "Disable", "Examining", true, TimeSpan.FromSeconds(3))
@@ -60,7 +60,7 @@ RegisterEventHandler(EventType.Timer,"examineTimer",
             glassUser:SendMessage("AdvanceQuest",target:GetObjVar("MagnifyingGlassQuest"),target:GetObjVar("MagnifyingGlassQuestState"),target:GetObjVar("MagnifyingQuestRequirement"))
         end
         if (target:HasObjVar("MagnifyingGlassDescription")) then
-            glassUser:SystemMessage(target:GetObjVar("MagnifyingGlassDescription"))
+            glassUser:SystemMessage(target:GetObjVar("MagnifyingGlassDescription"),"info")
             return
         end
         local resultString = ""
@@ -71,7 +71,7 @@ RegisterEventHandler(EventType.Timer,"examineTimer",
             if (not target:IsMobile()) then
                --DebugMessage(target:GetSharedObjectProperty("Weight"))
                 if (target:GetSharedObjectProperty("Weight") < 0) then
-                    if (target:HasModule("packed_object")) then
+                    if (target:GetObjVar("ResourceType") == "PackedObject") then
                         resultString = resultString .. "[$1909]"
                     else
                         resultString = resultString .. " It's too heavy to be picked up."
@@ -289,6 +289,6 @@ RegisterEventHandler(EventType.Timer,"examineTimer",
                     resultString = resultString .. "[$1931]"
                 end
             end
-        glassUser:SystemMessage(resultString)
+        glassUser:SystemMessage(resultString,"info")
 
     end)

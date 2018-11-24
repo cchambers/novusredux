@@ -1,82 +1,27 @@
 mapWindowOpen = false
 curMap = nil
+disableDynamicMarkers = false
+
 
 isZoomed = true
-CanZoom = (GetWorldName() == "NewCelador")
+CanZoom = (ServerSettings.WorldName == "NewCelador")
 
 waypointIcons = { "marker_circle1", "marker_circle2", "marker_diamond1", "marker_diamond2", "marker_diamond3", "marker_diamond4", "marker_diamond5", "location_corpse", "location_home","pentagram_marker" }
 
--- this function can change the map name based on conditions in the map
--- specifically: the current catacombs map is based on the dungeon configuration
-customMapFunctions = {
-	Catacombs = function (isZoomed)
-		-- DAB TODO: make it possible to get catacombs map
-		return nil
-	end,
-
-	NewCelador = function (isZoomed)
-		--[[
-		if (isZoomed) then
-			local subregionName = GetSubregionName()
-			if(subregionName:match("SewerDungeon")) then
-				return nil
-			elseif(subregionName) then
-				return subregionName
-			end
-		end
-		]]--
-
-		return "NewCelador"
-	end,
-
-	Ruin = function()
-		if(IsImmortal(this)) then
-			--return "CatacombsConfig1"
-		end
-		return nil
-	end,
-
-	Deception = function ()
-		if(IsImmortal(this)) then
-			--return "CatacombsConfig3"
-		end
-		return nil
-	end,
-
-	Contempt = function()
-		if(IsImmortal(this)) then
-			--return "CatacombsConfig4"
-		end
-		return nil
-	end,
-}
-
-catacombsPortal = nil
-catacombsPortalSearchedFor = false
-
 customMapMarkerFunctions = {
 	NewCelador = function(mapIcons)
-		if not(catacombsPortalSearchedFor) then
-			catacombsPortal = FindObject(SearchTemplate("catacombs_portal_controller"))
-			catacombsPortalSearchedFor = true
-		end
-		
+		local catacombsPortal = FindObjectWithTag("CatacombsPortalController")		
 		if(catacombsPortal) then
 			if(catacombsPortal:HasObjVar("CatacombsPortalActive")) then
 				table.insert(mapIcons,{Icon="pentagram_marker", Location=catacombsPortal:GetLoc(), Tooltip="The portal to Catacombs has been opened."})
 			end
 		end
+	end,
+
+	TestMap = function()
+		return nil
 	end,	
 }
-
---[[
-function GetCurrentMapName()
-	local mapName = GetWorldName()
-	if(customMapFunctions[mapName] ~= nil) then
-		return customMapFunctions[mapName](isZoomed)
-	end
-end
-]]--
 
 function GetCurrentWorldMapName()
 	local activeMap = this:GetObjVar("ActiveMap")
@@ -84,13 +29,8 @@ function GetCurrentWorldMapName()
 	if (activeMap) then
 		worldName = activeMap:GetObjVar("WorldMap")
 	else
-		if (IsImmortal(this)) then
-			worldName = GetWorldName()
-			if (customMapFunctions[worldName] ~= nil) then
-				worldName = customMapFunctions[worldName](isZoomed)
-			else
-				worldName = nil
-			end
+		if (customMapFunctions[ServerSettings.WorldName] ~= nil) then
+			worldName = customMapFunctions[ServerSettings.WorldName](this)
 		end
 	end
 	return worldName
@@ -98,13 +38,21 @@ end
 
 function GetMapMarkers()
 	local mapIcons = {}
-	local mapName = GetCurrentWorldMapName()	
+	local mapName = GetCurrentWorldMapName()
 
-	local userHouse = GetUserHouse(this)
-	if(userHouse ~= nil and userHouse:IsValid()) then
-		table.insert(mapIcons,{Icon="location_home", Location=userHouse:GetLoc(), Tooltip="Home"})
+	if (disableDynamicMarkers) then 
+		return mapIcons 
 	end
 
+	local plots = Plot.GetPlayerPlots(this)
+	for i,plotController in pairs(plots) do	
+		if(plotController ~= nil and plotController:IsValid()) then
+			table.insert(mapIcons,{Icon="location_home", Location=plotController:GetLoc(), Tooltip="Home"})
+			--AddDynamicMapMarker(this, {Icon="location_home", Location=userHouse:GetLoc(), Tooltip="Home"}, "Home")
+		end
+	end
+
+	--Markers for group members
 	local groupId = GetGroupId(this)
 	local numberOfGroupMembers = 0
 	if ( groupId ~= nil ) then
@@ -119,6 +67,7 @@ function GetMapMarkers()
 					if ( loc:Distance(mloc) <= range ) then
 						local name = StripColorFromString(member:GetName())
 						table.insert(mapIcons,{Icon="marker_diamond2",Tooltip=name,Location=mloc,MapVisibility=false})
+						--AddDynamicMapMarker(this, {Icon="marker_diamond2",Tooltip=name,Location=mloc}, name, "Group")
 						numberOfGroupMembers = numberOfGroupMembers + 1
 					end
 				end
@@ -126,12 +75,20 @@ function GetMapMarkers()
 		end
 	end
 	
-	if (IsDead(this)) then		
-		--Add res shrines if you end up dead.		
-		local shrines = FindObjectsWithTagInRange("Shrine",this:GetLoc(),400)		
+	--Marker for resurrection shrines
+	local karmaLevel = GetKarmaLevel(GetKarma(this))
+	if (IsDead(this)) then
+		local shrines = nil
+
+		if (karmaLevel.Name == "Outcast") then
+			shrines = FindObjectsWithTag("Shrine_Red")
+		else
+			shrines = FindObjectsWithTag("Shrine")
+		end
+
 		if (shrines) then
 			local closestShrine = nil
-			local closestDist = 401
+			local closestDist = 99999
 
 			for i, shrine in pairs(shrines) do
 				local dist = this:DistanceFrom(shrine)
@@ -143,28 +100,35 @@ function GetMapMarkers()
 
 			if(closestShrine) then
 				table.insert(mapIcons,{Icon="marker_diamond5", Location=closestShrine:GetLoc(), Tooltip="Resurrection Shrine"})
+				--AddDynamicMapMarker(this, {Icon="marker_diamond5", Location=closestShrine:GetLoc(), Tooltip="Resurrection Shrine"}, "Shrine")
 			end
 		end
 	end
 
-	local lastDeathRegion = this:GetObjVar("LastDeathRegion")
-	--DebugMessage("corpseRegion is "..tostring(this:GetObjVar("corpseRegion")))
-	if(lastDeathRegion == GetRegionAddress()) then
-		--DebugMessage("corpseObject is "..tostring(this:GetObjVar("CorpseObject")))
-		local lastCorpse = this:GetObjVar("CorpseObject")
-		if (lastCorpse ~= nil and lastCorpse:IsValid()) then
-			local deathLocation = lastCorpse:GetLoc()
-			table.insert(mapIcons,{Icon="location_corpse", Location=deathLocation, Tooltip="Corpse"})
+	--Marker for your corpse
+	local corpse = this:GetObjVar("CorpseObject")
+	if ( corpse ~= nil and corpse:IsValid() ) then
+		local deathLocation = corpse:GetLoc()
+		table.insert(mapIcons,{Icon="location_corpse", Location=deathLocation, Tooltip="Corpse"})
+		--AddDynamicMapMarker(this, {Icon="location_corpse", Location=deathLocation, Tooltip="Corpse"}, "Corpse")
+	end
+
+	if (GetMapMarkerController() ~= nil) then
+		for markerIndex, marker in pairs(GetControllerFamiliarMarkers()) do
+			if not (marker.RegionName) then
+				table.insert(mapIcons, marker)
+			end
 		end
 	end
 
+	--Dynamic map markers (from AddDynamicMapMarker)
 	local mapMarkers = this:GetObjVar("MapMarkers")
 	--DebugMessage(DumpTable(mapMarkers))	
 	if( mapMarkers ~= nil) then
 		for i,markerEntry in pairs(mapMarkers) do
 			--DebugMessage(mapMarkers.Tooltip)
 			local isValidRegion = true
-			if(markerEntry.RegionAddress ~= nil and markerEntry.RegionAddress ~= GetRegionAddress()) then
+			if(markerEntry.RegionAddress ~= nil and markerEntry.RegionAddress ~= ServerSettings.RegionAddress) then
 				isValidRegion = false
 			end
 			--DebugMessage("isValidRegion is "..tostring(isValidRegion))
@@ -190,11 +154,11 @@ function GetMapMarkers()
 						loc = markerEntry.Obj:GetLoc()
 					end
 					if(loc ~= nil) then						
-						table.insert(mapIcons,{Icon=markerEntry.Icon, Location=loc, Tooltip = markerEntry.Tooltip})
+						table.insert(mapIcons,{Icon=markerEntry.Icon, Location=loc, Tooltip = markerEntry.Tooltip, MapVisibility = markerEntry.MapVisibility})
 
 						if(markerEntry.RemoveDistance and this:GetLoc():Distance(loc) < markerEntry.RemoveDistance) then
 							table.remove(mapMarkers,i)
-							this:SetObjVar("MapMarkers",mapMarkers)
+							--this:SetObjVar("MapMarkers",mapMarkers)
 						end
 					end
 				end				
@@ -268,6 +232,13 @@ function BreakWaypointTable(waypoints, mapName)
 	local worldName = GetCurrentWorldMapName()
 
 	local waypointTable = {}
+
+	for i, j in pairs(waypoints) do
+		if (j.Location) then
+			table.insert(waypointTable, j)
+		end
+	end
+
 	if (mapName == worldName) then
 		for i, subregionWaypoints in pairs(waypoints[worldName]) do
 			if (subregionWaypoints.Location ~= nil) then
@@ -296,6 +267,7 @@ function ShowMapWindow(mapName, showAllSubmaps)
 
 	CanZoom = true
 	isZoomed = true
+
 	if (activeMap ~= nil) then
 		if (activeMap:GetObjVar("MapName") == mapName or mapName == worldName) then
 			CanZoom = false
@@ -306,6 +278,7 @@ function ShowMapWindow(mapName, showAllSubmaps)
 		if (mapName == worldName) then
 			CanZoom = false
 			isZoomed = false
+			subMaps = this:GetObjVar("SubMaps")
 			if (IsImmortal(this)) then
 				showAllSubmaps = true
 			end
@@ -313,16 +286,15 @@ function ShowMapWindow(mapName, showAllSubmaps)
 	end
 	local dynWindow = DynamicWindow("MapWindow",mapName,924,924,-462,-462,"Transparent","Center")	
 
-	local waypoints = this:GetObjVar("LoadedWaypoints")
+	local waypoints = this:GetObjVar("LoadedWaypoints") or {}
 
 	local newWaypoints = nil
 
-	if not (waypoints[worldName]) then
+	if (waypoints[worldName] == nil) then
 		waypoints[worldName] = {}
 	end
 
 	--Set id for nested markers
-
 	for i, subregionMarkers in pairs(waypoints[worldName]) do
 		if (subregionMarkers.Location) then
 			subregionMarkers.Id = "Marker|"..i.."|"..worldName
@@ -334,6 +306,7 @@ function ShowMapWindow(mapName, showAllSubmaps)
 	end
 
 	newWaypoints = BreakWaypointTable(waypoints, mapName)
+
 	local newSubmaps = subMaps
 	if (showAllSubmaps == true) then
 		newSubmaps = {"UpperPlains", "EasternFrontier", "SouthernHills", "SouthernRim", "BlackForest", "BarrenLands"}
@@ -341,8 +314,12 @@ function ShowMapWindow(mapName, showAllSubmaps)
 
 	dynWindow:AddButton(920,22,"CloseMapButton","",46,28,"","",false, "ScrollClose")
 	
-	dynWindow:AddMap(0,0,924,924,mapName,IsImmortal(this),newWaypoints, newSubmaps)
-
+	--Only show player GPS on world map, or current subregion map
+	local showPlayer = true
+	if not (ServerSettings.SubregionName == mapName or worldName == mapName) then
+		showPlayer = false
+	end
+	dynWindow:AddMap(0,0,924,924,mapName,showPlayer,(activeMap == nil),newWaypoints, newSubmaps)
 
 	if(CanZoom) then
 		local disabledState = ""
@@ -358,7 +335,18 @@ function ShowMapWindow(mapName, showAllSubmaps)
 		--dynWindow:AddButton(468,875,"ZoomIn","",24,24,"","",false,"Plus",disabledState)
 	end
 
+	if(IsImmortal(this)) then
+		local buttonState = "disabled"
+		if (disableDynamicMarkers) then
+			buttonState = "pressed"
+		end
+
+		dynWindow:AddLabel(794,770,"Disable dynamic markers.",0,0,18,"left",false,true)
+		dynWindow:AddButton(770,770,"ToggleDynamicMarkers", "", 24, 24, "", "", false, "Selection2", buttonState)
+	end
+	
 	this:OpenDynamicWindow(dynWindow)
+	this:PlayObjectSound("event:/ui/map_open", false, 0, false, false)
 	mapWindowOpen = true
 	curMap = mapName
 end
@@ -367,17 +355,12 @@ function HasMap(mapName)
 	if(IsImmortal(this)) then
 		return true
 	end
-
-	if not(ServerSettings.Misc.MustLearnMaps) then
-		return true
-	end
-
-	local availableMaps = this:GetObjVar("AvailableMaps") or {}
-	return availableMaps[mapName] ~= nil
+	return true
 end
 
 function CloseMap()
 	this:CloseDynamicWindow("MapWindow")
+	this:PlayObjectSound("event:/ui/map_close", false, 0, false, false)
 	mapWindowOpen = false
 	--this:DelObjVar("UserWaypoints")
 	this:DelObjVar("ActiveMap")
@@ -491,14 +474,10 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"MapWindow",
 			ShowMapWindow(mapName)
 		elseif(buttonId == "CloseMapButton") then
 			CloseMap()
+		elseif(buttonId == "ToggleDynamicMarkers") then
+			disableDynamicMarkers = not disableDynamicMarkers
 		else
 			local result = StringSplit(buttonId,"|")
-			--[[
-			if (result[1] == "SubMapButton") then
-				isZoomed = true
-				ShowMapWindow(result[2])
-			end
-			]]--
 			local action = result[1]
 			if(action == "Marker") then
 				local argIndex = result[2]
@@ -511,15 +490,6 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"MapWindow",
 
 				local mapIcons = this:GetObjVar("LoadedWaypoints")
 				local mapIconId = {MarkerIndex = tonumber(argIndex), SubregionName = argName}
-				
-				--[[
-				local icon = nil
-				if (mapIconId.SubregionName ~= GetWorldName()) then
-					icon = mapIcons[GetWorldName()][mapIconId.SubregionName][mapIconId.MarkerIndex]
-				else
-					icon = mapIcons[GetWorldName()][mapIconId.MarkerIndex]
-				end
-				]]--
 
 				local icon = mapIcons[GetCurrentWorldMapName()][mapIconId.SubregionName][mapIconId.MarkerIndex]
 				if(icon) then
@@ -576,14 +546,12 @@ RegisterEventHandler(EventType.Message,"OpenMapWindow",
 		end
 
 		ShowMapWindow(mapName)
-		--this:SystemMessage("You don't have a map of this area.")
 	end)
 
---Only usable by gods
---Opening takes you to a world map populated with default map markers in addition to custom markers placed by the player
+--Opening takes you to a world map populated with static map markers
 RegisterEventHandler(EventType.ClientUserCommand,"map",
 	function ()
-		if not (IsImmortal(this)) then return end
+		
 		if (mapWindowOpen == true) then
 			CloseMap()
 			if (mapObj == this:GetObjVar("ActiveMap")) then return end
@@ -591,26 +559,31 @@ RegisterEventHandler(EventType.ClientUserCommand,"map",
 
 		--local mapName = GetCurrentMapName()
 		local mapName = GetCurrentWorldMapName()
-		if(not(mapName) or not(HasMap(mapName))) then
-			this:SystemMessage("You don't have a map of this area.")
+		if(mapName == nil or not(HasMap(mapName))) then
+			this:SystemMessage("You don't have a map of this area.","info")
 		elseif(mapWindowOpen) then
 			CloseMap()
 		else
-			--[[
-			local userWaypoints = this:GetObjVar("UserWaypoints")
-			if (userWaypoints == nil) then
-				userWaypoints = DefaultMapMarkers
-			end
-			]]--
-
-			--[[for i, marker in pairs(userWaypoints) do
-				table.insert(mapMarkers, marker)
-			end]]--
 			curMap = mapName
 			CanZoom = true
-			this:SetObjVar("LoadedWaypoints",DefaultMapMarkers)
-			this:SetObjVar("CanAddMarkers", true)
-			ShowMapWindow(mapName, true)
+
+			local markerTable = {}
+			if (IsImmortal(this)) then
+				markerTable = this:GetObjVar("GodMarkers") or {}
+				--markerTable = GetDiscoveredMapMarkers(this)
+			else
+				markerTable = GetDiscoveredMapMarkers(this) or {}
+			end
+
+			markerTable = AddStartingMapMarkers(markerTable)
+
+			if (IsImmortal(this)) then
+				this:SetObjVar("LoadedWaypoints", markerTable)
+			else
+				this:SetObjVar("LoadedWaypoints", markerTable)
+			end
+			this:SetObjVar("CanAddMarkers", false)
+			ShowMapWindow(mapName, false)
 		end
 	end)
 
@@ -620,10 +593,43 @@ RegisterEventHandler(EventType.Timer,"UpdateMapMarkers",
 		
 		this:SendClientMessage("UpdateMapMarkers",icons)
 		
-		this:ScheduleTimerDelay(TimeSpan.FromSeconds(4 + (numberOfGroupMembersNearby/5) + math.random()),"UpdateMapMarkers")
+		this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"UpdateMapMarkers")
 	end)
 
-this:ScheduleTimerDelay(TimeSpan.FromSeconds(1+math.random()),"UpdateMapMarkers")
+this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"UpdateMapMarkers")
+
+--When initialized, adds views for each town's region to add and remove town minimap markers
+if (GetMapMarkerController() ~= nil) then
+	for index, regionName in pairs(GetControllerRegions()) do
+		AddView(regionName.."View",SearchSingleObject(this,SearchRegion(regionName)),4.0)
+
+	    RegisterEventHandler(EventType.EnterView,regionName.."View",function ( ... )
+	        local regionMarkers = GetControllerRegionMarkers(regionName)
+	        if (regionMarkers ~= nil) then
+	        	for markerId, marker in pairs(regionMarkers) do
+	        		if (marker.Familiar) then
+        				RemoveDynamicMapMarker(this,"Minimap|"..marker.Tooltip)
+	        		else
+	        			AddDynamicMapMarker(this,marker,"Minimap|"..marker.Tooltip)
+	        		end
+	        	end
+	        end
+	    end)
+
+	    RegisterEventHandler(EventType.LeaveView,regionName.."View",function ( ... )
+	        local regionMarkers = GetControllerRegionMarkers(regionName)
+	        if (regionMarkers ~= nil) then
+	        	for markerId, marker in pairs(regionMarkers) do
+	        		if (marker.Familiar) then
+	        			AddDynamicMapMarker(this,marker,"Minimap|"..marker.Tooltip)
+	        		else
+	        			RemoveDynamicMapMarker(this,"Minimap|"..marker.Tooltip)
+	        		end
+	        	end
+	        end
+	    end)
+	end
+end
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
@@ -637,4 +643,29 @@ RegisterEventHandler(EventType.Message, "CloseMap",
 
 RegisterEventHandler(EventType.UserLogout,"",function ( ... )
 	CloseMap()
+
+	--Removes town map markers. 
+	--Resolves having leftover town markers when transferring subregions
+	local mapMarkers = this:GetObjVar("MapMarkers")
+	if (mapMarkers == nil) then return end
+	for markerIndex, marker in pairs(mapMarkers) do
+		if (marker.RegionName ~= nil) then
+			RemoveDynamicMapMarker(this,"Minimap|"..marker.Tooltip)
+		end
+	end
 end)
+
+RegisterEventHandler(EventType.Message, "LoggedIn", function()
+	if (IsImmortal(this)) then
+		RequestAllMapMarkers(this)
+	end
+	CleanUpDiscoveredMapMarkers(this)
+end)
+
+if (IsImmortal(this)) then
+	--Adds map markers from outside subregion to player
+	RegisterEventHandler(EventType.Message, "ClusterControllerMapMarkerResponse", 
+		function(worldName, subregionName, mapMarkers)
+			ClusterControllerMapMarkerResponse(this, worldName, subregionName, mapMarkers)
+		end)
+end

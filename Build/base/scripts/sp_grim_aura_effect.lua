@@ -4,12 +4,12 @@ local mTargetLoc = nil
 local function ValidateGrimAura(targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2609]")
+		this:SystemMessage("[$2609]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2610]")
+		this:SystemMessage("[$2610]","info")
 		return false
 	end
 	return true

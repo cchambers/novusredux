@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Elliot</Name>
+	<SharedStateEntry name="Title" type="string" value="Innkeeper" />
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_bartender">
+			<Initializer>
+				{
+					Stats= {
+						Str = 25,
+						Agi = 25,
+						Int = 25,
+					},
+					Skills= {
+						Cooking = 100,
+					},
+					EquipTable= {
+						RightHand= {
+							"",
+						},
+						Chest= {
+							{"clothing_short_sleeve_shirt_chest",774},
+						},
+						Legs= {
+							"clothing_mayor_legs",
+						},
+						BodyPartHead= {
+							"head_male03",
+						},
+						BodyPartHair= {
+							{"hair_male_buzzcut","0xFFA7856A"},
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "item_ale",
+							Price = 0,
+							RelativeLoc = "1.35498, 1.018131, -2.449432",
+							Rotation = "0, 311.8759, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "item_bread",
+							Price = 0,
+							RelativeLoc = "1.586914, 1.015232, -1.681",
+							Rotation = "0, 59.56088, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "cooked_stew",
+							Price = 0,
+							RelativeLoc = "1.793945, 1.014236, -0.9547119",
+							Rotation = "0, 59.56088, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "ingredient_wine",
+							Price = 0,
+							RelativeLoc = "2.008057, 1.017235, -0.1580811",
+							Rotation = "0, 311.8759, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "escape_scroll",
+							Price = 0,
+							RelativeLoc = "2.231201, 1.017235, 0.6567688",
+							Rotation = "0, 311.8759, 0",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

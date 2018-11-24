@@ -1,11 +1,9 @@
 <ObjectTemplate>
 	<ClientId>1820</ClientId>
-	<Name>[FF9500]Horse Summoning Statue[-]</Name>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<Name>[FF9500]A Horse Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="10"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="Sound">HorseDeath</StringVariable>
+		<StringVariable Name="ResourceType">MountStatue</StringVariable>
+		<BoolVariable Name="Worthless">true</BoolVariable>
 	</ObjectVariableComponent>
-	<ScriptEngineComponent>
-		<LuaModule Name="pet_statue" />
-	</ScriptEngineComponent>
 </ObjectTemplate>

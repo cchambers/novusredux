@@ -8,12 +8,6 @@
 		<StringVariable Name="ResourceType">AetherFish</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
-		<LuaModule Name="fish">
-			<Initializer>
-				{	
-				}
-			</Initializer>
-		</LuaModule>
 		<LuaModule Name="stackable"/>
 	</ScriptEngineComponent>
 </ObjectTemplate>

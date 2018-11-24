@@ -452,7 +452,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 				local backpackObj = user:GetEquippedObject("Backpack")  
 				local dropPos = GetRandomDropPosition(backpackObj)
 	    		CreateObjInContainer("cultist_scripture_a", backpackObj, dropPos, nil)
-	            user:SystemMessage("You have received a piece of Cultist Scripture!")
+	            user:SystemMessage("You have received a piece of Cultist Scripture!","info")
 
 				NPCInteraction(text,this,user,"Question",response)
 
@@ -489,4 +489,9 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
 	   		DebugMessage("Template is "..tostring(template))
 	 		CreateObjInBackpack(user,template,"spawn_scripture")
 	 	end
+    end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
     end)

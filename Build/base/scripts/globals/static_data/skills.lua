@@ -6,13 +6,15 @@ SkillData = {
 			PrimaryStat = "Agility",
 			Description = "Vigor determines the effectiveness of bandaging and offers a damage bonus with melee and ranged weapons.",
 			SkillType = "CombatTypeSkill",
+			IsWeaponSkill = true,
 			GainFactor = 0.2,
 		},
 		PiercingSkill = {
 			DisplayName = "Piercing",
-			PrimaryStat = "Agility",
+			PrimaryStat = "Strength",
 			Description = "Piercing determines your effeciency when fighting with piercing weapons.",
 			SkillType = "CombatTypeSkill",
+			IsWeaponSkill = true,
 			GainFactor = 0.2,
 		},
 		SlashingSkill = {
@@ -20,21 +22,32 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Slashing determines your effeciency when fighting with slashing weapons.",
 			SkillType = "CombatTypeSkill",
-			GGainFactor = 0.2,
+			IsWeaponSkill = true,
+			GainFactor = 0.2,
 		},
 		LancingSkill = {
 			DisplayName = "Lancing",
 			PrimaryStat = "Strength",
 			Description = "Lancing determines your effeciency when fighting with lancing weapons.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.25,
+			IsWeaponSkill = true,
+			GainFactor = 0.2,
 		},
 		BashingSkill = {
 			DisplayName = "Bashing",
 			PrimaryStat = "Strength",
 			Description = "Bashing determines your effeciency when fighting with bashing weapons.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.25,
+			IsWeaponSkill = true,
+			GainFactor = 0.2,
+		},
+		BrawlingSkill = {
+			DisplayName = "Brawling",
+			PrimaryStat = "Strength",
+			Description = "Brawling determines your effeciency with your fists.",
+			SkillType = "CombatTypeSkill",
+			IsWeaponSkill = true,
+			GainFactor = 0.2,
 		},
 		HealingSkill = {
 			DisplayName = "Healing",
@@ -87,7 +100,7 @@ SkillData = {
 		-- END MAGIC SKILLS
 		BlockingSkill = {
 			DisplayName = "Blocking",
-			PrimaryStat = "Strength",
+			PrimaryStat = "Agility",
 			Description = "Blocking determines your effectiveness using a shield.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
@@ -130,34 +143,35 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Accuracy with projectile weapons",
 			SkillType = "CombatTypeSkill",
-			--Skip = true,
+			Skip = true,
 		},
 		NecromancySkill = {
 			DisplayName = "Necromancy",
 			PrimaryStat = "Intelligence",
 			Description = "[$3289]",
 			SkillType = "CombatTypeSkill",
-			--Skip = true,
+			Skip = true,
 		},
 		CookingSkill = {
 			DisplayName = "Cooking",
 			PrimaryStat = "Intelligence",
 			Description = "[$3290]",
 			SkillType = "TradeTypeSkill",
+			AllowCampfireGains = true,
 		},
 		FishingSkill = {
 			DisplayName = "Fishing",
 			PrimaryStat = "Intelligence",
 			Description = "[$3291]",
 			SkillType = "TradeTypeSkill",
-			GainFactor = 0.5
+			GainFactor = 0.5,
 		},	
 		LumberjackSkill = {
 			DisplayName = "Lumberjack",
 			PrimaryStat = "Strength",
 			Description = "[$3295]",
 			SkillType = "TradeTypeSkill",
-			GainFactor = 0.275,
+			GainFactor = 0.2,
 			--Skip = true,
 		},
 		MiningSkill = {
@@ -165,7 +179,7 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "[$3296]",
 			SkillType = "TradeTypeSkill",
-			GainFactor = 0.275,
+			GainFactor = 0.2,
 			--Skip = true,
 		},
 		FabricationSkill = {
@@ -186,7 +200,7 @@ SkillData = {
 			Description = "The ability to play a musical instrument well.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
-			-- Skip = true
+			Skip = true
 		},
 		InscriptionSkill = {
 			DisplayName = "Inscription",
@@ -200,7 +214,7 @@ SkillData = {
 			PrimaryStat = "Intelligence",
 			Description = "Use music to accomplish more than sound.",
 			SkillType = "CombatTypeSkill",
-			-- Skip = true,
+			Skip = true,
 			GainFactor = 2.5,
 		},
 		AnimalTamingSkill = {
@@ -210,26 +224,26 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_AnimalKen",
 			Abilities = { "Command" },
-			GainFactor = 0.2,
+			GainFactor = 0.25,
 		},
 		BeastmasterySkill = {
 			DisplayName = "Beastmastery",
 			PrimaryStat = "Intelligence",
-			Description = "Beastmastery is your ability to control beasts. Beasts are powerful creatures that aid in combat, You must master Animal Taming before you can learn to control beasts.",
+			Description = "Beastmastery is your ability to effectively command your pets in battle, granting a bonus to their damage.",
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_BeastMastery",
-			GainFactor = 0.2,
+			GainFactor = 0.25,
 		},
 		AnimalLoreSkill = {
 			DisplayName = "Animal Lore",
 			PrimaryStat = "Intelligence",
 			Description = "Your knowledge of animals. Determines your ability to control and adds a bonus to healing your pets.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.2,
+			GainFactor = 0.25,
 		},
 		ArcherySkill = {
 			DisplayName = "Archery",
-			PrimaryStat = "Agility",
+			PrimaryStat = "Strength",
 			Description = "Archery determines your effectiveness with a bow and arrow.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
@@ -276,6 +290,23 @@ SkillData = {
 			SkillIcon = "Skill_Inscription",
 			GainFactor = 0.7,
 		},
+		LockpickingSkill = {
+			DisplayName = "Lockpicking",
+			PrimaryStat = "Agility",
+			Description = "Your effectiveness using lockpicking tools to open locked chests.",
+			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Inscription",
+			GainFactor = 0.5,
+		},
+		--[[StealingSkill = {
+			DisplayName = "Stealing",
+			PrimaryStat = "Agility",
+			Description = "Your effectiveness at taking what does not belong to you without being seen.",
+			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Rogue",
+			GainFactor = 0.5,
+			Abilities = { "Steal" },
+		},]]
 
 		--[[
 		ForensicEvaluationSkill = {

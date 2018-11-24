@@ -4,6 +4,7 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<SharedStateEntry name="Capacity" type="int" value="8"/>
 	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">CookingPot</StringVariable>
 		<StringVariable Name="ToolType">Pot</StringVariable>	
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>

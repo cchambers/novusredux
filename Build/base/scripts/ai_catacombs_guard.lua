@@ -95,7 +95,7 @@ function IsEnemy(targetObj)
         return false
     end
     
-    if (not targetObj:IsInRegion("ZealotEncampment") and not targetObj:IsInRegion("FollowerHubRegion") and GetWorldName() == "Catacombs") then
+    if (not targetObj:IsInRegion("ZealotEncampment") and not targetObj:IsInRegion("FollowerHubRegion") and ServerSettings.WorldName == "Catacombs") then
         return false
     end
 

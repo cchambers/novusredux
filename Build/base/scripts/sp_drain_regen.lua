@@ -8,7 +8,7 @@ function HandleLoaded()
 		return
 	end
 	local amount = math.random(MIN_HEAL_AMOUNT,MAX_HEAL_AMOUNT)
-	myResSource:SystemMessage("[D7D700]You regain "..amount.." health")
+	myResSource:SystemMessage("[D7D700]You regain "..amount.." health","info")
 	myResSource:SendMessage("HealRequest", amount,healSource)
 	EndEffect()
 end

@@ -129,7 +129,7 @@ function TrySplitCoins(stackAmounts,user)
 		local curValue = GetValue()
 		local newStackValue = GetValue(stackAmounts)
 		if(newStackValue > curValue) then
-			user:SystemMessage("There is not enough coins in that coin purse.")
+			user:SystemMessage("There is not enough coins in that coin purse.","info")
 			return		
 		end
 	else
@@ -139,7 +139,7 @@ function TrySplitCoins(stackAmounts,user)
 			if(coinsToTake > 0) then
 				local coinCount = amounts[denomInfo.Name] or 0
 				if(coinsToTake > coinCount) then
-					user:SystemMessage("You do not have enough "..denomInfo.Name..".")
+					user:SystemMessage("You do not have enough "..denomInfo.Name..".","info")
 					return
 				end
 			end
@@ -301,7 +301,7 @@ OverrideEventHandler("stackable",EventType.CreatedObject,"stack_created",
 			local curValue = GetValue()
 			local newStackValue = GetValue(stackAmounts)
 			if(newStackValue > curValue) then
-				user:SystemMessage("There is not enough coins in that coin purse.")
+				user:SystemMessage("There is not enough coins in that coin purse.","info")
 				objRef:Destroy()
 			elseif(newStackValue == curValue) then
 				this:Destroy()
@@ -316,7 +316,7 @@ OverrideEventHandler("stackable",EventType.CreatedObject,"stack_created",
 				if(coinsToTake > 0) then
 					local coinCount = amounts[denomInfo.Name] or 0
 					if(coinsToTake > coinCount) then
-						user:SystemMessage("You do not have enough "..denomInfo.Name..".")						
+						user:SystemMessage("You do not have enough "..denomInfo.Name..".","info")						
 						return					
 					else
 						amounts[denomInfo.Name] = coinCount - coinsToTake						
@@ -392,7 +392,6 @@ function OpenSplitWindow(user,fieldAmounts)
 	local i = highestDenom
 	while(i > 0) do
 		local denomInfo = Denominations[i]
-		local fieldAmount = tostring(amounts[denomInfo.Name] or 0)
 		newWindow:AddLabel(20,curY+4,denomInfo.Color..denomInfo.Name.."[-]",0,0,18)
 		newWindow:AddButton(20+130,curY+4,"Minus|"..denomInfo.Name,"",0,0,"","",false,"Previous")
 		newWindow:AddTextField(20+147,curY,50,20,denomInfo.Name,fieldAmounts[denomInfo.Name] or "0")
@@ -428,7 +427,7 @@ OverrideEventHandler("stackable",EventType.DynamicWindowResponse,"StackSplit",
 			if(CountTable(stackAmounts) > 0) then
 				TrySplitCoins(stackAmounts,user)
 			else
-				user:SystemMessage("You need to take at least one coin.")
+				user:SystemMessage("You need to take at least one coin.","info")
 			end
 		elseif(action == "Minus") then			
 			local fieldVal = tonumber(fieldData[arg]) or 0

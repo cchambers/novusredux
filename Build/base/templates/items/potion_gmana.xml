@@ -7,6 +7,7 @@
 		<!-- Stackable objvars -->
 		<StringVariable Name="ResourceType">PotionGreaterMana</StringVariable>
 		<StringVariable Name="PluralName">Greater Mana Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>				
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

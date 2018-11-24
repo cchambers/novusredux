@@ -1,4 +1,3 @@
-require 'incl_packed_object'
 
 RegisterSingleEventHandler(EventType.ModuleAttached, "fill_container", 
 	function()
@@ -7,7 +6,7 @@ RegisterSingleEventHandler(EventType.ModuleAttached, "fill_container",
 			if not(itemInfo.Packed) then				
 				CreateObjInContainer(itemInfo.Template,this,location)
 			else
-				CreatePackedObjectInContainer(itemInfo.Template,this,location)
+				CreatePackedObjectInContainer(itemInfo.Template,false,this,location)
 			end
 		end
 

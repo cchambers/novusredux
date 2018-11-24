@@ -2,7 +2,7 @@ TRADE_TIMEOUT = 120
 
 mTraderA = this
 mTraderB = nil
-mHouseTarget = nil
+mPlotTarget = nil
 
 mPlayerA_Accept = false
 mPlayerB_Accept = false
@@ -64,7 +64,7 @@ function MoveItemsBack()
 			end
 
 			for i,item in pairs(mTradingPouchA:GetContainedObjects()) do
-				if(item:GetCreationTemplateId() == "house_deed") then
+				if(item:GetCreationTemplateId() == "plot_deed") then
 					item:Destroy()
 				else					
 		  			local randomLoc = GetRandomDropPosition(backpackObj)
@@ -104,42 +104,43 @@ function CompleteTrade()
 	mTraderA = mTraderA or this
 	mTraderB = mTraderB
 	if (mTraderA ~= nil and mTraderA:IsValid()) and (mTraderB ~= nil and mTraderB:IsValid()) then		
-		if(mHouseTarget) then
-			local success,reason = TransferHouseOwnership(mTraderA,mHouseTarget,mTraderB)
-			if not(success) then
-				if(reason == "AlreadyOwner") then
-					mTraderA:SystemMessage("That person already owns a house.","info")
-					mTraderB:SystemMessage("You already own a house.","info")
+		if(mPlotTarget) then
+			Plot.TransferOwnership(mTraderA,mPlotTarget,mTraderB, function(success)
+				if ( success ) then
+					TradeItems()
+				else
+					InterruptTrading()
 				end
-				-- House transfer failed do not complete the trade
-				InterruptTrading()
-				return
-			end
+			end)
+			return
 		end
-
-		--move the items from eachother's trading pouches.
-		for i,item in pairs(mTradingPouchA:GetContainedObjects()) do
-			if(item:GetCreationTemplateId() == "house_deed") then
-				item:Destroy()
-			else
-				local backpackObj = mTraderB:GetEquippedObject("Backpack")
-  				local randomLoc = GetRandomDropPosition(backpackObj)
-  				item:MoveToContainer(backpackObj,randomLoc)
-  			end
-		end
-		for i,item in pairs(mTradingPouchB:GetContainedObjects()) do
-			local backpackObj = mTraderA:GetEquippedObject("Backpack")
-  			local randomLoc = GetRandomDropPosition(backpackObj)
-  			item:MoveToContainer(backpackObj,randomLoc)
-  		end
-
-  		mTraderA:SystemMessage("You complete the trade with "..mTraderB:GetName(),"info")
-		mTraderB:SystemMessage("You complete the trade with "..mTraderA:GetName(),"info")
-
-  		CleanUp()
+		TradeItems()
 	else
 		InterruptTrading()
 	end	
+end
+
+function TradeItems()
+	--move the items from eachother's trading pouches.
+	for i,item in pairs(mTradingPouchA:GetContainedObjects()) do
+		if(item:GetCreationTemplateId() == "plot_deed") then
+			item:Destroy()
+		else
+			local backpackObj = mTraderB:GetEquippedObject("Backpack")
+			  local randomLoc = GetRandomDropPosition(backpackObj)
+			  item:MoveToContainer(backpackObj,randomLoc)
+		  end
+	end
+	for i,item in pairs(mTradingPouchB:GetContainedObjects()) do
+		local backpackObj = mTraderA:GetEquippedObject("Backpack")
+		  local randomLoc = GetRandomDropPosition(backpackObj)
+		  item:MoveToContainer(backpackObj,randomLoc)
+	  end
+
+	mTraderA:SystemMessage("You complete the trade with "..mTraderB:GetName(),"info")
+	mTraderB:SystemMessage("You complete the trade with "..mTraderA:GetName(),"info")
+
+	CleanUp()
 end
 
 function CleanUp()
@@ -272,7 +273,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"TradingWindow",
 
 RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),function ( ... )	
 	if(initializer ~= nil) then				
-		InitiateTrade(initializer.TradeTarget,initializer.HouseTarget)		
+		InitiateTrade(initializer.TradeTarget,initializer.PlotTarget)
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(TRADE_TIMEOUT),"CancelTradingTimer")
 	else
 		CleanUp()
@@ -281,7 +282,7 @@ end)
 
 pendingTradeCreates = 0
 
-function InitiateTrade(target,houseTarget)
+function InitiateTrade(target,plotTarget)
 	if not(ValidateTradeTarget(target)) then
 		this:SystemMessage("That person is already trading with someone.","info")
 	elseif (CanTradeWith(this,target)) then
@@ -303,7 +304,7 @@ function InitiateTrade(target,houseTarget)
 					--DebugMessage("Bam")
 					mTraderA = this
 					mTraderB = user
-					mHouseTarget = houseTarget
+					mPlotTarget = plotTarget
 										
 					pendingTradeCreates = 2
 					CreateEquippedObj("pouch_trade", user, "created_trading_pouch",user)
@@ -370,8 +371,8 @@ RegisterEventHandler(EventType.CreatedObject,"created_trading_pouch",function (s
 		if (user == mTraderA) then
 			--DebugMessage("mTradingPouchA")
 			mTradingPouchA = objRef
-			if(mHouseTarget ~= nil) then
-				CreateObjInContainer("house_deed",mTradingPouchA,Loc(0,1.5,-0.32),"deed_created")
+			if(mPlotTarget ~= nil) then
+				CreateObjInContainer("plot_deed",mTradingPouchA,Loc(0,1.5,-0.32),"deed_created")
 			end
 		else
 			--DebugMessage("mTradingPouchB")
@@ -397,8 +398,16 @@ end)
 
 RegisterEventHandler(EventType.CreatedObject,"deed_created",
 	function(success,objRef,user)
-		if(mHouseTarget and mHouseTarget:IsValid()) then
-			objRef:SetName("Deed to "..mHouseTarget:GetName())
+		if(mPlotTarget and mPlotTarget:IsValid()) then
+			objRef:SetName("Deed to Plot")
+			local bounds = mPlotTarget:GetObjVar("PlotBounds")
+			local balance = GlobalVarReadKey("Plot."..mPlotTarget.Id, "Balance") or 0
+			SetTooltipEntry(objRef,"plot_balance", string.format("Balance\n%s\n", balance>0 and ValueToAmountStr(balance) or "Empty"), 100)
+			SetTooltipEntry(objRef,"plot_size", "Size", 99)
+			for i=1,#bounds do
+				SetTooltipEntry(objRef,"plot_size_"..i, string.format("%s x %s\n", bounds[i][2].X, bounds[i][2].Z), 99-i)
+			end
+			SetTooltipEntry(objRef,"plot_rate", string.format("Rate\n%s\n", ValueToAmountStr(Plot.CalculateRate(bounds))), 1)
 		end
 	end)
 

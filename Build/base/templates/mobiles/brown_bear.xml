@@ -10,7 +10,8 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">280</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">6</DoubleVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -30,7 +31,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=15,  
+					Brawling = 15,  
 					},	
 				LootTables = 
 					{ 
@@ -42,6 +43,8 @@
 			<Initializer>
 				{
 					MeatCount = 4,					
+
+					MeatType = "StringyMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },

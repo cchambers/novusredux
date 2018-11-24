@@ -26,7 +26,7 @@ function Dialog.OpenGreetingDialog(user)
     FaceObject(this,user)
     
     local karmaLevel = GetKarmaLevel(GetKarma(user))
-    if ( karmaLevel.PunishBeneficialToPlayer ) then
+    if not( karmaLevel.GuardProtectPlayer ) then
         this:NpcSpeech("I don't deal with you, "..karmaLevel.Name.."!")
         return
     end
@@ -130,14 +130,13 @@ OverrideEventHandler("base_ai_mob",EventType.Message,"AddThreat",
 
                 this:PlayAnimation("cast")
                 this:PlayEffect("CastWater2")
-                this:PlayObjectSound("CastAir",false,1.0)
+                this:PlayObjectSound("event:/magic/air/magic_air_cast_air",false,1.0)
 
                 CallFunctionDelayed(TimeSpan.FromSeconds(1),
                     function ( ... )
                         for i,nukeTarget in pairs(nukeTargets) do
                             nukeTarget:SendMessage("ProcessTrueDamage", this, 5000, true)
                             nukeTarget:PlayEffect("LightningCloudEffect")
-                            nukeTarget:SystemMessage("[$1820]")
                             nukeTarget:SystemMessage("[$1820]","info")
                             if not(IsPlayerCharacter(nukeTarget)) then
                                 nukeTarget:SetObjVar("guardKilled",true)
@@ -160,7 +159,7 @@ function CompleteTransaction(user,destinationInfo)
         if not(this:HasTimer("CastComplete")) then
             this:PlayAnimation("cast")
             this:PlayEffect("CastWater2")
-            this:PlayObjectSound("CastAir",false,2.0)
+            this:PlayObjectSound("event:/magic/air/magic_air_cast_air",false,2.0)
         end
         this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"CastComplete")
     end)                        
@@ -184,7 +183,7 @@ function CreateRune(user)
     RegisterSingleEventHandler(EventType.CreatedObject,"RuneCreated",
         function(success,objRef)
             if(success) then
-                local regionAddress = GetRegionAddress()
+                local regionAddress = ServerSettings.RegionAddress
                 if(regionAddress) then
                     objRef:SetObjVar("RegionAddress", regionAddress)
                 end

@@ -77,8 +77,13 @@ function GetBaseItemValue(item)
 		return 0 
 	end
 
-	if (item:HasModule("packed_object")) then
+	if (item:GetObjVar("ResourceType") == "PackedObject") then
 		itemTemplateId = item:GetObjVar("UnpackedTemplate")
+	end
+
+	local purchaseTemplate = item:GetObjVar("PurchaseTemplate")
+	if (purchaseTemplate) then
+		itemTemplateId = purchaseTemplate
 	end
 
 	if ( item:IsValid() and ( item:HasObjVar("lockObject") or item:HasObjVar("lockUniqueId") ) ) then
@@ -93,7 +98,7 @@ function GetBaseItemValue(item)
 		return CustomItemValues[itemTemplateId]
 	end
 
-	local templateId = item:GetObjVar("CraftedTemplate") or item:GetCreationTemplateId()
+	local templateId = item:GetObjVar("CraftedTemplate") or itemTemplateId
 	local resourceValue = GetResourceValue(templateId,item)
 	if(resourceValue > 0) then
 		local durRatio = 1

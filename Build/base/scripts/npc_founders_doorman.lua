@@ -57,3 +57,8 @@ RegisterEventHandler(EventType.Message, "UseObject",
        --DebugMessage(2)
         this:NpcSpeech(text)
     end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

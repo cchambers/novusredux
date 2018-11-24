@@ -1,6 +1,8 @@
 require 'incl_keyhelpers'
 
 debugLogging = false
+resetTimer = nil
+resetChance = nil
 
 function CanOpen(user)
     if (IsImmortal(user)) then
@@ -43,12 +45,9 @@ function CanOpen(user)
         return false
     end
 
-    if( this:HasObjVar("locked") ) then 
-        local key = GetKey(user,this)
-        if(key and key:GetObjVar("IsHouseKey") == true and this:GetObjVar("LockedDown") == true) then
-             -- house keys allow a user to open and view contents without unlocking and rendering the container vulnerable
-            user:SystemMessage("[$1770]","info")
-        else
+    if( this:HasObjVar("locked") ) then
+        -- Secure Containers allow a user to open and view contents without unlocking and rendering the container vulnerable
+		if ( not this:HasObjVar("SecureContainer") or not Plot.HasObjectControl(user, this, this:HasObjVar("FriendContainer")) ) then
     	   user:SystemMessage("That appears to be locked.","info")
     	   return false
         end
@@ -87,32 +86,37 @@ function HandleContentsChanged()
 end
 
 function Lock(user,key)
+    if ( this:HasObjVar("LockedDown") ) then
+        user:SystemMessage("Cannot lock containers that are locked down.", "info")
+        return
+    end
+
     if(user ~= nil and key == nil) then
         key = GetKey(user,this)
     end
 
     -- user must always have a key!
     if(user ~= nil and key == nil) then
-        user:SystemMessage("You do not have the proper key to lock this.")
+        user:SystemMessage("Do not have proper key to lock this.", "info")
         return
     end
 
     if (key ~= nil and key:ContainedBy() == this) then
         if(user ~= nil) then
-            user:SystemMessage("You can't lock this while the key is inside it.")
+            user:SystemMessage("Cannot lock while key is inside.", "info")
         end
         return
     end
 
     this:SetObjVar("locked",true)
     if(user ~= nil) then
-        user:SystemMessage("*locked*")
+        user:SystemMessage("*locked*","info")
     end
     this:PlayObjectSound("DoorLock")
 
     SetTooltipEntry(this,"lock","[FF0000]*Locked*[-]",10)
 
-    if(key ~= nil and user ~= nil and (key:GetObjVar("IsHouseKey") ~= true or this:GetObjVar("LockedDown") ~= true)) then
+    if(key ~= nil and user ~= nil) then
         CloseContainerRecursive(user, this)
     end
 end
@@ -124,23 +128,27 @@ function Unlock(user,key)
 
     -- user must always have a key!
     if(user ~= nil and key == nil) then
-        user:SystemMessage("You do not have the proper key to unlock this.")
+        user:SystemMessage("Do not have proper key to unlock this.", "info")
         return
     end
 
     this:DelObjVar("locked")
 
     if(user ~= nil) then
-        user:SystemMessage("*unlocked*")
+        user:SystemMessage("*unlocked*", "info")
     end
 
     this:PlayObjectSound("DoorUnlock")
 
     if (key ~= nil and key:HasObjVar("OneTimeKey")) then
         if(user ~= nil) then
-            user:SystemMessage("The key disintegrates.")
+            user:SystemMessage("The key disintegrates.", "event")
         end
         key:Destroy()
+    end
+
+    if (resetTimer ~= nil) then
+        this:ScheduleTimerDelay(TimeSpan.FromMinutes(resetTimer), "ContainerReset")
     end
 
     RemoveTooltipEntry(this,"lock")
@@ -228,14 +236,32 @@ function Init()
         this:SetObjVar("EmptyWeight",GetWeight(this))        
     end
 
+    if (this:HasObjVar("locked")) then
+        SetTooltipEntry(this,"lock","[FF0000]*Locked*[-]",10)
+    end
+
     -- DAB NOTE: This automatically updates container capacities to match the template
     local capacity = this:GetSharedObjectProperty("Capacity");
     local templateCapacity = GetTemplateObjectProperty(this:GetCreationTemplateId(),"Capacity")
+    if not(capacity) then
+        DebugMessage("This container has no capacity: "..this:GetCreationTemplateId())
+    end
     if not(templateCapacity) then
         -- this is not an error: currently only happens on test server mod
         --DebugMessage("This container has no capacity: "..this:GetCreationTemplateId())
     elseif(templateCapacity > capacity) then
         this:SetSharedObjectProperty("Capacity",templateCapacity)
+    end
+
+    local initializer = initializer or GetInitializerFromTemplate(this:GetCreationTemplateId(), "container")
+
+    if (initializer ~= nil and initializer.ResetTimer ~= nil) then
+        resetTimer = initializer.ResetTimer.DelayMin
+        resetChance = initializer.ResetTimer.Chance
+    end
+
+    if (this:HasObjVar("Refilling")) then
+        this:ScheduleTimerDelay(TimeSpan.FromMinutes(resetTimer), "ContainerReset")
     end
 
     this:SetSharedObjectProperty("MaxWeight",GetContainerMaxWeight(this))
@@ -248,7 +274,8 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
     function()
         Init()
 
-        if(GetCurrentModule() ~= "bank_box") then
+        local curModule = GetCurrentModule()
+        if(curModule ~= "bank_box"  and curModule ~= "cooking_crafting") then
             AddUseCase(this,"Lock",false,"HasKey")
             AddUseCase(this,"Unlock",false,"HasKey")       
             if(GetWeight(this) ~= -1) then
@@ -260,4 +287,44 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 RegisterSingleEventHandler(EventType.LoadedFromBackup, "", 
     function()
         Init()
+    end)
+
+RegisterEventHandler(EventType.Message, "Lockpicked",
+    function(user)
+        RemoveTooltipEntry(this,"lock")
+        if (resetTimer ~= nil) then
+            this:SetObjVar("Refilling", true)
+
+            --Refill the loot on chest being lockpicked
+            this:SendMessage("refill_random_loot")
+
+            this:ScheduleTimerDelay(TimeSpan.FromMinutes(resetTimer), "ContainerReset")
+        end
+    end)
+
+RegisterEventHandler(EventType.Timer, "ContainerReset",
+    function()
+        if (resetChance == nil) then
+            return
+        end
+        
+        local randomRoll = math.random(100)
+
+        if (randomRoll <= resetChance) then
+            this:SetObjVar("locked", true)
+            SetTooltipEntry(this,"lock","[FF0000]*Locked*[-]",10)
+            this:PlayEffect("TeleportToEffect")
+
+            --Destroy whatever is in when the chest gets locked again
+            if (this:HasModule("fill_random_loot")) then
+                local contObjects = this:GetContainedObjects()
+                for key,value in pairs(contObjects) do
+                    value:Destroy()
+                end
+            end
+
+            this:DelObjVar("Refilling")
+        else
+            this:ScheduleTimerDelay(TimeSpan.FromMinutes(resetTimer), "ContainerReset")
+        end
     end)

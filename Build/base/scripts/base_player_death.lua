@@ -17,7 +17,7 @@ function OnDeathStart()
 	this:PlayMusic("Death")
 	this:SetCloak(true)
 
-	this:SystemMessage("[D70000]You have died![-]","event")
+	this:SystemMessage("[D70000]You have died![-]","info")
 	this:SystemMessage("[$1681]")
 	this:SetMobileFrozen(true,true)
 	CallFunctionDelayed(TimeSpan.FromSeconds(2),function ( ... )
@@ -60,7 +60,7 @@ RegisterEventHandler(EventType.CreatedObject, "created_corpse", function (succes
 			objRef:SetObjVar("PlayerObject", this)
 			-- visa versa.
 			this:SetObjVar("CorpseObject", objRef)
-			this:SetObjVar("LastDeathRegion",GetRegionAddress())
+			this:SetObjVar("CorpseAddress", ServerSettings.RegionAddress)
 
 			if ( facing ~= nil ) then
 				objRef:SetFacing(facing)
@@ -182,34 +182,17 @@ function OnDeathEnd( resurrector, corpse, force )
 		-- player was resurrected from their ghost.
 		this:PlayEffect("ResurrectEffect", 1.5)
 
-		-- remove PlayerObject from their corpse (if existant) preventing a resurrect on a corpse after they have been resurrected from their ghost.
 		local oldCorpse = this:GetObjVar("CorpseObject")
-		if ( oldCorpse ~= nil and oldCorpse:IsValid()) then
-			oldCorpse:DelObjVar("PlayerObject")
-			-- remove 'appearance' items if not full loot
-			if not ( ServerSettings.PlayerInteractions.FullItemDropOnDeath ) then
-			    local leftHand = oldCorpse:GetEquippedObject("LeftHand")
-			    local rightHand = oldCorpse:GetEquippedObject("RightHand")
-			    local chest = oldCorpse:GetEquippedObject("Chest")
-			    local legs = oldCorpse:GetEquippedObject("Legs")
-			    local head = oldCorpse:GetEquippedObject("Head")
-			    local body = oldCorpse:GetEquippedObject("BodyPartHead")
-			    local hair = oldCorpse:GetEquippedObject("BodyPartHair")
-
-			  	if ( leftHand ~= nil ) then leftHand:Destroy() end
-			  	if ( rightHand ~= nil ) then rightHand:Destroy() end
-			  	if ( chest ~= nil ) then chest:Destroy() end
-			  	if ( legs ~= nil ) then legs:Destroy() end
-			  	if ( head ~= nil ) then head:Destroy() end
-			  	if ( body ~= nil) then body:Destroy() end
-			  	if ( hair ~= nil) then hair:Destroy() end
-			
-				-- turn the corpse into a skeleton
-				oldCorpse:SetAppearanceFromTemplate("skeleton")
-				oldCorpse:DelObjVar("NoSkele")
+		if ( oldCorpse ~= nil ) then
+			-- try to do it local first
+			if not( UpdateCorpseOnPlayerResurrected(oldCorpse) ) then
+				local corpseAddress = this:GetObjVar("CorpseAddress") or ServerSettings.RegionAddress
+				-- local failed, tell remote cluster to do the update
+				MessageRemoteClusterController(corpseAddress, "PlayerResurrected", oldCorpse)
 			end
 		end
-		EndDeath()
+
+		EndDeath(true)
 	end
 end
 
@@ -229,18 +212,16 @@ function ResurrectCorpse(corpse)
 
 	-- move equipment back if it was taken
 	if ( ServerSettings.PlayerInteractions.FullItemDropOnDeath ) then
-
-	    local leftHand = corpse:GetEquippedObject("LeftHand")
-	    local rightHand = corpse:GetEquippedObject("RightHand")
-	    local chest = corpse:GetEquippedObject("Chest")
-	    local legs = corpse:GetEquippedObject("Legs")
-	    local head = corpse:GetEquippedObject("Head")
-
-	  	if ( leftHand ~= nil ) then this:EquipObject(leftHand) end
-	  	if ( rightHand ~= nil ) then this:EquipObject(rightHand) end
-	  	if ( chest ~= nil ) then this:EquipObject(chest) end
-	  	if ( legs ~= nil ) then this:EquipObject(legs) end
-	  	if ( head ~= nil ) then this:EquipObject(head) end
+		local slots = ITEM_SLOTS
+		local item = nil
+		for i=1,#slots do
+			if ( slot ~= "Familiar" ) then
+				item = corpse:GetEquippedObject(slots[i])
+				if ( item ~= nil ) then
+					this:EquipObject(item)
+				end
+			end
+		end
 	end
 	
 	local backpack = this:GetEquippedObject("Backpack")
@@ -265,11 +246,11 @@ function ResurrectCorpse(corpse)
 		-- uncloak player
 		this:SetCloak(false)
 
-		EndDeath()
+		EndDeath(false)
 	end)
 end
 
-function EndDeath()
+function EndDeath(ghostResurrect)
 	this:StopEffect("GrayScreenEffect")
 	
 	-- stop looking like a ghost
@@ -287,8 +268,10 @@ function EndDeath()
 
 	this:SetMobileFrozen(false, false)
 
-	if ( ServerSettings.Vitality.AdjustOnDeathEnd and not IsInitiate(this) and GetCurVitality(this) > 0 ) then
-        AdjustCurVitality(this, ServerSettings.Vitality.AdjustOnDeathEnd)
+	if ( ghostResurrect ) then
+		if ( ServerSettings.Vitality.AdjustOnGhostResurrect and not IsInitiate(this) and GetCurVitality(this) > 0 ) then
+			AdjustCurVitality(this, ServerSettings.Vitality.AdjustOnGhostResurrect)
+		end
 	end
 end
 
@@ -398,7 +381,7 @@ function DoMobileDeath(damager)
 	baseMobileDeath(damager)
 
 	if ( damager ~= nil and damager ~= this and damager:IsPlayer() ) then
-		damager:SystemMessage("[0AB4F7] You have vanquished [-][F70A79]" .. this:GetName(), "event")
+		damager:SystemMessage("[0AB4F7] You have vanquished [-][F70A79]" .. this:GetName(), "info")
 	end
 
 	mBackpack = this:GetEquippedObject("Backpack")
@@ -408,9 +391,9 @@ function DoMobileDeath(damager)
 		CloseContainerRecursive(this,mBackpack)
 	end
 
-	-- GW if you are carrying something under the mouse cursor and die, it should drop to the ground
+	-- if you are carrying something under the mouse cursor and die, it should drop to the ground
 	local carriedObject = this:CarriedObject()
-	if(carriedObject ~= nil and carriedObject:IsValid()) then
+	if ( carriedObject ~= nil and carriedObject:IsValid() ) then
 		carriedObject:SetWorldPosition(this:GetLoc())
 	end
 	

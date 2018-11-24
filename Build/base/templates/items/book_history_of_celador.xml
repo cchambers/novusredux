@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]History of Celador: Part 1[-]</Name>
+  <Name>History of Celador: Part 1</Name>
 	<ClientId>1346</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent/>	

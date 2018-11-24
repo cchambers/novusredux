@@ -24,7 +24,7 @@ SKILL_TOOLS = {
 function BeginPracticeSkill(skillName)
 
 	if ( this:HasTimer("CraftingPracticeTimer") ) then
-		this:SystemMessage("You are already practicing.")
+		this:SystemMessage("You are already practicing.","info")
 		return
 	end
 
@@ -32,7 +32,7 @@ function BeginPracticeSkill(skillName)
 	mLoc = this:GetLoc()
 
 	if not( ResourcesAvailable() ) then
-		this:SystemMessage("You don't have enough resources to practice.")
+		this:SystemMessage("You don't have enough resources to practice.","info")
 		CleanUp()
 		return
 	end
@@ -50,7 +50,7 @@ function Practice()
 	mTool = GetNearbyTool()
 
 	if ( mTool == nil ) then
-		this:SystemMessage("You must be near ".. SKILL_TOOLS[mSkillName].Name .." to practice this skill.")
+		this:SystemMessage("You must be near ".. SKILL_TOOLS[mSkillName].Name .." to practice this skill.","info")
 		CleanUp()
 		return
 	end

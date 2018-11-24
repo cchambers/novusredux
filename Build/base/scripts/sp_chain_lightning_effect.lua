@@ -26,8 +26,8 @@ RegisterEventHandler(EventType.Message,"SpellHitUserEffectsp_chain_lightning_eff
 					targQueue[curPhase] = {}
 					for i, v in pairs(mobiles) do
 						----DebugMessage("V is "..v:GetName())
-						---DebugMessage("Checking pvp flag",(this:GetObjVar("KarmaProtectionEnabled") and v:IsPlayer()) )
-						if(hasHit[v] == nil) and (v ~= this and v:GetObjVar("controller") ~= this) and (queuedTargets[v] == nil) and mActive and ((not v:IsPlayer()) or (not this:GetObjVar("KarmaProtectionEnabled")) and v:IsPlayer()) then
+						---DebugMessage("Checking pvp flag", and v:IsPlayer()) )
+						if ( hasHit[v] == nil and ValidCombatTarget(this, v, true) ) then
 							
 							if not(mCurJump < maxJumps) then 
 								mActive = false

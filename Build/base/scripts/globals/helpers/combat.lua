@@ -66,7 +66,7 @@ end
 --- Get the distance attacker must be from defender for combat.
 -- @param attacker mobileObj
 -- @param defender mobileObj
--- @param range double, distance between the two or barehand range if not provided
+-- @param range double, weapon range or barehand range if not provided
 -- @return distance to consider attacker close enough to defender for combat
 function GetCombatRange(attacker, defender, range)
     Verbose("Combat", "GetCombatRange", attacker, defender, range)
@@ -96,7 +96,7 @@ function ValidCombatGainTarget(target,gainer)
 	if ( target:HasObjVar("InvalidTarget") ) then return false end
 
 	-- objects with attackable can be gained, they will default to 0 skill, (set a skill dictionary on them to change it)
-	return ( target:HasObjVar("CombatGainable") or (target:IsMobile() and not IsDead(target) and not target:GetObjVar("Invulnerable")) )
+	return ( target:HasModule("attackable_object_skill_gain") or (target:IsMobile() and not IsDead(target) and not target:GetObjVar("Invulnerable")) )
 end
 
 --- Determine if an attacker can attack/damage a victim
@@ -118,6 +118,11 @@ function ValidCombatTarget(attacker, victim, silent)
 
 	if ( victim:IsMobile() ) then
 		if ( IsDead(victim) ) then return false end
+		-- reassign to owners if applicable
+		local victimOwner = victim:GetObjVar("controller")
+		if ( victimOwner and victimOwner:IsValid() ) then victim = victimOwner end
+		local attackerOwner = attacker:GetObjVar("controller")
+		if ( attackerOwner and attackerOwner:IsValid() ) then attacker = attackerOwner end
 	else
 		if ( victim:GetObjVar("Attackable") ~= true ) then return false end
 	end
@@ -147,7 +152,13 @@ function ValidCombatTarget(attacker, victim, silent)
 		and
 		victimInKarmaZone
 		and
-		ShouldKarmaProtect(attacker, victim, silent)
+		(
+			ShouldChaoticProtect(attacker, victim, false, silent)
+			or
+			ShouldKarmaProtect(attacker, KarmaActions.Negative.Attack, victim, silent)
+			or
+			IsPlayerCharacter(attacker) and IsGuaranteedProtected(victim, attacker)
+		)
 	) then
 		return false
 	end
@@ -163,7 +174,7 @@ end
 -- @param notSilent(optional) Boolean
 -- @param return true or false
 function AllowFriendlyActions(mobileObj, potentialFriend, notSilent)
-    Verbose("Combat", "AllowFriendlyActions", mobileObj, potentialFriend, notSilent)
+    Verbose("Combat", "AllowFriendlyActions", mobileObj, potentialFriend, notSilent)    
 
 	-- reassign variables to the owner if applicable
 	mobileObj = mobileObj:GetObjectOwner() or mobileObj
@@ -171,6 +182,14 @@ function AllowFriendlyActions(mobileObj, potentialFriend, notSilent)
 
 	-- always friendly to yourself and your pets.
 	if ( mobileObj == potentialFriend ) then return true end
+
+	-- prevent friendly actions against bad karma actors unless criminal is enabled.
+	if ( ShouldKarmaProtect(mobileObj, KarmaActions.Negative.PunishForBeneficial, potentialFriend) ) then
+		return false
+	end
+
+	-- npcs don't follow further rules
+    if( not(mobileObj:IsPlayer()) or not(potentialFriend:IsPlayer()) ) then return true end
 
 	-- allegiance rules
 	-- prevent people in an allegiance being benefited by anyone not in their allegiance
@@ -184,22 +203,6 @@ function AllowFriendlyActions(mobileObj, potentialFriend, notSilent)
 				mobileObj:SystemMessage("Allegiance rules prohibit such actions.", "info")
 			end
 			-- potential friend in an Allegiance and it's not mobileObj's Allegiance, end here.
-			return false
-		end
-	end
-
-	-- prevent friendly actions against bad karma actors when the karma protection flag is on
-	if ( mobileObj:GetObjVar("KarmaProtectionEnabled") == true ) then
-		local karmaLevel = GetKarmaLevel(GetKarma(potentialFriend))
-		local isPlayer = IsKarmaPlayer(potentialFriend)
-		if ( 
-			(isPlayer and karmaLevel.PunishBeneficialToPlayer)
-			or
-			(not isPlayer and karmaLevel.PunishBeneficialToNPC)
-		) then
-            if ( notSilent ) then
-                mobileObj:SystemMessage("Disable Karma Protection to benefit that target.", "info")
-            end
 			return false
 		end
 	end
@@ -221,7 +224,7 @@ function GetCritDamageBonus(mobileObj,weaponObj)
 end
 
 function IsCombatMap()
-	local worldName = GetWorldName()
+	local worldName = ServerSettings.WorldName
 	for i,j in pairs(ServerSettings.Misc.NonCombatMaps) do
 		if (worldName == j) then
 			return false
@@ -273,7 +276,7 @@ function PlayWeaponSound(target, audioId, weapon)
 	if( weapon ~= nil) then
 		weapon:PlayObjectSound(audioId, true)
 	else
-		local soundPrefix = "Hammer"
+		local soundPrefix = "event:/weapons/hammer/hammer_"
 		target:PlayObjectSound(soundPrefix..audioId, false)
 	end
 end

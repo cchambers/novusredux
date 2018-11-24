@@ -18,7 +18,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "keyTarget",
         
         if( target ~= nil and target:HasObjVar("AnotherLanguage") ) then
             --target:DelObjVar("AnotherLanguage")
-            user:SystemMessage("The magic in the scroll dissipates.")
+            user:SystemMessage("The magic in the scroll dissipates.","info")
             target:SendMessage("DecipherReadObject",user)
             this:Destroy()
         end

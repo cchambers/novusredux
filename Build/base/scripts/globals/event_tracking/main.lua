@@ -93,7 +93,7 @@ EventTracking = {
 			Name = playerObj:GetName(),
 			DisplayName = playerObj:GetSharedObjectProperty("DisplayName"),
 			GuildId =  playerObj:GetObjVar("Guild"),
-			MurderCount = playerObj:GetObjVar("MurderCount"),
+			Karma = playerObj:GetObjVar("Karma"),
 			Skills = skillList,
 			Equipment = equipList,
 			House = houseTable,
@@ -103,8 +103,8 @@ EventTracking = {
 
 	GetPlayerKey = function (playerObj)
 		local attachedUserId = playerObj:GetAttachedUserId()
-		if(attachedUserId) then
-			return playerObj:GetAttachedUserId() .. "." .. playerObj.Id		
+		if ( attachedUserId ) then
+			return attachedUserId .. "." .. playerObj.Id		
 		end
 	end,
 
@@ -147,25 +147,28 @@ EventTracking = {
 		local deathLoc = deadMob:GetLoc()
 		local deathTable = {
 			Location = {deathLoc.X,deathLoc.Z},
-			WorldName = GetWorldName(),
-			SubRegion = GetSubregionName() or "",
-			RegionAddress = GetRegionAddress(),
+			WorldName = ServerSettings.WorldName,
+			SubRegion = ServerSettings.SubregionName or "",
+			RegionAddress = ServerSettings.RegionAddress,
 			ObjectId = deadMob.Id,
 			Time = deathTime,
 		}
 
-		if(deadMob:IsPlayer()) then
+		local isPlayer = IsPlayerCharacter(deadMob)
+
+		if( isPlayer ) then
 			deathTable.UserId = deadMob:GetAttachedUserId()
 		else
 			deathTable.MobName = deadMob:GetName()
 			deathTable.CreationTemplateId = deadMob:GetCreationTemplateId()
+			deathTable.MobKind = deadMob:GetObjVar("MobileKind")
 			if ( deadMob:GetSharedObjectProperty("IsBoss") ) then
 				deathTable.Heroic = true
 			end
 		end
 
 		-- only care what players are wearing
-		if(deadMob:IsPlayer()) then
+		if( isPlayer ) then
 			deathTable.Equipment = {}
 			for i,slotName in pairs(ITEM_SLOTS) do 
 				local equipObj = deadMob:GetEquippedObject(slotName)
@@ -199,7 +202,7 @@ EventTracking = {
 						AssistAmount = damagerEntry.Amount,
 					}
 
-					if(damagerObj:IsPlayer()) then
+					if( IsPlayerCharacter(damagerObj) ) then
 						local playerKey = EventTracking.GetPlayerKey(damagerObj)
 						if(playerKey) then
 							assist.PlayerId = playerKey
@@ -223,7 +226,7 @@ EventTracking = {
 					}
 
 					-- dont bother with mob heals
-					if(healerObj:IsPlayer()) then
+					if( IsPlayerCharacter(healerObj) ) then
 						local playerKey = EventTracking.GetPlayerKey(healerObj)
 						if(playerKey) then
 							assist.PlayerId = playerKey
@@ -253,7 +256,7 @@ EventTracking = {
 	-- This function sends the record data to the event tracking database. If the record already exist it replaces otherwise it creates
 	UpdateRecord = function (key,recordData)
 		if not(recordData) then
-			LuaDebugCallStack("ERROR EventTracking.UpdateRecord")
+			LuaDebugCallStack("[EventTracking.UpdateRecord] recordData not provided.")
 			return
 		end
 		-- Call C# function to update the record
@@ -261,7 +264,7 @@ EventTracking = {
 		
 		
 		local fileName = "EventDetails.log"
-		local regionAddress = GetRegionAddress()
+		local regionAddress = ServerSettings.RegionAddress
 		if(regionAddress) then
 			fileName = regionAddress.."."..fileName
 		end
@@ -280,7 +283,7 @@ EventTracking = {
 		
 
 		local fileName = "EventDetails.log"
-		local regionAddress = GetRegionAddress()
+		local regionAddress = ServerSettings.RegionAddress
 		if(regionAddress) then
 			fileName = regionAddress.."."..fileName
 		end

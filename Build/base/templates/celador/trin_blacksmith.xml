@@ -2,7 +2,8 @@
 <ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Austin the Purveyor</Name>
+	<Name>Austin</Name>
+	<SharedStateEntry name="Title" type="string" value="Metalsmith"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="PlayAnim">anvil_strike</StringVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
@@ -29,6 +30,7 @@
 					},
 					Skills= {
 						Metalsmith = 100,
+						Mining = 100,
 					},
 					EquipTable= {
 						Head= {

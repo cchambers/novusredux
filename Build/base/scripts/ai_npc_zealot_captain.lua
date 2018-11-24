@@ -168,7 +168,7 @@ function Dialog.OpenFoundersQuestBringSwordToAluTharDialog(user)
 end
 
 function Dialog.OpenSlayLieutenantOfKhoTalkToAluTharDialog(user)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.Zealot)
+    CheckAchievementStatus(user, "Other", "Zealot", nil, {Description = "", CustomAchievement = "Zealot", Reward = {Title = "Zealot"}})
     DialogReturnMessage(this,user,"[$1590]")
 end
 

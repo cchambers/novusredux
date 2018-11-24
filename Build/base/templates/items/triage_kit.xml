@@ -5,7 +5,7 @@
 	<ObjectVariableComponent>			
 		<StringVariable Name="ToolSkill">HealingSkill</StringVariable>
 		<StringVariable Name="ToolAnimation">forage</StringVariable>
-		<StringVariable Name="ToolSound">fabrication</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/fabrication/fabrication</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="crafting_healing"/>

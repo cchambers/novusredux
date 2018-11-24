@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Cultist Map[-]</Name>
+  <Name>Cultist Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent/>

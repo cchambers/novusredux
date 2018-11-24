@@ -10,7 +10,6 @@ MobileEffectLibrary.Focus =
 			if ( self.IsPlayer ) then
 				self.ParentObj:SystemMessage("Must be still to focus.", "info")
 			end
-			self.GetPulseFrequency = nil -- set to nil so no timers get started
 			return EndMobileEffect(root)
 		end
 
@@ -18,24 +17,16 @@ MobileEffectLibrary.Focus =
 			if ( self.IsPlayer ) then
 				self.ParentObj:SystemMessage("You are at peace.", "info")
 			end
-			self.GetPulseFrequency = nil -- set to nil so no timers get started
 			return EndMobileEffect(root)
 		end
 
-		RegisterEventHandler(EventType.Message, "DamageInflicted", 
-			function(damager, damAmount)
-				if(damAmount > 0) then
-					self.Interrupted(self, root)
-				end
-			end)
-		RegisterEventHandler(EventType.ItemEquipped, "", function() self.Interrupted(self, root) end)
-		RegisterEventHandler(EventType.ItemUnequipped, "", function() self.Interrupted(self, root) end)
 		RegisterEventHandler(EventType.StartMoving, "", function() self.Interrupted(self, root) end)
-		RegisterEventHandler(EventType.Message, "CombatStatusUpdate", function(inCombat)
-			if ( inCombat ) then
+		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
+			if ( what ~= "Swing" and what ~= "Pickup" ) then
 				self.Interrupted(self, root)
 			end
 		end)
+		self._Registered = true
 
 		self.SkillLevel = GetSkillLevel(self.ParentObj, "ChannelingSkill") or 0
 
@@ -44,9 +35,7 @@ MobileEffectLibrary.Focus =
 		end
 
 		if ( TryMobileFocus(self.ParentObj, self.SkillLevel, self.IsPlayer) == false ) then
-			self.GetPulseFrequency = nil -- set to nil so no timers get started
-			EndMobileEffect(root)
-			return
+			return EndMobileEffect(root)
 		end
 			
 		self.ParentObj:PlayEffect("GreenParticlesBuffEffect", 0.0)
@@ -57,20 +46,23 @@ MobileEffectLibrary.Focus =
 
 		-- the base_mobilestats checks for the focus mobile effect when determining mana regen
 		self.ParentObj:SendMessage("RecalculateStats",{ManaRegen=true})
+
+		self._Applied = true
 	end,
 
 	OnExitState = function(self,root)
-		UnregisterEventHandler("", EventType.Message, "DamageInflicted")
-		UnregisterEventHandler("", EventType.Message, "CombatStatusUpdate")
-		UnregisterEventHandler("", EventType.ItemEquipped, "")
-		UnregisterEventHandler("", EventType.ItemUnequipped, "")
-		UnregisterEventHandler("", EventType.StartMoving, "")
-
-		if ( self.ParentObj:IsPlayer() ) then
-			RemoveBuffIcon(self.ParentObj, "FocusBuff")
+		if ( self._Registered ) then
+			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
+			UnregisterEventHandler("", EventType.StartMoving, "")
 		end
-		self.ParentObj:StopEffect("GreenParticlesBuffEffect")
-		self.ParentObj:SendMessage("RecalculateStats",{ManaRegen=true})
+
+		if ( self._Applied ) then
+			if ( self.IsPlayer ) then
+				RemoveBuffIcon(self.ParentObj, "FocusBuff")
+			end
+			self.ParentObj:StopEffect("GreenParticlesBuffEffect")
+			self.ParentObj:SendMessage("RecalculateStats",{ManaRegen=true})
+		end
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -93,14 +85,17 @@ MobileEffectLibrary.Focus =
 
 	Interrupted = function(self, root)
 		if ( self.IsPlayer ) then
-			self.ParentObj:SystemMessage("Focus Interrupted.", "info")
+			self.ParentObj:SystemMessage("Focus interrupted.", "info")
 		end
 		EndMobileEffect(root)
 	end,
 
 	PulseFrequency = TimeSpan.FromSeconds(1),
 	PulseMax = 120,
-	CurrentPulse = 0
+	CurrentPulse = 0,
+
+	_Registered = false,
+	_Applied = false
 }
 
 function TryMobileFocus(mobileObj, skillLevel, isPlayer)

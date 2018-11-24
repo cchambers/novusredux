@@ -1,4 +1,4 @@
-require 'incl_container'
+
 
 function IsBlankKey(item)
 	return item:HasModule("key") and not(item:HasObjVar("lockUniqueId"))
@@ -27,7 +27,7 @@ end
 
 function CreateKey(user,keyName,lockUniqueId)
 	if(user:CarriedObject()) then
-		user:SystemMessage("You are already carrying something.")
+		user:SystemMessage("You are already carrying something.","info")
 		return
 	end
 
@@ -49,7 +49,7 @@ function RenameKey(user,keyObj)
         Description = "Maximum 20 characters",
         ResponseFunc = function(user,newName)
             if( not(newName) or newName == "" ) then
-                user:SystemMessage("[$1875]")
+                user:SystemMessage("[$1875]","info")
                 RenameKey(user,keyObj)
             else
                 keyObj:SetName(newName)
@@ -65,32 +65,28 @@ function MakeCopy(user,keyObj)
 	end
 
 	if IsBlankKey(keyObj) then
-		user:SystemMessage("Why would you want to make a copy of a blank key?")
+		user:SystemMessage("Why would you want to make a copy of a blank key?","info")
 		return
 	end
 
 	if ( keyObj:HasObjVar("lockObject") ) then
-		user:SystemMessage("This key cannot be copied.")
+		user:SystemMessage("This key cannot be copied.","info")
 		return
 	end
 
 	local blankKey = GetBlankKey(user)
 	if not(blankKey) then
-		user:SystemMessage("[$1876]")
+		user:SystemMessage("[$1876]","info")
 		return
 	end
 
 	if(user:CarriedObject()) then
-		user:SystemMessage("You are already carrying something.")
+		user:SystemMessage("You are already carrying something.","info")
 		return
 	end
 
 	if( keyObj:HasObjVar("lockUniqueId") ) then
 		blankKey:SetObjVar("lockUniqueId", keyObj:GetObjVar("lockUniqueId"))
-	end
-
-	if( keyObj:HasObjVar("IsHouseKey") ) then
-		blankKey:SetObjVar("IsHouseKey", true)
 	end
 	
 	blankKey:SetName(keyObj:GetName())
@@ -99,7 +95,7 @@ end
 
 function AddKeyToKeyRing(user,keyObj)
 	if(KeyRingAlreadyHasKey(user,keyObj)) then
-        user:SystemMessage("You already have that key in your keyring.")
+        user:SystemMessage("You already have that key in your keyring.","info")
         return false
     end
 
@@ -117,12 +113,12 @@ function PickupKeyFromKeyRing(user,keyObj)
 
 	local backpackObj = user:GetEquippedObject("Backpack")
 	if ( backpackObj == nil ) then
-		user:SystemMessage("You need a backpack to put this in.")
+		user:SystemMessage("You need a backpack to put this in.","info")
 		return
 	end
 	-- moving to user 'holding' wasn't updating the client correctly causing a relog, so just put it in the backpack.
 	keyObj:MoveToContainer(backpackObj,Loc(0,0,0))
-	user:SystemMessage("The key '".. keyObj:GetName() .."' has been placed in your backpack.")
+	user:SystemMessage("The key '".. keyObj:GetName() .."' has been placed in your backpack.","info")
 
 end
 

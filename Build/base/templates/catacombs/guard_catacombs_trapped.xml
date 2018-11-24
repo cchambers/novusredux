@@ -21,7 +21,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=145, Agi=145, Int=115 },
-					Skills = { Melee = 60, Slashing = 60, Bashing = 60, Piercing = 40, Blocking = 40 },
+					Skills = { Melee = 60, Slashing = 60, Brawling = 60, Piercing = 40, Blocking = 40 },
 					EquipTable = {
 						BodyPartHair = TemplateDefines.MaleHairVillage,
 						BodyPartHead = {"head_male04"},

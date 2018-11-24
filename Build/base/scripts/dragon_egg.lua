@@ -22,7 +22,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
         --DebugMessage(2)
         local nearbyDragon = FindObject(SearchTemplate("fire_dragon")) 
         if (nearbyDragon ~= nil and not IsDead(nearbyDragon)) then 
-            user:SystemMessage("Something is moving inside it...")
+            user:SystemMessage("Something is moving inside it...","info")
             return
         end
         

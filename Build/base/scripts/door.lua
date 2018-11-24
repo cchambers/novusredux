@@ -6,7 +6,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
             if not(this:HasTimer("OpenCloseDelay")) then
                 if (this:HasObjVar("OneWay")) then
                     if (FacingAngleDiff(user,this) > 90) then
-                        user:SystemMessage("The door opens from this direction...")
+                        user:SystemMessage("The door opens from this direction...","info")
                         OpenDoor()
                         return
                      end
@@ -14,16 +14,16 @@ RegisterEventHandler(EventType.Message, "UseObject",
                 if (this:GetObjVar("locked") ~= nil) then
                     local key = GetKey(user,this)
                     if(key) then
-                        user:SystemMessage("That door is locked, but you use the key.")
+                        user:SystemMessage("That door is locked, but you use the key.","info")
                         --Unlock(user,key)
                         if (key ~= nil) then
                             if (key:HasObjVar("OneTimeKey")) then
-                                user:SystemMessage("The key disintegrates.")
+                                user:SystemMessage("The key disintegrates.","info")
                                 key:Destroy()
                             end
                         end
                     else
-                        user:SystemMessage("That door appears to be locked.")
+                        user:SystemMessage("That door appears to be locked.","info")
                         return
                     end            
                 end
@@ -75,7 +75,7 @@ function Unlock(user,key)
 
     -- user must always have a key!
     if(user ~= nil and key == nil) then
-        user:SystemMessage("You do not have the proper key to unlock this.")
+        user:SystemMessage("You do not have the proper key to unlock this.","info")
         return
     end
 
@@ -88,7 +88,7 @@ function Unlock(user,key)
 
     if (key ~= nil) then
         if (key:HasObjVar("OneTimeKey")) then
-            user:SystemMessage("The key disintegrates.")
+            user:SystemMessage("The key disintegrates.","info")
             key:Destroy()
         end
     end
@@ -113,13 +113,13 @@ function Lock(user,key)
 
     -- user must always have a key!
     if(user ~= nil and key == nil) then
-        user:SystemMessage("You do not have the proper key to lock this.")
+        user:SystemMessage("You do not have the proper key to lock this.","info")
         return
     end
 
     this:SetObjVar("locked",true)
     if(user ~= nil) then
-        user:SystemMessage("*ka-chink*")
+        user:SystemMessage("*ka-chink*","info")
     end
     this:PlayObjectSound("DoorLock")
 

@@ -3,7 +3,7 @@
 	<Color>0xFFFF0000</Color>
 	<Name>Imp Minion</Name>
 	<ScaleModifier>0.5</ScaleModifier>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Imp"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/imp/imp"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1.5</BaseRunSpeed>
 		<MobileType>Friendly</MobileType>
@@ -29,7 +29,7 @@
 				Skills = 
 				{ 
 					Melee = 70, 
-					Bashing = 70,
+					Brawling = 70,
 					Piercing = 70,
 					Slashing = 70,
 					Dodge = 70,

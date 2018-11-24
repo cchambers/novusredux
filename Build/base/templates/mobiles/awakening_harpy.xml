@@ -9,6 +9,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">260</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Awakening</StringVariable>
+		<StringVariable Name= "MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -17,7 +18,7 @@
 		<DoubleVariable Name="Armor">51</DoubleVariable>
 		<DoubleVariable Name="Attack">23</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -31,7 +32,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=60,  
+					Brawling = 60,  
 					},	
 				EquipTable = 
 					{
@@ -41,7 +42,6 @@
 					{ 		
 						TemplateDefines.LootTable.Average,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,	
 						TemplateDefines.LootTable.PotionsPoor,		
 						{
 							NumCoins = math.random(30,75),

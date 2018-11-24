@@ -27,7 +27,7 @@
 				{ 
 					Melee = 40, 
 					Slashing = 50,
-					Bashing = 50,
+					Brawling = 50,
 					Piercing = 50,
 					Dodge = 40,
 				},

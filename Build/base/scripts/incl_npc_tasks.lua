@@ -179,7 +179,7 @@ function CreateReward(user,npcTask)
 		CreateObjInBackpack(user,"coin_purse", "coins", npcTask.RewardAmount)
 		user:SystemMessage("[F7F700]You have received "..tostring(npcTask.RewardAmount).. " coins.[-]","event")
 	elseif (npcTask.RewardType == "recipe") then
-		local recipeIndex,recipeName = GetRandomRecipe(npcTask.RecipeMinSkill,npcTask.RecipeMaxSkill,npcTask.RecipeSkill,GetWorldName())--pick a random recipe,
+		local recipeIndex,recipeName = GetRandomRecipe(npcTask.RecipeMinSkill,npcTask.RecipeMaxSkill,npcTask.RecipeSkill,ServerSettings.WorldName)--pick a random recipe,
 		if (recipeIndex ~= nil and recipeName ~= nil) then
 			CreateObjInBackpack(user,"recipe", "recipe",recipeIndex,recipeName)--create the obje
 		end

@@ -1,10 +1,14 @@
 Simple Textures:
-Accept_Knife Width:52 Height:53
+Accept_Knife Width:54 Height:55
 AcceptMyCheck_Click Width:23 Height:21
 AcceptMyCheck_Default Width:23 Height:21
 AcceptMyCheck_Hover Width:23 Height:21
 AcceptTheirCheck_Click Width:23 Height:21
 AcceptTheirCheck_Hover Width:23 Height:21
+AchievementSlot_Click Width:94 Height:70
+AchievementSlot_Default Width:94 Height:70
+AchievementSlot_Hover Width:94 Height:70
+AchievementTitle_Icon Width:29 Height:29
 ActivatedIconGlow_1 Width:78 Height:78
 ActivatedIconGlow_2 Width:78 Height:78
 ActivatedIconGlow_3 Width:78 Height:78
@@ -15,9 +19,9 @@ Aggressor Width:41 Height:41
 Background Width:48 Height:56
 BackgroundBorder Width:115 Height:4
 BackgroundGradient Width:7 Height:118
-BackpackIcon_Default Width:63 Height:72
-BackpackIcon_Hover Width:63 Height:81
-BackpackIcon_Open-Click Width:63 Height:77
+BackpackIcon_Default Width:69 Height:90
+BackpackIcon_Hover Width:69 Height:90
+BackpackIcon_Open-Click Width:69 Height:90
 BasicWindow_BG Width:72 Height:72
 BasicWindow_CloseButton_Click Width:22 Height:22
 BasicWindow_CloseButton_Default Width:22 Height:22
@@ -30,6 +34,23 @@ Button_Click Width:26 Height:26
 Button_Default Width:26 Height:26
 Button_Disabled Width:26 Height:26
 Button_Hover Width:26 Height:26
+ButtonBar_AbilitiesDefault Width:50 Height:50
+ButtonBar_AchievementsDefault Width:50 Height:50
+ButtonBar_AllegianceDefault Width:50 Height:50
+ButtonBar_Background Width:6 Height:42
+ButtonBar_BackpackDefault Width:50 Height:50
+ButtonBar_CharacterDefault Width:50 Height:50
+ButtonBar_ExpandClick Width:40 Height:42
+ButtonBar_ExpandDefault Width:40 Height:42
+ButtonBar_ExpandHover Width:40 Height:42
+ButtonBar_GuildDefault Width:50 Height:50
+ButtonBar_HelpDefault Width:50 Height:50
+ButtonBar_LogoutDefault Width:50 Height:50
+ButtonBar_MapDefault Width:50 Height:50
+ButtonBar_PVPOptionsClick Width:50 Height:50
+ButtonBar_PVPOptionsDefault Width:50 Height:50
+ButtonBar_SettingsDefault Width:50 Height:50
+ButtonBar_SkillsDefault Width:50 Height:50
 CategorySelection_Click Width:16 Height:16
 CategorySelection_Default Width:16 Height:16
 CategorySelection_Disabled Width:16 Height:16
@@ -37,21 +58,21 @@ CategorySelection_Hover Width:16 Height:16
 CharacterSelectionButton Width:32 Height:32
 CharacterSelectionButton_Click Width:32 Height:32
 CharacterSelectionButton_Hover Width:32 Height:32
-CharacterWindow_CloseButton_Click Width:16 Height:16
-CharacterWindow_CloseButton_Default Width:16 Height:16
-CharacterWindow_CloseButton_Hover Width:16 Height:16
-CharacterWindow_Frame Width:265 Height:385
+CharacterWindow_CloseButton_Click Width:18 Height:18
+CharacterWindow_CloseButton_Default Width:18 Height:18
+CharacterWindow_CloseButton_Hover Width:18 Height:18
+CharacterWindow_Frame Width:269 Height:393
 CharacterWindow_InfoPage Width:257 Height:309
 Checkbox_Off Width:32 Height:32
 Checkbox_On Width:32 Height:32
 CircleCloseButton_Frame Width:32 Height:32
 ContainerListView_BG Width:5 Height:105
-ConversationWindow_Bullet_Click Width:22 Height:18
-ConversationWindow_Bullet_Default Width:15 Height:12
-ConversationWindow_Bullet_Hover Width:20 Height:18
-ConversationWindow_Bullet_HoverHighlight Width:23 Height:27
+ConversationWindow_Bullet_Click Width:23 Height:18
+ConversationWindow_Bullet_Default Width:23 Height:18
+ConversationWindow_Bullet_Hover Width:23 Height:18
+ConversationWindow_Bullet_HoverHighlight Width:24 Height:28
 ConversationWindow_CloseButton_Click Width:46 Height:28
-ConversationWindow_CloseButton_Default Width:39 Height:28
+ConversationWindow_CloseButton_Default Width:46 Height:28
 ConversationWindow_CloseButton_Hover Width:46 Height:28
 CraftingCategory_Anvil1 Width:62 Height:62
 CraftingCategory_Anvil2 Width:62 Height:62
@@ -101,11 +122,14 @@ CraftingCategory_Tools Width:64 Height:64
 CraftingCategory_Torso Width:64 Height:64
 CraftingCategory_VileBlightwood Width:64 Height:64
 CraftingCategory_Wood Width:64 Height:64
+CreateAccount_Click Width:110 Height:110
+CreateAccount_Default Width:110 Height:110
+CreateAccount_Hover Width:110 Height:110
 CreateNewCharacterBox Width:32 Height:32
 Divider Width:110 Height:1
-DownButton_Click Width:16 Height:14
-DownButton_Default Width:16 Height:14
-DownButton_Hover Width:16 Height:14
+DownButton_Click Width:18 Height:18
+DownButton_Default Width:18 Height:18
+DownButton_Hover Width:18 Height:18
 DropDownButton_Click Width:24 Height:24
 DropDownButton_Default Width:24 Height:24
 DropDownButton_Hover Width:24 Height:24
@@ -128,12 +152,21 @@ HeaderRow_Bar Width:21 Height:21
 HouseDecorationWindow_Button_Click Width:20 Height:20
 HouseDecorationWindow_Button_Default Width:20 Height:20
 HouseDecorationWindow_Button_Hover Width:20 Height:20
+HouseDecorationWindow_DownButtonClick Width:48 Height:26
+HouseDecorationWindow_DownButtonDefault Width:48 Height:26
+HouseDecorationWindow_DownButtonHover Width:48 Height:26
 HouseDecorationWindow_EastButtonClick Width:26 Height:48
 HouseDecorationWindow_EastButtonDefault Width:26 Height:48
 HouseDecorationWindow_EastButtonHover Width:26 Height:48
+HouseDecorationWindow_LeftButtonClick Width:26 Height:48
+HouseDecorationWindow_LeftButtonDefault Width:26 Height:48
+HouseDecorationWindow_LeftButtonHover Width:26 Height:48
 HouseDecorationWindow_NorthButtonClick Width:48 Height:26
 HouseDecorationWindow_NorthButtonDefault Width:48 Height:26
 HouseDecorationWindow_NorthButtonHover Width:48 Height:26
+HouseDecorationWindow_RightButtonClick Width:26 Height:48
+HouseDecorationWindow_RightButtonDefault Width:26 Height:48
+HouseDecorationWindow_RightButtonHover Width:26 Height:48
 HouseDecorationWindow_RotateCCW_Click Width:20 Height:20
 HouseDecorationWindow_RotateCCW_Default Width:20 Height:20
 HouseDecorationWindow_RotateCCW_Hover Width:20 Height:20
@@ -143,17 +176,37 @@ HouseDecorationWindow_RotateCW_Hover Width:20 Height:20
 HouseDecorationWindow_SouthButtonClick Width:48 Height:26
 HouseDecorationWindow_SouthButtonDefault Width:48 Height:26
 HouseDecorationWindow_SouthButtonHover Width:48 Height:26
+HouseDecorationWindow_UpButtonClick Width:48 Height:26
+HouseDecorationWindow_UpButtonDefault Width:48 Height:26
+HouseDecorationWindow_UpButtonHover Width:48 Height:26
 HouseDecorationWindow_WestButtonClick Width:26 Height:48
 HouseDecorationWindow_WestButtonDefault Width:26 Height:48
 HouseDecorationWindow_WestButtonHover Width:26 Height:48
 IconHighlight_Click Width:30 Height:30
 IconHighlight_Hover Width:30 Height:30
+Karma_Chaos Width:24 Height:24
+Karma_Chaos_Click Width:24 Height:24
+Karma_Chaos_Hover Width:24 Height:24
+Karma_Circle_Frame Width:32 Height:32
+Karma_Circle_Frame_Glow Width:46 Height:46
+Karma_Frame Width:59 Height:62
+Karma_Innocent Width:24 Height:24
+Karma_Innocent_Click Width:24 Height:24
+Karma_Innocent_Hover Width:24 Height:24
+Karma_Outcast Width:24 Height:24
+Karma_Outcast_Click Width:24 Height:24
+Karma_Outcast_Hover Width:24 Height:24
 Key_Default Width:32 Height:32
 Key_Hover Width:32 Height:32
+LinkAccount_Click Width:110 Height:110
+LinkAccount_Default Width:110 Height:110
+LinkAccount_Hover Width:110 Height:110
+LoadingBottomBar Width:6 Height:104
+LoadingTopBar Width:6 Height:152
 lock Width:19 Height:27
-LockButton_Click Width:16 Height:18
-LockButton_Default Width:16 Height:18
-LockButton_Hover Width:16 Height:18
+LockButton_Click Width:18 Height:18
+LockButton_Default Width:18 Height:18
+LockButton_Hover Width:18 Height:18
 LockCircleButton_Click Width:44 Height:42
 LockCircleButton_Default Width:44 Height:42
 LockCircleButton_Hover Width:44 Height:42
@@ -172,8 +225,11 @@ MinimizeButton_Hover Width:32 Height:32
 MinusButton_Click Width:24 Height:24
 MinusButton_Default Width:24 Height:24
 MinusButton_Hover Width:24 Height:24
-mouse_left_click_icon Width:14 Height:20
-mouse_right_click_icon Width:14 Height:20
+MinusRoundButton_Click Width:44 Height:42
+MinusRoundButton_Default Width:44 Height:42
+MinusRoundButton_Hover Width:44 Height:42
+mouse_left_click_icon Width:20 Height:24
+mouse_right_click_icon Width:20 Height:24
 NextArrow Width:7 Height:11
 NextArrow_Click Width:7 Height:11
 NextArrow_Disabled Width:7 Height:11
@@ -184,9 +240,14 @@ NextButton_Hover Width:289 Height:58
 NextEndArrow_Click Width:7 Height:11
 NextEndArrow_Default Width:7 Height:11
 NextEndArrow_Hover Width:7 Height:11
+NotificationIcon Width:21 Height:20
+OrderShieldIcon Width:41 Height:41
 PlusButton_Click Width:24 Height:24
 PlusButton_Default Width:24 Height:24
 PlusButton_Hover Width:24 Height:24
+PlusRoundButton_Click Width:44 Height:42
+PlusRoundButton_Default Width:44 Height:42
+PlusRoundButton_Hover Width:44 Height:42
 Prestige_CircleButton_Click Width:44 Height:44
 Prestige_CircleButton_Default Width:44 Height:44
 Prestige_CircleButton_Hover Width:44 Height:44
@@ -197,11 +258,11 @@ Prestige_Divider Width:7 Height:7
 Prestige_IconFrame_Click Width:16 Height:16
 Prestige_IconFrame_Default Width:16 Height:16
 Prestige_IconFrame_Hover Width:16 Height:16
-Prestige_StaticIconFrame Width:45 Height:46
+Prestige_StaticIconFrame Width:49 Height:49
 Prestige_TitleHeader Width:191 Height:28
-PrestigeTab_Click Width:74 Height:52
-PrestigeTab_Default Width:63 Height:52
-PrestigeTab_Hover Width:74 Height:52
+PrestigeTab_Click Width:76 Height:58
+PrestigeTab_Default Width:76 Height:58
+PrestigeTab_Hover Width:76 Height:58
 PreviousArrow Width:7 Height:11
 PreviousArrow_Click Width:7 Height:11
 PreviousArrow_Disabled Width:7 Height:11
@@ -209,13 +270,17 @@ PreviousArrow_Hover Width:7 Height:11
 PreviousEndArrow_Click Width:7 Height:11
 PreviousEndArrow_Default Width:7 Height:11
 PreviousEndArrow_Hover Width:7 Height:11
-RadioButton_ClickSelection Width:10 Height:10
-RadioButton_DefaultEmpty Width:10 Height:10
-RadioButton_Hover Width:10 Height:10
+QuestionMark_Click Width:25 Height:25
+QuestionMark_Default Width:25 Height:25
+QuestionMark_Hover Width:25 Height:25
+RadioButton_ClickSelection Width:12 Height:12
+RadioButton_DefaultEmpty Width:12 Height:12
+RadioButton_Hover Width:12 Height:12
+RenownPoints_Icon Width:29 Height:29
 Scroll_Divider Width:16 Height:5
 ScrollBar2Unsliced Width:24 Height:22
 ScrollBarScroller_Unsliced Width:18 Height:14
-ScrollBarUnsliced Width:20 Height:34
+ScrollBarUnsliced Width:24 Height:34
 Skill_Alchemy Width:84 Height:84
 Skill_AnimalKen Width:84 Height:84
 Skill_AnimalLore Width:84 Height:84
@@ -255,23 +320,23 @@ Skill_Slashing Width:84 Height:84
 Skill_Sorcerer Width:84 Height:84
 Skill_Veterinary Width:84 Height:84
 Skill_Woodsmith Width:84 Height:84
-SkillBook Width:39 Height:64
-SkillBookHover Width:39 Height:64
+SkillBook Width:46 Height:100
+SkillBookHover Width:46 Height:100
 SkillExpBarFull Width:4 Height:7
 SkillIconsFrame Width:130 Height:130
 SkillLevelBarDivider Width:2 Height:14
-SkillLevelBarFrame Width:48 Height:18
-SkillLevelLabelBarFrame Width:29 Height:30
-SkillPrestige Width:40 Height:64
-SkillPrestigeHover Width:40 Height:64
-SkillSliderDiamond_ActiveDrag Width:34 Height:34
-SkillSliderDiamond_Default Width:34 Height:34
-SkillSliderDiamond_Hover Width:34 Height:34
+SkillLevelBarFrame Width:50 Height:18
+SkillLevelLabelBarFrame Width:30 Height:30
+SkillPrestige Width:46 Height:95
+SkillPrestigeHover Width:46 Height:95
+SkillSliderDiamond_ActiveDrag Width:34 Height:37
+SkillSliderDiamond_Default Width:34 Height:37
+SkillSliderDiamond_Hover Width:34 Height:37
 SkillTab_Click Width:76 Height:58
 SkillTab_Default Width:76 Height:58
 SkillTab_Hover Width:76 Height:58
 SkillTracker_BG Width:36 Height:36
-SpellIndex_ListFrame Width:73 Height:32
+SpellIndex_ListFrame Width:73 Height:34
 SplitStackButton_Click Width:21 Height:21
 SplitStackButton_Default Width:21 Height:21
 SplitStackButton_Hover Width:21 Height:21
@@ -282,6 +347,9 @@ SplitStackFrame Width:49 Height:25
 StatBarFrame Width:9 Height:8
 SystemMessageElement_Gold Width:241 Height:80
 Tab_Bar Width:21 Height:21
+Tab_Click Width:157 Height:35
+Tab_Default Width:140 Height:35
+Tab_Hover Width:140 Height:35
 Tab_Label Width:23 Height:24
 TextDivider Width:25 Height:25
 TextFieldChatUnsliced Width:24 Height:24
@@ -289,10 +357,10 @@ TitleBackground Width:181 Height:9
 TitleDivider Width:181 Height:10
 Track_Filled Width:22 Height:22
 Track_Unfilled Width:22 Height:22
-TradeWindow_BG Width:530 Height:262
-UpButton_Click Width:16 Height:14
-UpButton_Default Width:16 Height:14
-UpButton_Hover Width:16 Height:14
+TradeWindow_BG Width:540 Height:275
+UpButton_Click Width:18 Height:18
+UpButton_Default Width:18 Height:18
+UpButton_Hover Width:18 Height:18
 UpButtonSquare_Click Width:24 Height:24
 UpButtonSquare_Default Width:24 Height:24
 UpButtonSquare_Hover Width:24 Height:24
@@ -307,11 +375,11 @@ UtilityBar_StatusFrameSingle Width:27 Height:10
 Warning Width:41 Height:41
 WaterFactionSymbolSmall Width:39 Height:51
 XPBarFrameBackground Width:5 Height:5
-AbilityDock_AbilitySlot Width:52 Height:59
-AbilityDock_BG Width:110 Height:91
-AbilityDock_Center_Background Width:104 Height:97
+AbilityDock_AbilitySlot Width:54 Height:69
+AbilityDock_BG Width:118 Height:98
+AbilityDock_Center_Background Width:104 Height:98
 CombatTarget_Icon Width:32 Height:32
-DiamondButton_DBackground Width:46 Height:45
+DiamondButton_DBackground Width:46 Height:46
 DiamondButton_Icon_Hover_Run Width:32 Height:32
 DiamondButtons_Active_Default_House Width:32 Height:32
 DiamondButtons_Glow Width:32 Height:32
@@ -367,16 +435,16 @@ DiamondButtons_Icon_Hover_ZoomOut Width:32 Height:32
 EmptySlotIcon Width:48 Height:48
 HealthStatusBarBackground Width:321 Height:33
 HealthStatusBarFrame Width:321 Height:33
-ManaStatusBarBackground Width:273 Height:29
-ManaStatusBarFrame Width:245 Height:14
-MiniMapCompassFrame Width:224 Height:224
+ManaStatusBarBackground Width:273 Height:33
+ManaStatusBarFrame Width:273 Height:33
+MiniMapCompassFrame Width:226 Height:226
 PageButtonBackground Width:17 Height:55
-PageButtonDefault Width:10 Height:11
-PageButtonHover Width:10 Height:11
+PageButtonDefault Width:17 Height:17
+PageButtonHover Width:17 Height:17
 SelfTarget_Icon Width:32 Height:32
 SpellAbilInvalid Width:50 Height:50
-StaminaStatusBarBackground Width:273 Height:29
-StaminaStatusBarFrame Width:245 Height:14
+StaminaStatusBarBackground Width:273 Height:33
+StaminaStatusBarFrame Width:273 Height:33
 StatusBarFullBlue Width:4 Height:14
 StatusBarFullRed Width:4 Height:14
 StatusBarFullYellow Width:4 Height:14
@@ -386,17 +454,17 @@ StatusIcon_Backpack_Default Width:76 Height:76
 StatusIcon_Backpack_Hover Width:76 Height:76
 StatusIcon_Combat Width:76 Height:76
 StatusIcon_Combat_Hover Width:76 Height:76
-StatusIcon_Glow Width:76 Height:76
+StatusIcon_Glow Width:104 Height:98
 StatusIcon_Passive Width:76 Height:76
 StatusIcon_Passive_Hover Width:76 Height:76
-Target_background Width:68 Height:81
+Target_background Width:68 Height:100
 SpellAbilFrame Width:50 Height:50
-AbilityDock_KeyBinding Width:36 Height:31
-ReleaseButton_Hover_03 Width:400 Height:61
-ReleaseButton_Dark_03 Width:400 Height:61
-ReleaseButton_Click_03 Width:400 Height:61
-ReleaseButton_Default_03 Width:400 Height:61
-ReleaseButtonBase Width:460 Height:253
+AbilityDock_KeyBinding Width:54 Height:98
+ReleaseButton_Hover_03 Width:404 Height:64
+ReleaseButton_Dark_03 Width:404 Height:64
+ReleaseButton_Click_03 Width:404 Height:64
+ReleaseButton_Default_03 Width:404 Height:64
+ReleaseButtonBase Width:460 Height:260
 AbilityBar_Frame_Click Width:58 Height:58
 AbilityBar_Frame_Default Width:58 Height:58
 AbilityBar_Frame_Hover Width:58 Height:58
@@ -419,11 +487,11 @@ charge Width:64 Height:64
 chargedblast Width:64 Height:64
 cloak Width:64 Height:64
 combat_target Width:64 Height:64
-CraftingQualityFrame1 Width:42 Height:42
-CraftingQualityFrame2 Width:42 Height:42
-CraftingQualityFrame3 Width:42 Height:42
-CraftingQualityFrame4 Width:42 Height:42
-CraftingQualityFrame5 Width:42 Height:42
+CraftingQualityFrame1 Width:50 Height:50
+CraftingQualityFrame2 Width:50 Height:50
+CraftingQualityFrame3 Width:50 Height:50
+CraftingQualityFrame4 Width:50 Height:50
+CraftingQualityFrame5 Width:50 Height:50
 crosscut Width:64 Height:64
 defend Width:64 Height:64
 detecthidden Width:64 Height:64
@@ -460,9 +528,9 @@ icestorm Width:64 Height:64
 impale Width:64 Height:64
 input Width:17 Height:17
 intimidate Width:64 Height:64
-ItemSlot Width:41 Height:41
-ItemSlot_Click Width:37 Height:39
-ItemSlot_Hover Width:37 Height:39
+ItemSlot Width:43 Height:43
+ItemSlot_Click Width:43 Height:43
+ItemSlot_Hover Width:43 Height:43
 lifetransfer Width:64 Height:64
 LighterSlotIcon Width:48 Height:48
 lightning Width:64 Height:64
@@ -503,12 +571,13 @@ rend Width:64 Height:64
 ressurect Width:64 Height:64
 restore Width:64 Height:64
 resurrect Width:64 Height:64
-riposte Width:64 Height:64
+riposte Width:220 Height:220
 secondaryability Width:64 Height:64
 settings button Width:64 Height:64
-shadowrun Width:64 Height:64
+shadowrun Width:220 Height:220
 shield_bash Width:64 Height:64
-shockwave Width:64 Height:64
+shockwave Width:220 Height:220
+shoveldig Width:220 Height:220
 skills Width:64 Height:64
 souldrain Width:64 Height:64
 SpellBackground Width:3 Height:3
@@ -523,8 +592,8 @@ sprint Width:64 Height:64
 stable Width:220 Height:220
 stanceability Width:64 Height:64
 stay Width:64 Height:64
-steal Width:64 Height:64
-stealth Width:64 Height:64
+steal Width:220 Height:220
+stealth Width:220 Height:220
 summonimp Width:64 Height:64
 sunder Width:64 Height:64
 tamecreature Width:64 Height:64
@@ -709,34 +778,34 @@ Wrath of Nature02 Width:64 Height:64
 3ColumnTab_Off Width:30 Height:32
 AbilitiesTab_Active Width:30 Height:32
 AbilitiesTab_Off Width:30 Height:32
-AbilityHotbar_DiamondFrame Width:72 Height:75
-AbilityHotbar_DiamondFrame_Click Width:68 Height:60
-AbilityHotbar_DiamondFrame_Hover Width:68 Height:60
-AbilityHotbar_Middle Width:74 Height:76
-AbilityHotbar_PrestigeFrame_Click Width:72 Height:62
-AbilityHotbar_PrestigeFrame_Default Width:72 Height:75
-AbilityHotbar_PrestigeFrame_Hover Width:72 Height:62
-AbilityHotbar_Sides_L Width:210 Height:76
-AbilityHotbar_Sides_R Width:211 Height:76
-AmountSelectionWindowBackground Width:51 Height:25
-AmountSelectionWindowCheckButtonClick Width:19 Height:19
-AmountSelectionWindowCheckButtonDefault Width:19 Height:19
-AmountSelectionWindowCheckButtonHover Width:19 Height:19
-AmountSelectionWindowCloseButtonClick Width:19 Height:19
-AmountSelectionWindowCloseButtonDefault Width:19 Height:19
-AmountSelectionWindowCloseButtonHover Width:19 Height:19
+AbilityHotbar_DiamondFrame Width:74 Height:78
+AbilityHotbar_DiamondFrame_Click Width:74 Height:78
+AbilityHotbar_DiamondFrame_Hover Width:74 Height:78
+AbilityHotbar_Middle Width:74 Height:78
+AbilityHotbar_PrestigeFrame_Click Width:74 Height:78
+AbilityHotbar_PrestigeFrame_Default Width:74 Height:78
+AbilityHotbar_PrestigeFrame_Hover Width:74 Height:78
+AbilityHotbar_Sides_L Width:212 Height:78
+AbilityHotbar_Sides_R Width:212 Height:78
+AmountSelectionWindowBackground Width:52 Height:25
+AmountSelectionWindowCheckButtonClick Width:21 Height:21
+AmountSelectionWindowCheckButtonDefault Width:21 Height:21
+AmountSelectionWindowCheckButtonHover Width:21 Height:21
+AmountSelectionWindowCloseButtonClick Width:21 Height:21
+AmountSelectionWindowCloseButtonDefault Width:21 Height:21
+AmountSelectionWindowCloseButtonHover Width:21 Height:21
 arrow_small Width:64 Height:32
 ArrowFrameBackground Width:84 Height:151
-ArrowFrameBackground1 Width:46 Height:79
-ArrowFrameBackground2 Width:31 Height:49
+ArrowFrameBackground1 Width:49 Height:81
+ArrowFrameBackground2 Width:33 Height:49
 ArrowLeft_Active Width:9 Height:17
 ArrowLeft_Default Width:9 Height:17
 ArrowLeft_Hover Width:9 Height:17
 ArrowRight_Active Width:9 Height:17
 ArrowRight_Default Width:9 Height:17
 ArrowRight_Hover Width:9 Height:17
-Blank_Slot Width:61 Height:62
-BossHealth_EndCaps Width:90 Height:23
+Blank_Slot Width:61 Height:63
+BossHealth_EndCaps Width:92 Height:23
 BossHealth_Frame Width:47 Height:16
 button Width:17 Height:17
 cancel Width:32 Height:21
@@ -749,67 +818,67 @@ CategoryTitleFrame_Default Width:10 Height:10
 CategoryTitleFrame_Hover Width:10 Height:10
 CategoryTitleFrameDivider Width:5 Height:36
 ChamferFrameBackground Width:90 Height:88
-CharacterButton_Click Width:43 Height:42
-CharacterButton_Default Width:43 Height:42
-CharacterButton_Hover Width:43 Height:42
+CharacterButton_Click Width:44 Height:42
+CharacterButton_Default Width:44 Height:42
+CharacterButton_Hover Width:44 Height:42
 CharacterTab_Active Width:30 Height:32
 CharacterTab_Off Width:30 Height:32
 CharacterWindowIcon_HoverGlow Width:43 Height:43
 Checkbox32px_Off Width:32 Height:32
 Checkbox32px_Off_Ornaments Width:32 Height:32
 Checkbox32px_On Width:32 Height:32
-Checkmark Width:21 Height:20
-CircleButtonSmall_Click Width:22 Height:22
-CircleButtonSmall_Default Width:22 Height:22
-CircleButtonSmall_Hover Width:22 Height:22
+Checkmark Width:24 Height:24
+CircleButtonSmall_Click Width:24 Height:24
+CircleButtonSmall_Default Width:24 Height:24
+CircleButtonSmall_Hover Width:24 Height:24
 close_button Width:20 Height:20
-coin_symbol Width:7 Height:7
+coin_symbol Width:9 Height:9
 CollapseArrow1 Width:7 Height:11
 CollapseArrow2 Width:11 Height:7
-CombatStatus Width:110 Height:104
-CombatToggleButton_Active_Click Width:43 Height:42
-CombatToggleButton_Active_Default Width:43 Height:42
-CombatToggleButton_Active_Hover Width:43 Height:42
-CombatToggleButton_Passive_Click Width:43 Height:42
-CombatToggleButton_Passive_Default Width:43 Height:42
-CombatToggleButton_Passive_Hover Width:43 Height:42
+CombatStatus Width:114 Height:114
+CombatToggleButton_Active_Click Width:44 Height:42
+CombatToggleButton_Active_Default Width:44 Height:42
+CombatToggleButton_Active_Hover Width:44 Height:42
+CombatToggleButton_Passive_Click Width:44 Height:42
+CombatToggleButton_Passive_Default Width:44 Height:42
+CombatToggleButton_Passive_Hover Width:44 Height:42
 commit Width:32 Height:21
 commit_active Width:32 Height:21
 CraftingCategorySelectionActive Width:66 Height:66
 CraftingCategorySelectionDefault Width:13 Height:13
 CraftingCategorySelectionHover Width:64 Height:64
-CraftingItemsFrame Width:42 Height:42
-CraftingNoItemsFrame Width:42 Height:42
+CraftingItemsFrame Width:46 Height:46
+CraftingNoItemsFrame Width:46 Height:46
 CraftingQualityFrameHighlight Width:50 Height:50
 CraftingTabDivider Width:3 Height:3
-CraftingWindowBackground Width:356 Height:128
+CraftingWindowBackground Width:356 Height:131
 CraftingWindowBlankUserAction Width:32 Height:32
 CraftingWindowSectionBackground Width:100 Height:132
-CraftingWindowSectionHeader Width:221 Height:28
+CraftingWindowSectionHeader Width:222 Height:28
 CraftingWindowWeaponTypeHighlight Width:38 Height:38
 CraftResourceOutline Width:32 Height:32
 DiamondButton_DBackground_DropShadow Width:52 Height:52
 DownButton_default Width:16 Height:16
 DownButton_hover Width:16 Height:16
-DynamicBar Width:183 Height:86
-EquipSlotBG Width:41 Height:40
-EvocationTab_Click Width:73 Height:52
-EvocationTab_Default Width:55 Height:52
-EvocationTab_Hover Width:73 Height:52
-ExpandBackgroundGradient Width:23 Height:25
-Familiar_Slot Width:61 Height:62
-FireFactionSymbolLarge Width:97 Height:128
-FullBody_Slot Width:61 Height:60
+DynamicBar Width:185 Height:88
+EquipSlotBG Width:41 Height:41
+EvocationTab_Click Width:78 Height:58
+EvocationTab_Default Width:78 Height:58
+EvocationTab_Hover Width:78 Height:58
+ExpandBackgroundGradient Width:25 Height:25
+Familiar_Slot Width:61 Height:63
+FireFactionSymbolLarge Width:100 Height:139
+FullBody_Slot Width:61 Height:63
 FullBorder Width:15 Height:15
 GreyOutImage Width:8 Height:8
-GroupUI_Frame Width:162 Height:36
+GroupUI_Frame Width:163 Height:39
 GroupUI_Health Width:4 Height:6
 GroupUI_Mana Width:4 Height:3
 GroupUI_Stamina Width:4 Height:3
-Head_Slot Width:61 Height:60
-Header2CloseButton_Click Width:32 Height:32
-Header2CloseButton_Default Width:32 Height:32
-Header2CloseButton_Hover Width:32 Height:32
+Head_Slot Width:61 Height:63
+Header2CloseButton_Click Width:34 Height:34
+Header2CloseButton_Default Width:34 Height:34
+Header2CloseButton_Hover Width:34 Height:34
 Header2FrameBackground Width:90 Height:88
 Header2TitleBox Width:264 Height:42
 HeaderCloseButton_Click Width:26 Height:24
@@ -828,88 +897,94 @@ HelpButton_Glow07 Width:50 Height:50
 HelpButton_Glow08 Width:50 Height:50
 HelpButton_Glow09 Width:50 Height:50
 HelpButton_Glow10 Width:50 Height:50
-HorizontalWindowDivider Width:152 Height:2
+HorizontalWindowDivider Width:171 Height:2
 HouseDecorationWindow_RotateCCW Width:20 Height:20
 HouseDecorationWindow_RotateCW Width:20 Height:20
 InfoFrame Width:12 Height:12
 InformationLightBackgroundColor Width:4 Height:4
-InventoryCategorySelectionBubble Width:10 Height:10
-InventoryCategorySelectionFilled Width:4 Height:4
+InventoryCategorySelectionBubble Width:12 Height:12
+InventoryCategorySelectionFilled Width:12 Height:12
 InventoryContainerSelectionButton Width:26 Height:26
 InventoryContainerSelectionButton_Active Width:26 Height:26
 InventoryContainerSelectionButton_Hover Width:26 Height:26
-InventoryDiamondButtons_Click_Close Width:36 Height:31
-InventoryDiamondButtons_Click_LootAll Width:36 Height:31
-InventoryDiamondButtons_Click_SizeDown Width:36 Height:31
-InventoryDiamondButtons_Click_SizeUp Width:36 Height:31
-InventoryDiamondButtons_Default_Close Width:36 Height:31
-InventoryDiamondButtons_Default_LootAll Width:36 Height:31
-InventoryDiamondButtons_Default_SizeDown Width:36 Height:31
-InventoryDiamondButtons_Default_SizeUp Width:36 Height:31
-InventoryDiamondButtons_Hover_Close Width:36 Height:31
-InventoryDiamondButtons_Hover_LootAll Width:36 Height:31
-InventoryDiamondButtons_Hover_SizeDown Width:36 Height:31
-InventoryDiamondButtons_Hover_SizeUp Width:36 Height:31
+InventoryDiamondButtons_Click_Close Width:40 Height:35
+InventoryDiamondButtons_Click_LootAll Width:40 Height:35
+InventoryDiamondButtons_Click_SizeDown Width:40 Height:35
+InventoryDiamondButtons_Click_SizeUp Width:40 Height:35
+InventoryDiamondButtons_Default_Close Width:40 Height:35
+InventoryDiamondButtons_Default_LootAll Width:40 Height:35
+InventoryDiamondButtons_Default_SizeDown Width:40 Height:35
+InventoryDiamondButtons_Default_SizeUp Width:40 Height:35
+InventoryDiamondButtons_Hover_Close Width:40 Height:35
+InventoryDiamondButtons_Hover_LootAll Width:40 Height:35
+InventoryDiamondButtons_Hover_SizeDown Width:40 Height:35
+InventoryDiamondButtons_Hover_SizeUp Width:40 Height:35
 InventoryDivider Width:122 Height:2
 InventoryItemSelectionButton Width:26 Height:26
 InventoryItemSelectionButton_Active Width:26 Height:26
 InventoryItemSelectionButton_Hover Width:26 Height:26
-InventoryListViewButton_Click Width:136 Height:25
-InventoryListViewButton_Default Width:136 Height:25
-InventoryListViewButton_Hover Width:136 Height:25
-InventoryQuantitySymbol Width:6 Height:6
-InventorySplitStackSelectionButton_Active Width:19 Height:19
-InventorySplitStackSelectionButton_Default Width:19 Height:19
-InventorySplitStackSelectionButton_Hover Width:19 Height:19
-InventoryStorageContainerSymbol Width:7 Height:9
-InventoryTabSymbol_All Width:16 Height:15
-InventoryTabSymbol_Armor Width:16 Height:12
-InventoryTabSymbol_Documents Width:11 Height:11
-InventoryTabSymbol_Furniture Width:11 Height:11
-InventoryTabSymbol_Miscellaneous Width:11 Height:11
-InventoryTabSymbol_Potions Width:19 Height:15
-InventoryTabSymbol_Resources Width:11 Height:11
-InventoryTabSymbol_Tools Width:11 Height:11
-InventoryTabSymbol_Weapons Width:14 Height:13
-InventoryWeightSymbol Width:10 Height:9
-InventoryWindow_Background Width:10 Height:137
+InventoryListViewButton_Click Width:136 Height:28
+InventoryListViewButton_Default Width:136 Height:28
+InventoryListViewButton_Hover Width:136 Height:28
+InventoryQuantitySymbol Width:12 Height:12
+InventorySplitStackSelectionButton_Active Width:21 Height:21
+InventorySplitStackSelectionButton_Default Width:21 Height:21
+InventorySplitStackSelectionButton_Hover Width:21 Height:21
+InventoryStorageContainerSymbol Width:9 Height:9
+InventoryTabSymbol_All Width:20 Height:20
+InventoryTabSymbol_Armor Width:20 Height:20
+InventoryTabSymbol_Documents Width:20 Height:20
+InventoryTabSymbol_Furniture Width:20 Height:20
+InventoryTabSymbol_Miscellaneous Width:20 Height:20
+InventoryTabSymbol_Potions Width:20 Height:20
+InventoryTabSymbol_Resources Width:20 Height:20
+InventoryTabSymbol_Tools Width:20 Height:20
+InventoryTabSymbol_Weapons Width:20 Height:20
+InventoryWeightSymbol Width:12 Height:12
+InventoryWindow_Background Width:10 Height:149
 InventoryWindow_GradientBottomCover Width:4 Height:49
 InventoryWindow_NameplateDesign Width:4 Height:33
-InventoryWindowTabBarBase Width:31 Height:32
+InventoryWindowTabBarBase Width:31 Height:35
 InventoryWindowTabBarSelection Width:24 Height:23
-Key_Slot Width:43 Height:43
-KeyBinding_1 Width:36 Height:35
-KeyBinding_2 Width:36 Height:35
-KeyBinding_3 Width:36 Height:35
-KeyBinding_4 Width:36 Height:35
-KeyBinding_5 Width:36 Height:35
-KeyBinding_6 Width:36 Height:35
-KeyBindingGlow Width:49 Height:48
-keyboard_key_icon Width:18 Height:16
+Key_Slot Width:45 Height:45
+KeyBinding_1 Width:38 Height:39
+KeyBinding_2 Width:38 Height:39
+KeyBinding_3 Width:38 Height:39
+KeyBinding_4 Width:38 Height:39
+KeyBinding_5 Width:38 Height:39
+KeyBinding_6 Width:38 Height:39
+KeyBindingGlow Width:54 Height:54
+keyboard_key_icon Width:20 Height:20
 KeysButton_Active Width:32 Height:32
 KeysButton_Default Width:32 Height:32
 KeysButton_Hover Width:32 Height:32
-Kingthings_0 Width:255 Height:51
+Kingthings_0 Width:256 Height:512
 LargeTextFieldUnsliced Width:103 Height:44
 LeaderIcon Width:19 Height:19
-LeftHand_Slot Width:61 Height:60
-Legs_Slot Width:61 Height:59
+LeftHand_Slot Width:61 Height:63
+Legs_Slot Width:61 Height:63
 location_arrow Width:35 Height:40
 location_corpse Width:50 Height:50
 location_home Width:50 Height:50
 location_town Width:94 Height:94
 location_town_selected Width:94 Height:94
-Lock_GoldDiamond Width:47 Height:51
-Lock_SilverDiamond Width:47 Height:51
+Lock_GoldDiamond Width:56 Height:56
+Lock_SilverDiamond Width:56 Height:56
 LockButton_default Width:16 Height:16
 LockButton_hover Width:16 Height:16
 LockedAbilityIcons Width:56 Height:56
 manabar Width:5 Height:6
 manabar_compactframe Width:18 Height:8
 manabar_frame Width:13 Height:12
-ManifestationTab_Click Width:74 Height:52
-ManifestationTab_Default Width:63 Height:52
-ManifestationTab_Hover Width:74 Height:52
+ManifestationTab_Click Width:76 Height:58
+ManifestationTab_Default Width:76 Height:58
+ManifestationTab_Hover Width:76 Height:58
+marker_alchemist Width:37 Height:40
+marker_architect Width:40 Height:39
+marker_armorer Width:40 Height:40
+marker_bank Width:40 Height:40
+marker_blacksmith Width:37 Height:40
+marker_carpenter Width:40 Height:40
 marker_circle1 Width:50 Height:50
 marker_circle2 Width:50 Height:50
 marker_diamond1 Width:50 Height:50
@@ -917,40 +992,51 @@ marker_diamond2 Width:50 Height:50
 marker_diamond3 Width:50 Height:50
 marker_diamond4 Width:50 Height:50
 marker_diamond5 Width:50 Height:50
-MedButton_Purp_Click_Merged Width:31 Height:31
-MedButton_Purp_Default_Merged Width:31 Height:31
-MedButton_Purp_Hover_Merged Width:31 Height:31
-MedButton_Red_Click_Merged Width:31 Height:31
-MedButton_Red_Default_Merged Width:31 Height:31
-MedButton_Red_Hover_Merged Width:31 Height:31
-MedButton_Standard_Click_Merged Width:31 Height:31
-MedButton_Standard_Hover_Merged Width:31 Height:31
-MediumButton_Standard_Default_Merged Width:31 Height:31
-MinimapFrame Width:173 Height:173
-MiniMapGlassFrame Width:203 Height:203
-MinimapNorth Width:159 Height:159
-MobHealth_EndCaps Width:45 Height:22
+marker_fisherman Width:30 Height:40
+marker_general_store Width:35 Height:40
+marker_graveyard Width:37 Height:40
+marker_herbalist Width:40 Height:40
+marker_inn Width:40 Height:40
+marker_mission Width:33 Height:38
+marker_scribe Width:35 Height:40
+marker_sewer Width:40 Height:40
+marker_tailor Width:40 Height:40
+marker_tinkerer Width:40 Height:40
+marker_trainer Width:37 Height:40
+MedButton_Purp_Click_Merged Width:33 Height:33
+MedButton_Purp_Default_Merged Width:33 Height:33
+MedButton_Purp_Hover_Merged Width:33 Height:33
+MedButton_Red_Click_Merged Width:33 Height:33
+MedButton_Red_Default_Merged Width:33 Height:33
+MedButton_Red_Hover_Merged Width:33 Height:33
+MedButton_Standard_Click_Merged Width:33 Height:33
+MedButton_Standard_Hover_Merged Width:33 Height:33
+MediumButton_Standard_Default_Merged Width:33 Height:33
+MinimapFrame Width:176 Height:176
+MiniMapGlassFrame Width:264 Height:264
+MinimapNorth Width:176 Height:176
+MobHealth_EndCaps Width:45 Height:23
 MobHealth_Frame Width:47 Height:16
-ObjectButton_Unsliced Width:118 Height:20
+ObjectButton_Unsliced Width:121 Height:20
 ObjectPictureFrame Width:39 Height:39
 ornatearrow_L Width:90 Height:43
 ornatearrow_L_highlight Width:90 Height:43
 ornatearrow_R Width:90 Height:43
 ornatearrow_R_highlight Width:90 Height:43
-pageflapL_click Width:153 Height:88
-pageflapL_default Width:114 Height:88
-pageflapL_hover Width:114 Height:88
-pageflapR_click Width:145 Height:89
-pageflapR_default Width:121 Height:89
-pageflapR_hover Width:121 Height:89
+pageflapL_click Width:154 Height:93
+pageflapL_default Width:154 Height:93
+pageflapL_hover Width:154 Height:93
+pageflapR_click Width:154 Height:93
+pageflapR_default Width:154 Height:93
+pageflapR_hover Width:154 Height:93
 PageHighlightFrame Width:4 Height:4
 PartialBorder Width:15 Height:77
-PartyHealth_EndCaps Width:58 Height:21
+PartyHealth_EndCaps Width:60 Height:21
 PartyHealth_Frame Width:47 Height:16
 pentagram_marker Width:69 Height:73
-PermianSlabSerif_0 Width:511 Height:204
-PermianSlabSerifBold_24_0 Width:255 Height:241
-PersonSilhouette Width:210 Height:142
+PermianSlabSerif_0 Width:512 Height:512
+PermianSlabSerifBold_24_0 Width:256 Height:256
+PersonSilhouette Width:216 Height:216
 PlusSign Width:21 Height:21
 PlusSign_Mini Width:5 Height:5
 progess_bar_empty Width:80 Height:80
@@ -958,10 +1044,10 @@ progess_bar_full Width:80 Height:80
 ProgressBarBG Width:137 Height:19
 ProgressBarFrame Width:137 Height:19
 ProgressBarFull Width:4 Height:19
-PVPFlagButton_Click Width:43 Height:42
-PVPFlagButton_Default Width:43 Height:42
-PVPFlagButton_Hover Width:43 Height:42
-RightHand_Slot Width:61 Height:60
+PVPFlagButton_Click Width:44 Height:42
+PVPFlagButton_Default Width:44 Height:42
+PVPFlagButton_Hover Width:44 Height:42
+RightHand_Slot Width:61 Height:63
 rotate Width:32 Height:21
 rotate_active Width:32 Height:21
 scale Width:32 Height:21
@@ -970,33 +1056,33 @@ Scrolbar2 Width:18 Height:25
 ScrollBar_Unsliced Width:20 Height:51
 Scrollbar2_Scroller Width:14 Height:12
 SearchBarFrame Width:23 Height:24
-SearchSymbol_Active Width:13 Height:14
-SearchSymbol_Default Width:13 Height:14
-SearchSymbol_Hover Width:13 Height:14
+SearchSymbol_Active Width:15 Height:16
+SearchSymbol_Default Width:15 Height:16
+SearchSymbol_Hover Width:15 Height:16
 SectionBackground Width:49 Height:50
-SectionDividerBar Width:36 Height:7
-SectionDividerBar_Half Width:17 Height:7
+SectionDividerBar Width:40 Height:9
+SectionDividerBar_Half Width:19 Height:9
 SectionDividerFrames_nobackground Width:32 Height:32
 SettingsButton Width:26 Height:26
-SettingsButton_Click Width:43 Height:42
-SettingsButton_Default Width:43 Height:42
-SettingsButton_Hover Width:43 Height:42
+SettingsButton_Click Width:44 Height:42
+SettingsButton_Default Width:44 Height:42
+SettingsButton_Hover Width:44 Height:42
 SimpleButton_Click Width:22 Height:22
 SimpleButton_Default Width:22 Height:22
 SimpleButton_Hover Width:22 Height:22
 SimpleButton_Inactive Width:22 Height:22
-Skill_Firstaid Width:82 Height:82
+Skill_Firstaid Width:84 Height:84
 SkillIconsPrestigeFrame Width:145 Height:145
 SkillItemFrame Width:257 Height:64
 SkillItemFrame_Highlighted Width:257 Height:64
 SkillLevelBarFull Width:4 Height:14
-SkillLevelLabelBarFrameLine Width:4 Height:5
+SkillLevelLabelBarFrameLine Width:4 Height:7
 SkillLevelProgressBar Width:4 Height:12
 SkillLevelProgressRefillBar Width:4 Height:12
-SkillsButton Width:43 Height:42
-SkillsButton_Click Width:43 Height:42
-SkillsButton_Default Width:43 Height:42
-SkillsButton_Hover Width:43 Height:42
+SkillsButton Width:44 Height:42
+SkillsButton_Click Width:44 Height:42
+SkillsButton_Default Width:44 Height:42
+SkillsButton_Hover Width:44 Height:42
 SkillsCategoryDivider Width:8 Height:3
 SkillsCategoryTitleFrame Width:35 Height:35
 SkillsDarkBackground Width:10 Height:10
@@ -1006,7 +1092,7 @@ SkillsSelectionFrame_Default Width:29 Height:29
 SkillsSelectionFrame_Hover Width:29 Height:29
 SkillsTab_Active Width:30 Height:32
 SkillsTab_Off Width:30 Height:32
-SkillTrackerFrame Width:99 Height:29
+SkillTrackerFrame Width:100 Height:29
 SkillWindowMinimize_Click Width:30 Height:136
 SkillWindowMinimize_Default Width:30 Height:136
 SkillWindowMinimize_Hover Width:30 Height:136
@@ -1018,87 +1104,162 @@ SpellInfo_IconFrame Width:12 Height:12
 SpellInfo_ReagentFrame Width:16 Height:16
 StaminaBar Width:5 Height:5
 StaminaBar_Frame Width:13 Height:20
-star Width:60 Height:56
-star_filled Width:60 Height:56
-StatusBar_Frame Width:80 Height:80
+star Width:64 Height:64
+star_filled Width:64 Height:64
+StatusBar_Frame Width:84 Height:84
 StatusBarBG Width:4 Height:14
-StatusBarBG2 Width:143 Height:62
+StatusBarBG2 Width:158 Height:62
 StatusBarFrame Width:103 Height:14
-StealthButton_Click Width:43 Height:42
-StealthButton_Default Width:43 Height:42
-StealthButton_Hover Width:43 Height:42
-SystemMessage_Center Width:460 Height:76
-SystemMessage_Left Width:119 Height:67
-SystemMessage_Right Width:120 Height:67
+StealthButton_Click Width:44 Height:42
+StealthButton_Default Width:44 Height:42
+StealthButton_Hover Width:44 Height:42
+SystemMessage_Center Width:460 Height:80
+SystemMessage_Left Width:121 Height:80
+SystemMessage_Right Width:121 Height:80
 TabActive Width:6 Height:29
 TabFrameBackground Width:23 Height:23
 TabInactive Width:6 Height:29
 TabSelectionBackground Width:25 Height:25
-TargetingWindowBase_Health Width:77 Height:33
-TargetingWindowBase_StatBar Width:167 Height:21
-TargetingWindowCapDesign Width:47 Height:82
-Textbox_Major_Elements Width:121 Height:120
+TargetingWindowBase_Health Width:91 Height:45
+TargetingWindowBase_StatBar Width:168 Height:30
+TargetingWindowCapDesign Width:57 Height:90
+Textbox_Major_Elements Width:121 Height:121
 Textbox_NoBG Width:108 Height:108
 TextBoxBG Width:4 Height:4
-TextboxHeaderUnsliced Width:279 Height:129
-TextFieldButton_Blue_Click_Dropdown Width:24 Height:23
-TextFieldButton_Blue_Click_Plus Width:23 Height:23
-TextFieldButton_Blue_Click_UpArrow Width:24 Height:23
-TextFieldButton_Blue_Dark_Dropdown Width:24 Height:23
-TextFieldButton_Blue_Dark_Plus Width:23 Height:23
-TextFieldButton_Blue_Dark_UpArrow Width:24 Height:23
-TextFieldButton_Blue_Default_Dropdown Width:24 Height:23
-TextFieldButton_Blue_Default_Plus Width:23 Height:23
-TextFieldButton_Blue_Default_UpArrow Width:24 Height:23
-TextFieldButton_Blue_Hover_Dropdown Width:24 Height:23
-TextFieldButton_Blue_Hover_Plus Width:23 Height:23
-TextFieldButton_Blue_Hover_UpArrow Width:24 Height:23
-TextFieldButton_Click_Dropdown Width:32 Height:32
-TextFieldButton_Click_Minus Width:32 Height:32
-TextFieldButton_Click_Plus Width:32 Height:32
-TextFieldButton_Click_UpArrow Width:32 Height:32
-TextFieldButton_Click_X Width:32 Height:32
-TextFieldButton_Dark_Dropdown Width:32 Height:32
-TextFieldButton_Dark_Minus Width:32 Height:32
-TextFieldButton_Dark_Plus Width:32 Height:32
-TextFieldButton_Dark_UpArrow Width:32 Height:32
-TextFieldButton_Dark_X Width:32 Height:32
-TextFieldButton_Default_Dropdown Width:32 Height:32
-TextFieldButton_Default_Minus Width:32 Height:32
-TextFieldButton_Default_Plus Width:32 Height:32
-TextFieldButton_Default_UpArrow Width:32 Height:32
-TextFieldButton_Default_X Width:32 Height:32
-TextFieldButton_Hover_Dropdown Width:32 Height:32
-TextFieldButton_Hover_Minus Width:32 Height:32
-TextFieldButton_Hover_Plus Width:32 Height:32
-TextFieldButton_Hover_UpArrow Width:32 Height:32
-TextFieldButton_Hover_X Width:32 Height:32
+TextboxHeaderUnsliced Width:281 Height:131
+TextFieldButton_Blue_Click_Dropdown Width:24 Height:24
+TextFieldButton_Blue_Click_Plus Width:24 Height:24
+TextFieldButton_Blue_Click_UpArrow Width:24 Height:24
+TextFieldButton_Blue_Dark_Dropdown Width:24 Height:24
+TextFieldButton_Blue_Dark_Plus Width:24 Height:24
+TextFieldButton_Blue_Dark_UpArrow Width:24 Height:24
+TextFieldButton_Blue_Default_Dropdown Width:24 Height:24
+TextFieldButton_Blue_Default_Plus Width:24 Height:24
+TextFieldButton_Blue_Default_UpArrow Width:24 Height:24
+TextFieldButton_Blue_Hover_Dropdown Width:24 Height:24
+TextFieldButton_Blue_Hover_Plus Width:24 Height:24
+TextFieldButton_Blue_Hover_UpArrow Width:24 Height:24
+TextFieldButton_Click_Dropdown Width:36 Height:36
+TextFieldButton_Click_Minus Width:36 Height:36
+TextFieldButton_Click_Plus Width:36 Height:36
+TextFieldButton_Click_UpArrow Width:36 Height:36
+TextFieldButton_Click_X Width:36 Height:36
+TextFieldButton_Dark_Dropdown Width:36 Height:36
+TextFieldButton_Dark_Minus Width:36 Height:36
+TextFieldButton_Dark_Plus Width:36 Height:36
+TextFieldButton_Dark_UpArrow Width:36 Height:36
+TextFieldButton_Dark_X Width:36 Height:36
+TextFieldButton_Default_Dropdown Width:36 Height:36
+TextFieldButton_Default_Minus Width:36 Height:36
+TextFieldButton_Default_Plus Width:36 Height:36
+TextFieldButton_Default_UpArrow Width:36 Height:36
+TextFieldButton_Default_X Width:36 Height:36
+TextFieldButton_Hover_Dropdown Width:36 Height:36
+TextFieldButton_Hover_Minus Width:36 Height:36
+TextFieldButton_Hover_Plus Width:36 Height:36
+TextFieldButton_Hover_UpArrow Width:36 Height:36
+TextFieldButton_Hover_X Width:36 Height:36
 ThinFrameBackgroundDark Width:10 Height:10
 ThinFrameBackgroundExpand Width:10 Height:10
 ThinFrameBackgroundInfo Width:10 Height:10
 ThinFrameInfoDivider_Horizontal Width:6 Height:6
 ThinFrameInfoDivider_Vertical Width:5 Height:5
-TitleBar Width:106 Height:36
-tooltip_merged Width:23 Height:23
+TitleBar Width:109 Height:36
+tooltip_merged Width:25 Height:25
 TopGradient Width:4 Height:100
-Torso_Slot Width:61 Height:58
+Torso_Slot Width:61 Height:63
 TradeWindow_AcceptedCheckBox Width:53 Height:18
 TradeWindow_AcceptedCheckBox_Click Width:26 Height:26
 TradeWindow_AcceptedCheckBox_Hover Width:26 Height:26
-TradeWindow_Arrow_MyOffer Width:211 Height:20
-TradeWindow_Arrow_TheirOffer Width:211 Height:20
-TradeWindow_Background Width:355 Height:39
+TradeWindow_Arrow_MyOffer Width:213 Height:22
+TradeWindow_Arrow_TheirOffer Width:213 Height:22
+TradeWindow_Background Width:373 Height:41
 translate Width:32 Height:21
 translate_active Width:32 Height:21
 unlock Width:24 Height:30
 UpButton_default Width:16 Height:16
 UpButton_hover Width:16 Height:16
-VerticalWindowDivider Width:2 Height:152
+VerticalWindowDivider Width:2 Height:171
 WaterFactionSymbolLarge Width:100 Height:139
 WindowBackgroundFancy Width:296 Height:378
 WindowDivider Width:8 Height:37
-WindowNoFrame Width:103 Height:82
+WindowNoFrame Width:105 Height:84
 XPBarActive Width:5 Height:5
+achievement_Activity_AbilityCount Width:50 Height:50
+achievement_Activity_AbilityLevel Width:50 Height:50
+achievement_Activity_BountiesNumber Width:50 Height:50
+achievement_Activity_Dungeon Width:50 Height:50
+achievement_Activity_Guild Width:50 Height:50
+achievement_Activity_HouseBuilding Width:50 Height:50
+achievement_Activity_LandOwner Width:50 Height:50
+achievement_Boss Kills_AncientDragon Width:50 Height:50
+achievement_Boss Kills_AncientTreeLord Width:50 Height:50
+achievement_Boss Kills_Champion Width:50 Height:50
+achievement_Boss Kills_Cultist Width:50 Height:50
+achievement_Boss Kills_Death Width:50 Height:50
+achievement_Crafting_CraftingOrder Width:50 Height:50
+achievement_Crafting_FabricationSkillRecipe Width:50 Height:50
+achievement_Crafting_MetalsmithSkillRecipe Width:50 Height:50
+achievement_Crafting_WoodsmithSkillRecipe Width:50 Height:50
+achievement_Executioner_Animal Width:50 Height:50
+achievement_Executioner_Arachnid Width:50 Height:50
+achievement_Executioner_Demon Width:50 Height:50
+achievement_Executioner_Dragon Width:50 Height:50
+achievement_Executioner_Giant Width:50 Height:50
+achievement_Executioner_Humanoid Width:50 Height:50
+achievement_Executioner_Ork Width:50 Height:50
+achievement_Executioner_Reptile Width:50 Height:50
+achievement_Executioner_Undead Width:50 Height:50
+achievement_Fishing_AetherFish Width:50 Height:50
+achievement_Fishing_FishingNumber Width:50 Height:50
+achievement_Fishing_FishingSize Width:50 Height:50
+achievement_Fishing_FishingTreasure Width:50 Height:50
+achievement_PvP_FireAllegiance Width:50 Height:50
+achievement_PvP_KarmaBad Width:50 Height:50
+achievement_PvP_KarmaGood Width:50 Height:50
+achievement_PvP_VersusAny Width:50 Height:50
+achievement_PvP_VersusBlue Width:50 Height:50
+achievement_PvP_VersusRed Width:50 Height:50
+achievement_PvP_WaterAllegiance Width:50 Height:50
+achievement_Renown_RenownAmount Width:50 Height:50
+achievement_Skill_AlchemySkill Width:50 Height:50
+achievement_Skill_AnimalLoreSkill Width:50 Height:50
+achievement_Skill_AnimalTamingSkill Width:50 Height:50
+achievement_Skill_ArcherySkill Width:50 Height:50
+achievement_Skill_BardSkill Width:50 Height:50
+achievement_Skill_BashingSkill Width:50 Height:50
+achievement_Skill_BeastmasterySkill Width:50 Height:50
+achievement_Skill_BlockingSkill Width:50 Height:50
+achievement_Skill_ChannelingSkill Width:50 Height:50
+achievement_Skill_CookingSkill Width:50 Height:50
+achievement_Skill_EvocationSkill Width:50 Height:50
+achievement_Skill_FabricationSkill Width:50 Height:50
+achievement_Skill_FishingSkill Width:50 Height:50
+achievement_Skill_HealingSkill Width:50 Height:50
+achievement_Skill_HeavyArmorSkill Width:50 Height:50
+achievement_Skill_HidingSkill Width:50 Height:50
+achievement_Skill_InscriptionSkill Width:50 Height:50
+achievement_Skill_LancingSkill Width:50 Height:50
+achievement_Skill_LightArmorSkill Width:50 Height:50
+achievement_Skill_LumberjackSkill Width:50 Height:50
+achievement_Skill_MagicAffinitySkill Width:50 Height:50
+achievement_Skill_ManifestationSkill Width:50 Height:50
+achievement_Skill_MarksmanshipSkill Width:50 Height:50
+achievement_Skill_MeleeSkill Width:50 Height:50
+achievement_Skill_MetalsmithSkill Width:50 Height:50
+achievement_Skill_MiningSkill Width:50 Height:50
+achievement_Skill_MusicianshipSkill Width:50 Height:50
+achievement_Skill_NecromancySkill Width:50 Height:50
+achievement_Skill_PiercingSkill Width:50 Height:50
+achievement_Skill_SlashingSkill Width:50 Height:50
+achievement_Skill_StealthSkill Width:50 Height:50
+achievement_Skill_TreasureHuntingSkill Width:50 Height:50
+achievement_Skill_WoodsmithSkill Width:50 Height:50
+achievement_Treasure Hunting_DecipherPrecise Width:50 Height:50
+achievement_Treasure Hunting_Fancy Map Width:50 Height:50
+achievement_Treasure Hunting_TreasureNumber Width:50 Height:50
+Gem_Empty Width:15 Height:12
+Gem_Filled Width:15 Height:12
 ConversationWindow_BG Width:877 Height:200
 Gravestone Width:953 Height:981
 HueSwatch Width:4 Height:4
@@ -1117,8 +1278,44 @@ Instructions_Spells Width:1313 Height:525
 PrestigeBook Width:789 Height:455
 QuestCompletionRibbonDesign Width:1040 Height:314
 ScrollParchmentUIWindow Width:616 Height:751
+ShieldBackground Width:263 Height:332
 SkillBook Width:789 Height:455
 Spellbook Width:789 Height:455
+
+Map Textures:
+BarrenLands Width:1024 Height:1024
+BarrenLands_subMap Width:2048 Height:2048
+BlackForest Width:1024 Height:1024
+BlackForest_subMap Width:2048 Height:2048
+CatacombsConfig1 Width:1024 Height:1024
+CatacombsConfig2 Width:1024 Height:1024
+CatacombsConfig3 Width:1024 Height:1024
+CatacombsConfig4 Width:1024 Height:1024
+CatacombsConfig5 Width:1024 Height:1024
+EasternFrontier Width:1024 Height:1024
+EasternFrontier_subMap Width:2048 Height:2048
+NewCelador Width:1024 Height:1024
+NewCelador_full Width:1024 Height:1024
+SouthernHills Width:1024 Height:1024
+SouthernHills_subMap Width:2048 Height:2048
+SouthernRim Width:1024 Height:1024
+SouthernRim_subMap Width:2048 Height:2048
+TestMap Width:1024 Height:1024
+UpperPlains Width:1024 Height:1024
+UpperPlains_subMap Width:2048 Height:2048
+
+Scene Loading Textures:
+BarrenLands Width:2048 Height:1080
+BlackForest Width:2048 Height:1080
+Catacombs Width:2048 Height:1080
+Contempt Width:2048 Height:1080
+Corruption Width:2048 Height:1080
+Deception Width:2048 Height:1080
+Default Width:2048 Height:1024
+EasternFrontier Width:2048 Height:1080
+SouthernHills Width:2048 Height:1080
+SouthernRim Width:2048 Height:1080
+UpperPlains Width:2048 Height:1080
 
 ClientIds with 2D Textures:
 3
@@ -2105,3 +2302,78 @@ ClientIds with 2D Textures:
 2116
 2120
 2122
+2158
+2169
+2173
+2174
+2180
+2181
+2182
+2183
+2184
+2193
+2194
+2195
+2196
+2197
+2198
+2199
+2200
+2201
+2202
+2203
+2204
+2205
+2206
+2207
+2208
+2209
+2210
+2212
+2214
+2215
+2216
+2217
+2218
+2219
+2220
+2221
+2222
+2224
+2225
+2226
+2227
+2228
+2229
+2231
+2232
+2233
+2234
+2235
+2236
+2237
+2238
+2239
+2240
+2241
+2242
+2243
+2244
+2245
+2246
+2247
+2248
+2249
+2250
+2251
+2252
+2253
+2254
+2268
+2269
+2270
+2271
+2272
+2286
+2287
+2288

@@ -1,7 +1,6 @@
 <ObjectTemplate>
-	<ClientId>349</ClientId>
-	<Color>0xFFFF0000</Color>
-	<Name>[FF0000]Ruby[-]</Name>
+	<ClientId>2250</ClientId>
+	<Name>Ruby</Name>
 	<ScaleModifier>0.8</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>			

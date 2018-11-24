@@ -33,7 +33,7 @@ AI.StateMachine.AllStates.SpawnSnakes = {
             this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(700), "SpawnSnakes")
 			this:PlayAnimation("cast")
             this:PlayEffect("CastAir",0.5)
-            this:PlayObjectSound("CastAir",false,0.7)
+            this:PlayObjectSound("event:/magic/air/magic_air_cast_air",false,0.7)
 			
             SnakeCooldown = false
         end,
@@ -62,7 +62,7 @@ RegisterEventHandler(EventType.Timer,"SpawnSnakes", function()
 
 		this:PlayAnimation("cast")
 		this:PlayEffect("CastAir",0.5)
-		this:PlayObjectSound("CastAir",false,0.7)
+		this:PlayObjectSound("event:/magic/air/magic_air_cast_air",false,0.7)
         SpawnSnake(SnakeList)
         
         this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(700), "SpawnSnakes")

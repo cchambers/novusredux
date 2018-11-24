@@ -33,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=90,  
+					Brawling = 90,  
 					},	
 				EquipTable = 
 					{
@@ -42,15 +42,15 @@
 				LootTables = 
 					{ 
 						{
-							NumItems = 1,
+							NumItems = 2,
 							NumCoins = math.random(550,700),
 							LootItems = 
 							{ 
-								{  Chance = 50, Template = "resource_iron", Unique = true, StackCount = math.random(2,5)  },
-								{  Chance = 20, Template = "resource_bronze", Unique = true, StackCount = math.random(1,2)  },
-								{  Chance = 5, Template = "resource_copper", Unique = true, StackCount = math.random(1,2)  },
-								{  Chance = 2, Template = "resource_steel", Unique = true, StackCount = math.random(1,2)  },
-								{  Chance = 1, Template = "resource_obsidian", Unique = true, StackCount = math.random(1,2)  },
+								{  Chance = 100, Template = "resource_iron", Unique = true, StackCount = math.random(2,5), Unique = true  },
+								{  Chance = 20, Template = "resource_Gold", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 5, Template = "resource_copper", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 2, Template = "resource_cobalt", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 1, Template = "resource_obsidian", Unique = true, StackCount = math.random(1,2), Unique = true  },
 							},
 						},
 					},							

@@ -98,7 +98,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		if(usedType ~= "Use" and (usedType ~= "Examine" and usedType ~= "Write")) then return end
 		if (usedType == "Write") then
 			if (this:TopmostContainer() ~= user) then
-				user:SystemMessage("[$1947]")
+				user:SystemMessage("[$1947]","info")
 				return
 			end
 			--DebugMessage("Attempt to open the dialog.")
@@ -107,7 +107,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		end
 
 		if this:HasObjVar("AnotherLanguage") then 
-			user:SystemMessage("[$1950]")
+			user:SystemMessage("[$1950]","info")
 			return
 		end
 		user:SetObjVar("Line",1)
@@ -144,7 +144,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"WriteNoteWindow",function 
 		end
 		local writeTime = math.min(5000,math.max(1000,contents.WritingContents:len()*4 + 1))
 		--DebugMessage("Write time is "..tostring(writeTime))
-		user:SystemMessage("You write the note.")
+		user:SystemMessage("You write the note.","info")
 		user:CloseDynamicWindow("WriteNoteWindow")
 		user:PlayAnimation(WRITING_ANIMATION)	
 		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(writeTime),"PreventExamine")
@@ -159,7 +159,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"WriteNoteWindow",function 
 		}
 		CallFunctionDelayed(TimeSpan.FromMilliseconds(writeTime),function()
 			user:PlayAnimation("idle")
-			this:SystemMessage("You finish writing the note.")
+			this:SystemMessage("You finish writing the note.","info")
 			this:SendMessage("WriteNote",contents.WritingContents)
 		end)
 	end

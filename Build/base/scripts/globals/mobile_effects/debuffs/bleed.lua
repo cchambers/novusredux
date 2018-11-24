@@ -14,8 +14,8 @@ MobileEffectLibrary.Bleed =
 		end
 
 		-- immunity from bleed effects
-		if ( HasMobileEffect(target, "NoBleed") ) then
-			DoMobileImmune(target)
+		if ( HasMobileEffect(self.ParentObj, "NoBleed") ) then
+			DoMobileImmune(self.ParentObj)
 			return EndMobileEffect(root)
 		end
 
@@ -29,8 +29,9 @@ MobileEffectLibrary.Bleed =
 			AddBuffIcon(self.ParentObj, "BleedDebuff", "Bleed", "Shred", "You are bleeding.", true)
 		end
 		self.ParentObj:PlayEffect("BloodDropsEffect")
+		self.ParentObj:PlayEffect("StatusEffectBlood")
 		self.ParentObj:SystemMessage("You are bleeding!", "info")
-		--self.ParentObj:PlayObjectSound("WormPain")
+		self.ParentObj:PlayObjectSound("event:/animals/worm/worm_pain")
 
 		AdvanceConflictRelation(self.Target, self.ParentObj)
 	end,
@@ -40,6 +41,7 @@ MobileEffectLibrary.Bleed =
 			RemoveBuffIcon(self.ParentObj, "BleedDebuff")
 		end
 		self.ParentObj:StopEffect("BloodDropsEffect")
+		self.ParentObj:StopEffect("StatusEffectBlood")
 		StartMobileEffect(self.ParentObj, "NoBleed")
 	end,
 

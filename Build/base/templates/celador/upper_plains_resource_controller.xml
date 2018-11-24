@@ -19,7 +19,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -34,7 +38,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -49,7 +57,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -58,7 +70,7 @@
 							Region = "GuardZoneLarge",
 							Tree = {
 								RegenRate = (1 / 60), 
-								Count = 15, 
+								Count = 5, 
 
 								RareResources = {
 									Ash = {					
@@ -79,10 +91,6 @@
 										AvailablityPct = 20,
 										Count = 8,
 									},
-									Blightwood = {					
-										AvailablityPct = 5,
-										Count = 8, 
-									},
 								}
 							},
 							Rock = 
@@ -92,47 +100,13 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 5,
-										Count = 20, 
+										AvailablityPct = 0,
+										Count = 10, 
 									},
 								}
 							},
 						},
 						
-					},
-
-					SpawnedSources = 
-					{						
-						{ MaxCount = 50, Region = "PlainsEasy" ,     Resource = "Ginseng"},
-						{ MaxCount = 70, Region = "PlainsMediumNorth",   Resource = "Ginseng"},
-						{ MaxCount = 70, Region = "PlainsMediumSouth",   Resource = "Ginseng"},
-						{ MaxCount = 65, Region = "PlainsEasy",      Resource = "LemonGrass" },
-						{ MaxCount = 65, Region = "PlainsMediumNorth",      Resource = "LemonGrass" },
-						{ MaxCount = 65, Region = "PlainsMediumSouth",      Resource = "LemonGrass" },
-						{ MaxCount = 50, Region = "PlainsMediumNorth",      Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "PlainsMediumSouth",      Resource =  "Mushrooms"},
-						{ MaxCount = 75, Region = "BlackForestPlains", Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "BlackForestPlains", Resource =  "MushroomsPoison"},
-						{ MaxCount = 65,  Region = "PlainsMediumNorth",    Resource =  "Cotton"},
-						{ MaxCount = 65,  Region = "PlainsMediumSouth",    Resource =  "Cotton"},
-						{ MaxCount = 75, Region = "PlainsHard",   Resource = "Ginseng"},
-						{ MaxCount = 65, Region = "PlainsHard",      Resource = "LemonGrass" },
-						{ MaxCount = 65,  Region = "PlainsHard",    Resource =  "Mushrooms"},
-						{ MaxCount = 35,  Region = "StarterMobs",    Resource =  "LemonGrass"},
-						{ MaxCount = 30,  Region = "StarterMobs",    Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "PlainsEasy" ,     Resource = "Cotton"},
-						{ MaxCount = 30, Region = "PlainsMediumNorth",   Resource = "Cotton"},
-						{ MaxCount = 100, Region = "PlainsMediumSouth",   Resource = "Cotton"},
-						{ MaxCount = 30, Region = "BlackForestPlains", Resource =  "Cotton"},
-						{ MaxCount = 70,  Region = "PlainsHard",    Resource =  "Cotton"},
-						{ MaxCount = 30,  Region = "StarterMobs",    Resource =  "Cotton"},
-
-						{ MaxCount = 50, Region = "PlainsEasy" ,     Resource = "Kindling"},
-						{ MaxCount = 70, Region = "PlainsMediumNorth" ,     Resource = "Kindling"},
-						{ MaxCount = 70, Region = "PlainsMediumSouth" ,     Resource = "Kindling"},
-						{ MaxCount = 75, Region = "PlainsHard" ,     Resource = "Kindling"},
-						{ MaxCount = 30, Region = "StarterMobs" ,     Resource = "Kindling"},
-						{ MaxCount = 30, Region = "DemoRegion" ,     Resource = "Kindling"},
 					},
 				}
 			</Initializer>

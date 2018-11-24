@@ -102,3 +102,18 @@ WeaponAbilitiesData.Fish = {
         Enabled = true
     },
 }
+
+WeaponAbilitiesData.Dig = {        
+    MobileEffect = "Dig",
+    Stamina = 1,
+    NoCombat = true,
+    QueueTarget = "Loc", -- loc works for location and/or dynamic objects in the same target
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(3),
+    Action = {
+        DisplayName = "Dig",
+        Tooltip = "Attempt to dig nearby location.",
+        Icon = "shoveldig",
+        Enabled = true
+    },
+}

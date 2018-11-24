@@ -25,15 +25,15 @@ function GetLocInfo(worldName,locIndex)
 	end
 end
 
-local curGotoRegion = GetRegionAddress()
-local curGotoWorld = GetWorldName()
+local curGotoRegion = ServerSettings.RegionAddress
+local curGotoWorld = ServerSettings.WorldName
 local selectedItem
 
 function ShowGoToList()
 	local newWindow = DynamicWindow("GoToList","Goto",450,530)
 
 	local regionStr = curGotoRegion .. " - " .. curGotoWorld
-	if(curGotoRegion == GetRegionAddress()) then
+	if(curGotoRegion == ServerSettings.RegionAddress) then
 		regionStr = regionStr .. " (Current)"
 	end
 	newWindow:AddLabel(20,10,"Region: "..regionStr,0,0,18)
@@ -94,7 +94,7 @@ function ShowChangeRegion()
 	local newWindow = DynamicWindow("GoToList","Goto",450,530)
 
 	local regionStr = curGotoRegion .. " - " .. curGotoWorld
-	if(curGotoRegion == GetRegionAddress()) then
+	if(curGotoRegion == ServerSettings.RegionAddress) then
 		regionStr = regionStr .. " (Current)"
 	end
 	newWindow:AddLabel(20,10,"Region: "..regionStr,0,0,18)
@@ -127,7 +127,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GoToList",
 				local locInfo = GetLocInfo(curGotoWorld,selectedItem)
 				local dest = (locInfo and locInfo.Loc) or Loc(0,0,0)				
 				this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"TeleportDelay")
-				if(curGotoRegion == GetRegionAddress()) then		
+				if(curGotoRegion == ServerSettings.RegionAddress) then		
 					this:SetWorldPosition(dest)					
 				else
 					this:TransferRegionRequest(curGotoRegion,dest)
@@ -137,7 +137,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GoToList",
 				local dest = (locInfo and locInfo.Loc) or Loc(0,0,0)
 				-- this little hack shoudl stop the god from instantly travelling into the portal
 				this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"TeleportDelay")
-				if(curGotoRegion == GetRegionAddress()) then	
+				if(curGotoRegion == ServerSettings.RegionAddress) then	
 					OpenTwoWayPortal(this:GetLoc(),dest,60)
 				else
 					OpenRemoteTwoWayPortal(this:GetLoc(),dest,curGotoRegion,60)

@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1584</ClientId>
 	<Name>Lich</Name>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="GhostMale"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/ghost_male/ghost_male"/>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<ScaleModifier>0.6</ScaleModifier>
 	<MobileComponent>			
@@ -11,13 +11,14 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">420</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">true</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">60</DoubleVariable>
-		<DoubleVariable Name="Attack">50</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
@@ -37,7 +38,7 @@
 					{  
 					MagicAffinity=100,
 					Evocation=100, 
-					Bashing=70,  
+					Brawling = 70,  
 					},	
 				EquipTable = 
 					{
@@ -50,8 +51,8 @@
 						TemplateDefines.LootTable.ScrollsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.PotionsLow,
-						TemplateDefines.LootTable.Skeleton,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.BonesCursed,
+						TemplateDefines.LootTable.FineScrolls,
 						{
 							NumCoins = math.random(260,350),
 						},

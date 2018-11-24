@@ -206,6 +206,12 @@ function QueueWeaponAbility(mobileObj, primary, weaponAbility)
 					return false
 				end
 			end
+
+			if not( weaponAbility.AllowCloaked == true ) then
+				-- instant ability, break cloak (unless specified not to)
+				mobileObj:SendMessage("BreakInvisEffect", "Action")
+			end
+			
 			if ( PerformWeaponAbility(mobileObj, target, weaponAbility, true) ) then
 				-- instant ability, trigger the cooldown.
 				StartWeaponAbilityCooldown(mobileObj, primary, weaponAbility.Cooldown)
@@ -214,14 +220,11 @@ function QueueWeaponAbility(mobileObj, primary, weaponAbility)
 					-- force combat mode cause they used a weapon ability.
 					mobileObj:SendMessage("ForceCombat")
 				end
-
-				if not( weaponAbility.AllowCloaked == true ) then
-					-- instant ability, break cloak (unless specified not to)
-					mobileObj:SendMessage("BreakInvisEffect", "WeaponAbility")
-				end
 			end
 			return
 		end
+
+		queuedAbility.AllowCloaked = weaponAbility.AllowCloaked
 
 		if (weaponAbility.Action.DisplayName) then
 			queuedAbility.DisplayName = weaponAbility.Action.DisplayName
@@ -269,11 +272,11 @@ function PerformWeaponAbility(mobileObj, target, data, hitSuccess)
 		if ( target and data.TargetMobileEffect ) then
 			target:SendMessage("StartMobileEffect", data.TargetMobileEffect, mobileObj, (data.TargetMobileEffectArgs or {}))
 		end
+		if ( data.Stamina > 0 ) then
+			AdjustCurStamina(mobileObj, -data.Stamina)
+		end
 	else
 		mobileObj:SendMessage("ExecuteMissAction", target)
-	end
-	if ( data.Stamina > 0 ) then
-		AdjustCurStamina(mobileObj, -data.Stamina)
 	end
 	return true
 end

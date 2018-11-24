@@ -60,7 +60,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=40,  
+					Brawling = 40,  
 					},	
 				EquipTable = 
 					{
@@ -81,7 +81,6 @@
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Poor,
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(50,100),
 						},

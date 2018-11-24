@@ -6,7 +6,11 @@ MobileEffectLibrary.Cleave =
 		
 		self.ParentObj:PlayAnimation("wideswept_attack")
 		self.ParentObj:PlayEffect("BuffEffect_A")
-		self.ParentObj:PlayObjectSound("HumanMaleAttack")
+		if (IsMale(self.ParentObj)) then
+			self.ParentObj:PlayObjectSound("event:/character/human_male/human_male_attack")
+		else
+			self.ParentObj:PlayObjectSound("event:/character/human_female/human_female_attack")
+		end
 
 		self.Weapon = GetPrimaryWeapon(self.ParentObj)
 

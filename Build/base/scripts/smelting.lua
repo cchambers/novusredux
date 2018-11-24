@@ -1,4 +1,3 @@
-require 'incl_container'
 
 STACK_LOSS_PERCENT_ON_FAIL = 0.10
 
@@ -52,7 +51,7 @@ function VerifySmelt()
 end
 
 function SmeltOre()
-	this:PlayObjectSound("SoupCook", false, 2)
+	this:PlayObjectSound("event:/objects/consumables/soup_cook", false, 2)
 	FaceObject(this,mTool)
 
 	local miningSkill = GetSkillLevel(this,"MiningSkill") or 0

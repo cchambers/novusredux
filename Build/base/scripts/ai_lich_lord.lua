@@ -1,6 +1,9 @@
 require 'base_ai_mob'
 require 'base_ai_intelligent'
 
+AI.Settings.ChaseRange = 25.0
+AI.Settings.LeashDistance = 35
+
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"SetColor")
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",

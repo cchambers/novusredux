@@ -3,8 +3,10 @@
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
 	<Name>Wallace the Master Rogue</Name>
+	<SharedStateEntry name="Title" type="string" value="Rogue"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="WanderRegion">ValusRogue</StringVariable>
+		<BoolVariable Name="AI-CanWander">true</BoolVariable>
 		<StringVariable Name="PrestigeClass">Rogue</StringVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
@@ -39,22 +41,6 @@
 						Legs = { "armor_hardened_leggings"},
 						Head = { "armor_hardened_helm"},
 						Backpack = { "backpack" }		
-					},
-					ItemInventory= {
-						{
-							Template = "prestige_rogue_dart_1",
-							Price = 500,
-							Amount = 50,
-							RelativeLoc = "1.36792, 0.9960022, 1.356812",
-							Rotation = "270, 190.2829, 0",
-						},
-						{
-							Template = "prestige_rogue_evasion_1",
-							Price = 500,
-							Amount = 50,
-							RelativeLoc = "2.115967, 1.000999, 1.830933",
-							Rotation = "90, 179.9998, 0",
-						},
 					},
 				}
 			</Initializer>

@@ -19,7 +19,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 10, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -33,24 +37,12 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 80,
+										Count = 40, 
 									},
-									CopperOre = {
+									CopperOre = {					
 										AvailablityPct = 20,
-										Count = 12, 
-									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
-									},
-									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										Count = 40, 
 									},
 								}
 							},
@@ -65,7 +57,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -79,24 +75,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -109,24 +105,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -156,10 +152,6 @@
 										AvailablityPct = 20,
 										Count = 8,
 									},
-									Blightwood = {					
-										AvailablityPct = 5,
-										Count = 8, 
-									},
 								}
 							},
 							Rock = 
@@ -169,24 +161,13 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 5,
-										Count = 20, 
+										AvailablityPct = 0,
+										Count = 10, 
 									},
 								}
 							},
 						},
 						
-					},
-
-					SpawnedSources = 
-					{						
-						{ MaxCount = 200, Region = "EasternFrontier" ,     Resource = "Ginseng"},
-						{ MaxCount = 200, Region = "EasternFrontier",      Resource = "LemonGrass" },
-						{ MaxCount = 200, Region = "EasternFrontier",      Resource =  "Mushrooms"},
-						{ MaxCount = 200, Region = "EasternFrontier",      Resource =  "Moss"},
-						{ MaxCount = 400,  Region = "EasternFrontier",    Resource =  "Cotton"},
-						{ MaxCount = 400,  Region = "EasternFrontier",    Resource =  "Kindling"},
-
 					},
 				}
 			</Initializer>

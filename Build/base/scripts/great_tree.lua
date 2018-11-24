@@ -9,7 +9,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 	function(user,usedType)
 		if(usedType ~= "Use" and usedType ~= "Examine") then return end
 		
-		user:SystemMessage("[$1818]")
+		user:SystemMessage("[$1818]","info")
 	end)
 
 RegisterEventHandler(EventType.Message,"HolyWaterPour",

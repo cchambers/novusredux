@@ -110,6 +110,10 @@ function IsCombatSupportSkill(skillName)
 	return false
 end
 
+function IsWeaponSkill(skillName)
+	return SkillData.AllSkills[skillName].IsWeaponSkill or false
+end
+
 function GetSkillClass(skillName)
 	local myTab = SkillData.AllSkills[skillName]
 	if(myTab == nil) then return false end
@@ -137,6 +141,20 @@ function GetCombatSkillTotal(targMob)
 	end
 
 	return myTotSkill
+end
+
+function GetHighestWeaponSkill(targMob)
+	local mySkillsTable = targMob:GetObjVar("SkillDictionary") or {}
+	
+	local curHighestSkill = {Skill = "", Level = 0}
+	for keys, vals in pairs(mySkillsTable) do
+			if (IsWeaponSkill(keys)) then
+			if (vals.SkillLevel >= curHighestSkill.Level) then
+				curHighestSkill = {Skill = Keys, Level = vals.SkillLevel}
+			end
+		end
+	end
+	return curHighestSkill.Skill, curHighestSkill.Level
 end
 
 function GetCombatSupportSkillTotal(targMob)

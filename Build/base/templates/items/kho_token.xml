@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Ancient Token[-]</Name>
+  <Name>Ancient Token</Name>
 	<ClientId>907</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>

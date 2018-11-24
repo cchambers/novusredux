@@ -20,7 +20,7 @@ RegisterEventHandler(EventType.Timer,"FlameTic",function(tickNum)
 				local objects = FindObjects(SearchMulti({SearchRect(bounds),SearchMobileInRange(5,true)}))
 				if (not this:GetSharedObjectProperty("IsTriggered")) then
 					this:SetSharedObjectProperty("IsTriggered",true)
-					this:PlayObjectSound("FireTrap",false)
+					this:PlayObjectSound("event:/environment/fire/fire_trap",false)
 					--DebugMessage("On")
 				end			
 				for i,obj in pairs(objects) do
@@ -35,7 +35,7 @@ RegisterEventHandler(EventType.Timer,"FlameTic",function(tickNum)
 			else
 				if (this:GetSharedObjectProperty("IsTriggered")) then
 					this:SetSharedObjectProperty("IsTriggered",false)
-					this:StopObjectSound("FireTrap",false,0.2)
+					this:StopObjectSound("event:/environment/fire/fire_trap",false,0.2)
 					--DebugMessage("Off")
 				end
 			end
@@ -56,7 +56,7 @@ RegisterEventHandler(EventType.Message,"DisableTrap",function (time,user)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(time),"DisableTrapReset")
 	this:SetObjVar("Disabled",true)
 	this:SetSharedObjectProperty("IsTriggered",false)
-	this:StopObjectSound("FireTrap",false,0.2)
+	this:StopObjectSound("event:/environment/fire/fire_trap",false,0.2)
 end)
 
 RegisterEventHandler(EventType.Timer,"DisableTrapReset",function()

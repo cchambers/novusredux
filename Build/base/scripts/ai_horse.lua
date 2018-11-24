@@ -23,7 +23,7 @@ AI.Settings.Leash = false --Determines if this mob should ever leash
 AI.Settings.LeashDistance = 40 --Max distance from spawn this mob should ever go
 AI.Settings.CanWander = true --Determines if this mob wanders or not
 AI.Settings.WanderChance = 5 -- Chance to wander
-AI.Settings.StationedLeash = false --if true, mob will go back to it's spawn position on idle
+AI.Settings.StationedLeash = true --if true, mob will go back to it's spawn position on idle
 AI.Settings.CanSeeBehind = true
 AI.Settings.ShouldAggro = false
 

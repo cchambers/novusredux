@@ -1,4 +1,3 @@
-require 'incl_player_guild'
 
 RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),
 	function ( ... )
@@ -16,7 +15,7 @@ RegisterEventHandler(EventType.Message,"WasEquipped",
 		if(wearer ~= nil) then
 			local guild = Guild.Get(wearer)
 			if( not(guild) or not(guild.PatronGod) or guild.PatronGod ~= this:GetObjVar("PatronGod") ) then 
-				wearer:SystemMessage("You are zapped by the "..StripColorFromString(this:GetName()).." and it instantly falls to the ground.")
+				wearer:SystemMessage("You are zapped by the "..StripColorFromString(this:GetName()).." and it instantly falls to the ground.","info")
 				this:SetWorldPosition(wearer:GetLoc())
 			end
 		end

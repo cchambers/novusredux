@@ -20,7 +20,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -35,7 +39,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -49,24 +57,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -96,10 +104,6 @@
 										AvailablityPct = 20,
 										Count = 8,
 									},
-									Blightwood = {					
-										AvailablityPct = 5,
-										Count = 8, 
-									},
 								}
 							},
 							Rock = 
@@ -109,35 +113,12 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 10,
-										Count = 20, 
+										AvailablityPct = 0,
+										Count = 10, 
 									},
 								}
 							},
 						},						
-					},
-
-					SpawnedSources = 
-					{						
-						{ MaxCount = 100, Region = "SouthernHillsSouth" ,     Resource = "Moss"},
-						{ MaxCount = 100, Region = "SouthernHillsEast",   Resource = "Moss"},
-						{ MaxCount = 100, Region = "SouthernHillsWest",   Resource = "Moss"},
-						{ MaxCount = 100, Region = "SouthernHillsSouth" ,     Resource = "Ginseng"},
-						{ MaxCount = 100, Region = "SouthernHillsEast",   Resource = "Ginseng"},
-						{ MaxCount = 100, Region = "SouthernHillsWest",   Resource = "Ginseng"},
-						{ MaxCount = 100, Region = "SouthernHillsSouth",      Resource = "LemonGrass" },
-						{ MaxCount = 100, Region = "SouthernHillsEast",      Resource = "LemonGrass" },
-						{ MaxCount = 100, Region = "SouthernHillsWest",      Resource = "LemonGrass" },
-						{ MaxCount = 100, Region = "SouthernHillsSouth",      Resource =  "Mushrooms"},
-						{ MaxCount = 100, Region = "SouthernHillsEast",      Resource =  "Mushrooms"},
-						{ MaxCount = 100, Region = "SouthernHillsWest", Resource =  "Mushrooms"},
-						{ MaxCount = 100,  Region = "SouthernHillsSouth",    Resource =  "Cotton"},
-						{ MaxCount = 100,  Region = "SouthernHillsWest",    Resource =  "Cotton"},
-						{ MaxCount = 100, Region = "SouthernHillsEast" ,     Resource = "Cotton"},
-						{ MaxCount = 60,  Region = "SouthernHillsSouth",    Resource =  "Kindling"},
-						{ MaxCount = 150,  Region = "SouthernHillsWest",    Resource =  "Kindling"},
-						{ MaxCount = 150, Region = "SouthernHillsEast" ,     Resource = "Kindling"},
-
 					},
 				}
 			</Initializer>

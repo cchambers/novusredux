@@ -1,19 +1,22 @@
 FoodStats = {
 	BaseFoodClass = {
 		-- Ingredients don't need CookingDifficulty, if you want to 'cook' an ingredient, create a new cooked template version of that ingredient and require the 'raw' one to make it.
-		Ingredient = {
-			Replenish = 2,
-		},
+		
 		Refreshment = {
-			Replenish = 5,
-			CookingDifficulty = 25,
+			Replenish = 0,
+		},
+		Ingredient = {
+			Replenish = 0.5,
+		},
+		Snack = {
+			Replenish = 1,
 		},
 		Meal = {
-			Replenish = 10,
+			Replenish = 3,
 			CookingDifficulty = 50,
 		},
-		Feast = {
-			Replenish = 30,
+		Delicacy = {
+			Replenish = 12,
 			CookingDifficulty = 75,
 		}
 	},
@@ -25,100 +28,164 @@ FoodStats = {
 			Replenish = 0 -- at zero it disallows eating
 		},
 		Pumpkin = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 			Replenish = 0
 		},
 		-- Edible ingredients
 		Apple = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Broccoli = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Cabbage = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Cucumber = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		GreenPepper = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Onion = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Potato = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		CheeseWheel = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Grapes = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Lemon = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Orange = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		Pear = {
-			FoodClass = "Ingredient",
+			FoodClass = "Snack",
 		},
 		-- gross ingredients
 		MushroomPoison = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 			Gross = true,
 		},
 		MushroomNoxious = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 			Gross = true,
 		},
 		-- reagents
 		Ginseng = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 		},
 		LemonGrass = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 		},
 		Moss = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 		},
 		Mushrooms = {
 			FoodClass = "Ingredient",
-			Replenish = 1, -- optional overwrite from base food class
+			Replenish = 0, -- optional overwrite from base food class
 		},
-		-- fish
+
+		MysteryMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		StringyMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		ToughMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		TenderMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		GourmetMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		ChickenMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		CoyoteMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		CrocodileMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		DeerMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		DragonMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		FoxMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		HorseMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		RabbitMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		RatMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		TurkeyMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		WolfMeat = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		GoldenTreeBark = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
 		FishFilletBarrel = {
 			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
-		},
-		FishFilletTero = {
-			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
-		},
-		FishFilletSpottedTero = {
-			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
-		},
-		FishFilletFourEyedSalar = {
-			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
+			Raw = true,
 		},
 		FishFilletRazor = {
 			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
+			Raw = true,
+		},
+		FishFilletTero = {
+			FoodClass = "Ingredient",
+			Raw = true,
+		},
+		FishFilletFourEyedSalar = {
+			FoodClass = "Ingredient",
+			Raw = true,
 		},
 		FishFilletGoldenAether = {
 			FoodClass = "Ingredient",
-			Replenish = 0, -- optional overwrite from base food class
+			Raw = true,
 		},
-		AnimalMeat = {
+		FishFilletSpottedTero = {
 			FoodClass = "Ingredient",
 			Raw = true,
 		},
@@ -166,32 +233,81 @@ FoodStats = {
 			Ingredients = { Wheat = 5, Moss = 2, },
 			Template = "item_mead",
 		},
+		CookedMeat = {
+			FoodClass = "Snack",
+			CookingDifficulty = 10,
+			Ingredients = { MysteryMeat = 1 },
+			Template = "item_cooked_meat",
+		},
+		Jerky = {
+			FoodClass = "Snack",
+			CookingDifficulty = 30,
+			Ingredients = { StringyMeat = 1 },
+			Template = "item_jerky",
+		},
+		MeatLoaf = {
+			FoodClass = "Meal",
+			CookingDifficulty = 50,
+			Ingredients = { ToughMeat = 1 },
+			Template = "item_meat_loaf"
+		},
+		Brisket = {
+			FoodClass = "Meal",
+			CookingDifficulty = 70,
+			Ingredients = { TenderMeat = 1 },
+			Template = "item_brisket"
+		},
+		WildSteak = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 90,
+			Ingredients = { GourmetMeat = 1 },
+			Template = "item_wild_steak"
+		},
+		CookedAetherFish = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 95,
+			Ingredients = { FishFilletGoldenAether = 1 },
+			Template = "item_cooked_aetherfish"
+		},		
 		CookedBarrelFish = {
-			FoodClass = "Refreshment",
-			CookingDifficulty = 5,
+			FoodClass = "Snack",
+			CookingDifficulty = 10,
 			Ingredients = { FishFilletBarrel = 1 },
 			Template = "item_cooked_barrelfish",
 		},
 		CookedTeroFish = {
-			FoodClass = "Refreshment",
-			CookingDifficulty = 5,
+			FoodClass = "Snack",
+			CookingDifficulty = 30,
 			Ingredients = { FishFilletTero = 1 },
 			Template = "item_cooked_terofish",
 		},
-		CookedAnimalMeat = {
-			FoodClass = "Refreshment",
-			CookingDifficulty = 5,
-			Ingredients = { AnimalMeat = 1, },
-			Template = "animalparts_cooked_meat",
+		CookedSpottedTero = {
+			FoodClass = "Meal",
+			CookingDifficulty = 50,
+			Ingredients = { FishFilletSpottedTero = 1 },
+			Template = "item_cooked_spottedterofish"
 		},
+		CookedFourEyeSalar = {
+			FoodClass = "Meal",
+			CookingDifficulty = 70,
+			Ingredients = { FishFilletFourEyedSalar = 1 },
+			Template = "item_cooked_salarfish"
+		},
+		CookedRazorFish = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 90,
+			Ingredients = { FishFilletRazor = 1 },
+			Template = "item_cooked_razorfish"
+		},
+
 		SacredDewFlower = {
-			FoodClass = "Refreshment",		
+			FoodClass = "Ingredient",		
 			DrugEffect = "ClubDrugEffect",
 			DrugDuration = 10,
 			Template = "ingredient_sacred_dew"
 		},
 		SacredCactus = {
-			FoodClass = "Refreshment",		
+			FoodClass = "Ingredient",		
 			DrugEffect = "SacredCactusEffect",
 			DrugDuration = 10,
 			Template = "ingredient_sacred_cactus_extract"
@@ -210,56 +326,118 @@ FoodStats = {
 		Bread = {
 			FoodClass = "Meal",
 			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
-			CookingDifficulty = 10, -- optional, defaults to FoodClass CookingDifficulty
+			CookingDifficulty = 25, -- optional, defaults to FoodClass CookingDifficulty
 			Ingredients = { Wheat = 5, }, -- required to be craftable (cooked)
 			Template = "item_bread", -- required to be craftable (cooked)
 			---
 		},
-		ApplePieSlice = {
+		RoastedChicken = {
 			FoodClass = "Meal",
-			Ingredients = { Wheat = 4, Apple = 1, },
-			Template = "item_pie_apple_slice"
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 35, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { ChickenMeat = 5, GreenPepper = 1 }, -- required to be craftable (cooked)
+			Template = "item_roasted_chicken", -- required to be craftable (cooked)
+			---
 		},
-		PumpkinPieSlice = {
+		RabbitStew = {
 			FoodClass = "Meal",
-			Ingredients = { Wheat = 4, Pumpkin = 1, },
-			Template = "item_pie_pumpkin_slice"
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 20, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { RabbitMeat = 5, Water = 1, Onion = 1 }, -- required to be craftable (cooked)
+			Template = "item_rabbit_stew", -- required to be craftable (cooked)
+			---
 		},
-		CookedSpottedTero = {
+		RatStew = {
 			FoodClass = "Meal",
-			Ingredients = { FishFilletSpottedTero = 1 },
-			Template = "item_cooked_spottedterofish"
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 30, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { RatMeat = 5, Water = 1, Onion = 1 }, -- required to be craftable (cooked)
+			Template = "item_rat_stew", -- required to be craftable (cooked)
+			---
 		},
-		CookedFourEyeSalar = {
+		FoxStew = {
 			FoodClass = "Meal",
-			Ingredients = { FishFilletFourEyedSalar = 1 },
-			Template = "item_cooked_salarfish"
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 30, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { FoxMeat = 3, Water = 1, Onion = 1 }, -- required to be craftable (cooked)
+			Template = "item_fox_stew", -- required to be craftable (cooked)
+			---
+		},
+		RoastedTurkey = {
+			FoodClass = "Meal",
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 40, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { TurkeyMeat = 5, GreenPepper = 1 }, -- required to be craftable (cooked)
+			Template = "item_roasted_turkey", -- required to be craftable (cooked)
+			---
+		},
+		CoyoteStew = {
+			FoodClass = "Meal",
+			--- These options only apply to stuff that can be cooked (ie, non-ingredients)
+			CookingDifficulty = 40, -- optional, defaults to FoodClass CookingDifficulty
+			Ingredients = { CoyoteMeat = 5, Water = 1, Onion = 1 }, -- required to be craftable (cooked)
+			Template = "item_coyote_stew", -- required to be craftable (cooked)
+			---
 		},
 
-		-- FEASTS
+
+		
+
+		-- DelicacyS
 		ApplePie = {
-			FoodClass = "Feast",
+			FoodClass = "Delicacy",
 			CookingDifficulty = 55,
 			Ingredients = { Wheat = 20, Apple = 5, },
 			Template = "item_pie_apple"
 		},
 		PumpkinPie = {
-			FoodClass = "Feast",
+			FoodClass = "Delicacy",
 			CookingDifficulty = 55,
 			Ingredients = { Wheat = 20, Pumpkin = 5, },
 			Template = "item_pie_pumpkin"
 		},
-		CookedRazorFish = {
-			FoodClass = "Feast",
-			CookingDifficulty = 55,
-			Ingredients = { FishFilletRazor = 1 },
-			Template = "item_cooked_razorfish"
+		WolfSteak = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 60,
+			Ingredients = { WolfMeat = 3, Mushrooms = 1, },
+			Template = "item_wolf_steak"
 		},
-		CookedAetherFish = {
-			FoodClass = "Feast",
+		DeerSteak = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 65,
+			Ingredients = { DeerMeat = 3, Mushrooms = 1, },
+			Template = "item_deer_steak"
+		},
+		HorseSteak = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 70,
+			Ingredients = { HorseMeat = 3, Mushrooms = 1, },
+			Template = "item_horse_steak"
+		},
+		BearSteak = {
+			FoodClass = "Delicacy",
 			CookingDifficulty = 75,
-			Ingredients = { FishFilletGoldenAether = 1 },
-			Template = "item_cooked_aetherfish"
-		},				
+			Ingredients = { BearMeat = 3, Mushrooms = 1, },
+			Template = "item_bear_steak"
+		},
+		FriedCrocodile = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 80,
+			Ingredients = { CrocodileMeat = 5, GreenPepper = 2, },
+			Template = "item_fried_crocodile"
+		},
+		SpiderEyeSoup = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 85,
+			Ingredients = { SpiderEye = 5, Water = 1, Onion = 1 },
+			Template = "item_spider_eye_soup"
+		},
+
+		SmokedDragonSteak = {
+			FoodClass = "Delicacy",
+			CookingDifficulty = 100,
+			Ingredients = { DragonMeat = 1, GoldenTreeBark = 1 },
+			Template = "item_dragon_steak"
+		},					
 	}
 }

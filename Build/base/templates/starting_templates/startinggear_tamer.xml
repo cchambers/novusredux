@@ -17,7 +17,8 @@
 					EquipTable = {
 								   Chest = { {"clothing_tattered_shirt_chest","8F690A"} },
 			                       Legs = { {"clothing_tattered_legs","0xFF888888" }    }, 
-			                       RightHand = { "tool_crook" }
+			                       RightHand = { "tool_crook" },
+			                       BodyPartHair = {"hair_male_bangs",186}
 			                     },
 			        SpawnLoot = { true },
                     LootTables = {

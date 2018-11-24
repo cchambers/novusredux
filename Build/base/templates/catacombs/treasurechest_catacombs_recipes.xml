@@ -101,7 +101,6 @@
 								{ Chance = 10, Template = "magnifying_glass", Unique = true },
 								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
 								{ Chance = 15, Template = "bandage", Unique = true },
-								{ Chance = 5, Template = "animalparts_meat", Unique = true },
 								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
 								{ Chance = 5, Template = "resource_iron", Unique = true },
 								{ Chance = 20, Template = "cooked_stew", Unique = true },

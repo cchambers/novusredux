@@ -135,7 +135,7 @@ AI.StateMachine.AllStates.HiredIdle = {
             AiPulse = function(self)
                 local owner = GetHirelingOwner(this)
                 local shopLoc = GetShopLoc()
-                if not(owner) or not(shopLoc) or not(IsHouseOwnerForLoc(owner,shopLoc)) then
+                if not(owner) or not(shopLoc) or not(Plot.IsOwnerForLoc(owner,shopLoc)) then
                     ReleaseHireling(this)
                     this:DelObjVar("ShopLocation")
                     this:SetSharedObjectProperty("Title", "[F7F705]Merchant For Hire[-]")
@@ -511,7 +511,7 @@ function ValidateSaleItem(target,user)
     end
 
     local topmostObj = target:TopmostContainer() or target
-    if not(IsHouseOwnerForLoc(user,topmostObj:GetLoc())) then 
+    if not(Plot.IsOwnerForLoc(user,topmostObj:GetLoc())) then 
         this:NpcSpeech("That item is not on your property.")
         return false
     end
@@ -537,7 +537,7 @@ function ValidateSaleItem(target,user)
         end
     end
 
-    if(target:HasObjVar("IsHouse") or target:HasObjVar("HouseObject")) then
+    if(target:HasObjVar("IsHouse") or target:HasObjVar("HouseObject") or target:HasObjVar("IsPlotObject") ) then
         this:NpcSpeech("How do you expect me to sell that!")
         return false
     end
@@ -607,7 +607,7 @@ function HandleHireSelectLocation(success,targetLoc,targetObj,user)
         return
     end
 
-    if not(IsHouseOwnerForLoc(user,targetLoc)) then
+    if not(Plot.IsOwnerForLoc(user,targetLoc)) then
         this:NpcSpeech("[$87]")
         return
     end

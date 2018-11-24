@@ -1,3 +1,11 @@
+function GetAIModuleName(targetObj)
+	for i,behaviorName in pairs(targetObj:GetAllModules()) do
+		if(behaviorName:match("ai") or behaviorName == "base_mobile" or behaviorName == "base_mobile_advanced") then
+			return behaviorName
+		end
+	end
+end
+
 function SaveAI(targetObj)
 	aiList = {}
 	for i,behaviorName in pairs(targetObj:GetAllModules()) do
@@ -99,7 +107,7 @@ function EndPossession(targetObj)
 end
 
 function IsPoisoned(target)
-	return target:HasModule("sp_poison_effect") or HasMobileEffect(target, "Poison")
+	return HasMobileEffect(target, "Poison")
 end
 
 function CountCoins(target)
@@ -148,6 +156,10 @@ function GetBodySize (target)
 			return bodyOffset * target:GetScale().X
 		end
 	else
+		local objectOffset = target:GetSharedObjectProperty("ObjectOffset")
+		if (objectOffset ~= nil) then
+			return objectOffset
+		end
 		return ServerSettings.Combat.DefaultBodySize
 	end
 end
@@ -161,6 +173,32 @@ end
 
 function OpenBank(user,bankSource)
 	user:SendMessage("OpenBank",bankSource)
+end
+
+function OpenTax(user,taxer)
+	local plots = Plot.GetUserPlots(user:GetAttachedUserId())
+	buttonList = {}
+	for i=1,#plots do
+		buttonList[i] = { Id=tostring(plots[i].Id), Text=GlobalVarReadKey("Plot."..plots[i].Id, "Name") or "A Plot of Land." }
+	end
+
+	ButtonMenu.Show{
+        TargetUser = user,
+        DialogId = "paytax",
+        TitleStr = "Choose Plot",
+        ResponseType = "id",
+        Buttons = buttonList,
+        ResponseObj = taxer,
+		ResponseFunc = function(usr,plotId)
+			if(plotId ~= nil and usr == user) then
+				if not( user:HasModule("plot_tax_window") ) then
+					user:AddModule("plot_tax_window")
+				end
+				local controller = GameObj(tonumber(plotId))
+				user:SendMessage("InitTaxWindow", controller)
+            end
+        end,
+    }
 end
 
 --Returns nil if not doing the quest, an empty string if the quest is finished, or the name of the current task in the quest

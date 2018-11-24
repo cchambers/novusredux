@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>39</ClientId>
 	<Name>Hind</Name>
-	<ScaleModifier>.8</ScaleModifier>
+	<ScaleModifier>.6</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="0.75"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -10,7 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">20</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -33,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=5,  
+					Brawling = 5,  
 					},	
 				LootTables = 
 					{ 
@@ -45,6 +45,8 @@
 			<Initializer>
 				{
 					MeatCount = 3,
+
+					MeatType = "StringyMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },

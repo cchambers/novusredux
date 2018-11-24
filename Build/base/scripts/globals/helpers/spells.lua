@@ -1,7 +1,6 @@
 -- REAGENTS
 
 function HasReagents(spell, mobileObj, scrollObj)
-	DebugMessage("HASREAGENTS: ")
     if ( SpellData.AllSpells[spell] == nil ) then return false end
     -- mobs don't use reagents
 	if not( mobileObj:IsPlayer() ) then return true end
@@ -15,7 +14,6 @@ function HasReagents(spell, mobileObj, scrollObj)
     if ( backpack ~= nil ) then
         local have = 0
         for i,resourceType in ipairs(SpellData.AllSpells[spell].Reagents) do
-			DebugMessage(resourceType)
             if ( resourceType ~= nil and CountResourcesInContainer(backpack,resourceType) > 0) then
                 have = have + 1
             end
@@ -134,9 +132,7 @@ function SpellCastInterrupt(mobileObj)
     mobileObj:SendMessage("CancelSpellCast")
     mobileObj:SystemMessage("[FCF403]Casting interrupted.[-]", "info")
     mobileObj:NpcSpeech("[FCF403]*interrupted*[-]","combat")
-    if ( IsInCombat(mobileObj) ) then
-        mobileObj:SendMessage("ResetSwingTimer", 1)
-    end
+	mobileObj:SendMessage("ResetSwingTimer", 1)
 end
 
 function HasSpell(spell, mobileObj, scrollObj)
@@ -150,7 +146,7 @@ end
 
 function DoFizzle(mobileObj)
 	mobileObj:NpcSpeech("*fizzle*", "combat")
-	mobileObj:PlayObjectSound("WormPain")
+	mobileObj:PlayObjectSound("event:/animals/worm/worm_pain",false)
 	if ( mobileObj:IsPlayer() ) then
 		mobileObj:SystemMessage("Cast failed.", "info")
 	end

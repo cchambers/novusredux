@@ -39,15 +39,15 @@ function DoTeleport(user,targetLoc)
 	local chooseUniverse = this:GetObjVar("ChooseUniverse")
 	if(chooseUniverse == nil) then chooseUniverse = true end
 	
-	local destinationMap = this:GetObjVar("DestinationMap") or GetWorldName()
+	local destinationMap = this:GetObjVar("DestinationMap") or ServerSettings.WorldName
 	-- DAB TODO: Figure out subregion automatically!
-	local destinationSubregion = this:GetObjVar("DestinationSubregion") or GetSubregionName()
+	local destinationSubregion = this:GetObjVar("DestinationSubregion") or ServerSettings.SubregionName
 
 	if not(chooseUniverse) then
 		local destRegionAddress = GetCurrentUniverseName() .. "." .. destinationMap
 		oldDoTeleport(user,targetLoc,destRegionAddress)
 	else
-		local curRegionAddress = GetRegionAddress()
+		local curRegionAddress = ServerSettings.RegionAddress
 		local validDestinations = {}
 		for regionName,regionInfo in pairs(GetClusterRegions()) do 
 			if(regionName ~= curRegionAddress and regionInfo.WorldName == destinationMap and regionInfo.SubregionName == destinationSubregion) then

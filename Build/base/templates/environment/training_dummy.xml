@@ -5,7 +5,6 @@
 	<Name>[FF9500]Training Dummy[-]</Name>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Attackable">true</BoolVariable>
-		<BoolVariable Name="CombatGainable">true</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="attackable_object_skill_gain">

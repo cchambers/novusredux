@@ -1,5 +1,4 @@
 require 'base_ai_npc'
-require 'incl_container'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.EnableTrain = false
@@ -214,7 +213,7 @@ function Dialog.OpenDeafDialog(user)
     local creationTemplate = "topaz_gem"
     local name = GetTemplateObjectName(creationTemplate)
     CreateObjInBackpackOrAtLocation(user,creationTemplate)
-    user:SystemMessage("[D7D700]You have received a "..name,"event")
+    user:SystemMessage("[D7D700]You have received a "..name,"info")
 end
 
 function Dialog.OpenInvestigateMurderQuestTalkToInaiusDialog(user)
@@ -299,11 +298,11 @@ function Dialog.OpenAcceptRescueDialog(user)
     user:SendMessage("AdvanceQuest","SaveGuardQuest","SaveWarrior","TalkToHeadZealot")
     user:SetObjVar("AccessAllowed|Inaius the Zealot Leader",true)
     QuickDialogMessage(this,user,"[$782]")
-    user:SystemMessage("[$783]")
+    user:SystemMessage("[$783]","info")
 end
 
 function Dialog.OpenSaveGuardQuestTalkToInaiusDialog(user)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.ProtectorOfWayward)
+    CheckAchievementStatus(user, "Other", "ProtectorOfWayward", nil, {Description = "", CustomAchievement = "Protector Of Wayward", Reward = {Title = "Protector Of Wayward"}})
     QuickDialogMessage(this,user,"[$784]")
 end
 

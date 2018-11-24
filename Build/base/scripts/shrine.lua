@@ -1,12 +1,12 @@
 function ValidateUse(user)
 	local topmostObj = this:TopmostContainer() or this
 	if(topmostObj:GetLoc():Distance(user:GetLoc()) > OBJECT_INTERACTION_RANGE ) then    
-        user:SystemMessage("You cannot reach that.")  
+        user:SystemMessage("You cannot reach that.","info")  
         return false
     end
 
     if (not IsDead(user)) then
-        user:SystemMessage("[$2523]")
+        user:SystemMessage("[$2523]","info")
         return
     end
 
@@ -16,7 +16,10 @@ end
 RegisterEventHandler(EventType.Message, "UseObject", 
     function(user,usedType)
         if(usedType ~= "Resurrect") then return end
-        if not( ValidKarmaPlayer(user) ) then return end
+        if not( ValidKarmaPlayer(user) ) then 
+            user:SystemMessage("Karma is too low to use this resurrect stone", "info")
+            return 
+        end
         if (not ValidateUse(user)) then return end
         if (IsDead(user)) then
             user:SendMessage("Resurrect", 0.65)
@@ -33,6 +36,8 @@ function OnLoad()
 end
 
 function ValidKarmaPlayer(player)
+    --Overriding karma check and return true if this shrine has objvar ReviveAll
+    if (this:HasObjVar("ReviveAll")) then return true end
     local karmaLevel = GetKarmaLevel(GetKarma(player))
     return not( karmaLevel.DisallowBlueResurrectShrines == true )
 end
@@ -53,9 +58,13 @@ RegisterSingleEventHandler(EventType.ModuleAttached, "shrine",
 AddView("ResView", SearchMulti({SearchPlayerInRange(5,true),SearchObjVar("IsDead",true)}),1.0)
 
 RegisterEventHandler(EventType.EnterView,"ResView",function(mobile)
-    if ( mobile:IsPlayer() and ValidKarmaPlayer(mobile) ) then
-        --DFB TODO: Give only a percent of the health back.
-        mobile:SendMessage("Resurrect", 0.65)
+    if ( mobile:IsPlayer() ) then
+        if ( ValidKarmaPlayer(mobile) ) then
+            --DFB TODO: Give only a percent of the health back.
+            mobile:SendMessage("Resurrect", 0.65)
+        else
+            mobile:SystemMessage("Karma is too low to use this resurrect stone", "info")
+        end
     end
 end)
 

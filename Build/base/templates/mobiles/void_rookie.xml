@@ -4,7 +4,7 @@
 	<ScaleModifier>1</ScaleModifier>
 	<Name>Void Worshiper</Name>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/incubus/incubus"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -37,7 +37,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=80,  
+					Brawling = 80,  
 					},	
 				EquipTable = 
 					{

@@ -33,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100, 
+					Brawling=100, 
 					MagicAffinity=100,
 					Evocation=100, 
 					},	
@@ -62,7 +62,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 1,	
 					AnimalParts =
 					{
 						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },

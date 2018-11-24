@@ -36,7 +36,7 @@
 					{ 
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.Eye,
 						{
 							NumCoins = math.random(20,75),
 						},

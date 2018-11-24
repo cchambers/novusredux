@@ -70,7 +70,7 @@ ServerSettings.Teleport = {
 			DisplayName="Catacombs",
 			--Price=1000,
 			World="NewCelador",
-			Destination=Loc(262.13,0,-1339.85),
+			Destination=Loc(945.42,0,-2141.51),
 			DestFacing=180,
 			Subregion="SouthernHills"
 		}

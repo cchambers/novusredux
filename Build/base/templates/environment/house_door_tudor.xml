@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>82</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="UseableWhileDead">True</BoolVariable>
+		<StringVariable Name="ResourceType">HouseDoor</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

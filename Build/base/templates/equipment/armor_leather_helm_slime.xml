@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[7fff00]Slime-Encrusted Leather Helm[-]</Name>
+	<ClientId>102</ClientId>
+	<Hue>970</Hue>
+	<SharedStateEntry name="Weight" type="int" value="3"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">80</DoubleVariable>
+   		<DoubleVariable Name="Amorbonus">1</DoubleVariable>
+   		<StringVariable Name="ArmorType">Leather</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

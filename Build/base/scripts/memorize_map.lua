@@ -4,12 +4,12 @@ function ValidateUse(user)
 	end
 
 	if( this:TopmostContainer() ~= user ) then
-		user:SystemMessage("[$1932]")
+		user:SystemMessage("[$1932]","info")
 		return false
 	end
 
 	if not(this:HasObjVar("MapName")) then 
-		user:SystemMessage("[F7CC0A] Invalid Map")
+		user:SystemMessage("[F7CC0A] Invalid map","info")
 		return false
 	end
 
@@ -32,10 +32,10 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		if(mapName ~= nil) then
 			availableMaps = user:GetObjVar("AvailableMaps") or {}
 			if(availableMaps[mapName] ~= nil) then
-				user:SystemMessage("You already have this map.")	
+				user:SystemMessage("You already have this map.","info")	
 			else
-				user:PlayObjectSound("ScrollUse")
-				user:SystemMessage("You have obtained the map of "..StripColorFromString(this:GetName())..".","event")
+				user:PlayObjectSound("event:/objects/pickups/scroll/scroll_use")
+				user:SystemMessage("You have obtained the map of "..StripColorFromString(this:GetName())..".","info")
 				availableMaps[mapName] = true
 				user:SetObjVar("AvailableMaps",availableMaps)
 				this:Destroy()

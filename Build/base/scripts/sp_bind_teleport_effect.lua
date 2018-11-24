@@ -2,7 +2,7 @@
 RegisterEventHandler(EventType.Message,"CompletionEffectsp_bind_teleport_effect",
 	function ()
 		if(this:HasTimer("HasActivePortal")) then
-			this:SystemMessage("[$2600]")
+			this:SystemMessage("[$2600]","info")
 			return
 		end
 
@@ -10,7 +10,7 @@ RegisterEventHandler(EventType.Message,"CompletionEffectsp_bind_teleport_effect"
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"TeleportDelay")
 
 		local bindLoc = GetPlayerSpawnPosition(this)
-		local curRegionAddress = GetRegionAddress()
+		local curRegionAddress = ServerSettings.RegionAddress
 		local bindRegionAddress = curRegionAddress
 
 		local spawnPosEntry = this:GetObjVar("SpawnPosition")

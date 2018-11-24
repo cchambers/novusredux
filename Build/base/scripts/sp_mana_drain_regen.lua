@@ -8,7 +8,7 @@ function HandleLoaded()
 		return
 	end
 	local amount = math.random(MIN_HEAL_AMOUNT,MAX_HEAL_AMOUNT)
-	myResSource:SystemMessage("[D7D700]You regain "..amount.." mana")
+	myResSource:SystemMessage("[D7D700]You regain "..amount.." mana","info")
 	AdjustCurMana(myResSource,amount)
 	EndEffect()
 end

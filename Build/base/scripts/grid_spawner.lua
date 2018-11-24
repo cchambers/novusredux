@@ -49,10 +49,10 @@ function ShouldSpawn(spawnInfo,spawnIndex)
 	--DebugMessage("TEST "..spawnIndex,DumpTable(spawnInfo.SpawnRefs[spawnIndex]))
 
 	local isValid = spawnRefs[spawnIndex].ObjRef and spawnRefs[spawnIndex].ObjRef:IsValid()
-	local isDead = spawnRefs[spawnIndex].ObjRef and IsDead(spawnRefs[spawnIndex].ObjRef)
+	local isDead = spawnRefs[spawnIndex].ObjRef and spawnRefs[spawnIndex].ObjRef:IsMobile() and IsDead(spawnRefs[spawnIndex].ObjRef)
 	
 	-- the mob is still on the map and hes not a pet, no spawn
-	if( isValid and not(isDead) and not(spawnRefs[spawnIndex].ObjRef:HasObjVar("controller")) ) then
+	if( isValid and not(isDead) and not(IsPet(spawnRefs[spawnIndex].ObjRef)) )  then
 		return false
 	end
 
@@ -195,9 +195,12 @@ function DoSpawnQueue()
 				--DebugMessage("SPAWN PULSE: DoSpawnQueue Spawning "..spawnInfo.Template.." at "..tostring(spawnLoc))
 				CreateObj(spawnInfo.Template, spawnLoc, "grid_spawn_created", spawnInfo)				
 			end
-			this:ScheduleTimerDelay(mSpawnQueueFrequency,"grid_spawn_queue")
 		end
 		spawnCount = spawnCount - 1
+	end
+
+	if(#mSpawnQueue > 0) then
+		this:ScheduleTimerDelay(mSpawnQueueFrequency,"grid_spawn_queue")
 	end
 end
 
@@ -224,6 +227,11 @@ RegisterEventHandler(EventType.CreatedObject,"grid_spawn_created",
 			--objRef:SetObjVar("GridSpawnData", spawnData)
 			if(objRef:IsMobile()) then
 				objRef:SetFacing( math.random(0, 360))
+			else
+				-- DAB: This should be a setting!!
+				MIN_DECAY_TIME =  1*60*60
+				MAX_DECAY_TIME =  3*60*60
+				Decay(objRef, math.random(MIN_DECAY_TIME,MAX_DECAY_TIME))
 			end
 
 			spawnInfo.SpawnRefs[spawnData.SpawnIndex] = { ObjRef = objRef }
@@ -232,7 +240,7 @@ RegisterEventHandler(EventType.CreatedObject,"grid_spawn_created",
 	end)
 
 function OnLoad()		
-	local subregionName = GetSubregionName()
+	local subregionName = ServerSettings.SubregionName
 	if(subregionName ~= nil) then
 		mSubregionGameRegion = GetRegion("Subregion-"..subregionName)
 	end

@@ -119,6 +119,7 @@ function LearnAllRecipes(user)
 	local userRecipes = {}
 	
 	for i, skillTable in pairs(AllRecipes) do
+		CheckAchievementStatus(user, "Crafting", i.."Recipe", 1)
 		for j, recipe in pairs(skillTable) do
 			if (recipe.NeedRecipe == true) then
 				userRecipes[j] = true

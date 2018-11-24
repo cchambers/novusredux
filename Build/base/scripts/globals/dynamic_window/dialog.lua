@@ -6,7 +6,7 @@ function ClientDialog.Show(args)
 	args.DialogId = args.DialogId or ("Dialog"..uuid())
 	args.TitleStr = args.TitleStr or ""
 	args.DescStr = args.DescStr or ""
-	args.Height = args.Height or 260
+	args.Height = args.Height or 240
 
 	-- if neither button is set, then use the default confirm, cancel
 	if( not(args.Button1Str) and not(args.Button2Str) ) then
@@ -16,18 +16,18 @@ function ClientDialog.Show(args)
 		args.Button1Str = args.Button1Str or "Ok"
 	end
 
-	local newWindow = DynamicWindow(args.DialogId,args.TitleStr,400,args.Height,200,200,"","TopLeft")
+	local newWindow = DynamicWindow(args.DialogId,args.TitleStr,442,args.Height,200,200,"","TopLeft")
 
-	local x = 30
+	local x = 20
 	local y = args.Height - 90
 
-	newWindow:AddLabel( x, 20, args.DescStr, 330,131,16,"",true)
+	newWindow:AddLabel( x, 10, args.DescStr, 400,131,18,"",true)
 	
 	if(args.Button2Str) then
-		newWindow:AddButton(x, y, "0", args.Button1Str, 150, 0, "", "", true)
-		newWindow:AddButton(x+170, y, "1", args.Button2Str, 150, 0, "", "", true)
+		newWindow:AddButton(x+110, y, "0", args.Button1Str, 130, 0, "", "", true)
+		newWindow:AddButton(x+250, y, "1", args.Button2Str, 130, 0, "", "", true)
 	else
-		newWindow:AddButton(x+170, y, "0", args.Button1Str, 150, 0, "", "", true)
+		newWindow:AddButton(x+250, y, "0", args.Button1Str, 130, 0, "", "", true)
 	end
 
 	--newWindow:AddButton(x, y, "CancelImprovement", "Cancel", 200, 0, "Stop Attempting to Improve the item.", "", false)
@@ -71,7 +71,6 @@ function TextFieldDialog.Show(args)
     	RegisterSingleEventHandler(EventType.DynamicWindowResponse,args.DialogId,
 			function(user,buttonId,fieldData)
 				if(buttonId == "Enter") then
-					DebugMessage("wtf " .. fieldData.entry)
 					args.ResponseFunc(user,fieldData.entry)
 				else
 					args.ResponseFunc(user)
@@ -104,10 +103,21 @@ function ButtonMenu.Show(args)
 	
 	local closeOnClick = true
 	if(args.CloseOnClick == false) then closeOnClick = false end
-	
+
+	local yPadding = 70
+	if(args.SubtitleStr) then
+		yPadding = yPadding + 20
+	end
+
 	if(numButtons <= 6) then
-		local newWindow = DynamicWindow(dialogId,titleStr,size+42,70 + (numButtons*26),0,0,"")
+		local newWindow = DynamicWindow(dialogId,titleStr,size+42,yPadding + (numButtons*26),0,0,"")
+
 		local startY = 5
+		if(args.SubtitleStr) then
+			newWindow:AddLabel((size+20)/2,4,args.SubtitleStr,size,20,20,"center")
+			startY = startY + 20
+		end
+		
 		for i,buttonData in pairs(args.Buttons) do
 			local yVal = startY + (i-1)*26
 			local buttonId = tostring(i)
@@ -121,13 +131,18 @@ function ButtonMenu.Show(args)
 				buttonStr = buttonData.Text
 				buttonTooltip = buttonData.Tooltip or ""
 			end
-
 			newWindow:AddButton(10, yVal, buttonId, buttonStr, size, 26, buttonTooltip, "", closeOnClick,"List")
 		end
 		args.TargetUser:OpenDynamicWindow(newWindow,args.ResponseObj)
 	else
-		local newWindow = DynamicWindow(dialogId,titleStr,size+42,70 + (6*26),0,0,"")
-		local scrollWindow = ScrollWindow(10,10,size,156,26)
+		local newWindow = DynamicWindow(dialogId,titleStr,size+42,yPadding + (6*26),0,0,"")
+		local startY = 10
+		if(args.SubtitleStr) then
+			newWindow:AddLabel((size+20)/2,4,args.SubtitleStr,size,20,20,"center")
+			startY = startY + 20
+		end
+
+		local scrollWindow = ScrollWindow(10,startY,size,156,26)
 		for i,buttonData in pairs(args.Buttons) do
 			local scrollElement = ScrollElement()
 			local buttonId = tostring(i)
@@ -222,7 +237,7 @@ function ProgressBar.Show(args)
 	if(args.CancelFunc) then
 		RegisterSingleEventHandler(EventType.DynamicWindowResponse,args.DialogId,
 			function(user,buttonId)
-				if(buttonId == "Cancel") then
+				if(buttonId == "Close") then
 					args.CancelFunc(args.DialogId)
 				end
 			end)
@@ -288,8 +303,8 @@ function NPCInteraction(text,npc,user,windowHandle,responses,title,max_distance)
 	npcWindow:AddButton(860,28,"","",46,28,"","",true,"ScrollClose")
 	npcWindow:AddImage(0,0,"ConversationWindow_BG")
 
-	npcWindow:AddLabel(40,24,"[433518]"..StripColorFromString(title):upper(),0,0,24,"left",false,false,nil,"bold")
-	npcWindow:AddLabel(40,50,"[433518]"..text,440,120,20,"left",true)
+	npcWindow:AddLabel(40,24,"[433518]"..StripColorFromString(title):upper(),0,0,24,"left",false,false,"PermianSlabSerif_Dynamic_Bold")
+	npcWindow:AddLabel(40,50,"[433518]"..text,440,120,20,"left",true,false,"PermianSlabSerif_Dynamic_Bold")
 
 	if (responses == nil) then
 		responses = {}

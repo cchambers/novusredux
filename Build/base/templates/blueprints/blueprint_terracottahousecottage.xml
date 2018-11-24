@@ -1,32 +1,9 @@
 <ObjectTemplate>
-  <Name>[FF0000]Stone House Cottage Blueprint[-]</Name>
+  <Name>Terracotta Cottage Blueprint</Name>
 	<ClientId>638</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent/>
-	<ScriptEngineComponent>
-		<LuaModule Name="housing_blueprint">
-			<Initializer>
-				{
-					BlueprintInfo = {
-						East = {
-							TemplateName = "terracotta_house_cottage_east", 
-							DoorTemplate = "tudor_door_fine",
-				      		DoorLoc = Loc(3.032,2.1,4.68), 
-				      		SignTemplate = "house_control_sign_stone",
-				      		SignLoc = Loc(4.305,3.86,7.704),
-				      		SignRot = 270,
-						},
-						South = {
-							TemplateName = "terracotta_house_cottage_south", 
-							DoorTemplate = "tudor_door_fine",
-				      		DoorLoc = Loc(4.641998,2.1,-3.089996), 
-				      		DoorRot = 90,
-				      		SignTemplate = "house_control_sign_stone",
-				      		SignLoc = Loc(3.242,3.892,-4.308)
-						},
-					}
-				}
-			</Initializer>
-		</LuaModule>
-	</ScriptEngineComponent>
+	<ObjectVariableComponent>		
+		<StringVariable Name="HouseType">terracotta_house_cottage</StringVariable>
+		<StringVariable Name="ResourceType">HouseBlueprint</StringVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>

@@ -22,7 +22,7 @@
 		<DoubleVariable Name="Attack">23</DoubleVariable>
 		<DoubleVariable Name="Power">12</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -39,7 +39,7 @@
 					{ 
 					Evocation=100,
 					Manifestation=100,
-					Bashing=60,  
+					Brawling = 60,  
 					MagicAffinity=100,
 					},	
 				EquipTable = 
@@ -52,6 +52,7 @@
 						TemplateDefines.LootTable.Twelve,
 						TemplateDefines.LootTable.MagePoor,
 						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.SicklyEye,
 					},		
 					AvailableSpells = {"Heal","Greaterheal", "Poison", "Fireball","Lightning","Electricbolt", "Bombardment", "Meteor"},
 				}

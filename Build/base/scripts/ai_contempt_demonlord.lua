@@ -4,6 +4,8 @@ require 'base_ai_intelligent'
 -- set charge speed and attack range in combat ai
 AI.Settings.CanFlee = false
 AI.Settings.CanUseCombatAbilities = false
+AI.Settings.ChaseRange = 30
+AI.Settings.LeashDistance = 40
 
 --Special ability
 

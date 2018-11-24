@@ -4,6 +4,8 @@ require 'base_ai_intelligent'
 -- set charge speed and attack range in combat ai
 AI.Settings.CanFlee = false
 AI.Settings.CanUseCombatAbilities = false
+AI.Settings.ChaseRange = 30
+AI.Settings.LeashDistance = MAX_PATHTO_DIST
 
 --Special ability
 table.insert(AI.CombatStateTable,{StateName = "SpecialAbility",Type = "rangedattack",Range = 10})
@@ -22,8 +24,17 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
         {
             SearchPlayerInRange(20,true), --in 20 units
         }))
+
+        local titleReward = nil
+        --This is here because awakening ent boss currently uses ai_awakening_dragon
+        if (this:GetCreationTemplateId() == "awakening_dragon_boss") then
+            titleReward = "AncientDragon"
+        elseif (this:GetCreationTemplateId() == "awakening_ent_boss") then
+            titleReward = "AncientTreeLord"
+        end
+
         --they took part in killing the demon, they deserve credit
-        DistributeBossRewards(nearbyCombatants, {TemplateDefines.LootTable.AwakeningDragon})
+        DistributeBossRewards(nearbyCombatants, {TemplateDefines.LootTable.AwakeningDragon}, titleReward)
     end)
     
 RegisterEventHandler(EventType.CreatedObject, "AwakeningRewardCreated", function(success,objRef,amount)

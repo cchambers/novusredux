@@ -67,7 +67,7 @@ MobileEffectLibrary.SummonPortal =
 		end
 
 		-- if the desination subregion is offline, don't create portal
-		if (destRegionAddress ~= GetRegionAddress() and IsClusterRegionOnline(destRegionAddress) == false) then
+		if (destRegionAddress ~= ServerSettings.RegionAddress and IsClusterRegionOnline(destRegionAddress) == false) then
 			self.ParentObj:SystemMessage("Cannot create a portal right now.", "info")
 			EndMobileEffect(root)
 			return
@@ -76,7 +76,7 @@ MobileEffectLibrary.SummonPortal =
 		--handle user made runes
 		if (destination ~= nil) then
 			--Skip cluster controller validation if player is in same subregion as destination
-			if(not(destRegionAddress) or destRegionAddress == GetRegionAddress()) then
+			if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
 				local invalidMessage, newDestLoc = ValidatePortalSpawnLoc(self.ParentObj, destination, target:GetObjVar("RegionAddress"))
 				self.ParentObj:SendMessage("PortalLocValidated", invalidMessage, newDestLoc)
 			else

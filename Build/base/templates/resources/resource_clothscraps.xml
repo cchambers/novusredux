@@ -5,6 +5,7 @@
   <ObjectVariableComponent>
     <StringVariable Name="ResourceType">ClothScraps</StringVariable>
     <DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+    <BoolVariable Name="CutToBandage">true</BoolVariable>
   </ObjectVariableComponent>
   <ScriptEngineComponent>
     <LuaModule Name="stackable" />

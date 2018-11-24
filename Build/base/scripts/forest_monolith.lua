@@ -5,7 +5,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 	function(user,usedType)
 		if(usedType ~= "Use" and usedType ~= "Examine") then return end
 		
-		user:SystemMessage("[$1812]")
+		user:SystemMessage("[$1812]","info")
     	user:SendMessage("AdvanceQuest","InvestigateMonolithQuest","ActivateMonolith","InvestigateMonolith")
 	end)
 
@@ -28,7 +28,7 @@ RegisterEventHandler(EventType.Message,"MonolithActivate",
 	    this:SetObjVar("Active",true)
     	this:PlayEffect("YellowPortalEffect",5.0)
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"ActivatedTimer")
-		this:PlayObjectSound("Cloak", true)
+		this:PlayObjectSound("event:/magic/air/magic_air_cloack", true)
 	end)
 
 RegisterEventHandler(EventType.Timer,"ActivatedTimer",

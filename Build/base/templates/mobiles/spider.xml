@@ -19,7 +19,7 @@
 		<DoubleVariable Name="Armor">46</DoubleVariable>
 		<DoubleVariable Name="Attack">12</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
@@ -32,7 +32,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=10,  
+					Brawling = 10,  
 					},	
 				EquipTable = 
 					{

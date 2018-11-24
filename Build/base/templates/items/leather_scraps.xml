@@ -1,6 +1,6 @@
 <ObjectTemplate>
   <ClientId>215</ClientId>
-    <Name>[FF0000]Leather Scraps[-]</Name>
+    <Name>Leather Scraps</Name>
   <SharedStateEntry name="Weight" type="int" value="1" />
   <ObjectVariableComponent>
     <StringVariable Name="ResourceType">leather_scraps</StringVariable>

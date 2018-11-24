@@ -4,6 +4,8 @@
 --	    Head
 --		Chest
 --		Legs
+--		Ring
+--		Necklace
 --		Backpack
 --		Bank
 --      TempPack
@@ -61,6 +63,7 @@
 --
 --
 
+-- these (except for Familiar) are used to determine item transfer from corpse on resurrect (among many other things)
 ITEM_SLOTS = {
 	"Head",
 	"Chest",
@@ -68,6 +71,8 @@ ITEM_SLOTS = {
 	"RightHand",
 	"LeftHand",
 	"Familiar",
+	"Ring",
+	"Necklace",
 }
 
 ARMORSLOTS = {
@@ -76,9 +81,24 @@ ARMORSLOTS = {
 	"Legs"
 }
 
+JEWELRYSLOTS = {
+	"Ring",
+	"Necklace",
+}
+
 function IsItemSlot(slotName)
 	for i,itemSlot in pairs(ITEM_SLOTS) do
 		if(slotName == itemSlot) then
+			return true
+		end
+	end
+
+	return false
+end
+
+function IsJewelrySlot(slotName)
+	for i,jewelrySlot in pairs(JEWELRYSLOTS) do
+		if(slotName == jewelrySlot) then
 			return true
 		end
 	end
@@ -239,6 +259,14 @@ function GetEquipmentTooltipTable(item, tooltipInfo)
 		if ( EquipmentStats.BaseWeaponStats[weaponType] ~= nil and EquipmentStats.BaseWeaponStats[weaponType].NoCombat ~= true ) then
 			local weaponClass = EquipmentStats.BaseWeaponStats[weaponType].WeaponClass
 
+			-- add weapon type display name
+			if ( EquipmentStats.BaseWeaponClass[weaponClass] and EquipmentStats.BaseWeaponClass[weaponClass].DisplayName ) then
+				tooltipInfo.WeaponType = {
+					TooltipString = EquipmentStats.BaseWeaponClass[weaponClass].DisplayName,
+					Priority = 6,
+				}
+			end
+
 			-- add attack
 			if ( EquipmentStats.BaseWeaponStats[weaponType].Attack ) then
 				local bonus = item:GetObjVar("AttackBonus") or 0
@@ -246,8 +274,16 @@ function GetEquipmentTooltipTable(item, tooltipInfo)
 				if ( bonus > 0 ) then str = string.format("%s (+%d%%)", str, bonus) end
 				tooltipInfo.Attack = {
 					TooltipString = EquipmentStats.BaseWeaponStats[weaponType].Attack..str,
-					Priority = 4,
+					Priority = 5,
 				}
+
+				bonus = item:GetObjVar("AccuracyBonus") or 0
+				if ( bonus > 0 ) then
+					tooltipInfo.Accuracy = {
+						TooltipString = string.format("+%d Accuracy", bonus),
+						Priority = 4,
+					}
+                end
 			end
 
 			-- add speed tip
@@ -273,18 +309,6 @@ function GetEquipmentTooltipTable(item, tooltipInfo)
 					Priority = 1,
 				}
 			end
-
-			--[[
-			-- skill requirement			
-			local minSkill = EquipmentStats.BaseWeaponStats[weaponType].MinSkill
-			if ( minSkill ~= nil and minSkill > 0) then
-				local skill = EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill
-				tooltipInfo.RequiredSkill = {
-					TooltipString = "Requires " .. minSkill .. " " .. (SkillData.AllSkills[skill].DisplayName or skill),
-					Priority = 0,
-				}
-			end
-			]]
 		end
 	end
 
@@ -328,14 +352,6 @@ function GetEquipmentTooltipTable(item, tooltipInfo)
 				}
 			end
 			]]
-
-			--[[ add heavy armor tip
-			if ( armorClass == "Heavy" ) then
-				tooltipInfo.HeavyTip = {
-					TooltipString = "Prevents agility from affecting movement speed",
-					Priority = 0,
-				}
-			end]]
 		end
 	end
 
@@ -361,17 +377,33 @@ function GetEquipmentTooltipTable(item, tooltipInfo)
 			}
 		end
 
-		--[[
-		tooltipInfo.HeavyTip = {
-			TooltipString = "Prevents agility from affecting movement speed",
-			Priority = 0,
-		}
-		]]
-
 	end
 
+	local jewelryType = item:GetObjVar("JewelryType")
+	if ( jewelryType ) then
+		local typeData = JewelryTypeData[jewelryType]
+		if ( typeData.Will ) then
+			tooltipInfo.WillStatMod = {
+				TooltipString = string.format("+%s Will", typeData.Will),
+				Priority = 3,
+			}
+		end
+		if ( typeData.Wis ) then
+			tooltipInfo.WisStatMod = {
+				TooltipString = string.format("+%s Wisdom", typeData.Wis),
+				Priority = 3,
+			}
+		end
+		if ( typeData.Con ) then
+			tooltipInfo.ConStatMod = {
+				TooltipString = string.format("+%s Constitution", typeData.Con),
+				Priority = 3,
+			}
+		end
+	end
 	-- this rest of this function only applies to weapons and armor (stuff that can be equipped in hand or on body)
-	if ( not weaponType and not armorType and not shieldType ) then return tooltipInfo end
+	if ( not weaponType and not armorType and not shieldType and not jewelryType ) then return tooltipInfo end
+
 
 	-- add durability.
 	local durabilityString = GetDurabilityString(item)

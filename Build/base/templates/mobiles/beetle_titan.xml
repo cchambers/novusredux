@@ -1,6 +1,7 @@
 <ObjectTemplate>
 	<ClientId>304</ClientId>
 	<Name>Titan Beetle</Name>
+	<Hue>830</Hue>
 	<ScaleModifier>4</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="3"/>
 		<!-- x2 Mob-->
@@ -21,7 +22,7 @@
 		<DoubleVariable Name="Armor">60</DoubleVariable>
 		<DoubleVariable Name="Attack">65</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -35,7 +36,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=90,  
+					Brawling = 90,  
 					},	
 				EquipTable = 
 					{

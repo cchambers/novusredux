@@ -4,12 +4,12 @@ local mTargetLoc = nil
 local function ValidateMeteor(targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2614]")
+		this:SystemMessage("[$2614]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2615]")
+		this:SystemMessage("[$2615]","info")
 		return false
 	end
 	return true

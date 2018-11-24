@@ -2,6 +2,9 @@ require 'base_ai_mob'
 require 'base_ai_casting'
 require 'base_ai_intelligent'
 
+AI.Settings.ChaseRange = 20
+AI.Settings.LeashDistance = 30
+
 ChanceToNotAttackOnAlert = 1 --1 out of this number chance to attack when alerted
 
 ImpCooldown = true
@@ -68,7 +71,7 @@ RegisterEventHandler(EventType.Message, "DamageInflicted",
             --he's invincible unless you get the imbued weapon
             SetCurHealth(this,GetCurHealth(this) + damageAmt)
             this:NpcSpeech("[FCF403]*Invincible!*[-]","combat")
-            damager:SystemMessage("This creature cannot be killed by ordinary means!")
+            damager:SystemMessage("This creature cannot be killed by ordinary means!","info")
         end
     end
 )

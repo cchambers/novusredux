@@ -1,6 +1,5 @@
 CraftingOrderTable = nil
 
-require 'incl_container'
 require 'base_ai_mob'
 require 'base_ai_settings'
 require 'base_transaction'
@@ -164,7 +163,7 @@ function GiveCurrency(user,amount)
 end
 
 function Merchant.DoPurchase(buyer, item, price, amount)
-	local itemTemplate = item:GetCreationTemplateId()
+	local itemTemplate = item:GetObjVar("PurchaseTemplate") or item:GetCreationTemplateId()
 	local createSuccess = false
 	if (not CanBuyItem(buyer,item)) then
 		return
@@ -232,7 +231,7 @@ function Merchant.DoSell(user)
 	-- start the sale process
 	backpackObj = user:GetEquippedObject("Backpack")
     backpackObj:SendOpenContainer(user)
-	user:SystemMessage("[$1667]")
+	user:SystemMessage("[$1667]","info")
 	user:RequestClientTargetGameObj(this, "merchant_sell")
 end
 
@@ -260,6 +259,8 @@ function HandleSaleItemCreated(success, objRef, position)
 			return
 		end
 
+		objRef:SetObjVar("PurchaseTemplate",stockData[position].Template)
+
 		local price = tonumber(stockData[position].Price)
 		if ( price == nil or price == 0 ) then price = GetItemPurchaseValue(objRef) end
 		if ( price == nil or price == 0 ) then
@@ -279,7 +280,7 @@ function HandleSaleItemCreated(success, objRef, position)
 			objRef:SetObjVar("StockPosition", position)
 			AddToStock(this, position, objRef)
 			objRef:AddModule("merchant_sale_item")
-			objRef:SendMessage("InitSaleItem", price, this, amount)
+			objRef:SendMessage("InitSaleItem", price, this, amount)			
 		end
 	end
 end
@@ -539,18 +540,24 @@ function CreateSaleItem(position, merchantContainers, stockData)
 				amount = tonumber(stockData[position].Amount)
 			end
 			--DebugMessage("Template: "..tostring(stockData[position].Template).." Location:"..tostring(itemLoc))
-			CreateObjExtended(stockData[position].Template,containerObject,itemLoc,itemRot,itemScale,"sale_item_created",position)
+			local displayTemplate = stockData[position].DisplayTemplate or stockData[position].Template
+			CreateObjExtended(displayTemplate,containerObject,itemLoc,itemRot,itemScale,"sale_item_created",position)
 		end
 	end
 end
 
 RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),function ( ... )
+	AddUseCase(this,"Interact",true)
+	
 	if (AI.GetSetting("MerchantEnabled")) then
 		AddUseCase(this,"Sell",false)
 		AddUseCase(this,"Appraise",false)
 	end
 	if (AI.GetSetting("EnableBank")) then
 		AddUseCase(this,"Bank",false)
+	end
+	if (AI.GetSetting("EnableTax")) then
+		AddUseCase(this,"Tax",false)
 	end
 	if (this:GetObjVar("CraftOrderSkill") ~= nil) then
 		CraftingOrderTable = CraftingOrderDefines[this:GetObjVar("CraftOrderSkill")]
@@ -574,6 +581,8 @@ RegisterEventHandler(EventType.Message,"UseObject",function (user,useType)
 		Merchant.DoAppraise(user)
 	elseif (useType == "Bank" and AI.GetSetting("EnableBank")) then
 		OpenBank(user,this)
+	elseif (useType == "Tax" and AI.GetSetting("EnableTax")) then
+		OpenTax(user,this)
 	end
 end)
 

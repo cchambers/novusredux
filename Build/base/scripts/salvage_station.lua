@@ -14,7 +14,7 @@ function ValidateUse(user)
 
 	local tDist = targLoc:Distance(user:GetLoc())
 	if(tDist > USAGE_DISTANCE) then
-		user:SystemMessage("[F7CC0A] You are too far away to use that![-]")
+		user:SystemMessage("[F7CC0A] You are too far away to use that![-]","info")
 		return false 
 	end
 	--TODO Add Distance Check

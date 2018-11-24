@@ -5,7 +5,7 @@ end)
 
 RegisterEventHandler(EventType.Timer,"TriggerPotion",function(...)
 	this:PlayEffect("LightningBodyEffect",15)
-	this:SystemMessage("Your looking electric!")
+	this:SystemMessage("Your looking electric!","info")
 	EndEffect()
 end)
 

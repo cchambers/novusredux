@@ -1,5 +1,5 @@
 -- DAB TODO EDIT MODE: HACK UNTIL WE GET THE CREATION CUSTOMIZE FOR EDIT MODE
-if(EDITMODE == false) then
+if(ServerSettings.EditMode == false) then
 	this:DelModule("editmode_player")	
 	this:AddModule("player")
 else
@@ -29,7 +29,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"editmode_toolbar",
 		if(buttonId == "Manage") then
 			DoManageWindow()
 		elseif(buttonId == "Create") then
-			this:RequestClientTargetLocPreview(this, "seed_create_loc", "empty",Loc(0,0,0))
+			this:RequestClientTargetLocPreview(this, "seed_create_loc", "empty",Loc(0,0,0),Loc(1,1,1))
 		end
 	end)
 

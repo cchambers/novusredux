@@ -45,7 +45,6 @@
 								{ Chance = 5, Template = "treasure_map", Unique = true },
 								{ Chance = 5, Template = "tool_shovel", Unique = true },
 								{ Chance = 15, Template = "bandage", Unique = true },
-								{ Chance = 5, Template = "animalparts_meat", Unique = true },
 								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
 								{ Chance = 5, Template = "resource_clothscraps", Unique = true },
 								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },

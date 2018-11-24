@@ -29,7 +29,7 @@ function CreateArmorTaskPouch(user)
                 objRef:SetName("Robert's Armor Pouch")
             end)
 
-    user:SystemMessage("You have received Robert's Armor Pouch","event")
+    user:SystemMessage("You have received Robert's Armor Pouch","info")
 end
 
 NPCTasks = {

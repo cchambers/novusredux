@@ -2,12 +2,11 @@
 
 require 'spawn_controller'
 
-local housingRegion = GetRegion("Housing")
-local campRegion = GetRegion("Camp")
+local campRegion = GetRegion("DynamicCamp")
 local prefabControllerTemplate = GetTemplateData("prefab_camp_controller")
 
 function IsInCampRegion(spawnLoc)
-	return (campRegion and campRegion:Contains(spawnLoc)) or (housingRegion and housingRegion:Contains(spawnLoc))
+	return (campRegion and campRegion:Contains(spawnLoc))
 end
 
 -- override get random location to check for plots
@@ -20,7 +19,7 @@ function GetRandomSpawnLocation(entry)
 
     local prefabExtents = GetPrefabExtents(entry.Prefab)
 
-    -- try to find an area that is in a housing or camp region and all 4 corners are not overlapping another area
+    -- try to find an area that is in a camp region and all 4 corners are not overlapping another area
     local spawnLoc = GetRandomPassableLocationFromRegion(region,true)
     --DebugMessage("GetRandomSpawnLocation "..tostring(entry.Prefab)..", "..DumpTable(entry))
     local relBounds = GetRelativePrefabExtents(entry.Prefab, spawnLoc, prefabExtents)
@@ -31,7 +30,7 @@ function GetRandomSpawnLocation(entry)
         return nil
     end
 
-    if((entry.Region == "Camp" or entry.Region == "Housing" or IsInCampRegion(spawnLoc)) and CheckBounds(relBounds,false)) then
+    if((entry.Region == "DynamicCamp" or IsInCampRegion(spawnLoc)) and CheckBounds(relBounds,false)) then
         --Move every mobiles in camp boundary
         MoveMobiles(relBounds, spawnLoc)
     	return spawnLoc

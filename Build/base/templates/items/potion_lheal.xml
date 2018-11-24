@@ -1,12 +1,13 @@
 <ObjectTemplate>
   <Name>[00FF00]Lesser Heal Potion[-]</Name>
-	<ClientId>35</ClientId>
+	<ClientId>1057</ClientId>
 	<Color>0xFFF90303</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<!-- Stackable objvars -->
 		<StringVariable Name="ResourceType">PotionLesserHeal</StringVariable>
 		<StringVariable Name="PluralName">Lesser Heal Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

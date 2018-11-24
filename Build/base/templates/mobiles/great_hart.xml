@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<ClientId>133</ClientId>
+	<ClientId>39</ClientId>
 	<Name>Great Hart</Name>
 	<ScaleModifier>1</ScaleModifier>	
 	<MobileComponent>			
@@ -9,7 +9,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">30</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -29,7 +29,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=15,  
+					Brawling = 15,  
 					},	
 				LootTables = 
 					{ 
@@ -41,6 +41,8 @@
 			<Initializer>
 				{
 					MeatCount = 3,
+
+					MeatType = "TenderMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },

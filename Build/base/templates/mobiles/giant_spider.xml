@@ -12,6 +12,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">20000</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<StringVariable Name="NaturalWeaponType">LongSword</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Poisonous Fangs</StringVariable>
 		<StringVariable Name="NaturalArmor">VeryHeavy</StringVariable>
@@ -24,7 +25,7 @@
 					Skills = 
 					{ 
 						Melee = 100, 
-						Bashing = 100,
+						Brawling = 100,
 						Dodge = 100,
 					},
 					CombatAbilitiesOld = {

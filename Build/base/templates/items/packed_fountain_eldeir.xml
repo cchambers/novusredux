@@ -4,8 +4,6 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
 		<StringVariable Name="UnpackedTemplate">fountain</StringVariable>
-	</ObjectVariableComponent>		
-	<ScriptEngineComponent>
-		<LuaModule Name="packed_object"/>
-	</ScriptEngineComponent>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>

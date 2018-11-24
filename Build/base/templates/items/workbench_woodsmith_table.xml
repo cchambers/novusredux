@@ -1,11 +1,11 @@
 <ObjectTemplate>
-  <Name>[FF9500]Woodsmith Table[-]</Name>
+  <Name>[FF9500]Carpentry Table[-]</Name>
 	<ClientId>636</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent>			
 		<StringVariable Name="ToolSkill">WoodsmithSkill</StringVariable>	
 		<StringVariable Name="ToolAnimation">woodsmith</StringVariable>
-		<StringVariable Name="ToolSound">Woodsmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/carpentry/carpentry_saw</StringVariable>
 	</ObjectVariableComponent>			
 	<ScriptEngineComponent>
 		<LuaModule Name="crafting_woodsmith"/>

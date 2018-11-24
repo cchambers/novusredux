@@ -24,8 +24,8 @@ RegisterEventHandler(EventType.Timer,"TriggerSexPotion",function(...)
 		this:SetAppearanceFromTemplate(PLAYERTEMPLATE_FEMALE)
 		--CreateEquippedObj(DEFAULT_FEMALE_HAIR, this, "created_hair")
 	end
-	this:SystemMessage("You turn into the opposite sex!")
-	this:SystemMessage("Your hair falls out! Better find a Transmorgifier!")
+	this:SystemMessage("You turn into the opposite sex!","info")
+	this:SystemMessage("Your hair falls out! Better find a Transmorgifier!","info")
 end)
 
 function EndEffect()

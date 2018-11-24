@@ -20,7 +20,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=250, Agi=250, Int=250 },
-					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100 },					
+					Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100 },					
 					StatMods = {
 						{Name = "DamageMod", Identifier="Guard", Type="Multiplier", Amount=8 },
 					},

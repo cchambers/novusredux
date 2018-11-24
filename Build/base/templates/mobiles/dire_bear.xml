@@ -10,7 +10,8 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Animals</StringVariable>
+		<StringVariable Name= "MobileTeamType">Bear</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -21,7 +22,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">93.9</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">73.9</DoubleVariable>
 		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
@@ -34,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=75,  
+					Brawling = 75,  
 					},	
 				EquipTable = 
 					{
@@ -42,7 +43,6 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.Fifteen,
 					},	
 				ScavengeTables =
 					{

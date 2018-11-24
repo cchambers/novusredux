@@ -2,13 +2,13 @@
 RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), 
 	function()		
 		local displayName = ""
-		displayName = SubregionDisplayNames[GetSubregionName()]
+		displayName = SubregionDisplayNames[ServerSettings.SubregionName]
 		if (displayName == nil) then
-			displayName = GetSubregionName()
+			displayName = ServerSettings.SubregionName
 		end
 		this:SetName("Map of "..displayName)
-		this:SetObjVar("MapName", GetSubregionName())
-		this:SetObjVar("WorldMap", GetWorldName())
+		this:SetObjVar("MapName", ServerSettings.SubregionName)
+		this:SetObjVar("WorldMap", ServerSettings.WorldName)
 		SetItemTooltip(this)
 		this:DelModule(GetCurrentModule())
 end)

@@ -2,7 +2,8 @@
 <ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Justin the Blacksmith</Name>
+	<Name>Justin</Name>
+	<SharedStateEntry name="Title" type="string" value="Metalsmith"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="PlayAnim">anvil_strike</StringVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
@@ -24,6 +25,7 @@
 					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 					Skills= {
 						Metalsmith = 100,
+						Mining = 100,
 					},
 					MobTraits =
 					{

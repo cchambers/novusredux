@@ -10,8 +10,9 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileTeamType">Coyote</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">4</DoubleVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -25,13 +26,13 @@
 		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_prey">
+		<LuaModule Name="ai_default_animal">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=15,  
+					Brawling = 15,  
 					},	
 				LootTables = 
 					{ 
@@ -43,6 +44,8 @@
 			<Initializer>
 				{
 					MeatCount = 1,					
+
+					MeatType = "CoyoteMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=50, Count=1 },

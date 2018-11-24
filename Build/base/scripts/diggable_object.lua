@@ -7,7 +7,7 @@ RegisterEventHandler(EventType.Message,"DigItem",
 	function (shovelUser,digLoc)		
 		
 		if (this:HasObjVar("DugUp")) then
-       	 	shovelUser:SystemMessage("This area has been dug up already.")
+       	 	shovelUser:SystemMessage("This area has been dug up already.","info")
        	 	return
 		end
 		local buriedItems = this:GetObjVar("BuriedItems")
@@ -17,11 +17,11 @@ RegisterEventHandler(EventType.Message,"DigItem",
 			if (math.random(1,j.chance) == 1) then
 				item = j.item
 				CreateObj(item,digLoc,"digCreated",shovelUser)		
-				shovelUser:SystemMessage("You dug something up!")
+				shovelUser:SystemMessage("You dug something up!","info")
 				return
 			end
 		end
-        shovelUser:SystemMessage("You find nothing of interest there.")
+        shovelUser:SystemMessage("You find nothing of interest there.","info")
 	end)
 
 RegisterEventHandler(EventType.CreatedObject,"digCreated",

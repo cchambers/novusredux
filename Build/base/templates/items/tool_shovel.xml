@@ -2,7 +2,10 @@
   <Name>[FF5d3c]Shovel[-]</Name>
 	<ClientId>211</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="5"/>
-	<ObjectVariableComponent/>			
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Shovel</StringVariable>
+		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="shovel"/>
 	</ScriptEngineComponent>

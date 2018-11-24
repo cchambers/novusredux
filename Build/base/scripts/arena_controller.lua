@@ -114,7 +114,6 @@ local arenaCommandHandlers = {
 			--DebugMessage("Found "..#allPlayers.." players")
 			for i,player in pairs(allPlayers) do
 				player:SystemMessage(line,"event")
-				player:SystemMessage(line)
 			end
 		end
 	end,

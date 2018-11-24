@@ -18,7 +18,7 @@
 			<Initializer>
 				{
 					Stats = { Str=99, Agi=99, Int=99 },
-					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100 },
+					Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100 },
 					EquipTable = {
 						BodyPartHead = { "head_male02" },
 						BodyPartHair = { "" },

@@ -10,7 +10,7 @@ MobileEffectLibrary.Recall =
 		
 		if ( target == self.ParentObj ) then
 			local bindLoc = GetPlayerSpawnPosition(self.ParentObj)
-			local bindRegionAddress = GetRegionAddress()
+			local bindRegionAddress = ServerSettings.RegionAddress
 
 			local spawnPosEntry = self.ParentObj:GetObjVar("SpawnPosition")
 			if ( spawnPosEntry ~= nil ) then

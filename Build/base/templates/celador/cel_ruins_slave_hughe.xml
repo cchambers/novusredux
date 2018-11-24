@@ -17,7 +17,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=10, Agi=20, Int=60 },
-					Skills = { Melee = 40, Slashing = 40, Bashing = 20, Piercing = 20, Blocking = 50 },
+					Skills = { Melee = 40, Slashing = 40, Brawling = 20, Piercing = 20, Blocking = 50 },
 					EquipTable = {
 						BodyPartHair = { "" },
 						RightHand = { "","",""},

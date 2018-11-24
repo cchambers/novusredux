@@ -21,6 +21,27 @@ mPageType = "EvocationIndex"
 mPageNumber = 1
 
 function ShowSpellDetail(dynamicWindow,spellEntry,xOffset)
+
+	local actionData = GetSpellUserAction(spellEntry.Name)
+	-- add spell user action
+	dynamicWindow:AddUserAction(
+		xOffset+208, --(number) x position in pixels of the window
+		60, --(number) y position in pixels of the window
+		actionData, --(table) table containing the user action data
+		128, --(number) width in pixels of the window (default decided by client)
+		128 --(number) height in pixels of the window (default decided by client)
+	)
+
+
+	dynamicWindow:AddImage(xOffset + 146,138,"Prestige_TitleHeader")
+	dynamicWindow:AddLabel(xOffset + 240,141,"[43240f]"..(spellEntry.Data.SpellDisplayName or spellEntry.Name).."[-]",150,0,28,"center",false,false,"Kingthings_Dynamic")
+	dynamicWindow:AddImage(xOffset + 114,174,"Prestige_Divider",250,0,"Sliced")
+
+	local regStr = GetReagentStr(spellEntry.Data.Reagents)
+	local descStr = spellEntry.Data.SpellTooltipString .. "\n\n" .. "Difficulty: "..ToRomanNumerals(spellEntry.Data.Circle or 1) .. "\n\nReagents:\n" .. regStr
+	dynamicWindow:AddLabel(xOffset + 114,192,"[43240f]"..descStr.."[-]",220,300,18,"left",false,false,"PermianSlabSerif_Dynamic_Bold")
+
+	--[[
 	dynamicWindow:AddLabel(
 		xOffset+236, --(number) x position in pixels on the window
 		44, --(number) y position in pixels on the window
@@ -93,7 +114,7 @@ function ShowSpellDetail(dynamicWindow,spellEntry,xOffset)
 			false, --(boolean) outline (defaults to false)
 			"Kingthings_Calligraphica_Dynamic" --(string) name of font on client (optional)
 		)
-	end
+	end]]
 end
 
 function ShowSpellBookDialog()
@@ -282,7 +303,7 @@ function ShowSpellBookDialog()
 				xOffset, --(number) x position in pixels on the window
 				yOffset, --(number) y position in pixels on the window
 				"ChangePage|"..detailPageStr.."|"..pageStr, --(string) return id used in the DynamicWindowResponse event
-				tostring(spellEntry.Data.Circle or 1).."|"..(spellEntry.Data.SpellDisplayName or spellEntry.Name), --(string) text in the button (defaults to empty string)
+				ToRomanNumerals(spellEntry.Data.Circle or 1).."|"..(spellEntry.Data.SpellDisplayName or spellEntry.Name), --(string) text in the button (defaults to empty string)
 				250, --(number) width of the button (defaults to width of text)
 				34,--(number) height of the button (default decided by type of button)
 				"", --(string) mouseover tooltip for the button (default blank)

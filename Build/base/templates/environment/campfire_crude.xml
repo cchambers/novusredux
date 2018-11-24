@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Crude Campfire[-]</Name>
+  <Name>Crude Campfire</Name>
 	<ClientId>181</ClientId>
 	<ObjectVariableComponent>			
 		<BoolVariable Name="HeatSource">True</BoolVariable>

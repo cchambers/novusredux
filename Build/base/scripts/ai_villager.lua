@@ -278,4 +278,6 @@ RegisterSingleEventHandler(EventType.ModuleAttached,"ai_villager",
                 end
             end)
         end
+        
+        AddUseCase(this,"Interact",true)
     end)

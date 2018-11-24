@@ -6,12 +6,12 @@ RegisterEventHandler(EventType.Message,"UseObject",
 		if useType ~= "Activate" then return end
 
 		if (this:TopmostContainer() ~= user) then 
-			user:SystemMessage("[$1813]")
+			user:SystemMessage("[$1813]","info")
 			return
 		end
 
 		if not(HasParallelRegion()) then 
-			user:SystemMessage("[$1814]")
+			user:SystemMessage("[$1814]","info")
 			return
 		end
 
@@ -22,7 +22,7 @@ RegisterEventHandler(EventType.Message,"UseObject",
 
 RegisterEventHandler(EventType.CreatedObject,"portal_created",
 	function (success,objRef,portalLoc,destFacing)
-		objRef:SetObjVar("DestinationMap",GetWorldName())
+		objRef:SetObjVar("DestinationMap",ServerSettings.WorldName)
 		objRef:SetObjVar("Destination",portalLoc)
 		objRef:SetObjVar("DestinationFacing",destFacing)
 		Decay(objRef, 60)

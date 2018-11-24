@@ -5,7 +5,7 @@
 	<Name>Banshee</Name>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Banshee"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/banshee/banshee"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -38,7 +38,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 				EquipTable = 
 					{

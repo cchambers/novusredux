@@ -133,7 +133,7 @@ RegisterEventHandler(EventType.ModuleAttached,"hireling_merchant_sale_item",
 
 		AddUseCase(this,"Buy")
 		SetOverrideDefaultInteraction(this,"Buy")
-		AddUseCase(this,"Remove from Sale",false,"OwnsContainedHouse")
+		AddUseCase(this,"Remove from Sale",false,"HasPlotControl") --TODO this should be HasMerchantControl
 
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(4 + math.random()),"check_valid_hireling")
 	end)

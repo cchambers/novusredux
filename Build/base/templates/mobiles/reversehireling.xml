@@ -20,7 +20,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=120, Agi=60, Int=20 },
-					Skills = { Melee = 90, Slashing = 90, Bashing = 90},
+					Skills = { Melee = 90, Slashing = 90, Brawling = 90},
 					Names = {
 						"Gearald the Hunter",
 						"Ervin the Hunter",

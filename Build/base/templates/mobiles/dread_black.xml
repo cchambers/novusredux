@@ -4,7 +4,7 @@
 	<Hue>16</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
 	<SharedStateEntry name="Variation" type="string" value="Void"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Dragon"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/dragon/dragon"/>
 	<ScaleModifier>1.2</ScaleModifier>
 <MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -13,6 +13,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">1000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -21,11 +22,11 @@
 		<DoubleVariable Name="Armor">60</DoubleVariable>
 		<DoubleVariable Name="Attack">42</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">195.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_demon">
@@ -37,7 +38,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=80,  
+					Brawling = 80,  
 					},	
 				EquipTable = 
 					{

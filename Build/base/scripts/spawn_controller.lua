@@ -119,7 +119,7 @@ function ShouldSpawn(spawnInfo,spawnIndex)
     
     --DebugMessageB(this,"ShouldSpawn "..spawnInfo.TemplateId.." isValid: "..tostring(isValid).." isDead: "..tostring(isDead))
     -- the mob is still on the map and hes not a pet, no spawn
-    if( isValid and not(isDead) and not(spawnData[spawnIndex].ObjRef:HasObjVar("controller")) ) then
+    if( isValid and not(isDead) and not(IsPet(spawnData[spawnIndex].ObjRef)) ) then
         return false
     end
 

@@ -199,25 +199,33 @@ RegisterEventHandler(EventType.Message, "UseObject",
 	function (user,usedType)
 		--DebugMessage("Start here, usedType is "..tostring(usedType))
 		if(usedType ~= "Use" and (usedType ~= "Examine" and usedType ~= "Write" and usedType ~= "Rename")) then return end
-		if (usedType == "Write") then
-			if (this:TopmostContainer() ~= user) then
-				user:SystemMessage("[$1947]")
-				return
-			end
-			--DebugMessage("Attempt to open the dialog.")
-			OpenWriteDialog(user)
-			return
-		elseif(usedType == "Rename") then
-			RenameBook(user)
+		
+		if (usedType == "Examine") then
+			user:SetObjVar("Line",1)
+			this:PlayObjectSound("Use", true)
+			ShowContents(user,1)
 			return
 		end
 
-		if this:HasObjVar("AnotherLanguage") then 
-			user:SystemMessage("[$1950]")
+		if (this:TopmostContainer() == user) then
+			if (usedType == "Write") then
+				OpenWriteDialog(user)
+				return
+			elseif(usedType == "Rename") then
+				RenameBook(user)
+				return
+			end
+
+			if this:HasObjVar("AnotherLanguage") then 
+				user:SystemMessage("[$1950]","info")
+				return
+			end
+			
+		else
+			user:SystemMessage("[$1947]","info")
 			return
 		end
-		user:SetObjVar("Line",1)
-		ShowContents(user,1)
+
 	end)
 
 function RenameBook(user)
@@ -231,12 +239,12 @@ function RenameBook(user)
         	if(newName ~= nil and newName ~= "") then
 
         		if (string.len(newName) > 25) then
-			 		user:SystemMessage("The book name must be less than 26 characters.")
+			 		user:SystemMessage("The book name must be less than 26 characters.","info")
 			 		return
 			 	end
 
         		if(ServerSettings.Misc.EnforceBadWordFilter and HasBadWords(newName)) then
-    		 		user:SystemMessage("Book name can not contain any foul language!")
+    		 		user:SystemMessage("Book name can not contain any foul language!","info")
     		 		return
     		 	end
 
@@ -281,7 +289,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"WriteBookWindow",function 
 		end
 		local writeTime = math.min(5000,math.max(1000,contents.WritingContents:len()*4 + 1))
 		--DebugMessage("Write time is "..tostring(writeTime))
-		user:SystemMessage("You write the book.")
+		user:SystemMessage("You write the book.","info")
 		user:CloseDynamicWindow("WriteBookWindow")
 		--user:PlayAnimation(WRITING_ANIMATION)	
 		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(writeTime),"PreventExamine")
@@ -296,7 +304,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"WriteBookWindow",function 
 		}
 		CallFunctionDelayed(TimeSpan.FromMilliseconds(writeTime),function()
 			user:PlayAnimation("idle")
-			this:SystemMessage("You finish writing the book.")
+			this:SystemMessage("You finish writing the book.","info")
 			this:SendMessage("WriteBook",contents.WritingContents)
 		end)
 	end

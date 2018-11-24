@@ -111,38 +111,6 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		end
 	--DebugMessage(" Skill:" .. tostring(resSkill))
 		
-		-- Hunting knives do not fail
-		--[[local harvestDifficulty = 0
-		
-        --DebugMessage("Harvest Difficulty:" .. harvestDifficulty)
-        if (not(harvestDifficulty == nil)) and (harvestDifficulty < 1) and (resSkill~= nil) then
-            local failModifier = user:GetObjVar("ResourceHarvestMod") or 0         
-            local baseSuccessChance = GetSkillPctPotency(skillVal) + failModifier
-           
-            local successChance = 0
-            if(GetSkillPct(user,resSkill,skillVal) >= (harvestDifficulty * 0.375)) then
-                successChance = (1 + ((baseSuccessChance - harvestDifficulty) / harvestDifficulty) * 1.5)
-                --DebugMessage(resourceType .."- baseSuccessChance: "..tostring(baseSuccessChance).." harvestDifficulty: "..tostring(harvestDifficulty).." successChance: "..tostring(successChance))
-            end
-
-            if(successChance < 0) then
-                user:SystemMessage("Your feeble skills completely destroyed the ".. resourceType .." while attempting to harvest anything usable.")
-                return
-            else
-                local successRoll = math.random(0,100)
-                --DebugMessage(resourceType .."  resSkill           Chance:" .. successChance .. " Roll:" ..successRoll .. " ->" ..GetSkillPctPotency(skillVal))
-                if(successRoll > (successChance*100)) then
-                    if(successChance > 0.75) then
-                        user:SystemMessage("You almost harvested the ".. resourceType .." but it was still destroyed in the process.")
-                        return
-                    else   
-                        user:SystemMessage("You destroyed ".. resourceType .." while attempting to harvest anything usable.")
-                        return
-                    end
-                end
-            end
-        end]]
-
 		-- dont factor skill bonus into stack amount
 		local stackAmount = 1
 		-- try to add to the stack in the players pack		

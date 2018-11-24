@@ -14,12 +14,26 @@ ServerSettings.Crafting = {
     MaterialBonus = {
         -- these are in percents
         Attack = {
-            Max = 70, -- max a material bonus can give to + attack %
+            Max = 50, -- max a material bonus can give to + attack %
             Weight = { -- different materials are weighted to give better results
                 Iron = 0,
                 Copper = 10,
-                Bronze = 20,
-                Steel = 30,
+                Gold = 20,
+                Cobalt = 30,
+                Obsidian = 40,
+
+                Boards = 0,
+                AshBoards = 20,
+                BlightwoodBoards = 40,
+            }
+        },
+        Accuracy = {
+            Max = 15, -- max a material bonus can give to + accuracy
+            Weight = { -- different materials are weighted to give better results
+                Iron = 0,
+                Copper = 10,
+                Gold = 20,
+                Cobalt = 30,
                 Obsidian = 40,
 
                 Boards = 0,
@@ -29,12 +43,12 @@ ServerSettings.Crafting = {
         },
         -- these are NOT in percents
         Armor = {
-            Max = 5, -- max amount of extra armor rating a material can give (This max is HALFED in final calculation)
+            Max = 3, -- max amount of extra armor rating a material can give (This max is HALFED in final calculation)
             Weight = { -- different materials are weighted to give better results
                 Iron = 1,
                 Copper = 2,
-                Bronze = 3,
-                Steel = 4,
+                Gold = 3,
+                Cobalt = 4,
                 Obsidian = 5,
 
                 Cloth = 1,
@@ -50,8 +64,8 @@ ServerSettings.Crafting = {
         Durability = {
             Iron = 0,
             Copper = 50,
-            Bronze = 100,
-            Steel = 15,
+            Gold = 100,
+            Cobalt = 15,
             Obsidian = 200,
 
             Cloth = 0,
@@ -70,7 +84,10 @@ ServerSettings.Crafting = {
     -- bonus that can be gain frm the skill of crafting the item, the skill level is turned into a percent and multiplied against these numbers
     SkillBonus = {
         Attack = {
-            Max = 30,
+            Max = 25,
+        },
+        Accuracy = {
+            Max = 10,
         },
         Armor = {
             Max = 1, -- (This max is HALFED in final calculation)

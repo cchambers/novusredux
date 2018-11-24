@@ -7,7 +7,7 @@ ServerSettings.Pets = {
         },
     },
     Command = {
-        Distance = 20, -- distance owner can command pet from
+        Distance = 30, -- distance owner can command pet from
     },
     Combat = {
         Speed = 4.6, -- speed that pets will chase stuff to attack

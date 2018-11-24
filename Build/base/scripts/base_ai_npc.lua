@@ -79,8 +79,13 @@ AI.StateMachine.AllStates.Idle = {
             --else
             --    AI.StateMachine.ChangeState("Wander")
             --end         
+            
             if ((this:GetObjVar("ImportantNPC")) and math.random(1,3) == 1) then
-                AI.StateMachine.ChangeState("GoHome")
+                local spawnLoc = this:GetObjVar("SpawnLocation")
+                local distance = this:GetLoc():Distance(spawnLoc)        
+                if(distance > 2) then
+                    AI.StateMachine.ChangeState("GoHome")
+                end
             end
 
             DecideIdleState()
@@ -315,27 +320,32 @@ function Dialog.OpenTradeDialog(user)
         response[3].handle = "Sell" 
     end
 
-    --To enable crafting orders, add "CraftOrderSkill" objVar to required skill. Ex, Blacksmiths should hand out Metalsmith orders
-    if (this:GetObjVar("CraftOrderSkill")~= nil and this:HasModule("base_merchant")) then
-        response[4] = {}
-        response[4].text = "About crafting orders..."
-        response[4].handle = "Work" 
-    end
-
     if (AI.GetSetting("EnableBank") ~= nil and AI.GetSetting("EnableBank") == true) then
         response[4] = {}
         response[4].text = "I want to bank items."
         response[4].handle = "Bank" 
     end
-    if (AI.GetSetting("EnableRepair"))  then
+    if (AI.GetSetting("EnableTax") ~= nil and AI.GetSetting("EnableTax") == true) then
         response[5] = {}
-        response[5].text = "I need to repair something."
-        response[5].handle = "RepairItem"
+        response[5].text = "I want to pay taxes."
+        response[5].handle = "Tax" 
+    end
+    if (AI.GetSetting("EnableRepair"))  then
+        response[6] = {}
+        response[6].text = "I need to repair something."
+        response[6].handle = "RepairItem"
     end
 
-    response[6] = {}
-    response[6].text = "Nevermind"
-    response[6].handle = "" 
+    --To enable crafting orders, add "CraftOrderSkill" objVar to required skill. Ex, Blacksmiths should hand out Metalsmith orders
+    if (this:GetObjVar("CraftOrderSkill")~= nil and this:HasModule("base_merchant")) then
+        response[7] = {}
+        response[7].text = "About crafting orders..."
+        response[7].handle = "Work" 
+    end
+
+    response[8] = {}
+    response[8].text = "Nevermind"
+    response[8].handle = "" 
 
     NPCInteractionLongButton(text,this,user,"Responses",response)
 
@@ -550,6 +560,9 @@ RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),
                 this:AddModule("guard_protect")
             end
         end
+        
+        AddUseCase(this,"Interact",true)
+    
     end)
 
 if ( this:GetObjVar("ImportantNPC") ) then

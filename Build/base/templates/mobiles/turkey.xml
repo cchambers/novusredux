@@ -8,7 +8,7 @@
   <ObjectVariableComponent>   
     <DoubleVariable Name="BaseHealth">20</DoubleVariable>
     <StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+    <StringVariable Name="MobileKind">Animal</StringVariable>
     <BoolVariable Name="AI-Leash">False</BoolVariable>
     <BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
     <BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -31,7 +31,7 @@
           },
         Skills = 
           { 
-          Bashing=5,  
+          Brawling = 5,  
           },  
         LootTables = 
           { 
@@ -39,10 +39,12 @@
         }
       </Initializer>
     </LuaModule>
-        <LuaModule Name="animal_parts">
+    <LuaModule Name="animal_parts">
       <Initializer>
         {
-          MeatCount = 1,
+          MeatCount = 1,          
+
+          MeatType = "StringyMeat",
         }
       </Initializer>
     </LuaModule>

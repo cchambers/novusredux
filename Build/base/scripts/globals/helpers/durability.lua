@@ -117,10 +117,9 @@ function BreakItem(item)
 			end
 
 			-- this is important enough to log it in the chat window and do an alert event
-			holder:SystemMessage("Your " .. StripColorFromString(item:GetName()) .." has been destroyed!")
-			holder:SystemMessage("Your " .. StripColorFromString(item:GetName()) .." has been destroyed!", "event")
+			holder:SystemMessage("Your " .. StripColorFromString(item:GetName()) .." has been destroyed!", "info")
 		end
-		holder:PlayObjectSound("Sunder")		
+		holder:PlayObjectSound("event:/character/combat_abilities/plate_sunder")		
 	end
 
 	item:Destroy()

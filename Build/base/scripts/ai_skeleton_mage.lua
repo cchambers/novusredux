@@ -9,6 +9,9 @@ quotes = {
 	 "Eat some fireball flesh man!",
 }
 
+AI.Settings.ChaseRange = 15.0
+AI.Settings.LeashDistance = 25
+
 AI.StateMachine.AllStates.DecidingCombat = {
         OnEnterState = function()	
        		if (math.random(1,300) == 1) then

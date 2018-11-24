@@ -20,7 +20,7 @@
 						Int = 300,
 					},
 					Skills = {
-						Bashing = 120,
+						Brawling = 120,
 					},
 					EquipTable = {
 						BodyPartHead= {

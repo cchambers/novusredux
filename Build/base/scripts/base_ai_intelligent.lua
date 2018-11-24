@@ -355,7 +355,6 @@ end
 
 --decide what the mobile is going to do
 function DecideIdleState()
-    AI.ChaseTime = nil
     --DebugMessage("Resetting chase time C")
     if (IsDead(this)) then AI.StateMachine.ChangeState("Dead") return end
     if not(AI.IsActive()) then return end
@@ -511,4 +510,4 @@ function getHighestPriority(StateTable,target)
     --reduce priority to heal if i'm in melee
 end
 
-------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------  

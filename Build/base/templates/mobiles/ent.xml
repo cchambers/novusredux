@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1581</ClientId>
 	<Color>0x524C3A</Color>
-	<Name>Tree Reaper</Name>
+	<Name>Forest Walker</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<MobileComponent>			
 		<BaseRunSpeed>.5</BaseRunSpeed>
@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">1100</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Ent</StringVariable>
+		<StringVariable Name="MobileKind">Ent</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +19,7 @@
 		<DoubleVariable Name="Armor">56</DoubleVariable>
 		<DoubleVariable Name="Attack">80</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=80,  
+					Brawling = 80,  
 					},	
 				EquipTable = 
 					{
@@ -44,6 +45,7 @@
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.Nectar,
 						{
 							NumItems = 1,
 							NumCoins = math.random(400,500),
@@ -58,6 +60,16 @@
 				ScavengeTables =
 					{
 					},	
+				}
+			</Initializer>
+		</LuaModule>
+				<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="Nectar", RarityPct=10, Count=1 },
+					},
 				}
 			</Initializer>
 		</LuaModule>

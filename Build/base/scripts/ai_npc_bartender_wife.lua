@@ -7,72 +7,7 @@ AI.Settings.StationedLeash = true
 fixPrice = 20
 
 NPCTasks = {
---[[
-        StewIngredientTask = {
-            TaskName = "StewIngredientTask",
-            TaskDisplayName = "Stew Ingredients",
-            Description = "Get 3 mushrooms, 2 Lemongrass, and 3 Animal Meat",
-            FinishDescription = "Bring them back to Ms. Paws",
-            RewardType = "coins",
-            RewardAmount = 75,
-            Repeatable = true, --if you can redo the task
-            Importance = 1, --these are sorted from the player on asking, the tasks with the top five highest importance are displayed on interaction with an NPC
-            TaskDescriptionSpeech = "[$232]",
-            TaskAcceptSpeech = "[$233]",
-            TaskCurrentSpeech = "[$234]",
-            TaskContinueSpeech = "[$235]",
-            TaskCancelSpeech = "[$236]",
-            TaskHelpSpeech = "[$237]",
-            TaskPreCompleteSpeech = "[$238]",
-            TaskFinishedMessage = "[$239]",
-            TaskIncompleteMessage = "[$240]",
-            TaskAssists = {
-                {Template = "cel_merchant_bartender",Text = "[$241]"},
-                {Template = "cel_merchant_general_store",Text = "[$242]"},
-            },
-            CompletionCallback = "Items",
-            CheckCompletionCallback = "Items",
-            TaskItemList = {
-                {"ingredient_mushroom",3},
-                {"ingredient_lemongrass",2},
-                {"animalparts_meat",3},
-            },
-            Faction = "Villagers",
-            FactionOnFinish = 4,
-        },        
-        CarpenterStoolTask = {
-            TaskName = "CarpenterStoolTask",
-            TaskDisplayName = "Broken Stool",
-            Description = "Get the materials required to make a bar stool",
-            FinishDescription = "Bring the materials back to Ms. Paws",
-            RewardType = "coins",
-            RewardAmount = 120,
-            Repeatable = false, --if you can redo the task
-            Importance = 1, --these are sorted from the player on asking, the tasks with the top five highest importance are displayed on interaction with an NPC
-            TaskDescriptionSpeech = "[$243]",
-            TaskAcceptSpeech = "[$244]",
-            TaskCurrentSpeech = "[$245]",
-            TaskContinueSpeech = "[$246]",
-            TaskCancelSpeech = "[$247]",
-            TaskHelpSpeech = "[$248]",
-            TaskPreCompleteSpeech = "[$249]",
-            TaskFinishedMessage = "[$250]",
-            TaskIncompleteMessage = "[$251]",
-            TaskAssists = {
-                {Template = "cel_merchant_bartender",Text = "[$252]"},
-                {Template = "cel_guard_rufus",Text = "[$253]"},
-                {Template = "cel_mayor",Text = "[$254]"},
-            },     
-            CompletionCallback = "Items",
-            CheckCompletionCallback = "Items",
-            TaskItemList = {
-                {"resource_wood",7},
-                {"recipe_stool_inn",1},
-            },
-            Faction = "Villagers",
-            FactionOnFinish = 2,
-        },
-        --]]
+
 }
 
 AI.IntroMessages =
@@ -337,7 +272,7 @@ function Dialog.OpenFoodDialog(user)
         CreateObjInContainer("item_bread", backpackObj, dropPos, nil)
         dropPos = GetRandomDropPosition(backpackObj)
         CreateObjInContainer("item_ale", backpackObj, dropPos, nil)
-        user:SystemMessage("You have received a loaf of Bread and a Beer!")
+        user:SystemMessage("You have received a loaf of bread and a beer!","info")
         user:SetObjVar("AlreadyBeggedInn",true)
         DialogReturnMessage(this,user,"[$290]","Thank you.")
     end

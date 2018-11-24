@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Skull of the Void[-]</Name>
+  <Name>Skull of the Void</Name>
 	<ClientId>317</ClientId>
 	<Color>0x0d0d0d</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

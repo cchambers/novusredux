@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1584</ClientId>
 	<Name>Lord Darken</Name>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="GhostMale"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/ghost_male/ghost_male"/>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<ScaleModifier>0.6</ScaleModifier>
 	<!-- Champion Mob-->
@@ -40,7 +40,7 @@
 					{  
 					MagicAffinity=100,
 					Evocation=100, 
-					Bashing=70,  
+					Brawling = 70,  
 					},	
 				EquipTable = 
 					{
@@ -50,9 +50,14 @@
 					{
 						TemplateDefines.LootTable.MagePoor,
 						TemplateDefines.LootTable.ScrollsLow,
+						TemplateDefines.LootTable.AncientScrolls,
 						{
-							NumCoins = math.random(260,350),
-						},
+							NumCoins = math.random(90,225),
+							{
+				    			{ Weight = 95, Template = "furniture_box", Unique = true },
+				    			{ Weight = 5, Template = "furniture_box_rare", Unique = true },
+				    		}
+			    		}
 					},	
 				ScavengeTables =
 					{
@@ -63,3 +68,4 @@
 		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
+

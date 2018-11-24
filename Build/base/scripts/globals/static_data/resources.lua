@@ -51,16 +51,16 @@ ResourceData = {
 					VisualState = "IronVein",
 					MinSkill = 0,
 				},
-				BronzeOre = {
-					VisualState = "BronzeVein",
+				GoldOre = {
+					VisualState = "GoldVein",
 					MinSkill = 20,
 				},
 				CopperOre = {
 					VisualState = "CopperVein",
 					MinSkill = 40,
 				},
-				SteelOre = {
-					VisualState = "SteelVein",
+				CobaltOre = {
+					VisualState = "CobaltVein",
 					MinSkill = 60,
 				},
 				ObsidianOre = {
@@ -271,28 +271,28 @@ ResourceData = {
 
 			Difficulty = {
 				Min = 25,
-				Max = 125
+				Max = 75
 			}
 		},
-		SteelOre = {
+		CobaltOre = {
 			HarvestBonusSkill = "MiningSkill",
-			Template = "resource_steel_ore",
-			DisplayName = "Steel Ore",
+			Template = "resource_cobalt_ore",
+			DisplayName = "Cobalt Ore",
 			SkillGainDifficultyMultiplier = 2,
 
 			Difficulty = {
 				Min = 40,
-				Max = 140,
+				Max = 90,
 			}
 		},
-		BronzeOre = {
+		GoldOre = {
 			HarvestBonusSkill = "MiningSkill",
-			Template = "resource_bronze_ore",
-			DisplayName = "Bronze Ore",
+			Template = "resource_gold_ore",
+			DisplayName = "Gold Ore",
 
 			Difficulty = {
 				Min = 10,
-				Max = 110
+				Max = 60
 			}
 		},
 		ObsidianOre = {
@@ -303,7 +303,7 @@ ResourceData = {
 
 			Difficulty = {
 				Min = 55,
-				Max = 155
+				Max = 105
 			}
 		},
 		LeatherScraps = {
@@ -369,6 +369,10 @@ ResourceData = {
 		},
 
 		-- intermediate world resources
+		Brick = {
+			Template = "resource_brick",
+			DisplayName = "Brick",
+		},
 		Iron = {
 			Template = "resource_iron",
 			DisplayName = "Iron",
@@ -381,26 +385,18 @@ ResourceData = {
 			DisplayName = "Copper",
 			CraftedItemPrefix = "Copper",
 		},
-		Steel = {
-			Template = "resource_steel",
-			DisplayName = "Steel",
-			CraftedItemPrefix = "Steel",
+		Cobalt = {
+			Template = "resource_cobalt",
+			DisplayName = "Cobalt",
+			CraftedItemPrefix = "Cobalt",
 			SalvageValue = 7,
-			SalvageResource = "MetalScrapsSteel",
+			SalvageResource = "MetalScrapsCobalt",
 			SkillGainDifficultyMultiplier = 2,
 		},
-		Bronze = {
-			Template = "resource_bronze",
-			DisplayName = "Bronze",
-			CraftedItemPrefix = "Bronze",
-		},
-		CobaltCrystallized = {
-			Template = "resource_cobalt_crystallized",
-			DisplayName = "Crystallized Cobalt",
-			CraftedItemPrefix = "Crystallized Cobalt",
-			SalvageValue = 7,
-			SalvageResource = "CobaltScrapsCrystallized",
-			SkillGainDifficultyMultiplier = 10,
+		Gold = {
+			Template = "resource_gold",
+			DisplayName = "Gold",
+			CraftedItemPrefix = "Gold",
 		},
 		Obsidian = {
 			Template = "resource_obsidian",
@@ -511,17 +507,17 @@ ResourceData = {
 			Template = "recipe_beast_leather",
 			DisplayName = "Recipe: Beast Leather",
 		},
-		RecipeBronze = {
-			Template = "recipe_bronze",
-			DisplayName = "Recipe: Bronze",
+		RecipeGold = {
+			Template = "recipe_gold",
+			DisplayName = "Recipe: Gold",
 		},
 		RecipeCopper = {
 			Template = "recipe_copper",
 			DisplayName = "Recipe: Copper",
 		},
-		RecipeSteel = {
-			Template = "recipe_steel",
-			DisplayName = "Recipe: Steel",
+		RecipeCobalt = {
+			Template = "recipe_cobalt",
+			DisplayName = "Recipe: Cobalt",
 		},
 		RecipeObsidian = {
 			Template = "recipe_obsidian",
@@ -595,6 +591,14 @@ ResourceData = {
 		RecipeBoneShield = {
 			Template = "recipe_boneshield",
 			DisplayName = "Recipe: Bone Shield",
+		},
+		RecipeBuckler = {
+			Template = "recipe_buckler",
+			DisplayName = "Recipe: Buckler",
+		},
+		RecipeKiteShield = {
+			Template = "recipe_kiteshield",
+			DisplayName = "Recipe: Kite Shield",
 		},
 		RecipeBoneTunic = {
 			Template = "recipe_bonetunic",
@@ -1065,6 +1069,114 @@ ResourceData = {
 			Template = "recipe_saddlebags",
 			DisplayName = "Recipe: Leather Saddlebags",
 		},
+		RecipeWarbow = {
+			Template = "recipe_warbow",
+			DisplayName = "Recipe: War bow",
+		},
+		RecipeWoodenStool = {
+			Template = "recipe_woodenstool",
+			DisplayName = "Recipe: Wooden Stool",
+		},
+		RecipeFancyChair = {
+			Template = "recipe_fancychair",
+			DisplayName = "Recipe: Fancy Chair",
+		},
+		RecipeFancyBench = {
+			Template = "recipe_fancybench",
+			DisplayName = "Recipe: Fancy Bench",
+		},
+		RecipeSmallFence = {
+			Template = "recipe_smallfence",
+			DisplayName = "Recipe: Small Fence",
+		},
+		RecipeFenceDoor = {
+			Template = "recipe_fencedoor",
+			DisplayName = "Recipe: Fence Door",
+		},
+		RecipeBarrel = {
+			Template = "recipe_barrel",
+			DisplayName = "Recipe: Barrel",
+		},
+		RecipeChest = {
+			Template = "recipe_chest",
+			DisplayName = "Recipe: Chest",
+		},
+		RecipeLockbox = {
+			Template = "recipe_lockbox",
+			DisplayName = "Recipe: Lockbox",
+		},
+		RecipeShelf= {
+			Template = "recipe_shelf",
+			DisplayName = "Recipe: Shelf",
+		},
+		RecipeLargeWoodenTable = {
+			Template = "recipe_largewoodentable",
+			DisplayName = "Recipe: Large Wooden Table",
+		},
+		RecipeRoundTable = {
+			Template = "recipe_roundtable",
+			DisplayName = "Recipe: Round Table",
+		},
+		RecipeInnTable = {
+			Template = "recipe_inntable",
+			DisplayName = "Recipe: Inn Table",
+		},
+		RecipeDresser = {
+			Template = "recipe_dresser",
+			DisplayName = "Recipe: Dresser",
+		},
+		RecipeWoodenBookshelf = {
+			Template = "recipe_woodenbookshelf",
+			DisplayName = "Recipe: Wooden Bookshelf",
+		},
+		RecipeFancyDesk = {
+			Template = "recipe_fancydesk",
+			DisplayName = "Recipe: Fancy Desk",
+		},
+		RecipeSmallBed = {
+			Template = "recipe_smallbed",
+			DisplayName = "Recipe: Small Bed",
+		},
+		RecipeMediumBed = {
+			Template = "recipe_mediumbed",
+			DisplayName = "Recipe: Medium Bed",
+		},
+		RecipeLargeBed = {
+			Template = "recipe_largebed",
+			DisplayName = "Recipe: Large Bed",
+		},
+		RecipeAnvil = {
+			Template = "recipe_anvil",
+			DisplayName = "Recipe: Anvil",
+		},
+		RecipeForge = {
+			Template = "recipe_forge",
+			DisplayName = "Recipe: Forge",
+		},
+		RecipeAlchemyTable = {
+			Template = "recipe_alchemytable",
+			DisplayName = "Recipe: Alchemy Table",
+		},
+		RecipeInscriptionTable = {
+			Template = "recipe_inscriptiontable",
+			DisplayName = "Recipe: Inscription Table",
+		},
+		RecipeWoodsmithTable = {
+			Template = "recipe_woodsmithtable",
+			DisplayName = "Recipe: Carpentry Table",
+		},
+		RecipeLoom = {
+			Template = "recipe_loom",
+			DisplayName = "Recipe: Loom",
+		},
+		RecipeStove = {
+			Template = "recipe_stove",
+			DisplayName = "Recipe: Stove",
+		},
+		RecipeStoneFireplace = {
+			Template = "recipe_stonefireplace",
+			DisplayName = "Recipe: Stone Fireplace",
+		},
 		-- FOOD RESOURCES --
 
 		KhoToken = {		
@@ -1084,14 +1196,6 @@ ResourceData = {
 
 		Ginseng = {
 			Template = "ingredient_ginsengroot",
-			AlternateHarvestResources = {
-				{
-					ResourceType = "AncientGinseng",
-					SkillThreshold = 40,
-					SkillThresholdMax = 80,
-					MaxUpgradeChance = 30,
-				},
-			},
 		},
 		Moss = {
 			Template = "ingredient_moss",
@@ -1101,14 +1205,6 @@ ResourceData = {
 		},
 		LemonGrass = {
 			Template = "ingredient_lemongrass",
-			AlternateHarvestResources = {
-				{
-					ResourceType = "ingredient_lemongrass_spirited",
-					SkillThreshold = 20,
-					SkillThresholdMax = 40,
-					MaxUpgradeChance = 30,
-				},
-			},
 		}, 
 		LemonGrassSpirited = {
 			Template = "ingredient_lemongrass_spirited",
@@ -1173,6 +1269,9 @@ ResourceData = {
 		Pumpkin = {
 			Template = "resource_pumpkin",
 		},
+		Nectar = {
+			Template = "animalparts_nectar",
+		},
 		FruitCatacombs = {
 			Template = "fruit_catacombs",
 		},
@@ -1212,6 +1311,9 @@ ResourceData = {
 		Mead = { --BEEEEEEERRR
 			Template = "item_mead",
 		},
+		FishFillet = {
+			Template = "animalparts_fish_fillet",
+		},
 		FishFilletBarrel = { --BEEEEEEERRR
 			Template = "animalparts_barrel_fish_fillet",
 		},
@@ -1231,13 +1333,77 @@ ResourceData = {
 			Template = "animalparts_golden_aether_fish_fillet",
 		},
 
-		-- ANIMAL PARTS ---
-		AnimalMeat = {
-			Template = "animalparts_meat",
+		-- ANIMAL STAPLES ---
+		MysteryMeat = {
+			Template = "animalparts_mystery_meat",
 		},
-		FishFilet = {
-			Template = "animalparts_meat",
+		StringyMeat = {
+			Template = "animalparts_stringy_meat",
 		},
+		ToughMeat = {
+			Template = "animalparts_tough_meat",
+		},
+		TenderMeat = {
+			Template = "animalparts_tender_meat",
+		},
+		GourmetMeat = {
+			Template = "animalparts_gourmet_meat",
+		},
+
+		CookedMeat = {
+			Template = "item_cooked_meat",
+		},
+		Jerky = {
+			Template = "item_jerky",
+		},
+		MeatLoaf = {
+			Template = "item_meat_loaf",
+		},
+		Brisket = {
+			Template = "item_brisket",
+		},
+		WildSteak = {
+			Template = "item_wild_steak",
+		},
+
+		-- ANIMAL RARES ---
+		BearMeat = {
+			Template = "animalparts_meat_bear",
+		},
+		ChickenMeat = {
+			Template = "animalparts_meat_chicken",
+		},
+		CoyoteMeat = {
+			Template = "animalparts_meat_coyote",
+		},
+		CrocodileMeat = {
+			Template = "animalparts_meat_crocodile",
+		},
+		DeerMeat = {
+			Template = "animalparts_meat_deer",
+		},
+		DragonMeat = {
+			Template = "animalparts_meat_dragon",
+		},
+		FoxMeat = {
+			Template = "animalparts_meat_fox",
+		},
+		HorseMeat = {
+			Template = "animalparts_meat_horse",
+		},
+		RabbitMeat = {
+			Template = "animalparts_meat_rabbit",
+		},
+		RatMeat = {
+			Template = "animalparts_meat_rat",
+		},
+		TurkeyMeat = {
+			Template = "animalparts_meat_turkey",
+		},
+		WolfMeat = {
+			Template = "animalparts_meat_wolf",
+		},
+		
 		BearClaw = {
 			Template = "animalparts_bear_claw",
 		},
@@ -1256,44 +1422,6 @@ ResourceData = {
 		VileLeatherHide = {
 			Template = "animalparts_vile_leather_hide",
 		},
-		HumanFlesh = {
-			Template = "animalparts_human_flesh",
-		},
-		VampireBlood = 
-		{
-			Template = "animalparts_vampire_blood",
-		},
-		WereBatBlood = 
-		{
-			Template = "animalparts_werebat_blood",
-		},
-		HumanMeat = {
-		},
-		OgreTooth = {
-			Template = "animalparts_ogre_tooth",
-		},
-		HumanSkull = {
-			Template = "animalparts_human_skull",
-		},
-		RabbitFoot = {
-			Template = "animalparts_rabbit_foot",
-		},
-		RatEar = {
-			Template = "animalparts_rat_ear",
-		},
-		BatEar = {
-			Template = "animalparts_bat_ear",
-		},
-		SnakeSkin = {
-			Template = "animalparts_snake_skin",
-			DisplayName = "Snake Skin",
-		},
-		ViperSkin = {
-			Template = "animalparts_viper_skin",
-		},
-		SpiderEye = {
-			Template = "animalparts_spider_eye",
-		},
 		Silk = {
 			Template = "animalparts_spider_silk",
 			DisplayName = "Spider Silk",
@@ -1311,42 +1439,33 @@ ResourceData = {
 		Feather = {
 			Template = "animalparts_feather",
 		},
-		WolfFang = {
-			Template = "animalparts_wolf_fang",
+		Venom = {
+			Template = "animalparts_venom",
 		},
-		AncientBearClaw = {
-			Template = "animalparts_ancient_bear_claw",
+		WildFeather = {
+			Template = "animalparts_wild_feather",
 		},
-		AncientBearFang = {
-			Template = "animalparts_ancient_bear_fang",
-		},
-		DireWolfFang = {
-			Template = "animalparts_dire_wolf_fang",
-		},
-		GossamerSilk = {
-			Template = "animalparts_gloss_silk",
-		},
-		BeetleExtract = {
-			Template = "animalparts_beetle_extract",
-		},
-		PlagueRatEar = {
-			Template = "animalparts_plague_rat_ear",
-		},
-		PurpleSpiderEye = {
-			Template = "animalparts_purple_spider_eye",
+		TurkeyFeather = {
+			Template = "animalparts_turkey_feather",
 		},
 		Blood = {
-			Template = "animalparts_beast",
+			Template = "animalparts_blood",
 		},
-		BoneMarrow = {
-			Template = "animalparts_bone_marrow",
+		BeastBlood = {
+			Template = "animalparts_blood_beast",
 		},
-		BeastEye = {
-			Template = "animalparts_beast_eye",
+		VileBlood = {
+			Template = "animalparts_blood_vile",
 		},
-		ToxicSaliva = {
-			Template = "animalparts_toxic_saliva",
-		},		
+		DecrepidEye = {
+			Template = "animalparts_eye_decrepid",
+		},
+		SicklyEye = {
+			Template = "animalparts_eye_sickly",
+		},
+		Eye = {
+			Template = "animalparts_eye",
+		},
 
 		-- MISC RESOURCES --
 		Crystal = {
@@ -1355,9 +1474,7 @@ ResourceData = {
 		Essence = {
 			Template = "resource_essence",
 		},
-
 		Bones = {
-			CraftedItemPrefix = {Stout="Fibrous"},
 			Template = "animalparts_bone",
 		},
 		CursedBones = {
@@ -1370,17 +1487,21 @@ ResourceData = {
 			CraftedItemPrefix = "Toxic",
 			Template = "animalparts_bone_cursed",
 		},
-		SpectralBones = {
-			DisplayName = "Spectral Bones",
-			CraftedItemPrefix = "Spectral",
+		EtherealBones = {
+			DisplayName = "Ethereal Bones",
 			Template = "animalparts_bone_cursed",
 		},
-		ArcaneScroll = {
-			Template = "ingredient_arcane_scroll",
+		FineScroll = {
+			Template = "ingredient_fine_scroll",
+		},
+		FrayedScroll = {
+			Template = "ingredient_frayed_scroll",
+		},
+		AncientScroll = {
+			Template = "ingredient_ancient_scroll",
 		},
 		BlankScroll = {
 			Template = "resource_blankscroll",
-			DisplayName = "Blank Scroll",
 		}
 	}
 }

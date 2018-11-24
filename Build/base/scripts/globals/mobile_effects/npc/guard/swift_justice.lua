@@ -33,7 +33,7 @@ MobileEffectLibrary.SwiftJustice =
 	end,
 
 	OnEndEffect = function(self,root)
-		EndMobileEffect(curTable)
+		EndMobileEffect(root)
 	end,
 
 	AiPulse = function(self,root)

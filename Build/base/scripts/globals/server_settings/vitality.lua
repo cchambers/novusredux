@@ -1,12 +1,19 @@
 ServerSettings.Vitality = {
-    -- vitality is adjusted by this amount when a player ends death (resurrected)
-    AdjustOnDeathEnd = -10,
+    -- vitality is adjusted by this amount when a player is resurrected from the ghost and given a new body
+    AdjustOnGhostResurrect = -10,
     -- what's considered low enough to apply LowVitality mobile effect
     Low = 20,
     -- when to start warning
     Warn = 40,
-    -- how often to check if vitality is low enough for a debuff,
-    PulseFrequency = TimeSpan.FromMinutes(1),
+
+    DisplayStrings = {
+        {1,"Well Rested"},
+        {0.8,"Rested"},
+        {0.6,"Content"},
+        {0.4,"Restless"},
+        {0.2,"Fatigued"},
+        {0.0,"Exhausted"},
+    },
 
     -- settings for hearth objects, primary purpose is to regenerate vitality of players around it
     Hearth = {

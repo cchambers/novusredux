@@ -11,6 +11,7 @@
 		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>	
 		<DoubleVariable Name="BaseHealth">1100</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -19,7 +20,7 @@
 		<DoubleVariable Name="Armor">53</DoubleVariable>
 		<DoubleVariable Name="Attack">53</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=80,  
+					Brawling = 80,  
 					},	
 				EquipTable = 
 					{

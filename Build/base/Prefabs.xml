@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<WorldTemplateObjects xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Group Name="WitchHut">
 		<Extents>
 			<Rect>[(-9.699997,0.5,-8.300003)(5.300003,0.5,-8.300003)(5.300003,0.5,6.699997)(-9.699997,0.5,6.699997)(-9.699997,-0.5,-8.300003)(5.300003,-0.5,-8.300003)(5.300003,-0.5,6.699997)(-9.699997,-0.5,6.699997)]</Rect>
@@ -1414,7 +1414,7 @@
 	</Group>
 	<Group Name="BanditCamp">
 		<Extents>
-			<Rect>[(-5.11,1.582868,-7.5)(9.89,1.582868,-7.5)(9.89,1.582868,7.5)(-5.11,1.582868,7.5)(-5.11,0.5828683,-7.5)(9.89,0.5828683,-7.5)(9.89,0.5828683,7.5)(-5.11,0.5828683,7.5)]</Rect>
+			<Rect>[(-5.11,0.5,-7.5)(9.89,0.5,-7.5)(9.89,0.5,7.5)(-5.11,0.5,7.5)(-5.11,-0.5,-7.5)(9.89,-0.5,-7.5)(9.89,-0.5,7.5)(-5.11,-0.5,7.5)]</Rect>
 			<Center>(2.39,0,0)</Center>
 			<Size>(15,1,15)</Size>
 			<Rotation>(0,0,0)</Rotation>
@@ -1438,12 +1438,12 @@
 		<DynamicObject>
 			<Name>Bed</Name>
 			<Id>4</Id>
-			<ObjectCreationParams>furniture_bed_roll 5.86 0 0.947 0 284.071 0 0.998 1 0.998</ObjectCreationParams>
+			<ObjectCreationParams>furniture_bed_roll 5.86 0 1.6 0 284.071 0 0.998 1 0.998</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>Bed</Name>
 			<Id>5</Id>
-			<ObjectCreationParams>furniture_bed_roll -2.013 0.077 0.736 0 96.26 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>furniture_bed_roll -2.013 0.075 0.736 0 96.26 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>Barrel</Name>
@@ -1473,7 +1473,7 @@
 		<DynamicObject>
 			<Name>Campfire (2)</Name>
 			<Id>11</Id>
-			<ObjectCreationParams>campfire 6.21 0.077 -1.35 0 103.027 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>campfire 6.21 0.075 -1.35 0 103.027 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>BanditA</Name>
@@ -3097,27 +3097,9 @@
 			<ObjectCreationParams>cultist_mage_apprentice_female -2.595 0 -4.552 0 47.762 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
-			<Name>MageApprentice</Name>
-			<Id>10</Id>
-			<ObjectCreationParams>cultist_mage_apprentice -3.792 0 -1.85 0 72.132 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>WarriorVetFemale</Name>
-			<Id>11</Id>
-			<ObjectCreationParams>cultist_warrior_rookie_female -2.398 0 0.638 0 95.097 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
 			<Name>WarriorVet</Name>
 			<Id>12</Id>
 			<ObjectCreationParams>cultist_warrior_rookie -0.554 0 -0.85 0 48.668 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Chest</Name>
-			<Id>13</Id>
-			<ObjectCreationParams>treasurechest_cultistcamp_easy 0.796 0 2.371 0 89.032 0 1 1 1</ObjectCreationParams>
-			<ObjVarOverrides>
-				<BoolVariable Name="locked">True</BoolVariable>
-			</ObjVarOverrides>
 		</DynamicObject>
 	</Group>
 	<Group Name="CultistCamp">
@@ -5222,66 +5204,6 @@
 			<Scale>(1,1,1)</Scale>
 		</Extents>
 		<DynamicObject>
-			<Name>Skeleton</Name>
-			<Id>1</Id>
-			<ObjectCreationParams>skeleton -0.388 0 -1.644 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>2</Id>
-			<ObjectCreationParams>fence_small 0.349 0 -6.078 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>3</Id>
-			<ObjectCreationParams>fence_small 4.143 0 -6.078 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>4</Id>
-			<ObjectCreationParams>fence_small -3.453 0 -6.078 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>5</Id>
-			<ObjectCreationParams>fence_small -5.342 0.003 -4.078 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>6</Id>
-			<ObjectCreationParams>fence_small -5.44 0.003 -1.08 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>7</Id>
-			<ObjectCreationParams>fence_small -5.44 0 2.917 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>8</Id>
-			<ObjectCreationParams>fence_small 6.044 0.003 -4.078 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>9</Id>
-			<ObjectCreationParams>fence_small 5.945 0.003 -0.079 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>10</Id>
-			<ObjectCreationParams>fence_small 5.848 0.003 2.917 0 89.069 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>11</Id>
-			<ObjectCreationParams>fence_small 3.94 0 4.919 0 179.876 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Fence</Name>
-			<Id>12</Id>
-			<ObjectCreationParams>fence_small -3.648 0 4.919 0 179.876 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
 			<Name>Gravestone</Name>
 			<Id>13</Id>
 			<ObjectCreationParams>gravestone_cracked 0.349 0 -3.723 333.889 0 0 1 1 1</ObjectCreationParams>
@@ -5335,29 +5257,6 @@
 			<Name>Skeleton (3)</Name>
 			<Id>23</Id>
 			<ObjectCreationParams>zombie -2.838 0 -0.268 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Skeleton (4)</Name>
-			<Id>24</Id>
-			<ObjectCreationParams>zombie 3.026 0 -3.937 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Skeleton (5)</Name>
-			<Id>25</Id>
-			<ObjectCreationParams>zombie 1.225 0 2.473 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Skeleton (6)</Name>
-			<Id>26</Id>
-			<ObjectCreationParams>zombie -2.861 0 3.651 0 0 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Chest</Name>
-			<Id>27</Id>
-			<ObjectCreationParams>treasurechest_banditCamp_hard 0.388 0.032 -3.049 0 175.649 0 1 1 1</ObjectCreationParams>
-			<ObjVarOverrides>
-				<BoolVariable Name="locked">True</BoolVariable>
-			</ObjVarOverrides>
 		</DynamicObject>
 	</Group>
 	<Group Name="MobileMerchant2">
@@ -6635,19 +6534,9 @@
 			<ObjectCreationParams>furniture_pillow_square -0.472 0.107 6.084 0 6.571 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
-			<Name>Wildman</Name>
-			<Id>9</Id>
-			<ObjectCreationParams>goblin_warrior -0.791 0 -0.753 0 20.582 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Wildman</Name>
-			<Id>10</Id>
-			<ObjectCreationParams>goblin_warrior -2.401 0 0.638 0 95.097 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
 			<Name>Priestess</Name>
 			<Id>11</Id>
-			<ObjectCreationParams>goblin_warrior 2.611 0 -2.651 0 318.984 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>goblin 2.611 0 -2.651 0 318.984 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>Brute</Name>
@@ -6657,15 +6546,7 @@
 		<DynamicObject>
 			<Name>Wildman (1)</Name>
 			<Id>13</Id>
-			<ObjectCreationParams>goblin_warrior -2.154 0 3.298 0 95.097 0 1 1 1</ObjectCreationParams>
-		</DynamicObject>
-		<DynamicObject>
-			<Name>Chest</Name>
-			<Id>14</Id>
-			<ObjectCreationParams>treasurechest_banditCamp_easy 4.427 0.032 -0.409 0 115.648 0 1 1 1</ObjectCreationParams>
-			<ObjVarOverrides>
-				<BoolVariable Name="locked">True</BoolVariable>
-			</ObjVarOverrides>
+			<ObjectCreationParams>goblin -2.154 0 3.298 0 95.097 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 	</Group>
 	<Group Name="LargeRaiderCamp">
@@ -7944,6 +7825,772 @@
 			<ObjVarOverrides>
 				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
 			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower2">
+		<Extents>
+			<Rect>[(-7.5,0.48725,-7.5)(7.5,0.48725,-7.5)(7.5,0.48725,7.5)(-7.5,0.48725,7.5)(-7.5,-0.51275,-7.5)(7.5,-0.51275,-7.5)(7.5,-0.51275,7.5)(-7.5,-0.51275,7.5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(15,1,15)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower2Object</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower2 0 -0.009 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.15 0 4.48 0 287.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.197 0 -0.089 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 0 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower3">
+		<Extents>
+			<Rect>[(-7.5,0.48725,-7.5)(7.5,0.48725,-7.5)(7.5,0.48725,7.5)(-7.5,0.48725,7.5)(-7.5,-0.51275,-7.5)(7.5,-0.51275,-7.5)(7.5,-0.51275,7.5)(-7.5,-0.51275,7.5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(15,1,15)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower3Object (1)</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower3 0 -0.039 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.15 0 4.48 0 287.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.197 0 -0.089 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 0 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower4">
+		<Extents>
+			<Rect>[(-5.978424,0.48725,-14.65702)(6.880096,0.48725,-14.65702)(6.880096,0.48725,5.696657)(-5.978424,0.48725,5.696657)(-5.978424,-0.51275,-14.65702)(6.880096,-0.51275,-14.65702)(6.880096,-0.51275,5.696657)(-5.978424,-0.51275,5.696657)]</Rect>
+			<Center>(0.4508362,0,-4.480183)</Center>
+			<Size>(12.85852,1,20.35368)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower4Object (1)</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower4 0 0 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.6 0 -12.689 0 182.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 4.73 0 -6.63 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 4.458 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower5">
+		<Extents>
+			<Rect>[(-7.958833,-7.281547,-13.15897)(7.754907,-7.281547,-13.15897)(7.754907,-7.281547,10.15105)(-7.958833,-7.281547,10.15105)(-7.958833,-8.281548,-13.15897)(7.754907,-8.281548,-13.15897)(7.754907,-8.281548,10.15105)(-7.958833,-8.281548,10.15105)]</Rect>
+			<Center>(-0.101963,0,-1.503958)</Center>
+			<Size>(15.71374,1,23.31002)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower5Object (1)</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower5 0 0 -1.85 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -3.18 0 -10.689 0 182.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 3.529 0 -7.842 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner 3.605 7.578 1.797 0 107.639 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner (1)</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.386 0 6.427 0 357.859 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTowerGray">
+		<Extents>
+			<Rect>[(-7.5,-8.046749,-7.5)(7.5,-8.046749,-7.5)(7.5,-8.046749,7.5)(-7.5,-8.046749,7.5)(-7.5,-9.046749,-7.5)(7.5,-9.046749,-7.5)(7.5,-9.046749,7.5)(-7.5,-9.046749,7.5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(15,1,15)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTowerGrayObject (1)</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower_gray 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.97 0 5.578 0 287.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.197 0 -0.089 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner 0.919 0 -4.848 0 112.624 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower2Gray">
+		<Extents>
+			<Rect>[(-7.5,0.48725,-7.5)(7.5,0.48725,-7.5)(7.5,0.48725,7.5)(-7.5,0.48725,7.5)(-7.5,-0.51275,-7.5)(7.5,-0.51275,-7.5)(7.5,-0.51275,7.5)(-7.5,-0.51275,7.5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(15,1,15)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower2GrayObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower_gray2 0 0 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.15 -0.009 4.48 0 287.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.197 0.03 -0.089 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 0.009 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower3Gray">
+		<Extents>
+			<Rect>[(-7.5,0.48725,-7.5)(7.5,0.48725,-7.5)(7.5,0.48725,7.5)(-7.5,0.48725,7.5)(-7.5,-0.51275,-7.5)(7.5,-0.51275,-7.5)(7.5,-0.51275,7.5)(-7.5,-0.51275,7.5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(15,1,15)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower3GrayObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower_gray3 0 0 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.15 0 4.48 0 287.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 6.197 0 -0.089 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 0 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower4Gray">
+		<Extents>
+			<Rect>[(-5.978424,0.48725,-14.65702)(6.880096,0.48725,-14.65702)(6.880096,0.48725,5.696657)(-5.978424,0.48725,5.696657)(-5.978424,-0.51275,-14.65702)(6.880096,-0.51275,-14.65702)(6.880096,-0.51275,5.696657)(-5.978424,-0.51275,5.696657)]</Rect>
+			<Center>(0.4508362,0,-4.480183)</Center>
+			<Size>(12.85852,1,20.35368)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower4GrayObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower_gray4 0 0 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.6 0 -12.689 0 182.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 4.73 0 -6.63 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner -0.2 4.458 -4.737 0 173.378 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	<Group Name="GuardTower5Gray">
+		<Extents>
+			<Rect>[(-7.958833,-7.282344,-13.15897)(7.754907,-7.282344,-13.15897)(7.754907,-7.282344,10.15105)(-7.958833,-7.282344,10.15105)(-7.958833,-8.282344,-13.15897)(7.754907,-8.282344,-13.15897)(7.754907,-8.282344,10.15105)(-7.958833,-8.282344,10.15105)]</Rect>
+			<Center>(-0.101963,0,-1.503958)</Center>
+			<Size>(15.71374,1,23.31002)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>GuardTower5GrayObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>guard_tower_gray5 0 0 -1.85 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>simple_mob_spawner -3.18 0 -10.689 0 182.6 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>simple_mob_spawner 3.529 0 -7.842 0 90.194 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>simple_mob_spawner 3.605 7.579 1.797 0 107.639 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>NeutralGuard1Spawner (1)</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>simple_mob_spawner -4.386 7.579 6.427 0 357.859 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="spawnTemplate">guard_stationed</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+	
+	<Group Name="WolfLair_1">
+		<Extents>
+			<Rect>[(-2.46,10.1558,-3.25)(7.54,22.07559,-3.25)(7.54,22.07559,6.75)(-2.46,14.52579,6.75)(-2.46,9.155796,-3.25)(7.54,21.07559,-3.25)(7.54,21.07559,6.75)(-2.46,13.52579,6.75)]</Rect>
+			<Center>(2.54,0,1.75)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>WolfDenObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_wolf_1 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="BearLair_1">
+		<Extents>
+			<Rect>[(-2.46,10.1558,-3.25)(7.54,22.07559,-3.25)(7.54,22.07559,6.75)(-2.46,14.52579,6.75)(-2.46,9.155796,-3.25)(7.54,21.07559,-3.25)(7.54,21.07559,6.75)(-2.46,13.52579,6.75)]</Rect>
+			<Center>(2.54,0,1.75)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>BearDenObject</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_bear_1 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="SpiderLair_2">
+		<Extents>
+			<Rect>[(-2.46,10.1558,-3.25)(7.54,22.07559,-3.25)(7.54,22.07559,6.75)(-2.46,14.52579,6.75)(-2.46,9.155796,-3.25)(7.54,21.07559,-3.25)(7.54,21.07559,6.75)(-2.46,13.52579,6.75)]</Rect>
+			<Center>(2.54,0,1.75)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>SpiderEggsDestructable</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_spider_2 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WebBody1Object</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>webbed_corpse_1 1.789 0 -1.71 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WebBody2Object</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>webbed_corpse_2 -2.069 0 1.299 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="BanditLair_2">
+		<Extents>
+			<Rect>[(3.250001,16.12172,-2.46)(3.25,22.07559,7.540001)(-6.750002,22.07559,7.54)(-6.75,22.07559,-2.460001)(3.250001,15.12172,-2.46)(3.25,21.07559,7.540001)(-6.750002,21.07559,7.54)(-6.75,21.07559,-2.460001)]</Rect>
+			<Center>(2.54,0,1.75)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,270,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>BanditCampTent2Object</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_bandit_2 0 0 0 0 180 0 0.648 0.648 0.648</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SimpleCampfireObject</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>campfire_simple -3.95 0 0 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>BedRollObject</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>furniture_bedroll -5.58 0 0.867 0 315 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>BedRollObject (1)</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>furniture_bedroll -4.98 0 -1.92 0 39.999 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="UndeadLair_3">
+		<Extents>
+			<Rect>[(-7,-8.033999,-7)(7,-8.033999,-7)(7,-8.033999,7)(-7,-8.033999,7)(-7,-9.033999,-7)(7,-9.033999,-7)(7,-9.033999,7)(-7,-9.033999,7)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>13</Id>
+			<ObjectCreationParams>gravestone_cracked 0.349 0 -3.723 333.889 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>14</Id>
+			<ObjectCreationParams>gravestone_cracked 2.914 0 0.735 312.015 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnerZombie</Name>
+			<Id>15</Id>
+			<ObjectCreationParams>spawner_undead_3 -0.187 0 0.629 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>16</Id>
+			<ObjectCreationParams>gravestone_cracked -2.703 0 2.22 0 0 25.555 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>17</Id>
+			<ObjectCreationParams>gravestone_cracked 3.73 0 -2.197 0 0 349.665 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>18</Id>
+			<ObjectCreationParams>gravestone_cracked -2.769 0 -1.644 333.566 328.428 25.488 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>19</Id>
+			<ObjectCreationParams>gravestone_cracked 2.88 0 3.493 0 0 340.502 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="OrkLair_4">
+		<Extents>
+			<Rect>[(-7.280625,0.5,-6.863317)(7.280625,0.5,-6.863317)(7.280625,0.5,11.62765)(-7.280625,0.5,11.62765)(-7.280625,-0.5,-6.863317)(7.280625,-0.5,-6.863317)(7.280625,-0.5,11.62765)(-7.280625,-0.5,11.62765)]</Rect>
+			<Center>(0,0,2.382168)</Center>
+			<Size>(14.56125,1,18.49097)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>Orc</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>mission_ork_1 4.92 0 0.319 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Orc</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>mission_ork_1 -6 0 0.319 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>OrcTent</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>spawner_ork_4 -0.5 0 0.319 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="GiantLair_5">
+		<Extents>
+			<Rect>[(-4,-8.033999,-6)(4,-8.033999,-6)(4,-9.178261,6)(-4,-10.0388,6)(-4,-9.033999,-6)(4,-9.033999,-6)(4,-10.17826,6)(-4,-11.0388,6)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(8,1,12)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>Giant1</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>giant 0.805 0 3.601 0 201.214 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Giant2</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>giant 0.028 0 -3.177 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnerGiant</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>spawner_giant_5 0.008 0 0.337 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Skeletal</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>skeleton_pieces 2.398 0 -1.199 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Skeletal</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>skeleton_pieces -1.621 0 -2.009 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Skeletal</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>skeleton_pieces -1.628 0 1.95 0 311.078 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Skeletal (1)</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>skeleton_together 2.118 0 1.95 0 311.078 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="BeetleLair_2">
+		<DynamicObject>
+			<Name>BeetleSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_beetle_2 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Beetle</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>mission_beetle_2 4.269 0 -2.67 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Beetle</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>mission_beetle_2 -0.56 0 4.03 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Beetle</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>mission_beetle_2 -3.17 0 -3.059 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="CultistLair_3">
+		<Extents>
+			<Rect>[(-7.5,0.5,-8.3)(7.5,0.5,-8.3)(7.5,0.5,7.7)(-7.5,0.5,7.7)(-7.5,-0.5,-8.3)(7.5,-0.5,-8.3)(7.5,-0.5,7.7)(-7.5,-0.5,7.7)]</Rect>
+			<Center>(0,0,-0.3)</Center>
+			<Size>(15,1,16)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>Bed</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>furniture_bed_roll 4.091 0 1.031 0 284.071 0 0.998 1 0.998</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Bed</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>furniture_bed_roll -3.367 0 -0.25 0 96.26 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barrel</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>barrel 4.197 0 2.638 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Flag</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>flag_cultist -3.095 2.108 -3.756 0 180 180 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barricade (4)</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>cultist_cheval -0.656 0 4.774 0 175.598 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barrel</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>barrel_wine 3.605 0 -2.536 0 265.41 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barrel (1)</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>barrel_wine 3.644 0.554 -2.243 0 271.183 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barrel (2)</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>barrel_wine 3.572 0 -1.84 0 265.41 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>CultistSpawner</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>spawner_cultist_3 -0.419 0 2.48 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="UndeadLair_2">
+		<Extents>
+			<Rect>[(-5,0.5,-5)(5,0.5,-5)(5,0.5,5)(-5,0.5,5)(-5,-0.5,-5)(5,-0.5,-5)(5,-0.5,5)(-5,-0.5,5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>gravestone_cracked 2.914 0 0.735 312.015 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnerZombie</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>spawner_undead_2 -0.187 0 0.629 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>gravestone_cracked -2.703 0 2.22 0 0 25.555 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>gravestone_cracked 3.73 0 -2.197 0 0 349.665 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Gravestone</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>gravestone_cracked 2.88 0 3.493 0 0 340.502 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Tent</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>tent_blue_large -5.42 0 -5.578 0 191.358 0 0.999 1 0.999</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Barrel</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>barrel -2.9 0 -3.71 0 11.357 0 0.999 1 0.999</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>BarrelOpen</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>barrel_open -2.078 0 -3.65 0 326.289 0 0.999 1 0.999</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Chair</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>furniture_chair 0.337 0 -4.464 0 10.074 0 0.998 1 0.998</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Crate</Name>
+			<Id>10</Id>
+			<ObjectCreationParams>crate_mine_cloth_large -2.43 0 -5.75 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Table</Name>
+			<Id>11</Id>
+			<ObjectCreationParams>furniture_table_wooden 0.171 0 -2.921 0 195 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="HarpyLair_3">
+		<DynamicObject>
+			<Name>Nest</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_harpy_3 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Nest</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>spawner_harpy_3 -5.139 0 6.32 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Feathers</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>harpy_feathers -2.509 0 6.32 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Feathers</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>harpy_feathers 0 0 2.9 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="EntLair_4">
+		<Extents>
+			<Rect>[(-5,0.5,-5)(5,0.5,-5)(5,0.5,5)(-5,0.5,5)(-5,-0.5,-5)(5,-0.5,-5)(5,-0.5,5)(-5,-0.5,5)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>New Prefab Object</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_ent_4 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="ScorpionLair_4">
+		<DynamicObject>
+			<Name>ScorpionSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_scorpion_4 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="GazerLair_5">
+		<DynamicObject>
+			<Name>GazerSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_gazer 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="SpiderLair_5">
+		<Extents>
+			<Rect>[(-2.46,10.1558,-3.25)(7.54,22.07559,-3.25)(7.54,22.07559,6.75)(-2.46,14.52579,6.75)(-2.46,9.155796,-3.25)(7.54,21.07559,-3.25)(7.54,21.07559,6.75)(-2.46,13.52579,6.75)]</Rect>
+			<Center>(2.54,0,1.75)</Center>
+			<Size>(10,1,10)</Size>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</Extents>
+		<DynamicObject>
+			<Name>SpiderEggsDestructable</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawner_spider_5 0 0 0 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WebBody1Object</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>webbed_corpse_1 1.789 0 -1.71 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WebBody2Object</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>webbed_corpse_2 -2.069 0 1.299 0 0 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 	</Group>
 </WorldTemplateObjects>

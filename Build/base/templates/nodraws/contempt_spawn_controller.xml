@@ -62,7 +62,9 @@
 						-----------------------------------------------------------
 
 						--First spike trap droom
-					    { Count = 3, TemplateId = "contempt_ogre", Region = "RoomA15", DelayMin=4 }, 
+					  --{ Count = 3, TemplateId = "contempt_ogre", Region = "RoomA15", DelayMin=4 }, 
+
+					  --{ Count = 1, TemplateId = "ogre_boss", Region = "RoomA15", Chance=3, DelayMin=4 },
 					},
 				}
 			</Initializer>

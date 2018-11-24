@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]House Survey Tool[-]</Name>
+  <Name>House Survey Tool</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent/>

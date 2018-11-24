@@ -3,7 +3,7 @@
 	<Hue>176</Hue>
 	<Color>0xFF000000</Color>
 	<Name>Wraith</Name>
-    <SharedStateEntry name="AudioIdentifierOverride" type="string" value="Banshee"/>
+    <SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/banshee/banshee"/>
 	<ScaleModifier>1</ScaleModifier>
 	<MobileComponent>
 		<BaseRunSpeed>.8</BaseRunSpeed>

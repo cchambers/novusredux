@@ -23,8 +23,8 @@ function ValidateRangeWithError(range, a, b, aErr, bErr)
 end
 
 function IsDungeonMap()
-	local worldName = GetWorldName()
-	local subregionName = GetSubregionName()
+	local worldName = ServerSettings.WorldName
+	local subregionName = ServerSettings.SubregionName
 	if(worldName and (worldName == "Contempt" or worldName == "Deception" or worldName == "Ruin" or worldName == "Corruption" or worldName == "Catacombs")) then
 		return true 
 	end
@@ -84,9 +84,9 @@ function GetRegionalName(location)
 		return namedArea.RegionName:sub(6)
 	end
 
-	local worldName = GetWorldName()
+	local worldName = ServerSettings.WorldName
 	if(worldName == "NewCelador") then
-		local subregionName = GetSubregionName()
+		local subregionName = ServerSettings.SubregionName
 		if(subregionName and subregionName ~= "") then
 			return SubregionDisplayNames[subregionName]
 		end

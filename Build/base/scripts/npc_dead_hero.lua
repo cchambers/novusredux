@@ -1,5 +1,4 @@
 require 'base_mobile_advanced'
-require 'incl_player_titles'
 
 --has the variable Visible to All set to true so he isn't really cloaked, it just appears like that.
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"SetColor")
@@ -70,9 +69,8 @@ RegisterEventHandler(EventType.Message, "UseObject",
 
 			local backpackObj = user:GetEquippedObject("Backpack")  
 			local dropPos = GetRandomDropPosition(backpackObj)	
-			PlayerTitles.CheckTitleGain(user,AllTitles.ActivityTitles.Relic5,1,"relic_of_the_void")
     		CreateObjInContainer("relic_of_the_void", backpackObj, dropPos, nil)
-            user:SystemMessage("You have received a Relic of the Void.")
+            user:SystemMessage("You have received a Relic of the Void.","info")
 			user:DelObjVar("HeroQuestState")
 		end
 	end)
@@ -124,7 +122,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "AcceptQuest",
 		if (buttonId == "Accept") then
 			user:SetObjVar("HeroQuestState","QuestStart")
 			user:SendMessage("AdvanceQuest","SlayDemonQuest","DipSword","TalkToGhostHero")
-			user:SystemMessage("You now can use the reflection pool.")
+			user:SystemMessage("You now can use the reflection pool.","info")
 		end
 	end)
 

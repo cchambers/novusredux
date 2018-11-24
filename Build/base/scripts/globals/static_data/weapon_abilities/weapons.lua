@@ -5,7 +5,7 @@ WeaponAbilitiesData.Stun = {
         Duration = TimeSpan.FromSeconds(1.5),
         PlayerDuration = TimeSpan.FromSeconds(1),
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Stun",
         Tooltip = "Stun your opponent for 1.5 seconds. Reduced to 1 second against players.",
@@ -20,7 +20,7 @@ WeaponAbilitiesData.Cleave = {
     MobileEffectArgs = {
         Range = 6
     },
-    Stamina = 5,
+    Stamina = 25,
     Action = {
         DisplayName = "Cleave",
         Tooltip = "Damage all targets 4 yards in front of you.",
@@ -40,12 +40,12 @@ WeaponAbilitiesData.StunPunch = {
     },
     TargetMobileEffect = "Daze",
     TargetMobileEffectArgs = {
-        Duration = TimeSpan.FromSeconds(5),
+        Duration = TimeSpan.FromSeconds(3),
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Stun Punch",
-        Tooltip = "Daze your target for up to 5 seconds.",
+        Tooltip = "Daze your target for up to 3 seconds.",
         Icon = "Fire Shackles",
         Enabled = true,
     },
@@ -62,13 +62,13 @@ WeaponAbilitiesData.Concus = {
     },
     TargetMobileEffect = "Concus",
     TargetMobileEffectArgs = {
-        Duration = TimeSpan.FromSeconds(15),
-        Modifier = -0.25
+        Duration = TimeSpan.FromSeconds(5),
+        Modifier = -0.5
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Concus",
-        Tooltip = "Your opponent's mana is reduced by 25% for 15 seconds.",
+        Tooltip = "Your opponent's mana is reduced by 50% for 5 seconds.",
         Icon = "Sure Strike",
         Enabled = true,
     }
@@ -84,13 +84,13 @@ WeaponAbilitiesData.FollowThrough = {
     },
     TargetMobileEffect = "AdjustStamina",
     TargetMobileEffectArgs = {
-        Amount = -20,
+        Amount = -40,
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Follow Through",
-        Tooltip = "Remove 20 stamina from your opponent.",
-        Icon = "Hammer Smash",
+        Tooltip = "Remove 40 stamina from your opponent.",
+        Icon = "Shield Breaker",
         Enabled = true,
     },
 }
@@ -108,7 +108,7 @@ WeaponAbilitiesData.Eviscerate = {
         Duration = TimeSpan.FromMilliseconds(1500),
         WeaponDamageModifier = 1.35
     },
-    Stamina = 20,
+    Stamina = 25,
     Action = {
         DisplayName = "Eviscerate",
         Tooltip = "Cause 35% additional weapon damage 1.5 seconds after a strike.",
@@ -125,7 +125,7 @@ WeaponAbilitiesData.Bleed = {
         DamageMin = 40,
         DamageMax = 60,
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Bleed",
         Tooltip = "Cause 40-60 damage a second for 20 seconds.",
@@ -147,61 +147,16 @@ WeaponAbilitiesData.Dismount = {
     SkipHitAction = true
 }
 
-WeaponAbilitiesData.Bash = {
-    MobileEffect = "Bash",
-    MobileEffectArgs = {
-        AttackModifier = 0.25,
-    },
-    Stamina = 5,
-    Action = {
-        DisplayName = "Bash",
-        Tooltip = "Increase your attack by 25%.",
-        Icon = "Blessed Hammer",
-        Enabled = true,
-    },
-    SkipHitAction = true
-}
-
-WeaponAbilitiesData.Power = {
-    MobileEffect = "Power",
-    MobileEffectArgs = {
-        AttackModifier = 0.25,
-    },
-    Stamina = 10,
-    Action = {
-        DisplayName = "Power Shot",
-        Tooltip = "Increase your attack by 25%.",
-        Icon = "Wild Shot",
-        Enabled = true,
-    },
-    SkipHitAction = true
-}
-
-WeaponAbilitiesData.Slash = {
-    MobileEffect = "Slash",
-    MobileEffectArgs = {
-        AttackModifier = 0.25,
-    },
-    Stamina = 5,
-    Action = {
-        DisplayName = "Slash",
-        Tooltip = "Increase your attack by 25%.",
-        Icon = "sunder",
-        Enabled = true,
-    },
-    SkipHitAction = true
-}
-
 WeaponAbilitiesData.Overpower = {
     MobileEffect = "Overpower",
     MobileEffectArgs = {
-        AttackModifier = 0.25,
+        AttackModifier = 1.25,
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Overpower",
-        Tooltip = "Increase your attack by 25%.",
-        Icon = "Hammer Smash",
+        Tooltip = "Increase your attack by 125%.",
+        Icon = "Whirlwind",
         Enabled = true,
     },
     SkipHitAction = true
@@ -210,18 +165,18 @@ WeaponAbilitiesData.Overpower = {
 WeaponAbilitiesData.Stab = {
     MobileEffect = "Stab",
     MobileEffectArgs = {
-        AttackModifier = 1,
-        HitChanceFront = 0.4,
-        HitChanceBack = 0.8,
+        AttackModifier = 1.25,
+        StealthAttackModifier = 3,
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Stab",
-        Tooltip = "Attempt to stab your target for a 100% attack bonus. ",
+        Tooltip = "Attempt to stab your target 125% attack bonus. Stabbing from stealth rewards 300% attack bonus.",
         Icon = "Fatal Strike",
         Enabled = true,
     },
-    SkipHitAction = true
+    SkipHitAction = true,
+    AllowCloaked = true, -- the "Stab" effect will break cloak.
 }
 
 WeaponAbilitiesData.MortalStrike = {
@@ -229,7 +184,7 @@ WeaponAbilitiesData.MortalStrike = {
     MobileEffectArgs = {
         AttackModifier = -0.5,
     },
-    Stamina = 10,
+    Stamina = 25,
     Action = {
         DisplayName = "Mortal Strike",
         Tooltip = "50% Attack Power for swing, causes target to be mortally struck. They cannot heal with bandages/magic.",

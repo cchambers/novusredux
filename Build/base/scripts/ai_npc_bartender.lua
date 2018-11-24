@@ -403,7 +403,7 @@ function Dialog.OpenFoodDialog(user)
         CreateObjInContainer("item_bread", backpackObj, dropPos, nil)
         dropPos = GetRandomDropPosition(backpackObj)
         CreateObjInContainer("item_beer", backpackObj, dropPos, nil)
-        user:SystemMessage("You have received a loaf of bread and a beer!")
+        user:SystemMessage("You have received a loaf of bread and a beer!","info")
         user:SetObjVar("AlreadyBeggedInn",true)
         DialogReturnMessage(this,user,"[$230]","Thank you.")
     end

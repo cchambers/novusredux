@@ -1,12 +1,12 @@
 function ValidateTeleport(user,targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if (user:IsInRegion("NoTeleport")) then
-		user:SystemMessage("[$1902]")
+		user:SystemMessage("[$1902]","info")
 		return false
 	end
 
 	if( not(IsPassable(targetLoc)) ) then
-		user:SystemMessage("[FA0C0C] You cannot teleport to that location.[-]")
+		user:SystemMessage("[FA0C0C] You cannot teleport to that location.[-]","info")
 		return false
 	end
 	
@@ -37,14 +37,10 @@ function ValidatePortalSpawnLoc (user, destLoc, destRegionAddress)
 	]]--
 
 	--Is destLoc in a housing bound?
-	local nearbyHouses = GetNearbyHouses(destLoc)
-	if (nearbyHouses ~= nil) then
-		for i, house in pairs(nearbyHouses) do
-			if (IsLocInHouse(house, destLoc)) then
-				invalidMessage = "You cannot create a portal in a house."
-				return invalidMessage, destLoc
-			end
-		end
+	local controller = Plot.GetAtLoc(destLoc)
+	if ( controller ~= nil ) then
+		invalidMessage = "You cannot create a portal in a house."
+		return invalidMessage, destLoc
 	end
 
 	--Is destLoc not passable?
@@ -109,7 +105,7 @@ function TeleportUser(teleporter,user,targetLoc,destRegionAddress,destFacing, ov
 	-- if it's not passed in, try to grab it from the teleporter object
 	destFacing = destFacing or teleporter:GetObjVar("DestinationFacing") or user:GetFacing()	
 	
-	if(destRegionAddress ~= nil and destRegionAddress ~= GetRegionAddress()) then							
+	if(destRegionAddress ~= nil and destRegionAddress ~= ServerSettings.RegionAddress) then							
 		-- pets will be stabled automatically
 		-- DAB TODO: Store which pets should be unstabled on the other side
 		if(user:TransferRegionRequest(destRegionAddress,targetLoc)) then
@@ -118,7 +114,7 @@ function TeleportUser(teleporter,user,targetLoc,destRegionAddress,destFacing, ov
 			end
 			if not(teleporter:HasObjVar("NoTeleportEffect")) then
 				user:PlayEffect("TeleportToEffect")
-				user:PlayObjectSound("Teleport")	
+				user:PlayObjectSound("event:/magic/air/magic_air_teleport")	
 			end
 
 			if (teleporter:HasObjVar("CreatePortalOnExit")) then
@@ -137,7 +133,7 @@ function TeleportUser(teleporter,user,targetLoc,destRegionAddress,destFacing, ov
 		for i, follower in pairs(objsToTeleport) do
 			if not(teleporter:HasObjVar("NoTeleportEffect")) then
 				follower:PlayEffect("TeleportToEffect")						
-				follower:PlayObjectSound("Teleport")
+				follower:PlayObjectSound("event:/magic/air/magic_air_teleport")
 			end
 			follower:SetWorldPosition(targetLoc)
 			if( destFacing ~= nil ) then
@@ -197,7 +193,7 @@ end
 
 -- DAB TODO: Validate destination location by creating a nodraw object at destination first
 function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner)
-	if(not(destRegionAddress) or destRegionAddress == GetRegionAddress()) then
+	if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
 		OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 		return
 	end
@@ -224,11 +220,11 @@ function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 
 	-- create remote dest portal
 	local targetModules = {"decay"}
-	local targetObjVars = { Destination=sourceLoc, RegionAddress=GetRegionAddress(), DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, false), Summoner = summoner}
+	local targetObjVars = { Destination=sourceLoc, RegionAddress=ServerSettings.RegionAddress, DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, false), Summoner = summoner}
 	MessageRemoteClusterController(destRegionAddress,"CreateObject","portal",destLoc,targetModules,targetObjVars)
 end
 
-function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,targetObj, summoner)
+function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,summoner)
 	local portalId = uuid()
 
 	--Source portal
@@ -259,7 +255,7 @@ function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,targetObj, summoner)
 end
 
 function OpenRemoteOneWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner)
-	if(not(destRegionAddress) or destRegionAddress == GetRegionAddress()) then
+	if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
 		OpenOneWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 		return
 	end
@@ -280,7 +276,7 @@ function OpenRemoteOneWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 		end)
 	-- create remote dest portal
 	local targetModules = {"decay"}
-	local targetObjVars = {RegionAddress = GetRegionAddress(), DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, true), Summoner = summoner}
+	local targetObjVars = {RegionAddress = ServerSettings.RegionAddress, DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, true), Summoner = summoner}
 	MessageRemoteClusterController(destRegionAddress,"CreateObject","portal_red",destLoc,targetModules,targetObjVars)
 end
 

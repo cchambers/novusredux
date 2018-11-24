@@ -280,7 +280,7 @@ function SaveHotbarToXML(filename)
 	end
 	os.execute("mkdir savedhotbars")
 	xmlOut:save("savedhotbars/"..filename..".xml")
-	this:SystemMessage("Hotbar saved on the region server "..GetRegionAddress().." to savedhotbars/"..filename..".xml")
+	this:SystemMessage("Hotbar saved on the region server "..ServerSettings.RegionAddress.." to savedhotbars/"..filename..".xml")
 end
 
 function LoadHotbarFromXML(filename)

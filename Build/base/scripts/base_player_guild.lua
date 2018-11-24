@@ -1,5 +1,4 @@
 require 'base_player_guild_UI'
-require 'incl_player_guild'
 
 -- Internal structure of the guild
 -- the memberinfo table keeps track of the member
@@ -199,6 +198,8 @@ Guild.AddToGuild = function(guildId,target)
 		Guild.SendToAll( nil, g, StripColorFromString(target:GetName()) .." has joined the guild.");
 		Guild.SendMessageToAll(g,"UpdateGuildInfo")
 
+		CheckAchievementStatus(target, "Activity", "Guild", 1)
+
 		Guild.SetGuildTooltip(target,g.Name)
 		if(Guild.CheckAccessLevel(mi.AccessLevel,"Emissary")) then
 			Guild.SetGuildTitle(target,mi.AccessLevel)
@@ -264,10 +265,12 @@ Guild.SendMessage = function (...)
 
 	local line = ""
 	if(#arg > 0) then
-		for i = 1,#arg do line = line .. tostring(arg[i]) .. " " end
+		for i = 1,#arg do line = line .. tostring(arg[i]) end
 	end
 
-	this:LogChat("[Guild]["..g.Name.."] "..line)
+	local encoded = json.encode(line)
+	local msgtype = 'guild","guildname":"' .. g.Name
+	this:LogChat(msgtype, encoded)
 
 	Guild.SendToAll( this, g, line);
 end
@@ -291,14 +294,13 @@ Guild.SendAllegianceMessage = function (...)
 	]]
 end
 
-Guild.TryCreate = function(leader,guildName,guildTag)
+Guild.TryCreate = function(leader,guildName,guildTag,foundingMembers)
 
  guildID = uuid()
  local cb = function(success)
         if ( success ) then
            	--we reserved our guild tag, lets actually create our guild now.
-           	Guild.Create(leader, guildName, guildID, guildTag)
-           	CallFunctionDelayed(TimeSpan.FromSeconds(1),GuildInfo)
+           	Guild.Create(leader, guildName, guildID, guildTag,foundingMembers)           	
         else
         	leader:SystemMessage("Guild creation failed, please try again")
         end  
@@ -308,7 +310,7 @@ Guild.TryCreate = function(leader,guildName,guildTag)
 end
 
 -- NOTE: if no id is specified its generated automatically
-Guild.Create = function(leader,guildName, guildId,guildTag)	
+Guild.Create = function(leader,guildName, guildId,guildTag,foundingMembers)	
 	if(guildId == nil) then guildId = uuid() end
 
 	local res = {}
@@ -326,13 +328,41 @@ Guild.Create = function(leader,guildName, guildId,guildTag)
 
 		res.Members[leader.Id] = mi
 		leader:SystemMessage("[00FF00][Guild] The "..res.Name.." has been founded.","custom")
+		leader:SystemMessage("You have joined the guild "..res.Name..".","info")
+		
+		CheckAchievementStatus(leader, "Activity", "Guild", 1)
 		Guild.SetGuildTooltip(leader,res.Name)
 		Guild.SetGuildTitle(leader,mi.AccessLevel)
 		leader:SetObjVar("Guild",res.Id)
 		CallFunctionDelayed(TimeSpan.FromSeconds(1),function ( ... )
 					leader:SendMessage("UpdateName")
 					leader:SendMessage("UpdateChatChannels")
+					leader:SendMessage("OpenGuildInfo")
 				end)			
+
+		if(foundingMembers) then
+			for i,foundingMember in pairs(foundingMembers) do
+				mi = GuildMemberInfo.Create( foundingMember );
+				res.Members[foundingMember.Id] = mi
+				foundingMember:SetObjVar("Guild", res.Id);
+
+				foundingMember:SystemMessage("[00FF00][Guild] The "..res.Name.." has been founded.","custom")
+				foundingMember:SystemMessage("You have joined the guild "..res.Name..".","info")
+				
+				CheckAchievementStatus(foundingMember, "Activity", "Guild", 1)
+
+				Guild.SetGuildTooltip(foundingMember,res.Name)
+				if(Guild.CheckAccessLevel(mi.AccessLevel,"Emissary")) then
+					Guild.SetGuildTitle(foundingMember,mi.AccessLevel)
+				end
+
+				CallFunctionDelayed(TimeSpan.FromSeconds(1),function() 
+					foundingMember:SendMessage("UpdateName")
+					foundingMember:SendMessage("UpdateChatChannels")
+					foundingMember:SendMessage("OpenGuildInfo")
+				end)		
+			end
+		end
 	end
 
 	Guild.UpdateGuildRecord(res)		
@@ -442,11 +472,11 @@ Guild.RemoveGuildTooltip = function(mobileObj)
 end
 
 Guild.SetGuildTitle = function(mobileObj,guildTitle)
-	PlayerTitles.Entitle(mobileObj,guildTitle,true,"Title granted by guild rank.","GuildTitle")
+	CheckAchievementStatus(mobileObj, "Other", "GuildTitle", nil, {Description = "Title granted by guild rank", CustomAchievement = guildTitle, Reward = {Title = guildTitle}})
 end
 
 Guild.RemoveGuildTitle = function(mobileObj)
-	PlayerTitles.Remove(mobileObj,"GuildTitle")	
+	RemoveOtherAchievement(mobileObj, "GuildTitle")
 end
 
 Guild.HasAccessLevel = function(user,required,g)

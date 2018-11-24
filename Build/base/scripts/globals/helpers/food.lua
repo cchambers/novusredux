@@ -17,7 +17,15 @@ BadEatwords = {
     "Nasty!"
 }
 
---- Attempts to eat food, will update Hunger system
+function CompleteEatFood(player, isGross)
+    if ( isGross ) then
+        player:SystemMessage(BadEatwords[math.random(1,#BadEatwords)], "info")
+    else
+        player:SystemMessage(GoodEatWords[math.random(1,#GoodEatWords)], "info")
+    end
+end
+
+--- Attempts to eat food
 -- @param player mobileObj
 -- @param resourceType string
 -- @param object you are eating
@@ -38,22 +46,6 @@ function TryEatFood(player, resourceType, resourceObj)
 		return false
 	end
 
-    local hunger = player:GetObjVar("Hunger") or 0    
-	if ( hunger < 1 and foodClass ~= "Refreshment" ) then
-		player:SystemMessage("You are too full to consume that.", "info")
-		return false
-	end
-
-    if ( FoodStats.BaseFoodStats[resourceType].Replenish == 0 ) then
-        player:SystemMessage("You try some "..resourceType.." and get nothing out of it.", "info")
-        return false
-    end
-
-    if ( FoodStats.BaseFoodStats[resourceType].Gross and hunger < ServerSettings.Hunger.Threshold ) then
-		player:SystemMessage("You are not hungry enough to consume that.", "info")
-        return false
-    end
-
     if not( ConsumeResourceBackpack(player, resourceType, 1) ) then
         player:SystemMessage("Cannot consume what you do not have.", "info")
         return false
@@ -63,12 +55,7 @@ function TryEatFood(player, resourceType, resourceObj)
         player:PlayLocalEffect(player,FoodStats.BaseFoodStats[resourceType].DrugEffect,FoodStats.BaseFoodStats[resourceType].DrugDuration)
     end
     
-    player:SendMessage("HungerUpdate", - ( FoodStats.BaseFoodStats[resourceType].Replenish or FoodStats.BaseFoodClass[FoodStats.BaseFoodStats[resourceType].FoodClass].Replenish ) )
-    if ( FoodStats.BaseFoodStats[resourceType].Gross ) then
-        player:SystemMessage(BadEatwords[math.random(1,#BadEatwords)], "info")
-    else
-        player:SystemMessage(GoodEatWords[math.random(1,#GoodEatWords)], "info")
-    end
+    CompleteEatFood(player, FoodStats.BaseFoodStats[resourceType].Gross)
 	
     return true
 end
@@ -92,13 +79,66 @@ function GetFoodTooltipTable(resourceType, tooltipInfo)
             }
         end
 
+        local foodClass = FoodStats.BaseFoodStats[resourceType].FoodClass or "Ingredient"
+
         -- add what kind of food item it is
         tooltipInfo.FoodClass = {
-            TooltipString = FoodStats.BaseFoodStats[resourceType].FoodClass,
+            TooltipString = foodClass,
             Priority = 100,
         }
+        
+        local replenish = FoodStats.BaseFoodStats[resourceType].Replenish or FoodStats.BaseFoodClass[foodClass].Replenish or 2
+        if ( replenish > 0 ) then
+            tooltipInfo.Replenish = {
+                TooltipString = "Eat to regain health and stamina. Entering Combat will remove the effect.",
+                Priority = 20,
+            }
+        end
+
+        -- add side effects
+        if ( FoodStats.BaseFoodStats[resourceType].DrugEffect ) then
+            if ( FoodStats.BaseFoodStats[resourceType].DrugEffect == "DrunkenEffect" ) then
+                tooltipInfo.SideEffect = {
+                    TooltipString = "Drunk Side Effects",
+                    Priority = -1
+                }
+            else
+                tooltipInfo.SideEffect = {
+                    TooltipString = "Side Effects",
+                    Priority = -1
+                }
+            end
+        end
 
     end
 
     return tooltipInfo
+end
+
+function UpdateWaterContainerState(item,state)
+    --DebugMessage("HEY "..tostring(item))
+    state = state or item:GetObjVar("State") or "Empty"
+
+    local originalName = item:GetObjVar("OriginalName")
+    if not(originalName) then
+        originalName = item:GetName()
+        item:SetObjVar("OriginalName",originalName)
+    end
+
+    local stateStr = state or "Empty"
+    local nameStr,color = StripColorFromString(originalName)
+    local nameStr = state.." "..nameStr
+    if(color) then
+        nameStr = color..nameStr.."[-]"
+    end
+    item:SetName(nameStr)
+    item:SetObjVar("State",state)
+
+    if(state == "Empty") then
+        RemoveUseCase(item,"Drink")
+        AddUseCase(item,"Fill",true)
+    elseif(state == "Full") then
+        AddUseCase(item,"Drink",true)
+        RemoveUseCase(item,"Fill")
+    end
 end

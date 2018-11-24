@@ -9,6 +9,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Sewer</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -34,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=10,  
+					Brawling = 10,  
 					},	
 				EquipTable = 
 					{
@@ -44,7 +45,7 @@
 					{ 
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.Eye,
 						{
 							NumCoins = math.random(15,35),
 						},
@@ -59,6 +60,8 @@
 			<Initializer>
 				{
 					MeatCount = 1,					
+
+					MeatType = "RatMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },

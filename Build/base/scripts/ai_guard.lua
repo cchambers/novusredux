@@ -15,6 +15,8 @@ AI.Settings.CanCast = false
 AI.Settings.StartConversations = true
 AI.Settings.StationedLeash = false
 AI.Settings.Leash = true
+AI.Settings.LeashDistance = 40
+AI.Settings.ChaseRange = 40
 AI.Settings.SpeechTable = "Guard"
 AI.Settings.InstaTeleportRange = 5.0
 AI.Settings.EnableTrain = true
@@ -30,9 +32,7 @@ for i=1,#AI.CombatStateTable do
 end
 
 -- add npc charge to guards.
-SetInitializerCombatAbilities(this, {
-    {"NPCCharge", 3}
-})
+SetInitializerCombatAbilities(this, {"NPCCharge"})
 
 guardNames = { 
     "Apollos",
@@ -87,6 +87,12 @@ playerKilledMessages = {
 
 traitorKilledMessages = {
     "Treason is not tolerated."
+}
+
+thiefAlertMessages= {
+    "Stop that thief!",
+    "Halt! Stop right there thief!",
+    "Thought you could get away with stealing?",
 }
 
 cultistKilledMessages = {
@@ -189,7 +195,6 @@ function IsEnemy(targetObj)
         -- and if the target object is an aggressor(guardIgnore==true), they are an enemy to this guard.
         if ( IsAggressor(targetObj, true) ) then return true end
     end
-
 
     return false
 end
@@ -317,6 +322,13 @@ AI.StateMachine.AllStates.ReturnToPath = {
         AiPulse = function()
             if (not this:IsMoving()) then
                 this:SendMessage("EndCombatMessage")
+
+                if lastLocInPath ~= nil and not (this:CanPathTo(lastLocInPath)) then
+                    this:SetWorldPosition(lastLocInPath)
+                    PlayEffectAtLoc("TeleportToEffect",this:GetLoc())
+                    lastLocInPath = nil
+                end
+
                 if(AI.StateMachine.AllStates.ReturnToPath.ReturnAttempts > 10) then
                     -- we are lost just stay put
                     if not(this:DecayScheduled()) then
@@ -526,7 +538,11 @@ function AttackEnemy(enemy,force)
     end]]
 
     base_AttackEnemy(enemy,force)
-    AI.StateMachine.ChangeState("AttackAbility");
+    if (ThiefChasing ~= nil) then
+        AI.StateMachine.ChangeState("Melee");
+    else
+        AI.StateMachine.ChangeState("AttackAbility");
+    end
 end
 
 function OnPatrolPause()
@@ -548,6 +564,11 @@ function HandleVictimKilled(victim)
         victim:DelObjVar("Criminal")
         this:SendMessage("ClearTarget")
         if( victim:IsPlayer() ) then
+            if (victim == ThiefChasing) then
+                ThiefChasing = nil
+                AI.SetSetting("ChargeSpeed",5.0)
+            end
+
             local message = playerKilledMessages[math.random(#playerKilledMessages)]
             if (not IsFemale(this)) then
                 Speak(message)
@@ -575,6 +596,18 @@ function DecideIdleState()
         this:SendMessage("EndCombatMessage")
     end
 
+    if (AI.GetSetting("ChargeSpeed") < 5.0) then
+        AI.SetSetting("ChargeSpeed",5.0)
+    end
+
+    if (AI.StateMachine.CurState == "GoHome" or AI.StateMachine.CurState == "ReturnHome") then
+        --Teleport guards back to spawn location if we are trying to go back
+        if not ShouldPatrol() and not (this:CanPathTo(this:GetObjVar("SpawnLocation"))) then
+            this:SetWorldPosition(this:GetObjVar("SpawnLocation"))
+            PlayEffectAtLoc("TeleportToEffect",this:GetLoc())
+        end
+    end
+
     AI.StateMachine.ChangeState("Idle")
 end
 
@@ -589,5 +622,56 @@ RegisterEventHandler(EventType.Timer, "patrolPause", OnPatrolPause)
 --RegisterEventHandler(EventType.LeaveView, "chase", OnLeaveChaseRange)
 RegisterEventHandler(EventType.Message, "VictimKilled", HandleVictimKilled)
 RegisterEventHandler(EventType.Message, "RequestHelp", HandleRequestHelp)
+
+ThiefChasing = nil
+lastLocInPath = nil
+RegisterEventHandler(EventType.Message, "StealFailure", 
+    function(user)
+        if (IsInCombat(this)) then
+            return
+        end
+
+        if (AI.MainTarget ~= nil) then
+            return
+        end
+
+        this:NpcSpeech(thiefAlertMessages[math.random(1, #thiefAlertMessages)])
+
+        ThiefChasing = user
+
+        local canPathTo = this:CanPathTo(user:GetLoc())
+
+        if (ShouldPatrol()) then
+            lastLocInPath = this:GetLoc()
+        end
+
+        if (canPathTo) then
+            if (this:HasLineOfSightToObj(user,ServerSettings.Combat.LOSEyeLevel)) then
+                this:SendMessage("AddThreat",user,2)
+            else
+                AI.LastKnownTargetPos = user:GetLoc()
+                AI.PursueLastTarget = user
+                AI.AddToAggroList(user,2)
+                AI.StateMachine.ChangeState("Pursue")
+            end
+        else
+            --If a guard can't find a path to thief, teleport guard to near thief and give thief some time to escape
+            local nearThief = GetNearbyPassableLocFromLoc(user:GetLoc(),1,2)
+            this:SetWorldPosition(nearThief)
+            PlayEffectAtLoc("TeleportToEffect",this:GetLoc())
+
+            CallFunctionDelayed(TimeSpan.FromSeconds(2),
+            function()      
+                if (this:HasLineOfSightToObj(user,ServerSettings.Combat.LOSEyeLevel)) then
+                    this:SendMessage("AddThreat",user,2)
+                else
+                    AI.LastKnownTargetPos = user:GetLoc()
+                    AI.PursueLastTarget = user
+                    AI.AddToAggroList(user,2)
+                    AI.StateMachine.ChangeState("Pursue")
+                end
+            end)
+        end
+    end)
 
 AI.InitialState = "Start"

@@ -12,10 +12,9 @@ require 'incl_combat_abilities'
 require 'incl_magic_sys'
 
 AI.MainTarget = nil --effectively who I want to attack
+AI.PursueLastTarget = nil --target currently I am pursuing
 AI.SpellOverride = nil
 AI.Anger = 0 --100 is max anger
-AI.ChaseTime = nil -- time before they stop chasing
-MAX_CHASE_TIME = 2
 AI.LastTargetLocation = nil
 DECAY_RANGE = 20
 DECAY_TIME = 20
@@ -38,10 +37,14 @@ AI.CombatStateTable = {
 AIViews = {}
 ViewsSleeping = true
 
+PursueTry = 0
+Pursuing = false
+GoingHome = false
+
 function AddAIView(viewName,searcher,delay)
     delay = delay or 0.25
-    AIViews[viewName] = { Searcher=searcher, Delay=delay }
-    if not(ViewsSleeping or AI.GetSetting("ShouldSleep")) then
+    AIViews[viewName] = { Searcher=searcher, Delay=delay}
+    if not(ViewsSleeping) or not(AI.GetSetting("ShouldSleep")) then
         AddView(viewName,searcher,delay)
     end
 end
@@ -97,7 +100,7 @@ function AI.Init()
     local bodSz = GetBodySize(this) or 0 
     local chaseViewRange = math.min(crSet + bodSz,30)
 
-    AddAIView("chaseRange",SearchMobileInRange(chaseViewRange,this:HasObjVar("SeeInvis"),false,true,ServerSettings.Combat.LOSEyeLevel))
+    AddAIView("chaseRange",SearchMobileInRange(chaseViewRange,this:HasObjVar("SeeInvis")))
     
     --DFB HACK: Remove the trap view 
     --AddAIView("trapView",SearchObjectInRange(chaseViewRange),0.5)
@@ -137,8 +140,10 @@ function CanCast(spellname,target)
         return false
     end  
 
+    local spellRange = GetSpellRange(spellname,this)
+    spellRange = spellRange * spellRange
     --DebugMessageA(this,"the spell " .. spellname .. "  has a spell range of " .. tostring(GetSpellRange(spellname,this)) .. "and is being called from  " .. tostring(this:DistanceFrom(target)))
-    if (this:DistanceFrom(target) > GetSpellRange(spellname,this)) then
+    if (this:DistanceFromSquared(target) > spellRange) then
         --DebugMessageA(this,"Out of range")
         return false
     end
@@ -157,13 +162,11 @@ function CanCast(spellname,target)
     return true
 end
 
-
+DEFAULT_CHASE_DISTANCE = 20
 function CheckStopChasing()
      if (this:IsMoving()) then
-        AI.ChaseTime = (AI.ChaseTime or 0) + 1
-        --DebugMessage("ChaseTime: ",tostring(AI.ChaseTime))
-        if (AI.ChaseTime ~= nil) and AI.ChaseTime > (AI.Settings.MaxChaseTime or MAX_CHASE_TIME) then
-            --DebugMessageA(this,"Stopped chasing")
+        local distanceFromTarget = this:DistanceFromSquared(AI.MainTarget)
+        if (distanceFromTarget > ((AI.Settings.ChaseRange * AI.Settings.ChaseRange) or (DEFAULT_CHASE_DISTANCE * DEFAULT_CHASE_DISTANCE))) then
             this:ClearPathTarget()
             AI.RemoveFromAggroList(AI.MainTarget)
             SetAITarget(nil)
@@ -171,7 +174,6 @@ function CheckStopChasing()
             return true
         end
     else
-        AI.ChaseTime = nil
         --DebugMessage("Reset on stop moving")
         return false
     end
@@ -224,7 +226,7 @@ function IsFriend(target)
                 return true
             end
         end
-        if (this:DistanceFrom(target) < AI.Settings.AggroRange or math.random(AI.GetSetting("AggroChanceAnimals")) == 1) then            
+        if (this:DistanceFromSquared(target) < (AI.Settings.AggroRange * AI.Settings.AggroRange) or math.random(AI.GetSetting("AggroChanceAnimals")) == 1) then            
             --AI.AddThreat(damager,-1)--Don't aggro them
             return (myTeam == otherTeam) 
         else
@@ -284,7 +286,7 @@ function GetNearbyEnemies()
     local actualEnemies = {}
     if (enemyObjects ~= nil) then
         for i,enemyObj in pairs(enemyObjects) do
-            if(enemyObj:IsMobile() and AI.IsValidTarget(enemyObj) and not IsFriend(enemyObj)) then
+            if(enemyObj:IsMobile() and AI.IsValidTarget(enemyObj) and not IsFriend(enemyObj) and this:HasLineOfSightToObj(enemyObj, ServerSettings.Combat.LOSEyeLevel)) then
                 table.insert(actualEnemies,enemyObj)
             end
         end
@@ -295,13 +297,13 @@ end
 function GetNearbyDeadMobiles()
     --DebugMessageA(this,"GETVIEWOBJECTS")
 
-    local Objects = FindObjects(SearchMobileInRange(AI.GetSetting("ChaseRange"),this:HasObjVar("SeeInvis"),true))--GetViewObjects("chaseRange")
+    local Objects = FindObjects(SearchMobileInRange(AI.GetSetting("ChaseRange"),this:HasObjVar("SeeInvis")))--GetViewObjects("chaseRange")
     --DebugMessage(DumpTable(Objects))
     local nearbyMobiles = {}
     if(Objects) then
         for i,theObj in pairs(Objects) do
             if (theObj ~=  nil and theObj:IsMobile()) then
-                if ( (IsDead(theObj))) then
+                if ( (IsDead(theObj) and this:HasLineOfSightToObj(theobj, ServerSettings.Combat.LOSEyeLevel))) then
                     table.insert(nearbyMobiles,theObj)
                 end
             end
@@ -335,7 +337,7 @@ function GetNearbyFriends(range)
         --DebugMessage("Objects = ",#Objects)        
         if (IsTableEmpty(Objects)) then return friends end
         for i,theObj in pairs(Objects) do
-            if (theObj ~= nil and theObj:IsMobile() and AI.IsValidTarget(theObj) and this:DistanceFrom(theObj) < range ) then
+            if (theObj ~= nil and theObj:IsMobile() and AI.IsValidTarget(theObj) and this:DistanceFromSquared(theObj) < (range * range) ) then
                 if (IsFriend(theObj) and not(IsDead(theObj))) then
                     table.insert(friends,theObj)
                 end
@@ -349,25 +351,29 @@ end
 function GetNearbyAllies(range,deadToo)
     if (deadToo == nil) then deadToo = false end
 
-    local Objects = FindObjects(SearchMobileInRange(AI.GetSetting("ChaseRange"),this:HasObjVar("SeeInvis"),true,AI.GetSetting("CheckLOS")))--GetViewObjects("chaseRange")
     local friends = {}
     local myTeam = this:GetObjVar("MobileTeamType")
     if (range == nil) then range = AI.GetSetting("ChaseRange") end
     if (myTeam == nil) then 
         return GetNearbyFriends() 
     end
+
+    local Objects = FindObjects(SearchMobileInRange(AI.GetSetting("ChaseRange"),this:HasObjVar("SeeInvis")))--GetViewObjects("chaseRange")
+    local checkLOS = AI.GetSetting("CheckLOS")
     --DebugMessage()
     if (IsTableEmpty(Objects)) then return friends end
     --DebugMessage("Yep")
    --DebugMessage("Objects = "..DumpTable(Objects))
     for i,theObj in pairs(Objects) do
-        if (theObj ~=  nil and theObj:IsMobile() and this:DistanceFrom(theObj) < range) then
-            theirTeam = theObj:GetObjVar("MobileTeamType")
+        if (theObj ~=  nil and theObj:IsMobile() and this:DistanceFromSquared(theObj) < (range*range)) then
+            if(checkLOS == false or this:HasLineOfSightToObj(theobj, ServerSettings.Combat.LOSEyeLevel)) then
+                theirTeam = theObj:GetObjVar("MobileTeamType")
             --DebugMessage(tostring(theirTeam).." is their team")
             --DebugMessage(tostring(myTeam).." is my team")
             --DebugMessage("theirTeam == myTeam is "..tostring(theirTeam == myTeam),"and deadToo or not IsDead is "..tostring((deadToo or not (IsDead(theObj)))))
-            if ( theirTeam == myTeam and (deadToo or not(IsDead(theObj)))) then
-                table.insert(friends,theObj)
+                if ( theirTeam == myTeam and (deadToo or not(IsDead(theObj)))) then
+                    table.insert(friends,theObj)
+                end
             end
         end
     end
@@ -383,6 +389,7 @@ function FindAITarget()
     local AggroTarget = AI.GetNewTarget(AI.GetSetting("ChaseRange"))
     if (AggroTarget ~= nil and AggroTarget ~= this) then
         SetAITarget(AggroTarget)
+        AI.PursueLastTarget = nil
         return AggroTarget
     end
     
@@ -392,6 +399,7 @@ function FindAITarget()
     local enemyObjects = GetNearbyEnemies()
     for i,enemyObj in pairs(enemyObjects) do
         SetAITarget(enemyObj)
+        AI.PursueLastTarget = nil
         return enemyObj
     end
 
@@ -435,7 +443,7 @@ function IsDamageableLoc(targetLoc,targMob,checkNearMe)
             difference = 360 - difference
         end
         --if there's a trap between me and them, and it's closer than them, then stop
-        if (    ((difference < 25 and (this:GetLoc():Distance(targetLoc) > j:GetLoc():Distance(targetLoc))) or (this:DistanceFrom(j) < TRAP_DAMAGE_DIST and checkNearMe)) 
+        if (    ((difference < 25 and (this:GetLoc():Distance(targetLoc) > j:GetLoc():Distance(targetLoc))) or (this:DistanceFromSquared(j) < (TRAP_DAMAGE_DIST * TRAP_DAMAGE_DIST) and checkNearMe)) 
                 and (j:GetSharedObjectProperty("IsTriggered") or j:HasObjVar("TrapKey") or j:HasObjVar("Dangerous")) 
                 ) then 
             --DebugMessage("Returned true")
@@ -594,16 +602,26 @@ function AttackEnemy(enemy,force)
     
     DecideCombatState()
 end
-function CheckStrongLeash()
+function CheckStrongLeash(location)
+    local checkLocation = location or this:GetLoc()
+    
     if (AI.GetSetting("StationedLeash")) then
-        if (this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) > AI.GetSetting("LeashDistance")) then
+        local leashDistance = AI.GetSetting("LeashDistance") or 10
+        if (checkLocation:DistanceSquared(this:GetObjVar("SpawnLocation")) > (leashDistance * leashDistance)) then
             --DebugMessageA(this,"Not at stationed location, returning home - " .. tostring(this:GetLoc():Distance(this:GetObjVar("SpawnLocation"))).." is the distance to spawn")
             return true
         end
-    end
-    if (AI.GetSetting("StationedLeash")) then
+
+        local aggroListEmpty = true
+
+        for key,value in pairs(aggroList) do
+            if (key ~= AI.PursueLastTarget) then
+                aggroListEmpty = false
+            end
+        end
+
         --DebugMessage("CHECK 2: ",#aggroList == 0, this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) > 1)
-        if (#aggroList == 0 and this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) > 1 and #GetNearbyEnemies() == 0) then
+        if (aggroListEmpty and (checkLocation:DistanceSquared(this:GetObjVar("SpawnLocation")) > (3*3)) and #GetNearbyEnemies() == 0 and AI.PursueLastTarget == nil) then
             return true
         end
     end
@@ -611,21 +629,23 @@ function CheckStrongLeash()
 end
 
 --returns if leashing
-function CheckLeash()
+function CheckLeash(location, targetExist)
     local target = AI.MainTarget
     if (AI.GetSetting("Leash") == false) then
         return false
     else
+        local targetExist = targetExist or false
+        local checkLocation = location or this:GetLoc()
         local leashDistance = AI.GetSetting("LeashDistance") or 10
         --DebugMessageA(this,this:GetName() .. "has leash distance of "..tostring(leashDistance))
         if( leashDistance ~= nil ) then
             leashDistance = math.max(0.5,leashDistance)
         end
 
-        if (leashDistance ~= nil and this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) > leashDistance) then
+        if (leashDistance ~= nil and checkLocation:DistanceSquared(this:GetObjVar("SpawnLocation")) > (leashDistance * leashDistance)) then
             --DebugMessageA(this,"Outside of leashing distance" .. tostring(this:GetLoc():Distance(this:GetObjVar("SpawnLocation"))).." is the distance to spawn and the leash distance is " ..tostring(leashdistance))
             return true
-        elseif (target == nil and  this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) > 0.5) then
+        elseif ((target == nil and not targetExist) and  checkLocation:Distance(this:GetObjVar("SpawnLocation")) > 0.5) then
             --DebugMessageA(this,"Target is nil and spawn location is farther away")
             return true
         end
@@ -640,11 +660,9 @@ function DecideIdleState()
     if (IsDead(this)) then AI.StateMachine.ChangeState("Dead") return end
     if not(AI.IsActive()) then return end    
     --DebugMessage("Resetting chase time B")
-    
     if (IsInCombat(this)) then
         this:SendMessage("EndCombatMessage")
     end
-    AI.ChaseTime = nil
     --if this mob should go back to it's spawn position then do so now
     if ((CheckStrongLeash() or CheckLeash()) and AI.StateMachine.AllStates.GoHome.CanGoHome()) then
         AI.StateMachine.ChangeState("GoHome")
@@ -734,15 +752,16 @@ function DecideCombatState()
     end 
 
     --Quick and dirty checking
-    local distance = this:DistanceFrom(AI.MainTarget)
-    if (distance > AI.GetSetting("AggroRange") and not AI.GetSetting("NoMelee")) then
+    local distance = this:DistanceFromSquared(AI.MainTarget)
+    local distanceToCheck = (AI.GetSetting("AggroRange") * AI.GetSetting("AggroRange"))
+    if (distance > distanceToCheck and not AI.GetSetting("NoMelee")) then
         if (not AI.GetSetting("FleeUnlessAngry")) then
             AI.StateMachine.ChangeState("Chase")
         else
             this:ClearPathTarget()
             DecideIdleState()
         end
-    elseif (distance < AI.GetSetting("AggroRange")) then
+    elseif (distance < distanceToCheck) then
         local canTryAbility = (AI.GetSetting("CanUseCombatAbilities") ~= false and (this:HasObjVar("CombatAbilities") or this:HasObjVar("WeaponAbilities")) )
         
         if (AI.GetSetting("CanCast") == true or AI.GetSetting("NoMelee")) then
@@ -801,7 +820,6 @@ function HandleMobEnterView(mobileObj,ignoreVision,forceAttack)
     if (ignoreVision == nil) then ignoreVision = false end
     if not(AI.IsActive()) then return end
     if (this:HasTimer ("SpellPrimeTimer")) then return end
-    if (AI.StateMachine.CurState == "GoHome") then return end
     if (not AI.IsValidTarget(mobileObj)) then 
         return 
     end    
@@ -828,13 +846,15 @@ function HandleMobEnterView(mobileObj,ignoreVision,forceAttack)
     if (not isFriend) then
         AI.AddToAggroList(mobileObj,2)
        --DebugMessage(4)
-        if (forceAttack) then
-            AttackEnemy(mobileObj,true)  
-        else
-            --DebugMessage("entering alert")
-            AI.StateMachine.ChangeState("Alert")   
-        end         
-        --DebugMessageA(this,"ChangingToAlert")
+        if (AI.StateMachine.CurState ~= "GoHome") then
+            if (forceAttack) then
+                AttackEnemy(mobileObj,true)  
+            else
+                --DebugMessage("entering alert")
+                AI.StateMachine.ChangeState("Alert")   
+            end         
+            --DebugMessageA(this,"ChangingToAlert")
+        end
     end
 end
 
@@ -846,6 +866,8 @@ end
 AI.StateMachine.AllStates = { 
     Disabled = {
         OnEnterState = function()
+            PursueTry = 0
+            AI.PursueLastTarget = nil
             this:ClearPathTarget()
             this:SendMessage("EndCombatMessage")
             SetAITarget(nil)
@@ -873,7 +895,13 @@ AI.StateMachine.AllStates = {
         end,
 
         AiPulse = function ()
-            DecideIdleState()
+            AI.MainTarget = FindAITarget()
+            if (AI.MainTarget == nil) then
+                DecideIdleState()
+            else
+                DecideCombatState()
+                return
+            end
             --Reduce anger in idle
             AI.Anger = AI.Anger - 1
             if (AI.Anger < 0)  then
@@ -905,7 +933,7 @@ AI.StateMachine.AllStates = {
     },
 
     Pursue = {
-        GetPulseFrequencyMS = function() return 5000 end,
+        GetPulseFrequencyMS = function() return 1000 end,
         OnEnterState = function(self)
             if (GetSpeechTable ~= nil) then
                 if (AI.GetSetting("CanConverse") and GetSpeechTable("TargetPursueSpeech") ~= nil and math.random(1,10) == 1) then
@@ -915,14 +943,32 @@ AI.StateMachine.AllStates = {
             mConverseSettingGoHome = AI.GetSetting("CanConverse")
             AI.SetSetting("CanConverse",false)
             if (AI.LastKnownTargetPos ~= nil) then
-                this:PathTo(AI.LastKnownTargetPos,AI.GetSetting("ChargeSpeed"),"Pursue")
+                if ((CheckStrongLeash(AI.LastKnownTargetPos) or CheckLeash(AI.LastKnownTargetPos, true)) and AI.StateMachine.AllStates.GoHome.CanGoHome()) then
+                    AI.StateMachine.ChangeState("WhereDidHeGo")
+                    return
+                end
+                Pursuing = true
+                this:PathTo(AI.LastKnownTargetPos,AI.GetSetting("ChargeSpeed"),"Pursue", true)
             else
                 AI.StateMachine.ChangeState("WhereDidHeGo")
             end
         end,
 
         AiPulse= function ()
-            AI.StateMachine.ChangeState("WhereDidHeGo")
+            if (PursueTry >= 5) then
+                AI.StateMachine.ChangeState("WhereDidHeGo")
+            elseif (Pursuing == false) then
+                if (AI.LastKnownTargetPos ~= nil) then
+                    if ((CheckStrongLeash(AI.LastKnownTargetPos) or CheckLeash(AI.LastKnownTargetPos, true)) and AI.StateMachine.AllStates.GoHome.CanGoHome()) then
+                        AI.StateMachine.ChangeState("WhereDidHeGo")
+                        return
+                    end
+                    Pursuing = true
+                    this:PathTo(AI.LastKnownTargetPos,AI.GetSetting("ChargeSpeed"),"Pursue", true)
+                else
+                    AI.StateMachine.ChangeState("WhereDidHeGo")
+                end
+            end
         end,
 
         HandleFail = function(self)
@@ -938,6 +984,7 @@ AI.StateMachine.AllStates = {
         GetPulseFrequencyMS = function() return 5000 end,
         OnEnterState = function()
             --DebugMessageA(this,"Entering state")
+            GoingHome = false
             if(GetCurHealth(this) < GetMaxHealth(this)) then
                 this:SendMessage("StartMobileEffect", "HealOverTime", this, { RegenMultiplier = 200.0, DamageInterrupts = true, PlayEffect = false, Duration = TimeSpan.FromSeconds(5) })
             end
@@ -963,14 +1010,19 @@ AI.StateMachine.AllStates = {
                 --DebugMessageA(this,"Going home")
 
                 local spawnLoc = this:GetObjVar("SpawnLocation")
+                local distance = this:GetLoc():Distance(spawnLoc)
                 --DebugMessageA(this,"spawnLoc is "..tostring(spawnLoc))
-
-                if(this:GetLoc():Distance(spawnLoc) > MAX_PATHTO_DIST) then
-                    --DebugMessageA(this,"Attempting to wander home")
-                    WanderTowards(spawnLoc,40,3.0,"GoHome")
+                if(distance > 2) then
+                    if(distance > MAX_PATHTO_DIST) then
+                        --DebugMessageA(this,"Attempting to wander home")
+                        WanderTowards(spawnLoc,40,3.0,"GoHome")
+                    elseif not(GoingHome) then
+                        --DebugMessageA(this,"Attempting to path home")
+                        GoingHome = true
+                        this:PathTo(spawnLoc,3.0,"GoHome", true)
+                    end
                 else
-                    --DebugMessageA(this,"Attempting to path home")
-                    this:PathTo(this:GetObjVar("SpawnLocation"),3.0,"GoHome")
+                    AI.StateMachine.ChangeState("Idle")
                 end
             else
                 AI.StateMachine.ChangeState("Idle")
@@ -978,6 +1030,7 @@ AI.StateMachine.AllStates = {
         end,
         OnExitState = function()
             --reset it when exiting
+            GoingHome = false
             AI.SetSetting("CanConverse",mConverseSettingGoHome)
             mConverseSettingGoHome = nil
         end,
@@ -1038,7 +1091,7 @@ AI.StateMachine.AllStates = {
                 this:StopMoving()
                 --We found a new mobile, handle it
                 local chanceToAttack = AI.GetSetting("ChanceToNotAttackOnAlert") or 1
-                if ((chanceToAttack >= 1 and math.random(1, chanceToAttack ) == 1)  or alertTarget:DistanceFrom(this) < AI.GetSetting("AggroRange")) then
+                if ((chanceToAttack >= 1 and math.random(1, chanceToAttack ) == 1)  or alertTarget:DistanceFromSquared(this) < (AI.GetSetting("AggroRange") * AI.GetSetting("AggroRange"))) then
                     if (not IsFriend(alertTarget)) then
                         AttackEnemy(alertTarget)
                     else --not a threat, go to idle
@@ -1074,6 +1127,8 @@ AI.StateMachine.AllStates = {
         AiPulse = function ()
             --If there is no target nearby after losing a target, enter idle
             AI.MainTarget = FindAITarget()
+            PursueTry = 0
+            AI.PursueLastTarget = nil
             if (AI.MainTarget == nil) then
                 DecideIdleState()
             else
@@ -1097,12 +1152,14 @@ AI.StateMachine.AllStates = {
             --this:NpcSpeech("[f70a79]*Wander!*[-]")
             local homeRegion = this:GetObjVar("homeRegion")
             --DebugMessageA(this,"Changing state in wander.") 
-            if math.random(AI.GetSetting("WanderChance")) <= 1 then 
+            AI.MainTarget = FindAITarget()
+            if (AI.MainTarget ~= nil) then
+                DecideCombatState()
+            elseif math.random(AI.GetSetting("WanderChance")) <= 1 then 
                 AI.StateMachine.ChangeState("Idle")
-            else 
-                AI.StateMachine.ChangeState("Wander")
+            else
+                WanderInRegion(homeRegion,"Wander")
             end
-            WanderInRegion(homeRegion,"Wander")
         end
     },
 
@@ -1211,7 +1268,15 @@ AI.StateMachine.AllStates = {
         end,
 
         AiPulse  = function()
-            if (CheckStopChasing()) then return end
+            --Check if they are in certain distance from target and if they are too far away from their spawn location
+            if (CheckStopChasing()) then 
+                DecideIdleState()
+                return 
+            end
+            if ((CheckStrongLeash() or CheckLeash()) and AI.StateMachine.AllStates.GoHome:CanGoHome()) then 
+                DecideIdleState()
+                return 
+            end
             DecideCombatState()
         end
     },
@@ -1312,7 +1377,15 @@ AI.StateMachine.AllStates = {
         GetPulseFrequencyMS = function() return 3000 end,
 
         AiPulse = function()  
-            if (CheckStopChasing()) then return end
+            if (CheckStopChasing()) then 
+                DecideIdleState()
+                return 
+            end
+            if ((CheckStrongLeash() or CheckLeash()) and AI.StateMachine.AllStates.GoHome:CanGoHome()) then 
+                DecideIdleState()
+                return 
+            end
+
             DecideCombatState()
             --DebugMessageA(this,"Combat target is " .. tostring (AI.MainTarget))
             --this:NpcSpeech("[f70a79]*Attacking!*[-]")
@@ -1368,7 +1441,7 @@ RegisterEventHandler(EventType.Message, "WasRevealed",
             return 
         end
         
-        if (this:DistanceFrom(MobileObj) > AI.GetSetting("ChaseRange")) then
+        if (this:DistanceFromSquared(MobileObj) > (AI.GetSetting("ChaseRange") * AI.GetSetting("ChangeRange"))) then
             return 
         end
 
@@ -1403,11 +1476,13 @@ RegisterEventHandler(EventType.LeaveView, "chaseRange",
             elseif (AI.MainTarget ~= nil and 
                     AI.IsValidTarget(mobileObj) and
                     AI.MainTarget == mobileObj and
-                    not this:HasLineOfSightToObj(AI.MainTarget) and not IsFriend(mobileObj) and ((this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) < AI.GetSetting("LeashDistance"))  or not AI.GetSetting("StationedLeash"))
+                    not this:HasLineOfSightToObj(AI.MainTarget,ServerSettings.Combat.LOSEyeLevel) and not IsFriend(mobileObj) and ((this:GetLoc():Distance(this:GetObjVar("SpawnLocation")) < AI.GetSetting("LeashDistance"))  or not AI.GetSetting("StationedLeash"))
                      ) then --(FindAITarget() == nil and not IsFriend(mobileObj) and AI.IsValidTarget(mobileObj) and IsInCombat(this) and AI.StateMachine.CurState ~= "Alert" and AI.MainTarget ~= nil) then
                --DebugMessage("No target")
                 AI.LastKnownTargetPos = AI.MainTarget:GetLoc()
+                AI.PursueLastTarget = AI.MainTarget
                 SetAITarget(nil)
+                PursueTry = 0
                 AI.StateMachine.ChangeState("Pursue") 
             else 
                 --DebugMessage("Still finding a target")
@@ -1465,6 +1540,7 @@ RegisterEventHandler(EventType.Arrived,"GoHome",
     function (success)    
         --DebugMessageA(this,"GoHome Path success is "..tostring(success))
         --DebugMessageA(this,"CurrentState is "..tostring(AI.StateMachine.CurState))
+        GoingHome = false
         if (AI.StateMachine.CurState == "GoHome") then
             --DFB HACK: This is bad, and stupid.        
             -- leash failed
@@ -1472,20 +1548,27 @@ RegisterEventHandler(EventType.Arrived,"GoHome",
                 -- keep track of how many times it fails, if we hit 10 then add the decay module
                 if(AI.StateMachine.AllStates.GoHome.HandleFail) then AI.StateMachine.AllStates.GoHome:HandleFail() end
             elseif(success) then
-
                 --DebugMessageA(this,"Idle from go home")
-                AI.StateMachine.ChangeState("Idle")
                 if(AI.StateMachine.AllStates.GoHome.ArriveSuccess) then AI.StateMachine.AllStates.GoHome:ArriveSuccess() end
                 AI.Anger = AI.Anger - 5
+
+                --Upon arrival, if state is still GoHome decide whether this mob should go idle or combat
+                AI.MainTarget = FindAITarget()
+                if (AI.MainTarget == nil) then
+                    DecideIdleState()
+                else
+                    DecideCombatState()
+                end
             end
-        end        
+        end
     end)
+
 DOOR_OPEN_DIST = 4
 RegisterEventHandler(EventType.Arrived,"Pursue",
     function (success)    
         --DebugMessageA(this,"Pursue Path success is "..tostring(success))
         if (AI.StateMachine.CurState == "Pursue") then
-            if (not success and AI.MainTarget == nil) then--and #nearbyPlayers == 0) then
+            if (AI.MainTarget == nil) then--and #nearbyPlayers == 0) then
                 --if a door is in the way, open it.
                 if (AI.GetSetting("CanOpenDoors")) then
                     local nearbyDoors = FindObjects(SearchModule("door",DOOR_OPEN_DIST))
@@ -1498,10 +1581,30 @@ RegisterEventHandler(EventType.Arrived,"Pursue",
                         nearbyDoors[1]:SendMessage("OpenDoor")
                     end
                 end
-                -- if we don't find them then wonder where they went
-                AI.StateMachine.ChangeState("WhereDidHeGo")
+
+                local lastTarget = AI.PursueLastTarget
+                AI.MainTarget = FindAITarget()
+                if (AI.MainTarget ~= nil and this:HasLineOfSightToObj(AI.MainTarget,ServerSettings.Combat.LOSEyeLevel)) then
+                    DecideCombatState()
+                    return
+                end
+
+                if (AI.PursueLastTarget == nil) then
+                    AI.PursueLastTarget = lastTarget
+                end
+
+                if (PursueTry < 5 and AI.PursueLastTarget ~= nil) then
+                    PursueTry = PursueTry + 1
+                    AI.LastKnownTargetPos = AI.PursueLastTarget:GetLoc()
+                    SetAITarget(nil)
+                else
+                    AI.StateMachine.ChangeState("WhereDidHeGo")
+                end
+            else
+                DecideCombatState()
             end
-        end        
+        end
+        Pursuing = false
     end)
 
 --attack enemies remotely
@@ -1549,9 +1652,10 @@ end
 
 --When I get hit.
 BaseMobileHandleApplyDamage = HandleApplyDamage
-function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
+
         -- handle normal stuffs
-        local newHealth = BaseMobileHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+        local newHealth = BaseMobileHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
 
         -- early exit on a death
         if (newHealth == nil or newHealth <= 0 ) then return 0 end
@@ -1569,8 +1673,8 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 
         if (IsDead(this)) then AI.StateMachine.ChangeState("Dead") return newHealth end     
         if (this:HasTimer ("SpellPrimeTimer")) then return newHealth end
-        if (AI.StateMachine.CurState == "GoHome") then return newHealth end
         if not(AI.IsActive()) then return newHealth end
+        if (AI.StateMachine.CurState == "GoHome") then return newHealth end
         if (this:HasObjVar("Invulnerable")) then return newHealth end
         --Check to see if it's an inanimate object or a trap that's hurting me, if so flee
         if (damageAmount > 8) then
@@ -1599,8 +1703,15 @@ function HandleAggroAnger(damager, threat)
     AI.Anger = AI.Anger + 5
     if not(hasAggro) then
         HandleMobEnterView(damager,true,true)
+    else
+        if (AI.StateMachine.CurState ~= "GoHome") then
+            if (forceAttack) then
+                AttackEnemy(mobileObj,true)  
+            else
+                AI.StateMachine.ChangeState("Alert")   
+            end         
+        end
     end
-
 end
 
 RegisterEventHandler(EventType.Message, "PathToLocation", 

@@ -18,7 +18,7 @@
 			<Initializer>
 				{
 					Stats = { Str=99, Agi=99, Int=25 },
-					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100 },
+					Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100 },
 					EquipTable = { Legs = { "merchant_clothing_legs" }, 
 			                       Chest = { "padded_chest_crude" }, 
 								   BodyPartHead = { "head_male02" },

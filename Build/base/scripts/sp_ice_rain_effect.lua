@@ -6,12 +6,12 @@ local mPulse = 0
 local function ValidateIceRain(targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2612]")
+		this:SystemMessage("[$2612]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2613]")
+		this:SystemMessage("[$2613]","info")
 		return false
 	end
 	return true
@@ -34,7 +34,7 @@ RegisterEventHandler(EventType.Message,"IcerainSpellTargetResult",
 	
 		mRainActive = true
 		this:FireTimer("IcerainPulse")
-		this:PlayObjectSound("IceRain")
+		this:PlayObjectSound("event:/magic/water/magic_water_ice_rain")
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(8),"IcerainRemove",mTargetLoc)
 	end)
 
@@ -84,6 +84,6 @@ function EndEffect()
 	--DebugMessage("Ending!!")
 	if(this:HasTimer("IcerainRemove")) then this:RemoveTimer("IcerainRemove") end
 	if(this:HasTimer("IcerainPulse")) then this:RemoveTimer("IcerainPulse") end
-	this:StopObjectSound("IceRain",false,0.0)
+	this:StopObjectSound("event:/magic/water/magic_water_ice_rain",false,0.0)
 	this:DelModule("sp_ice_rain_effect")
 end

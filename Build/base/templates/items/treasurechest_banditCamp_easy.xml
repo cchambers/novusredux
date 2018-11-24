@@ -28,7 +28,7 @@
 								{ Weight = 35,Template = "weapon_kryss", Unique = true },
 								{ Weight = 35,Template = "weapon_greataxe", Unique = true },
 								{ Weight = 35,Template = "weapon_mace", Unique = true },
-								{ Weight = 35,Template = "weapon_vouge", Unique = true },
+								{ Weight = 35,Template = "weapon_voulge", Unique = true },
 								{ Weight = 35,Template = "shield_buckler", Unique = true },
 								{ Weight = 35,Template = "weapon_shortbow", Unique = true },
 							}
@@ -100,7 +100,6 @@
 								{ Weight = 5, Template = "lscroll_cure", Unique = true },
 								{ Weight = 5, Template = "lscroll_poison", Unique = true },
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_defence", Unique = true },
 
 							},
 						},	
@@ -116,7 +115,6 @@
 								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
 								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
 								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
-								{ Weight = 5, Template = "lscroll_attack", Unique = true },
 							},
 						},	
 					}

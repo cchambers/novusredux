@@ -48,6 +48,6 @@ AllFish = {
 	AetherFish = {
 		Template = "resource_fish_golden_aether",
 		DisplayName = "Golden Aether-Fish",
-		MinSkill = 90,
+		MinSkill = 95,
 	},
 }

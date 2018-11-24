@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[D7D700]Waterskin[-]</Name>
+	<ClientId>570</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="ResourceType">WaterContainer</StringVariable>
+	</ObjectVariableComponent>		
+</ObjectTemplate>

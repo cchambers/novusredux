@@ -20,8 +20,8 @@ containerDropAreas =
     Crate =    { min = Loc(-0.3,0.1,-0.6),
 				 max = Loc(0.35,0.1,0.4) },
 
-	Lockbox =  { min = Loc(-0.3,-0.2,-0.6),
-				 max = Loc(0.4,-0.2,-0.2) },
+	Lockbox =  { min = Loc(-0.3,0,-0.6),
+				 max = Loc(0.4,0,-0.2) },
 
 	Pouch =    { min = Loc(-0.4,1.1,-0.5),
 				 max = Loc(0.5,-0.1,0.4) },
@@ -122,6 +122,25 @@ function CreateStackInBackpack(target,template,amount,eventId,...)
 			templateData.ObjectVariables.StackCount = amount
 
 			CreateCustomObjInContainer(template, templateData, backpackObj, randomLoc, eventId, ...)	
+			return true
+		end
+	end
+
+	return false
+end
+
+function CreateStackInBank(target,template,amount,eventId,...)
+	local bankObj = target:GetEquippedObject("Bank")
+	
+	if( target ~= nil and bankObj ~= nil and template ~= nil ) then
+		local templateData = GetTemplateData(template)
+		if(templateData) then
+			local randomLoc = GetRandomDropPosition(bankObj)
+			--bankObj:SendOpenContainer(target)
+			
+			if not(templateData.ObjectVariables) then templateData.ObjectVariables = {} end
+			templateData.ObjectVariables.StackCount = amount
+			CreateCustomObjInContainer(template, templateData, bankObj, randomLoc, eventId, ...)	
 			return true
 		end
 	end
@@ -423,10 +442,16 @@ function SetItemTooltip(item, noUseCases)
 	-- add equipment tooltips
 	tooltipInfo = GetEquipmentTooltipTable(item, tooltipInfo)
 
+	-- default weapons/armor to double click to equip
+	local slot = item:GetSharedObjectProperty("EquipSlot")
+	if ( slot ~= nil and slot ~= "TempPack" and slot ~= "Bank" and slot ~= "Familiar" and slot ~= "Mount" ) then
+		item:SetSharedObjectProperty("DefaultInteraction", "Equip")
+	end
+
 	local resourceType = item:GetObjVar("ResourceType")
 	if ( resourceType ) then
 		-- add resource tooltips
-		tooltipInfo = GetResourceTooltipTable(resourceType, tooltipInfo)
+		tooltipInfo = GetResourceTooltipTable(resourceType, tooltipInfo, item)
 		-- add food tooltips
 		tooltipInfo = GetFoodTooltipTable(resourceType, tooltipInfo)
 

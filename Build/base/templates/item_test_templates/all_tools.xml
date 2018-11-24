@@ -24,7 +24,6 @@
 								{ Chance = 100, Template = "tool_hunting_knife", Unique = true },
 								{ Chance = 100, Template = "tool_mining_pick", Unique = true },
 								{ Chance = 100, Template = "tool_shovel", Unique = true },
-								{ Chance = 100, Template = "triage_kit", Unique = true },
 							} 
 						},	
 					}

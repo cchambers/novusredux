@@ -5,7 +5,7 @@ MobsSlain = 0
 TOTAL_MOB_COUNT = 2
 
 function EndRHirelingDiversion(taskComplete, fromHireling)
-    RemoveMapMarker(this, "RHirelingTask")
+    RemoveDynamicMapMarker(this, "RHirelingTask")
     local hireling = this:GetObjVar("RHireling")
     if not (fromHireling) then
         if (hireling ~= nil) then
@@ -77,7 +77,7 @@ RegisterEventHandler(EventType.Message, "EnteredRegionalName",
         local taskInfo = this:GetObjVar("TaskInfo")
         if (taskInfo ~= nil) then
             if (regionalName ~= taskInfo.RegionalName) then
-                RemoveMapMarker(this, "RHirelingTask")
+                RemoveDynamicMapMarker(this, "RHirelingTask")
             end
         end
     end)

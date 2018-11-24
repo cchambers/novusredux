@@ -1,15 +1,14 @@
 require 'base_mobile'
 -- helper functions
 require 'incl_humanloot'
-require 'incl_loottables'
 -- this module gives the mobile skills
 require 'base_skill_sys'
 
 --[[ General Helper functions ]]--
 
 local BaseDoMobileDeath = DoMobileDeath
-function DoMobileDeath(damager)
-	BaseDoMobileDeath(damager)
+function DoMobileDeath(damager, damageSource)
+	BaseDoMobileDeath(damager, damageSource)
 
 	CancelCastPrestigeAbility(this)
 
@@ -42,9 +41,9 @@ end
 
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
-function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	Verbose("AdvancedMobile", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	local newHealth = BaseHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
+	Verbose("AdvancedMobile", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
+	local newHealth = BaseHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
 
 	--wake up if we're asleep
 	if (IsAsleep(this)) then
@@ -112,7 +111,7 @@ function ChangeToTemplate(template,options)
 	end
 
 	if not(options.Quiet) then
-		this:SystemMessage("Your appearance has changed.","event")
+		this:SystemMessage("Your appearance has changed.","info")
 	end	
 
 	-- natural weapon/armor
@@ -433,7 +432,7 @@ function HaveMobileSleep(bed)
 	--this:SetMobileFrozen(true,true)		
 	--mMoveSpeedEffects = {}
 	--this:DelObjVar("MoveSpeedEffects")
-	this:SystemMessage("Move to get up.")
+	this:SystemMessage("Move to get up.","info")
 	--DebugMessage("Sleeping")
 end
 
@@ -500,6 +499,7 @@ RegisterEventHandler(EventType.Message, "SitInChair" , HaveMobileSitChair)
 
 
 function HandleEquipmentChanged(item,isEquipped)
+	this:SendMessage("BreakInvisEffect", "Equipment")
 	local slot = GetEquipSlot(item)
 	if ( slot == "LeftHand" or slot == "RightHand" ) then
 		if ( isEquipped ) then
@@ -535,3 +535,5 @@ end
 --- cache some info on our weapons since they get used a lot.
 UpdateWeaponCache("LeftHand")
 UpdateWeaponCache("RightHand")
+
+RegisterEventHandler(EventType.Message,"PerformPrestigeAbilityByName",function(...) PerformPrestigeAbilityByName(this,...) end)

@@ -1,0 +1,5 @@
+﻿<ObjectTemplate>
+	<Name>Round Bush</Name>
+	<ClientId>2112</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2" />
+</ObjectTemplate>

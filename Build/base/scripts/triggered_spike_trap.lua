@@ -14,7 +14,7 @@ RegisterEventHandler(EventType.Timer,"SpikeTic",function(tickNum)
 			local objects = FindObjects(SearchMulti({SearchRect(bounds),SearchMobile()}))
 			if (not this:GetSharedObjectProperty("IsTriggered")) then
 				this:SetSharedObjectProperty("IsTriggered",true)
-				this:PlayObjectSound("SpikeTrapOut",false)
+				this:PlayObjectSound("event:/environment/misc/spike_trap/spike_trap_out",false)
 				--DebugMessage("On")
 			end		
 			for i,obj in pairs(objects) do
@@ -30,7 +30,7 @@ RegisterEventHandler(EventType.Timer,"SpikeTic",function(tickNum)
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(0.25),"SpikeTic",tickNum + 0.25)
 		else
 			this:SetSharedObjectProperty("IsTriggered",false)
-			this:PlayObjectSound("SpikeTrapIn",false)
+			this:PlayObjectSound("event:/environment/misc/spike_trap/spike_trap_in",false)
 			--DebugMessage("Off")
 		end
 	end)

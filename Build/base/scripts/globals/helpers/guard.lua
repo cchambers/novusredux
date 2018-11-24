@@ -5,74 +5,184 @@ SuperGuardThingsToSay = {
 	"The justice of the Guardian Order is swift.",
 }
 
+--- Convenience wrapper to IsProtected with guranteed set true
+-- @param mobile
+-- @param from
+-- @param mobileKaramLevel(optional)
+-- @param fromKarmaLevel(optional)
+-- @param guaranteed(optional) - If set to true, we are checking zones that deny these actions at all.
+function IsGuaranteedProtected(mobile, from, mobileKarmaLevel, fromKarmaLevel)
+	Verbose("Guard", "IsGuaranteedProtected", mobile, from, mobileKaramLevel, fromKarmaLevel)
+	local protected = IsProtected(mobile, from, mobileKarmaLevel, fromKarmaLevel, true)
+
+	if ( protected ) then
+		if ( IsPlayerCharacter(from) ) then
+			if ( from:HasTimer("ProtectedActionConsent") ) then
+				-- zap them
+				ForeachMobileAndPet(from, GuardInstaKill)
+				from:RemoveTimer("ProtectedActionConsent")
+			else
+				-- Are you sure?
+				ClientDialog.Show{
+					TargetUser = from,
+					DialogId = "ConsentToInstantDeath",
+					TitleStr = "WARNING!",
+					DescStr = "This is a protected area and you will be punished if you choose to proceed.",
+					Button1Str = "Acknowledge",
+					Button2Str = "Cancel",
+					ResponseObj = from,
+					ResponseFunc = function( user, buttonId )
+						buttonId = tonumber(buttonId)
+						if ( user == from and buttonId == 0 ) then
+							from:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "ProtectedActionConsent")
+						end
+					end,
+				}
+			end
+		end
+	end
+
+	return protected
+end
+
+-- Determine if a mobile is protected from another mobile.
+-- @param mobile
+-- @param from
+-- @param mobileKaramLevel(optional)
+-- @param fromKarmaLevel(optional)
+-- @param guaranteed(optional) - If set to true, we are checking zones that deny these actions at all.
+function IsProtected(mobile, from, mobileKarmaLevel, fromKarmaLevel, guaranteed)
+	Verbose("Guard", "IsProtected", mobile, from, mobileKaramLevel, fromKarmaLevel, guaranteed)
+	-- these factors allow fighting anywhere no matter what
+	if ( ShareKarmaGroup(mobile, from) or InOpposingAllegiance(mobile, from) ) then
+		return false
+	end
+
+	-- get ready to potentially cache mobile's guard protection
+	local protection
+	if ( guaranteed ) then
+		-- since there are possible routes that do not require protection, we only get it here first sometimes
+		protection = GetGuardProtection(mobile)
+		-- when checking guaranteed protection, we can always return false on these protection types
+		if ( protection == "None" or protection == "Neutral" ) then return false end
+	end
+
+	-- if mobileKarmaLevel was no provided, get it from the mobile that was provided.
+	if not( mobileKarmaLevel ) then
+		mobileKarmaLevel = GetKarmaLevel(GetKarma(mobile))
+	end
+
+	-- if mobile is guard protected
+	if ( mobileKarmaLevel.GuardProtectPlayer or mobileKarmaLevel.GuardProtectNPC ) then
+		-- if mobile is a player
+		if ( IsPlayerCharacter(mobile) ) then
+			-- if this is a guard protected player
+			if ( mobileKarmaLevel.GuardProtectPlayer ) then
+				if (
+					-- if they are chaotic
+					mobileKarmaLevel.IsChaotic
+					or
+					-- or they are temp chaotic and the 'attacker' is chaotic
+					( mobile:HasObjVar("IsChaotic") and (fromKarmaLevel or GetKarmaLevel(GetKarma(from))).IsChaotic )
+				) then
+					if ( guaranteed ) then
+						-- chaotic are only guarantee protected in Town
+						--- or anyone flagged chaotic is only protected in Town vs other chaotic
+						return ( protection == "Town" )
+					else
+						-- get the protection since it's never set for non-guarantee at this point
+						protection = GetGuardProtection(mobile)
+						-- when not checking guaranteed, we are calling nearby guards or similar, and chaotic actions don't call guards
+						return ( protection ~= "Protection" )
+					end
+				else
+					-- anyone that's not chaotic
+					if ( guaranteed ) then
+						return ( protection == "Town" or protection == "Protection" )
+					else
+						-- in a situation where nearby guards are called, this player always will get help.
+						return true
+					end
+				end
+			end
+		else
+			if ( mobileKarmaLevel.GuardProtectNPC ) then
+				if ( guaranteed ) then
+					-- NPC mobiles that are protected are safe in Town and Protection zones
+					return ( protection == "Town" or protection == "Protection" )
+				else
+					-- in a situation where nearby guards are called, this NPC always will get help.
+					return true
+				end
+			end
+		end
+	end
+	return false
+end
+
 
 --- Get the protection type for a mobile
 -- @param mobile
--- @param damager(optional)
--- @return "None", "InstaKill", or "Guard"
-function GetGuardProtection(mobile, damager)
-	if( mobile:IsInRegion("Arena")) then
+-- @return "None", "Neutral", "Protection", "Town"
+function GetGuardProtection(mobile)
+	Verbose("Guard", "GetGuardProtection", mobile)
+	local ss = ServerSettings.PlayerInteractions
+
+    --if this setting is enabled do for the entire map
+    if ( ss.GuaranteedTownProtectionFullMap ) then
+        return "Town"
+	end
+	
+	if ( mobile:IsInRegion("Arena") ) then
 		return "None"
 	end
 
-	if (damager ~= nil) then
-		if( damager:IsInRegion("Arena")) then
-			return "None"
-		end
-	end
-
-	if(ServerSettings.PlayerInteractions.SlayImmediateProtectionZones) then
-		for i,j in pairs(ServerSettings.PlayerInteractions.SlayImmediateProtectionZones) do
-			if (mobile:IsInRegion(j)) then
-				return "InstaKill"
+	if ( ss.TownProtectionZones ) then
+		for i=1,#ss.TownProtectionZones do
+			if ( mobile:IsInRegion(ss.TownProtectionZones[i]) ) then
+				return "Town"
 			end
 		end
 	end
 
-    --if this setting is enabled do for the entire map
-    if (ServerSettings.PlayerInteractions.GuaranteedGuardProtectionFullMap) then
-        return "Guard"
-    end
-
-	if(ServerSettings.PlayerInteractions.GuaranteedGuardProtectionZones) then
-		for i,j in pairs(ServerSettings.PlayerInteractions.GuaranteedGuardProtectionZones) do
-			if (mobile:IsInRegion(j) and (not(damager) or (damager and damager:IsInRegion(j)))) then
-				return "Guard"
+	if ( ss.ProtectionZones ) then
+		for i=1,#ss.ProtectionZones do
+			if ( mobile:IsInRegion(ss.ProtectionZones[i]) ) then
+				return "Protection"
 			end
 		end
 	end
 
-	local curMap = GetWorldName()
-	if(ServerSettings.PlayerInteractions.SlayImmediateProtectionMaps) then
-		for i,j in pairs(ServerSettings.PlayerInteractions.SlayImmediateProtectionMaps) do
-			if(curMap == j) then
-				return "Guard"
+	if ( ss.ProtectionMaps ) then
+		local currentMap = ServerSettings.WorldName
+		for i=1,#ss.ProtectionMaps do
+			if ( currentMap == ss.ProtectionMaps[i] ) then
+				return "Protection"
 			end
 		end
 	end
 
-	if(ServerSettings.PlayerInteractions.NeutralTownRegionNames) then
-		for i,j in pairs(ServerSettings.PlayerInteractions.NeutralTownRegionNames) do
-			if (mobile:IsInRegion(j)) then
-				return j
+	if ( ss.NeutralZones ) then
+		for i=1,#ss.NeutralZones do
+			if ( mobile:IsInRegion(ss.NeutralZones[i]) ) then
+				return "Neutral"
 			end
 		end
 	end
 
 	local mobileLoc = mobile:GetLoc()
 	local guardTower = FindObjectWithTagInRange("GuardTowerObject",mobileLoc,ServerSettings.PlayerInteractions.GuardTowerProtectionRange)
-	if(guardTower) then
-		return "GuardTower",guardTower
+	if ( guardTower ) then
+		return "Protection",guardTower
 	end
 	
 	local teleportTower = FindObjectWithTagInRange("TeleportTowerObject",mobileLoc,ServerSettings.PlayerInteractions.GatekeeperProtectionRange)
-	if(teleportTower) then
-		return "GuardTower",teleportTower
+	if ( teleportTower ) then
+		return "Town",teleportTower
 	end
 
     return "None"
 end
-
 
 --- Calling this on a lua vm context (attached module) will return the all guards near the gameObj of the lua VM context.
 -- @return guards(luaTable of mobileObjs) or empty table
@@ -116,10 +226,14 @@ end
 --- Trigger guards to protect a victim from an aggressor
 -- @param victim(mobileObj)
 -- @param aggressor(mobileObj)
--- @param karmaLevelProtected(boolean) true is the karma level of victim is guard protected
+-- @param allGuards(boolean) if true will cause all guards to attack vs only neutral
 -- @return none
-function GuardProtect(victim, aggressor, karmaLevelProtected)
-	Verbose("Guard", "GuardProtect", victim, aggressor, karmaLevelProtected)
+function GuardProtect(victim, aggressor, allGuards)
+	Verbose("Guard", "GuardProtect", victim, aggressor, allGuards)
+	
+	if( TRAILER_BUILD ) then
+		do return end
+	end
 
 	if ( IsDead(aggressor) ) then
 		return
@@ -136,49 +250,25 @@ function GuardProtect(victim, aggressor, karmaLevelProtected)
 		return
 	end
 
-	if ( victim:HasTimer("EnteredProtection") ) then return end
-
 	-- call all neutral guards to protect
 	ForeachMobileAndPet(aggressor, CallNearbyNeutralGuardsOn)
 
-	-- if the karma level is not protected, we end here since neutral guards have already been called.
-	if ( karmaLevelProtected ~= true ) then return end
-	
-	if (
-		-- if the attacker is a player (or player pet)
-		IsPlayerCharacter(owner)
-		and
-		-- and the victim is in a place karma matters
-		WithinKarmaArea(victim)
-	) then
-		local isVictimPlayer = IsPlayerCharacter(victim:GetObjectOwner() or victim)
-		if (
-			-- and the victim is a player (or player pet)
-			isVictimPlayer
-			or
-			-- or the victim is not a player/pet and victim is karmaLevelProtected (npc that's guard protected)
-			(not isVictimPlayer and karmaLevelProtected)
-		) then
+	-- if not calling all guards, we end here since neutral guards have already been called.
+	if ( allGuards ~= true ) then return end
 
-			local guardProtectionType = GetGuardProtection(victim, aggressor)
-	
-			-- instantly kill the attacking player in certain situations
-			if ( guardProtectionType == "InstaKill" ) then
-				ForeachMobileAndPet(aggressor, GuardInstaKill)
-				return
-			end
-	
-			-- spawn super guards in other situations
-			if ( guardProtectionType == "Guard" ) then
-				ForeachMobileAndPet(aggressor, SpawnSuperGuardsOn)
-				return
-			end
-
-		end
-	end
-
-	-- not guaranteed protection, add threat to all nearby physical guards
+	-- call the non-neutral guards
 	ForeachMobileAndPet(aggressor, CallNearbyGuardsOn)
+
+
+	-- DEBUGING PURPOSES ONLY! FALLBACK DOUBLECHECK. ONCE SOLID THIS CAN BE REMOVED!
+	--[[
+	-- This will kill players that somehow happen to trigger guards when the victim is guaranteed protection
+	if ( IsPlayerCharacter(aggressor) and IsGuaranteedProtected(victim, aggressor) ) then
+		LuaDebugCallStack("THIS SHOULDN'T HAPPEN!!!!!")
+		ForeachMobileAndPet(aggressor, GuardInstaKill)
+	end
+	--]]
+	-- DEBUGING PURPOSES ONLY! FALLBACK DOUBLECHECK. ONCE SOLID THIS CAN BE REMOVED!
 end
 
 --- Spawn super guards on an aggressor, does not do saftey checks on aggressor
@@ -203,7 +293,6 @@ function GuardInstaKill(aggressor)
 	aggressor:SendMessage("ProcessTrueDamage", aggressor, 5000, true)
 	aggressor:PlayEffect("LightningCloudEffect")
 	if ( IsPlayerCharacter(aggressor) ) then
-		aggressor:SystemMessage("[$1820]")
 		aggressor:SystemMessage("[$1820]","info")
 	end
 end
@@ -235,16 +324,15 @@ end
 -- @param player(playerObj)
 -- @return none
 function UpdatePlayerProtection(player)
+	-- ghosts don't need guard protection updated
+	if ( IsDead(player) ) then return end
+
 	local curProtection = player:GetObjVar("GuardProtection")
 	local newProtection = GetGuardProtection(player)
 	
 	if(newProtection == curProtection) then return end
 
     player:SetObjVar("GuardProtection",newProtection)
-
-    if(newProtection ~= "None" and newProtection ~= "InstaKill") then
-    	player:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"EnteredProtection")
-    end
 
     --enter/exit messages
 	local msgStr

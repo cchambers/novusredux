@@ -127,7 +127,12 @@ function HandleRequestFishResource(user,fishLoc)
         --DebugMessage("fishResult",DumpTable(fishResult))
 	end
 
-	fishResourceGrid[gridKeyX][gridKeyY] = elementInfo
+	if(elementInfo.Depletion == 0) then
+		fishResourceGrid[gridKeyX][gridKeyY] = nil
+	else
+		fishResourceGrid[gridKeyX][gridKeyY] = elementInfo
+	end
+	
 	--DebugMessage("HandleRequestFishResource","Success")
 	user:SendMessage("RequestFishResourceResponse",fishResult)
 end

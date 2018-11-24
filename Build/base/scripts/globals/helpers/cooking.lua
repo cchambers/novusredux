@@ -36,16 +36,18 @@ function CookFood(chef, cookingPot)
             per[type] = count * min
             -- on failure only consume a fraction.
             if not( skillSuccess ) then
-                if (per[type] > 1) then
-                    per[type] = math.floor(per[type] * 0.1)
+                local fraction = math.floor(per[type] * 0.1)
+                if (fraction > 1) then
+                    per[type] = fraction
                 end
             end
         end
 
         if ( ConsumeIngredients(per, contents) ) then
             if ( skillSuccess ) then
-                chef:SystemMessage("You have made "..min.." "..resourceType, "info")
-                cookingPot:SendMessage("CreateCookedItems", chef, resourceType, min)
+                local template = FoodStats.BaseFoodStats[resourceType].Template
+                chef:SystemMessage("You have made "..min.." "..StripColorFromString(GetTemplateObjectName(template)), "info")
+                chef:SendMessage("CreateCookedItems", chef, resourceType, min)
             else
                 chef:SystemMessage("You fail, destroying some ingredients.", "info")
             end
@@ -53,10 +55,27 @@ function CookFood(chef, cookingPot)
                 AdjustDurability(cookingPot, -1)
             end
         else
-            chef:SystemMessage("Nothing in pot to cook.", "info")
+            chef:SystemMessage("Those ingredients wouldn't make anything!", "info")
         end
     else
-        chef:SystemMessage("Nothing in pot to cook.", "info")
+        chef:SystemMessage("Those ingredients wouldn't make anything!", "info")
+    end
+end
+
+--- Consumes water from water containers
+-- @param contents Array (container contents for example)
+-- @param count number of water containers to empty
+function ConsumeWater(contents,count)
+    local foundCount = 0
+    for i,item in pairs(contents) do
+        if(item:GetObjVar("ResourceType") == "WaterContainer" and item:GetObjVar("State") == "Full") then
+           UpdateWaterContainerState(item,"Empty") 
+           foundCount = foundCount + 1
+        end
+
+        if(foundCount == count) then
+            return
+        end
     end
 end
 
@@ -65,7 +84,9 @@ end
 -- @param contents Array (container contents for example)
 function ConsumeIngredients(ingredients, contents)
     for type,count in pairs(ingredients) do
-        if not( ConsumeResource(contents, type, count) ) then
+        if((type) == "Water") then
+            ConsumeWater(contents,count)
+        elseif not( ConsumeResource(contents, type, count) ) then
             return false
         end
     end
@@ -78,8 +99,15 @@ end
 function IsIngredient(item)
     if ( item ) then
         local resourceType = item:GetObjVar("ResourceType")
-        if ( resourceType == nil or FoodStats.BaseFoodStats[resourceType] == nil ) then return false end
-        return FoodStats.BaseFoodStats[resourceType].FoodClass == "Ingredient"
+        if ( resourceType ~= nil) then
+            if(FoodStats.BaseFoodStats[resourceType] ~= nil and FoodStats.BaseFoodStats[resourceType].FoodClass == "Ingredient" ) then
+                return true
+            end
+
+            if(resourceType == "WaterContainer" and item:GetObjVar("State") == "Full") then
+                return true
+            end
+        end
     end
     return false
 end
@@ -93,6 +121,12 @@ function ConvertListToResourceTypeStackCountIngredients(items)
     -- build a list of all available ingredients as Key/Value ResourceType/StackCount
     for i,item in pairs(items) do
         local resourceType = item:GetObjVar("ResourceType")
+
+        -- special case for water
+        if( resourceType == "WaterContainer" and item:GetObjVar("State") == "Full") then
+            resourceType = "Water"
+        end
+
         if ( resourceType ) then
             ingredients[resourceType] = (ingredients[resourceType] or 0) + (GetStackCount(item) or 0)
         end
@@ -117,7 +151,7 @@ function GetBestFoodThatCanBeCooked(cookingPot)
 
     -- keep track of the data to return after traversing our static data, using value to give priorty to more 'expensive' food
     local value = 0
-    local type = nil
+    local type = nil    
 
     -- loop all possible foods
     for resourceType,data in pairs(FoodStats.BaseFoodStats) do

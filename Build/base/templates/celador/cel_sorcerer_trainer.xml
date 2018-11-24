@@ -2,7 +2,8 @@
 <ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Godfrey the Master Sorcerer</Name>
+	<Name>Godfrey</Name>
+	<SharedStateEntry name="Title" type="string" value="Sorcerer"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="WanderRegion">ValusMage</StringVariable>
 		<StringVariable Name="PrestigeClass">Sorcerer</StringVariable>

@@ -25,7 +25,7 @@
       <Initializer>
 				{ 
 					Stats = { Str=700, Agi=700, Int=700 },
-          Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100, Manifestation = 100, Channeling = 100, MagicAffinity = 100, Dodge = 100 ,},        
+          Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100, Manifestation = 100, Channeling = 100, MagicAffinity = 100, Dodge = 100 ,},        
 					EquipTable = {
 						RightHand = { "" },
 						Chest = { "" },

@@ -29,7 +29,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing = 100,
+					Brawling = 100,
 					Blocking = 100,  
 					HeavyArmor = 100,
 					Melee = 100,

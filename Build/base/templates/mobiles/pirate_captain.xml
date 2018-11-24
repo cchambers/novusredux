@@ -12,6 +12,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">310</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Pirate</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -20,12 +21,12 @@
 		<DoubleVariable Name="Armor">53</DoubleVariable>
 		<DoubleVariable Name="Attack">27</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_pirate">
+		<LuaModule Name="ai_pirate_captain">
 			<Initializer>
 				{ 
 				PirateNames = {
@@ -42,12 +43,12 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				MobTraits =
 					{
-					Toughness = 3,
+					Toughness = 2,
 					Might = 2,
 					},
 				Skills = 
 					{ 
-					Bashing=70,  
+					Brawling = 70,  
 					},	
 				EquipTable = 
 					{

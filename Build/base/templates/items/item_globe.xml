@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2000</ClientId>
+	<ScaleModifier>0.4</ScaleModifier>
+	<Name>Miniature Globe</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

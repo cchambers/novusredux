@@ -10,12 +10,7 @@ AI.Settings.ShouldSleep = false
 MAX_FOLLOW_TRIES = 50
 followTries = 0
 
-if (initializer ~= nil) then
-    if( initializer.Names ~= nil ) then    
-        local name = initializer.Names[math.random(1,#initializer.Names)]
-        this:SetName(name)
-	end
-end
+    
 
 AI.StateMachine.AllStates.Wander = {
         GetPulseFrequencyMS = function() return math.random(1700,2400) end,
@@ -69,6 +64,7 @@ function Init()
     this:SetObjVar("TaskComplete", false)
     AI.StateMachine.ChangeState("Idle")
     AddView("NearbyPlayers", SearchPlayerInRange(5), 1.5)
+
 end
 
 function PickTask()
@@ -327,7 +323,7 @@ function EndEscortDiversion(taskComplete)
     local controller = this:GetObjVar("controller")
 
     if (taskComplete) then
-        this:PlayObjectSound("QuestComplete", false)
+        this:PlayObjectSound("event:/ui/quest_complete", false)
         if (controller~= nil) then
         end
         --DebugMessage("TASK COMPLETE")
@@ -418,10 +414,15 @@ RegisterEventHandler(EventType.Message, "EndEscortDiversion", function()
     EndEscortDiversion(false)
     end)
 
-RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
     function()
         if (initializer ~= nil) then
         	PickTask()
+            if( initializer.Names ~= nil ) then    
+                local name = initializer.Names[math.random(1,#initializer.Names)]
+                this:SetName(name)
+                this:SendMessage("UpdateName")
+            end
         end
         Init()
     end)

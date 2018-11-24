@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Book of Kho: Chapter 6[-]</Name>
+  <Name>Book of Kho: Chapter 6</Name>
 	<ClientId>686</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent>		

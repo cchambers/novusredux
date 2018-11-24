@@ -3,7 +3,7 @@
 --    UniverseName.MapName (Ex: AzureSky.Celador or AzureSky.Outlands)
 function GetUniverseName(regionAddress)
 	--DebugMessage("GetUniverseName",tostring(regionAddress))
-	regionAddress = regionAddress or GetRegionAddress()
+	regionAddress = regionAddress or ServerSettings.RegionAddress
 
 	local myUniverseName, worldName = string.match(regionAddress, "(%a+)%.(%a+)")
 	--DebugMessage("GetUniverseName",tostring(myUniverseName),tostring(worldName))
@@ -48,7 +48,7 @@ end
 
 -- Returns true if another region is running on the cluster with the same map (in another universe)
 function HasParallelRegion(regionAddress)
-	regionAddress = regionAddress or GetRegionAddress()
+	regionAddress = regionAddress or ServerSettings.RegionAddress
 
 	local myUniverseName, worldDotSubregionName = string.match(regionAddress, "(%a+)%.(%a+)")
 	--DebugMessage("myUniverseName",tostring(myUniverseName),"worldName",tostring(worldName))
@@ -71,7 +71,7 @@ function HasParallelRegion(regionAddress)
 end
 
 function GetCurrentUniverseName()
-	return GetUniverseName(GetRegionAddress())
+	return GetUniverseName(ServerSettings.RegionAddress)
 end
 
 local clusterController = nil
@@ -91,14 +91,11 @@ end
 
 function FindGlobalUsersByName(name)
 	if ( name ~= nil ) then name = name:lower() end
-	local names = GlobalVarRead("User.Name") or {}
+	local online = GlobalVarRead("User.Online") or {}
 	local results = {}
-	for user,userName in pairs(names) do
-		if ( name == nil or userName:lower():match(name) ) then
-			-- only insert players that are online
-			if ( GlobalVarReadKey("User.Online", user) ) then
-				table.insert(results, user)
-			end
+	for gameObj,dummy in pairs(online) do
+		if ( name == nil or gameObj:GetCharacterName():lower():match(name) ) then			
+			table.insert(results, user)
 		end
 	end
 	return results
@@ -132,11 +129,22 @@ function SetGlobalVar(name, writeFunction, callbackFunction)
     -- handle global var write event
     local eventId = uuid()
     RegisterSingleEventHandler(EventType.GlobalVarUpdateResult, eventId, function(success, name, record)
-        if not( success ) then
-            LuaDebugCallStack("Failed to set global var "..name)
-        end
         if ( callbackFunction ) then callbackFunction(success, name) end
     end)
     -- kick off the global write
     GlobalVarWrite(name, eventId, writeFunction)
+end
+
+function DelGlobalVar(name, callbackFunction)
+    if not( name ) then
+        LuaDebugCallStack("[DelGlobalVar] name not provided.")
+        return false
+    end
+    -- handle global var delete event
+    local eventId = uuid()
+    RegisterSingleEventHandler(EventType.GlobalVarUpdateResult, eventId, function(success, name, record)
+        if ( callbackFunction ) then callbackFunction(success, name) end
+    end)
+    -- kick off the global write
+    GlobalVarDelete(name, eventId)
 end

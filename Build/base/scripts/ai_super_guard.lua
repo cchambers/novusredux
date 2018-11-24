@@ -22,7 +22,7 @@ end
 
 function AttackEnemy(enemy)
     if (not AI.IsValidTarget(enemy)) then return end
-    enemy:SendMessage("BreakInvisEffect")
+    enemy:SendMessage("BreakInvisEffect", "Action")
     DebugMessageA(this,"Attacking object "..tostring(enemy))
     --DebugMessage("Should be attacking")
     this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"TeleportToThem")

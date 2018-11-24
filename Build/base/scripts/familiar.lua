@@ -50,7 +50,7 @@ RegisterEventHandler(EventType.Timer,"SummonTimer",function (user)
 	if (user == nil or not user:IsValid()) then return end
 
 	if (this:TopmostContainer() ~= user) then
-		user:SystemMessage("This needs to be in your backpack to summon it.")
+		user:SystemMessage("This needs to be in your backpack to summon it.","info")
 		return
 	end
 

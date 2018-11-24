@@ -1,9 +1,5 @@
-require 'incl_container'
-require 'incl_packed_object'
 require 'incl_resource_source'
-require 'incl_player_titles'
 require 'incl_magic_sys'
-require 'incl_player_guild'
 	
 USAGE_DISTANCE = 5
 RESOURCE_DIVISOR = 3
@@ -72,7 +68,7 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 	mResourceTable = nil
 	--DebugMessage("B")
 	if(this:HasTimer("CraftingTimer")) then
-		this:SystemMessage("[FA0C0C]You are already crafting something[-]")
+		this:SystemMessage("[FA0C0C]You are already crafting something[-]","info")
 		if not(mCrafting) then
 			if (stopCraftingOnFailure) then
 			   CleanUp()
@@ -90,14 +86,14 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 	local fabLoc = fabCont:GetLoc()
 	if(this:GetLoc():Distance(fabLoc) > USAGE_DISTANCE ) then
 		--DebugMessage("Too Far to Fabricate")
-		this:SystemMessage("[FA0C0C]You are too far to use that![-]")
+		this:SystemMessage("[FA0C0C]You are too far to use that![-]","info")
 			if (stopCraftingOnFailure) then
 			   CleanUp()
 			end
 		return
 	end
 	if not(this:HasLineOfSightToObj(fabCont,ServerSettings.Combat.LOSEyeLevel)) and not(fabCont:HasObjVar("IgnoreLOS")) then 
-		this:SystemMessage("[FA0C0C]You cannot see that![-]")
+		this:SystemMessage("[FA0C0C]You cannot see that![-]","info")
 			if (stopCraftingOnFailure) then
 			   CleanUp()
 			end
@@ -109,14 +105,14 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 
 	if (not canCreate) then
 		if(reason == "full") then
-			this:SystemMessage("[FA0C0C]Your backpack is full![-]")
+			this:SystemMessage("[FA0C0C]Your backpack is full![-]","info")
 		elseif(reason == "overweight") then
-			this:SystemMessage("[$1622]")
+			this:SystemMessage("[$1622]","info")
 		end
 		return
 	end
 	--if not(HasSkill(this,skill)) then
-	--	this:SystemMessage("[FA0C0C] You must learn the basics of "..skillName.." before you can craft items.")
+	--	this:SystemMessage("[FA0C0C] You must learn the basics of "..skillName.." before you can craft items.","info")
 	--		if (stopCraftingOnFailure) then
 	--		   CleanUp()
 	--		end
@@ -129,7 +125,7 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 	--D*ebugMessage("Here")
 
 	if (not HasRecipe(this,userRequest,skill)) then
-		this:SystemMessage("[$1623]" ..userRequest .. "[-]")
+		this:SystemMessage("[$1623]" ..userRequest .. "[-]","info")
 			if (stopCraftingOnFailure) then
 			   CleanUp()
 			end
@@ -307,7 +303,7 @@ function CreateCraftedItem(item)
 		weight = GetTemplateObjectProperty(itemTemplate,"Weight")
 			 
 		if(weight == -1) then
-		    CreatePackedObjectInBackpack(this,itemTemplate,"crafted_item")    
+		    CreatePackedObjectInBackpack(this,itemTemplate,false,"crafted_item")    
 		    --DebugMessage(2)        
 		else
 			CreateObjInBackpackOrAtLocation(this, itemTemplate,"crafted_item") 
@@ -358,7 +354,7 @@ function AllItems(user)
 
 	local craftingSkill = GetSkillLevel(user,mSkill)
 	if(craftingSkill == nil) then 
-		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]")
+		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]","info")
 		CleanUp()
 		return 
 	end
@@ -392,7 +388,7 @@ function UncraftableItems(user)
 
 	local craftingSkill = GetSkillLevel(user,mSkill)
 	if(craftingSkill == nil) then 
-		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]")
+		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]","info")
 		CleanUp()
 		return 
 	end
@@ -427,7 +423,7 @@ function CraftableItems(user)
 
 	local craftingSkill = GetSkillLevel(user,mSkill)
 	if(craftingSkill == nil) then 
-		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]")
+		user:SystemMessage("[F7CC0A]You have not yet learned the basics of "..skillName..".[-]","info")
 		CleanUp()
 		return 
 	end
@@ -461,7 +457,7 @@ function TryCraftItem(user, userRequest,skill,noWindow)
 	local entryTable = {}
 	--DebugMessage("Here")
 --[[	if not(HasResources(resourceTable, user)) then
-		user:SystemMessage("[$1625]" ..userRequest .. "[-]")
+		user:SystemMessage("[$1625]" ..userRequest .. "[-]","info")
 		return
 	end
 ]]--
@@ -504,7 +500,7 @@ function HandleItemCreation(success,objRef,wasStacked,stackCount)
 	mResourceTable = nil
 	--DebugMessage("B")
 	if not(success == true) then
-		this:SystemMessage("[FA0C0C]You fail to create the item.[-]")
+		this:SystemMessage("[FA0C0C]You fail to create the item.[-]","info")
 		CleanUp()
 		--BBTodo -- RefundResources(mItemToCraft)
 		return
@@ -518,14 +514,12 @@ function HandleItemCreation(success,objRef,wasStacked,stackCount)
 	if ( mHasMaterial ) then
 		ApplyCraftedMaterialProperties(objRef, mCurrentMaterial, mSkillLevel)
 		mHasMaterial = false
-	end
-
-	SetItemTooltip(objRef)
+	end	
 	
 	local recipeTable = GetRecipeTableFromSkill(mSkill)[mItemToCraft]
-	local name = GetRecipeItemName(recipeTable,mCurrentMaterial)	
+	local name = objRef:GetName()
 
-	if (objRef:HasModule("packed_object")) then
+	if (objRef:GetObjVar("ResourceType") == "PackedObject") then
 		name = StripColorFromString(GetTemplateObjectName(mCraftingTemp)).." (Packed)"
 	end
 
@@ -536,6 +530,8 @@ function HandleItemCreation(success,objRef,wasStacked,stackCount)
 	if(stackCount) then
 		RequestAddToStack(objRef,stackCount - 1)
 	end
+
+	SetItemTooltip(objRef)
 
 	this:SystemMessage("Crafted " .. name .. ".", "info")
 	
@@ -715,7 +711,7 @@ function TryApplyImprovementToItem(item,guarantee)
 
 			--DebugMessage("ApplyImprovementToItem",result)
 			if (ApplyImprovementToItem(item,result)) then
-		 		this:SystemMessage("[33FFBB]You have improved the item. ("..result..")[-]")
+		 		this:SystemMessage("[33FFBB]You have improved the item. ("..result..")[-]","info")
 		 		ShowImprovementClientDialogString(true,"[33FFBB]You have improved the item.[-]")
 		 		return
 			end		
@@ -723,7 +719,7 @@ function TryApplyImprovementToItem(item,guarantee)
 	end
 
 	--we failed to improve the item.
-	this:SystemMessage("[FA0C0C]You fail to improve the item.")
+	this:SystemMessage("[FA0C0C]You fail to improve the item.","info")
 	ShowImprovementClientDialogString(true,"[FA0C0C]You fail to improve the item.")
 
 	return
@@ -753,7 +749,7 @@ function AttemptToImproveItem()
 		return
 	end
 	if not(mCraftedItem:TopmostContainer() == this) then
-		this:SystemMessage("[$1630]")
+		this:SystemMessage("[$1630]","info")
 		CleanUp()
 		return
 	end	
@@ -774,7 +770,7 @@ function AttemptToImproveItem()
 		return
 	end
 	if(myRoll < breakChance) then
-		this:SystemMessage("[FA0C0C]You have destroyed the item.")
+		this:SystemMessage("[FA0C0C]You have destroyed the item.","info")
 		--mDialog = true
 		this:RemoveTimer("CraftingTimer")
 		mCraftedItem:Destroy()
@@ -784,7 +780,7 @@ function AttemptToImproveItem()
 		ShowCraftingMenu(nil,true,false,"[FA0C0C]You have destroyed the item.[-]")
 		return
 	end
-	this:SystemMessage("[FA0C0C]You fail to improve the item.")
+	this:SystemMessage("[FA0C0C]You fail to improve the item.","info")
 	ShowImprovementClientDialogString(true,"[FA0C0C]You fail to improve the item.")
 end
 
@@ -883,7 +879,7 @@ function HandleDialogResult(user, buttonId)
 			return
 	end
 	
-		this:SystemMessage("[57FA0C]You have stopped trying to improve the item. [-]")
+		this:SystemMessage("[57FA0C]You have stopped trying to improve the item. [-]","info")
 		mImprovingState = false
 		--DebugMessage("Reset Improvment guarantees 2")
 		mCraftedItem = nil
@@ -996,23 +992,8 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 		end
 	end
 	--DebugMessage(mCurrentCategory)
-	local isValidRecipe = false -- check to make sure we don't use a hidden recipe as the default.
-	if (mRecipe == nil) then
-		for i,j in pairs(AllRecipes[skillName]) do
-			isValidRecipe = true
-			if (j.FactionRecipe ~= nil) then
-				isValidRecipe = false
-			end
-			if (j.Category == mCurrentTab and j.Subcategory == mCurrentCategory and isValidRecipe) then
-				 --DebugMessage("Recipe is "..tostring(mRecipe))
-				mRecipe = i
-				break
-			end
-		end
-	end
 	--DebugMessage("mCurrentCategory is "..tostring(mCurrentCategory))
-	--DebugMessage("mCurrentTab is " .. tostring(mCurrentTab))
-	--DebugMessage("mRecipe is " .. tostring(mRecipe))
+	--DebugMessage("mCurrentTab is " .. tostring(mCurrentTab))	
 	local mainWindow = DynamicWindow("CraftingWindow",StripColorFromString(mTool:GetName()),805,510,-410,-280,"","Center")
 	local numCategories = CountTable(RecipeCategories[skillName])
 
@@ -1061,8 +1042,10 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 	--first sort the recipes
 	local recipes = {}
 	for i,j in pairs(AllRecipes[skillName]) do 
-		j.Name = i
-		table.insert(recipes,j)
+		if (j.Category == mCurrentTab and j.Subcategory == mCurrentCategory) then
+			j.Name = i
+			table.insert(recipes,j)
+		end
 	end
 	table.sort(recipes,function (a,b)
 		if (a.MinLevelToCraft < b.MinLevelToCraft) then
@@ -1071,6 +1054,11 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 			return false
 		end
 	end)
+
+	if (mRecipe == nil and #recipes > 0) then
+		mRecipe = recipes[1].Name		
+	end
+	--DebugMessage("mRecipe is " .. tostring(mRecipe))
 
 	--add the recipes
 	local hasRecipes = false
@@ -1082,7 +1070,7 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 		--Checking for guild faction recipes
 
 		local showRecipe = true
-		if (j.Category == mCurrentTab and j.Subcategory == mCurrentCategory and showRecipe) then
+		if (showRecipe) then
 			if (HasRecipe(this,j.Name)) then
 				newElement:AddButton(6,0,"ChangeRecipe|"..tostring(j.Name),"",178,26,"Recipe for a "..j.DisplayName,"",false,"List",selected)
 				newElement:AddLabel(22,6,j.DisplayName,155,30,16,"",false,false,"")
@@ -1225,7 +1213,7 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 			-- Add the trivial tag if necesary
 			if(GetSkillLevel(this,mSkill) > maxSkill) then
 				mainWindow:AddImage(670,40,"DropHeaderBackground",100,25,"Sliced")
-				mainWindow:AddLabel(720,43,"[DAA520]Trivial[-]",50,0,18,"center",false,false)
+				mainWindow:AddLabel(720,46,"[DAA520]Trivial[-]",50,0,18,"center",false,false)
 				mainWindow:AddButton(670,40,"","",100,25,"[$1632]","",false,"Invisible")
 			end
 
@@ -1628,7 +1616,10 @@ RegisterEventHandler(EventType.CreatedObject,"RefundResources",
 RegisterEventHandler(EventType.Timer,"AnimationTimer",
 	function(user)
 		if(this:HasTimer("CraftingTimer")) then 
-			this:PlayAnimation("anvil_strike")
+			--local toolAnim = mTool:GetObjVar("ToolAnimation")
+			--if(toolAnim ~= nil) then
+			--	this:PlayAnimation(toolAnim)
+			--end
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(1.5),"AnimationTimer")
 			if (mTool ~= nil) then
 				FaceObject(this,mTool)
@@ -1636,7 +1627,7 @@ RegisterEventHandler(EventType.Timer,"AnimationTimer",
 				CleanUp()
 				return
 			end
-		else
+		elseif not(mAutoCraft) then
     		this:PlayAnimation("idle")
     	end
 	end)

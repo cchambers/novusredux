@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">450</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +19,7 @@
 		<DoubleVariable Name="Armor">53</DoubleVariable>
 		<DoubleVariable Name="Attack">30</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="Power">16</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
@@ -35,7 +36,7 @@
 					{ 
 					Evocation=100,
 					Manifestation=100,
-					Bashing=70,  
+					Brawling = 70,  
 					MagicAffinity=100,
 					},	
 				EquipTable = 
@@ -55,6 +56,7 @@
 						TemplateDefines.LootTable.PotionsRich,		
 						TemplateDefines.LootTable.ScrollsRich,
 						TemplateDefines.LootTable.MapsRich,
+						TemplateDefines.LootTable.FineScrolls,
 						{
 							NumCoins = math.random(260,350),
 						},	

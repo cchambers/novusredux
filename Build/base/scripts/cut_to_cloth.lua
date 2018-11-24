@@ -1,4 +1,3 @@
-require 'incl_container'
 
 CLOTH_SCRAPS_PER_BOLT = 5
 
@@ -27,7 +26,7 @@ if ( this:IsPlayer() ) then
 				if ( transactionId == "CutToClothScrapsConsumeResource" ) then
 					if ( success ) then
 						local scrapCount = initializer.StackCount * CLOTH_SCRAPS_PER_BOLT
-						this:SystemMessage("You create "..scrapCount.." cloth scraps.")
+						this:SystemMessage("You create "..scrapCount.." cloth scraps.","info")
 
 						local backpack = this:GetEquippedObject("Backpack")
 						if ( backpack == nil ) then return end

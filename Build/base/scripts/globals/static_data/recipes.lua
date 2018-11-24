@@ -13,7 +13,6 @@ RecipeCategories = {
 				{"Bashing","Bashing","Bashing"},
 				{"Piercing","Piercing","Piercing"},
 				{"Polearms","Polearms","Bones"},
-				{"Shields","Shields","Shield"},
 			},
 		},	
 		{
@@ -47,17 +46,21 @@ RecipeCategories = {
             },
 		},	
 		{
+			Name = "Weapons",
+			Subcategories = {
+				{"Bows","Bows","Ranged"},
+				{"Shields","Shields","Shield"},
+			},
+		},	
+		{
 			Name = "Furnishings",
 			Subcategories = {
 				{"CraftingStations" ,"Crafting Stations"},
-				{"Beds" ,},
-				{"Chairs" ,},
+				{"TablesChairs" ,"Chairs"},
 				{"DecorativeItems" ,"Decorative Items"},
 				{"Lighting" ,},
-				{"Tables" ,},
 				{"Storage" ,},
-				{"FencesWalls" ,"Fences/Walls"},
-				{"Silverware" ,},
+				{"FencesWalls" ,"Fences"},
 				},
 		},
 		{
@@ -65,14 +68,7 @@ RecipeCategories = {
 			Subcategories = {
 				{"Tools",},
 			},
-		},
-		{
-			Name = "Bows",
-			Subcategories = {
-				{"Arrows","Arrows","Wood"},
-				{"Bows","Bows","Ranged"},
-			},
-		},		
+		},	
 	},
 	AlchemySkill = {
 		{
@@ -90,7 +86,7 @@ RecipeCategories = {
 			Name = "Resources",
 			Subcategories = {
 				{"Cloth","Cloth","RoyalSilkFabric"},
-				{"Leather","Leather","TannedLeather"},
+				{"Leather","Leather","TannedLeather"},				
 			},
 		},	
 		{
@@ -106,13 +102,14 @@ RecipeCategories = {
 			Subcategories = {
 				{"Head",},
 				{"Legs",},
-				{"Torso",},
-				{"Horse","Horse","PetArmor"}
+				{"Torso",},				
 			},
-		},
-		{
-			Name = "Containers",
+		},		
+        {
+			Name = "Items",
 			Subcategories = {
+				{"Tools","Tools","Tools"},
+				{"Horse","Pet Gear","PetArmor"},
 				{"Containers","Containers","Storage"}
 			},
 		},
@@ -153,14 +150,14 @@ RecipeCategories = {
 }
 
 AllRecipes = {
-	MetalsmithSkill = {
+MetalsmithSkill = {
 		--Materials
 		Iron = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
 			DisplayName = "Iron",
 			CraftingTemplateFile = "resource_iron",
-			Description = "",
+			Description = "Iron that has been cast into an ingot, ready to be shaped into weapons, armor and tools.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
@@ -176,7 +173,7 @@ AllRecipes = {
 			MaxLevelToGain = 45,
 			DisplayName = "Copper",
 			CraftingTemplateFile = "resource_copper",
-			Description = "",
+			Description = "Copper that has been cast into an ingot, ready to be shaped into weapons and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
@@ -187,35 +184,35 @@ AllRecipes = {
 			},
 		},
 
-		Bronze = {
+		Gold = {
 			MinLevelToCraft = 40,
 			MaxLevelToGain = 65,
-			DisplayName = "Bronze",
-			CraftingTemplateFile = "resource_bronze",
-			Description = "",
+			DisplayName = "Gold",
+			CraftingTemplateFile = "resource_gold",
+			Description = "Gold that has been cast into an ingot, ready to be shaped into weapons and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
 			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
-				BronzeOre = 5,
+				GoldOre = 5,
 			},
 		},
 
-		Steel = {
+		Cobalt = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 85,
-			DisplayName = "Steel",
-			CraftingTemplateFile = "resource_steel",
-			Description = "",
+			DisplayName = "Cobalt",
+			CraftingTemplateFile = "resource_cobalt",
+			Description = "Cobalt that has been cast into an ingot, ready to be shaped into weapons and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
 			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
-				SteelOre = 5,
+				CobaltOre = 5,
 			},
 		},
 
@@ -224,7 +221,7 @@ AllRecipes = {
 			MaxLevelToGain = 105,
 			DisplayName = "Obsidian",
 			CraftingTemplateFile = "resource_obsidian",
-			Description = "",
+			Description = "Obsidian that has been cast into an ingot, ready to be shaped into weapons and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
@@ -247,11 +244,11 @@ AllRecipes = {
 			Subcategory = "Piercing",
 			NeedRecipe = false,
 			Resources = {
-				Iron = { Iron = 2 },
-				Bronze = { Bronze = 2 },
-				Copper = { Copper = 2 },
-				Steel = { Steel = 2 },
-				Obsidian = { Obsidian = 2 },
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
 			},
 		},
 		Kryss = {
@@ -265,11 +262,11 @@ AllRecipes = {
 			Subcategory = "Piercing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 2 },
-				Bronze = { Bronze = 2 },
-				Copper = { Copper = 2 },
-				Steel = { Steel = 2 },
-				Obsidian = { Obsidian = 2 },
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
 			},
 		},
 		Poniard = {
@@ -283,11 +280,11 @@ AllRecipes = {
 			Subcategory = "Piercing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 2 },
-				Bronze = { Bronze = 2 },
-				Copper = { Copper = 2 },
-				Steel = { Steel = 2 },
-				Obsidian = { Obsidian = 2 },
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
 			},
 		},
 
@@ -302,11 +299,11 @@ AllRecipes = {
 			Subcategory = "Piercing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 2 },
-				Bronze = { Bronze = 2 },
-				Copper = { Copper = 2 },
-				Steel = { Steel = 2 },
-				Obsidian = { Obsidian = 2 },
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
 			},
 		},
 
@@ -323,11 +320,11 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = false,
 			Resources = {
-				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
-				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
-				Obsidian = { Obsidian = 3 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -342,11 +339,11 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -361,11 +358,11 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
-				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
-				Obsidian = { Obsidian = 3 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -380,11 +377,11 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
-				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
-				Obsidian = { Obsidian = 3 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -401,11 +398,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = false,
 			Resources = {
-				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
-				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
-				Obsidian = { Obsidian = 3 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 		Hammer = {
@@ -419,11 +416,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 		
@@ -438,11 +435,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
-				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
-				Obsidian = { Obsidian = 3 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -457,11 +454,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 5 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 
@@ -477,11 +474,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = false,
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		Warhammer = {
@@ -495,11 +492,11 @@ AllRecipes = {
 			Subcategory = "Bashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 6 },
-				Bronze = { Bronze = 6 },
-				Copper = { Copper = 6 },
-				Steel = { Steel = 6 },
-				Obsidian = { Obsidian = 6 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 
@@ -515,29 +512,29 @@ AllRecipes = {
 			Subcategory = "Polearms",
 			NeedRecipe = false,
 			Resources = {
-				Iron = { Iron = 5 },
-				Bronze = { Bronze = 5 },
-				Copper = { Copper = 5 },
-				Steel = { Steel = 5 },
-				Obsidian = { Obsidian = 5 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
-		Vouge = {
+		Voulge = {
 			MinLevelToCraft = 40,
 			MaxLevelToGain = 65,
-			DisplayName = "Vouge",
-			CraftingTemplateFile = "weapon_vouge",
+			DisplayName = "Voulge",
+			CraftingTemplateFile = "weapon_voulge",
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			Category = "Weapons",
 			Subcategory = "Polearms",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 6 },
-				Bronze = { Bronze = 6 },
-				Copper = { Copper = 6 },
-				Steel = { Steel = 6 },
-				Obsidian = { Obsidian = 6 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		Spear = {
@@ -551,11 +548,11 @@ AllRecipes = {
 			Subcategory = "Polearms",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		Halberd = {
@@ -569,11 +566,11 @@ AllRecipes = {
 			Subcategory = "Polearms",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 7 },
-				Bronze = { Bronze = 7 },
-				Copper = { Copper = 7 },
-				Steel = { Steel = 7 },
-				Obsidian = { Obsidian = 7 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 
@@ -589,11 +586,11 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		GreatAxe = {
@@ -607,87 +604,14 @@ AllRecipes = {
 			Subcategory = "Slashing",
 			NeedRecipe = true,
 			Resources = {
-				Iron = { Iron = 5 },
-				Bronze = { Bronze = 5 },
-				Copper = { Copper = 5 },
-				Steel = { Steel = 5 },
-				Obsidian = { Obsidian = 5 },
-			},
-		},
-
-		--Shield
-		Buckler = {
-			MinLevelToCraft = 45,
-			MaxLevelToGain = 70,
-			DisplayName = "Buckler",
-			CraftingTemplateFile = "shield_buckler",
-			ItemType = "ShieldClass",
-			CanImprove = true,
-			Category = "Weapons",
-			Subcategory = "Shields",
-			NeedRecipe = false,
-			Resources = {
-				Iron = { Iron = 2 },
-				Bronze = { Bronze = 2 },
-				Copper = { Copper = 2 },
-				Steel = { Steel = 2 },
-				Obsidian = { Obsidian = 2 },
-			},
-		},
-		SmallShield = {
-			MinLevelToCraft = 50,
-			MaxLevelToGain = 75,
-			DisplayName = "Small Shield",
-			CraftingTemplateFile = "shield_smallshield",
-			ItemType = "ShieldClass",
-			CanImprove = true,
-			Category = "Weapons",
-			Subcategory = "Shields",
-			NeedRecipe = true,
-			Resources = {
 				Iron = { Iron = 3 },
-				Bronze = { Bronze = 3 },
+				Gold = { Gold = 3 },
 				Copper = { Copper = 3 },
-				Steel = { Steel = 3 },
+				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
 			},
 		},
-		CurvedShield = {
-			MinLevelToCraft = 55,
-			MaxLevelToGain = 80,
-			DisplayName = "Curved Shield",
-			CraftingTemplateFile = "shield_curvedshield",
-			ItemType = "ShieldClass",
-			CanImprove = true,
-			Category = "Weapons",
-			Subcategory = "Shields",
-			NeedRecipe = true,
-			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
-			},
-		},
-		KiteShield = {
-			MinLevelToCraft = 60,
-			MaxLevelToGain = 85,
-			DisplayName = "Kite Shield",
-			CraftingTemplateFile = "shield_kite",
-			ItemType = "ShieldClass",
-			CanImprove = true,
-			Category = "Weapons",
-			Subcategory = "Shields",
-			NeedRecipe = true,
-			Resources = {
-				Iron = { Iron = 5 },
-				Bronze = { Bronze = 5 },
-				Copper = { Copper = 5 },
-				Steel = { Steel = 5 },
-				Obsidian = { Obsidian = 5 },
-			},
-		},
+		
 		--Tool
 		--Armor
 		ChainHelm = {
@@ -702,11 +626,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Iron = { Iron = 4 },
-				Bronze = { Bronze = 4 },
-				Copper = { Copper = 4 },
-				Steel = { Steel = 4 },
-				Obsidian = { Obsidian = 4 },
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
 			},
 		},
 		ChainLeggings = {
@@ -721,11 +645,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Iron = { Iron = 6 },
-				Bronze = { Bronze = 6 },
-				Copper = { Copper = 6 },
-				Steel = { Steel = 6 },
-				Obsidian = { Obsidian = 6 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		ChainTunic = {
@@ -740,11 +664,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Iron = { Iron = 6 },
-				Bronze = { Bronze = 6 },
-				Copper = { Copper = 6 },
-				Steel = { Steel = 6 },
-				Obsidian = { Obsidian = 6 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		ScaleHelm = {
@@ -759,11 +683,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Iron = { Iron = 6 },
-				Bronze = { Bronze = 6 },
-				Copper = { Copper = 6 },
-				Steel = { Steel = 6 },
-				Obsidian = { Obsidian = 6 },
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
 			},
 		},
 		ScaleLeggings = {
@@ -778,11 +702,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Iron = { Iron = 8 },
-				Bronze = { Bronze = 8 },
-				Copper = { Copper = 8 },
-				Steel = { Steel = 8 },
-				Obsidian = { Obsidian = 8 },
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
 			},
 		},
 		ScaleTunic = {
@@ -797,11 +721,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Iron = { Iron = 8 },
-				Bronze = { Bronze = 8 },
-				Copper = { Copper = 8 },
-				Steel = { Steel = 8 },
-				Obsidian = { Obsidian = 8 },
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
 			},
 		},
 		FullPlateHelm = {
@@ -816,11 +740,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Iron = { Iron = 8 },
-				Bronze = { Bronze = 8 },
-				Copper = { Copper = 8 },
-				Steel = { Steel = 8 },
-				Obsidian = { Obsidian = 8 },
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
 			},
 		},
 		FullPlateLeggings = {
@@ -835,11 +759,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Iron = { Iron = 10 },
-				Bronze = { Bronze = 10 },
-				Copper = { Copper = 10 },
-				Steel = { Steel = 10 },
-				Obsidian = { Obsidian = 10 },
+				Iron = { Iron = 5 },
+				Gold = { Gold = 5 },
+				Copper = { Copper = 5 },
+				Cobalt = { Cobalt = 5 },
+				Obsidian = { Obsidian = 5 },
 			},
 		},
 		FullPlateTunic = {
@@ -854,11 +778,11 @@ AllRecipes = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Iron = { Iron = 10 },
-				Bronze = { Bronze = 10 },
-				Copper = { Copper = 10 },
-				Steel = { Steel = 10 },
-				Obsidian = { Obsidian = 10 },
+				Iron = { Iron = 5 },
+				Gold = { Gold = 5 },
+				Copper = { Copper = 5 },
+				Cobalt = { Cobalt = 5 },
+				Obsidian = { Obsidian = 5 },
 			},
 		},
 		
@@ -873,7 +797,7 @@ AllRecipes = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Iron = 5,
+				Iron = 1,
 			},
 		},		
 		
@@ -888,7 +812,21 @@ AllRecipes = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Iron = 4,
+				Iron = 1,
+			},
+		},
+
+		Lockpick = {
+			MinLevelToCraft = 10,
+			MaxLevelToGain = 35,
+			DisplayName = "Lockpicks",
+			Description = "Used to pick locks.",
+			NeedRecipe = true,
+			CraftingTemplateFile = "tool_lockpick",
+			Category = "Tools",
+			Subcategory = "Tools",
+			Resources = {
+				Iron = 1,
 			},
 		},
 		
@@ -903,7 +841,7 @@ AllRecipes = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Iron = 4,
+				Iron = 1,
 			},
 		},
 		
@@ -933,7 +871,7 @@ AllRecipes = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Iron = 3,
+				Iron = 1,
 			},
 		},
 
@@ -948,15 +886,30 @@ AllRecipes = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Iron = 4,
+				Iron = 1,
 			},
 		},
 	},
 
-
 WoodsmithSkill = {
 		
 		--resources
+		Brick = {
+			MinLevelToCraft = -10,
+			MaxLevelToGain = 15,
+			DisplayName = "Brick",
+			CraftingTemplateFile = "resource_brick",
+			Description = "Brick",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Wood",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				Stone = 5,
+			},
+		},
+
 		Boards = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
@@ -982,7 +935,7 @@ WoodsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Wood",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
 				Ash = 5,
@@ -998,69 +951,69 @@ WoodsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Wood",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
 				Blightwood = 5,
 			},
 		},
---Bow
+		--Bow
 		ShortBow = {
-			MinLevelToCraft = 0,
-			MaxLevelToGain = 25,
+			MinLevelToCraft = 15,
+			MaxLevelToGain = 40,
 			DisplayName = "Short Bow",
 			CraftingTemplateFile = "weapon_shortbow",
 			ItemType = "WeaponClass",
 			Description = "A Short Bow. This is a apprentice weapon.",
 			CanImprove = true,
-			Category = "Bows",
+			Category = "Weapons",
 			Subcategory = "Bows",
 			NeedRecipe = false,
 			Resources = {
-				Boards = { Boards = 6 },
-				AshBoards = { AshBoards = 6 },
-				BlightwoodBoards = { BlightwoodBoards = 6 },
+				Boards = { Boards = 1 },
+				AshBoards = { AshBoards = 1 },
+				BlightwoodBoards = { BlightwoodBoards = 1 },
 			},
 		},
 		LongBow = {
-			MinLevelToCraft = 20,
-			MaxLevelToGain = 45,
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 65,
 			DisplayName = "Long Bow",
 			CraftingTemplateFile = "weapon_longbow",
 			ItemType = "WeaponClass",
 			Description = "A Long Bow. This is a rookie weapon.",
 			CanImprove = true,
-			Category = "Bows",
+			Category = "Weapons",
 			Subcategory = "Bows",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			Resources = {
-				Boards = { Boards = 8 },
-				AshBoards = { AshBoards = 8 },
-				BlightwoodBoards = { BlightwoodBoards = 8 },
+				Boards = { Boards = 2 },
+				AshBoards = { AshBoards = 2 },
+				BlightwoodBoards = { BlightwoodBoards = 2 },
 			},
 		},
 		WarBow = {
 			MinLevelToCraft = 65,
-			MaxLevelToGain = 80,
+			MaxLevelToGain = 90,
 			DisplayName = "War Bow",
 			CraftingTemplateFile = "weapon_warbow",
 			ItemType = "WeaponClass",
 			Description = "A War Bow. This is a journeyman weapon.",
 			CanImprove = true,
-			Category = "Bows",
+			Category = "Weapons",
 			Subcategory = "Bows",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			Resources = {
-				Boards = { Boards = 10 },
-				AshBoards = { AshBoards = 10 },
-				BlightwoodBoards = { BlightwoodBoards = 10 },
+				Boards = { Boards = 3 },
+				AshBoards = { AshBoards = 3 },
+				BlightwoodBoards = { BlightwoodBoards = 3 },
 			},
 		},
---weapons
+		--weapons
 
 		Crook = {
-			MinLevelToCraft = 53.6,
-			MaxLevelToGain = 78.6,
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
 			DisplayName = "Crook",
 			CraftingTemplateFile = "tool_crook",
 			Description = "",
@@ -1069,33 +1022,123 @@ WoodsmithSkill = {
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Boards = 7,
+				Boards = 1,
 			},
 		},
 		
 		Arrow = {
-			MinLevelToCraft = -10,
-			MaxLevelToGain = 15,
+			MinLevelToCraft = 0,
+			MaxLevelToGain = 25,
 			DisplayName = "Arrow",
 			CraftingTemplateFile = "arrow",
 			Description = "",
 			NeedRecipe = false,
-			Category = "Bows",
-			Subcategory = "Arrows",
+			CanImprove = false,
+			Category = "Weapons",
+			Subcategory = "Bows",
 			StackCount = 20,
 			Resources = {
 				Boards = 1,
 			},
 		},
 
+		AshArrow = {
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
+			DisplayName = "Ash Arrow",
+			CraftingTemplateFile = "arrow_ash",
+			Description = "",
+			NeedRecipe = true,
+			CanImprove = false,
+			Category = "Weapons",
+			Subcategory = "Bows",
+			StackCount = 20,
+			Resources = {
+				AshBoards = 1,
+				TurkeyFeather = 1,
+			},
+		},
+
+		BlightwoodArrow = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Blightwood Arrow",
+			CraftingTemplateFile = "arrow_blightwood",
+			Description = "",
+			NeedRecipe = true,
+			CanImprove = false,
+			Category = "Weapons",
+			Subcategory = "Bows",
+			StackCount = 20,
+			Resources = {
+				BlightwoodBoards = 1,
+				WildFeather = 1,
+			},
+		},
+
+		--shields
+
+		Buckler = {
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
+			DisplayName = "Crook",
+			CraftingTemplateFile = "shield_buckler",
+			Description = "",
+			ItemType = "WeaponClass",
+			NeedRecipe = true,
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Shields",
+			Resources = {
+				Boards = { Boards = 1 },
+				AshBoards = { AshBoards = 1 },
+				BlightwoodBoards = { BlightwoodBoards = 1 },
+			},
+		},
+		
+		SmallShield = {
+			MinLevelToCraft = 10,
+			MaxLevelToGain = 35,
+			DisplayName = "Small Shield",
+			CraftingTemplateFile = "shield_smallshield",
+			Description = "",
+			NeedRecipe = false,
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Shields",
+			Resources = {
+				Boards = { Boards = 1 },
+				AshBoards = { AshBoards = 1 },
+				BlightwoodBoards = { BlightwoodBoards = 1 },
+			},
+		},
+
+		KiteShield = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
+			DisplayName = "Kite Shield",
+			CraftingTemplateFile = "shield_kite",
+			Description = "",
+			NeedRecipe = true,
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Shields",
+			Resources = {
+				Boards = { Boards = 2 },
+				AshBoards = { AshBoards = 2 },
+				BlightwoodBoards = { BlightwoodBoards = 2 },
+			},
+		},
+
+		--furniture
 
 		Barrel = {
-			MinLevelToCraft = 88,
-			MaxLevelToGain = 113,
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
 			DisplayName = "Barrel",
 			Description = "A barrel made of wood.",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "barrel",
 			Category = "Furnishings",
 			Subcategory = "Storage",
@@ -1105,82 +1148,68 @@ WoodsmithSkill = {
 		},
 
 		BedSmall = {
-			MinLevelToCraft = 48,
-			MaxLevelToGain = 73,
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
 			DisplayName = "Small Bed",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_bed_small",
 			Description = "[$3130]",
 			ItemType = "FurnitureClass",
 			Category = "Furnishings",
-			Subcategory = "Beds",
+			Subcategory = "DecorativeItems",
 			Resources = {
 				Boards = 20,
 			},
 		},
 
 		BedLarge = {
-			MinLevelToCraft = 75,
-			MaxLevelToGain = 100,
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
 			DisplayName = "Large Bed",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_bed_large",
 			Description = "[$3131]",
 			ItemType = "FurnitureClass",
 			Category = "Furnishings",
-			Subcategory = "Beds",
+			Subcategory = "DecorativeItems",
 			Resources = {
 				Boards = 50,
 			},
 		},
 		BedMedium = {
-			MinLevelToCraft = 65,
-			MaxLevelToGain = 90,
+			MinLevelToCraft = 55,
+			MaxLevelToGain = 80,
 			DisplayName = "Medium Bed",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_bed_medium",
 			Description = "[$3132]",
 			ItemType = "FurnitureClass",
 			Category = "Furnishings",
-			Subcategory = "Beds",
+			Subcategory = "DecorativeItems",
 			Resources = {
 				Boards = 40,
 			},
 		},
 		BenchFancy = {
-			MinLevelToCraft = 70,
-			MaxLevelToGain = 95,
+			MinLevelToCraft = 45,
+			MaxLevelToGain = 70,
 			DisplayName = "Fancy Bench",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_bench_fancy",
 			Description = "[$3133]",
 			Category = "Furnishings",
-			Subcategory = "Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 20,
 			},
 		},
-		BenchCelador = {
-			MinLevelToCraft = 74,
-			MaxLevelToGain = 99,
-			DisplayName = "Celador Wooden Bench",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_bench_celador",
-			Description = "[$3134]",
-			Category = "Furnishings",
-			Subcategory = "Chairs",
-			Resources = {
-				Boards = 16,
-			},
-		},
 		BookshelfWooden = {
-			MinLevelToCraft = 42,
-			MaxLevelToGain = 67,
+			MinLevelToCraft = 64,
+			MaxLevelToGain = 89,
 			DisplayName = "Wooden Bookshelf",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_bookshelf_wooden",
 			Description = "[$3135]",
 			Category = "Furnishings",
@@ -1189,98 +1218,55 @@ WoodsmithSkill = {
 				Boards = 30,
 			},
 		},
-		BucketWooden = {
-			MinLevelToCraft = 9,
-			MaxLevelToGain = 34,
-			DisplayName = "Wooden Bucket",
-			Description = "[$3136]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_bucket_wooden",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				Boards = 4,
-			},
-		},
-		Chair = {
-			MinLevelToCraft = 27,
-			MaxLevelToGain = 52,
-			DisplayName = "Chair",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_chair",
-			Description = "[$3137]",
-			Category = "Furnishings",
-			Subcategory = "Chairs",
-			Resources = {
-				Boards = 6,
-			},
-		},
 		ChairFancy = {
-			MinLevelToCraft = 67,
-			MaxLevelToGain = 92,
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
 			DisplayName = "Fancy Chair",
 			Description = "[$3138]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_fancy",
 			Category = "Furnishings",
-			Subcategory = "Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 8,
 			},
 		},
 		ChairWooden = {
-			MinLevelToCraft = 18,
-			MaxLevelToGain = 43,
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
 			DisplayName = "Wooden Chair",
 			Description = "[$3139]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_wooden",
 			Category = "Furnishings",
-			Subcategory = "Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 5,
 			},
 		},
-		DeskWooden = {
-			MinLevelToCraft = 39,
-			MaxLevelToGain = 64,
-			DisplayName = "Wooden Desk",
-			Description = "[$3140]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_desk_wooden",
-			Category = "Furnishings",
-			Subcategory = "Tables",
-			Resources = {
-				Boards = 20,
-			},
-		},
 		DeskFancy = {
-			MinLevelToCraft = 73,
-			MaxLevelToGain = 98,
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 95,
 			DisplayName = "Fancy Desk",
 			ItemType = "FurnitureClass",
 			Description = "[$3141]",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_desk_fancy",
 			Category = "Furnishings",
-			Subcategory = "Tables",
+			Subcategory = "TablesChairs",
 			Resources = {
-				Iron = 1,
 				Boards = 40,
 			},
 		},
 		FireplaceStone = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
 			DisplayName = "Stone Fireplace",
 			Description = "[$3142]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_fireplace_stone",
 			Category = "Furnishings",
 			Subcategory = "DecorativeItems",
@@ -1289,55 +1275,40 @@ WoodsmithSkill = {
 			},
 		},
 		TableWooden = {
-			MinLevelToCraft = 21,
-			MaxLevelToGain = 46,
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
 			DisplayName = "Wooden Table",
 			Description = "[$3143]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_table_wooden",
 			Category = "Furnishings",
-			Subcategory = "Tables",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 10,
 			},
 		},
 		TableWoodenLarge = {
-			MinLevelToCraft = 50,
-			MaxLevelToGain = 75,
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 65,
 			DisplayName = "Large Wooden Table",
 			Description = "[$3144]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_table_wooden_large",
 			Category = "Furnishings",
-			Subcategory = "Tables",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 30,
 			},
 		},
-		TableWoodenPlank = {
-			MinLevelToCraft = 60,
-			MaxLevelToGain = 85,
-			DisplayName = "Wooden Planked Table",
-			Description = "[$3145]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_table_wooden_plank",
-			Category = "Furnishings",
-			Subcategory = "Tables",
-			Resources = {
-				Boards = 10,
-				Stone = 20,
-			},
-		},
 		Shelf = {
-			MinLevelToCraft = 30,
-			MaxLevelToGain = 55,
+			MinLevelToCraft = 20,
+			MaxLevelToGain = 45,
 			DisplayName = "Shelf",
 			Description = "[$3146]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_shelf",
 			Category = "Furnishings",
 			Subcategory = "DecorativeItems",
@@ -1351,10 +1322,10 @@ WoodsmithSkill = {
 			DisplayName = "Wooden Stool",
 			Description = "A small stool made of wood.",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_stool_wooden",
 			Category = "Furnishings",
-			Subcategory = "Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 3,
 			},
@@ -1365,20 +1336,20 @@ WoodsmithSkill = {
 			DisplayName = "Campfire",
 			Description = "[$3147]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "campfire",
 			Category = "Furnishings",
-			Subcategory = "CraftingStations",
+			Subcategory = "DecorativeItems",
 			Resources = {
 				Wood = 10,
 			},
 		},
 		Crate = {
-			MinLevelToCraft = 6,
-			MaxLevelToGain = 31,
+			MinLevelToCraft = 45,
+			MaxLevelToGain = 70,
 			DisplayName = "Crate",
 			Description = "A basic wooden crate used to store belongings.",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "crate_empty",
 			Category = "Furnishings",
 			Subcategory = "Storage",
@@ -1387,11 +1358,11 @@ WoodsmithSkill = {
 			},
 		},
 		Lockbox = {
-			MinLevelToCraft = 6,
-			MaxLevelToGain = 31,
+			MinLevelToCraft = 55,
+			MaxLevelToGain = 80,
 			DisplayName = "Lockbox",
 			Description = "A lockable secure container used to store belongings.",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "lockbox",
 			Category = "Furnishings",
 			Subcategory = "Storage",
@@ -1400,25 +1371,25 @@ WoodsmithSkill = {
 			},
 		},
 		Dresser = {
-			MinLevelToCraft = 63,
-			MaxLevelToGain = 88,
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
 			DisplayName = "Dresser",
 			Description = "[$3148]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_dresser",
 			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
+			Subcategory = "Storage",
 			Resources = {
 				Boards = 40,
 			},
 		},
 		SmallFence = {
-			MinLevelToCraft = 36,
-			MaxLevelToGain = 61,
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 65,
 			DisplayName = "Small Fence",
 			Description = "[$3149]",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "fence_small",
 			Category = "Furnishings",
 			Subcategory = "FencesWalls",
@@ -1426,22 +1397,22 @@ WoodsmithSkill = {
 				Boards = 8,
 			},
 		},
-		SingleSmallFence = {
-			MinLevelToCraft = 33,
-			MaxLevelToGain = 58,
-			DisplayName = "Single Small Fence Panel",
-			Description = "[$3150]",
-			NeedRecipe = false,
-			CraftingTemplateFile = "fence_small_single",
+		Gate = {
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 65,
+			DisplayName = "Gate",
+			Description = "",
+			NeedRecipe = true,
+			CraftingTemplateFile = "fence_door",
 			Category = "Furnishings",
 			Subcategory = "FencesWalls",
 			Resources = {
-				Boards = 4,
+				Boards = 8,
 			},
 		},
 		Chest = {
-			MinLevelToCraft = 24,
-			MaxLevelToGain = 49,
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
 			DisplayName = "Chest",
 			Description = "[$3151]",
 			ItemType = "FurnitureClass",
@@ -1450,17 +1421,16 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "Storage",
 			Resources = {
-				Iron = 2,
-				Boards = 10,
+				Boards = 8,
 			},
 		},
 		WoodsmithTable = {
-			MinLevelToCraft = 71,
-			MaxLevelToGain = 96,
-			DisplayName = "Woodsmith Table",
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
+			DisplayName = "Carpentry Table",
 			Description = "[$3152]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "tool_carpentry_table",
 			Category = "Furnishings",
 			Subcategory = "CraftingStations",
@@ -1469,12 +1439,12 @@ WoodsmithSkill = {
 			},
 		},
 		Loom = {
-			MinLevelToCraft = 74,
-			MaxLevelToGain = 99,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
 			DisplayName = "Loom",
 			Description = "[$3153]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "tool_loom",
 			Category = "Furnishings",
 			Subcategory = "CraftingStations",
@@ -1484,11 +1454,11 @@ WoodsmithSkill = {
 		},
 		AlchemyTable = {
 			MinLevelToCraft = 75,
-			MaxLevelToGain = 90,
+			MaxLevelToGain = 100,
 			DisplayName = "Alchemy Table",
 			Description = "[$3154]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "workbench_alchemy",
 			Category = "Furnishings",
 			Subcategory = "CraftingStations",
@@ -1496,38 +1466,12 @@ WoodsmithSkill = {
 				Boards = 100,
 			},
 		},
-		Mug = {
-			MinLevelToCraft = 45,
-			MaxLevelToGain = 70,
-			DisplayName = "Mug",
-			Description = "[$3155]",
-			NeedRecipe = false,
-			CraftingTemplateFile = "mug",
-			Category = "Furnishings",
-			Subcategory = "Silverware",
-			Resources = {
-				Boards = 5,
-			},
-		},
-		WoodenBowl = {
-			MinLevelToCraft = 24,
-			MaxLevelToGain = 49,
-			DisplayName = "Wooden Bowl",
-			Description = "[$3156]",
-			NeedRecipe = false,
-			CraftingTemplateFile = "item_bowl",
-			Category = "Furnishings",
-			Subcategory = "Silverware",
-			Resources = {
-				Boards = 5,
-			},
-		},
 		Torch = {
-			MinLevelToCraft = -10,
-			MaxLevelToGain = 15,
+			MinLevelToCraft = 0,
+			MaxLevelToGain = 25,
 			DisplayName = "Torch",
 			Description = "[$3157]",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "torch",
 			Category = "Furnishings",
 			Subcategory = "Lighting",
@@ -1535,53 +1479,9 @@ WoodsmithSkill = {
 				Boards = 1,
 			},
 		},
-		ChurchBench = {
-			MinLevelToCraft = 90,
-			MaxLevelToGain = 115,
-			DisplayName = "Church Bench",
-			Description = "[$3158]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_church_bench",
-			Category = "Furnishings",
-			Subcategory = "Chairs",
-			Resources = {
-				Boards = 50, 
-			},
-		},
-		WoodenWeaponRack = {
-			MinLevelToCraft = 59,
-			MaxLevelToGain = 84,
-			Map = "Catacombs",
-			DisplayName = "Wooden Weapon Rack",
-			Description = "[$3159]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_weapon_rack_wooden",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				Boards = 25,
-			},
-		},
-		StandingTorchWood = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
-			Map = "Catacombs",
-			DisplayName = "Wooden Standing Torch",
-			Description = "[$3160]",
-			ItemType = "FurnitureClass",
-			NeedRecipe = false,
-			CraftingTemplateFile = "furniture_standing_torch_wood",
-			Category = "Furnishings",
-			Subcategory = "Lighting",
-			Resources = {
-				Boards = 6,
-			},
-		},
 		FishingRod = {
-			MinLevelToCraft = 12,
-			MaxLevelToGain = 37,
+			MinLevelToCraft = 15,
+			MaxLevelToGain = 40,
 			DisplayName = "Fishing Rod",
 			ItemType = "HarvestToolClass",
 			NeedRecipe = false,
@@ -1594,10 +1494,10 @@ WoodsmithSkill = {
 			},
 		},	
 		Anvil = {
-			MinLevelToCraft = 74.5,
-			MaxLevelToGain = 99.5,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
 			DisplayName = "Anvil",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "tool_anvil",
 			Description = "[$3163]",
 			Category = "Furnishings",
@@ -1608,11 +1508,11 @@ WoodsmithSkill = {
 			},
 		},
 		Forge = {
-			MinLevelToCraft = 65.5,
-			MaxLevelToGain = 90.5,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
 			DisplayName = "Forge",
-			NeedRecipe = false,
-			CraftingTemplateFile = "tool_forge",
+			NeedRecipe = true,
+			CraftingTemplateFile = "tool_forge_round",
 			Description = "[$3162]",
 			Category = "Furnishings",
 			Subcategory = "CraftingStations",
@@ -1621,24 +1521,11 @@ WoodsmithSkill = {
 				Stone = 100,
 			},
 		},
-		StoneFencePillar = {
-			MinLevelToCraft = 68,
-			MaxLevelToGain = 93,
-			DisplayName = "Stone Pillar",
-			NeedRecipe = false,
-			CraftingTemplateFile = "pillar_stone",
-			Description = "[$3164]",
-			Category = "Furnishings",
-			Subcategory = "FencesWalls",
-			Resources = {
-				Stone = 50,
-			},
-		},
 		Stove = {
-			MinLevelToCraft = 60,
-			MaxLevelToGain = 85,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
 			DisplayName = "Stove",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CraftingTemplateFile = "stove",
 			Description = "[$3165]",
 			Category = "Furnishings",
@@ -1647,125 +1534,16 @@ WoodsmithSkill = {
 				Iron = 50,
 			},
 		},
-		WoodenMailbox = {
-			MinLevelToCraft = 90,
-			MaxLevelToGain = 140,
-			DisplayName = "Wooden Mailbox",
-			NeedRecipe = false,
-			CraftingTemplateFile = "mailbox_wooden",
-			Description = "[$3166]",
-			Category = "Furnishings",
-			Subcategory = "Storage",
-			Resources = {
-				Wood = 100,
-			},
-		},
-		StoneMailbox = {
-			MinLevelToCraft = 95,
-			MaxLevelToGain = 145,
-			DisplayName = "Stone Mailbox",
-			NeedRecipe = false,
-			CraftingTemplateFile = "mailbox_stone",
-			Description = "[$3167]",
-			Category = "Furnishings",
-			Subcategory = "Storage",
-			Resources = {
-				Stone = 100,
-			},
-		},
-		TudorMailbox = {
-			MinLevelToCraft = 98,
-			MaxLevelToGain = 148,
-			DisplayName = "Tudor Mailbox",
-			NeedRecipe = false,
-			CraftingTemplateFile = "mailbox_tudor",
-			Description = "[$3168]",
-			Category = "Furnishings",
-			Subcategory = "Storage",
-			Resources = {
-				Wood = 100,
-			},
-		},
-		BedRoll = {
-			MinLevelToCraft = -20,
-			MaxLevelToGain = 5,
-			DisplayName = "Bed Roll",
-			NeedRecipe = false,
-			ItemType = "FurnitureClass",
-			Description = "A small sleeping sack made out of cheap fabric. Sleeping in one of these every night will make you want to upgrade to a real bed.",
-			CraftingTemplateFile = "furniture_bed_roll",
-			Category = "Furnishings",
-			Subcategory = "Beds",
-			Resources = {
-				Cloth = 2,
-			},
-		},	
-		TentBlueLarge = {
-			MinLevelToCraft = 70,
-			MaxLevelToGain = 95,
-			DisplayName = "Large Blue Tent",
-			Description = "A large blue tent used by many refugees in Eldeir Village. These tents are made from quality silk making them much more durable than a typical tent.",
-			NeedRecipe = false,
-			CraftingTemplateFile = "tent_blue_large",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				SilkCloth = 8,
-				Boards = 3,
-			},
-		},
-		TentRedLarge = {
-			MinLevelToCraft = 70,
-			MaxLevelToGain = 95,
-			DisplayName = "Large Red Tent",
-			Description = "A large red tent used by many refugees in Eldeir Village. These tents are made from quality silk making them much more durable than a typical tent.",
-			NeedRecipe = false,
-			CraftingTemplateFile = "tent_red_large",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				SilkCloth = 8,
-				Boards = 3,
-			},
-		},
-		TentDomeSmall = {
-			MinLevelToCraft = 65,
-			MaxLevelToGain = 80,
-			DisplayName = "Small Dome Tent",
-			Description = "A small dome tent used by many refugees in Eldeir Village.",
-			NeedRecipe = false,
-			CraftingTemplateFile = "tent_dome_small",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				SilkCloth = 21,
-				Boards = 3,
-			},
-		},
-		TentWoodSmall = {
-			MinLevelToCraft = 55,
-			MaxLevelToGain = 80,
-			DisplayName = "Small Wood Tent",
-			Description = "A small tent used by many refugees in Eldeir Village.",
-			NeedRecipe = false,
-			CraftingTemplateFile = "tent_wood_small",
-			Category = "Furnishings",
-			Subcategory = "DecorativeItems",
-			Resources = {
-				SilkCloth = 16,
-				Boards = 3,
-			},
-		},
 	},
 
-	FabricationSkill = {
+FabricationSkill = {
 		--Materials
 		Cloth = {
             MinLevelToCraft = 0,
             MaxLevelToGain = 25,
             DisplayName = "Cloth",
             CraftingTemplateFile = "resource_bolt_of_cloth",
-            Description = "",
+            Description = "A fabric woven from wool. Can be used to make clothing and armor.",
             ItemType = "ResourceClass",
             Category = "Resources",
             Subcategory = "Cloth",
@@ -1782,7 +1560,7 @@ WoodsmithSkill = {
 			MaxLevelToGain = 50,
 			DisplayName = "Quilted Cloth",
 			CraftingTemplateFile = "resource_bolt_of_cloth_quilted",
-			Description = "",
+			Description = "A fabric woven from fluffy wool. Can be used to make quilted clothing and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Cloth",
@@ -1799,7 +1577,7 @@ WoodsmithSkill = {
 			MaxLevelToGain = 75,
 			DisplayName = "Silk Cloth",
 			CraftingTemplateFile = "resource_silk_cloth",
-			Description = "",
+			Description = "A fabric woven from fine silk. Can be used to make silk clothing and armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Cloth",
@@ -1816,7 +1594,7 @@ WoodsmithSkill = {
 			MaxLevelToGain = 50,
 			DisplayName = "Leather",
 			CraftingTemplateFile = "resource_leather",
-			Description = "",
+			Description = "A material made from animal hides. Can be used to make leather armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Leather",
@@ -1833,7 +1611,7 @@ WoodsmithSkill = {
 			MaxLevelToGain = 75,
 			DisplayName = "Beast Leather",
 			CraftingTemplateFile = "resource_beast_leather",
-			Description = "",
+			Description = "A material made from beast hides. Can be used to make beast leather armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Leather",
@@ -1850,7 +1628,7 @@ WoodsmithSkill = {
 			MaxLevelToGain = 100,
 			DisplayName = "Vile Leather",
 			CraftingTemplateFile = "resource_vile_leather",
-			Description = "",
+			Description = "A material made from powerful vile beast hides. Can be used to make vile leather armor.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Leather",
@@ -1876,7 +1654,23 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Torso",
 			Resources = {	
-				Cloth = 1,
+				Cloth = 6,
+			},
+		},
+
+		Waterskin = {
+			MinLevelToCraft = 10,
+			MaxLevelToGain = 35,
+			DisplayName = "Waterskin",
+			Description = "Can be filled with water for refreshment and cooking.",
+			NeedRecipe = false,
+			CanImprove = false,
+			CraftingTemplateFile = "waterskin",
+			ItemType = "ResourceClass",
+			Category = "Items",
+			Subcategory = "Tools",
+			Resources = {
+				Leather = 1,
 			},
 		},
 
@@ -1892,7 +1686,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Torso",
 			Resources = {	
-				Cloth = 2,
+				Cloth = 6,
 			},
 		},
 
@@ -1908,7 +1702,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Legs",
 			Resources = {	
-				Cloth = 2,
+				Cloth = 4,
 			},
 		},
 
@@ -1940,7 +1734,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Legs",
 			Resources = {	
-				Cloth = 3,
+				Cloth = 5,
 			},
 		},
 
@@ -1956,7 +1750,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Torso",
 			Resources = {	
-				Cloth = 4,
+				Cloth = 8,
 			},
 		},
 
@@ -1972,7 +1766,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Head",
 			Resources = {	
-				Cloth = 3,
+				Cloth = 4,
 			},
 		},
 
@@ -2004,7 +1798,7 @@ WoodsmithSkill = {
 			Category = "Clothing",
 			Subcategory = "Head",
 			Resources = {	
-				Cloth = 5,
+				Cloth = 6,
 			},
 		},
 
@@ -2021,9 +1815,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Cloth = { Cloth = 3 },
-				QuiltedCloth = { QuiltedCloth = 3 },
-				SilkCloth = { SilkCloth = 3 },
+				Cloth = { Cloth = 10 },
+				QuiltedCloth = { QuiltedCloth = 10 },
+				SilkCloth = { SilkCloth = 10 },
 			},
 		},
 
@@ -2039,9 +1833,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Cloth = { Cloth = 5 },
-				QuiltedCloth = { QuiltedCloth = 5 },
-				SilkCloth = { SilkCloth = 5 },
+				Cloth = { Cloth = 15 },
+				QuiltedCloth = { QuiltedCloth = 15 },
+				SilkCloth = { SilkCloth = 15 },
 			},
 		},
 
@@ -2057,9 +1851,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Cloth = { Cloth = 5 },
-				QuiltedCloth = { QuiltedCloth = 5 },
-				SilkCloth = { SilkCloth = 5 },
+				Cloth = { Cloth = 15 },
+				QuiltedCloth = { QuiltedCloth = 15 },
+				SilkCloth = { SilkCloth = 15 },
 			},
 		},
 
@@ -2075,9 +1869,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Cloth = { Cloth = 3 },
-				QuiltedCloth = { QuiltedCloth = 3 },
-				SilkCloth = { SilkCloth = 3 },
+				Cloth = { Cloth = 10 },
+				QuiltedCloth = { QuiltedCloth = 15 },
+				SilkCloth = { SilkCloth = 15 },
 			},
 		},
 
@@ -2093,9 +1887,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Cloth = { Cloth = 5 },
-				QuiltedCloth = { QuiltedCloth = 5 },
-				SilkCloth = { SilkCloth = 5 },
+				Cloth = { Cloth = 15 },
+				QuiltedCloth = { QuiltedCloth = 15 },
+				SilkCloth = { SilkCloth = 15 },
 			},
 		},
 
@@ -2111,9 +1905,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Cloth = { Cloth = 5 },
-				QuiltedCloth = { QuiltedCloth = 5 },
-				SilkCloth = { SilkCloth = 5 },
+				Cloth = { Cloth = 15 },
+				QuiltedCloth = { QuiltedCloth = 15 },
+				SilkCloth = { SilkCloth = 15 },
 			},
 		},
 
@@ -2129,9 +1923,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {	
-				Cloth = { Cloth = 10 },
-				QuiltedCloth = { QuiltedCloth = 10 },
-				SilkCloth = { SilkCloth = 10 },
+				Cloth = { Cloth = 20 },
+				QuiltedCloth = { QuiltedCloth = 20 },
+				SilkCloth = { SilkCloth = 20 },
 			},
 		},
 
@@ -2147,9 +1941,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Leather = { Leather = 6 },
-				BeastLeather = { BeastLeather = 6 },
-				VileLeather = { VileLeather = 6 },
+				Leather = { Leather = 8 },
+				BeastLeather = { BeastLeather = 8 },
+				VileLeather = { VileLeather = 8 },
 			},
 		},
 
@@ -2165,9 +1959,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Leather = { Leather = 8 },
-				BeastLeather = { BeastLeather = 8 },
-				VileLeather = { VileLeather = 8 },
+				Leather = { Leather = 12 },
+				BeastLeather = { BeastLeather = 12 },
+				VileLeather = { VileLeather = 12 },
 			},
 		},
 
@@ -2184,8 +1978,8 @@ WoodsmithSkill = {
 			Subcategory = "Torso",
 			Resources = {
 				Leather = { Leather = 8 },
-				BeastLeather = { BeastLeather = 8 },
-				VileLeather = { VileLeather = 8 },
+				BeastLeather = { BeastLeather = 12 },
+				VileLeather = { VileLeather = 12 },
 			},
 		},
 
@@ -2201,9 +1995,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Head",
 			Resources = {
-				Leather = { Leather = 4 },
-				BeastLeather = { BeastLeather = 4 },
-				VileLeather = { VileLeather = 4 },
+				Leather = { Leather = 8 },
+				BeastLeather = { BeastLeather = 12 },
+				VileLeather = { VileLeather = 12 },
 			},
 		},
 		
@@ -2219,9 +2013,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Legs",
 			Resources = {
-				Leather = { Leather = 6 },
-				BeastLeather = { BeastLeather = 6 },
-				VileLeather = { VileLeather = 6 },
+				Leather = { Leather = 12 },
+				BeastLeather = { BeastLeather = 12 },
+				VileLeather = { VileLeather = 12 },
 			},
 		},
 		
@@ -2237,9 +2031,9 @@ WoodsmithSkill = {
 			Category = "Armor",
 			Subcategory = "Torso",
 			Resources = {
-				Leather = { Leather = 6 },
-				BeastLeather = { BeastLeather = 6 },
-				VileLeather = { VileLeather = 6 },
+				Leather = { Leather = 12 },
+				BeastLeather = { BeastLeather = 12 },
+				VileLeather = { VileLeather = 12 },
 			},
 		},
 
@@ -2252,12 +2046,12 @@ WoodsmithSkill = {
 			CanImprove = false,
 			CraftingTemplateFile = "saddlebags_packed",
 			ItemType = "ArmorClass",
-			Category = "Clothing",
+			Category = "Items",
 			Subcategory = "Horse",
 			Resources = {
-				Leather = 12,
+				Leather = 15,
 			},
-		},
+		},		
 
 		Pouch = {
 			MinLevelToCraft = 10,
@@ -2267,7 +2061,7 @@ WoodsmithSkill = {
 			NeedRecipe = false,
 			CanImprove = false,
 			CraftingTemplateFile = "pouch",
-			Category = "Containers",
+			Category = "Items",
 			Subcategory = "Containers",
 			Resources = {
 				Leather = 1,
@@ -2275,7 +2069,7 @@ WoodsmithSkill = {
 		},
 	},
 
-	AlchemySkill = {
+AlchemySkill = {
 		LesserHealPotion = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
@@ -2287,6 +2081,7 @@ WoodsmithSkill = {
 			Subcategory = "LesserPotions",
 			Resources = {
 				Ginseng = 1,
+				Blood = 1,
 			},
 		},
 		HealPotion = {
@@ -2300,6 +2095,7 @@ WoodsmithSkill = {
 			Subcategory = "Potions",
 			Resources = {
 				Ginseng = 3,
+				BeastBlood = 1,
 			},
 		},
 		GreaterHealPotion = {
@@ -2313,6 +2109,7 @@ WoodsmithSkill = {
 			Subcategory = "GreaterPotions",
 			Resources = {
 				Ginseng = 7,
+				VileBlood = 1,
 			},
 		},
 		LesserStaminaPotion = {
@@ -2326,6 +2123,7 @@ WoodsmithSkill = {
 			Subcategory = "LesserPotions",
 			Resources = {
 				Mushrooms = 1,
+				Eye = 1,
 			},
 		},
 		StaminaPotion = {
@@ -2339,6 +2137,7 @@ WoodsmithSkill = {
 			Subcategory = "Potions",
 			Resources = {
 				Mushrooms = 3,
+				SicklyEye = 1,
 			},
 		},
 		GreaterStaminaPotion = {
@@ -2352,6 +2151,7 @@ WoodsmithSkill = {
 			Subcategory = "GreaterPotions",
 			Resources = {
 				Mushrooms = 7,
+				DecrepidEye = 1,
 			},
 		},
 		LesserManaPotion = {
@@ -2365,6 +2165,7 @@ WoodsmithSkill = {
 			Subcategory = "LesserPotions",
 			Resources = {
 				LemonGrass = 1,
+				Bones = 1,
 			},
 		},
 		ManaPotion = {
@@ -2378,6 +2179,7 @@ WoodsmithSkill = {
 			Subcategory = "Potions",
 			Resources = {
 				LemonGrass = 3,
+				CursedBones = 1,
 			},
 		},
 		GreaterManaPotion = {
@@ -2391,6 +2193,7 @@ WoodsmithSkill = {
 			Subcategory = "GreaterPotions",
 			Resources = {
 				LemonGrass = 7,
+				EtherealBones = 1,
 			},
 		},
 		CurePotion = {
@@ -2404,22 +2207,7 @@ WoodsmithSkill = {
 			Subcategory = "Remedies",
 			Resources = {
 				Ginseng = 3,
-			},
-		},
-		Salve = {
-			MinLevelToCraft = 25,
-			MaxLevelToGain = 75,
-			DisplayName = "Antidote",
-			NeedRecipe = false,
-			Description = "A salve that cures poison. ",
-			CraftingTemplateFile = "healing_salve",
-			Category = "Potions",
-			Subcategory = "Remedies",
-			Resources = {
-				Ginseng = 2,
-				LemonGrass = 2,
-				Mushrooms = 1,
-				Ginseng = 1,
+				Cactus = 3,
 			},
 		},
 		--[[DyeYellow = {
@@ -2526,13 +2314,13 @@ WoodsmithSkill = {
 				GiantMushrooms = 5,
 			},
 		},
-		DyeBronze = {
+		DyeGold = {
 			MinLevelToCraft = 55,
 			MaxLevelToGain = 105,
-			DisplayName = "Bronze Dye",
+			DisplayName = "Gold Dye",
 			NeedRecipe = true,
-			Description = "Bronze Dye. ",
-			CraftingTemplateFile = "dye_Bronze",
+			Description = "Gold Dye. ",
+			CraftingTemplateFile = "dye_Gold",
 			Category = "Potions",
 			Subcategory = "Dye",
 			Resources = {
@@ -2567,7 +2355,7 @@ WoodsmithSkill = {
 		},]]
 	},
 
-	InscriptionSkill = {
+InscriptionSkill = {
 		HealScroll = {
 			MinLevelToCraft = -25,
 			MaxLevelToGain = 25,
@@ -2582,9 +2370,51 @@ WoodsmithSkill = {
 				BlankScroll = 1,
 			},
 		},
-		FireballScroll = {
+		RefreshScroll = {
 			MinLevelToCraft = -25,
 			MaxLevelToGain = 25,
+			DisplayName = "Refresh Scroll",
+			NeedRecipe = false,
+			Description = "A refresh scroll. ",
+			CraftingTemplateFile = "lscroll_refresh",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 1,
+				FrayedScroll = 1,
+			},
+		},
+		InfuseScroll = {
+			MinLevelToCraft = -25,
+			MaxLevelToGain = 25,
+			DisplayName = "Infuse Scroll",
+			NeedRecipe = false,
+			Description = "A infuse scroll. ",
+			CraftingTemplateFile = "lscroll_infuse",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 1,
+				FrayedScroll = 1,
+			},
+		},
+		ManaMissileScroll = {
+			MinLevelToCraft = -25,
+			MaxLevelToGain = 25,
+			DisplayName = "Mana Missile Scroll",
+			NeedRecipe = false,
+			Description = "A mana missile scroll. ",
+			CraftingTemplateFile = "lscroll_mana_missile",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				LemonGrass = 1,
+				BlankScroll = 1,
+			},
+		},
+		FireballScroll = {
+			MinLevelToCraft = 3.5,
+			MaxLevelToGain = 53.5,
 			DisplayName = "Fireball Scroll",
 			NeedRecipe = false,
 			Description = "a fireball scroll. ",
@@ -2635,7 +2465,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Mushrooms = 1,
-				BlankScroll = 1,
+				FrayedScroll = 1,
 			},
 		},
 		TeleportScroll = {
@@ -2649,7 +2479,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Ginseng = 2,
-				BlankScroll = 1,
+				FrayedScroll = 1,
 			},
 		},
 		RuinScroll = {
@@ -2663,7 +2493,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				LemonGrass = 2,
-				BlankScroll = 1,
+				FrayedScroll = 1,
 			},
 		},
 		LightningScroll = {
@@ -2677,7 +2507,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		--[[
@@ -2696,20 +2526,6 @@ WoodsmithSkill = {
 			},
 		},
 		]]--
-		DefenceScroll = {
-			MinLevelToCraft = 17.8,
-			MaxLevelToGain = 67.8,
-			DisplayName = "Defence Scroll",
-			NeedRecipe = false,
-			Description = "A defence scroll. ",
-			CraftingTemplateFile = "lscroll_defence",
-			Category = "Scrolls",
-			Subcategory = "Scrolls",
-			Resources = {
-				Moss = 2,
-				BlankScroll = 1,
-			},
-		},
 		GreaterHealScroll = {
 			MinLevelToCraft = 17.8,
 			MaxLevelToGain = 67.8,
@@ -2721,7 +2537,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Ginseng = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		CloakScroll = {
@@ -2735,7 +2551,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Mushrooms = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		BombardmentScroll = {
@@ -2749,7 +2565,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Mushrooms = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		EnergyBoltScroll = {
@@ -2763,21 +2579,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
-			},
-		},
-		AttackScroll = {
-			MinLevelToCraft = 46.4,
-			MaxLevelToGain = 96.4,
-			DisplayName = "Attack Scroll",
-			NeedRecipe = false,
-			Description = "A attack scroll. ",
-			CraftingTemplateFile = "lscroll_attack",
-			Category = "Scrolls",
-			Subcategory = "Scrolls",
-			Resources = {
-				Moss = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		MeteorScroll = {
@@ -2791,7 +2593,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				LemonGrass = 2,
-				BlankScroll = 1,
+				AncientScroll = 1,
 			},
 		},
 		ResurrectScroll = {
@@ -2805,7 +2607,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				AncientScroll = 1,
 			},
 		},
 		EarthquakeScroll = {
@@ -2819,7 +2621,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				LemonGrass = 2,
-				BlankScroll = 1,
+				AncientScroll = 1,
 			},
 		},
 		WallOfFireScroll = {
@@ -2833,7 +2635,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				LemonGrass = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		PortalScroll = {
@@ -2847,7 +2649,7 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				AncientScroll = 1,
 			},
 		},
 		Spellbook = {
@@ -2860,8 +2662,9 @@ WoodsmithSkill = {
 			Category = "Spellbooks",
 			Subcategory = "Spellbooks",
 			Resources = {
-				Ginseng = 20,
-				BlankScroll = 20,
+				FrayedScroll = 10,
+				FineScroll = 5,
+				AncientScroll = 1,
 			},
 		},
 		BookRed = {
@@ -2914,7 +2717,21 @@ WoodsmithSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				AncientScroll = 1,
+			},
+		},
+		FrostScroll = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Frost Scroll",
+			NeedRecipe = false,
+			Description = "A frost scroll. ",
+			CraftingTemplateFile = "lscroll_frost",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
 			},
 		},
 

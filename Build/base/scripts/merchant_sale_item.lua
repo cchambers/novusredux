@@ -68,7 +68,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		end
 
 		if ( this:HasObjVar("TamingDifficulty") and not CanAddToActivePets(user, this) ) then
-			user:SystemMessage("You cannot control anymore pets.")
+			user:SystemMessage("You cannot control anymore pets.","info")
 			return
 		end
 

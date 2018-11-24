@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Chopped Blightwood[-]</Name>
+	<Name>[bdbdbd]Blightwood[-]</Name>
 	<ClientId>602</ClientId>
 	<Hue>865</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

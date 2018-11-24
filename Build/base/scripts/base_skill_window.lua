@@ -114,7 +114,7 @@ function AddFavoritesPage(dynamicWindow)
 	dynamicWindow:AddImage(114,100,"Prestige_Divider",250,0,"Sliced")
 
 	if(AddIndexElements(dynamicWindow,0,1,true) == 0) then
-		dynamicWindow:AddLabel(112,113,"[412A08]No Favorites[-]",300,0,18,"",false,false,"SpectralSC-SemiBold")
+		dynamicWindow:AddLabel(112,113,"[412A08]No Favorites[-]",300,0,18,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 	end
 end
 
@@ -144,7 +144,7 @@ function AddSkillDetail(dynamicWindow,position,pageTypeIndex)
 		dynamicWindow:AddLabel(curX + 240,153,"[43240f]"..GetSkillDisplayName(skillInfo.Name).."[-]",146,28,28,"center",false,false,"Kingthings_Dynamic")
 		dynamicWindow:AddImage(curX + 114,186,"Prestige_Divider",250,0,"Sliced")
 
-		dynamicWindow:AddLabel(curX + 114,204,"[412A08]"..(skillInfo.Data.Description or "").."[-]",250,110,18)
+		dynamicWindow:AddLabel(curX + 114,204,"[412A08]"..(skillInfo.Data.Description or "").."[-]",250,110,18,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 
 		dynamicWindow:AddImage(curX + 114,308,"Prestige_Divider",250,0,"Sliced")
 
@@ -272,7 +272,7 @@ function OpenSkillWindow()
 		AddSkillDetail(dynamicWindow,2,pageTypeIndex)
 	end
 
-	dynamicWindow:AddLabel(568,416, GetSkillTotal(this) .. " / "..ServerSettings.Skills.PlayerSkillCap.Total,100,20,20,"center")
+	dynamicWindow:AddLabel(568,416, GetSkillTotal(this) .. " / "..ServerSettings.Skills.PlayerSkillCap.Total,100,20,20,"center",false,false,"PermianSlabSerif_Dynamic_Bold")
 	dynamicWindow:AddButton(506,406,"","",120,38,"[$3370]","",false,"Invisible")
 
 	-- add this last so it goes over the previous page button if there is one

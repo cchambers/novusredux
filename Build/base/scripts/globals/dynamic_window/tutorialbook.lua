@@ -165,8 +165,8 @@ TutPageFuncs = {
 		)
 
 		dynamicWindow:AddImage(
-			-675, --(number) x position in pixels on the window
-			-46, --(number) y position in pixels on the window
+			-930, --(number) x position in pixels on the window
+			-95, --(number) y position in pixels on the window
 			"Instructions_Inventory", --(string) sprite name	
 			0,
 			0
@@ -264,8 +264,8 @@ TutPageFuncs = {
 		)
 
 		dynamicWindow:AddImage(
-			-627, --(number) x position in pixels on the window
-			36, --(number) y position in pixels on the window
+			-491, --(number) x position in pixels on the window
+			4, --(number) y position in pixels on the window
 			"Instructions_MiniMap", --(string) sprite name	
 			0,
 			0

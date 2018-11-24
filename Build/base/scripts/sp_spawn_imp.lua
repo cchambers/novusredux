@@ -10,11 +10,11 @@ function HandleLoaded(location)
 	local currentMinions = FindObjects(SearchObjVar("controller",myResSource))
 	--DebugMessage("followers = "..#currentFollowers)
 	if (#currentMinions >= MAX_MINIONS) then
-		myResSource:SystemMessage("[D70000]You have too many minions in play![-]")
+		myResSource:SystemMessage("[D70000]You have too many minions in play![-]","info")
 		EndEffect()
 		return
 	end
-	--this:SystemMessage("[F7CC0A] Life sturs from your dead body.[-]")
+	
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(0.5), "SpawnTimer", location)
 	PlayEffectAtLoc("VoidTeleportToEffect",location,4)
 end

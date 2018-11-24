@@ -10,7 +10,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
         if(usedType ~= "Use" and usedType ~= "Examine") then return end
         local cont = this:TopmostContainer()
         if(cont ~= user) then
-            user:SystemMessage("[$1816]")
+            user:SystemMessage("[$1816]","info")
             return
         end
         --[[user:SendMessage("StartQuest","GraveyardQuest")
@@ -28,6 +28,6 @@ RegisterEventHandler(EventType.Timer,"imbue",
     function(user)
         user:PlayAnimation("cast_heal")
         user:PlayEffect("GhostEffect")
-        user:PlayObjectSound("CastAir",false,2)
+        user:PlayObjectSound("event:/magic/air/magic_air_cast_air",false,2)
         this:Destroy()
     end)

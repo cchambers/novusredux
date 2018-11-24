@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Weathered Map[-]</Name>
+  <Name>Weathered Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent/>
@@ -9,25 +9,24 @@
 				{
 				RegionalNames = 
                     {
-                        "Misty Basin",
-                        "Ysel Lake",
+                        {"Area-Misty Basin","Misty Basin"},
+                        {"Area-Ysel Lake","Ysel Lake"},
+                        {"Area-Serpent's Pass","Serpent's Pass"},
 
-                        "West Valusia",
-                        "Yoln's Bluff",
-                        "The Brooks",
-                        "East Valusia",
-                        "Valus",
-                        "Bel Lake",
-                        "Belhaven",
-                        "Caester Run",
+                        {"Area-West Valusia","West Valusia"},
+                        {"Area-Yoln's Bluff","Yoln's Bluff"},
+                        {"Area-The Brooks","The Brooks"},
+                        {"Area-East Valusia","East Valusia"},
+                        {"Area-Bel Lake","Bel Lake"},
+                        {"Area-Belhaven","Belhaven"},
 
-                        "Vilewood",
-                        "Spiritwood",
-                        "The Brushwoods",
+                        {"Area-Vilewood","Vilewood"},
+                        {"Area-Spiritwood","Spiritwood"},
+                        {"Area-The Brushwoods","The Brushwoods"},
 
-                        "Lake Denir",
-
-                        "Black Grove",
+                        {"Area-Denir","Denir"},
+                        {"Area-Lake Denir","Lake Denir"},
+                        {"WaterUpperNorthPond","Lake Petra"},
 
                     },
                     Rewards =

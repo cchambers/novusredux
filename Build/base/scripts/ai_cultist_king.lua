@@ -2,8 +2,7 @@ require 'ai_cultist'
 AI.Settings.Debug = false
 AI.Settings.AggroRange = 15.0
 AI.Settings.ChaseRange = 20.0
-AI.Settings.Leash =  true
-AI.Settings.LeashDistance = 30
+AI.Settings.LeashDistance = 35
 AI.Settings.StationedLeash = true
 AI.Settings.CanWander = false
 AI.Settings.CanConverse = true
@@ -226,3 +225,17 @@ if (initializer ~= nil ) then
     --local facing = this:GetLoc():YAngleTo(campController:GetLoc())
     --this:SetObjVar("homeFacing", facing)
 end
+
+RegisterEventHandler(EventType.Message, "HasDiedMessage",
+    function(killer)
+        if (IsGuard(killer)) then return end
+
+        if ( this:HasObjVar("lootable") ) then return end
+        
+        local nearbyCombatants = FindObjects(SearchMulti(
+        {
+            SearchPlayerInRange(20,true), --in 20 units
+        }))
+
+        DistributeBossRewards(nearbyCombatants, nil, "Cultist")
+    end)

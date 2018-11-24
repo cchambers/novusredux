@@ -34,11 +34,11 @@ ResourceEffectData.PotionLesserHeal = {
 ResourceEffectData.PotionGreaterStamina = {
     MobileEffect = "PotionStamina",
     MobileEffectArgs = {
-        Amount = 80,
+        Amount = 60,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 80 stamina.",
+        "Instantly restores 60 stamina.",
     }
 }
 
@@ -56,11 +56,11 @@ ResourceEffectData.PotionStamina = {
 ResourceEffectData.PotionLesserStamina = {
     MobileEffect = "PotionStamina",
     MobileEffectArgs = {
-        Amount = 25,
+        Amount = 20,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 25 stamina.",
+        "Instantly restores 20 stamina.",
     }
 }
 
@@ -71,7 +71,7 @@ ResourceEffectData.PotionGreaterMana = {
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 80 mana.",
+        "Instantly restores 60 mana.",
     }
 }
 
@@ -93,7 +93,7 @@ ResourceEffectData.PotionLesserMana = {
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 25 mana.",
+        "Instantly restores 20 mana.",
     }
 }
 

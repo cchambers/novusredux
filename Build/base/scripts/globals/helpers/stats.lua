@@ -193,7 +193,7 @@ function GainStatValue(mobileObj, statName, gainStatus, currentValue)
 	SetStatByName(mobileObj, statName, newValue)
 
 	if ( mobileObj:IsPlayer() ) then
-		mobileObj:SystemMessage("You have gained ".. statName .. ". Now ".. newValue, "event")
+		mobileObj:SystemMessage("You have gained ".. statName .. ". Now ".. newValue, "info")
 	end
 end
 

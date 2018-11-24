@@ -25,20 +25,20 @@ function Dialog.OpenGreetingDialog(user)
     response = {}
 
     response[1] = {}
-    response[1].text = "My pet please."
-    response[1].handle = "Pet"
+    response[1].text = "I'd like to purchase a horse."
+    response[1].handle = "Purchase"
 
     response[2] = {}
-    response[2].text = "Stable my pet."
-    response[2].handle = "Stable"
+    response[2].text = "My pet please."
+    response[2].handle = "Pet"
 
     response[3] = {}
-    response[3].text = "Who are you?"
-    response[3].handle = "Who"
+    response[3].text = "Stable my pet."
+    response[3].handle = "Stable"
 
     response[4] = {}
-    response[4].text = "Can I ask you a question?"
-    response[4].handle = "Talk"
+    response[4].text = "Who are you?"
+    response[4].handle = "Who"
 
     if (AI.GetSetting("EnableTrain") ~= nil and AI.GetSetting("EnableTrain") == true and CanTrain()) then
         response[5] = {}
@@ -49,6 +49,18 @@ function Dialog.OpenGreetingDialog(user)
     response[6] = {}
     response[6].text = "Goodbye."
     response[6].handle = "" 
+
+    NPCInteractionLongButton(text,this,user,"Responses",response)
+end
+
+function Dialog.OpenPurchaseDialog(user)
+    text = "Sure. Just let me know which one you would like to buy.\n\n(Double-click the horse)"
+
+    response = {}
+
+    response[1] = {}
+    response[1].text = "Ok."
+    response[1].handle = ""
 
     NPCInteractionLongButton(text,this,user,"Responses",response)
 end

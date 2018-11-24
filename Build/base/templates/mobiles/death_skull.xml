@@ -35,7 +35,7 @@
 					{ 
 					Evocation=100,
 					Manifestation=100,
-					Bashing=60,  
+					Brawling = 60,  
 					MagicAffinity=100.
 					},	
 				EquipTable = 
@@ -47,6 +47,7 @@
 						TemplateDefines.LootTable.Ten,
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.FineScrolls,
 					},	
 				ScavengeTables =
 					{

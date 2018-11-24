@@ -14,7 +14,6 @@
 		<BoolVariable Name="AI-StationedLeash">true</BoolVariable>
 		<DoubleVariable Name="AI-LeashDistance">15</DoubleVariable>
 		<BoolVariable Name="AI-Leash">true</BoolVariable>
-		<DoubleVariable Name="MeatCount">10</DoubleVariable>
 		<StringVariable Name="NaturalWeaponType">BattleAxe</StringVariable>
 		<StringVariable Name="NaturalArmor">VeryHeavy</StringVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
@@ -24,7 +23,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=650, Agi=117, Int=65 },
-					Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100},				
+					Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100},				
 					BodyOffset = 2.5,
 					LootTables = 
 					{

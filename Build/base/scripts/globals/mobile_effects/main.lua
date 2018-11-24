@@ -1,10 +1,22 @@
 MobileEffectLibrary = {}
 
+MobileEffectTimer = TimeSpan.FromMilliseconds(10)
+
 function EndMobileEffect(effectTable)
-    Verbose("MobileEffect", "EndMobileEffect", effectTable)
+	Verbose("MobileEffect", "EndMobileEffect", effectTable)
+	if not( effectTable ) then
+		LuaDebugCallStack("[EndMobileEffect] effectTable not provided.")
+		return
+	end
+
+	-- this signals the effect was ended before it finished starting.
+	effectTable.Ended = true
+	
 	local mobileEffects = effectTable.ParentObj:GetObjVar("MobileEffects") or {}
-	mobileEffects[effectTable.EffectName] = nil
-	effectTable.ParentObj:SetObjVar("MobileEffects",mobileEffects)
+	if ( mobileEffects[effectTable.EffectName] ~= nil ) then
+		mobileEffects[effectTable.EffectName] = nil
+		effectTable.ParentObj:SetObjVar("MobileEffects",mobileEffects)
+	end
 
 	StateMachine.Unregister(effectTable)
 end
@@ -14,6 +26,10 @@ end
 ---- but on a module attached to a different player or an NPC you'd have to do player:SendMessage("StartMobileEffect",...) to start the effect on player in first example.
 
 function StartMobileEffect(mobileObj,effectName,target,args)
+	local timerName = effectName .. "Starting"
+	if ( mobileObj:HasTimer(timerName) ) then return false end
+	mobileObj:ScheduleTimerDelay(MobileEffectTimer, timerName)
+
     Verbose("MobileEffect", "StartMobileEffect", mobileObj,effectName,target,args)
 	if not( MobileEffectLibrary[effectName] ) then
 		LuaDebugCallStack("[StartMobileEffect] '".. effectName.."' does not seem to exist.")
@@ -34,24 +50,7 @@ function StartMobileEffect(mobileObj,effectName,target,args)
 		return true
 	end
 
-	local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
-	if not( ContainsMobileEffect(mobileEffects, effectName) ) then
-		if ( MobileEffectLibrary[effectName].PersistSession == true ) then
-			local duration = args.Duration or MobileEffectLibrary[effectName].Duration
-			if ( duration == nil ) then
-				LuaDebugCallStack("[StartMobileEffect] Tried to persist mobile effect '"..effectName.."' through sessions without a Duration, if this is intentional; insert logic here, otherwise this effect will not work AT ALL.")
-				return false
-			end
-			mobileEffects[effectName] = {
-				target,
-				args,
-				DateTime.UtcNow + duration -- when the effect should end
-			}
-		else
-			mobileEffects[effectName] = false
-		end
-		mobileObj:SetObjVar("MobileEffects", mobileEffects)
-	else
+	if ( HasMobileEffect(mobileObj, effectName) ) then
 		-- existing effects applied multiple times (stacking)
 		if ( MobileEffectLibrary[effectName].OnStack ~= nil ) then
 			mobileObj:SendMessage(effectName.."Stack", target, args)
@@ -60,12 +59,33 @@ function StartMobileEffect(mobileObj,effectName,target,args)
 		-- non-stackable effects fail here
 		return false
 	end
+
+	local data = false
+	if ( MobileEffectLibrary[effectName].PersistSession == true ) then
+		local duration = args.Duration or MobileEffectLibrary[effectName].Duration
+		if ( duration == nil ) then
+			LuaDebugCallStack("[StartMobileEffect] Tried to persist mobile effect '"..effectName.."' through sessions without a Duration, if this is intentional; insert logic here, otherwise this effect will not work AT ALL.")
+			return false
+		end
+		data = {
+			target,
+			args,
+			DateTime.UtcNow + duration -- when the effect should end
+		}
+	end
 	
 	-- new effect (not stacked)
 	local effectTable = deepcopy(MobileEffectLibrary[effectName])
 	effectTable.UniqueId = uuid()
 	effectTable.EffectName = effectName
-	return StateMachine.Register(effectTable,mobileObj,target,args)
+	local result = StateMachine.Register(effectTable,mobileObj,target,args)
+	if ( effectTable.Ended ~= true ) then
+		-- need to read and set here since some effects can start/stop other effects while registering
+		local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
+		mobileEffects[effectName] = data
+		mobileObj:SetObjVar("MobileEffects", mobileEffects)
+	end
+	return result
 end
 
 function HasMobileEffect(mobileObj, effectName)
@@ -149,14 +169,11 @@ function OnStackRefreshDuration(self,root,target,args)
 end
 
 function ClearDebuffs(mobileObj)
-	local mobileEffects = mobileObj:GetObjVar("MobileEffects")
+	local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
 	for name,data in pairs(mobileEffects) do
 		if ( MobileEffectLibrary[name].Debuff == true ) then
 			mobileObj:SendMessage(string.format("End%sEffect", name))
 		end
-	end
-	if ( IsPoisoned(mobileObj) ) then
-		mobileObj:SendMessage("CurePoison")
 	end
 end
 
@@ -170,4 +187,7 @@ require 'globals.mobile_effects.bows.main'
 require 'globals.mobile_effects.weapons.main'
 require 'globals.mobile_effects.potions.main'
 require 'globals.mobile_effects.items.main'
+require 'globals.mobile_effects.objects.main'
 require 'globals.mobile_effects.god.main'
+require 'globals.mobile_effects.mounts.main'
+require 'globals.mobile_effects.spells.main'

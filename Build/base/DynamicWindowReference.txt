@@ -16,8 +16,6 @@ Selection
 SimpleButton
 UpDownLock
 TabButton
-LeftArrow
-RightArrow
 Invisible
 CategoryButton
 SectionButton

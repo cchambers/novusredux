@@ -243,7 +243,7 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
             if not(success) then
                 this:NpcSpeech("Are you trying to play tricks on me?")
             else
-                user:SystemMessage("You pay the mercenary his initial fee of "..MERCHANT_HIRE_FEE.." copper.")
+                user:SystemMessage("You pay the mercenary his initial fee of "..MERCHANT_HIRE_FEE.." copper.","info")
                 CompleteHire(user,completeHireLoc)
             end
         end

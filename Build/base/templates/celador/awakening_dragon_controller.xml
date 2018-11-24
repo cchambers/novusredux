@@ -14,21 +14,21 @@
 						-- Stage 1 (Easy Lizards)
 						{ 
 							KillCount = 500, 
-							SystemMessage = "The wyverns are here."
+							SystemMessage = "The ground begins to rumble."
 						}, 
 						-- Stage 2 (Hard Lizards)
 						{ 
 							KillCount = 200, 
 							PermanentObjectTag = "Dragons Den Stage 1", 
 							MaxDuration = TimeSpan.FromMinutes(30),
-							SystemMessage = "The dragons are awakening."
+							SystemMessage = "The ground begins to rumble."
 						}, 
 						-- Stage 3 (Gorgon/Wyrms)
 						{ 
 							KillCount = 80, 
 							PermanentObjectTag = "Dragons Den Stage 2", 
 							MaxDuration = TimeSpan.FromMinutes(30),
-							SystemMessage = "The bigger dragons are awakening."
+							SystemMessage = "The ground begins to rumble."
 						}, 
 						-- Stage 4 (Boss Dragon)
 						{ 

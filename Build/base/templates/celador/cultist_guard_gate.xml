@@ -20,7 +20,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=80, Agi=60, Int=10 },
-					Skills = { Melee = 80, Slashing = 60, Bashing = 60, Piercing = 40, Blocking = 40 },
+					Skills = { Melee = 80, Slashing = 60, Brawling = 60, Piercing = 40, Blocking = 40 },
 					EquipTable = {
 						BodyPartHead = { "head_cultist" },
 						BodyPartHair = { "" },

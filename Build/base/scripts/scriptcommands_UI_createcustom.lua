@@ -8,7 +8,7 @@ function OpenCreateCustomWindow()
 
 	local objList = ScrollWindow(12,12,400,476,34)
 
-	local clientIdFile = SERVER_DATADIRECTORY .. "/ClientIdReference.txt"
+	local clientIdFile = ServerSettings.DataDirectory .. "/ClientIdReference.txt"
 
 	allObjects = {}
 	if(file_exists(clientIdFile)) then	

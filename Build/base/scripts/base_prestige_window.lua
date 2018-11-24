@@ -69,30 +69,12 @@ function AddAbilityDetail(dynamicWindow,position,abilityTable)
 		dynamicWindow:AddImage(curX + 204,57,"Prestige_StaticIconFrame",74,74,"Sliced")	
 
 		dynamicWindow:AddImage(curX + 146,138,"Prestige_TitleHeader")
-		dynamicWindow:AddLabel(curX + 240,141,"[43240f]"..(abilityTable.Data.DisplayName or abilityTable.Name).."[-]",150,0,28,"center",false,false,"Kingthings_Dynamic")
+		dynamicWindow:AddLabel(curX + 240,141,"[43240f]"..(abilityTable.Data.Action.DisplayName or abilityTable.Name).."[-]",150,0,28,"center",false,false,"Kingthings_Dynamic")
 		dynamicWindow:AddImage(curX + 114,174,"Prestige_Divider",250,0,"Sliced")
 
-		local buttonState = (mPrestigeSlotIndex[position] == 1) and "pressed" or ""
-		dynamicWindow:AddButton(curX + 134,190,"Slot"..position.."|1","",0,0,"","",false,"PageCircle",buttonState)
-		dynamicWindow:AddLabel(curX + 156,200,"[43240f]I[-]",150,0,30,"center",false,false,"Kingthings_Dynamic")
-
-		if(#abilityTable.Data.Levels > 1) then
-			local buttonState = (mPrestigeSlotIndex[position] == 2) and "pressed" or ""
-			dynamicWindow:AddButton(curX + 214,190,"Slot"..position.."|2","",0,0,"","",false,"PageCircle",buttonState)
-			dynamicWindow:AddLabel(curX + 236,200,"[43240f]II[-]",150,0,30,"center",false,false,"Kingthings_Dynamic")
-		end
-
-		if(#abilityTable.Data.Levels > 2) then
-			local buttonState = (mPrestigeSlotIndex[position] == 3) and "pressed" or ""
-			dynamicWindow:AddButton(curX + 290,190,"Slot"..position.."|3","",0,0,"","",false,"PageCircle",buttonState)
-			dynamicWindow:AddLabel(curX + 312,200,"[43240f]III[-]",150,0,30,"center",false,false,"Kingthings_Dynamic")
-		end
-
-		dynamicWindow:AddImage(curX + 114,244,"Prestige_Divider",250,0,"Sliced")
-
-		local reqStr = "Requires: "..StripTrailingComma(BuildPrestigePrerequisitesString(mPrestigePageType,abilityTable.Name,mPrestigeSlotIndex[position],", "))
-		local descStr = abilityTable.Data.Levels[mPrestigeSlotIndex[position]].Tooltip or ""
-		dynamicWindow:AddLabel(curX + 114,260,"[43240f]"..reqStr.."\n\n"..descStr.."[-]",220,300,16,"left",false,false,"")
+		local reqStr = "Requires: "..StripTrailingComma(BuildPrestigePrerequisitesString(abilityTable.Data,", "))
+		local descStr = abilityTable.Data.Tooltip or ""
+		dynamicWindow:AddLabel(curX + 114,192,"[43240f]"..reqStr.."\n\n"..descStr.."[-]",220,300,18,"left",false,false,"PermianSlabSerif_Dynamic_Bold")
 	end
 end
 
@@ -163,7 +145,7 @@ function OpenPrestigeWindow()
 		dynamicWindow:AddStatBar(120,364,110,3,"PrestigeXP","5176FF",this);
 		dynamicWindow:AddLabel(276+10,358,"[43240f]"..GetPrestigePoints(this).."[-]",160,0,24,"center")
 
-		local xpTooltip = "[E9D20E]Ability Training Points[-]\nYou earn training experience during your adventures. It takes "..ServerSettings.Prestige.PrestigePointXP.." xp to gain an ability point. Ability points are consumed when training abilities.\n\nLevel I: "..ServerSettings.Prestige.AbilityLevelPointCost[1].." points\nLevel II: "..ServerSettings.Prestige.AbilityLevelPointCost[2].." points\nLevel III: "..ServerSettings.Prestige.AbilityLevelPointCost[3].." points"
+		local xpTooltip = "[E9D20E]Ability Training Points[-]\nYou earn training experience during your adventures. It takes "..ServerSettings.Prestige.PrestigePointXP.." xp to gain an ability point. Ability points are consumed when training abilities.\n\nRank I: "..ServerSettings.Prestige.AbilityRankPointCost[1].." points\nRank II: "..ServerSettings.Prestige.AbilityRankPointCost[2].." points\nRank III: "..ServerSettings.Prestige.AbilityRankPointCost[3].." points"
 		dynamicWindow:AddButton(110,330,"","",264,40,xpTooltip,"",false,"Invisible")
 
 		local buttonState = HasSkillInTracker("Prestige") and "pressed" or ""

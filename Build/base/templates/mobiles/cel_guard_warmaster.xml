@@ -13,7 +13,6 @@
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
     	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
-    	<StringVariable Name="MobileKind">Humanoid</StringVariable>
     	<BoolVariable Name="noloot">True</BoolVariable>
 		<DoubleVariable Name="Karma">10000</DoubleVariable>
 	</ObjectVariableComponent>
@@ -27,7 +26,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 					EquipTable = 
 					{

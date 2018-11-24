@@ -1,5 +1,5 @@
 <ObjectTemplate>
 	<ClientId>1091</ClientId>
 	<Name>[FF9500]Large Ornate Candle Shelf[-]</Name>
-	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
 </ObjectTemplate>

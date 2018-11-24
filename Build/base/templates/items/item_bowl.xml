@@ -3,11 +3,5 @@
 	<Name>[FF9500]Wooden Bowl[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>					
-    	<!-- Stackable objvars -->
-    	<StringVariable Name="PluralName">Wooden Bowls</StringVariable>
-		<BoolVariable Name="Worthless">true</BoolVariable>
    	</ObjectVariableComponent>		
-	<ScriptEngineComponent>
-		<LuaModule Name="stackable"/>
-	</ScriptEngineComponent>
 </ObjectTemplate>

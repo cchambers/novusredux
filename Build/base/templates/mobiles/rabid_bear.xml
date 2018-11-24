@@ -11,6 +11,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Animals</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -20,7 +21,7 @@
 		<DoubleVariable Name="Attack">30</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">
@@ -32,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=75,  
+					Brawling = 75,  
 					},	
 				EquipTable = 
 					{

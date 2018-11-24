@@ -15,6 +15,7 @@ RegisterEventHandler(EventType.Message, "WakeUp", function()
 
     this:SetWorldPosition(this:GetObjVar("PositionBeforeUsing"))
     RemoveUseCase(this, "Wake Up")
+    this:PlayAnimation("idle")
     
     CallFunctionDelayed(TimeSpan.FromMilliseconds(1), function()
         if ( this:HasModule("sleeping") ) then

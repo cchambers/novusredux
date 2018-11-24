@@ -146,7 +146,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 		if (buttonId == "Relic") then
 			QuickDialogMessage(this,user,"[$2091]")
 	        CreateObjInBackpack(user,"holy_water","handle_holy_water")  
-	        user:SystemMessage("You have received [D7D700]Holy Water[-]!")
+	        user:SystemMessage("You have received [D7D700]Holy Water[-]!","info")
 		end
 		if (buttonId == "What") then
 			QuickDialogMessage(this,user,"[$2092]")

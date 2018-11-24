@@ -179,7 +179,7 @@ RegisterEventHandler(EventType.Message, "UserPetCommand",
     --DebugMessage("Owner:" .. mMyOwner:GetName())
         if(cmdInfo == nil) then return end
         if this:HasTimer("FailedCommandTimeOut" ..cmdName) then
-                mMyOwner:SystemMessage("[F7CC0A]" .. tostring(this:GetSharedObjectProperty("Title")) .. " is ignoring your command for the moment.[-]")
+                mMyOwner:SystemMessage("[F7CC0A]" .. tostring(this:GetSharedObjectProperty("Title")) .. " is ignoring your commands.[-]","info")
                 return
         end
         local myLoc = this:GetLoc()
@@ -203,7 +203,7 @@ RegisterEventHandler(EventType.Message, "UserPetCommand",
                     atTarg = GameObj(tonumber(recArgs))
                 end
                 if(atTarg == nil) or not atTarg:IsValid() then
-                    mMyOwner:SystemMessage("[FA0C0C] Invalid Target For Pet Command.")
+                    mMyOwner:SystemMessage("[FA0C0C] Invalid Target For Pet Command.","info")
                     return
                 end
             end
@@ -332,7 +332,7 @@ function InterruptSummon()
     if(mSummoning) then
         local mMyOwner = this:GetObjVar("controller")
         this:RemoveTimer("SummonTimer")  
-        mMyOwner:SystemMessage("[FA0C0C] Your follower summoning was interrupted.", "event")
+        mMyOwner:SystemMessage("[FA0C0C] Your follower summoning was interrupted.", "info")
         mMyOwner:SendMessage("EndSummoning")
         mSummoning = false
     end
@@ -356,12 +356,12 @@ function BeginSummon()
     local mMyOwner = this:GetObjVar("controller")
     if(mMyOwner ~= nil) and mMyOwner:IsValid() then
         if(mMyOwner:IsMoving()) then
-            mMyOwner:SystemMessage("[$51]")
+            mMyOwner:SystemMessage("[$51]","info")
             return
         end
         this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "SummonTimer")
         mMyOwner:SendMessage("SummoningPet", {["pet"] = this})
-        mMyOwner:SystemMessage("[F7CC0A] Summoning Minion", "event")
+        mMyOwner:SystemMessage("[F7CC0A] Summoning Minion", "info")
         ProgressBar.Show{
             Label="Summoning Pet",
             Duration=10,

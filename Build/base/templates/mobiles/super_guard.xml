@@ -27,7 +27,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 				EquipTable = 
 					{
@@ -41,7 +41,7 @@
 				LootTables = 
 					{
 					},
-				CombatAbilities = { {"NPCCharge", 3} },
+				CombatAbilities = { "NPCCharge" },
 				}
 			</Initializer>
 		</LuaModule>

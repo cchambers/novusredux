@@ -9,8 +9,8 @@ MaterialIndex = {
 	MetalsmithSkill = {
 		"Iron",
         "Copper",
-        "Bronze",
-        "Steel",
+        "Gold",
+        "Cobalt",
 		"Obsidian",
 	},
 	FabricationSkill = {
@@ -32,9 +32,9 @@ MaterialIndex = {
 -- a resource must be defined in here to count as a material, the value is the hue
 Materials = {
     Iron = 22,
-    Bronze = 808,
+    Gold = 787,
     Copper = 667,
-    Steel = 836,
+    Cobalt = 836,
     Obsidian = 893,
 
     Cloth = 139,
@@ -48,4 +48,24 @@ Materials = {
     Boards = 775,
     AshBoards = 866,
     BlightwoodBoards = 865,
+}
+
+MaterialTooltipColors = {
+    Iron = "[969696]",
+    Copper = "[9cff3c]",
+    Gold = "[e6b032]",
+    Cobalt = "[d7f5f2]",
+    Obsidian = "[b459ff]",
+
+    Cloth = "[b3a489]",
+    QuiltedCloth = "[e6cfa5]",
+    SilkCloth = "[fff2d9]",
+
+    Leather = "[ab805c]",
+    BeastLeather = "[b459ff]",
+    VileLeather = "[d61c1c]",
+
+    Wooden = "[b5751b]",
+    Ash = "[dbb47d]",
+    Blightwood = "[b459ff]",
 }

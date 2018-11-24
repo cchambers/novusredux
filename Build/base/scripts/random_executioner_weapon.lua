@@ -14,8 +14,6 @@ function GetLevelByIntensity()
 
 	if ( 30 > random ) then
 		return 2
-	else
-		random = random - 30
 	end
 
 	return 3
@@ -40,13 +38,13 @@ function RandomExecutionerWeapon()
 	end)
 	local template = ServerSettings.Executioner.RandomTemplateList[math.random(1, #ServerSettings.Executioner.RandomTemplateList)]
 
-	-- get the container this item is in
+	-- get the container this item is in (if any)
 	local container = this:ContainedBy()
 	if ( container == nil ) then
-		-- put it in the container
+		-- drop it on the ground.
 		CreateObj(template, this:GetLoc(), "executioner_weapon_created")
 	else
-		-- drop it on the ground.
+		-- put it in the container
 		local dropPos = GetRandomDropPosition(container)
     	CreateObjInContainer(template, container, dropPos, "executioner_weapon_created")
 	end

@@ -1,7 +1,6 @@
 <ObjectTemplate>
-	<ClientId>349</ClientId>
-	<Color>0xFFFFFF00</Color>
-	<Name>[FF0000]Topaz[-]</Name>
+	<ClientId>2252</ClientId>
+	<Name>Topaz</Name>
 	<ScaleModifier>0.8</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>			

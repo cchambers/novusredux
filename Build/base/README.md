@@ -1,1 +1,0 @@
-# Novus Opiate Seclorum: Redux

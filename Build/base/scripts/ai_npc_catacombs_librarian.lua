@@ -268,7 +268,7 @@ end
 
 function Dialog.OpenFinishDialog(user)
     user:SetObjVar("Intro|Hun-Tirus the Librarian",true)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.StudentOfWayun)
+    CheckAchievementStatus(user, "Other", "StudentOfWayun", nil, {Description = "", CustomAchievement = "Student Of Wayun", Reward = {Title = "Student Of Wayun"}})
     ChangeFactionByAmount(user,1,"Wayun")
     user:SendMessage("AdvanceQuest","CatacombsStartQuest","TalkToPriest")
     text = "[$634]"

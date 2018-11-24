@@ -18,7 +18,7 @@
 		<DoubleVariable Name="Armor">55</DoubleVariable>
 		<DoubleVariable Name="Attack">25</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -33,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=50,
+					Brawling = 50,
 					},	
 				EquipTable = 
 					{
@@ -47,6 +47,7 @@
 						TemplateDefines.LootTable.Average,	
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsPoor,			
+						TemplateDefines.LootTable.BeastBlood,
 						{
 							NumCoins = math.random(260,350),
 						},
@@ -61,7 +62,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 1,	
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=60, Count=2 },

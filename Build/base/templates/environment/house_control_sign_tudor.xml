@@ -1,8 +1,7 @@
 <ObjectTemplate>
 	<ClientId>363</ClientId>
-	<Name>[FF9500]House Control[-]</Name>
-	<ObjectVariableComponent/>
-	<ScriptEngineComponent>
-		<LuaModule Name="house_control"/>
-	</ScriptEngineComponent>
+	<Name>A House</Name>
+	<ObjectVariableComponent>
+    	<StringVariable Name="ResourceType">HouseController</StringVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>

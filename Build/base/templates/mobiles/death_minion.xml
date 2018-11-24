@@ -9,6 +9,7 @@
 	<ObjectVariableComponent>			
 		<DoubleVariable Name="BaseHealth">20</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<StringVariable Name="NaturalArmor">Medium</StringVariable>
 		<DoubleVariable Name="AI-ChaseRange">5</DoubleVariable>
 		<DoubleVariable Name="AI-AggroRange">3</DoubleVariable>
@@ -31,7 +32,7 @@
 					{ 
 					Melee = 40, 
 					Slashing = 70,
-					Bashing = 70,
+					Brawling = 70,
 					Piercing = 70,
 					},	
 	

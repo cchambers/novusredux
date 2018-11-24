@@ -11,6 +11,7 @@ MobileEffectLibrary.Evasion =
 
 		SetMobileMod(self.ParentObj, "EvasionPlus", "EvasionEffect", self.Amount)
 
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/evasion")
 	end,
 
 	OnExitState = function(self,root)

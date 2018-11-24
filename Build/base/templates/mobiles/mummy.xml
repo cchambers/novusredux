@@ -33,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=70,  
+					Brawling = 70,  
 					},	
 				EquipTable = 
 					{
@@ -41,7 +41,7 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.SkeletonRich,
+						TemplateDefines.LootTable.BonesCursed,
 						TemplateDefines.LootTable.Potions,
 						TemplateDefines.LootTable.Maps,
 						TemplateDefines.LootTable.Rich,
@@ -52,7 +52,7 @@
 				ScavengeTables =
 					{
 					},				
-					WeaponAbilities = { primary="Bash" },	
+					WeaponAbilities = { primary="Overpower" },	
 				}
 			</Initializer>
 		</LuaModule>

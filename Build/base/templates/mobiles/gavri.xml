@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1280</ClientId>
 	<Name>Gavri</Name>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Snake"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/animals/snake/snake"/>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
 	<ScaleModifier>.8</ScaleModifier>
 	<MobileComponent>
@@ -10,6 +10,7 @@
 	</MobileComponent>				
 	<ObjectVariableComponent>			
 		<StringVariable Name= "MobileTeamType">Reptiles</StringVariable>
+		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<DoubleVariable Name="BaseHealth">170</DoubleVariable>
 		<StringVariable Name="MonsterAR">44</StringVariable>
 		<DoubleVariable Name="NaturalMinDamage">5</DoubleVariable>

@@ -2,7 +2,8 @@
 <ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Miiz the Alchemist</Name>
+	<Name>Miiz</Name>
+	<SharedStateEntry name="Title" type="string" value="Alchemist"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<DoubleVariable Name="Armor">62</DoubleVariable>
@@ -56,7 +57,6 @@
 							Template = "ingredient_ginsengroot",
 							Price = 0,
 							Amount = 999,
-							Amount = 999,
 							RelativeLoc = "0.02880859, 0.9132729, -1.983093",
 							Rotation = "0, 323.2994, 0",
 							UnlimitedStock = false,
@@ -64,7 +64,6 @@
 						{
 							Template = "ingredient_mushroom",
 							Price = 0,
-							Amount = 999,
 							Amount = 999,
 							RelativeLoc = "1.300049, 0.9132729, -1.013184",
 							Rotation = "0, 323.2994, 0",
@@ -74,7 +73,6 @@
 							Template = "ingredient_lemongrass",
 							Price = 0,
 							Amount = 999,
-							Amount = 999,
 							RelativeLoc = "0.6586914, 0.9132729, -1.502625",
 							Rotation = "0, 1.088598, 0",
 							UnlimitedStock = false,
@@ -82,7 +80,6 @@
 						{
 							Template = "potion_lheal",
 							Price = 0,
-							Amount = 20,
 							Amount = 20,
 							RelativeLoc = "1.041016, -0.02499962, -2.738037",
 							Rotation = "0, 270.0002, 0",
@@ -92,7 +89,6 @@
 							Template = "potion_lstamina",
 							Price = 0,
 							Amount = 20,
-							Amount = 20,
 							RelativeLoc = "1.693848, -0.02499962, -2.251038",
 							Rotation = "0, 270.0002, 0",
 							UnlimitedStock = false,
@@ -100,7 +96,6 @@
 						{
 							Template = "potion_lmana",
 							Price = 0,
-							Amount = 20,
 							Amount = 20,
 							RelativeLoc = "2.36084, -0.01799965, -1.762024",
 							Rotation = "0, 270.0002, 0",

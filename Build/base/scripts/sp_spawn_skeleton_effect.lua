@@ -10,14 +10,14 @@ function HandleLoaded(source,target)
 	local currentMinions = FindObjects(SearchObjVar("controller",myResSource))
 	--DebugMessage("followers = "..#currentFollowers)
 	if (#currentMinions >= MAX_MINIONS and not IsDemiGod(myResSource)) then
-		myResSource:SystemMessage("[D70000]You have too many minions in play![-]")
+		myResSource:SystemMessage("[D70000]You have too many minions in play![-]","info")
 		EndEffect()
 		return
 	end
 
 	local maxFollowers = math.max(1,math.min(GetSkillLevel(myResSource,"NecromancySkill")/SKILL_PER_SKELETON,MAX_MINIONS))
 	if (#currentMinions >= maxFollowers and not IsDemiGod(myResSource)) then
-		myResSource:SystemMessage("[$2622]")
+		myResSource:SystemMessage("[$2622]","info")
 		EndEffect()
 		return
 	end
@@ -27,7 +27,7 @@ function HandleLoaded(source,target)
 		return
 	end
 	if (this:HasObjVar("controller") and this:GetObjVar("controller") == myResSource) then
-		myResSource:SystemMessage("[$2623]")
+		myResSource:SystemMessage("[$2623]","info")
 		EndEffect()
 		return
 	end
@@ -37,28 +37,28 @@ function HandleLoaded(source,target)
 	end
 
 	if (this:HasObjVar("noloot")) then
-		myResSource:SystemMessage("[$2624]")
+		myResSource:SystemMessage("[$2624]","info")
 		EndEffect()
 		return
 	end
 
 	if (not IsDead(this)) then
-		myResSource:SystemMessage("[D70000]Your target must be dead![-]")
+		myResSource:SystemMessage("[D70000]Your target must be dead![-]","info")
 		EndEffect()
 		return
 	end
 	if (this:IsPlayer()) then
-		myResSource:SystemMessage("[$2625]")
+		myResSource:SystemMessage("[$2625]","info")
 		EndEffect()
 		return
 	end
 	if (this:HasObjVar("NoSkele")) then
-		myResSource:SystemMessage("[$2626]")
+		myResSource:SystemMessage("[$2626]","info")
 		EndEffect()
 		return
 	end
 	if (not IsHuman(this) and not IsUndead(this)) then
-		myResSource:SystemMessage("[$2627]")
+		myResSource:SystemMessage("[$2627]","info")
 		EndEffect()
 		return
 	end

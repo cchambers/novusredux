@@ -9,6 +9,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Sewer</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +19,7 @@
 		<DoubleVariable Name="Attack">4</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
-		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
 	</ObjectVariableComponent>					
@@ -34,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=10,  
+					Brawling = 10,  
 					},	
 				EquipTable = 
 					{
@@ -44,7 +45,7 @@
 					{ 
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.Eye,
 						{
 							NumCoins = math.random(25,40),
 						},
@@ -58,7 +59,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 2,
 				}
 			</Initializer>
 		</LuaModule>

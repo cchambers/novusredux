@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>2186</ClientId>
+	<Name>[FF9500]Stone Table[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

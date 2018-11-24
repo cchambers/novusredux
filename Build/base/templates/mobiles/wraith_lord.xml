@@ -6,7 +6,7 @@
 	<Name>Vox Maros</Name>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Banshee"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/banshee/banshee"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -40,7 +40,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=110,  
+					Brawling = 110,  
 					Channeling = 110,
 					},	
 				EquipTable = 
@@ -50,7 +50,7 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.SkeletonRich,
+						TemplateDefines.LootTable.BonesEthereal,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,

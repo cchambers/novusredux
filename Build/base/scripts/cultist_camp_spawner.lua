@@ -37,8 +37,8 @@ function CheckSpawn()
 	local checkCount = 0
 	while(checkCount < #campLocations) do
 		curObj = spawnedCamps[curIndex]
-            local inHouse = HasHouseAtLoc(campLocations[curIndex].Loc) --you don't want cultists making a camp inside a house
-            if not (inHouse) then
+            local plotController = Plot.GetAtLoc(campLocations[curIndex].Loc) --you don't want cultists making a camp inside a house
+            if ( plotController == nil ) then
 				if( curObj == nil or not(curObj:IsValid()) ) then
 					if (campSize <= campMaxNumber) then
 						SpawnCamp(curIndex)

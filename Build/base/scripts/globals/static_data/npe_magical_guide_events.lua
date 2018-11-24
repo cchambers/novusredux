@@ -3,7 +3,7 @@ MagicalGuideEvents = {
 		Messages = {
 			"Welcome to Celador!",
 			"The gods have sent me to help you get started with your new life.",
-			"You can summon or converse with me at any time. (click the help button in the upper right)",
+			"You can summon or converse with me at any time.",
 		}
 	},
 	NearSewer = {

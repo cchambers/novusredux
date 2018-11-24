@@ -537,7 +537,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 
 			text="Well, let me see it then!"
 
-			user:SystemMessage("Select the Book of Yihosiglok.")
+			user:SystemMessage("Select the Book of Yihosiglok.","info")
 			user:RequestClientTargetGameObj(this, "BookOfYihsiglok")
 
 			response = {}
@@ -553,7 +553,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 
 			text="Let me see the scroll you have."
 
-			user:SystemMessage("Select the spell scroll.")
+			user:SystemMessage("Select the spell scroll.","info")
 			user:RequestClientTargetGameObj(this, "SpellScroll")
 
 			response = {}
@@ -643,7 +643,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "BookOfYihsiglok",
 			local backpackObj = user:GetEquippedObject("Backpack")  
 			local dropPos = GetRandomDropPosition(backpackObj)
 	    	CreateObjInContainer("lscroll_teleport", backpackObj, dropPos, nil)
-	        user:SystemMessage("You have received a Teleport Scroll!")
+	        user:SystemMessage("You have received a Teleport Scroll!","info")
 
 	        target:Destroy()
 
@@ -726,3 +726,8 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Actions",
 
 		end
 	end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

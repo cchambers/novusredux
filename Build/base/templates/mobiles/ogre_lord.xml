@@ -24,7 +24,7 @@
 					Skills =
 					{ 
 						Melee=math.random(90.1,100), 
-						Bashing=math.random(90.1,100), 
+						Brawling = math.random(90.1,100), 
 					},
 					EquipTable =
 					{

@@ -15,5 +15,5 @@ ServerSettings.CharacterCreation = {
 	},
 
 	MaxStartingSkillValue = 30,
-	StartingSkillCap = 80,
+	StartingSkillCap = 100,
 }

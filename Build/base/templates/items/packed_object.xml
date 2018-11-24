@@ -1,9 +1,8 @@
 <ObjectTemplate>
 	<Name>Empty Pack</Name>
-	<ClientId>185</ClientId>
+	<ClientId>2260</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent/>		
-	<ScriptEngineComponent>
-		<LuaModule Name="packed_object"/>
-	</ScriptEngineComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>

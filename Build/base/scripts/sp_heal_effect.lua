@@ -20,7 +20,7 @@ function HandleLoaded()
 	--D*ebugDict(myDamageModifiersDict)
 	AddBuffIcon(this,"CriticalHealing","Heal Over Time","heal","Heals on a pulse for a period of time.",true,8)
 	mHealTicks = HEAL_TICKS
-	this:SystemMessage("[$2611]")
+	this:SystemMessage("[$2611]","info")
 	this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(1000), "HealEffectTickTimer", myHealSource)
 end
 
@@ -49,7 +49,7 @@ RegisterEventHandler(EventType.Timer, "HealEffectTickTimer",
 			mHealTicks = mHealTicks - 1
 			return
 		end
-		this:SystemMessage("[F7CC0A] The rejuvination effect has ended.[-]")
+		this:SystemMessage("[F7CC0A] The rejuvination effect has ended.[-]","info")
 		EndEffect()
 	end)
 

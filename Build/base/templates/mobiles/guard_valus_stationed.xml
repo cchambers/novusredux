@@ -28,7 +28,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing = 100,
+					Brawling = 100,
 					Blocking = 100,  
 					HeavyArmor = 100,
 					Melee = 100,
@@ -36,7 +36,7 @@
 				EquipTable = 
 					{
 						BodyPartHead = { "head_male02","head_male03","head_male04","head_male05", },
-						RightHand = { "weapon_vouge" },
+						RightHand = { "weapon_voulge" },
 						Head = { "armor_fullplate_helm" },
 						Chest = { "armor_fullplate_tunic" },
 						Legs = { "armor_fullplate_leggings" },

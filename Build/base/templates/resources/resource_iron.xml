@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Iron[-]</Name>
+	<Name>[969696]Iron[-]</Name>
 	<ClientId>25</ClientId>
 	<Hue>22</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

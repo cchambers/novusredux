@@ -18,7 +18,7 @@ function HandleUseTool(user,useType)
 	end
 
 	user:AddModule("base_crafting_controller")
-	user:SendMessage("InitiateCrafting", this,"WoodsmithSkill","Furnishings")
+	user:SendMessage("InitiateCrafting", this,"WoodsmithSkill","Resources")
 end
 
 

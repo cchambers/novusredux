@@ -9,6 +9,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Dragon</StringVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<DoubleVariable Name="BaseHealth">100</DoubleVariable>
 		<StringVariable Name="MonsterAR">0</StringVariable>
 		<DoubleVariable Name="NaturalMinDamage">12</DoubleVariable>

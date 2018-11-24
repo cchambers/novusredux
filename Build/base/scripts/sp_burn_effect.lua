@@ -27,7 +27,7 @@ function HandleLoaded(source)
 	--D*ebugDict(myDamageModifiersDict)
 	mBurnTicks = BURN_TICKS
 	AddBuffIcon(this,"Burning","On Fire!","Immolation","Damage dealt to self while on fire.",true,BURN_TICKS)
-	this:SystemMessage("[F7CC0A] Your skin begins to char and burn.[-]")
+	this:SystemMessage("[F7CC0A] Your skin begins to char and burn.[-]","info")
 	this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(1000), "BurnEffectTickTimer", myBurnSource)
 	this:PlayEffect("IgnitedEffect", 5)
 
@@ -75,7 +75,7 @@ RegisterEventHandler(EventType.Timer, "BurnEffectTickTimer",
 			
 			return
 		end
-		this:SystemMessage("[F7CC0A] That burning sensation has cleared up.[-]")
+		this:SystemMessage("[F7CC0A]That burning sensation has cleared up.[-]","info")
 		EndEffect()
 	end)
 

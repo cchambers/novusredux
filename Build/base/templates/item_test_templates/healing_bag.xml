@@ -19,10 +19,7 @@
 						    NumItems = 4,
 							LootItems = 
 							{ 	
-								{ Template = "bandage", StackCount = 100, Unique = true },
-								{ Template = "gauze", StackCount = 100, Unique = true },
-								{ Template = "healing_salve", StackCount = 100, Unique = true },
-								{ Template = "tinderbox", StackCount = 100, Unique = true },								
+								{ Template = "bandage", StackCount = 100, Unique = true },								
 							} 
 						},							
 					}

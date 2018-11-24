@@ -30,18 +30,25 @@ function DoInfo(target)
     newWindow:AddLabel(20, 50, "[F3F781]Template: [-]"..tostring(curInfoObj:GetCreationTemplateId()),600,0,18,"left",false)
     newWindow:AddLabel(210, 50, "[F3F781]Hue: [-]"..tostring(curInfoObj:GetHue()),600,0,18,"left",false)
     if(curInfoObj:IsPlayer()) then
-    	newWindow:AddLabel(305, 50, "[F3F781]UserId: [-]"..tostring(curInfoObj:GetAttachedUserId()),600,0,18,"left",false)
+    	newWindow:AddLabel(295, 50, "[F3F781]UserId: [-]"..tostring(curInfoObj:GetAttachedUserId()),600,0,18,"left",false)
     else
-	    newWindow:AddLabel(305, 50, "[F3F781]ClientId: [-]"..tostring(curInfoObj:GetIconId()),600,0,18,"left",false)
+	    newWindow:AddLabel(295, 50, "[F3F781]ClientId: [-]"..tostring(curInfoObj:GetIconId()),600,0,18,"left",false)
     end
     newWindow:AddLabel(20, 70, "[F3F781]Cloaked: [-]"..tostring(curInfoObj:IsCloaked()),600,0,18,"left",false)
     newWindow:AddLabel(115, 70, "[F3F781]Frozen: [-]"..tostring(curInfoObj:IsMobileFrozen()),600,0,18,"left",false)
-    newWindow:AddLabel(210, 70, "[F3F781]Color: [-]"..tostring(curInfoObj:GetColor()),600,0,18,"left",false)
-    if curInfoObj:IsMobile() then
-        newWindow:AddLabel(305, 70, "[F3F781]Scale: [-]"..string.format("%4.2f",curInfoObj:GetScale().X),600,0,18,"left",false)
-    end
+    newWindow:AddLabel(200, 70, "[F3F781]Color: [-]"..tostring(curInfoObj:GetColor()),600,0,18,"left",false)
+  
     newWindow:AddButton(320, 10, "Refresh", "Refresh", 80, 23, "", "", false,"")
  
+ 	local assetBundle = curInfoObj:GetAssetBundleName()
+ 	if(assetBundle ~= "") then
+ 		newWindow:AddLabel(295, 70, "[F3F781]Bundle: [-]".. assetBundle, 600,0,18,"left",false)
+ 	end
+
+  	if curInfoObj:IsMobile() then
+        newWindow:AddLabel(20, 85, "[F3F781]Scale: [-]"..string.format("%4.2f",curInfoObj:GetScale().X),600,0,18,"left",false)
+    end
+
     local behaviorState = ""
     if(curTab == "Behaviors") then
         behaviorState = "pressed"
@@ -69,7 +76,7 @@ function DoInfo(target)
     if(curTab == "Behaviors") then 
         local scrollWindow = ScrollWindow(25,135,355,225,25)
         for i,behavior in pairs(curInfoObj:GetAllModules()) do
-            scrollElement = ScrollElement()
+            local scrollElement = ScrollElement()
             if((i-1) % 2 == 1) then
             scrollElement:AddImage(0,0,"Blank",320,25,"Sliced","242400")
             end    

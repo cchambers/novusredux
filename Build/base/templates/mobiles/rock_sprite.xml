@@ -1,0 +1,59 @@
+<ObjectTemplate>
+	<ClientId>1579</ClientId>
+	<Name>Rock Sprite</Name>
+	<ScaleModifier>0.4</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<SharedStateEntry name="Variation" type="string" value="Rock"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Golem</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-500</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton_mage">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						BowResistance = 2
+					},
+				Skills = 
+					{ 
+					Brawling = 90,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+						{
+							NumItems = 1,
+							NumCoins = math.random(550,700),
+							LootItems = 
+							{ 
+								{  Chance = 70, Template = "resource_iron", Unique = true, StackCount = math.random(1,2)  },
+								{  Chance = 30, Template = "resource_Gold", Unique = true },
+							},
+						},
+					},							
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

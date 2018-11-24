@@ -1,6 +1,4 @@
 
-require 'incl_player_titles'
-
 mUser = nil
 
 --option to set them up from the initalizer instead
@@ -18,17 +16,17 @@ function ValidateUse(user)
 	end
 
 	if( this:TopmostContainer() ~= user ) then
-		user:SystemMessage("[$2428]")
+		user:SystemMessage("[$2428]","info")
 		return false
 	end
 
 	if not(this:HasObjVar("Recipe")) then 
-		user:SystemMessage("[F7CC0A] Invalid Recipe")
+		user:SystemMessage("[F7CC0A] Invalid recipe","info")
 		return false
 	end
 
 	if (HasRecipe(user,this:GetObjVar("Recipe"))) then
-		user:SystemMessage("You have already memorized this recipe.")
+		user:SystemMessage("You have already memorized this recipe.","info")
   		return false
     end
 
@@ -48,7 +46,7 @@ function MemorizeDialogResponse(user,buttonId)
 	if (buttonId == 0 and ValidateUse(user)) then		
 		mySpell = this:GetObjVar("Recipe")			
 		
-		user:SystemMessage("[F7CC0A] You attempt to commit the "..this:GetName().." to memory.")
+		user:SystemMessage("[F7CC0A] You attempt to commit the "..this:GetName().." to memory.","info")
 		MemorizeRecipe(user, mySpell, this)			
 	else
 		mUser = nil
@@ -105,11 +103,25 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 
 function MemorizeRecipe(user,recipe,recipeSource)
 	local userRecipes = (user:GetObjVar("AvailableRecipies") or {})
-	user:SystemMessage("[$2430]".. GetItemNameFromRecipe(recipe) .. "[-]","event")
-	user:SystemMessage("[$2431]")
+	user:SystemMessage("[$2430]".. GetItemNameFromRecipe(recipe) .. "[-]","info")
+	user:SystemMessage("[$2431]","info")
 	userRecipes[recipe] = true
 
-	PlayerTitles.CheckTitleGain(user,AllTitles.ActivityTitles.Recipes,#userRecipes)
+	local skillForRecipe = GetSkillForRecipe(recipe)
+	local getAchievement = true
+
+	--Check if we have memorized every recipes for specific skill
+	--If there is at least one recipe we don't have, we don't get an achievement
+	for key,value in pairs(AllRecipes[skillForRecipe]) do
+		if (value.NeedRecipe == true and userRecipes[key] ~= true) then
+			getAchievement = false
+			break
+		end
+	end
+
+	if (getAchievement) then
+		CheckAchievementStatus(user, "Crafting", skillForRecipe.."Recipe", 1)
+	end
 
 	user:SetObjVar("AvailableRecipies",userRecipes)
 	this:Destroy()

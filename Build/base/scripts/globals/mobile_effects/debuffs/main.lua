@@ -13,6 +13,7 @@ require 'globals.mobile_effects.debuffs.mortalstruck'
 -- player
 require 'globals.mobile_effects.debuffs.player.hungry'
 require 'globals.mobile_effects.debuffs.player.lowvitality'
+require 'globals.mobile_effects.debuffs.player.chaotic'
 
 --skills
 require 'globals.mobile_effects.debuffs.skills.heavyarmordebuff'
@@ -20,15 +21,18 @@ require 'globals.mobile_effects.debuffs.skills.heavyarmordebuff'
 -- rogue
 require 'globals.mobile_effects.debuffs.rogue.vanish'
 
--- scout
-require 'globals.mobile_effects.debuffs.scout.huntersmark'
+-- rogue
+require 'globals.mobile_effects.debuffs.rogue.huntersmark'
 
 -- field mage
-require 'globals.mobile_effects.debuffs.fieldmage.silence'
+require 'globals.mobile_effects.debuffs.mage.silence'
 
--- sorcerer
-require 'globals.mobile_effects.debuffs.sorcerer.destructionaoe'
+-- mage
+require 'globals.mobile_effects.debuffs.mage.destructionaoe'
 
 -- mounts
 require 'globals.mobile_effects.debuffs.dazeddebuff'
 require 'globals.mobile_effects.debuffs.nomount'
+
+-- spells
+require 'globals.mobile_effects.debuffs.frost'

@@ -1,14 +1,14 @@
 <ObjectTemplate>
 	<!-- CONTEMPT -->
 	<Name>Halls of Contempt</Name>
-	<ClientId>1207</ClientId>
+	<ClientId>2</ClientId>
 	<ObjectVariableComponent>	
 		<BoolVariable Name="ChooseUniverse">False</BoolVariable>
 		<StringVariable Name="RegionAddress">Contempt</StringVariable>
 		<BoolVariable Name="NoTeleportEffect">True</BoolVariable>
 		<LocVariable Name="Destination">166.44,0,-43.278</LocVariable>
 		<DoubleVariable Name="DestinationFacing">103</DoubleVariable>		
-		<DoubleVariable Name="TeleportRange">0</DoubleVariable>		
+		<DoubleVariable Name="TeleportRange">6</DoubleVariable>		
 
 		<!--<StringVariable Name="InfoMessage">Powerful magic stops you from opening that.</StringVariable>-->
 	</ObjectVariableComponent>	

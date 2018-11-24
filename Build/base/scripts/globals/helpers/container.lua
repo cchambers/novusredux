@@ -13,6 +13,28 @@ function IsInBank(item)
 	return result
 end
 
+function CreateObjInBackpackOrAtLocation(targetObj, createTemplate, createId, ...)
+	local backpackObj = targetObj:GetEquippedObject("Backpack")
+	
+	local canCreate,reason = CanCreateItemInContainer(createTemplate,backpackObj)
+	if(canCreate) then
+		local dropPos = GetRandomDropPosition(backpackObj)
+		CreateObjInContainer(createTemplate, backpackObj, dropPos, createId, ...)
+	else
+		createId = createId or uuid()
+		if(targetObj:IsPlayer()) then
+			targetObj:SystemMessage("[$1854]","info")
+		end
+		RegisterSingleEventHandler(EventType.CreatedObject,createId,
+			function (success,objRef)
+				Decay(objRef)
+			end)
+		CreateObj(createTemplate, targetObj:GetLoc(), createId, ...)
+	end	
+
+	return canCreate, reason
+end
+
 function JumbleContainerContents(lootObjects)
 	for index, item in pairs(lootObjects) do
 		if(item:GetLoc() == Loc.Zero) then

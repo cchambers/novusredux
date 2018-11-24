@@ -13,7 +13,7 @@
       <Initializer>
 				{ 
 					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
-          Skills = { Melee = 80, Slashing = 60, Bashing = 100, Piercing = 100, Blocking = 40, Manifestation = 100, Channeling = 100, MagicAffinity = 90  },
+          Skills = { Melee = 80, Slashing = 60, Brawling = 100, Piercing = 100, Blocking = 40, Manifestation = 100, Channeling = 100, MagicAffinity = 90  },
           AvailableSpells = {"Fireball","Lightning","Icelance", "Heal", "Teleport","Bombardment","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
 					EquipTable = {
             BodyPartHead = { "head_cultist_female" },

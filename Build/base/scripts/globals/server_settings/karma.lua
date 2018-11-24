@@ -1,10 +1,10 @@
 ServerSettings.Karma = {
 
-    -- if this is true, they are also free from guards for actions between guild members
-    GuildMembersFreeFromKarma = true,
-
     -- the karma that will be set when a player is initialized.
-    NewPlayerKarma = 2500,
+    NewPlayerKarma = 1,
+
+    -- the karma level for alignment that will be set when a player is initialized.
+    NewPlayerKarmaAlignment = 1,
 
 	-- zones in-game will be disabled from karma.
 	DisableKarmaZones = {
@@ -19,133 +19,82 @@ ServerSettings.Karma = {
     DailyLoginInterval = TimeSpan.FromHours(20),
 
     -- to prevent spam on blocking negative karma
-    MinimumBetweenNegativeWarnings = TimeSpan.FromSeconds(0.5),
+    MinimumBetweenNegativeWarnings = TimeSpan.FromSeconds(3),
 
-    -- always keep these ordered from highest to lowest
+    -- if they try to accept the window after this long, it will deny flagging order.
+    ChaoticWarningTimespan = TimeSpan.FromSeconds(10),
+
+    -- always keep these ordered from highest to lowest,
     Levels = {
         {
-            Amount = 10000,
-            Name = "Trustworthy",
-            NameColor = "ffff99",
-            Title = "%s the Trustworthy", -- %s will be replaced with the mobile's name.
+            Amount = 1,
+            Protect = 0,
+            Name = "Innocent",
+            AlignmentName = "Peaceful",
+            NameColor = "82ABFF",
+            Title = "The Innocent", -- %s will be replaced with the mobile's name.
             --Negative Karma Adjustment modifiers are used to compound negative acts by players of positive karma and to reduce players of negative karma from falling off a cliff.
-            NegativeKarmaAdjustMod = 5,
+            NegativeKarmaAdjustMod = 1,
             -- do guards protect this karma level for players?
             GuardProtectPlayer = true,
             -- do guards protect this karma level for NPCs?
             GuardProtectNPC = true,
             --PvPMods: Player Vs Player Modifiers; Karma rewards are not given at low levels of positive karma as people may use this to game high karma through killing red accomplices. Accomplishing high karma must be a grind to those not generating it organically.
             PvPMods = {
-                Trustworthy = 2,
-                Honest = 1.5,
-                Good = 1.25,
+                Innocent = 1,
                 Neutral = 1,
-                Rude = 0,
-                Scoundrel = -1,
-                Outcast = -1.25,
-            }
-        },
-        {
-            Amount = 5000,
-            Name = "Honest",
-            NameColor = "355fb2",
-            Title = "%s the Honest",
-            NegativeKarmaAdjustMod = 3,
-            GuardProtectPlayer = true,
-            GuardProtectNPC = true,
-            PvPMods = {
-                Trustworthy = 2,
-                Honest = 1.5,
-                Good = 1.25,
-                Neutral = 1,
-                Rude = 0,
-                Scoundrel = -1,
-                Outcast = 1.25,
-            }
-        },
-        {
-            Amount = 2500,
-            Name = "Good",
-            NameColor = "82abff",
-            Title = "%s the Good",
-            NegativeKarmaAdjustMod = 1.5,
-            GuardProtectPlayer = true,
-            GuardProtectNPC = true,
-            PvPMods = {
-                Trustworthy = 2,
-                Honest = 1.5,
-                Good = 1.25,
-                Neutral = 1,
-                Rude = 0,
-                Scoundrel = 0,
+                Chaos = 0,
                 Outcast = 0,
             }
         },
         {
+            -- neutral exists as a way for npcs to have white names.
             Amount = 0,
             Name = "Neutral",
             NameColor = "FFFFFF",
-            Title = "%s",
+            Title = "The Neutral",
             NegativeKarmaAdjustMod = 1,
-            GuardProtectPlayer = true,
             PunishBeneficialToNPC = true,
+            PunishBeneficialToPlayer = true,
+            BenefitModifier = 0.5,
             PvPMods = {
-                Trustworthy = 2,
-                Honest = 1.5,
-                Good = 1.25,
+                Innocent = 1,
                 Neutral = 1,
-                Rude = 0,
-                Scoundrel = 0,
-                Outcast = 0,
-            }
-        },
-        {
-            Amount = -2500,
-            Name = "Rude",
-            NameColor = "A7A7A7",
-            Title = "%s the Rude",
-            NegativeKarmaAdjustMod = 1,
-            GuardProtectPlayer = true,
-            GuardHostileNPC = true,
-            PunishBeneficialToNPC = true,
-            PvPMods = {
-                Trustworthy = 2,
-                Honest = 1.5,
-                Good = 1.25,
-                Neutral = 1,
-                Rude = 0,
-                Scoundrel = 0,
+                Chaos = 0,
                 Outcast = 0,
             },
             -- Apply and modify the Positive Karma action SlayMonster ONLY when slaying an NPC of this Karma Level.
-            SlayMonsterModifier = 1,
+            SlayMonsterModifier = 0,
+            Hidden = true,
         },
         {
-            Amount = -5000,
-            Name = "Scoundrel",
+            Amount = -1,
+            Protect = -9999,
+            Name = "Chaos",
+            AlignmentName = "Chaotic",
             NameColor = "FF8000",
-            Title = "%s the Scoundrel",
-            NegativeKarmaAdjustMod = 0.5,
+            Title = "The Chaotic",
+            IsChaotic = true, -- chaotic allignments are free to kill each other, and everyone can temporarily flag chaotic by choice
+            NegativeKarmaAdjustMod = 1,
             GuardProtectPlayer = true,
             GuardHostileNPC = true,
             PunishBeneficialToNPC = true,
+            BenefitModifier = 0.8,
             PvPMods = {
-                Trustworthy = 1,
-                Honest = 1,
-                Good = 1,
+                Innocent = 1,
                 Neutral = 1,
-                Rude = 0,
-                Scoundrel = 0,
+                Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 2,
+            SlayMonsterModifier = 1,
         },
         {
             Amount = -10000,
-            Name = "Dread",
+            Name = "Outcast",
+            AlignmentName = "Unlawful",
             NameColor = "FF0000",
-            Title = "Dread %s",
-            NegativeKarmaAdjustMod = 0.25,
+            Title = "The Outcast",
+            NegativeKarmaAdjustMod = 0.15,
             -- guards will attack this player, don't set guard protect to true when this is true, things might get weird?
             GuardHostilePlayer = true,
             -- guards will attack this NPC, don't set guard protect to true when this is true, things might get weird?
@@ -155,19 +104,17 @@ ServerSettings.Karma = {
             -- If any beneficial actions are performed on this karma level (as an NPC), the one performing will have a negative karma action executed on them
             PunishBeneficialToNPC = true,
             --
-            DisallowBlueResurrectShrines = false,
+            DisallowBlueResurrectShrines = true,
             -- prevent this karma level from using factions
             DisallowAllegiance = true,
+            BenefitModifier = 1.25,
             PvPMods = {
-                Trustworthy = 1,
-                Honest = 1,
-                Good = 1,
+                Innocent = 1,
                 Neutral = 1,
-                Rude = 0,
-                Scoundrel = 0,
+                Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 3,
+            SlayMonsterModifier = 2,
         }
     }
 }

@@ -16,7 +16,7 @@ MapLocations =
 	Limbo = {
 		["Center"] = Loc(0,0,0),
 	},
-	Pestilence = {
+	Ruin = {
 		["Entrance"] = Loc(195,0,-35),
 	},
 	Deception = {
@@ -24,6 +24,9 @@ MapLocations =
 	},
 	Contempt = {
 		["Entrance"] = Loc(195,0,-35),
+	},
+	Founders = {
+		["Entrance"] = Loc(30.01,0.00,63.78),
 	},
 	NewCelador = {			
 		["Upper Plains: Graveyard"] = Loc(408,0,981),		
@@ -33,7 +36,7 @@ MapLocations =
 		["Southern Hills: Graveyard"] = Loc(749.9,0,-1272),
 		["Southern Hills: Valus Spawn"] = Loc(878,0,-1116),
 		["Southern Hills: Sewer Entrance"] = Loc(828.15,0,-1122.03),
-		["Southern Hills: Catacombs Portal"] = Loc(257.98,0,-1334.62),
+		["Southern Hills: Catacombs Portal"] = Loc(945.42,0,-2141.51),
 		["Southern Hills: Belhaven"] = Loc(-34.18,0,-1835.83),
 
 		-- DAB TODO: Add for magical guide
@@ -149,7 +152,11 @@ SubregionDisplayNames =
 	BlackForest = "Black Forest",
 	EasternFrontier = "Eastern Frontier",
 	SouthernRim = "Southern Rim",
-	SouthernHills = "Southern Hills"
+	SouthernHills = "Southern Hills",
+	SewerDungeon = "Upper Plains Sewers",
+	SewerDungeon2 = "Valus Sewers",
+	SewerDungeon3 = "Helm Sewers",
+	SewerDungeon4 = "Pyros Landing Sewers",
 }
 
 --Used for RHireling map markers

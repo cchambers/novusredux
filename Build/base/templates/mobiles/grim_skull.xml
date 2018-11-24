@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">1250</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<StringVariable Name="NaturalWeaponType">Spikes</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>
 		<StringVariable Name="NaturalArmor">Light</StringVariable>
@@ -30,7 +31,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 1,
 					AnimalParts =
 					{
 						{ ResourceType="BatEar", RarityPct=50, Count=4 },

@@ -18,7 +18,7 @@ MobileEffectLibrary.PotionCure =
 
 		self.ParentObj:PlayEffect("HealEffect")
 
-		self.ParentObj:SendMessage("CurePoison")
+		self.ParentObj:SendMessage("EndPoisonEffect")
 
 		self.ParentObj:SystemMessage("You have been cured.", "info")
 

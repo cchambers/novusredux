@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Water Plate Helm[-]</Name>
+	<ClientId>55</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<SharedStateEntry name="Variation" type="string" value="Water"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Plate</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

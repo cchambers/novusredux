@@ -1,7 +1,7 @@
 function ValidateUse(user)
 	local topmostObj = this:TopmostContainer() or this
 	if(topmostObj:GetLoc():Distance(user:GetLoc()) > OBJECT_INTERACTION_RANGE ) then    
-        user:SystemMessage("You cannot reach that.")  
+        user:SystemMessage("You cannot reach that.","info")  
         return false
     end
 

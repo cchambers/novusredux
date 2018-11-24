@@ -146,7 +146,7 @@ function RecalculateMaxMana()
 end
 
 function RecalculateMaxStamina()
-	this:SetStatMaxValue("Stamina", math.floor(((ServerSettings.Stats.BaseStamina + (GetAgi(this) * 2) + GetMobileMod(MobileMod.MaxStaminaPlus)) *GetMobileMod(MobileMod.MaxStaminaTimes, 1)) ) )
+	this:SetStatMaxValue("Stamina", math.floor(((ServerSettings.Stats.BaseStamina + (GetAgi(this)  * 2) + GetMobileMod(MobileMod.MaxStaminaPlus)) *GetMobileMod(MobileMod.MaxStaminaTimes, 1)) ) )
 end
 
 function RecalculateMaxVitality()
@@ -206,19 +206,59 @@ function RecalculateDerivedInt()
 end
 
 function RecalculateDerivedCon()
-	this:SetStatValue("Con", math.floor(( GetBaseCon(this) + GetMobileMod(MobileMod.ConstitutionPlus) ) *GetMobileMod(MobileMod.ConstitutionTimes, 1)) )
+	local conBonus = 0
+	for i=1,#JEWELRYSLOTS do
+		local item = this:GetEquippedObject(JEWELRYSLOTS[i])
+		if ( item ) then
+			local jewelryType = item:GetObjVar("JewelryType")
+			if ( jewelryType ) then
+				local jewelryData = JewelryTypeData[jewelryType]
+				if ( jewelryData and jewelryData.Con ) then
+					conBonus = conBonus + jewelryData.Con
+				end
+			end
+		end
+	end
+	this:SetStatValue("Con", math.floor(( GetBaseCon(this) + conBonus + GetMobileMod(MobileMod.ConstitutionPlus) ) *GetMobileMod(MobileMod.ConstitutionTimes, 1)))
 	RecalculateMaxHealth()
 	--D*ebugMessage("[base_statmod::RecalculateDerivedCon] For "..this:GetName())
 end
 
---KH TODO: This works as a type of magic resistance.
+--This works as a type of magic resistance.
 function RecalculateDerivedWis()
-	this:SetStatValue("Wis", math.floor(( GetBaseWis(this) + GetMobileMod(MobileMod.WisdomPlus) ) *GetMobileMod(MobileMod.WisdomTimes, 1)) )
+	local wisBonus = 0
+	for i=1,#JEWELRYSLOTS do
+		local item = this:GetEquippedObject(JEWELRYSLOTS[i])
+		if ( item ) then
+			local jewelryType = item:GetObjVar("JewelryType")
+			if ( jewelryType ) then
+				local jewelryData = JewelryTypeData[jewelryType]
+				if ( jewelryData and jewelryData.Wis ) then
+					wisBonus = wisBonus + jewelryData.Wis
+				end
+			end
+		end
+	end
+	this:SetStatValue("Wis", math.floor((GetBaseWis(this) + wisBonus + GetMobileMod(MobileMod.WisdomPlus)) *GetMobileMod(MobileMod.WisdomTimes, 1)))
 end
 
---KH TODO: This works as a type of crowd control resistance.
+--This works as a type of crowd control resistance.
 function RecalculateDerivedWill()
-	this:SetStatValue("Will", math.floor(( GetBaseWill(this) + GetMobileMod(MobileMod.WillPlus) ) *GetMobileMod(MobileMod.WillTimes, 1)) )
+	local wilBonus = 0
+	for i=1,#JEWELRYSLOTS do
+		local item = this:GetEquippedObject(JEWELRYSLOTS[i])
+		if ( item ) then
+			local jewelryType = item:GetObjVar("JewelryType")
+			if ( jewelryType ) then
+				local jewelryData = JewelryTypeData[jewelryType]
+				if ( jewelryData and jewelryData.Will ) then
+					wilBonus = wilBonus + jewelryData.Will
+				end
+			end
+		end
+	end
+	
+	this:SetStatValue("Will", math.floor((GetBaseWill(this) + wilBonus + GetMobileMod(MobileMod.WillPlus)) *GetMobileMod(MobileMod.WillTimes, 1)))
 end
 
 function RecalculateAccuracy()
@@ -230,7 +270,11 @@ function RecalculateAccuracy()
 		weaponAccuracyBonus = _Weapon.RightHand.Object:GetObjVar("AccuracyBonus") or 0
 	end
 
-	local skillAccuracyBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill) * ServerSettings.Stats.WeaponSkillAccuracyBonus
+	local skillAccuracyBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill) + 50
+	if(EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].SecondaryWeaponSkill) then
+		local secondaryAccuracyBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].SecondaryWeaponSkill, skillDictionary) + 50
+		skillAccuracyBonus = math.max(skillAccuracyBonus,secondaryAccuracyBonus)
+	end
 
 	local accuracy = (weaponAccuracy + weaponAccuracyBonus + skillAccuracyBonus + GetMobileMod(MobileMod.AccuracyPlus)) *GetMobileMod(MobileMod.AccuracyTimes, 1)
 
@@ -269,7 +313,11 @@ function RecalculateEvasion()
 		lightArmorEvasionBonus = GetSkillLevel(this,"LightArmorSkill", skillDictionary) * ServerSettings.Stats.LightArmorEvasionBonus
 	end
 
-	local skillEvasionBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill, skillDictionary) * ServerSettings.Stats.WeaponSkillEvasionBonus
+	local skillEvasionBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill, skillDictionary) + 50
+	if(EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].SecondaryWeaponSkill) then
+		local secondaryEvasionBonus = GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].SecondaryWeaponSkill, skillDictionary) + 50
+		skillEvasionBonus = math.max(skillEvasionBonus,secondaryEvasionBonus)
+	end
 
 	local shieldEvasionPenalty = 0
 	local thisShieldClass = nil
@@ -305,6 +353,9 @@ function RecalculateAttack()
 		if(isPlayer) then
 			attack = EquipmentStats.BaseWeaponStats[_Weapon.RightHand.Type].Attack or 0
 			attackModifier = ( _Weapon.RightHand.AttackBonus or 0 ) / 100
+			if not (_Weapon and _Weapon.RightHand.Object) then
+				attack = 10 + ( (GetSkillLevel(this, "BrawlingSkill") or 0) / 100 ) * 6
+			end
 		else
 			attack = ServerSettings.Stats.DefaultMobAttack
 		end
@@ -346,6 +397,9 @@ function RecalculatePower()
 
 	if ( isPlayer ) then
 		local affinityBonus = (GetSkillLevel(this, "MagicAffinitySkill") or 0) / 5
+		if affinityBonus < 1 then
+			affinityBonus = 1
+		end
 		--local inscriptionBonus = (GetSkillLevel(this, "InscriptionSkill") or 0) / 20
 		power = ( power + powerBonus + affinityBonus ) * ServerSettings.Stats.IntMod(GetInt(this))
 	end
@@ -428,6 +482,8 @@ function RecalculateAttackSpeed()
 
 	local speed = this:GetObjVar("AttackSpeed")
 	local speedMod = 0
+	local attackSpeedPlusMod = GetMobileMod(MobileMod.AttackSpeedPlus)
+	local attackSpeedTimesMod = GetMobileMod(MobileMod.AttackSpeedTimes, 1)
 	local bowSpeedModifier = nil
 	if not(speed) then
 		if(isPlayer) then
@@ -446,7 +502,8 @@ function RecalculateAttackSpeed()
 		end
 	end
 
-	local baseAttackSpeed = ((speed * 4) - math.floor(GetCurStamina(this)/30)) * (100/(100 + speedMod))
+	local baseAttackSpeed = ((speed * 4) - math.floor(GetMaxStamina(this)/30)) * (100/(100 + speedMod))
+	--DebugMessage("GetAgi(this)" .. math.floor(GetMaxStamina(this))/30)
 	
 	local attacksPerSecond = 1.25
 	
@@ -454,7 +511,7 @@ function RecalculateAttackSpeed()
 	--if(bowSpeedModifier) then
 	--	attacksPerSecond = (baseAttackSpeed/1000) * (1500/bowSpeedModifier)
 	--else
-		attacksPerSecond = (baseAttackSpeed/4)
+		attacksPerSecond = (baseAttackSpeed/4) - attackSpeedPlusMod
 	--end
 
 	--DebugMessage("GetSwingSpeed",tostring(1/(baseAttackSpeed/500)),tostring(ServerSettings.Stats.AgiModifierFunc(GetAgi(this))),tostring(speed),tostring(GetMagicItemSpeedModifier(weapon)),tostring(lightArmorAttackSpeedMultiplier))
@@ -526,7 +583,8 @@ function RecalculateMoveSpeed()
 		
 		local stamMod = 1 + ((GetCurStamina(this)-20)*0.0025)
 
-    	this:SetBaseMoveSpeed( ( ( ServerSettings.Stats.BaseMoveSpeed + GetMobileMod(MobileMod.MoveSpeedPlus) ) * stamMod ) * GetMobileMod(MobileMod.MoveSpeedTimes, 1) )
+    	--this:SetBaseMoveSpeed( ( ( ServerSettings.Stats.BaseMoveSpeed + GetMobileMod(MobileMod.MoveSpeedPlus) ) * stamMod ) * GetMobileMod(MobileMod.MoveSpeedTimes, 1) )
+    	this:SetBaseMoveSpeed( ( ( ServerSettings.Stats.BaseMoveSpeed + GetMobileMod(MobileMod.MoveSpeedPlus) ) ) * GetMobileMod(MobileMod.MoveSpeedTimes, 1) )
 	end
 
 end
@@ -582,10 +640,6 @@ function MarkStatsDirty(recalculateStatsDict)
 		statsToRecalculate[key] = true
 	end
 
-	if( this:HasTimer("DoRecalculateStats") ) then
-		this:RemoveTimer("DoRecalculateStats")
-	end
-
 	-- schedule client update
 	-- 100ms buffer to reduce spam
 	this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(100),"DoRecalculateStats")
@@ -607,6 +661,7 @@ skillGainEffects = {
 	SlashingSkill = { Evasion = true, Accuracy = true },
 	PiercingSkill = { Evasion = true, Accuracy = true },
 	BashingSkill = { Evasion = true, Accuracy = true },
+	BrawlingSkill = { Evasion = true, Accuracy = true },
 	ArcherySkill = { Evasion = true, Accuracy = true },
 	LancingSkill = { Evasion = true, Accuracy = true },
 	ChannelingSkill = { Power = true },
@@ -635,7 +690,7 @@ function StatsHandleEquipmentChanged(item)
 	local dirtyTable = {}
 
 	if( itemSlot == "RightHand" ) then
-		dirtyTable = {Accuracy=true,Attack=true,AttackSpeed=true,Force=true,Power=true}
+		dirtyTable = {Accuracy=true,Evasion=true,Attack=true,AttackSpeed=true,Force=true,Power=true}
 	elseif( itemSlot == "LeftHand" and GetShieldType(item) ) then
 		dirtyTable.Evasion = true
 	elseif( IsArmorSlot(itemSlot) ) then
@@ -646,6 +701,8 @@ function StatsHandleEquipmentChanged(item)
 				this:SendMessage("UpdateCharacterWindow")
 			end)
 		end
+	elseif (IsJewelrySlot(itemSlot)) then
+			dirtyTable = {Will=true, Constitution=true, Wisdom=true}
 	end
 
 	MarkStatsDirty(dirtyTable)

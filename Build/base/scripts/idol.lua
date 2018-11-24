@@ -17,7 +17,7 @@ function ()
 			this:SetObjVar("LastHolder",holder)
 			if (holder:IsMobile() and not holder:HasModule(this:GetObjVar("IdolScript"))) then
 				holder:AddModule(this:GetObjVar("IdolScript"))
-				holder:SystemMessage("[$1847]")
+				holder:SystemMessage("[$1847]","info")
 				holder:SetObjVar("IdolDebuff",this:GetCreationTemplateId())
 			end
 		end
@@ -29,7 +29,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 	function (user,usedType)
 		if(usedType ~= "Use" and usedType ~= "Examine") then return end
 		
-		user:SystemMessage("[$1848]")
+		user:SystemMessage("[$1848]","info")
 	end)
 
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"checkHolder")

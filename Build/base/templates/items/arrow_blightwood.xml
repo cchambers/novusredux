@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>1183</ClientId>
+	<Name>[FF9500]Blightwood Arrow[-]</Name>
+	<Hue>865</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<StringVariable Name="ResourceType">BlightwoodArrows</StringVariable>
+		<StringVariable Name="SingularName">Blightwood Arrow</StringVariable>
+		<StringVariable Name="PluralName">Blightwood Arrows</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+		<DoubleVariable Name="AttackBonus">20</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

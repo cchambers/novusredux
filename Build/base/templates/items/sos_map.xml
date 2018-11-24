@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Tattered SOS[-]</Name>
+  <Name>Tattered SOS</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent/>
@@ -9,21 +9,36 @@
 				{
 				RegionalNames = 
                     {
-                        "Pyros Landing",
-                        "City of Valus",
-                        "Helm",
-                        "Eldeir",
-                        "Valus",
-                        "Lake Tethys",
-                        "Black Grove",
+                        {"Area-Pyros Landing","Pyros Landing"},
+                        {"Area-Ysel Lake","Ysel Lake"},
+                        {"Area-Misty Basin","Misty Basin"},
+                        {"Area-Ysel Lake","Ysel Lake"},
 
-                        "Cast Lake",
-                        "Cape Worth",
-                        "Ceyr Pond",
-                        "Lume Coast",
-                        "Mer Beach",
-                        "The Caravan Path",
-                        "Sacred Isle",
+                        {"Area-West Valusia","West Valusia"},
+                        {"Area-Yoln's Bluff","Yoln's Bluff"},
+                        {"Area-The Brooks","The Brooks"},
+                        {"Area-East Valusia","East Valusia"},
+                        {"Area-Valus","Valus"},
+                        {"Area-Bel Lake","Bel Lake"},
+                        {"Area-Belhaven","Belhaven"},
+                        {"Area-Caester Run","Caester Run"},
+                        {"Area-Cape Worth","Cape Worth"},
+                        {"Area-Ceyr Pond","Ceyr Pond"},
+
+                        {"Area-Vilewood","Vilewood"},
+                        {"Area-Spiritwood","Spiritwood"},
+                        {"Area-The Brushwoods","The Brushwoods"},
+
+                        {"Area-Helm","Helm"},
+                        {"Area-Mer Beach","Mer Beach"},
+                        {"Area-Lume Coast","Lume Coast"},
+                        {"Area-Lake Denir","Lake Denir"},
+
+                        {"Area-Eldeir","Eldeir"},
+                        {"Area-Lake Tethys","Lake Tethys"},
+                        {"Area-Everdale","Everdale"},
+                        {"Area-Black Grove","Black Grove"},
+                        {"Area-Cast Lake","Cast Lake"},
                     },
                     Rewards =
                     {

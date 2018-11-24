@@ -15,7 +15,7 @@ function GetFilePath(world)
 end
 
 function LoadRegionSeedObject()
-	local currentWorld = GetWorldName()
+	local currentWorld = ServerSettings.WorldName
 	if ( currentWorld ~= mLoadedWorld ) then
 		this:SystemMessage("Loading SeedObjects.xml from mapdata for '"..currentWorld.."'")
 		mLoadedSeedObjects = xml.load(mFolder .. GetFilePath(currentWorld))

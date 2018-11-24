@@ -5,7 +5,7 @@ MobileEffectLibrary.Power =
 		-- set args
 		self.AttackModifier = args.AttackModifier or self.AttackModifier
 
-		self.ParentObj:PlayEffect("BuffEffect_M")
+		self.ParentObj:PlayEffectWithArgs("BuffEffect_M",0.0,"Bone=Ground")
 
 		SetCombatMod(self.ParentObj, "AttackTimes", "Power", self.AttackModifier)
 		self.ParentObj:SendMessage("ExecuteHitAction", target, "RightHand", false)

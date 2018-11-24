@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">700</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Spiders</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<StringVariable Name="NaturalWeaponType">Maul</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Venomous Fangs</StringVariable>
 		<StringVariable Name="NaturalArmor">Medium</StringVariable>
@@ -23,7 +24,7 @@
 					Skills = 
 					{ 
 						Melee = 100, 
-						Bashing = 100,
+						Brawling = 100,
 						Dodge = 80,
 						Blocking = 50,
 						Dodge = 100,

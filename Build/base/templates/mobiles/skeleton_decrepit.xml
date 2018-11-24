@@ -31,7 +31,6 @@
 					EquipTable = 
 					{
 						Backpack = { "backpack" },	
-						RightHand = {"lweapon_dagger"},					
 					},
 					LootTables = 
 					{

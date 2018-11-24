@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Rum-stained Map[-]</Name>
+  <Name>Rum-stained Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent/>
@@ -9,26 +9,19 @@
 				{
 				RegionalNames = 
                     {
-                        "Misty Basin",
-                        "Ysel Lake",
+                        {"Area-Ysel Lake","Ysel Lake"},
+                        {"Area-Serpent's Pass","Serpent's Pass"},
 
-                        "West Valusia",
-                        "Yoln's Bluff",
-                        "The Brooks",
-                        "East Valusia",
-                        "Valus",
-                        "Bel Lake",
-                        "Belhaven",
-                        "Caester Run",
+                        {"Area-West Valusia","West Valusia"},
+                        {"Area-East Valusia","East Valusia"},
 
-                        "Vilewood",
-                        "Spiritwood",
-                        "The Brushwoods",
+                        {"Area-Vilewood","Vilewood"},
+                        {"Area-Spiritwood","Spiritwood"},
+                        {"Area-The Brushwoods","The Brushwoods"},
+                        {"WaterUpperNorthPond","Lake Petra"},
+                        {"WaterUpperNorthEastPond","The Hole"},
 
-                        "Lake Denir",
-
-                        "Black Grove",
-
+                        {"Area-Denir","Denir"},
                     },
                     Rewards =
                     {

@@ -360,7 +360,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 				NPCInteraction(text,this,user,"Question",response)
 		end
 		if(buttonId == "Accept") then
-    			PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.PlantGiver)
+    			CheckAchievementStatus(user, "Other", "PlantGiver", nil, {Description = "", CustomAchievement = "Plant Giver", Reward = {Title = "Plant Giver"}})
 
 				text="[$2291]"
 
@@ -521,7 +521,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 					--give coins if there's no favorability to be gained
 					if (coinsToAdd >= 0) then
     					CreateObjInBackpack(user,"coin_purse","create_coins",coinsToAdd)
-    					user:SystemMessage("You received "..coinsToAdd.." coin.")
+    					user:SystemMessage("You received "..coinsToAdd.." coin.","info")
     				end
 
 					user:SetObjVar("SacredCactusQuestAmount",cactusGiven + amountOfCactus)
@@ -579,3 +579,8 @@ function(success,objRef,amount)
 		RequestSetStackCount(objRef,amount)
 	end
 end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

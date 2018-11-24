@@ -5,6 +5,10 @@ MobileEffectLibrary.Rune =
 
 		if (useType	=="bury") then
 
+			if (self.ParentObj:HasModule("sitting")) then
+				self.ParentObj:SendMessage("StopSitting")
+			end
+
 			if (target:HasObjVar("Destination") == false and target:HasObjVar("StaticDestination") == false) then
 				self.ParentObj:SystemMessage("Cannot bury an unmarked rune.","info")
 				EndMobileEffect(root)
@@ -104,7 +108,7 @@ MobileEffectLibrary.Rune =
 		end,
 
 		SetFakeRuneAppearance = function(target)
-			local subregionName = GetSubregionName()
+			local subregionName = ServerSettings.SubregionName
 			if (subregionName == "SouthernHills") then
 				target:SetAppearanceFromTemplate("rune_valus")
 

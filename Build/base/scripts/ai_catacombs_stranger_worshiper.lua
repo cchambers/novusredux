@@ -385,3 +385,8 @@ RegisterEventHandler(EventType.Timer,"DecideIdle",DecideIdleState)
 OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 RegisterEventHandler(EventType.Arrived, "GoLocation",AI.StateMachine.AllStates.GoLocation.OnArrived)
 RegisterEventHandler(EventType.Arrived, "GoPray",AI.StateMachine.AllStates.GoPray.OnArrived)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

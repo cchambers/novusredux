@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Vermin</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +19,7 @@
 		<DoubleVariable Name="Armor">44</DoubleVariable>
 		<DoubleVariable Name="Attack">4</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-2500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -29,7 +30,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=5,  
+					Brawling = 5,  
 					},	
 				EquipTable = 
 					{
@@ -45,7 +46,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 1,					
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=1 },

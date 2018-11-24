@@ -1,6 +1,5 @@
 <ObjectTemplate>
-	<ClientId>824</ClientId>
-	<Color>0x1a1a1a</Color>
+	<ClientId>2273</ClientId>
 	<Name>Glutton</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<MobileComponent>			
@@ -20,7 +19,7 @@
 		<DoubleVariable Name="Attack">25</DoubleVariable>
 		<DoubleVariable Name="Power">13</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -38,7 +37,7 @@
 					Evocation=100,
 					Manifestation=100,
 					MagicAffinity=100,
-					Bashing=50,  
+					Brawling = 50,  
 					},	
 				EquipTable = 
 					{
@@ -48,7 +47,7 @@
 					{ 
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsMed,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.FrayedScrolls,
 						{
 							NumCoins = math.random(125,180),
 						},

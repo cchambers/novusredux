@@ -1,6 +1,4 @@
 require 'incl_fishing'
-require 'incl_player_titles'
-require 'incl_container'
 
 MIN_FISHING_TIME = 6
 MAX_FISHING_TIME = 30
@@ -47,7 +45,7 @@ end
 function CleanUp()
     --DebugMessage("Firing")
     this:PlayAnimation("idle")
-    this:StopObjectSound("FishReel")
+    this:StopObjectSound("event:/character/skills/gathering_skills/fishing/fishing_reel")
     RemoveAllTimers()
     this:DelModule(GetCurrentModule())
 end
@@ -59,17 +57,17 @@ function ValidateUse(user)
 
     local rod = this:GetEquippedObject("RightHand")
     if( not(rod) or rod:GetObjVar("WeaponType") ~= "FishingRod" ) then
-        user:SystemMessage("[FA0C0C] You need to equip a fishing rod to fish!")
+        user:SystemMessage("[FA0C0C] You need to equip a fishing rod to fish!","info")
         return false
     end
 
     if (user:HasTimer("fishingTimer")) then
-        user:SystemMessage("You are already fishing.")
+        user:SystemMessage("You are already fishing.","info")
         return false
     end
 
     if (user:HasTimer("ReelSuccessTimer")) then
-        user:SystemMessage("You are reeling in a fish!")
+        user:SystemMessage("You are reeling in a fish!","info")
         return false
     end
 
@@ -93,7 +91,6 @@ end
 function GetFishTitleString(size,player)
     --DebugMessage(size,this)
     if (size == 5) then
-        PlayerTitles.EntitleFromTable(this,AllTitles.ActivityTitles.FishingLegendary)
         return "[D4CC74]Legendary"
     elseif (size == 4) then        
         return "[D68A3E]Gigantic"
@@ -151,7 +148,7 @@ function DoFish(targetLoc)
     end
 
     --if (not this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-    --    this:SystemMessage("You can't see that location.")
+    --    this:SystemMessage("You can't see that location.","info")
      --   return
     --end
 
@@ -164,7 +161,7 @@ function DoFish(targetLoc)
     mTargetLoc = targetLoc
     this:SetFacing(this:GetLoc():YAngleTo(targetLoc))
     this:PlayAnimation("fishcast")
-    this:PlayObjectSound("FishCast")
+    this:PlayObjectSound("event:/character/skills/gathering_skills/fishing/fishing_cast")
     CallFunctionDelayed(TimeSpan.FromSeconds(2.7),function ( ... )
             PlayEffectAtLoc("WaterSplashEffect",targetLoc)
         end)
@@ -259,7 +256,6 @@ RegisterEventHandler(EventType.Timer,"fishingTimer",
             StartReeling()
         else
             this:SystemMessage("You haven't found any fish.","info")
-            this:SystemMessage("You haven't found any fish.")
             CheckSkillChance(this,"FishingSkill")
             CleanUp()
         end
@@ -288,9 +284,9 @@ function StartReeling()
         this:SystemMessage("You quietly slip your fishing rod back into your pack.","info")
         CleanUp()
     else
-        this:SystemMessage("Something is hooked on the line!","info")
-        this:PlayObjectSound("FishReel")
-        this:PlayObjectSound("FishJump")    
+        this:NpcSpeechToUser("Something is hooked on the line!",this,"info")
+        this:PlayObjectSound("event:/character/skills/gathering_skills/fishing/fishing_reel")
+        this:PlayObjectSound("event:/character/skills/gathering_skills/fishing/fishing_jump")    
         this:PlayAnimation("fishhook")
         
         this:ScheduleTimerDelay(TimeSpan.FromSeconds(reelTime),"ReelTimer")
@@ -310,8 +306,7 @@ RegisterEventHandler(EventType.Timer,"ReelTimer",
 
             if(mFoundSos) then
                 CreateObjInBackpackOrAtLocation(this, "sos_map_"..mFoundSos)
-                this:SystemMessage("You found a treasure map!")
-                this:SystemMessage("You found a treasure map!", "event")
+                this:SystemMessage("You found a treasure map!", "info")
                 CleanUp() 
                 return
             end
@@ -324,7 +319,6 @@ RegisterEventHandler(EventType.Timer,"ReelTimer",
 
             if (not(mFish) or not(mFishCatchSuccess)) then
                 this:SystemMessage("The "..mFish.DisplayName.." got away!","info")
-                this:SystemMessage("The "..mFish.DisplayName.." got away!")
                 CheckSkillChance(this,"FishingSkill")
                 CleanUp()
                 return
@@ -339,9 +333,8 @@ RegisterEventHandler(EventType.Timer,"ReelTimer",
 
             this:RemoveTimer("FishingAnimationTimer")
             sizeString = GetFishSizeDisplayString(mFish.Size)
-            local messageStr = "[D7D700]You caught a "..mFish.DisplayName.."! "..sizeString .."[-]"
-            this:SystemMessage(messageStr,"info")
-            this:SystemMessage(messageStr)
+            local messageStr = "You caught a "..mFish.DisplayName.."! "..sizeString ..""
+            this:NpcSpeechToUser(messageStr,this,"info")
 
             CheckSkillChance(this,"FishingSkill")
             --DebugMessage(fish.Size.." is the fish size")        
@@ -381,6 +374,14 @@ RegisterEventHandler(EventType.CreatedObject,"created_fish",function (success,ob
             Decay(objRef)
         end
         SetItemTooltip(objRef)
+
+        local lifetimeStats = this:GetObjVar("LifetimePlayerStats")
+        lifetimeStats.FishCaught = (lifetimeStats.FishCaught or 0) + 1
+        this:SetObjVar("LifetimePlayerStats",lifetimeStats)
+
+        CheckAchievementStatus(this, "Fishing", "FishingNumber", lifetimeStats.FishCaught)
+        CheckAchievementStatus(this, "Fishing", "FishingSize", fishSize)
+        CheckAchievementStatus(this, "Fishing", fishResourceType, 1)
     end
     CleanUp()
 end)
@@ -393,11 +394,11 @@ RegisterEventHandler(EventType.ModuleAttached,"base_fishing_controller",
     end)
 
 RegisterEventHandler(EventType.StartMoving,"",function ( ... )
-    this:SystemMessage("[D70000]The line snaps![-]","info")
+    this:NpcSpeechToUser("The line snaps!",this,"info")
     CleanUp()
 end)
 
 RegisterEventHandler(EventType.Message,"DamageInflicted",function ( ... )
-    this:SystemMessage("[D70000]The line snaps![-]","info")
+    this:NpcSpeechToUser("The line snaps!",this,"info")
     CleanUp()
 end)

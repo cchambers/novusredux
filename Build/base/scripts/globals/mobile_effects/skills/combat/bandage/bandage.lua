@@ -4,6 +4,14 @@ MobileEffectLibrary.Bandage =
 	OnEnterState = function(self,root,target,args)
 		self.Target = target or self.ParentObj
 
+		if ( HasMobileEffect(self.ParentObj, "NoBandage") ) then
+			if ( self.ParentObj:IsPlayer() ) then
+				self.ParentObj:SystemMessage("Cannot bandage again yet.", "info")
+			end
+			EndMobileEffect(root)
+			return false
+		end
+
 		if not( ValidateRangeWithError(SkillData.AllSkills.HealingSkill.Options.BandageRange, self.ParentObj, self.Target, "Too far away.") ) then
 			EndMobileEffect(root)
 			return false
@@ -25,7 +33,7 @@ MobileEffectLibrary.Bandage =
 		if ( HasMobileEffect(target, "MortalStruck") ) then
 			if ( self.IsPlayer ) then
 				if ( self.ParentObj == target ) then
-					self.ParentObj:SystemMessage("Cannot bandaged right now.", "info")
+					self.ParentObj:SystemMessage("Cannot bandage right now.", "info")
 				else
 					self.ParentObj:SystemMessage("They cannot be bandaged right now.", "info")
 				end
@@ -43,6 +51,7 @@ MobileEffectLibrary.Bandage =
 		local skillDictionary = GetSkillDictionary(self.ParentObj)
 		self.Healing = GetSkillLevel(self.ParentObj, "HealingSkill", skillDictionary)
 		self.Supplimental = GetSkillLevel(self.ParentObj, self.SupplimentalSkill, skillDictionary)
+		self._BaseHeal = 50
 
 		if ( IsDead(self.Target) ) then
 			-- attempt to resurrect.
@@ -73,36 +82,41 @@ MobileEffectLibrary.Bandage =
 		self.GetPulseFrequency = nil
 		self.AiPulse = nil
 
-		if ( HasMobileEffect(self.Target, "NoBandage") ) then
-			if ( self.ParentObj:IsPlayer() ) then
-				if ( self.ParentObj == self.Target ) then
-					self.ParentObj:SystemMessage("Cannot bandage again yet.", "info")
-				else
-					self.ParentObj:SystemMessage("Target cannot be bandaged again yet.", "info")
-				end
-			end
-			EndMobileEffect(root)
-			return false
-		end
-
 		self._MaxHealth = GetMaxHealth(self.Target)
 
 		if ( GetCurHealth(self.Target) >= self._MaxHealth ) then
 			if ( self.ParentObj:IsPlayer() ) then
-				self.ParentObj:SystemMessage("Patient seems just fine.", "info")
+				self.ParentObj:SystemMessage("Patient seems fine.", "info")
 			end
 			EndMobileEffect(root)
 			return false
 		end
 
+		self._HealMultiplier = 0.1 + ( (self.Healing) / 110 )
+		self._HealAmount = 10 + self._BaseHeal + ((self.Supplimental) * 2.5)
+		DebugMessage("self._HealMultiplier" .. self._HealMultiplier)
+		DebugMessage("self._HealAmount" .. self._HealAmount)
+
 		if ( self.ParentObj ~= self.Target ) then
 			LookAt(self.ParentObj, self.Target)
+			-- cut the heal in half for healing other players
+			if not( self.IsPet ) then
+				self._HealAmount = self._HealAmount * 0.5
+			end
 		end
 
-		self._HealAmount = 0.5 + ( (self.Healing+self.Supplimental) / (ServerSettings.Skills.PlayerSkillCap.Single*1.2) )
+		self.Target:SendMessage("HealRequest", self._HealAmount * self._HealMultiplier , self.ParentObj)
 
-		self.Target:SendMessage("HealRequest", ( self._MaxHealth / 3.5 ) * self._HealAmount, self.ParentObj)
-		self.Target:SendMessage("StartMobileEffect", "NoBandage", self.ParentObj)
+		if ( IsPoisoned(self.Target) ) then
+			if ( self.Healing >= 60 ) then
+				self.Target:SendMessage("EndPoisonEffect")
+			else
+				self.ParentObj:SystemMessage("You lack the skill to cure poison.", "info")
+			end
+		end
+
+		-- apply no bandage to person that did the bandaging
+		StartMobileEffect(self.ParentObj, "NoBandage")
 
 		self.Target:PlayEffect("PotionHealEffect")
 		

@@ -1,97 +1,123 @@
 require 'destroyable_object'
 
-function SetDamageTooltip(curHealth)
-	curHealth = math.max(0,curHealth)
-    SetTooltipEntry(this,"destructable_mob_spawner","Health: "..curHealth.."/"..this:GetObjVar("BaseHealth"))
-	local newScale =  math.max(126,128 * (curHealth/this:GetObjVar("BaseHealth")) + 126)
-	this:SetColor( "0xFF"..string.upper(string.format("%02x%02x%02x",newScale,newScale,newScale)))
-end
+mCurTarget = nil
 
-RegisterEventHandler(EventType.Timer,"SpawnTimer",function()
-		this:ScheduleTimerDelay(TimeSpan.FromSeconds(this:GetObjVar("SpawnTime")),"SpawnTimer")
-		local nearbyMobs = FindObjects(SearchPlayerInRange(this:GetObjVar("SpawnRange")))
-		mActive = false
-		if (#nearbyMobs > 0) then
-			for i,j in pairs(nearbyMobs) do
-				if (this:HasLineOfSightToObj(j,ServerSettings.Combat.LOSEyeLevel)) then
-					mActive = true
-					--DebugMessage("Firing anyway")
-				end
-			end
+RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), 
+	function()
+
+		mActive = true
+
+		local mobList = {}
+		local spawns = this:GetObjVar("Spawns") or {}
+		for mobEntryIndex, mobEntry in pairs(spawns) do
+			mobList[mobEntry.Template] = 0
 		end
-		local mobList = this:GetObjVar("MobList") or {}
-		local spawns = this:GetObjVar("Spawns")
-		local selectedSpawn = spawns[math.random(1,#spawns)]
-		if (mActive and not mDead and not this:HasTimer("RespawnTimer") and this:GetObjVar("MaxSpawns") >= #mobList ) then	
-			--for i,j in pairs(spawns) do
-				--{"template",Loc()},
-			if (type(j) == "string") then j = {j} end	
-			CreateObj(selectedSpawn,this:GetLoc(),"mob_spawned")
-			--end
-		end
+
+		--Mob list keeps a counter for each type of mob in the spawner template
+		this:SetObjVar("MobList", mobList)
+
+		CheckSpawns()
 	end)
 
-RegisterEventHandler(EventType.LeaveView,"SpawnerView",
-	function(mob)
-		--DebugMessage("Mob leaved spawn view")
-		if (mob:IsPlayer()) then
-			--DebugMessage("Mob is player")
-			local nearbyMobs = FindObjects(SearchPlayerInRange(this:GetObjVar("SpawnRange")))
-			if (#nearbyMobs <= 0) then
-				--DebugMessage("Deactivating")
-				mActive = false
-			end
-		end
-	end)
-
-RegisterEventHandler(EventType.EnterView,"SpawnerView",
-	function(mob)
-		--DebugMessage("SpawnerView")
-		if (mob:IsValid() and mob:IsPlayer()) then
-			mActive = true
-			--DebugMessage("Active from SpawnerView")
-		end
+OverrideEventHandler("destroyable_object", EventType.Message, "DamageInflicted", 
+	function(damager,damageAmt)
+		HandleDamage(damager,damageAmt)
+		mCurTarget = damager
+		mActive = true
+		CheckDamagePercentage()
 	end)
 
 --add the mobs to a list of spawns
 RegisterEventHandler(EventType.CreatedObject,"mob_spawned",
 	function(success,objRef)
-		local nearbyMobs = FindObjects(SearchPlayerInRange(this:GetObjVar("SpawnRange")))
-		if (#nearbyMobs == 0) then
-			return
+		PlayEffectAtLoc("GhostEffect", objRef:GetLoc())
+		objRef:SetObjVar("Source", this)
+		objRef:AddModule("mob_spawner_mob")
+
+		if (mCurTarget ~= nil and mCurTarget:IsPlayer()) then
+			objRef:SendMessage("AttackEnemy",mCurTarget, true)
 		end
-		local chosenPlayer = nearbyMobs[math.random(1,#nearbyMobs)]
-		objRef:SendMessage("AttackEnemy",chosenPlayer)
-		--DebugMessage("Mob spawned")
-		AddToListObjVar(this, "MobList", objRef)
-		 Decay(objRef, this:GetObjVar("SpawnDecay"))
+
+		local mobList = this:GetObjVar("MobList") or {}
+		local template = objRef:GetCreationTemplateId()
+		if (mobList[template] == nil) then
+			mobList[template] = 0
+		end
+
+		mobList[template] = mobList[template] + 1
+		this:SetObjVar("MobList", mobList)
+
 	end)
 
-OverrideEventHandler("destroyable_object",EventType.Timer,"RespawnTimer",function()
-		--todo Set the visual state here
-		--DFB TODO: REMOVE THIS
-		this:SetColor("0xFFFFFFFF")
- 		--this:SetVisualState("Healthy")
+RegisterEventHandler(EventType.Message, "mobSlain", 
+	function(slainMob)
+		if not (slainMob:IsValid()) then return end
+		Decay(slainMob, 5)
+		local mobList = this:GetObjVar("MobList")
+		local template = slainMob:GetCreationTemplateId()
 
-		--DebugMessage("Respawned")
-		this:SetObjVar("CurrentHealth",this:GetObjVar("BaseHealth"))
-		SetDamageTooltip(this:GetObjVar("BaseHealth"))
-		mDead = false
+		for mobTemplate, mobCount in pairs(mobList) do
+			if (mobTemplate == template) then
+				mobList[template] = mobList[template] - 1
+			end
+		end
+
+		this:SetObjVar("MobList", mobList)
 	end)
 
 if (initializer ~= nil) then
-	--DebugMessage("initializer")
 	this:SetObjVar("Spawns",initializer.Spawns)
-	this:SetObjVar("MaxSpawns",initializer.Max or 10)
-	this:SetObjVar("SpawnTime", initializer.SpawnTime or 10)
-	this:SetObjVar("SpawnRange", initializer.SpawnRange or 10)
-	this:SetObjVar("SpawnDecay",initializer.SpawnDecay or 30)
-	--this:SetObjVar("RespawnTime",initializer.RespawnTime or 60)
- 	--this:SetVisualState("Healthy")
-	--this:SetObjVar("CurrentHealth",this:GetObjVar("BaseHealth"))
-	--SetDamageTooltip(this:GetObjVar("BaseHealth"))
-	mDead = false
-	mActive = false
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(initializer.SpawnTime),"SpawnTimer")
-	AddView("SpawnerView",SearchMobileInRange(initializer.SpawnRange or 12))
+	this:SetObjVar("SpawnRange", initializer.SpawnRange or 5)
 end
+
+function CheckDamagePercentage()
+	local baseHealth = GetMaxHealth(this)
+	local curHealth = this:GetStatValue("Health")
+	local percentage = (curHealth/baseHealth)*100
+	
+	if (SpawnAtPercent[curPercentIndex] ~= nil) then
+		if (percentage < (SpawnAtPercent[curPercentIndex] or 0)) then
+			curPercentIndex = curPercentIndex + 1
+			AddSpawns()
+		end
+	end
+end
+
+--Spawns mobs up to max
+function CheckSpawns()
+	local mobList = this:GetObjVar("MobList") or {}
+	local spawns = this:GetObjVar("Spawns") or {}
+
+	for mobEntryIndex, mobEntry in pairs(spawns) do
+		if (mActive and not mDead) and (mobList[mobEntry.Template] < mobEntry.Max) then
+			local mobCount = mobEntry.Max - mobList[mobEntry.Template]
+			for i=1,mobCount do
+				local spawnLoc = GetNearbyPassableLocFromLoc(this:GetLoc(), 2, this:GetObjVar("SpawnRange") or 20)
+				CreateObj(mobEntry.Template,spawnLoc,"mob_spawned")
+			end
+		end
+	end
+end
+
+--Spawns mobs beyond max
+function AddSpawns()
+	local mobList = this:GetObjVar("MobList") or {}
+	local spawns = this:GetObjVar("Spawns") or {}
+	for mobEntryIndex, mobEntry in pairs(spawns) do
+		for i=1,(mobEntry.AddSpawns or 2) do
+			local spawnLoc = GetNearbyPassableLocFromLoc(this:GetLoc(), 2, this:GetObjVar("SpawnRange") or 20)
+			CreateObj(mobEntry.Template,spawnLoc,"mob_spawned")
+		end
+	end
+end
+
+--If the current health reaches below a percentage, it will respawn mobs and start checking for the next percentage
+SpawnAtPercent = 
+{
+	100,
+	80,
+	60,
+	40,
+	20
+}
+curPercentIndex = 1

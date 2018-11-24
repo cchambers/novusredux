@@ -18,13 +18,13 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "keyTarget",
         end
 
         if (not target:HasObjVar("HolyWaterTarget")) then
-            user:SystemMessage("You shouldn't waste the Holy Water on that.")
+            user:SystemMessage("You shouldn't waste the Holy Water on that.","info")
             return
         end
         
         if( target ~= nil ) then
             --target:DelObjVar("AnotherLanguage")
-            user:SystemMessage("You pour the water.")
+            user:SystemMessage("You pour the water.","info")
             target:SendMessage("HolyWaterPour",user)
             this:Destroy()
         end

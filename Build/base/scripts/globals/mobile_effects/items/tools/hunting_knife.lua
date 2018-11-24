@@ -5,10 +5,15 @@ MobileEffectLibrary.HuntingKnife =
         
         if not( self.VerifyTarget(self,root,target) ) then return false end
 
+        if ( type(args) == "table" ) then
+            args = self.ParentObj:GetEquippedObject("RightHand")
+        end
+
+        self.Object = args
         self.Backpack = self.ParentObj:GetEquippedObject("Backpack")
 
         if ( self.Backpack == nil ) then
-            self.ParentObj:SystemMessage("A Backpack is required ")
+            self.ParentObj:SystemMessage("A backpack is required.", "info")
             EndMobileEffect(root)
             return false
         end
@@ -16,25 +21,27 @@ MobileEffectLibrary.HuntingKnife =
         self.Target = target
 
         SetMobileMod(self.ParentObj, "Busy", "HuntingKnife", true)
-        RegisterEventHandler(EventType.Message, "DamageInflicted", function() EndMobileEffect(root) end)
-        RegisterEventHandler(EventType.LeaveView, "HuntingKnifeRange", function() EndMobileEffect(root) end)
+        RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
+            if ( what ~= "Pickup" ) then
+                self.Interrupted(self, root)
+            end
+        end)
         RegisterEventHandler(EventType.StartMoving, "", function()
-            self.ParentObj:StopObjectSound("Fabrication")
-            EndMobileEffect(root)
+            self.Interrupted(self, root)
         end)
         self.ParentObj:StopMoving()
-        AddView("HuntingKnifeRange", SearchMobileInRange(5))
 
         self.Label = ""
 
         if ( self.CutToBandage ) then
-            self.Label = "Cutting Bandages"
+            self.Label = "Cutting bandages"
+            self.ParentObj:PlayAnimation("forage")
+        elseif ( self.CutToFillet ) then
+            self.Label = "Cutting fish"
+            self.ParentObj:PlayAnimation("carve")
         end
 
         self.StartProgressBar(self,root)
-
-        self.ParentObj:PlayAnimation("forage")
-
     end,
 
     StartProgressBar = function(self,root)
@@ -45,42 +52,66 @@ MobileEffectLibrary.HuntingKnife =
             Duration = self.PulseFrequency,
             PresetLocation = "AboveHotbar",
             DialogId = "HuntingKnife",
-            CanCancel = true,
-            CancelFunc = function()
-                EndMobileEffect(root)
-            end,
         })
-        self.ParentObj:PlayObjectSound("Fabrication", false, self.PulseFrequency.TotalSeconds)
+        self.ParentObj:PlayObjectSound("event:/character/skills/crafting_skills/fabrication/fabrication", false, self.PulseFrequency.TotalSeconds)
     end,
     
     VerifyTarget = function(self,root,target)
-        if ( not target or not target:IsValid() ) then
-            self.ParentObj:SystemMessage("Invalid Target.", "info")
+        if ( not target or not target:IsValid() or target:IsPermanent() ) then
+            self.ParentObj:SystemMessage("Invalid target.", "info")
             EndMobileEffect(root)
             return false
         end
         self.CutToBandage = target:HasObjVar("CutToBandage")
+
+        -- are we cutting bandages?
         if ( self.CutToBandage ) then
-            self.ResourceType = target:GetObjVar("ResourceType")
+            self.Name = "Bandages"
         else
-            self.ParentObj:SystemMessage("Invalid Target.", "info")
-            EndMobileEffect(root)
-            return false
+            -- so no. are we cutting fish?
+            self.CutToFillet = target:GetObjVar("FilletType")
+            if ( self.CutToFillet ) then
+                -- we are cutting fish, cache the template data
+                self.TemplateData = GetTemplateData(self.CutToFillet)
+                self.Name = StripColorFromString(self.TemplateData.Name)
+            else
+                self.ParentObj:SystemMessage("Invalid target.", "info")
+                EndMobileEffect(root)
+                return false
+            end
         end
-        if ( self.CutToBandage and target:TopmostContainer() ~= self.ParentObj ) then
-            self.ParentObj:SystemMessage("Cannot Reach That.", "info")
+
+        if ( self.CutToBandage or self.CutToFillet ) then
+            if ( target:TopmostContainer() ~= self.ParentObj ) then
+                self.ParentObj:SystemMessage("Cannot reach that.", "info")
+                EndMobileEffect(root)
+                return false
+            end
+            self.ResourceType = target:GetObjVar("ResourceType")
+        end
+        return true
+    end,
+
+    VerifyInBackpack = function(self,root)
+        -- item was destroyed or something?
+        if ( not self.Object or not self.Object:IsValid() or self.Object:TopmostContainer() ~= self.ParentObj ) then
+            self.ParentObj:SystemMessage("Cannot locate hunting knife.", "info")
             EndMobileEffect(root)
             return false
         end
         return true
     end,
 
+	Interrupted = function(self, root)
+        self.ParentObj:StopObjectSound("event:/character/skills/crafting_skills/fabrication/fabrication")
+        self.ParentObj:SystemMessage(self.Label .. " interrupted.", "info")
+		EndMobileEffect(root)
+	end,
+
     OnExitState = function(self,root)
         if ( self.Target ) then
             SetMobileMod(self.ParentObj, "Busy", "HuntingKnife", nil)
-            DelView("EffectRange")
-			UnregisterEventHandler("", EventType.LeaveView, "HuntingKnifeRange")
-            UnregisterEventHandler("", EventType.Message, "DamageInflicted")
+            UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
             UnregisterEventHandler("", EventType.StartMoving, "")
 			if ( self.ParentObj:HasTimer("HuntingKnifeClose") ) then
 				self.ParentObj:FireTimer("HuntingKnifeClose") -- close progress bar
@@ -94,20 +125,35 @@ MobileEffectLibrary.HuntingKnife =
     end,
     
 	AiPulse = function(self,root)
-        if not( self.VerifyTarget(self,root,self.Target) ) then return end
+        -- resource effects will verify in backpack the first use, but not on continued use.
+        if ( not self.VerifyTarget(self,root,self.Target) or not self.VerifyInBackpack(self,root) ) then return end
 
-        if ( self.CutToBandage ) then
-            if ( ConsumeResourceBackpack(self.ParentObj, self.ResourceType, 1) ) then
+        -- durability hit to the hunting knife
+        if ( Success(ServerSettings.Durability.Chance.OnToolUse) ) then
+            AdjustDurability(self.Object, -1)
+        end
 
+        -- did tools break?
+        if ( not self.Object or not self.Object:IsValid() ) then
+            EndMobileEffect(root)
+            return
+        end
+
+        local stackCount = GetStackCount(self.Target)
+        if ( ConsumeResourceBackpack(self.ParentObj, self.ResourceType, 1) ) then
+
+            if ( self.CutToBandage ) then
                 self.CreateBandages(self,root,5)
-
-                if ( GetStackCount(self.Target) > 1 ) then
-                    self.StartProgressBar(self,root)
-                    return -- stop from ending the effect
-                end
-            else
-                self.ParentObj:SystemMessage("Failed to consume resource.", "info")
+            elseif( self.CutToFillet ) then
+                self.CreateFillet(self, root, 1)
             end
+
+            if ( (stackCount - 1) >= 1 ) then
+                self.StartProgressBar(self,root)
+                return -- stop from ending the effect
+            end
+        else
+            self.ParentObj:SystemMessage("Failed to consume resource.", "info")
         end
 
 		EndMobileEffect(root)
@@ -116,22 +162,48 @@ MobileEffectLibrary.HuntingKnife =
     CreateBandages = function(self,root,amount)
         local added, addtostackreason = TryAddToStack("Bandage", self.Backpack, amount)
         if ( added ) then
-            self.ParentObj:SystemMessage(string.format("Created %d Bandages", amount), "info")
-            return
+            self.OnSuccess(self, amount)
+        else
+            if ( addtostackreason == "Weight" ) then
+                self.ParentObj:SystemMessage("Backpack cannot hold anymore.", "info")
+                Create.Stack.AtLoc("bandage", amount, self.ParentObj:GetLoc(), function(obj)
+                    if ( obj ) then self.OnSuccess(self, amount) end
+                end)
+            else
+                Create.Stack.InBackpack("bandage", self.ParentObj, amount, nil, function(obj)
+                    if ( obj ) then self.OnSuccess(self, amount) end
+                end)
+            end
         end
 
-        local createId = "cut_bandages_"..uuid()
-        RegisterSingleEventHandler(EventType.CreatedObject, createId, function(success, objRef)
-            if not( success ) then return end
-            RequestSetStack(objRef,amount)
-            SetItemTooltip(objRef)
-            self.ParentObj:SystemMessage(string.format("Created %d Bandages", amount), "info")
-        end)
-		self.Backpack:SendOpenContainer(self.ParentObj)
-		CreateObjInContainer("bandage", self.Backpack, GetRandomDropPosition(self.Backpack), createId)
+    end,
+
+    CreateFillet = function(self,root,amount)
+        local added, addtostackreason = TryAddToStack(self.TemplateData.ObjectVariables.ResourceType or "FishFillet", self.Backpack, amount)
+        if ( added ) then
+            self.OnSuccess(self, amount)
+        else
+            if ( addtostackreason == "Weight" ) then
+                self.ParentObj:SystemMessage("Backpack cannot hold anymore.", "info")
+                Create.Stack.AtLoc(self.CutToFillet, amount, self.ParentObj:GetLoc(), function(obj)
+                    if ( obj ) then self.OnSuccess(self, amount) end
+                end)
+            else
+                Create.Stack.InBackpack(self.CutToFillet, self.ParentObj, amount, nil, function(obj)
+                    if ( obj ) then self.OnSuccess(self, amount) end
+                end)
+            end
+        end
+    end,
+
+    OnSuccess = function(self, amount)
+        self.ParentObj:SystemMessage(string.format("Created %d %s", amount, self.Name), "info")
     end,
     
     PulseFrequency = TimeSpan.FromSeconds(3),
 
     CutToBandage = false,
-} 
+    CutToFillet = false,
+
+    Name = "",
+}

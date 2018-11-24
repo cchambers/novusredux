@@ -10,13 +10,14 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Wargs</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
 		<DoubleVariable Name="Armor">55</DoubleVariable>
 		<DoubleVariable Name="Attack">30</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">144.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
@@ -42,7 +43,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 3,					
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=3 },

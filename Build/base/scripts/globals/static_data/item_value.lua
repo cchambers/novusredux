@@ -2,39 +2,74 @@ CustomItemValues = {
 
 	--Resources
 	resource_stone = 0.1,
+	
+	resource_iron_ore = 8,
+	resource_gold_ore = 16,
+	resource_copper_ore = 24,
+	resource_cobalt_ore = 32,
+	resource_obsidian_ore = 40,
 
-	resource_iron_ore = 2,
-	resource_bronze_ore = 4,
-	resource_copper_ore = 6,
-	resource_steel_ore = 8,
-	resource_obsidian_ore = 10,
+	animalparts_blood = 5,
+	animalparts_blood_beast = 25,
+	animalparts_blood_vile = 50,
 
-	resource_wood = 1.2,
-	resource_ash = 2.4,
-	resource_blightwood = 4,
+	animalparts_eye = 4,
+	animalparts_eye_sickly = 20,
+	animalparts_eye_decrepid = 40,
+
+	resource_wood = 20,
+	resource_ash = 40,
+	resource_blightwood = 80,
 
 	resource_cotton = 10,
 	resource_cotton_fluffy = 20,
 	animalparts_spider_silk = 40,
-
-	resource_clothscraps = 0.1,
-
-	animalparts_leather_hide = 8,
-	animalparts_beast_leather_hide = 24,
-	animalparts_vile_leather_hide = 40,
+	
+	animalparts_leather_hide = 45,
+	animalparts_beast_leather_hide = 135,
+	animalparts_vile_leather_hide = 225,
 	
 	resource_sand = 0.20,
 	resource_blankscroll = 10,
 
+	resource_frayed_scroll = 15,
+	resource_fine_scroll = 30,
+	resource_ancient_scroll = 60,
+
 	rune_blank = 200,
 
 	--Animal Parts
-	animalparts_meat = 5,
+	
 	animalparts_human_skull = 10,
 	animalparts_leather_hide = 15,
+
+	animalparts_mystery_meat = 1,
+	animalparts_stringy_meat = 5,
+	animalparts_tough_meat = 10,
+	animalparts_tender_meat = 20,
+	animalparts_gourmet_meat = 50,
+
+	item_cooked_meat = 2,
+	item_jerky = 10,
+	item_meat_loaf = 20,
+	item_brisket = 40,
+	item_wild_steak = 100,
+
+	resource_fish_barrel = 1,
+	resource_fish_tero = 5,
+	resource_fish_spotted_tero = 10,
+	resource_fish_razor = 20,
+	resource_fish_aether = 50,
+
+	item_cooked_barrelfish = 2,
+	item_cooked_terofish = 10,
+	item_cooked_spottedterofish = 20,
+	item_cooked_razorfish = 40,
+	item_cooked_aetherfish = 100,
+
 	animalparts_bone = 5,
 	animalparts_bone_cursed = 35,
-	animalparts_bone_toxic = 50,
+	animalparts_bone_ethereal = 50,
 	animalparts_bone_spectral = 20,
 
 	--Harvest Resources
@@ -60,10 +95,11 @@ CustomItemValues = {
 	pouch = 10,
 	lockbox = 30,
 	celador_map_scroll = 40,
-	diamond_gem = 2000,
-	emerald_gem = 700,
-	ruby_gem = 600,
-	sapphire_gem = 650,
+
+	ruby_gem = 900,
+	sapphire_gem = 400,
+	topaz_gem = 200,
+
 	inn_stew = 15,
 	item_ale = 3,
 	item_apple = 4,
@@ -109,30 +145,30 @@ CustomItemValues = {
 	bandage = 1,
 
 
-	blueprint_woodhouse_worthless = 45000,
-	blueprint_woodhousecottage = 90900,
+	blueprint_woodhouse_worthless = 4500,
+	blueprint_woodhousecottage = 9090,
 
-	blueprint_tudorhousemahogany = 110500,
-	blueprint_tudorhousebirch = 195000,
+	blueprint_tudorhousemahogany = 11050,
+	blueprint_tudorhousebirch = 19500,
 
-	blueprint_woodhousemahogany = 110500,
-	blueprint_woodhousebirch = 195000,
+	blueprint_woodhousemahogany = 11050,
+	blueprint_woodhousebirch = 19500,
 
-	blueprint_stonehousetuscan = 110500,
-	blueprint_stonehousecottage = 195000,
+	blueprint_stonehousetuscan = 11050,
+	blueprint_stonehousecottage = 19500,
 
-	blueprint_terracottahousetuscan = 110500,
-	blueprint_terracottahousecottage = 195000,
+	blueprint_terracottahousetuscan = 11050,
+	blueprint_terracottahousecottage = 19500,
 
-	blueprint_tudorhousemayor = 433200,
-	blueprint_terracottahousevilla = 433200,
-	blueprint_stonehousevilla = 433200,
-	blueprint_woodhousemayor = 433200,
+	blueprint_tudorhousemayor = 43320,
+	blueprint_terracottahousevilla = 43320,
+	blueprint_stonehousevilla = 43320,
+	blueprint_woodhousemayor = 43320,
 
-	blueprint_stonehouseestate = 665200,
-	blueprint_woodhousetavern = 665200,
-	blueprint_tudorhousetavern = 665200,
-	blueprint_terracottahouseestate = 665200,
+	blueprint_stonehouseestate = 66520,
+	blueprint_woodhousetavern = 66520,
+	blueprint_tudorhousetavern = 66520,
+	blueprint_terracottahouseestate = 66520,
 	
 
 	fruit_catacombs = 150,
@@ -141,7 +177,10 @@ CustomItemValues = {
 
 	tool_engraving = 100,
 
-	bind_portal_stone = 500,
+	packed_bind_stone = 100000,
+	land_deed = 10000,
+	guild_charter = 50000,
+	escape_scroll = 400,
 
 	arrow = 1,
 }

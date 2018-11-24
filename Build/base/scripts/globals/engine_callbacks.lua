@@ -4,9 +4,25 @@ function GetInitialSeedGroups()
 	return GetAllSeedGroups("All",false)
 end
 
+-- This function returns an array of two items: { Display Name, Loading Image }
+function GetLoadingInfo()
+	local loadingImage = ServerSettings.SubregionName or ServerSettings.WorldName
+
+	local displayName = ServerSettings.WorldName
+	if(ServerSettings.SubregionName and SubregionDisplayNames[ServerSettings.SubregionName]) then
+		displayName = SubregionDisplayNames[ServerSettings.SubregionName]
+	end
+
+	return { ("Entering "..displayName.."..."), loadingImage }
+end
+
 function GetInitialUserUpdateRange()
-	if(GetWorldName()=="Login") then
+	if(ServerSettings.WorldName=="Login") then
 		return 0
+	end
+	-- DAB: Dirty hack so you players always see crystals in death's room
+	if(ServerSettings.WorldName=="Catacombs") then
+		return 60
 	end
 	--use default engine user update range of 30. 
 	return -1
@@ -21,7 +37,7 @@ function GetSpawnPosition(playerObj)
 		return spawnPosition:GetLoc(), spawnPosition:GetRotation().Y
 	else
 		--DebugMessage("C")
-		local subregion = GetSubregionName()
+		local subregion = ServerSettings.SubregionName
 		if(subregion and subregion ~= "") then			
 			local regionName = "Subregion-"..subregion
 			--DebugMessage("D",regionName,tostring(GetRegion(regionName)),tostring(GetRandomPassableLocation(regionName,true)))
@@ -152,16 +168,35 @@ function CanUseCase(user, targetObj, useCase)
 						return false
 					end
 				end
-			elseif(restrictionEntry == "OwnsContainedHouse") then
+			elseif(restrictionEntry == "HasHouseControl" ) then
 				local topCont = targetObj:TopmostContainer() or targetObj
-				if(not(IsGod(user)) and not(IsHouseOwnerForLoc(user,topCont:GetLoc())) )then
-					return false
+				local house = topCont:GetObjVar("PlotHouse")
+				if ( house ) then
+					local plot = house:GetObjVar("PlotController")
+					return ( plot and Plot.HasHouseControl(user, plot, house) )
 				end
+			elseif(restrictionEntry == "HasPlotControl") then
+				local topCont = targetObj:TopmostContainer() or targetObj
+				local plot
+				if ( topCont:GetCreationTemplateId() == "plot_controller" ) then
+					plot = topCont
+				else
+					plot = topCont:GetObjVar("PlotController")
+				end
+				return ( plot and Plot.HasControl(user, plot) )
 			elseif(restrictionEntry == "NotInHouse") then
 				local topCont = targetObj:TopmostContainer() or targetObj
-				if (HasHouseAtLoc(topCont:GetLoc())) then
+				if (Plot.GetAtLoc(topCont:GetLoc()) ~= nil) then
 					return false
 				end
+			elseif(restrictionEntry == "IsOpen") then
+				return ( targetObj:GetSharedObjectProperty("IsOpen") == true )
+			elseif(restrictionEntry == "IsClosed") then
+				return not( targetObj:GetSharedObjectProperty("IsOpen") == true )
+			elseif(restrictionEntry == "IsLocked") then
+				return ( targetObj:HasObjVar("locked") )
+			elseif(restrictionEntry == "IsUnlocked") then
+				return not( targetObj:HasObjVar("locked") )
 			elseif(restrictionEntry == "HasKey") then
 				if not(GetKey(user,targetObj)) then
 					return false
@@ -300,12 +335,6 @@ function GetObjectInteractionList(user, targetObj)
 				elseif ( IsPlayerCharacter(targetObj) or IsPet(targetObj) or IsDemiGod(user) ) then
 					table.insert(menuItems, "Inspect")
 				end
-
-				if(targetObj ~= user and targetObj:GetMobileType() == "Friendly") then
-					if (targetObj:GetName() ~= "Magical Guide") then
-						table.insert(menuItems,"Interact")
-					end
-				end
 			end
 		else
 			local equipSlot = GetEquipSlot(targetObj)
@@ -343,8 +372,11 @@ function GetObjectInteractionList(user, targetObj)
 				table.insert(menuItems,"God Pick Up")	
 			end
 		end
-		if (IsGod(user) and EDITMODE == false) then
+		if (IsGod(user) and ServerSettings.EditMode == false) then
 			table.insert(menuItems,"God Info")
+			if(targetObj:IsMobile()) then
+				table.insert(menuItems,"Edit Mob")
+			end
 		end
 		if(useCases ~= nil and (#useCases > 0)) then
 			for i,useCase in pairs(useCases) do
@@ -360,16 +392,4 @@ function GetObjectInteractionList(user, targetObj)
 	end
 
 	return menuItems
-end
-
---- Cache the region address to avoid a call out of lua for a simple value
-_baseGetRegionAddress = GetRegionAddress
-_cachedRegionAddress = nil
-function GetRegionAddress()
-	local cached = _cachedRegionAddress
-	if ( cached == nil ) then
-		cached = _baseGetRegionAddress()
-		_cachedRegionAddress = cached
-	end
-	return cached
 end

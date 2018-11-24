@@ -1,4 +1,6 @@
 ServerSettings.Misc = {
+	HearthstoneCooldown = TimeSpan.FromMinutes(30),
+
 	MustLearnMaps = false,
 	MaxAtlasWaypoints = 25,
 	MaxMapWaypoints = 10,
@@ -13,14 +15,16 @@ ServerSettings.Misc = {
 	FoodStarvationDivder = 5,		
 	
 	CorpseDecayTimeSecs = 900,
-	EnforceBadWordFilter = false,
+	EnforceBadWordFilter = true,
 	
 	BankWeightLimit = 10000,
 	BackpackBaseWeightLimit = 200,
 	DefaultContainerWeightLimit = 2000,
-	CoinWeight = 0.0001,
+	CoinWeight = 0.02,
 	PetDecayTime = 3600,
 	NonCombatMaps = {
 		"Founders"
 	},
+
+	HelpReportEnabled = true,
 }

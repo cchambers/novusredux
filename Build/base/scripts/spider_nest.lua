@@ -2,10 +2,7 @@ TIME_TO_RESPAWN = 60*15
 MAX_SPIDERS = 2
 MIN_SPIDERS = 1
 
-spiderController = FindObject(SearchMulti({
-                        SearchModule("spider_nest_controller"),
-                        SearchRange(this:GetLoc(), 30),
-                    })) --find a spidernest controller 
+spiderController = FindObject(SearchModule("spider_nest_controller",30)) --find a spidernest controller 
 
 function Destroy(user)
         if (this:GetSharedObjectProperty("IsDestroyed") == true) then return end 

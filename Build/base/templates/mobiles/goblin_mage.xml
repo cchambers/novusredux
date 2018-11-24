@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">360</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Goblin</StringVariable>
+		<StringVariable Name="MobileKind">Ork</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -19,7 +20,7 @@
 		<DoubleVariable Name="Attack">20</DoubleVariable>
 		<DoubleVariable Name="Power">5</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=10,  
+					Brawling = 10,  
 					Evocation=100,
 					MagicAffinity=100,
 					},	
@@ -48,9 +49,9 @@
 						TemplateDefines.LootTable.ScrollsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Poor,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.FrayedScrolls,
 						{
-							NumCoins = math.random(60,150),
+							NumCoins = math.random(60,100),
 						},
 					},	
 				ScavengeTables =

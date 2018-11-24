@@ -7,7 +7,7 @@ function ValidateUse(user)
 	end
 
 	if( this:TopmostContainer() ~= user ) then
-		user:SystemMessage("[$2644]")
+		user:SystemMessage("[$2644]","info")
 		return false
 	end
 
@@ -49,8 +49,8 @@ function DecipherMap(user)
 	if(IsPrecise() or CheckSkillChance(user,"TreasureHuntingSkill", skillLevel, decipherChance)) then
 		local regionalName = this:GetObjVar("RegionalName")
 		this:SetObjVar("Deciphered",true)
-		user:SystemMessage("You decipher the map and find it to be in "..regionalName..".","info")
-		SetTooltipEntry(this,"decipher",regionalName)
+		user:SystemMessage("You decipher the map and find it to be in "..regionalName[2]..".","info")
+		SetTooltipEntry(this,"decipher",regionalName[2])
 		RemoveUseCase(this,"Decipher")
 		AddUseCase(this,"Study",true,"HasObject")
 
@@ -61,6 +61,7 @@ function DecipherMap(user)
 			accuracyStr = "Precise"
 			this:SetObjVar("Precise",true)
 			accuracyDist = 2
+			CheckAchievementStatus(user, "TreasureHunting", "DecipherPrecise", 1)
 		elseif( accuracyRoll > 90) then
 			accuracyStr = "Accurate"
 			accuracyDist = 5
@@ -83,6 +84,7 @@ function DecipherMap(user)
 end
 
 function StudyMap(user)
+	local regionalName = this:GetObjVar("RegionalName")
 	if not(this:HasObjVar("Deciphered")) then
 		DebugMessage("ERROR: Studying map thats not deciphered!")
 		return
@@ -94,19 +96,19 @@ function StudyMap(user)
 		return
 	end
 
-	if (this:GetObjVar("RegionalName") == nil) then
+	if (regionalName == nil) then
 		user:SystemMessage("[$2645]","info")
 		return
 	end
 	
-	if (GetWorldName() ~= "NewCelador") then
+	if (ServerSettings.WorldName ~= "NewCelador") then
 		user:SystemMessage("[$2646]","info")
 		return
 	end
 
-	local regionRef = GetRegion("Area-"..this:GetObjVar("RegionalName"))
+	local regionRef = GetRegion(regionalName[1])
 	if (regionRef == nil) then
-		user:SystemMessage("The map points you towards "..this:GetObjVar("RegionalName"),"info")
+		user:SystemMessage("The map points you towards "..regionalName[2],"info")
 		return
 	end
 
@@ -123,7 +125,7 @@ function StudyMap(user)
 		end
 
 		if (selectedRegion == nil)then
-			user:SystemMessage("The map points you towards "..this:GetObjVar("RegionalName"),"info")
+			user:SystemMessage("The map points you towards "..regionalName[2],"info")
 			return
 		end
 	end
@@ -188,16 +190,16 @@ function FindTreasureLocation()
 		this:Destroy()
 		return
 	end
-	--DebugMessage(GetWorldName(),this:GetObjVar("Shard"),GetWorldName() == this:GetObjVar("Shard"))
-	if( GetWorldName() == "NewCelador" ) then
-		local regionRef = GetRegion("Area-"..this:GetObjVar("RegionalName"))
+	--DebugMessage(ServerSettings.WorldName,this:GetObjVar("Shard"),ServerSettings.WorldName == this:GetObjVar("Shard"))
+	if( ServerSettings.WorldName == "NewCelador" ) then
+		local regionRef = GetRegion(this:GetObjVar("RegionalName")[1])
 		if (regionRef ~= nil) then
-			--DebugMessage("Area-"..this:GetObjVar("RegionalName"))
+			--DebugMessage(this:GetObjVar("RegionalName")[1])
 			--DebugMessage(regionRef.RegionName)
 			local excludedRegions = {}
 			table.insert(excludedRegions,GetRegion("NoHousing"))
 			table.insert(excludedRegions,GetRegion("Water"))
-			local subregion = GetSubregionName()
+			local subregion = ServerSettings.SubregionName
 
 			local mapLocation = GetRandomPassableLocation(regionRef.RegionName,true)
 			mapLocation = TryRelocateMapLocation(mapLocation,regionRef,1, excludedRegions, subregion)
@@ -293,11 +295,11 @@ RegisterEventHandler(EventType.Message, "UseObject",
 
 		if(usedType == "Decipher") then
 			user:SystemMessage("You begin to decipher the map.","info")
-			user:PlayObjectSound("ScrollPickup")
+			user:PlayObjectSound("event:/objects/pickups/scroll/scroll_pickup")
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"study",user)
 		elseif(usedType == "Study") then 			
 			user:SystemMessage("You begin to study the map.","info")
-			user:PlayObjectSound("ScrollPickup")
+			user:PlayObjectSound("event:/objects/pickups/scroll/scroll_pickup")
 			--this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"study",user)
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"study",user)
 		end
@@ -314,7 +316,7 @@ RegisterEventHandler(EventType.Timer,"study",
 				StudyMap(user)
 			end
 		else
-			user:SystemMessage("[$2649]")
+			user:SystemMessage("[$2649]","info")
 		end
 	end)
 
@@ -325,14 +327,34 @@ RegisterEventHandler(EventType.Message,"FoundTreasure",
 		local mapLocation = this:GetObjVar("MapLocation")
 		local reward = this:GetObjVar("Reward")
 
-		user:PlayObjectSound("SkillGain")
+		user:PlayObjectSound("event:/ui/skill_gain")
 		
 		local lifetimeStats = user:GetObjVar("LifetimePlayerStats")
 		lifetimeStats.TreasureMaps = (lifetimeStats.TreasureMaps or 0) + 1
-		PlayerTitles.CheckTitleGain(user,AllTitles.ActivityTitles.TreasureHunter,lifetimeStats.TreasureMaps)
+		CheckAchievementStatus(user, "TreasureHunting", "TreausreNumber", lifetimeStats.TreasureMaps)
+
+		local name,color = StripColorFromString(GetTemplateData(this:GetCreationTemplateId()).Name)
+		lifetimeStats[name] = (lifetimeStats[name] or 0) + 1
+		CheckAchievementStatus(user, "TreasureHunting", name, lifetimeStats[name])
+
 		user:SetObjVar("LifetimePlayerStats",lifetimeStats)
 		--RemoveMapMarker(user,"TreasureMapMarker"..this.Id)
-		CreateObj(reward, mapLocation)		
+
+		--If treasure chest created, auto unstuck mobiles on treasure chest
+		RegisterSingleEventHandler(EventType.CreatedObject, "treasure_chest_created", function(success, treasureChest)
+			if ( not success ) then
+				if ( tresaureChest ) then
+					treasureChest:Destroy()
+				end
+				return
+			end
+
+	        -- auto unstuck mobiles on treasure chest
+	        MoveMobilesOutOfObject(treasureChest)
+	    end)
+
+		CreateObj(reward, mapLocation, "treasure_chest_created")
+
 		user:SystemMessage("You dug something up.", "info")
 		user:SystemMessage("The treasure map disintegrates in your hands.", "info")
 		--user:SendMessage("RequestSkillGainCheck", "TreasureHunterSkill", treasurehunterSkill)

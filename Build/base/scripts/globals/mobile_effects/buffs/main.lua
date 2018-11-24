@@ -10,41 +10,37 @@ require 'globals.mobile_effects.buffs.player.vitality_hearth'
 require 'globals.mobile_effects.buffs.player.campfire'
 require 'globals.mobile_effects.buffs.player.tinderbox'
 
--- field mage
-require 'globals.mobile_effects.buffs.fieldmage.stasis'
-require 'globals.mobile_effects.buffs.fieldmage.empower'
-require 'globals.mobile_effects.buffs.fieldmage.empoweraoe'
-
--- gladiator
-require 'globals.mobile_effects.buffs.gladiator.pursuit' -- works
-require 'globals.mobile_effects.buffs.gladiator.noremorse' -- works
-require 'globals.mobile_effects.buffs.gladiator.stunstrike' -- works
--- hamstring is general debuff -- works
-
--- knight
-require 'globals.mobile_effects.buffs.knight.shieldbash' -- works
-require 'globals.mobile_effects.buffs.knight.heroism' -- works
-require 'globals.mobile_effects.buffs.knight.righteousweapon' -- works
-require 'globals.mobile_effects.buffs.knight.vanguard' -- works
-require 'globals.mobile_effects.buffs.knight.charge'
+-- fighter
+require 'globals.mobile_effects.buffs.fighter.shieldbash' -- works
+require 'globals.mobile_effects.buffs.fighter.heroism' -- works
+require 'globals.mobile_effects.buffs.fighter.righteousweapon' -- works
+require 'globals.mobile_effects.buffs.fighter.vanguard' -- works
+require 'globals.mobile_effects.buffs.fighter.charge' -- buggy
+require 'globals.mobile_effects.buffs.fighter.stunstrike' -- works
+require 'globals.mobile_effects.buffs.fighter.adrenaline_rush' -- works
 
 -- rogue
 require 'globals.mobile_effects.buffs.rogue.dart' -- works
 require 'globals.mobile_effects.buffs.rogue.evasion' -- works
 require 'globals.mobile_effects.buffs.rogue.backstab'
 
--- scout
-require 'globals.mobile_effects.buffs.scout.snipe' --works
+-- monk
+--require 'globals.mobile_effects.buffs.monk.flurryofblows' --works
 
--- sorcerer
-require 'globals.mobile_effects.buffs.sorcerer.spellchamber' --works
-require 'globals.mobile_effects.buffs.sorcerer.spellshield'
---require 'globals.mobile_effects.buffs.sorcerer.energyvortex' -- works
-require 'globals.mobile_effects.buffs.sorcerer.destruction' -- needs testing
+-- mage
+require 'globals.mobile_effects.buffs.mage.spellchamber' --works
+require 'globals.mobile_effects.buffs.mage.magearmor'
+require 'globals.mobile_effects.buffs.mage.energyvortex' -- works
+require 'globals.mobile_effects.buffs.mage.destruction' -- needs testing
+require 'globals.mobile_effects.buffs.mage.meditation'
+require 'globals.mobile_effects.buffs.mage.stasis'
+require 'globals.mobile_effects.buffs.mage.empower'
+require 'globals.mobile_effects.buffs.mage.empoweraoe'
 
 -- spells
-require 'globals.mobile_effects.buffs.spells.attack'
-require 'globals.mobile_effects.buffs.spells.defense'
 require 'globals.mobile_effects.buffs.spells.recall'
 require 'globals.mobile_effects.buffs.spells.mark'
 require 'globals.mobile_effects.buffs.spells.summonportal'
+require 'globals.mobile_effects.buffs.spells.intellect'
+require 'globals.mobile_effects.buffs.spells.agility'
+require 'globals.mobile_effects.buffs.spells.energywall'

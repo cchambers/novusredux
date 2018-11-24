@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Relic of the First Star[-]</Name>
+  <Name>Relic of the First Star</Name>
 	<ClientId>112</ClientId>
 	<Color>0xFF63471C</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

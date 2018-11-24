@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Gold-Encrusted Map[-]</Name>
+  <Name>Gold-Encrusted Map</Name>
 	<ClientId>113</ClientId>
 	<Color>0xFFFFFF00</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

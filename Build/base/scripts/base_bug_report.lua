@@ -4,7 +4,7 @@ bugReportStartingText = "[$1619]"
 
 function OpenBugReportDialog(user)
 	if (BUG_REPORT_DISABLED) then
-		user:SystemMessage("Bug reporting temporarily disabled for now.")
+		user:SystemMessage("Bug reporting temporarily disabled for now.","info")
 		return
 	end
 	local newWindow = DynamicWindow("BugReportWindow","Bug Report",400,388,200,200,"Default","TopLeft")
@@ -29,7 +29,7 @@ function BuildReportData()
 		end
 	end
 	return json.encode({
-		Region = GetRegionAddress(),
+		Region = ServerSettings.RegionAddress,
 		UserID = this:GetAttachedUserId(),
 		Location = tostring(this:GetLoc()),
 		Facing = tostring(this:GetFacing()),
@@ -47,7 +47,7 @@ function (user,buttonId,bugReportField)
 	if ( buttonId == "Submit" ) then
 
 		if ( bugReportField.BugReportMessage == "" or bugReportField.BugReportMessage == bugReportStartingText ) then
-			this:SystemMessage("[D70000]Please provide more detail in your report.[-]")
+			this:SystemMessage("[D70000]Please provide more detail in your report.[-]","info")
 			return
 		end
 		
@@ -57,8 +57,7 @@ function (user,buttonId,bugReportField)
 
 		SendEmail(BUG_REPORT_EMAIL, "Bug Report: "..os.date().." from "..tostring(this:GetName()), body)
 
-		user:SystemMessage("[$1620]")
-		
+		user:SystemMessage("[$1620]","info")
 	else
 		return
 	end

@@ -1,29 +1,26 @@
-function UpdateName(paName,paLevel)
+function UpdateName(paName)
 	paName = paName or this:GetObjVar("PrestigeAbility")
-	paLevel = paLevel or this:GetObjVar("AbilityLevel")
 
 	local oldName,color = StripColorFromString(this:GetName())
-	this:SetName(color..paName.." "..GetLevelText(paLevel).." Ability Training Book[-]")
+	this:SetName(color..paName.." Ability Training Book[-]")
 end
 
-function UpdateTooltip(paName,paLevel)
+function UpdateTooltip(paName)
 	paName = paName or this:GetObjVar("PrestigeAbility") or "Blank"
-	paLevel = paLevel or this:GetObjVar("AbilityLevel") or 0
 
-	local tooltip = GetPrestigeAbilityTooltip(paName,paLevel)
+	local paData = GetPrestigeAbility(nil,paName)
+	local tooltip = GetPrestigeAbilityTooltip(paData)
 	if(tooltip) then
-		local prereq = BuildPrestigePrerequisitesString(nil,paName,paLevel)	
+		local prereq = BuildPrestigePrerequisitesString(paData)
 
 		SetTooltipEntry(this,"ability",tooltip.."\n\nRequires:\n"..prereq)
 	end
 end
 
-function SetBook(paName,paLevel)
-	if(paName and paLevel) then
-		this:SetObjVar("PrestigeAbility",paName)		
-		this:SetObjVar("AbilityLevel",paLevel)
-		
-		UpdateName(paName,paLevel)
+function SetBook(paName)
+	if(paName) then
+		this:SetObjVar("PrestigeAbility",paName)
+		UpdateName(paName)
 		UpdateTooltip(paName)
 	end
 end
@@ -47,9 +44,8 @@ RegisterEventHandler(EventType.Message,"UseObject",
 		elseif(usedType == "Set Ability" and IsGod(user)) then
 			local newWindow = DynamicWindow("SetAbility","Set Ability",570,150)
 
-			newWindow:AddLabel(30,10,"Set Ability / Level: ",0,0,16)
+			newWindow:AddLabel(30,10,"Set Ability ",0,0,16)
 			newWindow:AddTextField(20,30,400,20,"ability")
-			newWindow:AddTextField(20,60,400,20,"level")
 		    newWindow:AddButton(430, 25, "Enter", "Enter")  
 
 		    user:OpenDynamicWindow(newWindow,this)
@@ -58,22 +54,18 @@ RegisterEventHandler(EventType.Message,"UseObject",
 				function(user,buttonId,fieldData)
 					if(buttonId == "Enter") then
 						local name = "Blank"
-						local level = 1
 						local tooltip = ""
 						if(fieldData.ability and fieldData.ability ~= "") then							
 							name = fieldData.ability
 						end
-						if(fieldData.level and fieldData.level ~= "") then
-							level = fieldData.level
-						end
 
-						SetBook(name,level)						
+						SetBook(name)						
 					end
 				end)
 		end
 	end)
 
 RegisterEventHandler(EventType.Message,"SetBook",
-	function (name,level)
-		SetBook(name,tonumber(level))
+	function (name)
+		SetBook(name)
 	end)

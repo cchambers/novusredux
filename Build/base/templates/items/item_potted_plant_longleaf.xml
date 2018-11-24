@@ -1,0 +1,5 @@
+﻿<ObjectTemplate>
+	<Name>Long Leaf</Name>
+	<ClientId>2110</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2" />
+</ObjectTemplate>

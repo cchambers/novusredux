@@ -152,13 +152,12 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"SkillTokenWindow",
 			if ( CanGainSkill(user,mSelectedSkill, newSkillLevel) ) then
 				user:SendMessage("SetSkillLevel",user,mSelectedSkill,newSkillLevel,true)
 				this:SetObjVar("Uses",GetUsesRemaining()-1)
-				user:PlayObjectSound("QuestComplete",false)
+				user:PlayObjectSound("event:/ui/quest_complete",false)
 				user:PlayEffect("ImpactWaveEffect")
 				CallFunctionDelayed(TimeSpan.FromSeconds(2),function()ShowTokenWindow(user)end)
 				UpdateTooltip()
 			else
 				user:SystemMessage("That would put you over your skill cap, please forget some skill points and select again.","info")
-				user:SystemMessage("That would put you over your skill cap, please forget some skill points and select again.")
 			end
 		end
 	end)

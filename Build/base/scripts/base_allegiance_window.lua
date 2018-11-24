@@ -22,7 +22,10 @@ function AllegianceInfo()
 	    }
 	else
 		local allegianceId = GetAllegianceId(this)
-		if ( allegianceId == nil ) then return end
+		if ( allegianceId == nil ) then 
+			this:SystemMessage("You are not in an allegiance.","info")
+			return 
+		end
 
 		local allegianceData = GetAllegianceDataById(allegianceId)
 		if ( allegianceData == nil ) then return end
@@ -60,6 +63,8 @@ function AllegianceInfo()
 			--customSprites --(table) Table of custom button sprites (normal, hover, pressed. disabled)
 		)
 
+		mAllegianceWindowOpen = true
+
 		this:OpenDynamicWindow(dynamicWindow)
 	end	
 end
@@ -80,5 +85,16 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Allegiance", function(use
 		        end
 	        end,
 	    }
+	elseif(buttonId == "" or buttonId == nil) then
+		mAllegianceWindowOpen = false
 	end
 end)
+
+function ToggleAllegianceWindow()
+	if(mAllegianceWindowOpen) then
+		mAllegianceWindowOpen = false
+		this:CloseDynamicWindow("Allegiance")
+	else
+		AllegianceInfo()
+	end
+end

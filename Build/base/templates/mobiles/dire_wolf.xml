@@ -9,7 +9,9 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Test</StringVariable>
+		<StringVariable Name= "MobileTeamType">Wolf</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">5</DoubleVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
@@ -21,10 +23,10 @@
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="PetSlots">4</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">75.1</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_wolf">
+		<LuaModule Name="ai_default_animal">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
@@ -33,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=75,  
+					Brawling = 75,  
 					},	
 				EquipTable = 
 					{

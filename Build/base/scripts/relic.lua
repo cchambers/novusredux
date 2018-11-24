@@ -10,7 +10,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
         if(usedType ~= "Use" and usedType ~= "Examine") then return end
         local gate = FindObject(SearchModule("dead_gate_controller"))
         if( gate == nil ) then --if the player is off world
-            user:SystemMessage("[$2433]")
+            user:SystemMessage("[$2433]","info")
             return
         end
         --user:SendMessage("StartQuest","RelicQuest")
@@ -40,9 +40,9 @@ RegisterEventHandler(EventType.Message, "UseObject",
                 direction = "Northwest"
             end
 
-            user:SystemMessage("[$2434]"..direction..".")
+            user:SystemMessage("[$2434]"..direction..".","info")
         else
-            user:SystemMessage("[$2435]")
+            user:SystemMessage("[$2435]","info")
         end
     end)
 

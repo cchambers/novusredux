@@ -4,6 +4,9 @@ MobileEffectLibrary.Poison =
 
 	Debuff = true,
 
+	-- Can this be resisted by Willpower?
+	Resistable = true,
+
 	OnEnterState = function(self,root,target,args)
 		-- TARGET REPRESENTS THE PERSON THAT APPLIED THE POISON
 		self.Target = target
@@ -11,13 +14,14 @@ MobileEffectLibrary.Poison =
 		self.PulseMax = args.PulseMax or self.PulseMax
 		self.MinDamage = args.MinDamage or self.MinDamage
 		self.MaxDamage = args.MaxDamage or self.MaxDamage
-		SetMobileMod(self.ParentObj, "HealingReceivedTimes", "Poison", -0.60)
+		SetMobileMod(self.ParentObj, "HealingReceivedTimes", "Poison", -0.50)
 		if ( self.ParentObj:IsPlayer() ) then
 			AddBuffIcon(self.ParentObj, "PoisonDebuff", "Poisoned", "Poison Cloud", self.MinDamage.."-"..self.MaxDamage.." damage every "..self.PulseFrequency.Seconds.." seconds." .. "\nReduced healing received.", true)
 		end
 
 		self.ParentObj:PlayEffect("PoisonSpellEffect")
-		self.ParentObj:PlayObjectSound("GrimAura",false)
+		self.ParentObj:PlayEffect("StatusEffectPoison")
+		self.ParentObj:PlayObjectSound("event:/magic/void/magic_void_grim_aura",false)
 
 		if ( HasHumanAnimations(self.ParentObj) ) then
 			self.ParentObj:PlayAnimation("sunder")
@@ -27,10 +31,6 @@ MobileEffectLibrary.Poison =
 		end
 
 		AdvanceConflictRelation(target, self.ParentObj)
-
-		RegisterEventHandler(EventType.Message, "CurePoison", function()
-			EndMobileEffect(root)
-		end)
 	end,
 
 	OnExitState = function(self,root)
@@ -39,7 +39,7 @@ MobileEffectLibrary.Poison =
 			RemoveBuffIcon(self.ParentObj, "PoisonDebuff")
 		end
 		self.ParentObj:StopEffect("PoisonSpellEffect")
-		UnregisterEventHandler("", EventType.Message, "CurePoison")
+		self.ParentObj:StopEffect("StatusEffectPoison")
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -55,9 +55,9 @@ MobileEffectLibrary.Poison =
 		end
 	end,
 
-	PulseFrequency = TimeSpan.FromSeconds(1),
-	PulseMax = 1,
+	PulseFrequency = TimeSpan.FromSeconds(3),
+	PulseMax = 8,
 	CurrentPulse = 0,
-	MinDamage = 1,
-	MaxDamage = 2
+	MinDamage = 2,
+	MaxDamage = 6
 }

@@ -8,6 +8,7 @@
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<StringVariable Name="NaturalWeaponType">BattleAxe</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Claws</StringVariable>
 		<DoubleVariable Name="BaseHealth">220</DoubleVariable>

@@ -5,7 +5,7 @@
 	<ObjectVariableComponent>
 		<StringVariable Name="WeaponType">HuntingKnife</StringVariable>
 		<StringVariable Name="ResourceType">HuntingKnife</StringVariable>
-		<StringVariable Name="ToolSound">KnifeUse</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/gathering_skills/hunting/hunting_knife</StringVariable>
 		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
 	</ObjectVariableComponent>			
 	<ScriptEngineComponent>

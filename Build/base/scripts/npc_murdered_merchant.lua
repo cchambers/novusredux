@@ -45,7 +45,7 @@ end)
 RegisterEventHandler(EventType.Message, "UseObject", 
 	function (user,usedType)
 		if(usedType ~= "Investigate") then return end
-		user:SystemMessage("[$2246]")
+		user:SystemMessage("[$2246]","info")
         user:SendMessage("AdvanceQuest","InvestigateMurderQuest","TalkToInaius","InvestigateCorpse")
 	end)
 

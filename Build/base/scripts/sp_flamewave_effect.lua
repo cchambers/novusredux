@@ -12,12 +12,12 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "FlamewaveRemoveTimer")
 function ValidateFlameDestination(targetLoc)
 	------DebugMessage("----Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2607]")
+		this:SystemMessage("[$2607]","info")
 		return falses
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2608]")
+		this:SystemMessage("[$2608]","info")
 		return false
 	end
 

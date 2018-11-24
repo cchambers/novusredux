@@ -19,7 +19,41 @@ MobileEffectLibrary.Map =
 			end)
 
 		if (useType == "open") then
-			self.ParentObj:SendMessage("OpenMapWindow", mapName, target, false, true)
+			local subMaps = self.ParentObj:GetObjVar("SubMaps") or {}
+			local hasSubMap = false
+			for i, j in pairs(subMaps) do
+				if (mapName == j) then
+					hasSubMap = true
+				end
+			end
+
+			if not (hasSubMap) then
+				ClientDialog.Show
+				{
+					TargetUser = self.ParentObj,
+					DialogId = "MemorizeMap",
+				    TitleStr = "Memorize Map",
+				    DescStr = "Would you like to commit this map of "..SubregionDisplayNames[mapName].." to memory?",
+				    Button1Str = "Yes",
+				    Button2Str = "No",
+				    ResponseObj= self.ParentObj,
+				    ResponseFunc= 
+				    function(dialogUser, dialogButtonId)
+						local dialogButtonId = tonumber(dialogButtonId)
+						if (dialogUser == nil) then return end
+
+						if (dialogButtonId == 0) then
+							AddSubMap(self.ParentObj, self.ParentObj, target)
+							EndMobileEffect(root)
+						else
+							self.ParentObj:SendMessage("OpenMapWindow", mapName, target, false, true)
+						end
+					end,
+				}
+			else
+				self.ParentObj:SendMessage("OpenMapWindow", mapName, target, false, true)
+			end
+
 		elseif (useType == "rename") then
 			RenameMap(self.ParentObj, target)
 			EndMobileEffect(root)

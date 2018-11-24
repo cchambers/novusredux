@@ -1,5 +1,4 @@
 require 'incl_resource_source'
-require 'incl_container'
 
 -- NOTE: any resource tool can set HarvestDelay objvar to override the default
 ResourceHarvester = 
@@ -67,7 +66,6 @@ end
 function BeginHarvest(objRef,user,alreadyHarvesting)
 	if (objRef == nil or not objRef:IsValid()) then return end
 	-- skip checking perm objs (trees, rocks, etc)
-	if ( not objRef:IsPermanent() and CheckKarmaLoot(user, objRef) == false ) then return end
 	local useRange = VALID_USE_RANGE
 	if(ResourceHarvester.UseRange ~= nil) then
 		useRange = ResourceHarvester.UseRange
@@ -82,21 +80,24 @@ function BeginHarvest(objRef,user,alreadyHarvesting)
 		user:SystemMessage("You are too far away.","info")
 		return
 	end
-	
-	if ( IsMounted(user) ) then
-		DismountMobile(user)
-	end
 
 	local tool = GetHarvestToolInBackpack(user,GetRequiredTool(objRef))
 	if( GetRequiredTool(objRef) ~= ResourceHarvester.ToolType ) then
 		--DebugMessage("ToolType: " .. ResourceHarvester.ToolType)
-		user:SystemMessage("You can't use your "..ResourceHarvester.ToolType.." for that.", "info")
+		user:SystemMessage(string.format("You can't use your %s for that.", ResourceHarvester.ToolType), "info")
 		return
 	end
 
-	if (not(objRef:IsPermanent()) and objRef:HasObjVar("guardKilled")) then
-		user:SystemMessage("[$1726]")
-		return
+	if ( not objRef:IsPermanent() ) then
+		if ( objRef:HasObjVar("guardKilled") ) then
+			user:SystemMessage("[$1726]","info")
+			return
+		end
+		if ( CheckKarmaLoot(user, objRef) == false ) then return end
+	end
+	
+	if ( IsMounted(user) ) then
+		DismountMobile(user)
 	end
 
 	if (not alreadyHarvesting) then
@@ -108,7 +109,7 @@ function BeginHarvest(objRef,user,alreadyHarvesting)
 		--DebugMessage("PLAYANIM")
 		user:PlayAnimation(ResourceHarvester.HarvestAnimation)			
 	end
-	this:SendMessage("BreakInvisEffect", "Harvest")
+	this:SendMessage("BreakInvisEffect", "Action")
 	this:SendMessage("EndCombatMessage")
 
 	local bonusHarvestDelay = this:GetObjVar("BonusHarvestDelay") or 0
@@ -118,13 +119,7 @@ function BeginHarvest(objRef,user,alreadyHarvesting)
 	local harvestDelaySecs = baseHarvestDelaySecs * harvestModifier
 
 	-- fire a timer when harvesting is complete
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(harvestDelaySecs),"CompleteHarvest",user,objRef)	
-
-	if ( this ~= user ) then
-		if ( Success(ServerSettings.Durability.Chance.OnToolUse) and IsPlayerCharacter(user) ) then
-			AdjustDurability(this, -1)
-		end
-	end
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(harvestDelaySecs),"CompleteHarvest",user,objRef)
 end
 
 function RequestResource(objRef,user,depletionAmount)
@@ -271,6 +266,13 @@ RegisterEventHandler(EventType.Timer,"CompleteHarvest",
 		else
 			ResourceHarvester.CompleteHarvest(objRef,user)
 		end
+
+		if ( this ~= user ) then
+			if ( Success(ServerSettings.Durability.Chance.OnToolUse) and IsPlayerCharacter(user) ) then
+				AdjustDurability(this, -1)
+			end
+		end
+		
 	end)
 
 RegisterEventHandler(EventType.Message,"CancelHarvesting",

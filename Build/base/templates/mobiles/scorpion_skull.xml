@@ -11,6 +11,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Insects</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
@@ -21,8 +22,6 @@
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">171.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default">
@@ -34,7 +33,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=70,  
+					Brawling = 70,  
 					},	
 				EquipTable = 
 					{
@@ -42,6 +41,7 @@
 					},
 				LootTables =
 					{
+						TemplateDefines.LootTable.SicklyEye,
 						{
 							NumItems = 1,
 							NumCoins = math.random(60,150),
@@ -59,7 +59,7 @@
 				{				
 					AnimalParts =
 					{
-						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+						{ ResourceType="Venom", RarityPct=10, Count=1 },
 					},
 				}
 			</Initializer>

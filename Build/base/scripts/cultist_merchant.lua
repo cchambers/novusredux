@@ -81,15 +81,21 @@ RegisterEventHandler(EventType.Message, "UseObject",
 		        response[4].handle = "Bank" 
 		    end
 
+		    if (AI.GetSetting("EnableTax") ~= nil and AI.GetSetting("EnableTax") == true) then
+		        response[5] = {}
+		        response[5].text = "I want to pay taxes."
+		        response[5].handle = "Tax" 
+		    end
+
 		    if (CanTrain()) then
-				response[5] = {}
-				response[5].text = "Train me in this skill..."
-				response[5].handle = "Train" 
+				response[6] = {}
+				response[6].text = "Train me in this skill..."
+				response[6].handle = "Train" 
 			end
 
-		    response[6] = {}
-		    response[6].text = "Nevermind"
-		    response[6].handle = "" 
+		    response[7] = {}
+		    response[7].text = "Nevermind"
+		    response[7].handle = "" 
 
 			NPCInteractionLongButton(text,this,user,"merchant_interact",response)
 	end)
@@ -108,6 +114,8 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"merchant_interact",
 	    	Merchant.DoAppraise(user)
         elseif (menuIndex == "Bank") then
 	    	OpenBank(user,this)
+        elseif (menuIndex == "Tax") then
+	    	OpenTax(user,this)
 	    elseif( menuIndex == "Train" ) then
 	    	SkillTrainer.ShowTrainContextMenu(user)
 	    elseif (menuIndex == "Buy") then

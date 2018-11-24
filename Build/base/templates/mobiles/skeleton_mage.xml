@@ -19,7 +19,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">48</DoubleVariable>
 		<DoubleVariable Name="Attack">17</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
@@ -36,7 +36,7 @@
 				Skills = 
 					{ 
 					Evocation = 100,
-					Bashing=45,  
+					Brawling = 45,  
 					},	
 				EquipTable = 
 					{
@@ -47,9 +47,9 @@
 					{
 						TemplateDefines.LootTable.MagePoor,
 						TemplateDefines.LootTable.ScrollsMed,
-						TemplateDefines.LootTable.Skeleton,
+						TemplateDefines.LootTable.BonesCursed,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.FineScrolls,
 						{
 							NumCoins = math.random(30,75),
 						},

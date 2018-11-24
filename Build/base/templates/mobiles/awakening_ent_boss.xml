@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1581</ClientId>
 	<Name>Lord Barkas</Name>
-	<ScaleModifier>2</ScaleModifier>
+	<ScaleModifier>1.5</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -35,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=110, 
+					Brawling = 110, 
 					Evocation=110,
 					Channeling=110,
 					},	
@@ -52,6 +52,11 @@
 						TemplateDefines.LootTable.Boss,
 						{
 							NumCoins = math.random(1500,2800),
+							NumItems = 2,
+					    	LootItems = {
+				    			{ Chance = 20, Template = "animalparts_golden_tree_bark"},
+				    			{ Chance = 20, Template = "animalparts_golden_tree_bark"},
+				    		},
 						},
 					},	
 				ScavengeTables =

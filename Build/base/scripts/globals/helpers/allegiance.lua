@@ -310,48 +310,9 @@ function UpdateAllegianceTitle(player, allegiance, totalFavor)
     -- decide the size of their slice of the pie
     local percent = GetFavor(player) / totalFavor
 
-    -- find their title for their pie slice size
-    local found = nil
-    for i=1,#allegianceData.Titles do
-        if ( percent >= allegianceData.Titles[i].Percent ) then
-            found = allegianceData.Titles[i]
-        end
-    end
+    --Check if player should earn achievement for current allegiance
+    CheckAchievementStatus(player, "PvP", allegianceData.Icon.."Allegiance", percent, {TitleCheck = "Allegiance"}, "Allegiance")
 
-    -- if they have a title, update/add it
-    if ( found ) then
-        local playerTitles = player:GetObjVar("GameplayTitles") or {}
-
-        local titleIndex = nil
-        for i=1,#playerTitles do
-            if ( playerTitles.Handle == "Allegiance" ) then
-                titleIndex = i
-            end
-        end
-
-        if ( titleIndex ) then
-            -- update title
-            -- no change to title, stop here
-            if ( playerTitles[titleIndex].Title == found.Title ) then return end
-
-            playerTitles[titleIndex].Title = found.Title
-            playerTitles[titleIndex].Description = found.Description
-        else
-            -- title is new
-            table.insert(playerTitles, {
-                Title = found.Title,
-                Description = found.Description,
-                Handle = "Allegiance",
-                IsAccountTitle = true -- temp hack to throw them into Other
-            })
-        end
-
-        titleIndex = titleIndex or #playerTitles
-
-        player:SetObjVar("titleIndex", titleIndex)
-		player:SetObjVar("GameplayTitles", playerTitles)
-        player:SendMessage("UpdateTitle")
-
-    end
-
+    --Check if player can still use allegiance title if they are using one
+    CheckTitleRequirement(allegianceData.Icon.."Allegiance")
 end

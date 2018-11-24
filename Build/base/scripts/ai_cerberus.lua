@@ -6,6 +6,8 @@ AI.Settings.AggroRange = 20.0
 -- set charge speed and attack range in combat ai
 AI.Settings.CanFlee = false
 AI.Settings.CanUseCombatAbilities = false
+AI.Settings.ChaseRange = 30
+AI.Settings.LeashDistance = 40
 
 --Special ability
 table.insert(AI.CombatStateTable,{StateName = "SpecialAbility",Type = "melee",Range = 0})
@@ -132,4 +134,3 @@ RegisterSingleEventHandler(EventType.ModuleAttached, "ai_cerberus",
 --    end)
 
 this:DelObjVar("AI-Disable")
-

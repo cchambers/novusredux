@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Portal Key[-]</Name>
+  <Name>Portal Key</Name>
 	<ClientId>292</ClientId>
 	<Color>5858FA</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>

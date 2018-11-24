@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Water Padded Chest[-]</Name>
+	<ClientId>104</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<SharedStateEntry name="Variation" type="string" value="Water"/>				
+	<ScriptEngineComponent/>
+</ObjectTemplate>

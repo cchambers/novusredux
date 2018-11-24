@@ -8,7 +8,8 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Test</StringVariable>
+		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Giant</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -17,7 +18,7 @@
 		<DoubleVariable Name="Armor">52</DoubleVariable>
 		<DoubleVariable Name="Attack">25</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -31,7 +32,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=65,  
+					Brawling = 65,  
 					},	
 				EquipTable = 
 					{
@@ -40,7 +41,6 @@
 				LootTables =
 					{
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,	
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsPoor,
 						{

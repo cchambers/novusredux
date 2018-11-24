@@ -141,7 +141,7 @@ function GroupInvite(player, target)
 
     if not( GroupCanInvite(player, target, groupId) ) then return end
 
-    GroupInfoGlobal(player, string.format("You have invited %s to your group.", GlobalVarReadKey("User.Name", target)))
+    GroupInfoGlobal(player, string.format("You have invited %s to your group.", target:GetCharacterName()))
 
     target:SendMessageGlobal("GroupInvitePrompt", player, groupId)
 end
@@ -699,7 +699,10 @@ function GroupSendChat(player, ...)
         -- build the message from the arguments
         for i=1,#arg do message = string.format("%s%s ", message, arg[i]) end
         -- log it
-        player:LogChat("[Group]["..name.."] "..message)
+        local encoded = json.encode(message)
+
+        player:LogChat("group", encoded)
+
         -- send the message to all members
         for i=1,#members do
             local member = members[i]

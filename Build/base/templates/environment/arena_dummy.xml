@@ -3,7 +3,6 @@
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent>					
 		<BoolVariable Name="Attackable">true</BoolVariable>
-		<BoolVariable Name="CombatGainable">true</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="attackable_object_skill_gain">

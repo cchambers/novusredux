@@ -46,7 +46,7 @@ MobileEffectLibrary.Tame =
 		end)
 
 		if ( self._Player ) then
-			AddBuffIcon(self.ParentObj, "TameBuff", "Taming", "Force Push 02", "You are currently taming a creature", true)
+			AddBuffIcon(self.ParentObj, "TameBuff", "Taming", "Track Beasts", "You are currently taming a creature", true)
 		end
 
 		AddView("TamingCreatureView", SearchMobileInRange(ServerSettings.Pets.Taming.Distance, false))

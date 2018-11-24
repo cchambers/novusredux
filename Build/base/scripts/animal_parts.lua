@@ -1,5 +1,6 @@
 -- Handles the resource requests for animal corpses
 -- Initializer variables:
+--    MeatType - resource type for meat
 --    MeatCount - the amount of animal meat that can be harvested from this source
 --    AnimalParts - an array of rare animal parts that can be harvested Format:
 --          ResourceType - resource type for rare part
@@ -23,49 +24,56 @@ function CleanupModule()
 	end
 end
 
-function RetrieveResource(user)
-	local resourceType = nil
-	local harvestCount = this:GetObjVar("HarvestCount") or 0
-	if( harvestCount > 0 ) then	
-		local animalPartsDict = this:GetObjVar("AnimalParts")	
-		if( animalPartsDict ~= nil ) then
+function HarvestParts(user)	
+	local resourcesToCreate = {}
+	local animalPartsDict = this:GetObjVar("AnimalParts")
+	local backpackObj = this:GetEquippedObject("Backpack")
+	if(backpackObj) then
+		local partCount = 0
+		if(animalPartsDict) then
 			for i,partInfo in pairs(animalPartsDict) do				
 				local count = partInfo.Count or 1
 				if( count > 0 ) then
-					resourceType = partInfo.ResourceType
-					partInfo.Count = partInfo.Count - 1
-					break
+			        local templateId = ResourceData.ResourceInfo[partInfo.ResourceType].Template
+			        local dropPos = GetRandomDropPosition(backpackObj)
+			    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", partInfo.Count)	    
+			    	partCount = partCount + partInfo.Count
 				end
-			end			
+			end
 		end
 
-		if(resourceType == nil) then
-			local meatCount = this:GetObjVar("MeatCount") or 0
-			if( meatCount > 0 ) then
-				--DebugMessage("GOT MEAT NEW COUNT: "..tostring(meatCount))
-				meatCount = meatCount - 1
-				this:SetObjVar("MeatCount",meatCount)	
-				resourceType = "AnimalMeat"			
-			end
+		local meatCount = this:GetObjVar("MeatCount") or 0
+		if(meatCount > partCount) then
+			local meatType = this:GetObjVar("MeatType")
+			local templateId = ResourceData.ResourceInfo[meatType].Template
+			local dropPos = GetRandomDropPosition(backpackObj)
+	    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", partCount - meatCount)	    
+		end
+		
+		if(partCount > 0 or meatCount > 0) then
+			user:SystemMessage("You harvest some materials from the corpse.","info")
+			backpackObj:SendOpenContainer(user)
+			this:SetObjVar("lootable",true) 
+			SetDefaultInteraction(this,"Open Pack")
 		else
-			this:SetObjVar("AnimalParts",animalPartsDict)
-		end		
-
-		-- update harvest count
-		harvestCount = harvestCount - 1
-		-- nothing left to harvest, no longer a source
-		if( harvestCount == 0 ) then			
-			CleanupModule()	
-		else
-			this:SetObjVar("HarvestCount",harvestCount)
+			user:SystemMessage("You were not able to harvest anything","info")
+			SetDefaultInteraction(this,"Use")
 		end
 	end
 
-	--DebugMessage("RESOURCE TYPE "..tostring(resourceType))
-
-	local success = resourceType ~= nil
-	return success, resourceType, harvestCount
+	this:DelObjVar("ResourceSourceId")
+	this:DelObjVar("HandlesHarvest")
+	CallFunctionDelayed(TimeSpan.FromSeconds(3),function ( ... )
+		this:DelModule("animal_parts")
+	end)	
 end
+
+RegisterEventHandler(EventType.CreatedObject,"create_part",
+	function (success,objRef,count)
+		if(success and count > 1) then
+			RequestSetStack(objRef,count)
+		end
+	end)
 
 RegisterSingleEventHandler(EventType.ModuleAttached,"animal_parts",
 	function()
@@ -73,6 +81,9 @@ RegisterSingleEventHandler(EventType.ModuleAttached,"animal_parts",
 		local partsCount = 0
 
 		if( initializer ~= nil ) then
+			if( initializer.MeatType ~= nil and initializer.MeatType ~= "" ) then
+				this:SetObjVar("MeatType",initializer.MeatType)
+			end
 			if( initializer.MeatCount ~= nil and initializer.MeatCount > 0 ) then
 				meatCount = initializer.MeatCount
 				this:SetObjVar("MeatCount",initializer.MeatCount)
@@ -112,9 +123,10 @@ RegisterEventHandler(EventType.Message,"RequestResource",
 	function(requester, user)
 
 		--DebugMessage("AnimalParts RequestResource "..tostring(this:GetName()))
-		local success, resourceType, countRemaining = RetrieveResource(user)
+		--local success, resourceType, countRemaining = RetrieveResource(user)
+		HarvestParts(user)
 
-		requester:SendMessage("RequestResourceResponse",success,user,resourceType,this,countRemaining)
+		--requester:SendMessage("RequestResourceResponse",success,user,resourceType,this,countRemaining)
 	end)
 
 RegisterEventHandler(EventType.Message,"HasDiedMessage",
@@ -127,6 +139,9 @@ RegisterEventHandler(EventType.Message,"HasDiedMessage",
 			this:SetObjVar("HandlesHarvest",true)		
 			this:SetObjVar("HarvestToolType","Knife")
 			this:SetSharedObjectProperty("DefaultInteraction","Harvest")
+			if not(this:GetEquippedObject("Backpack")) then
+				CreateEquippedObj("coffin",this)
+			end
 		end
 	end)
 

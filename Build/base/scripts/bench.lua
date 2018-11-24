@@ -64,7 +64,7 @@ function (user,usedType)
 	local sitLoc = GetNearestSitLocation(user:GetLoc())
 
 	if (sitLoc == nil or (FindObject(SearchMulti({SearchRange(sitLoc,0.5),SearchMobile()})) ~= nil) ) then
-		user:SystemMessage("You cannot sit there as that seat is occupied.")
+		user:SystemMessage("You cannot sit there as that seat is occupied.","info")
 		return
 	end
 
@@ -76,7 +76,7 @@ function (user,usedType)
 		RemoveUseCase(user, "Stand")
 	else
 		--DebugMessage("useChair")
-		user:SystemMessage("[$1732]")
+		user:SystemMessage("[$1732]","info")
 		useBench(user,sitLoc)
 	end
 end)

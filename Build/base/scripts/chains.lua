@@ -68,7 +68,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "chainsTarget",
 		user:SystemMessage("You captured your target!")
 		
 		PlayEffectAtLoc("ChainEffect",target:GetLoc())
-		user:PlayObjectSound("BodyfallPlate")
+		user:PlayObjectSound("event:/objects/pickups/armor/armor_plate_drop")
 
 		target:AddModule("ai_slave")
 		target:NpcSpeech("No! Let me go!")

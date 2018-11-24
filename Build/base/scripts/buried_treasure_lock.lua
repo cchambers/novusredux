@@ -54,13 +54,10 @@ function checkSpawnLoc(try)
 	end
 
 	spawnLoc = GetNearbyPassableLoc(this, 360, 2, 5)
-	local nearbyHouses = GetNearbyHouses(spawnLoc, 10)
-	for key,value in pairs(nearbyHouses) do
-		local housePlots = GetHouseControlPlot(value)
-		if (housePlots:Contains(spawnLoc)) then
-			spawnLoc = checkSpawnLoc(try + 1)
-			return spawnLoc
-		end
+	local plotController = Plot.GetAtLoc(spawnLoc)
+	if ( plotController ~= nil ) then
+		spawnLoc = checkSpawnLoc(try + 1)
+		return spawnLoc
 	end
 
 	return spawnLoc

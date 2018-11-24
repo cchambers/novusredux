@@ -8,6 +8,7 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
             function()
                 if(addedObj:IsValid() and addedObj:ContainedBy() == this) then
                     addedObj:Destroy()
+                    CallFunctionDelayed(TimeSpan.FromSeconds(1), HandleContentsChanged)
                 end
                 UnregisterEventHandler("container_autodelete",EventType.Timer,"autodelete"..addedObj.Id)
             end)

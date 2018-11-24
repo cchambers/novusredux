@@ -29,14 +29,10 @@ function CanSplit(user)
 		local containerLocked = false
 		ForEachParentContainerRecursive(this,false,
 			function (parentObj)
-				if( parentObj:HasObjVar("locked") ) then
-				    local key = GetKey(user,parentObj)
-				    if (key) then
-				    	if (key:GetObjVar("IsHouseKey") ~= true and parentObj:GetObjVar("LockedDown") ~= true) then          
-							containerLocked = true
-							return false
-						end
-					else
+				if( parentObj:HasObjVar("locked") ) then 
+					-- Secure Containers allow a user to open and use contents without unlocking and rendering the container vulnerable
+					if ( not parentObj:HasObjVar("SecureContainer") or not Plot.HasObjectControl(user, parentObj, parentObj:HasObjVar("FriendContainer")) ) then
+						this:SystemMessage("That is in a locked container.","info")
 						containerLocked = true
 						return false
 					end
@@ -71,7 +67,7 @@ function CanSplit(user)
 		if (topmost:HasObjVar("IsMailbox") and topmost:GetObjVar("LockedDown")) then
 		--if I'm not the owner
 			--DebugMessage(2)
-			if (not IsHouseOwnerForLoc(user,topmost:GetLoc())) then
+			if (not Plot.IsOwnerForLoc(user,topmost:GetLoc())) then
 				--DebugMessage(3)
 				user:SystemMessage("Cannot pick that up.", "info")
 				return false
@@ -242,7 +238,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"StackSplit",
 		end
 		
 		if (tonumber(fieldData.StackAmount)-newAmount ~= 0) then
-			user:SystemMessage("[$2631]")
+			user:SystemMessage("[$2631]","info")
 			return
 		end
 		if (newAmount == nil or newAmount < 1) then

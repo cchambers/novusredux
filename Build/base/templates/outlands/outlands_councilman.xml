@@ -16,7 +16,7 @@
       <Initializer>
 				{ 
 					Stats = { Str=100, Agi=100, Int=100 },
-          Skills = { Melee = 100, Slashing = 100, Bashing = 100, Piercing = 100, Blocking = 100 },
+          Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100 },
           AvailableSpells = {"Fireball","Lightning","Icelance", "Heal", "Teleport","Bombardment","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
 					EquipTable = {
 						RightHand = { "" },

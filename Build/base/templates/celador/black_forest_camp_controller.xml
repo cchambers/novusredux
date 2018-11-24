@@ -8,10 +8,7 @@
 			<Initializer>
 				{
 					SpawnInfo = {
-						{ Count = 20, Prefab = "BanditCamp",  Region = "Housing" }, 
-						{ Count = 20, Prefab = "LargeBanditCamp",  Region = "Housing" }, 
-						{ Count = 20, Prefab = "UndeadGraveyardCamp",  Region = "Housing" }, 						
-						{ Count = 20, Prefab = "TrollCamp",  Region = "Housing" }, 					
+						{ Count = 20, Prefab = "SmallBanditCamp",  Region = "DynamicCamp" }, 				
 					},
 				}
 			</Initializer>	

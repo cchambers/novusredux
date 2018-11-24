@@ -65,14 +65,14 @@ function Speak(entry)
     end
 end
 
-function DoMobileDeath(damager)
+function DoMobileDeath(damager, damageSource)
 	Verbose("Mobile", "DoMobileDeath", damager)
 	SetCurHealth(this,0)
 
 	EndMobileEffectsOnDeath(this)
 	
 	if not(damager == this) and (damager ~= nil) then		
-		damager:SendMessage("VictimKilled", this, damageAmount, damageType)
+		damager:SendMessage("VictimKilled", this, damageAmount, damageType, damageSource)
 	end
 
 	-- mounts are the only mobiles that can be equipped
@@ -149,8 +149,9 @@ end
 
 -- isReflected is not used in here, instead it's used in other things sending this message to determine if the damage should be reflected or not, 
 	-- this is to prevent reflected damage from reflecting back and forth. It's not pretty when this happens.
-function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	Verbose("Mobile", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+--Damage source is being passed in to check for players kill achievement
+function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
+	Verbose("Mobile", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected, damageSource)
 	if( IsDead(this) or damageAmount == nil ) then
 		return
 	end
@@ -169,8 +170,8 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 	
 	damageType = damageType or "Physical"
 	if ( damageType == "MAGIC" ) then
-		if ( HasMobileEffect(this, "Spellshield") ) then
-			this:NpcSpeech("[9932CC]reflect[-]", "combat")
+		if ( not isReflected and HasMobileEffect(this, "MageArmor") ) then
+			this:NpcSpeech("[ffffff]Reflected[-]", "combat")
 			return
 		end
 		damageAmount = ( damageAmount + GetMobileMod(MobileMod.MagicDamageTakenPlus) ) * GetMobileMod(MobileMod.MagicDamageTakenTimes,1)
@@ -210,7 +211,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 	local curHealth = GetCurHealth(this) or 0
 	local newHealth = curHealth - damageAmount
 	if (newHealth <= 0) then
-		DoMobileDeath(damager)
+		DoMobileDeath(damager, damageSource)
 	else
 		SetCurHealth(this,newHealth)
 		if(damageAmount>=2) then 
@@ -254,18 +255,18 @@ function HandleUseObject(user,usedType)
 	if( usedType == "Open Pack" ) then
 		if(IsDead(this)) then
 			if(this:GetLoc():Distance(user:GetLoc()) > OBJECT_INTERACTION_RANGE ) then    
-        		user:SystemMessage("You cannot reach that.")  
+        		user:SystemMessage("You cannot reach that.","info")  
         		return false
     		end
 	    	if not(user:HasLineOfSightToObj(this,ServerSettings.Combat.LOSEyeLevel)) then 
-	    		user:SystemMessage("[FA0C0C]You cannot see that![-]")
+	    		user:SystemMessage("[FA0C0C]You cannot see that![-]","info")
 	    		return false
 	    	end
 
 			if( this:HasObjVar("guardKilled") ) then
 				user:SystemMessage("[$1673]")
 			elseif( not(this:HasObjVar("lootable") or this:HasObjVar("HasPetPack")) ) then			
-				user:SystemMessage("You find there is nothing of value on that corpse.")
+				user:SystemMessage("You find there is nothing of value on that corpse.","info")
 			else				
 		    	local backpackObj = this:GetEquippedObject("Backpack")
 			    if( backpackObj == nil ) then
@@ -281,7 +282,7 @@ function HandleUseObject(user,usedType)
 		    		backpackObj:SendMessage("OpenPack",user)
 			    end
 			else
-				user:SystemMessage("You can't do that.")
+				user:SystemMessage("You can't do that.","info")
 			end
 		end
 	elseif( usedType == "Loot All" and IsDead(this) ) then
@@ -316,7 +317,7 @@ function HandleUseObject(user,usedType)
 		local myTeam = this:GetObjVar("MobileTeamType")
 		local args = {myTeam,this:GetName(),this:GetCreationTemplateId()}
 		user:SendMessage("EndCombatMessage")
-		user:PlayObjectSound("KnifeUse")
+		user:PlayObjectSound("event:/character/skills/gathering_skills/hunting/hunting_knife")
 		FaceObject(user,this)
 		ProgressBar.Show(
 		{
@@ -330,7 +331,7 @@ function HandleUseObject(user,usedType)
 			user:PlayAnimation("carve")
 		end)
 		CallFunctionDelayed(TimeSpan.FromSeconds(1),function()	
-			user:PlayObjectSound("BountyHeadPickup",false)
+			user:PlayObjectSound("event:/objects/pickups/bounty_head/bounty_head_pickup",false)
 			user:PlayAnimation("idle")
 			RegisterEventHandler(EventType.CreatedObject, "CreateMobileBountyHead", HandleHeadCreated)
 			CreateObjInBackpack(user,"human_head","CreateMobileBountyHead",args)
@@ -359,26 +360,16 @@ function HandleHeadCreated(success,headObj,args)
 end
 
 
-function HandleHealRequest(healAmount, healer, skipMods)
+function HandleHealRequest(amount, healer, skipMods)
 	if( IsDead(this) ) then return end
 
-	if( healAmount == nil or healAmount <= 0 or healer == nil or healAmount ~= healAmount or healAmount > 9999999999 ) then return end
+	if( amount == nil or amount <= 0 or healer == nil or amount ~= amount or amount > 9999999999 ) then return end
 
 	if ( potionObj ~= nil ) then
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "PotionHealCooldownTimer")
 		-- consume potion
 		potionObj:SendMessage("AdjustStack", -1)
 		healer = potionObj
-	end
-
-	Heal(healAmount, healer, skipMods)
-end
-
--- Don't call this directly, only from HandleHealRequest, I don't want to refactor this and chance breaking it right now -KH 6/16/18
-function Heal(amount, healer, skipMods)
-	if ( amount < 1 ) then
-		LuaDebugCallStack("[Error] base_mobile Heal() amount is less than one: "..amount)
-		return
 	end
 
 	if ( skipMods ~= true ) then
@@ -404,13 +395,6 @@ end
 
 function AddInvisibilityEffect(effectName)
 	--DebugMessage(this:GetName() .. " Added Move Speed Mod: " .. effectName)
-
-	if (this:HasTimer("StuckTimer")) then
-		this:RemoveTimer("StuckTimer")
-		this:DelObjVar("stuckLoc")
-		this:SystemMessage("Cancelled stuck correction.", "info")
-		EndSneak()
-	end
 
 	if(mInvisibilityEffects[effectName] == nil) then
 		mInvisibilityEffects[effectName] = effectName
@@ -473,49 +457,49 @@ function SetStartingStats(statTable,quiet)
 
 	if not (quiet) then
 		if (GetStr(this) < initialStats.Str) then
-			this:SystemMessage("[F7CC0A]Your Strength has increased, now "..initialStats.Str.." (+" .. tostring(-GetStr(this) + initialStats.Str) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Strength has increased, now "..initialStats.Str.." (+" .. tostring(-GetStr(this) + initialStats.Str) .. ")","info")
 		elseif (GetStr(this) > initialStats.Str) then
-			this:SystemMessage("[F7CC0A]Your Strength has decreased, now "..initialStats.Str.." (-" .. tostring(GetStr(this) - initialStats.Str) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Strength has decreased, now "..initialStats.Str.." (-" .. tostring(GetStr(this) - initialStats.Str) .. ")","info")
 		end
 	end
 	SetStr(this,initialStats.Str or 10)
 	if not (quiet) then
 		if (GetAgi(this) < initialStats.Agi) then
-			this:SystemMessage("[F7CC0A]Your Agility has increased, now "..initialStats.Agi.." (+" .. tostring(-GetAgi(this) + initialStats.Agi) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Agility has increased, now "..initialStats.Agi.." (+" .. tostring(-GetAgi(this) + initialStats.Agi) .. ")","info")
 		elseif (GetAgi(this) > initialStats.Agi) then
-			this:SystemMessage("[F7CC0A]Your Agility has decreased, now "..initialStats.Agi.." (-" .. tostring(GetAgi(this) - initialStats.Agi) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Agility has decreased, now "..initialStats.Agi.." (-" .. tostring(GetAgi(this) - initialStats.Agi) .. ")","info")
 		end
 	end
 	SetAgi(this,initialStats.Agi or 10)
 	if not (quiet) then
 		if (GetInt(this) < initialStats.Int) then
-			this:SystemMessage("[F7CC0A]Your Intelligence has increased, now "..initialStats.Int.." (+" .. tostring(-GetInt(this) + initialStats.Int) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Intelligence has increased, now "..initialStats.Int.." (+" .. tostring(-GetInt(this) + initialStats.Int) .. ")","info")
 		elseif (GetInt(this) > initialStats.Int) then
-			this:SystemMessage("[F7CC0A]Your Intelligence has decreased, now "..initialStats.Int.." (-" .. tostring(GetInt(this) - initialStats.Int) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Intelligence has decreased, now "..initialStats.Int.." (-" .. tostring(GetInt(this) - initialStats.Int) .. ")","info")
 		end
 	end
 	SetInt(this,initialStats.Int or 10)	
 	if not (quiet) then
 		if (GetCon(this) < initialStats.Con) then
-			this:SystemMessage("[F7CC0A]Your Constitution has increased, now "..initialStats.Con.." (+" .. tostring(-GetCon(this) + initialStats.Con) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Constitution has increased, now "..initialStats.Con.." (+" .. tostring(-GetCon(this) + initialStats.Con) .. ")","info")
 		elseif (GetCon(this) > initialStats.Con) then
-			this:SystemMessage("[F7CC0A]Your Constitution has decreased, now "..initialStats.Con.." (-" .. tostring(GetCon(this) - initialStats.Con) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Constitution has decreased, now "..initialStats.Con.." (-" .. tostring(GetCon(this) - initialStats.Con) .. ")","info")
 		end
 	end
 	SetCon(this,initialStats.Con or 10)	
 	if not (quiet) then
 		if (GetWis(this) < initialStats.Wis) then
-			this:SystemMessage("[F7CC0A]Your Wisdom has increased, now "..initialStats.Wis.." (+" .. tostring(-GetWis(this) + initialStats.Wis) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Wisdom has increased, now "..initialStats.Wis.." (+" .. tostring(-GetWis(this) + initialStats.Wis) .. ")","info")
 		elseif (GetWis(this) > initialStats.Wis) then
-			this:SystemMessage("[F7CC0A]Your Wisdom has decreased, now "..initialStats.Wis.." (-" .. tostring(GetWis(this) - initialStats.Wis) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Wisdom has decreased, now "..initialStats.Wis.." (-" .. tostring(GetWis(this) - initialStats.Wis) .. ")","info")
 		end
 	end
 	SetWis(this,initialStats.Wis or 10)	
 	if not (quiet) then
 		if (GetWill(this) < initialStats.Will) then
-			this:SystemMessage("[F7CC0A]Your Will has increased, now "..initialStats.Will.." (+" .. tostring(-GetWill(this) + initialStats.Will) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Will has increased, now "..initialStats.Will.." (+" .. tostring(-GetWill(this) + initialStats.Will) .. ")","info")
 		elseif (GetWill(this) > initialStats.Will) then
-			this:SystemMessage("[F7CC0A]Your Will has decreased, now "..initialStats.Will.." (-" .. tostring(GetWill(this) - initialStats.Will) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Will has decreased, now "..initialStats.Will.." (-" .. tostring(GetWill(this) - initialStats.Will) .. ")","info")
 		end
 	end
 	SetWill(this,initialStats.Will)	
@@ -525,27 +509,27 @@ function SetStartingStats(statTable,quiet)
 	-- next do health / mana / stamina
 	if not (quiet) then
 		if (GetMaxHealth(this) > GetCurHealth(this))  then
-			this:SystemMessage("[F7CC0A]Your Health has increased, now "..GetMaxHealth(this).." (+" .. tostring(-GetMaxHealth(this) + GetCurHealth(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Health has increased, now "..GetMaxHealth(this).." (+" .. tostring(-GetMaxHealth(this) + GetCurHealth(this)) .. ")","info")
 		elseif (GetMaxHealth(this) < GetCurHealth(this)) then
-			this:SystemMessage("[F7CC0A]Your Health has decreased, now "..GetMaxHealth(this).." (-" .. tostring(GetMaxHealth(this) - GetCurHealth(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Health has decreased, now "..GetMaxHealth(this).." (-" .. tostring(GetMaxHealth(this) - GetCurHealth(this)) .. ")","info")
 		end
 	end
 	SetCurHealth(this,GetMaxHealth(this))
 
 	if not (quiet) then
 		if (GetMaxMana(this) > GetCurMana(this))  then
-			this:SystemMessage("[F7CC0A]Your Mana has increased, now "..GetMaxMana(this).." (+" .. tostring(-GetMaxMana(this) + GetCurMana(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Mana has increased, now "..GetMaxMana(this).." (+" .. tostring(-GetMaxMana(this) + GetCurMana(this)) .. ")","info")
 		elseif (GetMaxMana(this) < GetCurMana(this)) then
-			this:SystemMessage("[F7CC0A]Your Mana has decreased, now "..GetMaxMana(this).." (-" .. tostring(GetMaxMana(this) - GetCurMana(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Mana has decreased, now "..GetMaxMana(this).." (-" .. tostring(GetMaxMana(this) - GetCurMana(this)) .. ")","info")
 		end
 	end
 	SetCurMana(this,GetMaxMana(this))
 
 	if not (quiet) then
 		if (GetMaxStamina(this) > GetCurStamina(this))  then
-			this:SystemMessage("[F7CC0A]Your Mana has increased, now "..GetMaxStamina(this).." (+" .. tostring(-GetMaxStamina(this) + GetCurStamina(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Mana has increased, now "..GetMaxStamina(this).." (+" .. tostring(-GetMaxStamina(this) + GetCurStamina(this)) .. ")","info")
 		elseif (GetMaxStamina(this) < GetCurStamina(this)) then
-			this:SystemMessage("[F7CC0A]Your Health has decreased, now "..GetMaxStamina(this).." (-" .. tostring(GetMaxStamina(this) - GetCurStamina(this)) .. ")","event")
+			this:SystemMessage("[F7CC0A]Your Health has decreased, now "..GetMaxStamina(this).." (-" .. tostring(GetMaxStamina(this) - GetCurStamina(this)) .. ")","info")
 		end
 	end
 	SetCurStamina(this,GetMaxStamina(this))
@@ -562,9 +546,9 @@ function SetStartingStats(statTable,quiet)
 			if (SkillData.AllSkills[skillName]) then			
 				if not (quiet) then
 					if GetSkillLevel(this,skillName) > value then
-						this:SystemMessage("[F7CC0A]Your knowledge of the art of " .. name .. " has decreased, now "..value.." (-" .. tostring(GetSkillLevel(this,skillName) - value) .. ")","event")	
+						this:SystemMessage("[F7CC0A]Your knowledge of the art of " .. name .. " has decreased, now "..value.." (-" .. tostring(GetSkillLevel(this,skillName) - value) .. ")","info")	
 					elseif GetSkillLevel(this,skillName) < value then
-						this:SystemMessage("[F7CC0A]Your knowledge of the art of " .. name .. " has increased, now "..value.." (+" .. tostring(-GetSkillLevel(this,skillName) + value) .. ")","event")	
+						this:SystemMessage("[F7CC0A]Your knowledge of the art of " .. name .. " has increased, now "..value.." (+" .. tostring(-GetSkillLevel(this,skillName) + value) .. ")","info")	
 					end
 				end
 				SetSkillLevel(this, skillName, value, false)
@@ -575,7 +559,7 @@ function SetStartingStats(statTable,quiet)
 	end
 
 	if not (quiet) then
-		this:SystemMessage("Your equipment has changed.","event")
+		this:SystemMessage("Your equipment has changed.","info")
 	end	
 end
 
@@ -636,8 +620,10 @@ function DoResurrect(statPct, resurrector, force)
 				if not( this:IsEquipped() ) then	
 					SetDefaultInteraction(this,"Mount")
 				end
-			else
+			elseif ( HasUseCase(this,"Interact") ) then
 				this:SetSharedObjectProperty("DefaultInteraction","Interact")
+			else
+				this:SetSharedObjectProperty("DefaultInteraction","Use")
 			end
 		else
 			--if you're stupid enough to res an enemy mob.
@@ -723,7 +709,7 @@ function LoadMobTraits()
 				end
 				HandleMobileMod(traitData.MobileMod, "MobTrait"..trait, traitData.Levels[level])
 			else
-				DebugMessage("ERROR: Invalid mob trait: "..tostring(trait).." "..GetLevelText(level).. " Template: "..this:GetCreationTemplateId())
+				DebugMessage("ERROR: Invalid mob trait: "..tostring(trait).." "..level.. " Template: "..this:GetCreationTemplateId())
 			end
 		end
 	end

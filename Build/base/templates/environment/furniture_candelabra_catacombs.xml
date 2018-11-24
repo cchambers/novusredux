@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>643</ClientId>
 	<Name>[FF9500]Bone Candelabra[-]</Name>
-	<ObjectVariableComponent/>	v				
+	<ObjectVariableComponent/>				
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ScriptEngineComponent/>
 </ObjectTemplate>

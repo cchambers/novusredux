@@ -3,7 +3,7 @@
 
 
 
-function ValidateUseResource(user, resourceObj)
+function ValidateUseResource(user, resourceObj, resourceEffect)
 	if ( user == nil or not user:IsValid() ) then
 		LuaDebugCallStack("[resource_effects]", "Invalid/nil user provided.")
 		return false
@@ -14,9 +14,16 @@ function ValidateUseResource(user, resourceObj)
 		return false
 	end
 
-	if ( resourceObj:TopmostContainer() ~= user ) then
-		user:SystemMessage("That must be in your backpack to use it.","info")
-		return false
+	if ( resourceEffect.Range ) then
+		if ( user:DistanceFrom(resourceObj) > resourceEffect.Range ) then
+			user:SystemMessage("Too far away.", "info")
+			return false
+		end
+	else
+		if( resourceObj:TopmostContainer() ~= user ) then
+			user:SystemMessage("That must be in your backpack to use.","info")
+			return false
+		end
 	end
 
 	return true
@@ -24,19 +31,20 @@ end
 
 function ValidateUseResourceTarget(target, user, resourceType)
 
-	if not( ResourceEffectData[resourceType] ) then return false end
+	local resourceEffect = ResourceEffectData[resourceType]
+	if not( resourceEffect ) then return false end
 
 	if( target == nil or not target:IsValid() ) then
 		return false
 	end
 
-	if ( ResourceEffectData[resourceType].Beneficial and not AllowFriendlyActions(user, target, true) ) then
+	if ( resourceEffect.Beneficial and not AllowFriendlyActions(user, target, true) ) then
 		return false
 	end
 	
 	-- target must be a mobile
-	if ( ResourceEffectData[resourceType].RequireMobileTarget and not target:IsMobile() ) then
-		user:SystemMessage("Invalid target.", "info")
+	if ( resourceEffect.RequireMobileTarget and not target:IsMobile() ) then
+		user:SystemMessage("Invalid Target.", "info")
 		return false
 	end
 
@@ -48,8 +56,9 @@ function UseResource(user, target, resourceObj, resourceType, useType)
 
     resourceType = resourceType or resourceObj:GetObjVar("ResourceType")
 
-	if ( not resourceType or not ResourceEffectData[resourceType] or ResourceEffectData[resourceType].NoUse == true ) then
-		user:SystemMessage("Cannot think of a way to use that.", "info")
+	local resourceEffect = ResourceEffectData[resourceType]
+	if ( not resourceType or not resourceEffect or resourceEffect.NoUse == true ) then
+		user:SystemMessage("Cannot Think Of A Way To Use That.", "info")
 		return true
 	end
 
@@ -60,55 +69,72 @@ function UseResource(user, target, resourceObj, resourceType, useType)
 		(
 			useType ~= nil
 			and
-			ResourceEffectData[resourceType].MobileEffectUseCases ~= nil
+			resourceEffect.MobileEffectUseCases ~= nil
 			and
-			ResourceEffectData[resourceType].MobileEffectUseCases[useType] ~= nil
+			resourceEffect.MobileEffectUseCases[useType] ~= nil
 			and
-			StartMobileEffect(user, ResourceEffectData[resourceType].MobileEffectUseCases[useType].MobileEffect, target, ResourceEffectData[resourceType].MobileEffectUseCases[useType].MobileEffectArgs or {})
+			StartMobileEffect(user, resourceEffect.MobileEffectUseCases[useType].MobileEffect, 
+				-- via ternary pass the resourceObj as the target, or send the provided target.
+				resourceEffect.MobileEffectObjectAsTarget and resourceObj or target,
+				-- via ternary pass the resourceObj as the args, or send the provided args.
+				resourceEffect.MobileEffectUseCases[useType].MobileEffectObjectAsArgs and resourceObj or resourceEffect.MobileEffectUseCases[useType].MobileEffectArgs
+			)
 		)
 		-- fall back on using the default mobile effect if no specific handle for the useType is found
 		or
 		(
 			( 	
-				ResourceEffectData[resourceType].MobileEffectUseCases == nil
+				resourceEffect.MobileEffectUseCases == nil
 				or
-				ResourceEffectData[resourceType].MobileEffectUseCases[useType] == nil
+				resourceEffect.MobileEffectUseCases[useType] == nil
 			)
 			and
-			ResourceEffectData[resourceType].MobileEffect ~= nil
+			resourceEffect.MobileEffect ~= nil
 			and
-			StartMobileEffect(user, ResourceEffectData[resourceType].MobileEffect, target, ResourceEffectData[resourceType].MobileEffectArgs or {})
+			StartMobileEffect(user, resourceEffect.MobileEffect, 
+				-- via ternary pass the resourceObj as the target, or send the provided target.
+				resourceEffect.MobileEffectObjectAsTarget and resourceObj or target,
+				-- via ternary pass the resourceObj as the args, or send the provided args.
+				resourceEffect.MobileEffectObjectAsArgs and resourceObj or resourceEffect.MobileEffectArgs
+			)
 		)
 	) then
-		if ( FoodStats.BaseFoodStats[resourceType] == nil and not ResourceEffectData[resourceType].NoConsume == true ) then
+		if ( FoodStats.BaseFoodStats[resourceType] == nil and not resourceEffect.NoConsume == true ) then
 			if not ( ConsumeResourceBackpack(user, resourceType, 1) ) then
 				return false
 			end
 		end
 	else
 		-- effect failed for whatever reason, queue up the targeting again.
-		if ( ResourceEffectData[resourceType].SelfOnly ~= true ) then
+		if ( resourceEffect.SelfOnly ~= true ) then
 			QueueUseResourceTarget(user, resourceObj, resourceType)
 		end
 		return false
 	end
 
-	if ( ResourceEffectData[resourceType].Beneficial ) then
+	if ( resourceEffect.Beneficial ) then
 		CheckKarmaBeneficialAction(user, target)
 	end
 
-	user:PlayObjectSound("Use", true)
+	useSFX = resourceObj:GetObjVar("ResourceUseSFX")
+
+	if (useSFX ~= nil) then
+		user:PlayObjectSound(useSFX)
+	else
+		user:PlayObjectSound("Use", true)
+	end
+
 	return true
 end
 
 --- Has same module context call restrictions, See StartMobileEffect()
 function TryUseResource(user, resourceObj, useType)
 	local resourceType = resourceObj:GetObjVar("ResourceType")
-    if ( resourceType == nil or user:HasTimer("AntispamResourceUse") or not ValidateUseResource(user, resourceObj) ) then return false end
+    if ( resourceType == nil or user:HasTimer("AntispamResourceUse") ) then return false end
 	user:ScheduleTimerDelay(TimeSpan.FromSeconds(0.5), "AntispamResourceUse")
 
 	-- used the item, break invis
-	user:SendMessage("BreakInvisEffect", "UseResource")
+	user:SendMessage("BreakInvisEffect", "Action")
 
 	-- attempt to eat if this is food
 	if ( resourceType == nil or ( FoodStats.BaseFoodStats[resourceType] ~= nil and not TryEatFood(user, resourceType, resourceObj) ) ) then
@@ -117,7 +143,7 @@ function TryUseResource(user, resourceObj, useType)
 
 	local resourceEffect = ResourceEffectData[resourceType]
 	-- no resource effect, no reason to continue.
-	if ( not resourceEffect ) then
+	if ( not resourceEffect or not ValidateUseResource(user, resourceObj, resourceEffect) ) then
 		return false
 	end
 
@@ -153,10 +179,6 @@ function TryUseResource(user, resourceObj, useType)
 		local target = user:GetObjVar("CurrentTarget")
 		if ( target and ValidateUseResourceTarget(target, user, resourceType) ) then
 			return UseResource(user, target, resourceObj, resourceType, useType)
-		else
-			if ( ValidateUseResourceTarget(user, user, resourceType) ) then
-				return UseResource(user, user, resourceObj, resourceType, useType)
-			end
 		end
 	end
 	
@@ -166,10 +188,13 @@ function TryUseResource(user, resourceObj, useType)
 end
 
 function QueueUseResourceTarget(user, resourceObj, resourceType, useType)
+    if ( ResourceEffectData[resourceType].TargetMessage ) then
+        user:SystemMessage(ResourceEffectData[resourceType].TargetMessage, ResourceEffectData[resourceType].TargetMessageType or "info")
+    end
 
     local eventId = "UseResourceTarget" .. uuid()
     RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, eventId, function(target, user)
-        if ( ValidateUseResource(user, resourceObj) and ValidateUseResourceTarget(target, user, resourceType) ) then
+        if ( ValidateUseResource(user, resourceObj, ResourceEffectData[resourceType]) and ValidateUseResourceTarget(target, user, resourceType) ) then
             UseResource(user, target, resourceObj, resourceType, useType)
         end
     end)
@@ -178,16 +203,16 @@ function QueueUseResourceTarget(user, resourceObj, resourceType, useType)
 
 end
 
-function GetResourceTooltipTable(resourceType, tooltipInfo)
+function GetResourceTooltipTable(resourceType, tooltipInfo, item)
 	tooltipInfo = tooltipInfo or {}
 
     if ( resourceType and ResourceEffectData[resourceType] ) then
 
 		if ( ResourceEffectData[resourceType].Tooltip ) then
-			for i,entry in pairs(ResourceEffectData[resourceType].Tooltip) do
+			for i=1,#ResourceEffectData[resourceType].Tooltip do
 				tooltipInfo["Tip"..i] = {
-					TooltipString = entry,
-					Priority = 0,
+					TooltipString = ResourceEffectData[resourceType].Tooltip[i],
+					Priority = -i,
 				}
 			end
 		end
@@ -203,6 +228,10 @@ function GetResourceTooltipTable(resourceType, tooltipInfo)
 			end
 		end
 
+		if ( ResourceEffectData[resourceType].TooltipFunc ) then
+			tooltipInfo = ResourceEffectData[resourceType].TooltipFunc(tooltipInfo, item)
+		end
+
     end
 
 	return tooltipInfo
@@ -216,7 +245,11 @@ end
 
 function ApplyResourceUsecases(resourceObj, resourceType)
 	for i,case in pairs(GetResourceUseCases(resourceType)) do
-		AddUseCase(resourceObj, case, (i == 1), "HasObject")
+		local condition = nil
+		if ( ResourceEffectData[resourceType] and ResourceEffectData[resourceType].UseCaseConditions and ResourceEffectData[resourceType].UseCaseConditions[i] ) then
+			condition = ResourceEffectData[resourceType].UseCaseConditions[i]
+		end
+		AddUseCase(resourceObj, case, (i == 1), condition or "HasObject")
 	end
 end
 

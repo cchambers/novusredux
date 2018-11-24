@@ -11,12 +11,12 @@ RegisterEventHandler(EventType.Message, "UseObject",
         local questState = user:GetObjVar("HeroQuestState")
     	if (questState == nil) then
             --DebugMessage("questState is "..tostring(questState))
-    		user:SystemMessage("[$2412]")
+    		user:SystemMessage("[$2412]","info")
     		return
     	end
 
     	if (questState ~= "QuestStart") then
-    		user:SystemMessage("[$2413]")
+    		user:SystemMessage("[$2413]","info")
     		return
     	end
         if (math.random(1,300) == 1) then

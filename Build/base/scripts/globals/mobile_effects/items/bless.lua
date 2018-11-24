@@ -15,6 +15,16 @@ MobileEffectLibrary.Bless =
 			return false
 		end
 
+		if ( target:HasObjVar("Blessed") ) then
+			if ( target:HasObjVar("Cursed") ) then
+				self.ParentObj:SystemMessage("That item is already cursed!", "info")
+			else
+				self.ParentObj:SystemMessage("That item is already blessed!", "info")
+			end
+			EndMobileEffect(root)
+			return false
+		end
+
 		target:SetObjVar("Blessed", true)
 		SetItemTooltip(target)
 

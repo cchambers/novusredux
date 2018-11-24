@@ -44,7 +44,7 @@ function HandleAdjustSkillCapRequest(skillName, requestedCap, myTarg)
 					if buttonId == 0 then
 						ConfirmSkillCapRequest(skillName, cap, myTarg)
 					else
-						this:SystemMessage("Cancelled.")
+						this:SystemMessage("Cancelled.","info")
 						-- reload the skill window to snap the slider back
 						OpenSkillWindow()
 					end
@@ -98,7 +98,7 @@ function ConfirmSkillCapRequest(skillName, cap, target)
 	this:SystemMessage("You set your personal "..GetSkillDisplayName(skillName) .." skill cap to "..cap..".","info")
 	if (skillLevel > cap) then
 		SetSkillLevel(target, skillName, cap, false)
-		this:SystemMessage("You have forgotten "..(skillLevel - cap).." skill points of "..GetSkillDisplayName(skillName)..".")
+		this:SystemMessage("You have forgotten "..(skillLevel - cap).." skill points of "..GetSkillDisplayName(skillName)..".","info")
 		UpdateAllPrestigeAbilityActions(this)
 	end
 end

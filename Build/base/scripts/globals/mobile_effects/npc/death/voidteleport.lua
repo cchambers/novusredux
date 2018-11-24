@@ -48,7 +48,7 @@ MobileEffectLibrary.VoidTeleport =
 		if ( #potentialTargets > 0 ) then
 			local target = potentialTargets[math.random(1,#potentialTargets)]
 			local teleportLoc = target:GetLoc()
-			if not( IsPassable(teleportLoc) ) then
+			if not( IsPassable(teleportLoc) and self.ParentObj:CanPathTo(teleportLoc) ) then
 				EndMobileEffect(root)
 				return
 			end

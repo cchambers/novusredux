@@ -3,7 +3,7 @@
 	<Name>Snake</Name>
 	<ScaleModifier>.75</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Snake"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/animals/snake/snake"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -11,6 +11,7 @@
 	<ObjectVariableComponent>		
 	<DoubleVariable Name="BaseHealth">80</DoubleVariable>
     <StringVariable Name= "MobileTeamType">Reptiles</StringVariable>
+    <StringVariable Name="MobileKind">Reptile</StringVariable>
     <BoolVariable Name="AI-Leash">False</BoolVariable>
     <BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
     <BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=10,  
+					Brawling = 10,  
 					},	
 				EquipTable = 
 					{
@@ -50,9 +51,11 @@
 		</LuaModule>
     <LuaModule Name="animal_parts">
       <Initializer>
-        {
-          MeatCount = 1,
-        }
+       			{
+					MeatCount = 1,
+
+					MeatType = "MysteryMeat",
+				}
       </Initializer>
     </LuaModule>
 	</ScriptEngineComponent>

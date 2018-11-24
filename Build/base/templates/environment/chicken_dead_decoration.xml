@@ -49,12 +49,5 @@
 				}
 			</Initializer>
 		</LuaModule>
-		<LuaModule Name="animal_parts">
-			<Initializer>
-				{
-					MeatCount = 1,
-				}
-			</Initializer>
-		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>

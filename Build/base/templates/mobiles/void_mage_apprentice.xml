@@ -4,7 +4,7 @@
 	<ScaleModifier>1</ScaleModifier>
 	<Name>Void Apprentice</Name>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/incubus/incubus"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -38,7 +38,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=80, 
+					Brawling = 80, 
 					Evocation=100,
 					Manifestation=100,
 					MagicAffinity=100, 
@@ -60,6 +60,7 @@
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.AncientScrolls,
 						{
 							NumCoins = math.random(500,650),
 						},

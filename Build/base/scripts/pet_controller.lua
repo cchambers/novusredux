@@ -2,8 +2,7 @@ require 'base_mobile'
 require 'combat'
 
 if ( this:HasModule("combat") ) then
-	CallFunctionDelayed(TimeSpan.FromSeconds(0.1),function()
-		this:DelModule("combat") end)
+	CallFunctionDelayed(TimeSpan.FromSeconds(0.1), function() this:DelModule("combat") end)
 end
 
 _MyOwner = nil
@@ -20,9 +19,13 @@ function CheckOwner(newOwner)
 	Verbose("PetController", "CheckOwner")
 	if ( newOwner ~= nil ) then
 		UpdatePreviousOwners(newOwner)
-		this:SetObjectOwner(newOwner)
+		if(newOwner:IsPlayer()) then
+			this:SetObjectOwner(newOwner)
+		else
+			this:SetObjectOwner(nil)
+		end
 		SetKarma(this, GetKarma(newOwner))
-		-- DAB: setting controller objvar for legacy support
+		-- we have to also set the controller objvar so we can check when they are dead and we've removed object owner.
 		this:SetObjVar("controller",newOwner)
 		_MyOwner = newOwner
         local ownerTitle = StripColorFromString(_MyOwner:GetName()).."'s Pet"
@@ -33,10 +36,17 @@ function CheckOwner(newOwner)
 		this:SendMessage("UpdateName")
 	else
 		_MyOwner = this:GetObjectOwner()
+		-- handle npc pets
+		if not(_MyOwner) then
+			local controller = this:GetObjVar("controller")
+			if(controller and controller:IsValid() and not(controller:IsPlayer())) then 
+				_MyOwner = controller
+				this:SetObjectOwner(_MyOwner)
+			end
+		end
 	end
 
 	if ( _MyOwner == nil ) then
-		--CleanUpModule()
 		Verbose("PetController", "CheckOwner:False")
 		return false
 	end
@@ -56,12 +66,12 @@ function UpdatePreviousOwners(newOwner)
 	this:SetObjVar("PreviousOwners", previousOwners)
 end
 
-function ClearState()
+function ClearState(skipCombat)
 	if ( _IsFollowing ) then
 		_WasFollowing = _IsFollowing
 		_IsFollowing = nil
 	end
-	if ( _IsAttacking ) then
+	if ( skipCombat ~= true and _IsAttacking ) then
 		_IsAttacking = nil
 		SetCurrentTarget(nil)
 		SetInCombat(false, true)
@@ -105,23 +115,24 @@ end
 
 RegisterEventHandler(EventType.Message, "UpdateFollow", UpdateFollow)
 
-function Attack(target)
+function Attack(target, force)
 	Verbose("Pet", "Attack", target)
 	if ( not target or not target:IsValid() or IsDead(target) or not ValidCombatTarget(this, target) ) then
 		return
 	end
-	-- already attacking
-	if ( target == _IsAttacking ) then return end
-	ClearState()
-	mInCombatState = true
-	SetCurrentTarget(target)
-	-- follow the thing we are attacking
-	PathToTarget(
-		target,
-		GetCombatRange(this, target),
-		ServerSettings.Pets.Combat.Speed
-	)
-	_IsAttacking = target
+	-- if we currently don't have an attack target
+	if ( force == true or (not _IsFollowing and (not _IsAttacking or not _IsAttacking:IsValid())) ) then
+		ClearState(true)
+		_IsAttacking = target
+		mInCombatState = true
+		SetCurrentTarget(target)
+		-- follow the thing we are attacking
+		PathToTarget(
+			target,
+			GetCombatRange(this, target),
+			ServerSettings.Pets.Combat.Speed
+		)
+	end
 end
 
 RegisterEventHandler(EventType.Timer, GetSwingTimerName("RightHand"), function()
@@ -176,20 +187,16 @@ end
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage", function()
 	Stay()
-	this:SetObjVar("controller", this:GetObjectOwner())
+	this:SetObjVar("controller", _MyOwner)
 	this:SetObjectOwner(nil)	
 end)
 
 if(initializer ~= nil) then
-	aiList = {}
 	for i,behaviorName in pairs(this:GetAllModules()) do
 		if(behaviorName:match("ai")) then
-			DebugMessage("Removing AI: " .. behaviorName)
-			table.insert(aiList,behaviorName)
 			this:DelModule(behaviorName)
 		end
 	end
-	this:SetObjVar("StoredAI", aiList)
 end
 
 if IsMount(this) then
@@ -225,7 +232,7 @@ function ConfirmRelease(player)
 		ResponseObj = this,
 		DialogId = "PetReleaseDialog",
 		TitleStr = "Release your pet?",
-		DescStr = "Release, for now, will DESTROY your pet.\nRelease "..this:GetName().."?",
+		DescStr = "This pet will not be tamable, by anyone, once released.\n\nRelease "..this:GetName().."?",
 		Button1Str = "Ok.",
 		Button2Str = "Cancel."
 	}
@@ -248,30 +255,16 @@ function ConfirmRename(player)
         DialogId = "PetRenameDialog",
         Description = "Enter your pet's new name.",
         ResponseFunc = function(user,newName)
-        	if (user == nil) then return end
+        	if (user == nil or user ~= player) then return end
         	if(newName == nil or newName == "") then return end
 			-- dont allow colors
-    		newName = StripColorFromString(newName)
-
-	   		if (string.len(newName) < 3) then
-				user:SystemMessage("Pet names must longer than 3 characters.", "info")
+			newName = StripColorFromString(newName)
+			
+			local valid, error = ValidatePlayerInput(newName, 3, 15)
+			if not( valid ) then
+				user:SystemMessage("Pet names "..error, "info")
 				return
 			end
-
-	   		if (string.len(newName) > 12) then
-				user:SystemMessage("Pet names must be less than 15 characters.", "info")
-				return
-			end
-
-			if(#newName:gsub("[%a ]","") ~= 0) then
-				user:SystemMessage("Pet names may only contain letters and spaces", "info")
-				return
-			end
-
-		   	if(ServerSettings.Misc.EnforceBadWordFilter and HasBadWords(newName)) then
-		    	user:SystemMessage("Pet names may not contain any foul language. Sorry!", "info")
-		    	return
-		   	end
 
 		   	UpdatePetName(this, newName, ColorizeMobileName(this,newName))
 		end
@@ -279,25 +272,7 @@ function ConfirmRename(player)
 end
 
 function ReleaseSelf()
-	this:Destroy()
-end
-
-function CreatePetStatue()
-	Verbose("PetController", "CreatePetStatue")
-	local mountType = this:GetObjVar("MountType") or "Horse"
-	local statueType = PetMountStatueTypes[mountType]
-	RegisterSingleEventHandler(EventType.CreatedObject,"PetStatueCreation",
-        function (success,objRef, petFrom)
-           	if(success) and (petFrom == this) then
-           	    objRef:SetObjVar("Worthless",true)
-       	        objRef:SetName("A Pet Statue of " .. this:GetName())
-       	        this:SetObjVar("PetStatue", objRef)
- 				objRef:SetObjVar("PetTarget", this)
- 				StatuifySelf()
-			end
-		end)
-		
-	CreateObjInBackpack(_MyOwner,statueType,"PetStatueCreation", this)  
+	CleanUpModule()
 end
 
 
@@ -305,23 +280,32 @@ end
 
 -- ai helpers
 function CleanUpModule()
-	this:SetSharedObjectProperty("Title", "")
+	this:SetObjectOwner(nil)
+	this:SetSharedObjectProperty("Title", "Released Pet")
+	RemoveTooltipEntry(this, "PetOwner", "Released Pet")
+	
+	local livingName = this:GetObjVar("LivingName")
+	if ( livingName ) then
+		this:SetName(livingName)
+	end
+	this:SetObjVar("WasTamed", true)
 
 	this:StopMoving()
-	this:SetObjVar("MobileTeamType", this:GetObjVar("OldMobileTeamType"))
 
-	--this:SetObjVar("AI-ShouldAggro", false)
-	-- TODO Put AI Settings back how they were
-
-	-- TODO Put same ai back on animal they had before
-	this:AddModule("ai_default_animal")
+	this:AddModule("ai_prey")
+	this:AddModule("combat")
 
 	-- delete variables no longer needed
+	this:DelObjVar("controller")
 	this:DelObjVar("NoReset")
+	this:DelObjVar("MobileTeamType")
 	this:DelObjVar("CommandName")
+	this:DelObjVar("TamingDifficulty") -- no longer tamable
+	this:DelObjVar("Karma")
 
 	Decay(this)
 
+	this:SendMessage("UpdateName")
 	this:DelModule("pet_controller")
 end
 
@@ -335,83 +319,6 @@ function StableSelf()
 		end
 	end
 end
-
-function StatuifySelf()
-	Verbose("PetController", "StatuifySelf")
-	if not( CanStatuify(this, _MyOwner) ) then return end
-	if ( CheckOwner() ) then
-		local controlStatue = this:GetObjVar("PetStatue")
-		if(controlStatue == nil) or (not controlStatue:IsValid()) then
-			 CreatePetStatue()
-		else
-			ClearState()
-			local ownerPack = _MyOwner:GetEquippedObject("Backpack")
-			local randomLoc = GetRandomDropPosition(ownerPack)
-			controlStatue:MoveToContainer(ownerPack, randomLoc)
-			this:MoveToContainer(controlStatue,Loc(0,0,0))
-		end
-
-	end
-end
-
-function UnStatuifySelf(user)
-	if ( user == nil ) then return end
-	local topMost = this:TopmostContainer()
-
-	-- can't unstatuify, already in the world!
-	if ( topMost == nil ) then return end
-
-	-- must be on the user to unstatuify
-	if ( topMost ~= user ) then
-		user:SystemMessage("That must be in your possession.", "info")
-		return
-	end
-
-	-- make sure they can control the pet
-	if not( CanControlCreature(user, this) ) then
-		user:SystemMessage("You have no chance of controlling this pet.", "info")
-		return
-	end
-	-- make sure the player has room to take this pet
-	if ( GetPetSlots(this) > GetRemainingActivePetSlots(user) ) then
-		user:SystemMessage("You cannot control anymore pets.", "info")
-		return
-	end
-
-	local controlStatue = this:GetObjVar("PetStatue")
-	local tempPack = this:GetEquippedObject("TempPack")
-	if( tempPack == nil ) then			
-		RegisterSingleEventHandler(EventType.CreatedObject,"temppack_created",
-			function (success,objRef)
-				if not(success) then
-					controlStatue:Destroy()
-					this:DelObjVar("PetStatue")
-				end
-				objRef:SetSharedObjectProperty("Weight",-1)
-				objRef:SetName("Internal Temp Pack")
-				controlStatue:MoveToContainer(objRef,Loc(0,0,0))
-			end)
-		CreateEquippedObj("crate_empty", this, "temppack_created")
-	else
-		--If pet already unstatufied, it will not try to unstatufy it
-		local findItem = FindItemInContainer(tempPack, function(item)
-				return item == controlStatue
-			end)
-		if (findItem) then
-			return
-		end
-
-		-- wait a frame (solves inf recursion of TopmostContainer)
-		CallFunctionDelayed(TimeSpan.FromMilliseconds(1), function()
-			controlStatue:MoveToContainer(tempPack,Loc(0,0,0))
-		end)
-	end
-
-	this:SetWorldPosition(user:GetLoc())
-	this:SetObjectOwner(user)
-	UserPetCommand("follow", user)
-end
-
 
 function UnStableSelf()
 	-- should be in backpack.
@@ -428,9 +335,6 @@ end
 
 RegisterEventHandler(EventType.Message, "Stable", StableSelf)
 RegisterEventHandler(EventType.Message, "Unstable", UnStableSelf)
-
-RegisterEventHandler(EventType.Message, "Statuify", StatuifySelf)
-RegisterEventHandler(EventType.Message, "UnStatuify", UnStatuifySelf)
 
 RegisterEventHandler(EventType.Message, "SetPetOwner", CheckOwner)
 
@@ -459,7 +363,7 @@ function UserPetCommand(cmdName, target, forceAccept)
 
 	if( IsStabled(this) and cmdName ~= "unstable" ) then
 		if ( _MyOwner ~= nil ) then -- really shouldn't warn users about this..
-			_MyOwner:SystemMessage("[$2391]")	
+			_MyOwner:SystemMessage("[$2391]","info")	
 		end
 		return 
 	end
@@ -479,7 +383,7 @@ function UserPetCommand(cmdName, target, forceAccept)
 	end
 
 	if ( TooFarFromOwner() and (this:ContainedBy() == nil) ) then
-		_MyOwner:SystemMessage("Too far away to command pet.")
+		_MyOwner:SystemMessage("Too far away to command pet.","info")
 		return
 	end
 
@@ -521,7 +425,7 @@ function UserPetCommand(cmdName, target, forceAccept)
 
 	if ( cmdName == "attack" or cmdName == "autoattack" ) then
 		if ( target ~= nil ) then
-			Attack(target)
+			Attack(target, true) -- force the target
 		end
 		return
 	end
@@ -589,7 +493,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "TransferPetTarget",
 			return
 		end
 
-		if ( target:IsPlayer() ) then
+		--if ( target:IsPlayer() ) then
 			-- make sure they can control the pet
 			if not( CanControlCreature(target, this) ) then
 				user:SystemMessage("They have no chance of controlling this pet.", "info")
@@ -604,80 +508,47 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "TransferPetTarget",
 			if ( CheckOwner(target) ) then
 				ClearGuarding()
 				target:SystemMessage(this:GetName() .. " now answers to you.", "info")
-				user:SystemMessage(this:GetName() .. " has been transfered to "..target:GetName()..".", "info")
+				user:SystemMessage(this:GetName() .. " has been transferred to "..target:GetName()..".", "info")
 			end
-		end
+		--end
 	end)
 
 RegisterEventHandler(EventType.Message, "Follow", function(target)
 	UserPetCommand("follow", target)
 end)
 
-RegisterEventHandler(EventType.Message, "UseObject", 
-	function(user,usedType)
-		if ( IsDead(this) or IsDead(user) ) then return end -- neither one can be dead to do anything further.
+RegisterEventHandler(EventType.Message, "UseObject", function(user,usedType)
+	if ( IsDead(this) or IsDead(user) ) then return end -- neither one can be dead to do anything further.
 
-		CheckOwner()
+	CheckOwner()
 
-		if user ~= _MyOwner then 
-			return
-		end
+	if user ~= _MyOwner then 
+		return
+	end
 
-		if(usedType == "Mount") then
-			if(GetEquipSlot(this) == "Mount" and (this:IsEquipped() or this:GetObjectOwner() == user) ) then
-				if (MountMobile(user,this) ~= false) then
-					Stay()
-				end
+	if(usedType == "Mount") then
+		if(GetEquipSlot(this) == "Mount" and (this:IsEquipped() or _MyOwner == user) ) then
+			if (MountMobile(user,this) ~= false) then
+				Stay()
 			end
-			-- dismount is handled on the mobile that is mounted
-		elseif ( usedType == "Release" ) then
-			ConfirmRelease(user)
-		elseif ( usedType == "Rename" ) then
-			ConfirmRename(user)
-		elseif ( usedType == "Transfer" ) then
-			user:SystemMessage("Select new owner for "..this:GetName()..".", "info")
-			user:RequestClientTargetGameObj(this, "TransferPetTarget")		
-		elseif(usedType == "Dismiss") then
-			if not( CanStatuify(this, user) ) then return end
-
-			this:PlayEffect("CloakEffect")
-			this:PlayObjectSound("Pain")
-			CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
-				StatuifySelf()
-			end)
-			
 		end
-	end)
-
-function CanStatuify(pet, user)
-	if(IsGod(user) or TestMortal(user)) then
-		return true
+		-- dismount is handled on the mobile that is mounted
+	elseif ( usedType == "Release" ) then
+		ConfirmRelease(user)
+	elseif ( usedType == "Rename" ) then
+		ConfirmRename(user)
+	elseif ( usedType == "Transfer" ) then
+		user:SystemMessage("Select new owner for "..this:GetName()..".", "info")
+		user:RequestClientTargetGameObj(this, "TransferPetTarget")		
+	elseif(usedType == "Dismiss") then
+		ClearState()
+		user:SendMessage("StartMobileEffect", "MountDismiss", this)
 	end
-
-	if not(IsMount(pet)) then
-		user:SystemMessage("You can only dismiss mounts.","info")
-		return false
-	end
-
-	if(GetPetSlots(pet) > ServerSettings.Pets.MaxSlotsToAllowDismiss) then
-		user:SystemMessage("This mount is too strong to dismiss.","info")
-		return false
-	end		
-
-	if(IsPetCarryingItems(pet)) then
-		user:SystemMessage("You can not dismiss a mount that is carrying something.","info")
-		return false
-	end
-
-	return ValidateRangeWithError(5, user, pet, "Too far away.")
-end
+end)
 
 local HandleApplyDamage_base = HandleApplyDamage
 function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 	HandleApplyDamage_base(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	-- if we aren't already attacking anything
-	if not( mInCombatState ) then
-		-- fight back
-		Attack(damager)
-	end
+	-- fight back
+	Attack(damager)
 end

@@ -6,6 +6,7 @@
 		<StringVariable Name="MobileTeamType">UndeadGraveyard</StringVariable>
 		<StringVariable Name="ControllerTemplate">grim_reaper</StringVariable>
 		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="RespawnTime">300</DoubleVariable>
 		<BoolVariable Name="Important">True</BoolVariable>
 		<BoolVariable Name="Attackable">True</BoolVariable>
 	</ObjectVariableComponent>

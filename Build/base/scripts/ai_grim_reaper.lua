@@ -31,6 +31,8 @@ table.insert(AI.CombatStateTable,{StateName = "Voidteleport",Type = "melee",Rang
 
 AI.Settings.CheckLOS = false
 
+AI.Settings.ChaseRange = MAX_PATHTO_DIST
+
 function GetRandomTeleportLocation(target)
     local maxTries = 20
     if (target == nil) then target = this end
@@ -210,28 +212,51 @@ AI.StateMachine.AllStates.DecidingCombat = {
         end,
     }
 
+function CrystalsDead()
+    local crystals = FindObjects(SearchTemplate("reaper_room_crystal",50))
+    if (#crystals == 0) then return true end
+
+    for i,j in pairs(crystals) do
+        if (not j:GetObjVar("Destroyed")) then
+            return false
+        end
+    end    
+
+    return true
+end
+
 RegisterEventHandler(EventType.Message, "DamageInflicted",
     function (damager,damageAmt)         
         --if I'm a boss demon
-        if (not IsGuard(damager)) then
-            local crystals = FindObjects(SearchTemplate("reaper_room_crystal",50))
-            if (#crystals == 0) then return end
-            local crystalsDead = true
-            for i,j in pairs(crystals) do
-                if (not j:GetObjVar("Destroyed")) then
-                    crystalsDead = false
-                end
-            end
-            if (crystalsDead) then return end
+        if (not IsGuard(damager)) then            
+            if (CrystalsDead()) then return end
             if (IsGod(damager)) then return end
             --DebugMessage("Recovering")
             --he's invincible unless you get the imbued weapon
             SetCurHealth(this,GetCurHealth(this) + damageAmt)
             this:NpcSpeech("[FCF403]*Invincible!*[-]","combat")
-            damager:SystemMessage("[$71]")
+            damager:SystemMessage("[$71]","info")
         end
     end
 )
+
+this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"CheckShield")
+RegisterEventHandler(EventType.Timer,"CheckShield",
+    function ()
+        local crystalsDead = CrystalsDead()
+        local isShielded = this:GetSharedObjectProperty("Variation") == "Shield"
+
+        if( not(isShielded) and not(crystalsDead)) then
+            isShielded = true
+            this:SetSharedObjectProperty("Variation","Shield")
+            Speak(quotes[math.random(1,#quotes)])
+        elseif( isShielded and crystalsDead) then
+            isShielded = true
+            this:SetSharedObjectProperty("Variation","Default")
+            Speak(quotes[math.random(1,#quotes)])
+        end
+        this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"CheckShield")
+    end)
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
@@ -242,7 +267,7 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
             j:SendMessage("Deactivate")
         end
 
-        if(GetWorldName() == "Catacombs") then
+        if(ServerSettings.WorldName == "Catacombs") then
             local destRegionAddress
             local destination
             destRegionAddress, destination = GetStaticPortalSpawn("CatacombsEntrance")
@@ -260,7 +285,6 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
             for index,object in pairs(loggedOnUsers) do
 --                object:PlayEffectWithArgs("ScreenShakeEffect", 3.0,"Magnitude=5")
                 object:SystemMessage("Death's curse descends as he is vanquished from this realm for a time.. Hurry and exit this cursed place!","event")
-                object:SystemMessage("Death's curse descends as he is vanquished from this realm for a time.. Hurry and exit this cursed place!")
             end
 
             local controller = FindObjectWithTag("CatacombsController")
@@ -279,7 +303,7 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
         }))
         this:RemoveTimer("VoidAura")
         --they took part in killing the demon, they deserve credit
-        DistributeBossRewards(nearbyCombatants, {TemplateDefines.LootTable.DeathBossGear})
+        DistributeBossRewards(nearbyCombatants, {TemplateDefines.LootTable.DeathBossGear}, "Death")
     end)
 
     

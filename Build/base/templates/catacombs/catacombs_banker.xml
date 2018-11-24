@@ -2,11 +2,13 @@
 <ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Olu-Kal the Banker</Name>
+	<Name>Olu-Kal</Name>
+	<SharedStateEntry name="Title" type="string" value="Banker"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Wayun</StringVariable>
 		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
 		<BoolVariable Name="AI-EnableBank">True</BoolVariable>
+		<BoolVariable Name="AI-EnableTax">True</BoolVariable>
 		<BoolVariable Name="AI-EnableBuy">False</BoolVariable>
 		<BoolVariable Name="AI-MerchantEnabled">False</BoolVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
@@ -22,7 +24,7 @@
 					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
           			Skills = 
           			{ 
-          			Bashing = 50, 
+          			Brawling = 50, 
           			},  
 			        MobTraits =
 			        {

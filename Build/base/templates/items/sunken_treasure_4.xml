@@ -4,6 +4,8 @@
 	<SharedStateEntry name="Capacity" type="int" value="50"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
@@ -20,16 +22,16 @@
 
 						--rare
 						{
-							NumItems = math.random(0,1),
+							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 80,Template = "packed_pillow_round", Unique = true },
-								{ Chance = 80,Template = "packed_pillow_square", Unique = true },
-								{ Chance = 50,Template = "packed_painting3", Unique = true },
-								{ Chance = 20,Template = "packed_painting2", Unique = true },
-								{ Chance = 10,Template = "packed_rug_ornate_blue", Unique = true },
-								{ Chance = 5,Template = "packed_rug_ornate_red", Unique = true },
-								{ Chance = 5,Template = "packed_painting1", Unique = true },
+								{ Chance = 20,Template = "packed_pillow_round", Unique = true },
+								{ Chance = 20,Template = "packed_pillow_square", Unique = true },
+								{ Chance = 10,Template = "packed_painting3", Unique = true },
+								{ Chance = 10,Template = "packed_painting2", Unique = true },
+								{ Chance = 5,Template = "packed_rug_ornate_blue", Unique = true },
+								{ Chance = 2,Template = "packed_rug_ornate_red", Unique = true },
+								{ Chance = 2,Template = "packed_painting1", Unique = true },
 							}
 						},
 
@@ -39,23 +41,62 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "potion_lheal", Unique = true },
-								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
-								{ Weight = 10, Template = "tool_mining_pick", Unique = true },
-    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-								{ Weight = 10, Template = "tool_shovel", Unique = true },
+								{ Weight = 50, Template = "resource_fish_barrel", Unique = true, StackCountMin = 5, StackCountMax = 15 },
+								{ Weight = 30, Template = "resource_fish_tero", Unique = true, StackCountMin = 3, StackCountMax = 10 },
+								{ Weight = 20, Template = "resource_fish_spotted_tero", Unique = true,StackCountMin = 2, StackCountMax = 5 },
+								{ Weight = 10, Template = "resource_fish_razor", Unique = true, StackCountMin = 1, StackCountMax = 3 },
+								{ Weight = 0.1, Template = "resource_fish_golden_aether", Unique = true },
+								{ Weight = 35,Template = "potion_heal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "sos_map", Unique = true },
 								{ Weight = 4, Template = "sos_map_1", Unique = true },
 								{ Weight = 3, Template = "sos_map_2", Unique = true },
 								{ Weight = 2, Template = "sos_map_3", Unique = true },
 								{ Weight = 1, Template = "sos_map_4", Unique = true },
 							}
+						},
+
+						--fish
+						{
+							NumItems = 3,
+							LootItems = 
+							{									
+								{ Chance = 50, Template = "resource_fish_barrel", Unique = true, StackCountMin = 5, StackCountMax = 15 },
+								{ Chance = 30, Template = "resource_fish_tero", Unique = true, StackCountMin = 3, StackCountMax = 10 },
+								{ Chance = 20, Template = "resource_fish_spotted_tero", Unique = true,StackCountMin = 2, StackCountMax = 5 },
+								{ Chance = 10, Template = "resource_fish_razor", Unique = true, StackCountMin = 1, StackCountMax = 3 },
+								{ Chance = 1, Template = "resource_fish_golden_aether", Unique = true },
+							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
+
+				    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
+
+				    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
+				    		}
 						},
 
 						--regs
@@ -82,7 +123,6 @@
 								{ Weight = 5, Template = "lscroll_cure", Unique = true },
 								{ Weight = 5, Template = "lscroll_poison", Unique = true },
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_defence", Unique = true },
 
 							},
 						},	
@@ -98,7 +138,6 @@
 								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
 								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
 								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
-								{ Weight = 5, Template = "lscroll_attack", Unique = true },
 							},
 						},	
 

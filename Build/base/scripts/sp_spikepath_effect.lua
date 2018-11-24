@@ -8,12 +8,12 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "SpikePathRemoveTimer")
 function ValidateSpikeDestination(targetLoc)
 	------DebugMessage("----Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2628]")
+		this:SystemMessage("[$2628]","info")
 		return falses
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2629]")
+		this:SystemMessage("[$2629]","info")
 		return false
 	end
 
@@ -45,7 +45,7 @@ function InitiateSpikepath(targetLoc)
 			break
 		end
 	end
-	this:PlayObjectSound("SpikePath", false)
+	this:PlayObjectSound("event:/magic/earth/magic_earth_spike_path", false)
 	this:FireTimer("SpikepathTickTimer" , 1)
 end
 RegisterEventHandler(EventType.Timer, "SpikepathTickTimer", 
@@ -102,7 +102,7 @@ RegisterEventHandler(EventType.Message,"SpikepathSpellTargetResult",
 				end
 		--DebugMessage("----Debuggery Here")
 		this:RemoveTimer("SpikepathTickTimer")
-		this:StopObjectSound("SpikePath", false, 0.2)
+		this:StopObjectSound("event:/magic/earth/magic_earth_spike_path", false, 0.2)
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "SpikePathRemoveTimer")
 		InitiateSpikepath(targetLoc)
 	end)

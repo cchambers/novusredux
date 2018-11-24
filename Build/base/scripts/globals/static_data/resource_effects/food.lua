@@ -10,15 +10,17 @@ ResourceEffectData.MushroomsPoison = {
     },
 }
 
-
-
-
-
-
+for key,value in pairs(FoodStats.BaseFoodStats) do
+    if ( ResourceEffectData[key] == nil ) then
+        ResourceEffectData[key] = {
+            MobileEffect = "Food",
+            SelfOnly = true,
+        }
+    end
+end
 
 
 --- TEST ITEMS
-
 
 --useful for stunning yourself when testing.
 ResourceEffectData.StunBread = {

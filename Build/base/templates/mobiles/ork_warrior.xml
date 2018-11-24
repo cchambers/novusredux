@@ -2,7 +2,7 @@
 	<ClientId>1141</ClientId>
 	<Name>Ork</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/incubus/incubus"/>
 	<SharedStateEntry name="Variation" type="string" value="Warrior"/>
 	<ScaleModifier>1.0</ScaleModifier>
 	<MobileComponent>			
@@ -12,6 +12,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">240</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Ork</StringVariable>
 		<StringVariable Name= "AI-SpeechTable">OrcSpeech</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -21,7 +22,7 @@
 		<DoubleVariable Name="Armor">48</DoubleVariable>
 		<DoubleVariable Name="Attack">20</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -57,7 +58,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=40,  
+					Brawling = 40,  
 					},	
 				EquipTable = 
 					{

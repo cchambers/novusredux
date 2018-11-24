@@ -32,3 +32,18 @@ WeaponAbilitiesData.PoisonShot = {
         Enabled = true
     }
 }
+
+WeaponAbilitiesData.Power = {
+    MobileEffect = "Power",
+    MobileEffectArgs = {
+        AttackModifier = 0.4,
+    },
+    Stamina = 25,
+    Action = {
+        DisplayName = "Overdraw",
+        Tooltip = "Increase your attack by 40%.",
+        Icon = "Wild Shot",
+        Enabled = true,
+    },
+    SkipHitAction = true
+}

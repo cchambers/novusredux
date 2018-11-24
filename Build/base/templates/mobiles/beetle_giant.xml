@@ -2,7 +2,7 @@
 	<ClientId>304</ClientId>
 	<Name>Giant Beetle</Name>
 	<ScaleModifier>2.5</ScaleModifier>
-	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
@@ -21,8 +21,8 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">148.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">61</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">
@@ -31,7 +31,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=60,  
+					Brawling = 60,  
 					},	
 				EquipTable = 
 					{
@@ -41,7 +41,6 @@
 					{
 						TemplateDefines.LootTable.Average,
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(125,175),
 						},

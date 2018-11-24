@@ -1,4 +1,3 @@
-require 'incl_container'
 
 mWood = nil
 mResourceType = nil
@@ -50,7 +49,7 @@ function VerifyMill()
 end
 
 function MillWood()
-	this:PlayObjectSound("Woodsmith", false, 2)
+	this:PlayObjectSound("event:/character/skills/crafting_skills/carpentry/carpentry_saw", false, 2)
 	FaceObject(this,mTool)
 
 	local stackCount = GetStackCount(mWood)

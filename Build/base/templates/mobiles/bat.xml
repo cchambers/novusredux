@@ -29,7 +29,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=5,  
+					Brawling = 5,  
 					},	
 				EquipTable = 
 					{
@@ -37,7 +37,6 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(25,50),
 						},
@@ -49,6 +48,8 @@
 			<Initializer>
 				{
 					MeatCount = 1,
+
+					MeatType = "BatMeat",
 				}
 			</Initializer>
 		</LuaModule>

@@ -6,13 +6,12 @@ OverrideEventHandler("destroyable_object",EventType.Message, "DamageInflicted",
 		if (this:HasObjVar("ControllerTemplate")) then
 			local controller = FindObject(SearchTemplate(this:GetObjVar("ControllerTemplate"),50))
 			if (controller == nil) then 
-				damager:SystemMessage("You can't damage this now.")
+				damager:SystemMessage("You can't damage this now.","info")
 				return 
 			end
 		end
-		local curHealth = this:GetObjVar("CurrentHealth") 
+		local curHealth = this:GetStatValue("Health")
 		curHealth = math.max(0,curHealth - damageAmt )
-		SetDamageTooltip(curHealth)
 		mActive = true
 		if (this:HasObjVar("Important") and this:HasObjVar("MobileTeamType")) then
 			local nearbyMobs = FindObjects(SearchMulti({SearchRange(this:GetLoc(),NEARBY_MOB_RANGE),SearchObjVar("MobileTeamType",this:GetObjVar("MobileTeamType"))}))
@@ -21,6 +20,7 @@ OverrideEventHandler("destroyable_object",EventType.Message, "DamageInflicted",
 			end
 		end
 		if (curHealth <= 0) then
+			curHealth = 0
 			--DFB TODO: REMOVE THIS
 			--todo Set the visual state here
 			--DebugMessage("Destroyed")
@@ -32,7 +32,7 @@ OverrideEventHandler("destroyable_object",EventType.Message, "DamageInflicted",
 
 			--this:ScheduleTimerDelay(TimeSpan.FromSeconds(this:GetObjVar("RespawnTime")),"RespawnTimer")
 		end
-		this:SetObjVar("CurrentHealth",curHealth)
+		this:SetStatValue("Health",curHealth)
 	end)
 
 --send respawn timer only when all crystals are destroyed.
@@ -40,14 +40,19 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"CheckRespawn")
 RegisterEventHandler(EventType.Timer,"CheckRespawn",function()
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"CheckRespawn")
 		if (not this:HasTimer("RespawnTimer")) then
-			local crystals = FindObjects(SearchTemplate("reaper_room_crystal",50),GameObj(0)) 
+			if (this:GetStatValue("Health") > 0) then
+				return
+			end
+
+			local crystals = FindObjects(SearchTemplate("reaper_room_crystal",50)) 
 			--DebugMessage(DumpTable(crystals))
 			for i,j in pairs(crystals) do
-				if (j:GetObjVar("CurrentHealth") > 0) then
+				DebugMessage("A")
+				if (j:GetStatValue("Health") > 0) then
 					return
 				end
 			end
-			--DebugMessage("Respawning timer")
+			DebugMessage("Respawning timer")
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(this:GetObjVar("RespawnTime")),"RespawnTimer")
 		end
 	end)

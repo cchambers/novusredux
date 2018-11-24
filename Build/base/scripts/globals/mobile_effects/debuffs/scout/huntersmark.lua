@@ -22,11 +22,12 @@ MobileEffectLibrary.HuntersMark =
 			self.ParentObj:ScheduleTimerDelay(self.EffectPulse, "HuntersMarkEffect")
 		end)
 		self.ParentObj:FireTimer("HuntersMarkEffect")
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/perforate")
 
 		SetMobileMod(self.ParentObj, "BowDamageTakenTimes", "HuntersMark", self.Modifier)
 
 		if ( self.ParentObj:IsPlayer() ) then
-			AddBuffIcon(self.ParentObj, "HuntersMark", "Hunters Mark", "Force Push 02", string.format("Cannot hide or cloak. Bow damage received increased by %s%%", self.Modifier*100), true)
+			AddBuffIcon(self.ParentObj, "HuntersMark", "Hunters Mark", "Burning Arrow", string.format("Cannot hide or cloak. Bow damage received increased by %s%%", self.Modifier*100), true)
 		end
 
 	end,
@@ -51,5 +52,5 @@ MobileEffectLibrary.HuntersMark =
 	end,
 
 	Duration = TimeSpan.FromSeconds(30),
-	Modifier = 0
+	Modifier = 0,
 }

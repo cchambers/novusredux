@@ -19,7 +19,7 @@ RegisterEventHandler(EventType.Message,"UseObject",function (user,useType)
 	if useType ~= "Activate" then return end
 
 	if (this:TopmostContainer() ~= user) then 
-		user:SystemMessage("[$1733]")
+		user:SystemMessage("[$1733]","info")
 		return
 	end
 
@@ -40,7 +40,7 @@ RegisterEventHandler(EventType.Message,"UseObject",function (user,useType)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"TeleportDelay")
 
 	local bindLoc = GetPlayerSpawnPosition(user)
-	local curRegionAddress = GetRegionAddress()
+	local curRegionAddress = ServerSettings.RegionAddress
 	local bindRegionAddress = curRegionAddress
 
 	local spawnPosEntry = this:GetObjVar("SpawnPosition")

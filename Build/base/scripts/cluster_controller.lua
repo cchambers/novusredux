@@ -1,5 +1,8 @@
+-- is the master controller currently in the process of taxing all plots?
+local m_Taxing = false
+
 -- DAB TODO EDIT MODE: Automatically attach edit controller
-if(EDITMODE) then
+if(ServerSettings.EditMode) then
 	this:AddModule("editmode_controller")
 end
 
@@ -11,52 +14,46 @@ end
 -- so everyone who looks at this list has to validate each region entry
 -- against the GetClusterRegions function
 
-regionAddress = GetRegionAddress()
+regionAddress = ServerSettings.RegionAddress
 
-MASTER_CONTROLLER_PULSE_SPEED = TimeSpan.FromSeconds(5)
+MASTER_CONTROLLER_PULSE_SPEED = TimeSpan.FromMinutes(1)
 isMasterController = false
 
 function OnLoad()
 	this:SetObjectTag("ClusterController")
-	
-	local allUsers = FindPlayersInRegion()
-	-- clear out the users online record
 
 	-- DAB TODO: When we support graceful shutdown of regions in a cluster
 	-- we need to have another region take master control
 	--DebugMessage("[ClusterControl] SERVER_STARTTIME: "..tostring(SERVER_STARTTIME))
-	local clusterControlData = GlobalVarRead("ClusterControl")
-	--DebugMessage("[ClusterControl] clusterControlData: "..DumpTable(clusterControlData))
-	if(clusterControlData == nil or clusterControlData.LastStartTime ~= SERVER_STARTTIME) then
+	local lastStartTime = GlobalVarReadKey("ClusterControl", "LastStartTime")
+	--DebugMessage("[ClusterControl] lastStartTime: "..lastStartTime)
+	if ( lastStartTime == nil or lastStartTime ~= SERVER_STARTTIME ) then
 		--DebugMessage("[ClusterControl] attempting to take control")
-		GlobalVarWrite("ClusterControl","MasterControllerRequest",
-			function(record)
-				-- DOUBLE CHECK TO MAKE SURE SOMEONE ELSE DIDNT SNEAK MASTER CONTROL
-				if(record.LastStartTime ~= SERVER_STARTTIME) then
-					DebugMessage("[ClusterControl] "..regionAddress.." is the master controller")
-					record.LastStartTime = SERVER_STARTTIME
-					record.Master = this
-					
-					return true
-				end
-			end)
-
-		RegisterSingleEventHandler(EventType.GlobalVarUpdateResult,"MasterControllerRequest",
-			function(success,recordName,recordData)
-				if(success) then
-					-- delete online users
-					RegisterSingleEventHandler(EventType.GlobalVarUpdateResult, "UserOnlineDelete", function(success)
-						if not(success) then
-							DebugMessage("ERROR: MasterControllerRequest failed to clear online users.")
-						end
+		SetGlobalVar("ClusterControl", function(record)
+			-- double check that another region didn't already assume the role of master cluster
+			if ( lastStartTime == SERVER_STARTTIME ) then return false end
+			record.LastStartTime = SERVER_STARTTIME
+			record.Master = this
+			return true
+		end, function(success)
+			if ( success ) then
+				-- if successful, we are the master controller, clear User.Online and start the master controller pulse
+				DebugMessage("[ClusterControl] "..regionAddress.." is the master controller")
+				isMasterController = true
+				if ( GlobalVarRead("User.Online") ) then
+					DelGlobalVar("User.Online", function()
 						this:ScheduleTimerDelay(MASTER_CONTROLLER_PULSE_SPEED,"MasterControllerPulse")
 					end)
-					GlobalVarDelete("User.Online", "UserOnlineDelete")
-					isMasterController = true
 				else
-					DebugMessage("ERROR: MasterControllerRequest global var write failed with recordName of " ..tostring(recordName))
+					this:ScheduleTimerDelay(MASTER_CONTROLLER_PULSE_SPEED,"MasterControllerPulse")
 				end
-			end)
+			else
+				-- if start time is correct, another region beat us to master controller, double check that is the case
+				if ( GlobalVarReadKey("ClusterControl", "LastStartTime") ~= SERVER_STARTTIME ) then
+					DebugMessage("ERROR: ClusterControl global var write failed. No master controller detected!!")
+				end
+			end
+		end)
 	end
 end
 mNextGroupScrub = nil
@@ -68,11 +65,51 @@ function ValidateGroupData()
 	end
 end
 
+RegisterEventHandler(EventType.CreatedObject, "MarkerCreated", 
+	function(success, objRef, markerEntry)
+		if (success) then
+			objRef:SetObjVar("TooltipName", markerEntry.Tooltip)
+		end
+	end)
+
 RegisterEventHandler(EventType.Timer,"MasterControllerPulse",
 	function ()
-		this:ScheduleTimerDelay(MASTER_CONTROLLER_PULSE_SPEED,"MasterControllerPulse")
 		ValidateGroupData()
+
+		-- prevent taxing while taxing
+		if not( m_Taxing ) then
+			m_Taxing = true
+			Plot.SaleAll(this, function()
+				Plot.TaxAll(this, function()
+					m_Taxing = false
+				end)
+			end)
+		end
+
+		this:ScheduleTimerDelay(MASTER_CONTROLLER_PULSE_SPEED,"MasterControllerPulse")
 	end)
+
+RegisterEventHandler(EventType.Message, "ForceTaxAll", function()
+	m_Taxing = true
+	Plot.TaxAll(this, function()
+		DebugMessage("Forced Tax Done.")
+		m_Taxing = false
+	end, true)
+end)
+RegisterEventHandler(EventType.Message, "ForceSaleAll", function()
+	m_Taxing = true
+	Plot.SaleAll(this, function()
+		DebugMessage("Forced Sale Done.")
+		m_Taxing = false
+	end, true)
+end)
+RegisterEventHandler(EventType.Message, "DoPlotTax", function()
+	Create.Temp.AtLoc("plot_tax_controller", Loc(5,0,5))
+end)
+RegisterEventHandler(EventType.Message, "DoPlotSale", function()
+	Create.Temp.AtLoc("plot_sale_controller", Loc(5,0,6))
+end)
+
 
 RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),
 	function ()		
@@ -85,44 +122,26 @@ RegisterEventHandler(EventType.LoadedFromBackup,"",
 	end)
 
 RegisterEventHandler(EventType.Message,"UserLogin",
-	function(user)
+	function(user, type)
+		if ( type == "ChangeWorld" ) then
 
-		-- write function to write user as online globally
-		local writeOnline = function(record)
-			record[user] = true
-			return true
-		end
-		-- kick off the global writes
-		SetGlobalVar("User.Online", writeOnline)
-
-		-- update the name if different/not set
-		local name = StripColorFromString(user:GetName())
-		if ( GlobalVarReadKey("User.Name", user) ~= name ) then
-			-- write function to write name for user globally
-			local writeName = function(record)
-				record[user] = name
+		elseif ( type == "Connect" ) then
+			-- write function to write user as online globally
+			local writeOnline = function(record)
+				record[user] = true
 				return true
 			end
-			SetGlobalVar("User.Name", writeName)
-		end
+			-- kick off the global writes
+			SetGlobalVar("User.Online", writeOnline)
 
-		-- update the region address if different/not set
-		if ( GlobalVarReadKey("User.Address", user) ~= regionAddress ) then
-			local writeAddress = function(record)
-				record[user] = regionAddress
-				return true
-			end
-			SetGlobalVar("User.Address", writeAddress)
+			-- tell all groups members about it
+			GroupLoginMember(user)
 		end
-
-		-- tell all groups members about it
-		GroupLoginMember(user)
 
 	end)
 
 RegisterEventHandler(EventType.Message,"UserLogout",
 	function(user, clear)
-
 		-- write function to remove user as online globally
 		local write = function(record)
 			record[user] = nil
@@ -130,14 +149,6 @@ RegisterEventHandler(EventType.Message,"UserLogout",
 		end
 		-- write user as offline
 		SetGlobalVar("User.Online", write)
-
-		-- when deleting, we clear these values out as well.
-		if ( clear ) then
-			-- remove name from list
-			SetGlobalVar("User.Name", write)
-			-- remove address from list
-			SetGlobalVar("User.Address", write)
-		end
 
 		-- tell all groups members about it
 		GroupLogoutMember(user)
@@ -181,7 +192,7 @@ RegisterEventHandler(EventType.Timer,"frametime_monitor",
 	function ( ... )
 		local avgFrameTime = DebugGetAvgFrameTime()
 		if(avgFrameTime >= FRAMETIME_EMAIL_THRESHOLD) then
-			SendEmail(BUG_REPORT_EMAIL,"Lag Report: "..os.date().." from "..tostring(GetRegionAddress()),"Average Frame Time: "..tostring(avgFrameTime))
+			SendEmail(BUG_REPORT_EMAIL,"Lag Report: "..os.date().." from "..tostring(ServerSettings.RegionAddress),"Average Frame Time: "..tostring(avgFrameTime))
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(FRAMETIME_EMAIL_THROTTLE),"frametime_monitor")
 		else
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"frametime_monitor")
@@ -195,3 +206,21 @@ RegisterEventHandler(EventType.Message, "ValidatePortalLoc",
 
 		user:SendMessageGlobal("PortalLocValidated", invalidMessage, newDestLoc, regionalName)
 	end)
+
+RegisterEventHandler(EventType.Message, "MapMarkerRequest",
+	function(user)
+		local worldName = ServerSettings.WorldName
+		local subregionName = ServerSettings.SubregionName
+		local mapMarkers = GetControllerMapMarkers()
+
+		if (mapMarkers ~= nil and subregionName ~= nil and worldName ~= nil) then
+			user:SendMessageGlobal("ClusterControllerMapMarkerResponse", worldName, subregionName, mapMarkers)
+		end
+		
+	end)
+
+RegisterEventHandler(EventType.Message, "PlotRateRequest", function(playerObj, controller)
+	playerObj:SendMessageGlobal("PlotRateResponse", Plot.CalculateRateController(controller))
+end)
+
+RegisterEventHandler(EventType.Message, "PlayerResurrected", UpdateCorpseOnPlayerResurrected)

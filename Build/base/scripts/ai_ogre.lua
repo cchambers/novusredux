@@ -7,6 +7,9 @@ AI.Settings.CanFlee = false
 
 AI.Settings.CanUseCombatAbilities = false
 
+AI.Settings.ChaseRange = 20.0
+AI.Settings.LeashDistance = 30
+
 if (initializer ~= nil) then
     this:SetName(initializer.Names[math.random(1,#(initializer.Names))])
 end

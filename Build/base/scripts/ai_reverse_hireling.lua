@@ -155,7 +155,7 @@ end
 function ShowDirectionsDialog(user)
     local taskInfo = this:GetObjVar("RHirelingTask")
     local dialogText = ""
-    local subregionName = GetSubregionName()
+    local subregionName = ServerSettings.SubregionName
     --DebugMessage(taskInfo.RegionalName.." "..SubregionDisplayNames[subregionName])
     if (GetRegionalName(user:GetLoc()) == taskInfo.RegionalName or taskInfo.RegionalName == GetRegionalName(user:GetLoc())) then
         dialogText = "We'll find some "..GetTemplateData(taskInfo.Template).Name.." over here. I've marked your map."
@@ -163,7 +163,7 @@ function ShowDirectionsDialog(user)
         local poiLoc = PointsOfInterest[taskInfo.Poi]
         if (poiLoc ~= nil) then
             local mapMarker ={ Icon="marker_circle1", Tooltip=taskInfo.Poi, Location= poiLoc}
-            AddMapMarker(user, mapMarker, "RHirelingTask")
+            AddDynamicMapMarker(user, mapMarker, "RHirelingTask")
         else
             --DebugMessage("No point of interest "..taskInfo.Poi.." found")
         end
@@ -329,7 +329,7 @@ function CompleteTask(user)
     this:SetObjVar("TaskComplete", true)
     local taskInfo = this:GetObjVar("RHirelingTask")
     if (taskInfo ~= nil) then
-        user:PlayObjectSound("SkillGain")
+        user:PlayObjectSound("event:/ui/skill_gain", false)
         user:SystemMessage(GetTemplateData(taskInfo.Template).Name.." hunt complete! Collect your reward from the Hunter.", "info")
     end
 
@@ -344,7 +344,7 @@ function EndRHirelingDiversion(taskComplete, fromHireling)
 
     if (taskComplete) then
         --ShowTaskCompleteDialog(this:GetObjVar("HirelingOwner"))
-        this:PlayObjectSound("QuestComplete", false)
+        this:PlayObjectSound("event:/ui/quest_complete", false)
         if (hirelingOwner~= nil) then
             hirelingOwner:SystemMessage("Diversion Completed", "info")
         end

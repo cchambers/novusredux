@@ -2,10 +2,12 @@
 <ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Issac the Carpenter</Name>
+	<Name>Issac</Name>
+	<SharedStateEntry name="Title" type="string" value="Woodsmith" />
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="RepairSkill">WoodsmithSkill</StringVariable>
+		<StringVariable Name="CraftOrderSkill">WoodsmithSkill</StringVariable>
 		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
 		<DoubleVariable Name="Karma">10000</DoubleVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
@@ -52,56 +54,65 @@
 						{
 							Template = "tool_crook",
 							Price = 0,
-							Amount = 20,
-							RelativeLoc = "-0.1515503, 0.9589996, -2.030396",
-							Rotation = "3.722996, 235.9228, 1.041199",
+							RelativeLoc = "-0.552002, 0.9728432, -2.039001",
+							Rotation = "273.8656, 220.2861, 188.1801",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "weapon_shortbow",
 							Price = 0,
-							Amount = 20,
-							RelativeLoc = "1.047989, 0.9039993, -2.138",
+							RelativeLoc = "0.4039917, 0.8938408, -2.088013",
 							Rotation = "3.722996, 235.9228, 1.041199",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "arrow",
 							Price = 0,
-							Amount = 999,
-							RelativeLoc = "-1.236588, 0.9302788, -2.091003",
+							RelativeLoc = "-1.420593, 0.9302788, -2.085999",
 							Rotation = "0, 316.3568, 0",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "land_deed",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-4.309006, 0.9368439, -6.934021",
+							Rotation = "0, 270, 0",
+							UnlimitedStock = false,
+						},
+						{
+							DisplayTemplate = "bind_stone_display",
+							Template = "packed_bind_stone",
+							Price = 0,
+							RelativeLoc = "1.213989, 0.9308434, -2.158997",
+							Rotation = "-2.668043E-08, 179.326, -2.112087E-16",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "blueprint_woodhouse_worthless",
 							Price = 0,
-							Amount = 100,
-							RelativeLoc = "-4.164001, 0.9370003, -7.296997",
+							RelativeLoc = "-4.164001, 0.9370003, -5.796997",
 							Rotation = "0, 270, 0",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "blueprint_woodhousecottage",
 							Price = 0,
-							Amount = 100,
-							RelativeLoc = "-4.141968, 0.9389992, -6.101013",
+							RelativeLoc = "-4.141968, 0.9389992, -4.601013",
 							Rotation = "0, 270, 0",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "blueprint_tudorhousemahogany",
 							Price = 0,
-							Amount = 100,
-							RelativeLoc = "-4.141968, 0.9410019, -4.903015",
+							RelativeLoc = "-4.141968, 0.9410019, -3.403015",
 							Rotation = "0, 270, 0",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "blueprint_tudorhousebirch",
 							Price = 0,
-							Amount = 100,
-							RelativeLoc = "-4.141968, 0.9409981, -3.757996",
+							RelativeLoc = "-4.141968, 0.9409981, -2.257996",
 							Rotation = "0, 270, 0",
 							UnlimitedStock = false,
 						},

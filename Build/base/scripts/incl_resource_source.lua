@@ -22,57 +22,6 @@ function GetResourceSourceInfo(objRef)
 	--LuaDebugCallStack("[ResourceSourceInfo] sourceId is nil!")
 end
 
-function IsResourceDepleted(objRef)
-	--DebugMessage("Alpha")
-	if( not(objRef:IsPermanent()) and objRef:HasObjVar("HandlesHarvest") ) then
-		--DebugMessage("Beta")
-		if (objRef:HasObjVar("HarvestCount")) then
-			--DebugMessage("Count: " .. objRef:GetObjVar("HarvestCount"))
-			return objRef:GetObjVar("HarvestCount") <= 0
-		else
-			return true
-		end
-	else		
-		--DebugMessage("Gamma")
-		-- get the resource source info (has total resource count)
-		local sourceInfo = GetResourceSourceInfo(objRef)
-		if (sourceInfo == nil or sourceInfo.Count == nil ) then return true end
-
-
-		local depletion = 0
-		-- permanent depletion is stored on the map resource controller
-		if(objRef:IsPermanent()) then
-			--DebugMessage("Rectuli")
-			local mapController = FindObjectWithTag("MapResourceController")
-			--DebugMessage("mapController is "..tostring(mapController))
-			if(mapController) then
-				local sourceData = mapController:GetObjVar("permanentSourceData")
-				--DebugMessage("TABLE DUMP:"..DumpTable(sourceData))
-				--DebugMessage(sourceData,sourceData[objRef]," is the CHECK")
-				if (sourceData == nil or sourceData[objRef] == nil) then 
-					--DebugMessage("Here first")
-					depletion = 0
-				else
-					--DebugMessage("Nope here")
-					depletion = sourceData[objRef].Depletion or 0
-				end
-			end
-		-- dynamic depletion is stored in a table on the object
-		else
-			--DebugMessage("Zeta")
-			local sourceData = objRef:GetObjVar("ResourceSourceData")
-			if (sourceData == nil) then 
-				depletion = 0
-			else
-				depletion = sourceData.Depletion or 0
-			end
-		end
-		--DebugMessage("Depletion = ",depletion)
-		--DebugMessage(sourceInfo.Count.." is sourceInfo.count)")
-		return (sourceInfo.Count <= depletion)
-	end
-end
-
 function GetRequiredTool(objRef)
 	local requiredTool = nil
 	if( not(objRef:IsPermanent()) and objRef:HasObjVar("HarvestToolType") ) then

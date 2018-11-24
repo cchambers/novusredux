@@ -16,15 +16,15 @@ end
 function TryUsePotion(user, pot)
 	if(pot == nil) or (user == nil) then return end
 	if(pot:TopmostContainer() ~= user) then 
-			user:SystemMessage("[$1713]")
+			user:SystemMessage("[$1713]","info")
 		return 
 	end
 	if(IsCooling(user,pot)) then
-		user:SystemMessage("[$1714]")
+		user:SystemMessage("[$1714]","info")
 		return
 	end
 	if(IsDead(user)) then
-		user:SystemMessage("[$1715]")
+		user:SystemMessage("[$1715]","info")
 		return
 	end		
 	DebugMessage("FROZE: " ..tostring(user:IsMobileFrozen()))

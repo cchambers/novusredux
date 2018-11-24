@@ -15,7 +15,7 @@ RegisterEventHandler(EventType.ModuleAttached,"attackable_object_skill_gain",
 		end
 
 		this:SetObjVar("SkillDictionary", {
-			BashingSkill = {
+			BrawlingSkill = {
 				SkillLevel = level
 			}
 		})

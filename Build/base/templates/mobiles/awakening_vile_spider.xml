@@ -21,7 +21,7 @@
 		<DoubleVariable Name="Attack">60</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="FameXP">5000</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -35,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=90,  
+					Brawling = 90,  
 					Manifestation=35,
 					Evocation=70,
 					},	

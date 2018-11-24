@@ -30,7 +30,7 @@ function StartFlameAuraEffect()
 		end
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"FlameAuraPulse")
 		--this:SetObjVar("FlameauraBonusCastingOffset", 1.2)
-		this:PlayObjectSound("WallofFire", false)
+		this:PlayObjectSound("event:/magic/fire/magic_fire_wall_of_fire", false)
 			
 		AddBuffIcon(this,"FlameAura","Flame Aura","flameaura","[$2606]",true,30)
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(30),"FlameAuraRemove")
@@ -77,7 +77,7 @@ RegisterEventHandler(EventType.EnterView, "FlameAuraView",
 RegisterEventHandler(EventType.Timer, "FlameAuraPulse",
 	function()
 		--DebugMessage("Pulse " ..mPulseID)
-		this:SendMessage("BreakInvisEffect", "Damage")
+		this:SendMessage("BreakInvisEffect", "Casting")
 		local curMana = GetCurMana(this)
 		if(curMana < (-1* PULSE_COST)) then
 			EndEffect()
@@ -100,7 +100,7 @@ RegisterEventHandler(EventType.Timer, "FlameAuraPulse",
 		end
 	end
 		if(hit) then
-			this:PlayObjectSound("WallofFire", false)
+			this:PlayObjectSound("event:/magic/fire/magic_fire_wall_of_fire", false)
 			AdjustCurMana(this,PULSE_COST)
 		end
 	

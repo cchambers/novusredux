@@ -1,4 +1,3 @@
-require 'incl_packed_object'
 require 'base_template_list_window'
 
 local createAmountStr = "1"
@@ -47,7 +46,7 @@ function ShowPlacableTemplates()
 end
 
 function CreateSelected()
-	this:RequestClientTargetLocPreview(this,"createTemplateAt",templateId,Loc(0,0,0))
+	this:RequestClientTargetLocPreview(this,"createTemplateAt",templateId,Loc(0,0,0),GetTemplateObjectScale(templateId))
 end
 
 function ConfirmCreateSelected()

@@ -55,22 +55,32 @@ CraftingOrderDefines.FabricationSkill =
 	{
 		{
 			Amount = 5,
-			Weight = 10,
+			Weight = 40,
 		},
 
 		{
 			Amount = 10,
-			Weight = 9,
+			Weight = 20,
+		},
+
+		{
+			Amount = 15,
+			Weight = 15,
 		},
 
 		{
 			Amount = 20,
-			Weight = 8,
+			Weight = 10,
 		},
 
 		{
 			Amount = 40,
-			Weight = 4,
+			Weight = 9,
+		},
+
+		{
+			Amount = 60,
+			Weight = 3,
 		},
 
 		{
@@ -79,7 +89,7 @@ CraftingOrderDefines.FabricationSkill =
 		},
 
 		{
-			Amount = 150,
+			Amount = 100,
 			Weight = 1,
 		},
 	},
@@ -87,9 +97,9 @@ CraftingOrderDefines.FabricationSkill =
 	MaterialWeights = 
 	{
 		Default = 5,
-		Cloth = 10,
-		Quilted = 4,
-		Silk = 1,
+		Cloth = 60,
+		Quilted = 45,
+		Silk = 5,
 	},
 
 	CraftingOrders = 
@@ -4714,7 +4724,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 ShortSleeveShirt
 		{
 			Recipe = "ShortSleeveShirt",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4736,7 +4746,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 LongSleeveShirt
 		{
 			Recipe = "LongSleeveShirt",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4758,7 +4768,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 Shorts
 		{
 			Recipe = "Shorts",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4780,7 +4790,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 Skirts
 		{
 			Recipe = "Skirts",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4802,7 +4812,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 Apron
 		{
 			Recipe = "Apron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4824,7 +4834,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 Blacksmith
 		{
 			Recipe = "Blacksmith",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4846,7 +4856,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 Bandana
 		{
 			Recipe = "Bandana",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4868,7 +4878,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 BanditHood
 		{
 			Recipe = "BanditHood",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4890,7 +4900,7 @@ CraftingOrderDefines.FabricationSkill =
 		--80 MageHat
 		{
 			Recipe = "MageHat",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -4914,7 +4924,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 ShortSleeveShirt
 		{
 			Recipe = "ShortSleeveShirt",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -4936,7 +4946,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 LongSleeveShirt
 		{
 			Recipe = "LongSleeveShirt",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -4958,7 +4968,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 Shorts
 		{
 			Recipe = "Shorts",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -4980,7 +4990,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 Skirts
 		{
 			Recipe = "Skirts",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5002,7 +5012,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 Apron
 		{
 			Recipe = "Apron",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5024,7 +5034,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 Blacksmith
 		{
 			Recipe = "Blacksmith",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5046,7 +5056,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 Bandana
 		{
 			Recipe = "Bandana",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5068,7 +5078,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 BanditHood
 		{
 			Recipe = "BanditHood",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5090,7 +5100,7 @@ CraftingOrderDefines.FabricationSkill =
 		--120 MageHat
 		{
 			Recipe = "MageHat",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "four",
 
@@ -5114,7 +5124,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 ShortSleeveShirt
 		{
 			Recipe = "ShortSleeveShirt",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5136,7 +5146,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 LongSleeveShirt
 		{
 			Recipe = "LongSleeveShirt",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5158,7 +5168,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 Shorts
 		{
 			Recipe = "Shorts",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5180,7 +5190,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 Skirts
 		{
 			Recipe = "Skirts",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5202,7 +5212,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 Apron
 		{
 			Recipe = "Apron",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5224,7 +5234,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 Blacksmith
 		{
 			Recipe = "Blacksmith",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5246,7 +5256,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 Bandana
 		{
 			Recipe = "Bandana",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5268,7 +5278,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 BanditHood
 		{
 			Recipe = "BanditHood",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5290,7 +5300,7 @@ CraftingOrderDefines.FabricationSkill =
 		--150 MageHat
 		{
 			Recipe = "MageHat",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -5614,7 +5624,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -5637,7 +5647,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -5660,7 +5670,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -5683,7 +5693,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -5706,7 +5716,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -5729,7 +5739,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -5752,7 +5762,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -5775,7 +5785,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -5798,7 +5808,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -5821,7 +5831,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -5844,7 +5854,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -5867,7 +5877,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "Leather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -5890,7 +5900,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "Cloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -5914,7 +5924,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -5937,7 +5947,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -5960,7 +5970,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -5983,7 +5993,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -6006,7 +6016,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -6029,7 +6039,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -6052,7 +6062,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -6075,7 +6085,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -6098,7 +6108,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -6121,7 +6131,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -6144,7 +6154,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -6167,7 +6177,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -6190,7 +6200,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "Cloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -6214,7 +6224,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -6237,7 +6247,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -6260,7 +6270,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -6283,7 +6293,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -6306,7 +6316,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -6329,7 +6339,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -6352,7 +6362,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -6375,7 +6385,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -6398,7 +6408,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -6421,7 +6431,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -6444,7 +6454,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -6467,7 +6477,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "Leather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -6490,7 +6500,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "Cloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -6813,7 +6823,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -6836,7 +6846,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -6859,7 +6869,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -6882,7 +6892,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -6905,7 +6915,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -6928,7 +6938,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -6951,7 +6961,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -6974,7 +6984,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -6997,7 +7007,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -7020,7 +7030,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -7043,7 +7053,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -7066,7 +7076,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "BeastLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -7089,7 +7099,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "QuiltedCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -7113,7 +7123,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -7136,7 +7146,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -7159,7 +7169,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -7182,7 +7192,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -7205,7 +7215,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -7228,7 +7238,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -7251,7 +7261,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "BeastLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -7274,7 +7284,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "BeastLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -7297,7 +7307,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -7320,7 +7330,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "BeastLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -7343,7 +7353,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "BeastLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -7366,7 +7376,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "BeastLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -7389,7 +7399,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "QuiltedCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -7413,7 +7423,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -7436,7 +7446,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -7459,7 +7469,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -7482,7 +7492,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -7505,7 +7515,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -7528,7 +7538,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -7551,7 +7561,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -7574,7 +7584,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -7597,7 +7607,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -7620,7 +7630,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -7643,7 +7653,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -7666,7 +7676,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "BeastLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -7689,7 +7699,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "QuiltedCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -8012,7 +8022,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -8035,7 +8045,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -8058,7 +8068,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -8081,7 +8091,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -8104,7 +8114,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -8127,7 +8137,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -8150,7 +8160,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -8173,7 +8183,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -8196,7 +8206,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -8219,7 +8229,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -8242,7 +8252,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -8265,7 +8275,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "VileLeather",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -8288,7 +8298,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "SilkCloth",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -8312,7 +8322,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -8335,7 +8345,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -8358,7 +8368,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -8381,7 +8391,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -8404,7 +8414,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -8427,7 +8437,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -8450,7 +8460,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "VileLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -8473,7 +8483,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "VileLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -8496,7 +8506,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "Leather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -8519,7 +8529,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "VileLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -8542,7 +8552,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "VileLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -8565,7 +8575,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "VileLeather",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -8588,7 +8598,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "SilkCloth",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -8612,7 +8622,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedHelm",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -8635,7 +8645,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedLegs",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -8658,7 +8668,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "PaddedChest",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -8681,7 +8691,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenHelm",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -8704,7 +8714,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenLegs",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -8727,7 +8737,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LinenChest",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -8750,7 +8760,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherHelm",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -8773,7 +8783,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherLegs",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -8796,7 +8806,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "LeatherChest",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -8819,7 +8829,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedHood",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 
@@ -8842,7 +8852,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedLeggings",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 
@@ -8865,7 +8875,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "HardenedChest",
 			Material = "VileLeather",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 
@@ -8888,7 +8898,7 @@ CraftingOrderDefines.FabricationSkill =
 		{
 			Recipe = "MageRobes",
 			Material = "SilkCloth",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 

@@ -1,18 +1,20 @@
 require 'base_magic_sys'
-require 'incl_player_guild'
 require 'weapon_cache'
 
---MINIMUM_RANGE_OFFSET
-COMBAT_RANGE = 20
-mDualWielding = false
 mInCombatState = this:GetSharedObjectProperty("CombatMode")
 mCurrentTarget = this:GetObjVar("CurrentTarget")
-mQueuedWeaponAbility = nil
-mIsMoving = this:IsMoving()
 
-mMovingArcher = false
-mOutOfArrows = false
-mBowDrawn = false
+local mDualWielding = false
+local mQueuedWeaponAbility = nil
+local mIsMoving = this:IsMoving()
+
+local mMovingArcher = false
+local mOutOfArrows = false
+local mBowDrawn = false
+local mArrowDamageBonus = 0
+local mArrowType = nil
+-- a list of arrow types that gets re-ordered when preferred type is changed so that preferred is top of list
+local mArrowTypes = {}
 
 mSkipRangedStopMoving = not IsPlayerCharacter(this)
 
@@ -93,9 +95,6 @@ function PerformWeaponAttack(atTarget, hand)
 	) then return end
 
 	if not( ValidCombatTarget(this, atTarget) )  then
-		if ( IsPlayerCharacter(this) ) then
-			this:SystemMessage("Target Cleared.", "info")
-		end
 		ClearTarget()
 		ResetSwingTimer(0, hand)
 		return
@@ -108,7 +107,7 @@ function PerformWeaponAttack(atTarget, hand)
 	end
 
 	if not( WithinCombatRange(this, atTarget, _Weapon[hand].Range) ) then
-		-- the SetupViews will takecare of this
+		-- the SetupViews will takecare of restarting this
 		return
 	end
 
@@ -123,8 +122,10 @@ function PerformWeaponAttack(atTarget, hand)
 
 	LookAt(this, atTarget)
 
-	-- reveal them
-	this:SendMessage("BreakInvisEffect", "Swing")
+	if ( mQueuedWeaponAbility == nil or mQueuedWeaponAbility.AllowCloaked ~= true ) then
+		-- reveal them
+		this:SendMessage("BreakInvisEffect", "Swing")
+	end
 
 	--- perform the actual swing/shoot/w.e.
 	if ( _Weapon[hand].IsRanged ) then
@@ -144,12 +145,12 @@ function ExecuteRangedWeaponAttack(atTarget, hand, hitSuccessOverride, isCritOve
 	end
 	if ( IsPlayerCharacter(this) ) then
 		-- consume the arrow before any further calculations.
-		if ( ConsumeResourceBackpack(this, "Arrows", 1) ) then
+		if ( ConsumeResourceBackpack(this, mArrowType, 1) ) then
 			mOutOfArrows = false
 			ExecuteWeaponAttack(atTarget, hand, true, hitSuccessOverride, isCritOverride)
 		else
 			EndDrawBow()
-			NotifyOutOfArrows(this)
+			FindArrowType(this)
 			-- reset swing timer
 			ResetSwingTimer(0, hand)
 		end
@@ -184,14 +185,10 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 	-- reset swing timer with a delay to drawing any bows ( to allow current attack animations to playout )
 	ResetSwingTimer(0, hand, true)
 
-	-- default to always hit with weapon abilities
-	local QueuedWeaponAbilityHitSuccess = false
+	local hitSuccess = hitSuccessOverride
+	if ( hitSuccess == nil ) then hitSuccess = CheckHitSuccess(atTarget, hand) end
 	if ( mQueuedWeaponAbility ~= nil ) then
-		-- unless it's against a player, then use your skill to check.
-		-- if ( IsPlayerCharacter(atTarget) ) then
-			QueuedWeaponAbilityHitSuccess = Success(GetSkillLevel(this, _Weapon[hand].SkillName) / ServerSettings.Skills.PlayerSkillCap.Single)
-		-- end
-		if ( PerformWeaponAbility(this, atTarget, mQueuedWeaponAbility, QueuedWeaponAbilityHitSuccess) ) then
+		if ( PerformWeaponAbility(this, atTarget, mQueuedWeaponAbility, hitSuccess) ) then
 
 			if ( mQueuedWeaponAbility == nil ) then
 				LuaDebugCallStack("mQueueWeaponAbility is nil where it shouldn't be, ExecuteWeaponAttack is probably being called multiple times in quick succession.")
@@ -208,15 +205,6 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 
 	-- some queued abilities will bypass the normal execute hit action and call it manually, or do whatever is needed for the ability.
 	if ( mQueuedWeaponAbility == nil or mQueuedWeaponAbility.SkipHitAction ~= true ) then
-		-- queued abilities have 100% hit chance, otherwise go with the override or determine hit chance now.
-		local hitSuccess = false
-		if ( mQueuedWeaponAbility ~= nil ) then
-			hitSuccess = QueuedWeaponAbilityHitSuccess
-		elseif ( hitSuccessOverride ~= nil ) then
-			hitSuccess = hitSuccessOverride
-		else
-			hitSuccess = CheckHitSuccess(atTarget, hand)
-		end
 		if ( hitSuccess ) then
 			ExecuteHitAction(atTarget, hand)
 		else
@@ -384,13 +372,8 @@ function DelaySwingTimer(delay, hand)
 				end
 			else
 				-- this is to allow passing no delay
-				-- with no delay passed we get the benefit of re-starting a broken swing loop or just continuing the current loop
 				if ( nextSwingIn == nil ) then
-					if ( mSwingReady[hand] ) then
-						this:FireTimer(timerId)
-					else
-						ResetSwingTimer(0, hand)
-					end
+					ResetSwingTimer(0, hand)
 				end
 			end
 		end
@@ -459,35 +442,54 @@ end
 
 function CheckHitSuccess(victim, hand)
 	Verbose("Combat", "CheckHitSuccess", victim, hand)
-	local isPlayer = IsPlayerCharacter(this)	
-
-	--Ensure you only gain off valid targets
-	if (isPlayer or IsTamedPet(this)) then
-		local damageSkill = "MeleeSkill"
-		if ( ValidCombatGainTarget(victim,this) ) then
-			local victimWeaponSkillLevel = GetSkillLevel(victim, GetPrimaryWeaponSkill(victim))
-			CheckSkill(this, damageSkill, victimWeaponSkillLevel)
-			local weaponClass = _Weapon[hand].Class
-			if ( EquipmentStats.BaseWeaponClass[_Weapon[hand].Class] and EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].WeaponSkill ) then
-				CheckSkill(this, EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].WeaponSkill, victimWeaponSkillLevel)
-			end
-		end
-	end
+	local isPlayer = IsPlayerCharacter(this)
 
 	local accuracy = this:GetStatValue("Accuracy")
 	local evasion = victim:GetStatValue("Evasion")
+	local hitChance = (( accuracy ) / ( ( evasion) * 2 ) * 100)
 
-	local hitChance = 90
-	local hitDiff = accuracy - evasion
-
-    hitChance = hitChance + (hitDiff*8)
-    
-    if ( isPlayer ) then
-			return Success(hitChance/100) 
+	
+	local hitSuccess = false
+	-- if player or tamed pet
+	if ( isPlayer or _MyOwner ~= nil ) then
+		-- calc hit chance
+		--To tweak hitchance vs monsters
+		if not ( victim:IsPlayer() ) then
+			hitSuccess = Success(hitChance/87.5)
+			--DebugMessage("hitChance = " .. hitChance/87.5)	
 		else
+		--To tweak hitchance vs players
+			hitSuccess = Success(hitChance/100)	
+			--DebugMessage("hitChance = " .. hitChance/100)	
+		end
+		-- Ensure only gain off valid targets
+		if ( ValidCombatGainTarget(victim, _MyOwner or this) ) then
+			local victimWeaponSkillLevel = GetSkillLevel(victim, GetPrimaryWeaponSkill(victim))
+			
+			if ( isPlayer ) then
+				-- only check melee on a hit success
+				if ( hitSuccess ) then
+					CheckSkill(this, "MeleeSkill", victimWeaponSkillLevel)
+				end
+				-- check weapon skill on hit/miss
+				local weaponClassInfo = EquipmentStats.BaseWeaponClass[_Weapon[hand].Class]
+				if ( weaponClassInfo and weaponClassInfo.WeaponSkill and not(weaponClassInfo.WeaponSkillGainsDisabled) ) then
+					CheckSkill(this, weaponClassInfo.WeaponSkill, victimWeaponSkillLevel)
+				end
+			else
+				-- owners can only gain if the pet didn't miss and they are within range of the pet.
+				if ( hitSuccess and _MyOwner:IsValid() and this:DistanceFrom(_MyOwner) <= ServerSettings.Pets.Command.Distance ) then
+					-- do a gain on owner's beastmastery
+					CheckSkill(_MyOwner, "BeastmasterySkill", victimWeaponSkillLevel)
+				end
+			end
+		end
+	else
 		-- mobs cannot have a hit chance lower than 50%.
-		return Success(math.max(hitChance/100, 0.5))
+		hitSuccess = Success(math.max(hitChance/100, 0.5))
 	end
+
+	return hitSuccess
 end
 
 -- Get Combat Status
@@ -504,7 +506,7 @@ function ExecuteMissAction(atTarget, hand)
 	if ( hand ~= "LeftHand" ) then hand = "RightHand" end
 	Verbose("Combat", "ExecuteMissAction", atTarget, hand)
 	--LuaDebugCallStack("ExecuteMissAction")
-	atTarget:NpcSpeech("[08FFFF]*miss*[-]","combat")
+	--atTarget:NpcSpeech("[08FFFF]*miss*[-]","combat")
 	atTarget:SendMessage("SwungOn", this)
 	PlayWeaponSound(this, "Miss", _Weapon[hand].Object)
 end
@@ -516,7 +518,7 @@ function ExecuteHitAction(atTarget, hand)
 	Verbose("Combat", "ExecuteHitAction", atTarget, hand)
 
 	local damageInfo = {
-		Attack = ( this:GetStatValue("Attack") + GetCombatMod(CombatMod.AttackPlus) ) * GetCombatMod(CombatMod.AttackTimes, 1),
+		Attack = ( this:GetStatValue("Attack") + GetCombatMod(CombatMod.AttackPlus) + mArrowDamageBonus ) * GetCombatMod(CombatMod.AttackTimes, 1),
 		Type = _Weapon[hand].DamageType,
 		Source = _Weapon[hand].Object,
 		Attacker = this,
@@ -540,7 +542,7 @@ function CalculateBlockDefense(victim)
 	if ( shieldType and EquipmentStats.BaseShieldStats[shieldType] ) then
 		-- skill gain dependant on the attacker's weapon skill level
 		CheckSkill(victim, "BlockingSkill", GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill))
-		if ( Success(GetSkillLevel(victim,"BlockingSkill")/200) ) then
+		if ( Success(GetSkillLevel(victim,"BlockingSkill")/335) ) then
 			victim:PlayAnimation("block")
 			if ( Success(ServerSettings.Durability.Chance.OnHit) ) then
 				AdjustDurability(shield, -1)
@@ -569,7 +571,10 @@ function ApplyDamageToTarget(victim, damageInfo)
 		return
 	end
 
-	if ( damageInfo.Type == "MAGIC" ) then CheckSpellCastInterrupt(victim) end
+	--interupt casting
+	if (damageInfo.Attacker:IsPlayer()) and not ( HasMobileEffect(victim, "MageArmor") )then
+        CheckSpellCastInterrupt(victim)
+    end
 
 	local finalDamage = damageInfo.Damage or 0
 	local blockDefense = 0
@@ -601,8 +606,8 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			if not( isPlayer ) then
-				-- mobs take 150% spell damage.
-				finalDamage = finalDamage * 1.5
+				-- mobs take 200% spell damage.
+				finalDamage = finalDamage * 2
 			end
 
 			--victim:NpcSpeech("Base Damage: "..damageInfo.Damage)
@@ -618,13 +623,15 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 			blockDefense = CalculateBlockDefense(victim)
 			local defense = math.max(victim:GetStatValue("Defense"), 40) + blockDefense
-			finalDamage = ( damageInfo.Attack * 70 ) / defense
+
+			finalDamage = (( damageInfo.Attack * 70 ) / defense)
+
 			--DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
 
 			-- calculate variance if not passed in
 			if not( damageInfo.Variance ) then
 				if ( damageInfo.Source and isPlayer ) then
-					damageInfo.Variance = EquipmentStats.BaseWeaponClass[GetWeaponClass(damageInfo.Source)].Variance
+					damageInfo.Variance = EquipmentStats.BaseWeaponStats[_Weapon.RightHand.Type].Variance or 0
 				else
 					-- DAB COMBAT CHANGES: Make this configurable
 					damageInfo.Variance = 0.20
@@ -637,7 +644,12 @@ function ApplyDamageToTarget(victim, damageInfo)
 			finalDamage = randomGaussian(finalDamage,finalDamage * damageInfo.Variance)
 			--DebugMessage("VARIANCE",tostring(finalDamage),tostring(damageInfo.Variance))
 
-            if ( damageInfo.Source ) then
+			if ( _MyOwner ~= nil ) then
+				-- add damage buff to pet attacks
+				if ( _MyOwner:IsValid() and this:DistanceFrom(_MyOwner) <= ServerSettings.Pets.Command.Distance ) then
+					finalDamage = finalDamage * (0.5 + (1 * (GetSkillLevel(_MyOwner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single) ) )
+				end
+            elseif ( damageInfo.Source ) then
                 local executioner = damageInfo.Source:GetObjVar("Executioner")
                 if ( executioner ~= nil and executioner == victim:GetObjVar("MobileKind") ) then
                     finalDamage = finalDamage * (
@@ -657,7 +669,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			local hitArmorType = GetArmorType(hitItem)
 			soundType = GetArmorSoundType(hitArmorType)	
 
-			if ( isPlayer or IsTamedPet(victim) ) then
+			if ( isPlayer ) then
 				-- damage equipment that was hit
 				if ( Success(ServerSettings.Durability.Chance.OnHit) ) then
 					AdjustDurability(hitItem, -1)
@@ -678,7 +690,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 		finalDamage = damageInfo.Damage
 	end
 
-	victim:SendMessage("DamageInflicted", damageInfo.Attacker, finalDamage, damageInfo.Type, false, blockDefense > 0, damageInfo.IsReflected)
+	victim:SendMessage("DamageInflicted", damageInfo.Attacker, finalDamage, damageInfo.Type, false, blockDefense > 0, damageInfo.IsReflected, damageInfo.Source)
 end
 
 function SetCurrentTarget(newTarget, fromClient)
@@ -712,6 +724,7 @@ function SetCurrentTarget(newTarget, fromClient)
 		InitiateCombatSequence()
 	end
 end
+RegisterEventHandler(EventType.Message,"SetCurrentTarget",SetCurrentTarget)
 
 function ClearView()
 	if ( mPrimed.RightHand ) then
@@ -731,7 +744,7 @@ function EndCombat()
 end
 
 function SetupViews()
-	if ( mCurrentTarget ~= nil ) then
+	if ( mCurrentTarget ~= nil ) then		
 		LookAt(this, mCurrentTarget)
 		if ( mInCombatState ) then
 			SetupView("RightHand")
@@ -871,9 +884,6 @@ function SetInCombat(inCombat, force)
 			--	mCombatMusicPlaying = true
 			--end
 			this:SendMessage("BreakInvisEffect", "Combat")
-			if ( this:GetSharedObjectProperty("IsSneaking") ) then
-				this:SendMessage("EndSneak")
-			end
 			if(_Weapon.RightHand.Object ~= nil) then
 				PlayWeaponSound(this,"Draw")
 			end
@@ -964,24 +974,11 @@ function HandleAutotargetToggleRequest(newState)
 	end
 
 	if(newState == "on" or newState == true) then
-		this:SystemMessage("Autotargetting enabled.")
+		this:SystemMessage("Autotargetting enabled.","info")
 		this:SetObjVar("AutotargetEnabled",true)
 	else
-		this:SystemMessage("Autotargetting disabled.")
+		this:SystemMessage("Autotargetting disabled.","info")
 		this:DelObjVar("AutotargetEnabled")
-	end
-end
-
--- This has been re-branded to Karma Protection -KH 2/4/18
-function HandlePvPToggleRequest(newState)
-	Verbose("Combat", "HandlePvPToggleRequest", newState)
-	-- on means you can now perform negative actions
-	if(newState == "on" or newState == true) then
-		this:SetObjVar("KarmaProtectionEnabled", true)
-		this:SystemMessage("Karma Protection Enabled.", "info")
-	else
-		this:DelObjVar("KarmaProtectionEnabled")
-		this:SystemMessage("Karma Protection Disabled.", "info")
 	end
 end
 
@@ -1001,6 +998,22 @@ function ClearTarget()
 	if ( this:IsPlayer() ) then
 		this:SendClientMessage("ChangeTarget", nil)
 	end
+end
+
+function FindArrowType(mobile)
+	local backpack = mobile:GetEquippedObject("Backpack")
+	if ( backpack ) then
+		for i=1,#mArrowTypes do
+			local type = mArrowTypes[i]
+			if ( FindItemInContainerRecursive(backpack, function(item) return item:GetObjVar("ResourceType") == type end) ) then
+				mArrowType = type
+				mArrowDamageBonus = ArrowTypeData[type].Damage or 0
+				return true
+			end
+		end
+	end
+	NotifyOutOfArrows(mobile)
+	return false
 end
 
 function NotifyOutOfArrows(mobile)
@@ -1026,9 +1039,8 @@ function DrawBow()
 		return false
 	end
 
-	if ( IsPlayerCharacter(this) and CountResourcesInContainer(this, "Arrows") < 1 ) then
+	if ( IsPlayerCharacter(this) and not FindArrowType(this) ) then
 		mOutOfArrows = true
-		NotifyOutOfArrows(this)
 		return false
 	end
 
@@ -1053,7 +1065,12 @@ RegisterEventHandler(EventType.StopMoving, "", function ()
 	if ( mSkipRangedStopMoving ) then return end
 	Verbose("Combat", "StopMoving")
 	mIsMoving = false
-	ArcherMinDelay()
+	-- throw a slight delay in here to account for server latency
+	CallFunctionDelayed(TimeSpan.FromMilliseconds(250),function ( ... )
+		if not(mIsMoving) then
+			ArcherMinDelay()
+		end
+	end)	
 end)
 
 function ArcherMinDelay()
@@ -1086,6 +1103,29 @@ function ArcherMinDelay()
 
 	end
 end
+
+function UpdatePreferredArrowType(type)
+	mArrowType = type
+	-- set the preferred at first in list
+	mArrowTypes = { type }
+	-- add the remaining types
+	for i=1,#ArrowTypes do
+		local t = ArrowTypes[i]
+		-- skipping preferred
+		if ( t ~= type ) then
+			mArrowTypes[#mArrowTypes+1] = t
+		end
+	end
+end
+
+RegisterEventHandler(EventType.Message, "PreferredArrowType", function(type)
+	-- if it's a valid arrow type
+	if ( ArrowTypeData[type] ~= nil ) then
+		UpdatePreferredArrowType(type)
+		this:SetObjVar("PreferredArrowType", type)
+		this:SystemMessage(ArrowTypeData[type].Name .. " set as preferred arrow type.", "info")
+	end
+end)
 
 RegisterEventHandler(EventType.Message, "EndCombatMessage", function (reason)
 	--if(reason ~= nil) then DebugMessage(this:GetName() .. " Ended Combat: " .. reason) end
@@ -1176,7 +1216,6 @@ RegisterEventHandler(EventType.ClientUserCommand, "toggleCombat", HandleScriptCo
 RegisterEventHandler(EventType.ClientUserCommand, "autotarget", HandleAutotargetToggleRequest)
 RegisterEventHandler(EventType.Message, "ClearTarget", ClearTarget)
 RegisterEventHandler(EventType.Message, "AttackTarget", HandleAttackTarget)
-RegisterEventHandler(EventType.ClientUserCommand, "pvp", HandlePvPToggleRequest)
 RegisterEventHandler(EventType.Message,"RequestMagicalAttack" , HandleMagicalAttackRequest)
 
 function HandleWeaponDamageReceived(damager, isCrit, srcWeapon, type, slot, isReflected)
@@ -1229,6 +1268,8 @@ RegisterEventHandler(EventType.Message, "ExecuteMissAction", ExecuteMissAction)
 --- cache some info on our weapons since they get used a lot.
 UpdateWeaponCache("LeftHand")
 UpdateWeaponCache("RightHand")
+-- setup the mArrowTypes list
+UpdatePreferredArrowType(this:GetObjVar("PreferredArrowType") or "Arrows")
 
 if ( mInCombatState ) then
 	InitiateCombatSequence()
@@ -1252,7 +1293,7 @@ RegisterEventHandler(EventType.Message, "QueueWeaponAbility",
 		mQueuedWeaponAbility = ability
 		if ( this:IsPlayer() ) then
 			this:SendClientMessage("SetActionActivated",{"CombatAbility",mQueuedWeaponAbility.ActionId,true})
-			--this:SystemMessage("You will attempt "..mQueuedWeaponAbility.DisplayName.." on your next attack.","info")
+			this:SystemMessage("You will attempt "..mQueuedWeaponAbility.DisplayName.." on your next attack.","info")
 			if( mInCombatState == false ) then
 				BeginCombat()
 			end

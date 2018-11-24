@@ -20,7 +20,11 @@
 								RareResources = {
 									IronOre = {					
 										AvailablityPct = 80,
-										Count = 20, 
+										Count = 40, 
+									},
+									CopperOre = {					
+										AvailablityPct = 20,
+										Count = 40, 
 									},
 								}
 							},
@@ -35,24 +39,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -67,24 +71,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -114,10 +118,6 @@
 										AvailablityPct = 20,
 										Count = 8,
 									},
-									Blightwood = {					
-										AvailablityPct = 5,
-										Count = 8, 
-									},
 								}
 							},
 							Rock = 
@@ -127,45 +127,12 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 10,
-										Count = 20, 
+										AvailablityPct = 0,
+										Count = 10, 
 									},
 								},
 							},
 						},				
-					},
-
-					SpawnedSources = 
-					{						
-						{ MaxCount = 50, Region = "Subregion-SouthernRim" ,     Resource = "Ginseng"},
-						{ MaxCount = 70, Region = "Subregion-SouthernRim",   Resource = "Ginseng"},
-						{ MaxCount = 70, Region = "Subregion-SouthernRim",   Resource = "Ginseng"},
-						{ MaxCount = 65, Region = "Subregion-SouthernRim",      Resource = "LemonGrass" },
-						{ MaxCount = 65, Region = "Subregion-SouthernRim",      Resource = "LemonGrass" },
-						{ MaxCount = 65, Region = "Subregion-SouthernRim",      Resource = "LemonGrass" },
-						{ MaxCount = 50, Region = "Subregion-SouthernRim",      Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "Subregion-SouthernRim",      Resource =  "Mushrooms"},
-						{ MaxCount = 75, Region = "Subregion-SouthernRim", Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "Subregion-SouthernRim", Resource =  "MushroomsPoison"},
-						{ MaxCount = 65,  Region = "Subregion-SouthernRim",    Resource =  "Cotton"},
-						{ MaxCount = 65,  Region = "Subregion-SouthernRim",    Resource =  "Cotton"},
-						{ MaxCount = 75, Region = "Subregion-SouthernRim",   Resource = "Ginseng"},
-						{ MaxCount = 65, Region = "Subregion-SouthernRim",      Resource = "LemonGrass" },
-						{ MaxCount = 65,  Region = "Subregion-SouthernRim",    Resource =  "Mushrooms"},
-						{ MaxCount = 35,  Region = "Subregion-SouthernRim",    Resource =  "LemonGrass"},
-						{ MaxCount = 30,  Region = "Subregion-SouthernRim",    Resource =  "Mushrooms"},
-						{ MaxCount = 50, Region = "Subregion-SouthernRim" ,     Resource = "Cotton"},
-						{ MaxCount = 30, Region = "Subregion-SouthernRim",   Resource = "Cotton"},
-						{ MaxCount = 100, Region = "Subregion-SouthernRim",   Resource = "Cotton"},
-						{ MaxCount = 30, Region = "Subregion-SouthernRim", Resource =  "Cotton"},
-						{ MaxCount = 70,  Region = "Subregion-SouthernRim",    Resource =  "Cotton"},
-						{ MaxCount = 30,  Region = "Subregion-SouthernRim",    Resource =  "Cotton"},
-						{ MaxCount = 20, Region = "Subregion-SouthernRim",Resource = "GiantMushrooms"},
-						{ MaxCount = 30, Region = "Subregion-SouthernRim",Resource = "GiantMushrooms"},
-						{ MaxCount = 50, Region = "Subregion-SouthernRim",Resource = "GiantMushrooms"},
-						{ MaxCount = 30, Region = "Subregion-SouthernRim",Resource = "GiantMushrooms"},
-						{ MaxCount = 40, Region = "Subregion-SouthernRim",Resource = "GiantMushrooms"},
-						{ MaxCount = 200, Region = "Subregion-SouthernRim",Resource = "Kindling"},
 					},
 				}
 			</Initializer>

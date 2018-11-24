@@ -1,4 +1,3 @@
-require 'incl_packed_object'
 
 MAX_SPIDERS = 3
 MIN_SPIDERS = 1
@@ -32,7 +31,7 @@ RegisterEventHandler(EventType.Message,"RequestResource",
 		if(math.random(1,100)==1) then
 			PlayEffectAtLoc("DigDirtParticle",this:GetLoc())
 			user:PlayObjectSound("WormPain",false)
-			CreatePackedObjectAtLoc(this:GetObjVar("DecorationTemplate"),this:GetLoc())
+			CreatePackedObjectAtLoc(this:GetObjVar("DecorationTemplate"),false,this:GetLoc())
 		elseif(math.random(1,5)==1) then
 			--DebugMessage("AnimalParts RequestResource "..tostring(this:GetName()))
 			PlayEffectAtLoc("VoidExplosionEffect",this:GetLoc())

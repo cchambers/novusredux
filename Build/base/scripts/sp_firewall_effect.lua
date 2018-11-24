@@ -6,12 +6,12 @@ COST_PER_UNIT = 5
 function ValidateWall(targetLoc)
 	----DebugMessage("--Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2603]")
+		this:SystemMessage("[$2603]","info")
 		return falses
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2604]")
+		this:SystemMessage("[$2604]","info")
 		return false
 	end
 
@@ -46,7 +46,7 @@ function InitiateFireWall()
 		end
 		curProj = curProj + 1
 	end
-	this:PlayObjectSound("WallofFire", false)
+	this:PlayObjectSound("event:/magic/fire/magic_fire_wall_of_fire", false)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "FirewallRemoveTimer")
 	this:FireTimer("FireWallTickTimer")
 end
@@ -120,7 +120,7 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "FirewallRemoveTimer")
 		mEndLoc = nil
 		mTickCount = -1
 		mTotalProjs = 0
-		this:SystemMessage("[08FFFF] Select Firewall End Point.[-]")
+		this:SystemMessage("Select firewall end point.","info")
 		this:RequestClientTargetLoc(this, "SelectFireWallEndPoint")
 	end)
 
@@ -135,7 +135,7 @@ RegisterEventHandler(EventType.Timer,"FirewallRemoveTimer",
 RegisterEventHandler(EventType.ClientTargetLocResponse, "SelectFireWallEndPoint", 
 	function(success, endLoc)
 	if not (success) then
-				this:SystemMessage("[$2605]")
+	    this:SystemMessage("[$2605]","info")
 		this:RequestClientTargetLoc(this, "SelectFireWallEndPoint")
 		return
 	end

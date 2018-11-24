@@ -38,7 +38,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=100,  
+					Brawling=100,  
 					},	
 				EquipTable = 
 					{
@@ -47,7 +47,6 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.SkeletonRich,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,

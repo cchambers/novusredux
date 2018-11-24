@@ -13,6 +13,10 @@ function DoTeleport(user,targetLoc,destRegionAddress)
 		end
 	end
 
+	if (user:HasModule("sitting")) then
+		user:SendMessage("StopSitting")
+	end
+
 	TeleportUser(this,user,targetLoc,destRegionAddress)
 end
 
@@ -64,11 +68,19 @@ function ActivateTeleporter(user)
 
 	local carriedObject = user:CarriedObject()
 	if (carriedObject ~= nil) then
-		user:SystemMessage("You can't carry objects through a portal.")
+		user:SystemMessage("You can't carry objects through a portal.","info")
 		return
 	end
 
-	if (this:DistanceFrom(user) > USE_RANGE and this:GetObjVar("Summoner")) then return end
+	if not(this:HasObjVar("TeleporterRange")) then
+		if ( (this:DistanceFrom(user) > USE_RANGE) and this:GetObjVar("Summoner")) then 
+			return
+		end
+	else
+		if (this:DistanceFrom(user) > (this:GetObjVar("TeleportRange") or 2)) then
+			return
+		end
+	end
 
 	local keyTemplate = this:GetObjVar("KeyTemplate")
 	if( keyTemplate ~= nil and not(IsImmortal(user))) then
@@ -84,7 +96,7 @@ function ActivateTeleporter(user)
    		end
 
 		if not(found) then
-			user:SystemMessage("[$2633]")
+			user:SystemMessage("[$2633]","info")
 			return
 		else
 			--DFB HACK: Send a message to update the quest system for the starting portal
@@ -107,7 +119,7 @@ function ActivateTeleporter(user)
 		--DebugMessage("----------------------------------------------")
 		--DebugMessage(questName,questTaskComplete)
 		if (questArgs ~= nil and not HasFinishedQuestTask(user,questName,questTaskComplete)) then
-			user:SystemMessage("The portal's magic forbids you from using it yet.")
+			user:SystemMessage("The portal's magic forbids you from using it yet.","info")
 			return
 		end
 	end
@@ -171,8 +183,8 @@ end
 	end
 end--]]
 
-local curGotoRegion = GetRegionAddress()
-local curGotoWorld = GetWorldName()
+local curGotoRegion = ServerSettings.RegionAddress
+local curGotoWorld = ServerSettings.WorldName
 
 function GetAllLocations(worldName)
 	local allLocs = {}
@@ -220,7 +232,7 @@ function ShowSelectDestination(user)
 	local newWindow = DynamicWindow("SetDestination","Set Destination",450,350)	
 
 	local regionStr = curGotoRegion .. " - " .. curGotoWorld
-	if(curGotoRegion == GetRegionAddress()) then
+	if(curGotoRegion == ServerSettings.RegionAddress) then
 		regionStr = regionStr .. " (Current)"
 	end
 	newWindow:AddLabel(20,10,"Region: "..regionStr,0,0,18)
@@ -245,7 +257,7 @@ function ShowChangeRegion(user)
 	local newWindow = DynamicWindow("SetDestination","Set Destination",450,350)
 
 	local regionStr = curGotoRegion .. " - " .. curGotoWorld
-	if(curGotoRegion == GetRegionAddress()) then
+	if(curGotoRegion == ServerSettings.RegionAddress) then
 		regionStr = regionStr .. " (Current)"
 	end
 	newWindow:AddLabel(20,10,"Region: "..regionStr,0,0,18)
@@ -299,7 +311,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"SetDestination",
 			local allLocs = GetAllLocations(curGotoWorld)
 			local newLoc = allLocs[tonumber(index)]
 			this:SetObjVar("Destination",newLoc.Loc)
-			if(curGotoRegion ~= GetRegionAddress()) then
+			if(curGotoRegion ~= ServerSettings.RegionAddress) then
 				this:SetObjVar("RegionAddress",curGotoRegion)
 			elseif(this:HasObjVar("RegionAddress")) then
 				this:DelObjVar("RegionAddress")

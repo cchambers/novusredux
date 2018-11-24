@@ -4,44 +4,36 @@ EquipmentStats = {
 			Accuracy = 0,
 			Critical = 0,
 			Speed = 2.5,
-			Variance = 0.05,
-			WeaponSkill = "BashingSkill",
-			WeaponDamageType = "Bashing",
-			WeaponHitType = "Melee",
-		},
-
-		Tool = {
-			Accuracy = 0,
-			Critical = 0,
-			Speed = 2.5,
-			Variance = 0,
-			WeaponSkill = "PiercingSkill",
+			WeaponSkill = "BrawlingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 		},
 
 		Dagger = {
+			DisplayName = "Piercing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.05,
 			WeaponSkill = "PiercingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 		},
 
 		Sword = {
+			DisplayName = "Slashing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.10,
 			WeaponSkill = "SlashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 		},
 
 		Sword2H = {
+			DisplayName = "Slashing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.10,
 			WeaponSkill = "SlashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
@@ -49,18 +41,20 @@ EquipmentStats = {
 		},
 
 		Blunt = {
+			DisplayName = "Bashing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.20,
 			WeaponSkill = "BashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 		},
 
 		Blunt2H = {
+			DisplayName = "Bashing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.20,
 			WeaponSkill = "BashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
@@ -68,9 +62,10 @@ EquipmentStats = {
 		},
 
 		PoleArm = {
+			DisplayName = "Lancing Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.25,
 			WeaponSkill = "LancingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
@@ -78,9 +73,10 @@ EquipmentStats = {
 		},
 
 		Bow = {
+			DisplayName = "Ranged Weapon",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.05,
 			WeaponSkill = "ArcherySkill",
 			WeaponDamageType = "Bow",
 			WeaponHitType = "Ranged",
@@ -89,36 +85,43 @@ EquipmentStats = {
 		},
 
 		Stave = {
+			DisplayName = "Bashing Weapon",
+
 			Accuracy = 0,
 			Critical = 40,
-			Variance = 0.20,
 			WeaponSkill = "BashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 			TwoHandedWeapon = true,
 		},
-
-		Offhand = {
-			Accuracy = 0,
-			Critical = 0,
-			Variance = 0.20,
-			WeaponSkill = "BashingSkill",
-			WeaponDamageType = "Bashing",
-			WeaponHitType = "Melee",
-		},
+		
 		Tool = {
+			DisplayName = "Tool",
+
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0.20,
 			WeaponSkill = "BashingSkill",
 			WeaponDamageType = "Bashing",
 			WeaponHitType = "Melee",
 		},
+
+		Magic = {
+			DisplayName = "Magic Weapon",
+
+			Accuracy = 0,
+			Critical = 0,
+
+			WeaponSkill = "ManifestationSkill",
+			SecondaryWeaponSkill = "EvocationSkill",
+			WeaponSkillGainsDisabled = true,
+			WeaponDamageType = "Bashing",
+			WeaponHitType = "Melee",
+		},
+
 		NoCombat = {
 			-- To prevent exceptions since NoCombat was added late
 			Accuracy = 0,
 			Critical = 0,
-			Variance = 0,
 			WeaponHitType = "Melee",
 		}
 	},
@@ -130,19 +133,24 @@ EquipmentStats = {
 			Attack = 1,
 			MinSkill = 0,
 			Speed = 2.5,
+			Variance = 0.1,
+			PrimaryAbility = "Overpower",
+			SecondaryAbility = "StunPunch",
 		},
 		-- Daggers
 		Dagger = {
 			WeaponClass = "Dagger",
-			Attack = 18,
+			Attack = 14,
+			Variance = 0.05,
 			MinSkill = 0,
 			Speed = 2.5,
-			PrimaryAbility = "Slash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed",
 		},
 		Kryss = {
 			WeaponClass = "Dagger",
-			Attack = 13,
+			Variance = 0.05,
+			Attack = 14,
 			Speed = 2,
 			MinSkill = 0,
 			PrimaryAbility = "Stab",
@@ -150,7 +158,8 @@ EquipmentStats = {
 		},
 		Poniard = {
 			WeaponClass = "Dagger",
-			Attack = 21,
+			Variance = 0.05,
+			Attack = 16,
 			Speed = 2.75,
 			MinSkill = 0,
 			PrimaryAbility = "Stab",
@@ -158,49 +167,55 @@ EquipmentStats = {
 		},
 		BoneDagger = {
 			WeaponClass = "Dagger",
-			Attack = 16,
+			Variance = 0.05,
+			Attack = 14,
 			Speed = 2.25,
 			MinSkill = 0,
-			PrimaryAbility = "Slash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "MortalStrike",
 		},
 		-- Blunts
 		Mace = {
 			WeaponClass = "Blunt",
+			Variance = 0.05,
 			Attack = 15,
 			MinSkill = 0,
 			Speed = 2.75,
-			PrimaryAbility = "Bash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "MortalStrike",
 		},
 		Hammer = {
 			WeaponClass = "Blunt",
+			Variance = 0.05,
 			Attack = 17,
 			MinSkill = 0,
 			Speed = 3,
-			PrimaryAbility = "Bash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Stun",
 		},
 		Maul = {
 			WeaponClass = "Blunt",
-			Attack = 19,
+			Variance = 0.05,
+			Attack = 18,
 			MinSkill = 0,
 			Speed = 3.25,
-			PrimaryAbility = "Bash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed",
 		},
 		WarMace = {
 			WeaponClass = "Blunt",
-			Attack = 21,
+			Variance = 0.05,
+			Attack = 19,
 			MinSkill = 0,
 			Speed = 3.5,
-			PrimaryAbility = "Bash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "FollowThrough",
 		},
 		-- 2H Blunts
 		Quarterstaff = {
 			WeaponClass = "Blunt2H",
-			Attack = 27,
+			Variance = 0.1,
+			Attack = 21,
 			MinSkill = 0,
 			Speed = 3.75,
 			PrimaryAbility = "Overpower",
@@ -209,7 +224,8 @@ EquipmentStats = {
 		},
 		Warhammer = {
 			WeaponClass = "Blunt2H",
-			Attack = 29,
+			Variance = 0.1,
+			Attack = 25,
 			MinSkill = 0,
 			Speed = 4,
 			PrimaryAbility = "Overpower",
@@ -219,16 +235,18 @@ EquipmentStats = {
 		-- Polearms
 		Warfork = {
 			WeaponClass = "PoleArm",
-			Attack = 28,
+			Variance = 0.1,
+			Attack = 21,
 			MinSkill = 0,
 			Speed = 3.5,
 			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed",
 			TwoHandedWeapon = true,
 		},
-		Vouge = {
+		Voulge = {
 			WeaponClass = "PoleArm",
-			Attack = 26,
+			Variance = 0.1,
+			Attack = 19,
 			MinSkill = 0,
 			Speed = 3.25,
 			PrimaryAbility = "Cleave",
@@ -237,7 +255,8 @@ EquipmentStats = {
 		},
 		Spear = {
 			WeaponClass = "PoleArm",
-			Attack = 23,
+			Variance = 0.1,
+			Attack = 18,
 			MinSkill = 0,
 			Speed = 3,
 			PrimaryAbility = "Stab",
@@ -246,7 +265,8 @@ EquipmentStats = {
 		},
 		Halberd = {
 			WeaponClass = "PoleArm",
-			Attack = 33,
+			Variance = 0.1,
+			Attack = 24,
 			MinSkill = 0,
 			Speed = 4,
 			PrimaryAbility = "Overpower",
@@ -255,7 +275,8 @@ EquipmentStats = {
 		},
 		Scythe = {
 			WeaponClass = "PoleArm",
-			Attack = 33,
+			Variance = 0.1,
+			Attack = 24,
 			MinSkill = 0,
 			Speed = 4,
 			PrimaryAbility = "Cleave",
@@ -265,25 +286,28 @@ EquipmentStats = {
 		-- Bows
 		Shortbow = {
 			WeaponClass = "Bow",
-			Attack = 19,
+			Variance = 0.05,
+			Attack = 15,
 			MinSkill = 0,
-			Speed = 3,
+			Speed = 2.5,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
 			TwoHandedWeapon = true,
 		},
 		Longbow = {
 			WeaponClass = "Bow",
-			Attack = 27,
+			Variance = 0.05,
+			Attack = 20,
 			MinSkill = 0,
-			Speed = 4,
+			Speed = 3.5,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "Bleed",
 			TwoHandedWeapon = true,
 		},
 		Warbow = {
 			WeaponClass = "Bow",
-			Attack = 31,
+			Variance = 0.1,
+			Attack = 26,
 			MinSkill = 0,
 			Speed = 4.5,
 			PrimaryAbility = "Power",
@@ -292,7 +316,8 @@ EquipmentStats = {
 		},
 		SavageBow = {
 			WeaponClass = "Bow",
-			Attack = 31,
+			Variance = 0.1,
+			Attack = 26,
 			MinSkill = 0,
 			Speed = 4.5,
 			PrimaryAbility = "Power",
@@ -301,7 +326,8 @@ EquipmentStats = {
 		},
 		BoneBow = {
 			WeaponClass = "Bow",
-			Attack = 31,
+			Variance = 0.1,
+			Attack = 26,
 			MinSkill = 0,
 			Speed = 4.5,
 			PrimaryAbility = "Power",
@@ -317,34 +343,30 @@ EquipmentStats = {
 			PrimaryAbility = "Focus",
 			TwoHandedWeapon = true,
 		},
-
-		-- Offhands
-		Spellbook = {
-			WeaponClass = "Offhand",
-			Attack = 1,
-			Speed = 3,
-			MinSkill = 0,
-		},
+		
 		-- 1H Swords
 		Longsword = {
 			WeaponClass = "Sword",
-			Attack = 17,
+			Variance = 0.05,
+			Attack = 15,
 			MinSkill = 0,
 			Speed = 2.75,
-			PrimaryAbility = "Slash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed",
 		},
 		Broadsword = {
 			WeaponClass = "Sword",
-			Attack = 23,
+			Variance = 0.05,
+			Attack = 19,
 			MinSkill = 0,
 			Speed = 3.5,
-			PrimaryAbility = "Slash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Concus",
 		},
 		Saber = {
 			WeaponClass = "Sword",
-			Attack = 21,
+			Variance = 0.05,
+			Attack = 18,
 			MinSkill = 0,
 			Speed = 3.25,
 			PrimaryAbility = "Stab",
@@ -352,16 +374,18 @@ EquipmentStats = {
 		},
 		Katana = {
 			WeaponClass = "Sword",
-			Attack = 15,
+			Variance = 0.05,
+			Attack = 14,
 			MinSkill = 0,
 			Speed = 2.5,
-			PrimaryAbility = "Slash",
+			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed",
 		},
 		-- 2H Swords
 		LargeAxe = {
 			WeaponClass = "Sword2H",
-			Attack = 32,
+			Variance = 0.1,
+			Attack = 20,
 			MinSkill = 0,
 			Speed = 3.5,
 			PrimaryAbility = "Overpower",
@@ -370,7 +394,8 @@ EquipmentStats = {
 		},
 		GreatAxe = {
 			WeaponClass = "Sword2H",
-			Attack = 27,
+			Variance = 0.1,
+			Attack = 25,
 			MinSkill = 0,
 			Speed = 4,
 			PrimaryAbility = "Overpower",
@@ -416,6 +441,28 @@ EquipmentStats = {
 			PrimaryAbility = "Tame",
 			Speed = 3,
 		},
+		Shovel = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "Dig",
+			Speed = 3,
+		},
+		-- mage weapons
+		MagicStaff = {
+			WeaponClass = "Magic",
+			Attack = 1,
+			MinSkill = 0,
+			Speed = 3.75,
+			TwoHandedWeapon = true,
+		},
+		Spellbook = {
+			WeaponClass = "Magic",
+			Attack = 1,
+			Speed = 3,
+			MinSkill = 0,
+		},
+
 		-- no combat
 		Torch = {
 			WeaponClass = "NoCombat",
@@ -423,7 +470,7 @@ EquipmentStats = {
 			Attack = 0, -- to prevent exceptions (should not check these if weaponclass is NoCombat)
 			MinSkill = 0, -- to prevent exceptions
 			Speed = 0, -- to prevent exceptions
-		},
+		}
 	},
 
 	BaseArmorClass = {
@@ -480,13 +527,13 @@ EquipmentStats = {
 		Natural = { --naked
 			ArmorClass = "Cloth",
 			Head = {
-				ArmorRating = 13
+				ArmorRating = 12,
 			},
 			Chest = {
-				ArmorRating = 17
+				ArmorRating = 16,
 			},
 			Legs = {
-				ArmorRating = 10
+				ArmorRating = 17,
 			}
 		},
 
@@ -494,39 +541,39 @@ EquipmentStats = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 20,
+				ArmorRating = 14,
 			},
 			Chest = {
-				ArmorRating = 20,
+				ArmorRating = 18,
 			},
 			Legs = {
-				ArmorRating = 15,
+				ArmorRating = 18,
 			}
 		},
 		Linen = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 20,
+				ArmorRating = 14,
 			},
 			Chest = {
-				ArmorRating = 20,
+				ArmorRating = 18,
 			},
 			Legs = {
-				ArmorRating = 15,
+				ArmorRating = 18,
 			}
 		},
 		MageRobe = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 20,
+				ArmorRating = 14,
 			},
 			Chest = {
-				ArmorRating = 20,
+				ArmorRating = 18,
 			},
 			Legs = {
-				ArmorRating = 15,
+				ArmorRating = 18,
 			}
 		},
 
@@ -534,13 +581,13 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 22
+				ArmorRating = 15,
 			},
 			Chest = {
-				ArmorRating = 22
+				ArmorRating = 20,
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 20,
 			}
 		},
 
@@ -548,13 +595,13 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 22
+				ArmorRating = 15,
 			},
 			Chest = {
-				ArmorRating = 22
+				ArmorRating = 20,
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 20,
 			}
 		},
 
@@ -562,13 +609,13 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 22
+				ArmorRating = 15,
 			},
 			Chest = {
-				ArmorRating = 22
+				ArmorRating = 20,
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 20,
 			}
 		},
 
@@ -576,13 +623,13 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 22
+				ArmorRating = 15,
 			},
 			Chest = {
-				ArmorRating = 22
+				ArmorRating = 20,
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 20,
 			}
 		},
 
@@ -590,13 +637,13 @@ EquipmentStats = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 25
+				ArmorRating = 16,
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 22,
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 22,
 			}
 		},
 
@@ -604,13 +651,13 @@ EquipmentStats = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 25
+				ArmorRating = 16,
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 22,
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 22,
 			}
 		},
 
@@ -618,110 +665,178 @@ EquipmentStats = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 25
+				ArmorRating = 16,
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 22,
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 22,
 			}
 		},
 		Plate = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 25
+				ArmorRating = 16,
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 22,
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 22,
 			}
 		},
 		FullPlate = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 25
+				ArmorRating = 16,
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 22,
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 22,
 			}
 		},
 	},
 
 	BaseShieldStats = {
 		Buckler = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 
 		SmallShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 
 		BoneShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		CurvedShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		MarauderShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		LargeShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		DwarvenShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		HeaterShield = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		Fortress = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		DragonGuard = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		Temper = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 		Guardian = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
-		Kite = {
-			BaseBlockChance = 20,
-			ArmorRating = 70,
+		KiteShield = {
+			BaseBlockChance = 0,
+			ArmorRating = 35,
 			MinSkill = 0,
 		},
 	}
+}
+
+ArrowTypes ={
+	"Arrows",
+	"FeatheredArrows",
+	"AshArrows",
+	"BlightwoodArrows",
+}
+
+ArrowTypeData = {
+	Arrows = {
+		DamageBonus = 0,
+		Name = "Arrows",
+	},
+	FeatheredArrows = {
+		DamageBonus = 1,
+		Name = "Feathered Arrows",
+	},
+	AshArrows = {
+		DamageBonus = 3,
+		Name = "Ash Arrows",
+	},
+	BlightwoodArrows = {
+		DamageBonus = 5,
+		Name = "Blightwood Arrows",
+	},
+}
+
+JewelryTypes = {
+	"RubyFlawed",
+	"RubyImperfect",
+	"RubyPerfect",
+	"SapphireFlawed",
+	"SapphireImperfect",
+	"SapphirePerfect",
+	"TopazFlawed",
+	"TopazImperfect",
+	"TopazPerfect",
+}
+
+JewelryTypeData = {
+	RubyFlawed = {
+		Con = 1,
+	},
+	RubyImperfect = {
+		Con = 3,
+	},
+	RubyPerfect = {
+		Con = 5,
+	},
+	SapphireFlawed = {
+		Wis = 1,
+	},
+	SapphireImperfect = {
+		Wis = 3,
+	},
+	SapphirePerfect = {
+		Wis = 5,
+	},
+	TopazFlawed = {
+		Will = 1,
+	},
+	TopazImperfect = {
+		Will = 3,
+	},
+	TopazPerfect = {
+		Will = 5,
+	},
 }

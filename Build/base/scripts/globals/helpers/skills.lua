@@ -226,20 +226,19 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 	-- cache some global variables for quicker indexing
 	local ss = ServerSettings
 
+	local skillDictionary = GetSkillDictionary(mobileObj)
 	-- this skill level is the one used in the success chance calculation (ie skill + skillbuffs)
-	skillLevel = skillLevel or GetSkillLevel(mobileObj, skillName)
+	skillLevel = skillLevel or GetSkillLevel(mobileObj, skillName, skillDictionary)
 
 	if ( chance == nil ) then
 		chance = 1 - ( ( ss.Skills.PlayerSkillCap.Single - skillLevel ) / ss.Skills.PlayerSkillCap.Single )		
 	end
 
 	-- allow skipping gains from a parameter, and disallow NPCs from gaining at all, and disallow gains at a campfire.
-	if ( not skipGains and (mobileObj:IsPlayer() or IsTamedPet(mobileObj)) ) then
-		local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
-		local preventGain = HasAnyMobileEffect(mobileObj, {"Campfire", "LowVitality"}, mobileEffects)
+	if ( not skipGains and IsPlayerCharacter(mobileObj) ) then
 		-- we need the REAL skill level (minus any buffs) to do an accurate gain check 
 		-- (where as non-real is used for our chance)
-		local skillTable = GetSkillDictionary(mobileObj)[skillName] or {}
+		local skillTable = skillDictionary[skillName] or {}
 		skillTable.SkillLevel = skillTable.SkillLevel or 0
 
 		-- only continue if there is room to gain
@@ -249,25 +248,25 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		) then
 			return Success( chance )
 		end
-		
-		-- default 100% chance to gain (not ideal..)
-		local gc = 1
 
-		-- if not guaranteed a gain
-		if ( skillTable.SkillLevel > ss.Skills.GuaranteedGainThreshold ) then
-			-- generate the gain chance
-			gc = GenerateGainChance(skillTable.SkillLevel, chance, SkillData.AllSkills[skillName].GainFactor or 1)
-		end
+		local effects = {"LowVitality"}
+		-- include campfire as a blocking gain effect, unless the skill alows it.
+		if not( SkillData.AllSkills[skillName].AllowCampfireGains == true ) then effects[2] = "Campfire" end
+		local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
+		local preventGain = HasAnyMobileEffect(mobileObj, effects, mobileEffects)
+		
+		-- generate the gain chance
+		local gc = GenerateGainChance(skillTable.SkillLevel, chance, SkillData.AllSkills[skillName].GainFactor or 1)
 
 		if ( gc > 0 ) then
 			-- check preventGain all the way down here so we can only hit the user with a message when they would have gained.
 			if ( preventGain ) then
-				if ( mobileObj:IsPlayer() and not(mobileObj:HasTimer("GainWarn")) ) then
+				if not( mobileObj:HasTimer("GainWarn") ) then
 					local hasCampfireEffect, hasVitalityEffect = ContainsMobileEffect(mobileEffects, "Campfire"), ContainsMobileEffect(mobileEffects, "LowVitality")
 					
-					if(hasCampfireEffect) then
+					if ( hasCampfireEffect ) then
 						mobileObj:SystemMessage("You feel too at ease to improve your skills.","info")						
-					elseif(hasVitalityEffect) then
+					elseif ( hasVitalityEffect ) then
 						mobileObj:SystemMessage("You are too exhausted to improve your skills.","info")
 					end
 					
@@ -278,10 +277,14 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 
 			-- apply a bonus for having already gained in the skill past this point before
 			if ( skillTable.SkillLevel < (skillTable.SkillMaxAttained or 0) ) then
-				gc = gc * ServerSettings.Skills.RegainBonusModifier
+				gc = gc * ServerSettings.Skills.RegainBonusMultiplier
+			end
+
+			if ( ContainsMobileEffect(mobileEffects, "PowerHourBuff") ) then
+				gc = gc * ServerSettings.Skills.PowerHourMultiplier
 			end
 			
-			SkillGainByChance( mobileObj, skillName, skillTable.SkillLevel, gc )
+			SkillGainByChance( mobileObj, skillName, skillTable.SkillLevel, gc * ServerSettings.Skills.GainFactor )
 		end
 
 		-- save cpu cycles when there is zero chance of gaining.
@@ -317,7 +320,7 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				local gc = GenerateGainChance(realStatLevel * (ss.Skills.PlayerSkillCap.Single/ss.Stats.IndividualPlayerStatCap), chance, gainFactor)
 				if ( gc > 0 ) then
 					--mobileObj:NpcSpeech("Gain Chance: "..gc)
-					StatGainByChance( mobileObj, stat, gc, realStatLevel )
+					StatGainByChance( mobileObj, stat, gc * ss.Stats.GainFactor, realStatLevel )
 				end
 			end
 		end
@@ -334,29 +337,32 @@ end
 -- @return decimal based percent double
 function GenerateGainChance(level, chance, gainFactor, gc)
 	-- if you have no chance at success or full chance at success, can no longer gain
-	if ( chance <= 0 or chance >= 1 ) then return 0 end
+	if ( level >= 10 and (chance <= 0 or chance >= 1) ) then return 0 end
+	local ss = ServerSettings.Skills
 
 	gainFactor = gainFactor or 1
 	gc = gc or 0.5
 
-	gc = gc + 0.001 + ( ( ServerSettings.Skills.PlayerSkillCap.Single - level ) / ServerSettings.Skills.PlayerSkillCap.Single ) * 0.999
+	gc = gc + ( ( ss.PlayerSkillCap.Single - level ) / ss.PlayerSkillCap.Single )
 
-	gc = gc + ( ( - ( 1.75 * chance - 0.83 ) ^ 2 ) + 0.85 ) * 0.85
+	--gc = gc + ( ( - ( 1.75 * chance - 0.83 ) ^ 2 ) + 0.85 ) * 0.85
 
-	gc = gc / 3
-
+	--gc = gc / 3
 
 	gc = gc * gainFactor
 
 	gc = math.max(0.01, gc / 1.75)
 	gc = gc * 0.9
 
-	if (level > 80) then
-		gc = gc *  ( ( ServerSettings.Skills.PlayerSkillCap.Single - (level - (ServerSettings.Skills.PlayerSkillCap.Single * 0.8) ) ) / 200 )
-	else
-		gc = gc *  ( ( ServerSettings.Skills.PlayerSkillCap.Single - (level - (ServerSettings.Skills.PlayerSkillCap.Single * 0.8) ) ) / 105 )
+	local mod = 105
+	if ( level > ss.HigherLevelGains.DifficultyThreshold ) then
+		mod = 300
+	elseif ( level < ss.LowerLevelGains.DifficultyThreshold ) then
+		mod = 25
 	end
 
+	gc = gc *  ( ( ss.PlayerSkillCap.Single - (level - (ss.PlayerSkillCap.Single * 0.8) ) ) / mod )
+	--DebugMessage("gc: " .. gc)
 	return gc
 end
 
@@ -394,8 +400,6 @@ function SkillGainByChance( mobileObj, skillName, skillLevel, chance )
 		local newSkillLevel = skillLevel + gainAmount
 		-- finally adjust the skill by the gain amount.
 		SetSkillLevel(mobileObj, skillName, newSkillLevel, true)
-		-- message the title system
-		mobileObj:SendMessage("CheckSkillTitleChange", skillName, newSkillLevel)
 	end
 end
 
@@ -430,17 +434,23 @@ function SetSkillLevel( mobileObj, skillName, newSkillLevel, gained )
 
 	mobileObj:SendMessage("OnSkillLevelChanged", skillName)
 
+	--Check if player still meets the requirement to use skill titles after skill level changed
+	CheckTitleRequirement(mobileObj, skillName)
+
 	-- TODO: Just store skills locally for easy access (What does this mean? 9/13/17)
 	if( mobileObj:IsPlayer() ) then
 		if ( gained ) then
 			local difference = math.round(newSkillLevel - oldSkillLevel, 1)
 			if(difference > 0) then
-				mobileObj:SystemMessage("You have gained skill in " .. GetSkillDisplayName(skillName) .. ". Now " .. tostring(skillTable.SkillLevel) .. " (+"..tostring(difference)..")", "info")
+				mobileObj:SystemMessage("You have gained skill in " .. GetSkillDisplayName(skillName) .. ". Now " .. tostring(skillTable.SkillLevel) .. " (+"..tostring(difference)..")","info")
 			else
-				mobileObj:SystemMessage("You have lost skill in " .. GetSkillDisplayName(skillName) .. ". Now " .. tostring(skillTable.SkillLevel) .. " ("..tostring(difference)..")", "info")
+				mobileObj:SystemMessage("You have lost skill in " .. GetSkillDisplayName(skillName) .. ". Now " .. tostring(skillTable.SkillLevel) .. " ("..tostring(difference)..")","info")
 			end
 		end
 	end
+
+	-- check for skill achievement
+	CheckAchievementStatus(mobileObj, "Skill", skillName,newSkillLevel, {TitleCheck = "Skill"})
 end
 
 function GetSkillUpdateVect(mobileObj,skillName,skillDict)

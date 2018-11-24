@@ -10,17 +10,17 @@ function GetMobileAndPets(mobile)
 	Verbose("Pet", "GetMobileAndPets", mobile)
 	mobile = mobile:GetObjectOwner() or mobile
 	local list = GetActivePets(mobile)
-	table.insert(list, mobile)
+	list[#list+1] = mobile
 	return list
 end
 
 --- Perform a callback function on each valid mobile and all their active/valid pets
 -- @param mobile(mobileObj)
 -- @param cb(function)
-function ForeachMobileAndPet(aggressor, cb)
-    Verbose("Pet", "ForeachMobileAndPet", aggressor)
+function ForeachMobileAndPet(mobile, cb)
+    Verbose("Pet", "ForeachMobileAndPet", mobile)
 	if ( cb == nil ) then return end
-	local list = GetMobileAndPets(aggressor)
+	local list = GetMobileAndPets(mobile)
 	for i=1,#list do
 		if ( list[i] and list[i]:IsValid() ) then
 			cb(list[i])
@@ -232,9 +232,9 @@ end
 function IsInPetPack(gameObj,user,topmostContainer,requireController)
 	topmostContainer = topmostContainer or gameObj:TopmostContainer() or gameObj
 
-	local isPet = requireController and IsController(user,topmostContainer) or IsPet(topmostContainer)
+	local isPet = (requireController and IsController(user,topmostContainer)) or IsPet(topmostContainer)
 	-- if this is a pet and it has a pack and this object is in that pack return true
-	return topmostContainer:HasObjVar("HasPetPack") and isPet and IsInBackpack(gameObj,topmostContainer,true)
+	return isPet and topmostContainer:HasObjVar("HasPetPack") and IsInBackpack(gameObj,topmostContainer,true)
 end
 
 -- Returns true if the pet has anything in it's pack
@@ -435,13 +435,7 @@ function SetCreatureAsPet(creature, master)
     Verbose("Pet", "SetCreatureAsPet", creature, master)
 	if ( master == nil or creature == nil or not master:IsValid() or not creature:IsValid() or creature:IsPlayer() ) then return false end
 
-	local myOldTeam = creature:GetObjVar("MobileTeamType")
-	if(myOldTeam ~= nil) then
-		creature:DelObjVar("MobileTeamType")
-		creature:SetObjVar("OldMobileTeamType", myOldTeam)
-	end
-
-	creature:SetObjVar("LivingKarma", GetKarma(creature))
+	creature:DelObjVar("MobileTeamType")
 
 	local nameStr = StripColorFromString(creature:GetName())
 	creature:SetObjVar("LivingName", nameStr)
@@ -463,7 +457,7 @@ function SetCreatureAsPet(creature, master)
 	creature:SendMessage("EndCombatMessage")
 	creature:PlayObjectSound("Pain")
 
-	master:SystemMessage("You have tamed "..StripColorFromString(nameStr),"info")
+	master:SystemMessage("You have tamed "..nameStr,"info")
 
 	return true
 end
@@ -481,7 +475,11 @@ end
 -- @param creature mobileObj
 -- @return true/false
 function CanControlCreature(master, creature)
-    Verbose("Pet", "CanControlCreature", master, creature)
+	Verbose("Pet", "CanControlCreature", master, creature)
+	if(IsGod(master)) then
+		return true
+	end
+
 	return ChanceToControlCreature(master, creature) > 0
 end
 

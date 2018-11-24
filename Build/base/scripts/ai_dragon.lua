@@ -6,6 +6,7 @@ require 'base_ai_casting'
 AI.Settings.CanFlee = false
 AI.Settings.CanUseCombatAbilities = false
 AI.Settings.ChaseRange = 25
+AI.Settings.LeashDistance = 35
 --Special ability
 table.insert(AI.CombatStateTable,{StateName = "SpecialAbility",Type = "rangedattack",Range = 10})
 table.insert(AI.CombatStateTable,{StateName = "Lunge",Type = "rangedattack",Range = 10})

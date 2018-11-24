@@ -31,7 +31,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=80,  
+					Brawling = 80,  
 					MagicAffinity=100, 
 					Evocation=100, 
 					},	
@@ -47,7 +47,8 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.SkeletonRich,
+						TemplateDefines.LootTable.BonesEthereal,
+						TemplateDefines.LootTable.AncientScrolls,
 						{
 							NumCoins = math.random(500,650),
 						},

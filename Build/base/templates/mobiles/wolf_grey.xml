@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>22</ClientId>
 	<Name>Gray Wolf</Name>
-	<ScaleModifier>0.8</ScaleModifier>
+	<ScaleModifier>0.6</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -9,8 +9,9 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileTeamType">Wolf</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">5</DoubleVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -24,7 +25,7 @@
 		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_prey">
+		<LuaModule Name="ai_default_animal">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=20,  
+					Brawling = 20,  
 					},	
 				LootTables = 
 					{ 
@@ -45,6 +46,8 @@
 			<Initializer>
 				{
 					MeatCount = 1,					
+
+					MeatType = "ToughMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=50, Count=1 },

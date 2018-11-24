@@ -199,10 +199,10 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"JukeBoxWindow",function (u
         						if (success) then 
         							--DebugMessage("Win")
 									AddTrackToQueue(track)
-									user:SystemMessage("[$1904]")
+									user:SystemMessage("[$1904]","info")
         						else
         							--DebugMessage("Fail")
-        							user:SystemMessage("[D70000]You do not have enough money.[-]")
+        							user:SystemMessage("[D70000]You do not have enough money.[-]","info")
         							return
         						end
         					end

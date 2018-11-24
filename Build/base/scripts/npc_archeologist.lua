@@ -678,7 +678,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 
 			text="You have an artifact? Excellent! Let me see."
 
-			user:SystemMessage("What do you wish to sell?")
+			user:SystemMessage("What do you wish to sell?","info")
 			user:RequestClientTargetGameObj(this, "sell")
 
 			response = {}
@@ -754,7 +754,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Actions",
 
 			text="[$1999]"
 
-			user:SystemMessage("What do you wish to identify?")
+			user:SystemMessage("What do you wish to identify?","info")
 			user:RequestClientTargetGameObj(this, "identify")
 
 			response = {}
@@ -895,7 +895,7 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
 			local backpackObj = user:GetEquippedObject("Backpack")  
 			local dropPos = GetRandomDropPosition(backpackObj)
 	    	CreateObjInContainer("scroll_decipher", backpackObj, dropPos, nil)
-	        user:SystemMessage("You have received a Decipher Scroll!")
+	        user:SystemMessage("You have received a Decipher Scroll!","info")
 
 			text="Here you are, good tidings now, anything else?"
 
@@ -1014,3 +1014,8 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "identify",
 --RegisterEventHandler(EventType.ClientTargetGameObjResponse, "decipher", 
 --	function(target,user)
 --	end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

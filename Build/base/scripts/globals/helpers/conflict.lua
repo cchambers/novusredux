@@ -153,24 +153,33 @@ function UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, newRelat
     
     -- set/update the conflict
     tableA[mobileB] = {newRelation.Name}
-    -- when the conflict should end
+    -- set when the conflict should end
     tableA[mobileB][2] = now:Add(ServerSettings.Conflict.RelationDuration)
 
+    -- if mobileA's new relation is aggressor
     if ( ConflictEquals(newRelation.Name, ConflictRelations.Aggressor) ) then
+        local karmaBLevel = GetKarmaLevel(GetKarma(mobileB))
+        local karmaALevel = nil
 
         if ( isPlayerA and isPlayerB ) then
             -- mobileB has zero karma concequences against mobileA
             -- Turn mobileA AGGRESSIVE on mobileB's client (so B is looking at an aggressive A)
             mobileA:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressor",ServerSettings.Conflict.RelationDuration.TotalSeconds})
             mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobileA,"Aggressed",ServerSettings.Conflict.RelationDuration.TotalSeconds})
+
+            if ( karmaBLevel.IsChaotic ) then
+                karmaALevel = GetKarmaLevel(GetKarma(mobileA))
+                if ( karmaALevel.Amount > karmaBLevel.Amount and WithinKarmaZone(mobileA) and WithinKarmaZone(mobileB) ) then
+                    mobileA:SendMessage("StartMobileEffect", "Chaotic")
+                end
+            end
         end
 
-        --[[
-            Handle Guard protection triggers for aggressive actions.
-        ]]
-        -- if mobileA's relation is aggressor
+        -- Handle Guard protection triggers for aggressive actions.
         if ( guardCheck ) then
-            local karmaBLevel = GetKarmaLevel(GetKarma(mobileB))
+            if not( karmaBLevel ) then
+                karmaBLevel = GetKarmaLevel(GetKarma(mobileB))
+            end
             local guardIgnore = true
 
             -- if mobileB's karma level is guard protected
@@ -186,25 +195,20 @@ function UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, newRelat
                     not InOpposingAllegiance(mobileA, mobileB)
                 )
             ) then
+                -- allGuards vs neutral only
+                local allGuards = IsProtected(mobileB, mobileA, karmaBLevel, karmaALevel or GetKarmaLevel(GetKarma(mobileA)))
                 -- make the guards protect B from A
-                GuardProtect(mobileB, mobileA, karmaBLevel.GuardProtectPlayer)
-                -- only if you are guard protected is this aggressive action guard ignored (they won't attack you on sight)
-                if ( karmaBLevel.GuardProtectPlayer ) then
-                    guardIgnore = false
-                end
+                GuardProtect(mobileB, mobileA, allGuards)
+                -- only if you are guard protected (neutral don't count) is this aggressive action guard ignored (they won't attack you on sight)
+                if ( allGuards ) then guardIgnore = false end
             end
 
             -- if guards don't protect mobileB's karma level, add an ignore guard entry
             -- (This is so, for example, players can be aggressors against an outcast, but guards won't attack them for being aggressors against outcasts)
-            if ( guardIgnore == true ) then
-                tableA[mobileB][3] = true
-            end
+            if ( guardIgnore == true ) then tableA[mobileB][3] = true end
         end
         -- when skipping guard protect checks this value would be ignored and overwritten if not cached from previous data.
-        if ( wasGuardIgnored ) then
-            tableA[mobileB][3] = true
-        end
-
+        if ( wasGuardIgnored ) then tableA[mobileB][3] = true end
     end
 
     -- save the updated conflict table for the mobile
@@ -250,30 +254,22 @@ function AdvanceConflictRelation(mobileA, mobileB, karmaAction, neverGuards)
         UpdateConflictRelation(mobileB, mobileA, isPlayerA, isPlayerB, ConflictRelations.Victim)
         refreshA = false
         refreshB = false
+        -- warn players when they are attacked by other players
+        if ( isPlayerA and isPlayerB ) then
+            mobileB:SystemMessage(string.format("%s is attacking you!", StripColorFromString(mobileA:GetName())), "info")
+        end
         -- Karma action for becoming the aggressor
         ExecuteKarmaAction(mobileA, karmaAction or KarmaActions.Negative.Attack, mobileB)
     elseif ( ConflictEquals(aToBRelation, ConflictRelations.Victim) ) then
         -- A was a victim, now A is a defender.
         UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, ConflictRelations.Defender)
         refreshA = false
-    end
-
-    if ( 
-        karmaAction
-        and
-        (
-            aToBRelation == nil
-            or
-            bToARelation == nil
-            or
-            ConflictEquals(aToBRelation, ConflictRelations.Aggressor)
-        )
-    ) then
+    elseif ( karmaAction and ConflictEquals(aToBRelation, ConflictRelations.Aggressor) ) then
+        -- karma action for repeated agressive actions
         ExecuteKarmaAction(mobileA, karmaAction, mobileB)
     end
 
-    --refresh the conflict expiration.
-    -- Possible optimization, only refresh every other one/every third one?
+    -- refresh the conflict expiration.
     if ( aToBRelation ~= nil and refreshA ) then
         UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, ConflictRelations[aToBRelation], not neverGuards)
     end
@@ -437,7 +433,6 @@ function TagMob(mobile) -- Beef nation dayum..
                     if ( loot == "Random" ) then
                         table.insert(t, member)
                     elseif ( loot == "RoundRobin" ) then
-                        local lastLoot = member
                         if ( member:HasObjVar("GroupLastLoot") ) then
                             -- those with last loot
                             table.insert(t, member)

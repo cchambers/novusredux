@@ -194,7 +194,7 @@ function Dialog.OpenFruitQuestBringFruitBackDialog(user)
     if (CountResourcesInContainer(user,"FruitCatacombs") >= 10) then
         local backpackObj = user:GetEquippedObject("Backpack")
         ConsumeItemsInContainer(backpackObj,{{"fruit_catacombs",10}},true)
-        PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.BringerOfFruit)
+        CheckAchievementStatus(user, "Other", "BringerOfFruit", nil, {Description = "", CustomAchievement = "Bringer Of Fruit", Reward = {Title = "Bringer Of Fruit"}})
         user:SendMessage("FinishQuest","FruitQuest",true)
         QuickDialogMessage(this,user,"[$537]")
     else

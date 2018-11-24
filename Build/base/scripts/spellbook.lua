@@ -60,6 +60,7 @@ RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 RegisterEventHandler(EventType.Message, "UseObject", 
 	function(user,usedType)
 		if ( usedType == "Open" or usedType == "Use" ) then
+			this:PlayObjectSound("Use", true)
 			OpenSpellBook(user,this)
 		end
 	end)
@@ -69,7 +70,7 @@ RegisterEventHandler(EventType.Message, "AddSpell",
 	function(spellName, user)
 		AddSpell(spellName)
 		if ( user ) then
-			user:SystemMessage("Spell "..spellName.." added to spellbook.")
+			user:SystemMessage("Spell "..spellName.." added to spellbook.","info")
 		end
 	end)
 
@@ -80,14 +81,14 @@ RegisterEventHandler(EventType.Message, "AddSpellScroll",
 			AddSpell(spellName)
 			scroll:SendMessage("AdjustStack", -1)
 			if ( user ) then
-				user:SystemMessage("Spell "..spellName.." added to spellbook.")
+				user:SystemMessage("Spell "..spellName.." added to spellbook.","info")
 				local castingSkill = SpellData.AllSpells[spellName].Skill
 				local mPageType = castingSkill == "ManifestationSkill" and "ManifestationIndex" or "EvocationIndex"
 				OpenSpellBook(user,this,mPageType)
 			end
 		else
 			if ( user ) then
-				user:SystemMessage("Failed to add scroll to spellbook, scroll does not have a spell.")
+				user:SystemMessage("Failed to add scroll to spellbook, scroll does not have a spell.","info")
 			end
 		end
 	end)

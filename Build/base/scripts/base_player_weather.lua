@@ -17,7 +17,25 @@ function UpdateWeatherViews()
 				function ( ... )
 					weatherObject:SendMessage("LeaveWeatherRegion",this)
 				end)
-			AddView(viewName,SearchSingleObject(this,SearchMulti{SearchRegion(weatherRegion),SearchExcludeRegion("NoWeather")}),1.0)			
+
+			--MJT Hack: Stops weather effects manually. 
+			--After release, should really be handled by an identifier when creating/removing effects.
+			local weatherEffects = 
+			{
+				"DesertWeatherEffect",
+				"RainEffect",
+				"RainStormEffect",
+				"RainLightEffect"
+			}
+			for index, effectName in pairs(weatherEffects) do
+				this:StopLocalEffect(this, effectName, 1.0)
+			end
+
+			if (GetRegion("NoWeather")) then
+                AddView(viewName,SearchSingleObject(this,SearchMulti{SearchRegion(weatherRegion),SearchExcludeRegion("NoWeather")}),1.0)
+            else
+                AddView(viewName,SearchSingleObject(this,SearchRegion(weatherRegion)),1.0)
+            end
 		end
 	end
 end

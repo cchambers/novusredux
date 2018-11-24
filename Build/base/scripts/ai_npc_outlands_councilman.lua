@@ -363,7 +363,7 @@ end
 function Dialog.OpenHeadDialogDialog(user)
     if (GetItem(user,"head_of_spy")) then
         DialogReturnMessage(this,user,"[$1202]","Just thought you should know...")
-        PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.TheMessager)
+        CheckAchievementStatus(user, "Other", "TheMessenger", nil, {Description = "", CustomAchievement = "The Messenger", Reward = {Title = "The Messenger"}})
     else
         this:NpcSpeech("Gave you what?")
     end

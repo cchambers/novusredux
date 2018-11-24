@@ -105,9 +105,11 @@ AI.StateMachine.AllStates.Wander = {
 -- external inputs
 
 function HandleModuleLoaded()
-  if( initializer.Names ~= nil ) then
-    this:SetName(npcNames[math.random(1, #initializer.Names)])  
-  end
+    if( initializer.Names ~= nil ) then
+        this:SetName(npcNames[math.random(1, #initializer.Names)])  
+    end
+
+    AddUseCase(this,"Interact",true)
 end
 
 function HandleInteract(user,usedType)

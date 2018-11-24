@@ -17,6 +17,9 @@ quotes = {
    "Come on you bags of bones!",
 }
 
+AI.Settings.ChaseRange = 25.0
+AI.Settings.LeashDistance = 35
+
 AI.StateMachine.AllStates.DecidingCombat = {
         OnEnterState = function()	
        		if (math.random(1,300) == 1) then

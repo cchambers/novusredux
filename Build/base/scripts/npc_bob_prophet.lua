@@ -178,3 +178,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 --RegisterEventHandler(EventType.ClientTargetGameObjResponse, "decipher", 
 --	function(target,user)
 --	end)
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

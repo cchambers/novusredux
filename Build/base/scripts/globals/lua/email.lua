@@ -56,6 +56,8 @@ function SendEmail(recipient,subject,body)
 		  server=email_settings.host,
 		  port=email_settings.port
 		}		
+
+		return true
 	end
 end
 --SendEmail("contact@citadelstudios.net","TEST","This is a test")

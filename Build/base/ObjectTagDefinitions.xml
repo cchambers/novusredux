@@ -99,6 +99,8 @@
     <ObjectTag>
         <Name>DestructableObject</Name>
         <SharedStateEntry name="IsDestroyed" type="bool" value="false"/>
+        <SharedStateEntry name="ObjectOffset" type="double" value="1.0"/>
+        <SharedStateEntry name="DefaultInteraction" type="string" value="Attack"/>
         <ClientId>305</ClientId>
         <ClientId>306</ClientId>
         <ClientId>307</ClientId>
@@ -112,6 +114,21 @@
         <ClientId>641</ClientId>   
         <ClientId>925</ClientId>
         <ClientId>1021</ClientId>
+        <ClientId>1226</ClientId>
+        <ClientId>2211</ClientId>
+        <ClientId>2213</ClientId>
+        <ClientId>2212</ClientId>
+        <ClientId>1710</ClientId>
+        <ClientId>2214</ClientId>
+        <ClientId>2215</ClientId>
+        <ClientId>2216</ClientId>
+        <ClientId>642</ClientId>
+        <ClientId>2217</ClientId>
+        <ClientId>2218</ClientId>
+        <ClientId>1235</ClientId>
+        <ClientId>2219</ClientId>
+        <ClientId>2220</ClientId>
+        <ClientId>2221</ClientId>
     </ObjectTag>
        <ObjectTag>
         <Name>ToggleSwitch</Name>
@@ -165,12 +182,21 @@
         <ClientId>679</ClientId>
         <ClientId>983</ClientId>
         <ClientId>1096</ClientId>
+        <ClientId>1834</ClientId>
         <ClientId>1874</ClientId>
         <ClientId>1875</ClientId>
         <ClientId>1868</ClientId>
         <ClientId>12</ClientId>
         <ClientId>387</ClientId>
         <ClientId>2120</ClientId>
+        <ClientId>2268</ClientId>
+        <ClientId>2226</ClientId>
+        <ClientId>2227</ClientId>
+        <ClientId>2228</ClientId>
+        <ClientId>2229</ClientId>
+        <ClientId>2293</ClientId>
+        <ClientId>2327</ClientId>
+
         <SharedStateEntry name="DefaultInteraction" type="string" value="Open"/>
 	</ObjectTag>
     <ObjectTag>
@@ -244,6 +270,7 @@
         <ClientId>1584</ClientId>
         <ClientId>1585</ClientId>
         <ClientId>1876</ClientId>
+        <ClientId>2273</ClientId>
 
         <SharedStateEntry name="AudioIdentifierOverride" type="string" value=""/>
         <SharedStateEntry name="CombatMode" type="bool" value="False" restriction="runtime"/>
@@ -261,16 +288,43 @@
         <!-- factions is used to determine friendly or hostile default interactions (combat flag) -->
         <SharedStateEntry name="Faction" type="string" value="None"/>
         <SharedStateEntry name="FriendlyFactions" type="string" value=""/>
-        <SharedStateEntry name="IsJumping" type="bool" value="false"/>
+        <!-- overrides any status icon set by UpdateMobileConflictStatus client message -->
+        <SharedStateEntry name="StatusIconOverride" type="string" value=""/>
         <SharedStateEntry name="IsBoss" type="bool" value="false"/>
-        <SharedStateEntry name="NoHealthBar" type="bool" value="false"/>
       </ObjectTag>  
 	<ObjectTag>
 		<Name>Backpack</Name>
 		<SharedStateEntry name="EquipSlot" type="string" value="Backpack" restriction="readonly"/>
 		<SharedStateEntry name="ContainerWindowType" type="string" value="Backpack" restriction="readonly"/>        
 		<ClientId>34</ClientId>
+        <ClientId>1834</ClientId>
 	</ObjectTag>
+    <ObjectTag>
+        <Name>Ring</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Ring" restriction="readonly"/>
+        <ClientId>2233</ClientId>
+        <ClientId>2235</ClientId>
+        <ClientId>2237</ClientId>
+        <ClientId>2239</ClientId>
+        <ClientId>2241</ClientId>
+        <ClientId>2243</ClientId>
+        <ClientId>2245</ClientId>
+        <ClientId>2247</ClientId>
+        <ClientId>2249</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Necklace</Name>
+        <SharedStateEntry name="EquipSlot" type="string" value="Necklace" restriction="readonly"/>
+        <ClientId>2232</ClientId>
+        <ClientId>2234</ClientId>
+        <ClientId>2236</ClientId>
+        <ClientId>2238</ClientId>
+        <ClientId>2240</ClientId>
+        <ClientId>2242</ClientId>
+        <ClientId>2244</ClientId>
+        <ClientId>2246</ClientId>
+        <ClientId>2248</ClientId>
+    </ObjectTag>
     <ObjectTag>
         <Name>HorseBackpack</Name>
         <SharedStateEntry name="EquipSlot" type="string" value="Backpack" restriction="readonly"/>
@@ -297,7 +351,7 @@
         <ClientId>193</ClientId>
         <ClientId>194</ClientId>
         <ClientId>220</ClientId>
-        <ClientId>222</ClientId>
+        <ClientId>211</ClientId>
         <ClientId>285</ClientId>
         <ClientId>116</ClientId>
         <ClientId>855</ClientId>
@@ -393,7 +447,6 @@
         <ClientId>1500</ClientId>
         <ClientId>1501</ClientId>
         <ClientId>1502</ClientId>
-        <ClientId>1503</ClientId>
         <ClientId>1504</ClientId>
         <ClientId>1505</ClientId>
         <ClientId>1506</ClientId>
@@ -447,12 +500,8 @@
         <ClientId>102</ClientId>
         <ClientId>105</ClientId>
         <ClientId>124</ClientId>
-        <ClientId>134</ClientId>
         <ClientId>137</ClientId>
         <ClientId>140</ClientId>
-        <ClientId>143</ClientId>
-        <ClientId>146</ClientId>
-        <ClientId>149</ClientId>
         <ClientId>527</ClientId>
         <ClientId>528</ClientId>
         <ClientId>529</ClientId>
@@ -503,8 +552,6 @@
         <ClientId>119</ClientId>
         <ClientId>121</ClientId>
         <ClientId>123</ClientId>
-        <ClientId>133</ClientId>
-        <ClientId>136</ClientId>
         <ClientId>139</ClientId>
         <ClientId>142</ClientId>
         <ClientId>145</ClientId>
@@ -561,7 +608,6 @@
         <ClientId>120</ClientId>
         <ClientId>122</ClientId>
         <ClientId>125</ClientId>
-        <ClientId>135</ClientId>
         <ClientId>138</ClientId>
         <ClientId>141</ClientId>
         <ClientId>144</ClientId>
@@ -695,6 +741,30 @@
     	<SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
         <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
     	<ClientId>36</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Treasure Chest 2</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
+        <ClientId>2226</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Treasure Chest 3</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
+        <ClientId>2227</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Treasure Chest 4</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
+        <ClientId>2228</ClientId>
+    </ObjectTag>
+    <ObjectTag>
+        <Name>Treasure Chest 5</Name>
+        <SharedStateEntry name="ContainerWindowType" type="string" value="Chest" restriction="readonly"/>
+        <SharedStateEntry name="EquipSlot" type="string" value="" restriction="readonly"/>
+        <ClientId>2229</ClientId>
     </ObjectTag>
     <ObjectTag>
         <Name>Coffin</Name>
@@ -846,7 +916,7 @@
         <SharedStateEntry name="ResourceSourceId" type="string" value="Rock" restriction="readonly"/>
         <VisualState id="1" name="Depleted" collisionEnabled="true"/>
         <VisualState id="2" name="IronVein" collisionEnabled="true"/>
-        <VisualState id="3" name="BronzeVein" collisionEnabled="true"/>
+        <VisualState id="3" name="GoldVein" collisionEnabled="true"/>
         <VisualState id="4" name="CopperVein" collisionEnabled="true"/>
         <VisualState id="5" name="SteelVein" collisionEnabled="true"/>
         <VisualState id="6" name="ObsidianVein" collisionEnabled="true"/>
@@ -1030,9 +1100,12 @@
         <ClientId>1579</ClientId>
         <ClientId>269</ClientId>
         <ClientId>1876</ClientId>
-        <ClientId>1877</ClientId>        
-
-        <!-- DAB TEST: Test armor variation for Jim -->
+        <ClientId>1877</ClientId>
         <ClientId>54</ClientId>
+        <ClientId>55</ClientId>
+        <ClientId>56</ClientId>
+        <ClientId>104</ClientId>
+        <ClientId>106</ClientId>
+        <ClientId>918</ClientId>
     </ObjectTag>
 </ObjectTags>

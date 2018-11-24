@@ -9,7 +9,6 @@
 	<ObjectVariableComponent>	
 		<BoolVariable Name="DoesNotNeedPath">True</BoolVariable>
     	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
-		<StringVariable Name="MobileKind">Humanoid</StringVariable>
     	<StringVariable Name="MobileKind">Humanoid</StringVariable>
     	<DoubleVariable Name="Karma">10000</DoubleVariable>
 	</ObjectVariableComponent>			

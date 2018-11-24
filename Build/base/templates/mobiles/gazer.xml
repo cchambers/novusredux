@@ -21,7 +21,7 @@
 		<DoubleVariable Name="Attack">48</DoubleVariable>
 		<DoubleVariable Name="Power">16</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -38,7 +38,7 @@
 					Evocation=100,
 					Manifestation=100,
 					MagicAffinity=100,
-					Bashing=90,  
+					Brawling = 90,  
 					},	
 				EquipTable = 
 					{
@@ -51,6 +51,7 @@
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.AncientScrolls,
 						{
 							NumCoins = math.random(350,600),
 						},

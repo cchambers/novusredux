@@ -49,7 +49,7 @@ MobileEffectLibrary.Command =
 						-- target cancelled
 						EndMobileEffect(root)
 					end)
-				self.ParentObj:SystemMessage("Commanding "..target:GetName()..".", "info")
+				self.ParentObj:SystemMessage("Commanding "..StripColorFromString(target:GetName())..".", "info")
 				-- ask for a new target
 				self.ParentObj:RequestClientTargetLoc(self.ParentObj, "PetCommandTarget")
 				self.EventRegistered = true

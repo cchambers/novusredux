@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[FF0000]Campfire[-]</Name>
+  <Name>Campfire</Name>
 	<ClientId>181</ClientId>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseBonus">5</DoubleVariable>

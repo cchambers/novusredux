@@ -182,6 +182,11 @@ function EnterWorld(curCity)
 	-- this tells the player script we were created using the login scene
 	this:SetObjVar("CharCreateNew",true)
 
+	local clusterController = GetClusterController()
+	if ( clusterController ) then
+		clusterController:SendMessage("UserLogin",this,"Connect")
+	end
+
 	TeleportUser(this,this,MapLocations[ServerSettings.CharacterCreation.StartingMap][cityInfo.MapLocation],destRegionAddress)
 end
 
@@ -789,7 +794,7 @@ function OpenSelectCityWindow()
 	end
 
 	mapName = mapName.."_full"
-	dynWindow:AddMap(0,0,1024,1024,mapName,false,mapIcons)
+	dynWindow:AddMap(0,0,1024,1024,mapName,false,false,mapIcons)
 	dynWindow:AddButton(451, 980, "ChangeCity", "Enter World", 122, 32, "", "", true,"",nextState)
 
 	this:OpenDynamicWindow(dynWindow)

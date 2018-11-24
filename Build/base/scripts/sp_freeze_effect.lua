@@ -17,8 +17,8 @@ function HandleLoaded()
 	SetMobileModExpire(this, "Freeze", "IceFrozen", true, TimeSpan.FromSeconds(FREEZE_SECONDS))
 	AddBuffIcon(this,"FrozenSolid","Frozen Solid","Ice Barrier","Cannot move!",true,FREEZE_SECONDS)
 	this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(FREEZE_SECONDS * 1000), "RemoveFreezeEffect")
-	this:SystemMessage("[F7CC0A] Your body freezes in place.[-]")
-	myBurnSource:SystemMessage("[F7CC0A] Your target's body freezes in place.[-]")
+	this:SystemMessage("[F7CC0A] Your body freezes in place.[-]","info")
+	myBurnSource:SystemMessage("[F7CC0A] Your target's body freezes in place.[-]","info")
 	this:PlayEffect("FrozenObjectEffect")
 end
 

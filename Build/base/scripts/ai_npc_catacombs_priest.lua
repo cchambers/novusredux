@@ -305,7 +305,7 @@ Dialog.OpenCatacombsStartQuestAnswerRiddleDialog = Dialog.OpenCatacombsStartQues
 function Dialog.OpenSlayVoidGuardianQuestTalkToPriestDialog(user)
     user:SendMessage("FinishQuest","SlayVoidGuardianQuest")
     user:SendMessage("StartQuest","SlayTheGeneralQuest")
-    user:SystemMessage("[00D700]You have recieved a Book of Summon Portal!")
+    user:SystemMessage("[00D700]You have recieved a Book of Summon Portal!","info")
     CreateObjInBackpack(user,"bindportal_teleporter",createId)  
     local sourceLoc = Loc(12.16, 0.6783409, 33.23)
     local destLoc = Loc(-27.32, 0.168584, -170.80)
@@ -486,7 +486,7 @@ function Dialog.OpenReadyDialog(user)
 end
 
 function Dialog.OpenCatacombsRearrangeQuestInvestigateDialog(user)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.SurvivorOfTheChanging)
+    CheckAchievementStatus(user, "Other", "SurvivorOfTheChanging", nil, {Description = "", CustomAchievement = "Survivor Of The Changing", Reward = {Title = "Survivor Of The Changing"}})
     QuickDialogMessage(this,user,"[$714]")
 end
 
@@ -683,7 +683,7 @@ end
 function Dialog.OpenYouAreWinnerTwoDialog(user)
     user:SendMessage("FinishQuest","SlayTheGeneralQuest")
     this:PlayAnimation("dance")
-    user:SystemMessage("[00D700]You have recieved a Map of Catacombs!")
+    user:SystemMessage("[00D700]You have recieved a Map of Catacombs!","info")
     -- DAB TODO: Dead quest just disabling dead code
     --local currentConfig = GetCurrentCatacombsConfiguration() 
     --CreateObjInBackpack(user,"catacombs_config"..currentConfig.."_map_scroll")  
@@ -792,7 +792,7 @@ function Dialog.OpenNotATempleToWayunDialog(user)
     GetAttention(user)
 end
 function Dialog.OpenEverythingIsLiesDialog(user)
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.FaithBreaker)
+    user:SendMessage("CheckAchievement", "Other", "FaithBreaker", nil, {Description = "", CustomAchievement = "Faith Breaker", Reward = {Title = "Faith Breaker"}})
     DialogReturnMessage(this,user,"[$723]")
 end
 function Dialog.OpenTalkToPlayerDialog(user)

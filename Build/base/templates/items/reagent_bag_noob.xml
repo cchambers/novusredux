@@ -13,19 +13,13 @@
 					   
 						-- Regs
 						{						
-						    NumItems = 10,
+						    NumItems = 4,
 							LootItems = 
 							{ 	
 								{ Template = "ingredient_ginsengroot", StackCount = 100, Unique = true },
 								{ Template = "ingredient_lemongrass", StackCount = 100, Unique = true },
 								{ Template = "ingredient_mushroom", StackCount = 100, Unique = true },
 								{ Template = "ingredient_moss", StackCount = 100, Unique = true },
-								{ Template = "ingredient_nightshade", StackCount = 100, Unique = true },
-								{ Template = "ingredient_bloodmoss", StackCount = 100, Unique = true },
-								{ Template = "ingredient_blackpearl", StackCount = 100, Unique = true },
-								{ Template = "ingredient_garlic", StackCount = 100, Unique = true },
-								{ Template = "ingredient_sulfurousash", StackCount = 100, Unique = true },
-								{ Template = "ingredient_mandrakeroot", StackCount = 100, Unique = true },
 							} 
 						},							
 					}

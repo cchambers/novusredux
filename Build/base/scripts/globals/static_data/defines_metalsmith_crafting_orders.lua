@@ -42,17 +42,14 @@ CraftingOrderDefines.MetalsmithSkill =
 				{ Weight = 10, Template = "recipe_scalehelm", Unique = true},
 				{ Weight = 10, Template = "recipe_warhammer", Unique = true},
 				{ Weight = 10, Template = "recipe_halberd", Unique = true},
-				{ Weight = 10, Template = "recipe_smallshield", Unique = true},
 				{ Weight = 10, Template = "recipe_scalelegs", Unique = true},
 				{ Weight = 10, Template = "recipe_scaletunic", Unique = true},
-				{ Weight = 10, Template = "recipe_curvedshield", Unique = true},
 				{ Weight = 10, Template = "recipe_fullplatehelm", Unique = true},
-				{ Weight = 10, Template = "recipe_kiteshield", Unique = true},
 				{ Weight = 10, Template = "recipe_fullplatelegs", Unique = true},
 				{ Weight = 10, Template = "recipe_fullplatetunic", Unique = true},
-				{ Weight = 10, Template = "recipe_bronze", Unique = true},
+				{ Weight = 10, Template = "recipe_gold", Unique = true},
 				{ Weight = 10, Template = "recipe_copper", Unique = true},
-				{ Weight = 10, Template = "recipe_steel", Unique = true},
+				{ Weight = 10, Template = "recipe_cobalt", Unique = true},
 				{ Weight = 10, Template = "recipe_obsidian", Unique = true},
 			},
 		},	
@@ -62,22 +59,32 @@ CraftingOrderDefines.MetalsmithSkill =
 	{
 		{
 			Amount = 5,
-			Weight = 10,
+			Weight = 40,
 		},
 
 		{
 			Amount = 10,
-			Weight = 9,
+			Weight = 20,
+		},
+
+		{
+			Amount = 15,
+			Weight = 15,
 		},
 
 		{
 			Amount = 20,
-			Weight = 8,
+			Weight = 10,
 		},
 
 		{
 			Amount = 40,
-			Weight = 4,
+			Weight = 9,
+		},
+
+		{
+			Amount = 60,
+			Weight = 3,
 		},
 
 		{
@@ -86,7 +93,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		},
 
 		{
-			Amount = 150,
+			Amount = 100,
 			Weight = 1,
 		},
 	},
@@ -94,11 +101,11 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	MaterialWeights = 
 	{
-		Default = 10,
-		Iron = 10,
-		Copper = 9,
-		Bronze = 8,
-		Steel = 4,
+		Default = 50,
+		Iron = 50,
+		Copper = 35,
+		Gold = 20,
+		Cobalt = 4,
 		Obsidian = 1,
 	},
 
@@ -107,7 +114,7 @@ CraftingOrderDefines.MetalsmithSkill =
 	
 	--SMALL ORDERS
 
-	--WEAPONS & SHIELDS
+	--WEAPONS
 
 		--5 IronGreataxe
 		{
@@ -583,102 +590,6 @@ CraftingOrderDefines.MetalsmithSkill =
 		--5 IronGreatAxe
 		{
 			Recipe = "GreatAxe",
-			Material = "Iron",
-			Amount = 5,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--5 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 5,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--5 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 5,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--5 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 5,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--5 IronKiteShield
-		{
-			Recipe = "KiteShield",
 			Material = "Iron",
 			Amount = 5,
 
@@ -1395,138 +1306,6 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 10,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 50, Template = "tool_mining_pick", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 10,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 50, Template = "tool_mining_pick", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 10,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 50, Template = "tool_mining_pick", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 10,
-
-			RewardCoins = "one",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 50, Template = "tool_mining_pick", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
 	--15s
 
 		--15 IronGreataxe
@@ -2057,78 +1836,6 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 15,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--15 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 15,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--15 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 15,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
 	--20s
 
 		--20 IronGreataxe
@@ -2635,102 +2342,6 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 20,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 20,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 20,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 20,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_iron", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
 	-- ARMOR
 		--5 IronChainHelm
 		{
@@ -2819,7 +2430,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -2828,7 +2439,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -2852,7 +2463,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -2861,7 +2472,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -2885,7 +2496,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -2894,7 +2505,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3091,7 +2702,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3100,7 +2711,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3124,7 +2735,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3133,7 +2744,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3157,7 +2768,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3166,7 +2777,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3291,7 +2902,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3300,7 +2911,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3324,7 +2935,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3333,7 +2944,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3357,7 +2968,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3366,7 +2977,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3489,7 +3100,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3498,7 +3109,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3522,7 +3133,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3531,7 +3142,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3555,7 +3166,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3564,7 +3175,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3590,7 +3201,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3599,7 +3210,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3623,7 +3234,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3632,7 +3243,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3656,7 +3267,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3665,7 +3276,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3788,7 +3399,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3797,7 +3408,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3821,7 +3432,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3830,7 +3441,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3854,7 +3465,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3863,7 +3474,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3872,10 +3483,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeChainHelm
+		--5 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -3887,7 +3498,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3896,7 +3507,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3905,10 +3516,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeChainLeggings
+		--5 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -3920,7 +3531,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3929,7 +3540,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3938,10 +3549,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeChainTunic
+		--5 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -3953,7 +3564,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -3962,7 +3573,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -3971,10 +3582,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeScaleHelm
+		--5 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -4004,10 +3615,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeScaleLeggings
+		--5 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -4037,10 +3648,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeScaleTunic
+		--5 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -4070,10 +3681,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeFullPlateHelm
+		--5 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -4085,7 +3696,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4094,7 +3705,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4103,10 +3714,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeFullPlateLeggings
+		--5 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -4118,7 +3729,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4127,7 +3738,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4136,10 +3747,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 BronzeFullPlateTunic
+		--5 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -4151,7 +3762,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4160,7 +3771,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4171,10 +3782,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--10s
 
-		--10 BronzeChainHelm
+		--10 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4186,7 +3797,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4195,7 +3806,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4204,10 +3815,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeChainLeggings
+		--10 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4219,7 +3830,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4228,7 +3839,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4237,10 +3848,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeChainTunic
+		--10 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4252,7 +3863,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4261,7 +3872,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4270,10 +3881,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeScaleHelm
+		--10 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -4303,10 +3914,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeScaleLeggings
+		--10 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -4336,10 +3947,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeScaleTunic
+		--10 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -4369,10 +3980,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeFullPlateHelm
+		--10 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -4384,7 +3995,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4393,7 +4004,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4402,10 +4013,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeFullPlateLeggings
+		--10 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -4417,7 +4028,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4426,7 +4037,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4435,10 +4046,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 BronzeFullPlateTunic
+		--10 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -4450,7 +4061,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4459,7 +4070,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4470,10 +4081,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--15s
 
-		--15 BronzeChainHelm
+		--15 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4503,10 +4114,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeChainLeggings
+		--15 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4536,10 +4147,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeChainTunic
+		--15 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4569,10 +4180,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeScaleHelm
+		--15 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -4584,7 +4195,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4593,7 +4204,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4602,10 +4213,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeScaleLeggings
+		--15 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -4617,7 +4228,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4626,7 +4237,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4635,10 +4246,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeScaleTunic
+		--15 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -4650,7 +4261,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4659,7 +4270,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4668,10 +4279,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeFullPlateHelm
+		--15 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -4701,10 +4312,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeFullPlateLeggings
+		--15 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -4734,10 +4345,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 BronzeFullPlateTunic
+		--15 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -4769,10 +4380,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--20s
 
-		--20 BronzeChainHelm
+		--20 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -4802,10 +4413,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeChainLeggings
+		--20 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -4835,10 +4446,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeChainTunic
+		--20 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -4868,10 +4479,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeScaleHelm
+		--20 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -4883,7 +4494,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4892,7 +4503,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4901,10 +4512,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeScaleLeggings
+		--20 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -4916,7 +4527,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4925,7 +4536,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4934,10 +4545,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeScaleTunic
+		--20 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -4949,7 +4560,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -4958,7 +4569,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -4967,10 +4578,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeFullPlateHelm
+		--20 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -5000,10 +4611,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeFullPlateLeggings
+		--20 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -5033,10 +4644,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 BronzeFullPlateTunic
+		--20 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -5180,7 +4791,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5189,7 +4800,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5213,7 +4824,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5222,7 +4833,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5246,7 +4857,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5255,7 +4866,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5479,7 +5090,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5488,7 +5099,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5512,7 +5123,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5521,7 +5132,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5545,7 +5156,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5554,7 +5165,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5679,7 +5290,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5688,7 +5299,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5712,7 +5323,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5721,7 +5332,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5745,7 +5356,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5754,7 +5365,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5877,7 +5488,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -5901,7 +5512,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -5925,7 +5536,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -5951,7 +5562,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5960,7 +5571,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -5984,7 +5595,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -5993,7 +5604,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6017,7 +5628,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6026,7 +5637,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6149,7 +5760,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6173,7 +5784,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6197,7 +5808,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6206,10 +5817,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelChainHelm
+		--5 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -6221,7 +5832,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6230,7 +5841,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6239,10 +5850,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelChainLeggings
+		--5 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -6254,7 +5865,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6263,7 +5874,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6272,10 +5883,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelChainTunic
+		--5 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "five",
@@ -6287,7 +5898,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6296,7 +5907,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6305,10 +5916,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelScaleHelm
+		--5 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "six",
@@ -6338,10 +5949,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelScaleLeggings
+		--5 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "six",
@@ -6371,10 +5982,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelScaleTunic
+		--5 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "six",
@@ -6404,10 +6015,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelFullPlateHelm
+		--5 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "seven",
@@ -6419,7 +6030,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6428,10 +6039,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelFullPlateLeggings
+		--5 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "seven",
@@ -6443,7 +6054,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6452,10 +6063,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--5 SteelFullPlateTunic
+		--5 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 5,
 
 			RewardCoins = "seven",
@@ -6467,7 +6078,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6478,10 +6089,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--10s
 
-		--10 SteelChainHelm
+		--10 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -6493,7 +6104,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6502,7 +6113,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6511,10 +6122,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelChainLeggings
+		--10 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -6526,7 +6137,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6535,7 +6146,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6544,10 +6155,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelChainTunic
+		--10 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "five",
@@ -6559,7 +6170,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -6568,7 +6179,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -6577,10 +6188,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelScaleHelm
+		--10 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "six",
@@ -6610,10 +6221,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelScaleLeggings
+		--10 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "six",
@@ -6643,10 +6254,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelScaleTunic
+		--10 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "six",
@@ -6676,10 +6287,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelFullPlateHelm
+		--10 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "seven",
@@ -6691,7 +6302,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6700,10 +6311,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelFullPlateLeggings
+		--10 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "seven",
@@ -6715,7 +6326,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6724,10 +6335,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--10 SteelFullPlateTunic
+		--10 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 10,
 
 			RewardCoins = "seven",
@@ -6739,7 +6350,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6750,10 +6361,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--15s
 
-		--15 SteelChainHelm
+		--15 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -6783,10 +6394,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelChainLeggings
+		--15 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -6816,10 +6427,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelChainTunic
+		--15 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "six",
@@ -6849,10 +6460,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelScaleHelm
+		--15 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "seven",
@@ -6864,7 +6475,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6873,10 +6484,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelScaleLeggings
+		--15 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "seven",
@@ -6888,7 +6499,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6897,10 +6508,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelScaleTunic
+		--15 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "seven",
@@ -6912,7 +6523,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -6921,10 +6532,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelFullPlateHelm
+		--15 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "eight",
@@ -6945,10 +6556,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelFullPlateLeggings
+		--15 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "eight",
@@ -6969,10 +6580,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--15 SteelFullPlateTunic
+		--15 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 15,
 
 			RewardCoins = "eight",
@@ -6995,10 +6606,10 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--20s
 
-		--20 SteelChainHelm
+		--20 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -7028,10 +6639,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelChainLeggings
+		--20 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -7061,10 +6672,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelChainTunic
+		--20 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "six",
@@ -7094,10 +6705,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelScaleHelm
+		--20 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "seven",
@@ -7109,7 +6720,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7118,10 +6729,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelScaleLeggings
+		--20 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "seven",
@@ -7133,7 +6744,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7142,10 +6753,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelScaleTunic
+		--20 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "seven",
@@ -7157,7 +6768,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7166,10 +6777,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelFullPlateHelm
+		--20 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "nine",
@@ -7181,7 +6792,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7190,10 +6801,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelFullPlateLeggings
+		--20 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "nine",
@@ -7205,7 +6816,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7214,10 +6825,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--20 SteelFullPlateTunic
+		--20 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 20,
 
 			RewardCoins = "nine",
@@ -7229,7 +6840,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7352,7 +6963,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7376,7 +6987,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7400,7 +7011,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7597,7 +7208,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7621,7 +7232,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7645,7 +7256,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7743,7 +7354,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7767,7 +7378,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7791,7 +7402,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7887,7 +7498,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7911,7 +7522,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7935,7 +7546,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -7961,7 +7572,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -7985,7 +7596,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -8009,7 +7620,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -8164,7 +7775,7 @@ CraftingOrderDefines.MetalsmithSkill =
 
 		--LARGE ORDERS
 
-	--WEAPONS & SHIELDS
+	--WEAPONS
 
 		--40 IronGreataxe
 		{
@@ -8181,7 +7792,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8190,7 +7801,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8214,7 +7825,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8223,7 +7834,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8247,7 +7858,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8256,7 +7867,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8280,7 +7891,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8289,7 +7900,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8313,7 +7924,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8322,7 +7933,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8346,7 +7957,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8355,7 +7966,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8379,7 +7990,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8388,7 +7999,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8412,7 +8023,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8421,7 +8032,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8445,7 +8056,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8454,7 +8065,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8478,7 +8089,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8487,7 +8098,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8511,7 +8122,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8520,7 +8131,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8544,7 +8155,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8553,7 +8164,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8577,7 +8188,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8586,7 +8197,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8610,7 +8221,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8619,7 +8230,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8643,7 +8254,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8652,7 +8263,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8676,7 +8287,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8685,7 +8296,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8709,7 +8320,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8718,7 +8329,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8742,7 +8353,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8751,7 +8362,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8775,7 +8386,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8784,7 +8395,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8808,7 +8419,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8817,7 +8428,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8841,7 +8452,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -8850,139 +8461,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 40,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 40,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 40,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 40,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -8997,7 +8476,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "GreatAxe",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "three",
 
@@ -9008,7 +8487,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9017,7 +8496,704 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronLongsword
+		{
+			Recipe = "Longsword",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronBroadsword
+		{
+			Recipe = "Broadsword",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronSaber
+		{
+			Recipe = "Saber",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronKatana
+		{
+			Recipe = "Katana",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronDagger
+		{
+			Recipe = "Dagger",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronKryss
+		{
+			Recipe = "Kryss",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronPoniard
+		{
+			Recipe = "Poniard",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronBoneDagger
+		{
+			Recipe = "BoneDagger",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronMace
+		{
+			Recipe = "Mace",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronHammer
+		{
+			Recipe = "Hammer",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronMaul
+		{
+			Recipe = "Maul",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronWarMace
+		{
+			Recipe = "WarMace",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronQuarterstaff
+		{
+			Recipe = "Quarterstaff",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronWarhammer
+		{
+			Recipe = "Warhammer",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronPitchfork
+		{
+			Recipe = "Pitchfork",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronVouge
+		{
+			Recipe = "Vouge",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronSpear
+		{
+			Recipe = "Spear",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronHalberd
+		{
+			Recipe = "Halberd",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronLargeAxe
+		{
+			Recipe = "LargeAxe",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronGreatAxe
+		{
+			Recipe = "GreatAxe",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "three",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_gold", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+	--80s
+
+		--WEAPONS
+
+		--80 IronGreataxe
+		{
+			Recipe = "GreatAxe",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "four",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9032,7 +9208,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9041,7 +9217,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9050,7 +9226,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9065,7 +9241,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9074,7 +9250,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9083,7 +9259,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9098,7 +9274,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9107,7 +9283,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9116,7 +9292,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9131,7 +9307,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9140,7 +9316,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9149,7 +9325,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9164,7 +9340,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9173,7 +9349,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9182,7 +9358,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9197,7 +9373,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9206,7 +9382,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9215,7 +9391,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9230,7 +9406,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9239,7 +9415,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9248,7 +9424,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9263,7 +9439,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9272,7 +9448,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9281,7 +9457,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9296,7 +9472,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9305,7 +9481,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9314,7 +9490,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9329,7 +9505,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9338,7 +9514,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9347,7 +9523,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9362,7 +9538,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9371,7 +9547,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9380,7 +9556,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9395,7 +9571,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9404,7 +9580,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9413,7 +9589,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9428,7 +9604,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9437,7 +9613,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9446,7 +9622,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9461,7 +9637,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9470,7 +9646,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9479,7 +9655,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9494,7 +9670,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9503,7 +9679,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9512,7 +9688,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9527,7 +9703,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9536,7 +9712,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9545,7 +9721,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9560,7 +9736,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9569,7 +9745,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9578,7 +9754,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9593,7 +9769,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9602,7 +9778,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9611,7 +9787,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9626,7 +9802,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9635,7 +9811,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9644,7 +9820,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9659,7 +9835,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "three",
+			RewardCoins = "four",
 
 			LootTables = 
 			{
@@ -9668,7 +9844,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -9677,7 +9853,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -9686,147 +9862,15 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 80,
+	--100s
 
-			RewardCoins = "three",
+		--WEAPONS
 
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 80,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 80,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 80,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_bronze", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--120s
-
-		--WEAPONS & SHIELDS
-
-		--120 IronGreataxe
+		--100 IronGreataxe
 		{
 			Recipe = "GreatAxe",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -9855,11 +9899,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronLongsword
+		--100 IronLongsword
 		{
 			Recipe = "Longsword",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -9888,11 +9932,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronBroadsword
+		--100 IronBroadsword
 		{
 			Recipe = "Broadsword",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -9921,11 +9965,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronSaber
+		--100 IronSaber
 		{
 			Recipe = "Saber",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -9954,11 +9998,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronKatana
+		--100 IronKatana
 		{
 			Recipe = "Katana",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -9987,11 +10031,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronDagger
+		--100 IronDagger
 		{
 			Recipe = "Dagger",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10020,11 +10064,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronKryss
+		--100 IronKryss
 		{
 			Recipe = "Kryss",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10053,11 +10097,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronPoniard
+		--100 IronPoniard
 		{
 			Recipe = "Poniard",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10086,11 +10130,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronBoneDagger
+		--100 IronBoneDagger
 		{
 			Recipe = "BoneDagger",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10119,11 +10163,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronMace
+		--100 IronMace
 		{
 			Recipe = "Mace",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10152,11 +10196,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronHammer
+		--100 IronHammer
 		{
 			Recipe = "Hammer",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10185,11 +10229,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronMaul
+		--100 IronMaul
 		{
 			Recipe = "Maul",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10218,11 +10262,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronWarMace
+		--100 IronWarMace
 		{
 			Recipe = "WarMace",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10251,11 +10295,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronQuarterstaff
+		--100 IronQuarterstaff
 		{
 			Recipe = "Quarterstaff",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10284,11 +10328,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronWarhammer
+		--100 IronWarhammer
 		{
 			Recipe = "Warhammer",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10317,11 +10361,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronPitchfork
+		--100 IronPitchfork
 		{
 			Recipe = "Pitchfork",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10350,11 +10394,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronVouge
+		--100 IronVouge
 		{
 			Recipe = "Vouge",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10383,11 +10427,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronSpear
+		--100 IronSpear
 		{
 			Recipe = "Spear",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10416,11 +10460,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronHalberd
+		--100 IronHalberd
 		{
 			Recipe = "Halberd",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10449,11 +10493,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronLargeAxe
+		--100 IronLargeAxe
 		{
 			Recipe = "LargeAxe",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -10482,972 +10526,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronGreatAxe
+		--100 IronGreatAxe
 		{
 			Recipe = "GreatAxe",
 			Material = "Iron",
-			Amount = 120,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 120,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 120,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 120,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 120,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--150s
-
-		--WEAPONS & SHIELDS
-
-		--150 IronGreataxe
-		{
-			Recipe = "GreatAxe",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronLongsword
-		{
-			Recipe = "Longsword",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronBroadsword
-		{
-			Recipe = "Broadsword",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronSaber
-		{
-			Recipe = "Saber",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronKatana
-		{
-			Recipe = "Katana",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronDagger
-		{
-			Recipe = "Dagger",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronKryss
-		{
-			Recipe = "Kryss",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronPoniard
-		{
-			Recipe = "Poniard",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronBoneDagger
-		{
-			Recipe = "BoneDagger",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronMace
-		{
-			Recipe = "Mace",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronHammer
-		{
-			Recipe = "Hammer",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronMaul
-		{
-			Recipe = "Maul",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronWarMace
-		{
-			Recipe = "WarMace",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronQuarterstaff
-		{
-			Recipe = "Quarterstaff",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronWarhammer
-		{
-			Recipe = "Warhammer",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronPitchfork
-		{
-			Recipe = "Pitchfork",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronVouge
-		{
-			Recipe = "Vouge",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronSpear
-		{
-			Recipe = "Spear",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronHalberd
-		{
-			Recipe = "Halberd",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronLargeAxe
-		{
-			Recipe = "LargeAxe",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronGreatAxe
-		{
-			Recipe = "GreatAxe",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronBuckler
-		{
-			Recipe = "Buckler",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronSmallShield
-		{
-			Recipe = "SmallShield",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronCurvedShield
-		{
-			Recipe = "CurvedShield",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_copper", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--150 IronKiteShield
-		{
-			Recipe = "KiteShield",
-			Material = "Iron",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "four",
 
@@ -11492,7 +10575,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11501,7 +10584,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11525,7 +10608,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11534,7 +10617,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11558,7 +10641,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11567,7 +10650,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11690,7 +10773,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -11714,7 +10797,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -11738,7 +10821,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -11753,7 +10836,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainHelm",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "five",
 
@@ -11764,7 +10847,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11773,7 +10856,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11786,7 +10869,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainLeggings",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "five",
 
@@ -11797,7 +10880,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11806,7 +10889,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11819,7 +10902,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainTunic",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "five",
 
@@ -11830,7 +10913,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "resource_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},
 
@@ -11839,7 +10922,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_steel", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
 					},
 				},	
 
@@ -11852,7 +10935,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleHelm",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -11885,7 +10968,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -11918,7 +11001,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleTunic",
 			Material = "Iron",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -11951,6 +11034,179 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "seven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronFullPlateLeggings
+		{
+			Recipe = "FullPlateLeggings",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "seven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronFullPlateTunic
+		{
+			Recipe = "FullPlateTunic",
+			Material = "Iron",
+			Amount = 60,
+
+			RewardCoins = "seven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+	--80s
+
+		--80 IronChainHelm
+		{
+			Recipe = "ChainHelm",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "six",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronChainLeggings
+		{
+			Recipe = "ChainLeggings",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "six",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronChainTunic
+		{
+			Recipe = "ChainTunic",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "six",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
+					},
+				},
+
+				--Reward 2
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronScaleHelm
+		{
+			Recipe = "ScaleHelm",
+			Material = "Iron",
 			Amount = 80,
 
 			RewardCoins = "seven",
@@ -11962,7 +11218,79 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronScaleLeggings
+		{
+			Recipe = "ScaleLeggings",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "seven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronScaleTunic
+		{
+			Recipe = "ScaleTunic",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "seven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 IronFullPlateHelm
+		{
+			Recipe = "FullPlateHelm",
+			Material = "Iron",
+			Amount = 80,
+
+			RewardCoins = "eight",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
 					},
 				},	
 
@@ -11977,7 +11305,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "seven",
+			RewardCoins = "eight",
 
 			LootTables = 
 			{
@@ -11986,7 +11314,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
 					},
 				},	
 
@@ -12001,7 +11329,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Iron",
 			Amount = 80,
 
-			RewardCoins = "seven",
+			RewardCoins = "eight",
 
 			LootTables = 
 			{
@@ -12010,7 +11338,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
 					},
 				},	
 
@@ -12019,13 +11347,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--120s
+	--100s
 
-		--120 IronChainHelm
+		--100 IronChainHelm
 		{
 			Recipe = "ChainHelm",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "six",
 
@@ -12054,11 +11382,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronChainLeggings
+		--100 IronChainLeggings
 		{
 			Recipe = "ChainLeggings",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "six",
 
@@ -12087,11 +11415,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronChainTunic
+		--100 IronChainTunic
 		{
 			Recipe = "ChainTunic",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "six",
 
@@ -12120,11 +11448,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronScaleHelm
+		--100 IronScaleHelm
 		{
 			Recipe = "ScaleHelm",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -12135,7 +11463,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12144,11 +11472,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronScaleLeggings
+		--100 IronScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -12159,7 +11487,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12168,11 +11496,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronScaleTunic
+		--100 IronScaleTunic
 		{
 			Recipe = "ScaleTunic",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -12183,7 +11511,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12192,11 +11520,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronFullPlateHelm
+		--100 IronFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -12216,11 +11544,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronFullPlateLeggings
+		--100 IronFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -12240,11 +11568,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 IronFullPlateTunic
+		--100 IronFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
 			Material = "Iron",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -12264,13 +11592,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--150s
-
-		--150 IronChainHelm
+		--40 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "six",
 
@@ -12299,11 +11625,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronChainLeggings
+		--40 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "six",
 
@@ -12332,11 +11658,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronChainTunic
+		--40 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "six",
 
@@ -12365,11 +11691,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronScaleHelm
+		--40 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "seven",
 
@@ -12380,7 +11706,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12389,11 +11715,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronScaleLeggings
+		--40 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "seven",
 
@@ -12404,7 +11730,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12413,11 +11739,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronScaleTunic
+		--40 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "seven",
 
@@ -12428,7 +11754,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12437,11 +11763,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronFullPlateHelm
+		--40 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "eight",
 
@@ -12461,11 +11787,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronFullPlateLeggings
+		--40 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Iron",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 40,
 
 			RewardCoins = "eight",
 
@@ -12485,253 +11811,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 IronFullPlateTunic
+		--40 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Iron",
-			Amount = 150,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeChainHelm
-		{
-			Recipe = "ChainHelm",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "six",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeChainLeggings
-		{
-			Recipe = "ChainLeggings",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "six",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeChainTunic
-		{
-			Recipe = "ChainTunic",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "six",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_obsidian", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeScaleHelm
-		{
-			Recipe = "ScaleHelm",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "seven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeScaleLeggings
-		{
-			Recipe = "ScaleLeggings",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "seven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeScaleTunic
-		{
-			Recipe = "ScaleTunic",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "seven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeFullPlateHelm
-		{
-			Recipe = "FullPlateHelm",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeFullPlateLeggings
-		{
-			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
-			Amount = 40,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 BronzeFullPlateTunic
-		{
-			Recipe = "FullPlateTunic",
-			Material = "Bronze",
+			Material = "Gold",
 			Amount = 40,
 
 			RewardCoins = "eight",
@@ -12754,11 +11837,11 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--80s
 
-		--80 BronzeChainHelm
+		--80 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -12787,11 +11870,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeChainLeggings
+		--80 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -12820,11 +11903,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeChainTunic
+		--80 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "six",
 
@@ -12853,11 +11936,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeScaleHelm
+		--80 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -12868,7 +11951,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12877,11 +11960,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeScaleLeggings
+		--80 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -12892,7 +11975,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12901,11 +11984,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeScaleTunic
+		--80 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -12916,7 +11999,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -12925,11 +12008,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeFullPlateHelm
+		--80 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -12949,11 +12032,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeFullPlateLeggings
+		--80 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -12973,11 +12056,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 BronzeFullPlateTunic
+		--80 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
-			Amount = 80,
+			Material = "Gold",
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -12997,13 +12080,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--120s
+	--80s
 
-		--120 BronzeChainHelm
+		--80 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -13014,7 +12097,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13023,11 +12106,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeChainLeggings
+		--80 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -13038,7 +12121,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13047,11 +12130,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeChainTunic
+		--80 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "seven",
 
@@ -13062,7 +12145,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13071,11 +12154,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeScaleHelm
+		--80 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -13095,11 +12178,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeScaleLeggings
+		--80 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -13119,11 +12202,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeScaleTunic
+		--80 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "eight",
 
@@ -13143,11 +12226,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeFullPlateHelm
+		--80 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -13158,7 +12241,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13167,11 +12250,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeFullPlateLeggings
+		--80 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -13182,7 +12265,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13191,11 +12274,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 BronzeFullPlateTunic
+		--80 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
-			Amount = 120,
+			Material = "Gold",
+			Amount = 80,
 
 			RewardCoins = "nine",
 
@@ -13206,7 +12289,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13215,13 +12298,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--150s
+	--100s
 
-		--150 BronzeChainHelm
+		--100 GoldChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -13232,7 +12315,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13241,11 +12324,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeChainLeggings
+		--100 GoldChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -13256,7 +12339,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13265,11 +12348,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeChainTunic
+		--100 GoldChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "seven",
 
@@ -13280,7 +12363,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13289,11 +12372,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeScaleHelm
+		--100 GoldScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13313,11 +12396,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeScaleLeggings
+		--100 GoldScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13337,11 +12420,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeScaleTunic
+		--100 GoldScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13361,11 +12444,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeFullPlateHelm
+		--100 GoldFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -13376,7 +12459,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13385,11 +12468,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeFullPlateLeggings
+		--100 GoldFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -13400,7 +12483,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13409,11 +12492,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 BronzeFullPlateTunic
+		--100 GoldFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Bronze",
-			Amount = 150,
+			Material = "Gold",
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -13424,7 +12507,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13448,7 +12531,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13472,7 +12555,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13496,7 +12579,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13592,7 +12675,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13616,7 +12699,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13640,7 +12723,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13655,7 +12738,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainHelm",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -13666,7 +12749,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13679,7 +12762,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainLeggings",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "seven",
 
@@ -13690,7 +12773,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13703,7 +12786,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainTunic",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "one",
 
@@ -13716,7 +12799,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
 					},
 				},	
 
@@ -13729,7 +12812,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleHelm",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -13753,7 +12836,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -13777,7 +12860,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleTunic",
 			Material = "Copper",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eight",
 
@@ -13801,6 +12884,152 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Copper",
+			Amount = 60,
+
+			RewardCoins = "nine",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperFullPlateLeggings
+		{
+			Recipe = "FullPlateLeggings",
+			Material = "Copper",
+			Amount = 60,
+
+			RewardCoins = "nine",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperFullPlateTunic
+		{
+			Recipe = "FullPlateTunic",
+			Material = "Copper",
+			Amount = 60,
+
+			RewardCoins = "nine",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+	--80s
+
+		--80 CopperChainHelm
+		{
+			Recipe = "ChainHelm",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "eight",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperChainLeggings
+		{
+			Recipe = "ChainLeggings",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "eight",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperChainTunic
+		{
+			Recipe = "ChainTunic",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "eight",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperScaleHelm
+		{
+			Recipe = "ScaleHelm",
+			Material = "Copper",
 			Amount = 80,
 
 			RewardCoins = "nine",
@@ -13812,7 +13041,79 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperScaleLeggings
+		{
+			Recipe = "ScaleLeggings",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "nine",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperScaleTunic
+		{
+			Recipe = "ScaleTunic",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "nine",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 CopperFullPlateHelm
+		{
+			Recipe = "FullPlateHelm",
+			Material = "Copper",
+			Amount = 80,
+
+			RewardCoins = "ten",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
 					},
 				},	
 
@@ -13827,7 +13128,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Copper",
 			Amount = 80,
 
-			RewardCoins = "nine",
+			RewardCoins = "ten",
 
 			LootTables = 
 			{
@@ -13836,7 +13137,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
 					},
 				},	
 
@@ -13851,7 +13152,7 @@ CraftingOrderDefines.MetalsmithSkill =
 			Material = "Copper",
 			Amount = 80,
 
-			RewardCoins = "nine",
+			RewardCoins = "ten",
 
 			LootTables = 
 			{
@@ -13860,7 +13161,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
 					},
 				},	
 
@@ -13869,13 +13170,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--120s
+	--100s
 
-		--120 CopperChainHelm
+		--100 CopperChainHelm
 		{
 			Recipe = "ChainHelm",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13895,11 +13196,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperChainLeggings
+		--100 CopperChainLeggings
 		{
 			Recipe = "ChainLeggings",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13919,11 +13220,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperChainTunic
+		--100 CopperChainTunic
 		{
 			Recipe = "ChainTunic",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "eight",
 
@@ -13943,11 +13244,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperScaleHelm
+		--100 CopperScaleHelm
 		{
 			Recipe = "ScaleHelm",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -13958,7 +13259,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13967,11 +13268,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperScaleLeggings
+		--100 CopperScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -13982,7 +13283,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -13991,11 +13292,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperScaleTunic
+		--100 CopperScaleTunic
 		{
 			Recipe = "ScaleTunic",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "nine",
 
@@ -14006,7 +13307,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14015,11 +13316,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperFullPlateHelm
+		--100 CopperFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -14039,11 +13340,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperFullPlateLeggings
+		--100 CopperFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -14063,11 +13364,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 CopperFullPlateTunic
+		--100 CopperFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
 			Material = "Copper",
-			Amount = 120,
+			Amount = 100,
 
 			RewardCoins = "ten",
 
@@ -14087,13 +13388,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--150s
-
-		--150 CopperChainHelm
+		--40 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "eight",
 
@@ -14113,11 +13412,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperChainLeggings
+		--40 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "eight",
 
@@ -14137,11 +13436,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperChainTunic
+		--40 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "eight",
 
@@ -14161,11 +13460,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperScaleHelm
+		--40 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "nine",
 
@@ -14176,7 +13475,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14185,11 +13484,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperScaleLeggings
+		--40 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "nine",
 
@@ -14200,7 +13499,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14209,11 +13508,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperScaleTunic
+		--40 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "nine",
 
@@ -14224,7 +13523,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14233,11 +13532,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperFullPlateHelm
+		--40 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "ten",
 
@@ -14257,11 +13556,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperFullPlateLeggings
+		--40 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Copper",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 40,
 
 			RewardCoins = "ten",
 
@@ -14281,226 +13580,10 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 CopperFullPlateTunic
+		--40 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Copper",
-			Amount = 150,
-
-			RewardCoins = "ten",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelChainHelm
-		{
-			Recipe = "ChainHelm",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelChainLeggings
-		{
-			Recipe = "ChainLeggings",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelChainTunic
-		{
-			Recipe = "ChainTunic",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelScaleHelm
-		{
-			Recipe = "ScaleHelm",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "nine",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelScaleLeggings
-		{
-			Recipe = "ScaleLeggings",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "nine",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelScaleTunic
-		{
-			Recipe = "ScaleTunic",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "nine",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelFullPlateHelm
-		{
-			Recipe = "FullPlateHelm",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "ten",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelFullPlateLeggings
-		{
-			Recipe = "FullPlateLeggings",
-			Material = "Steel",
-			Amount = 40,
-
-			RewardCoins = "ten",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--40 SteelFullPlateTunic
-		{
-			Recipe = "FullPlateTunic",
-			Material = "Steel",
+			Material = "Cobalt",
 			Amount = 40,
 
 			RewardCoins = "ten",
@@ -14523,11 +13606,11 @@ CraftingOrderDefines.MetalsmithSkill =
 
 	--80s
 
-		--80 SteelChainHelm
+		--80 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -14538,7 +13621,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14547,11 +13630,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelChainLeggings
+		--80 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -14562,7 +13645,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14571,11 +13654,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelChainTunic
+		--80 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "nine",
 
@@ -14586,7 +13669,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -14595,11 +13678,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelScaleHelm
+		--80 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -14619,11 +13702,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelScaleLeggings
+		--80 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -14643,11 +13726,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelScaleTunic
+		--80 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -14667,11 +13750,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelFullPlateHelm
+		--80 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -14682,7 +13765,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14691,11 +13774,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelFullPlateLeggings
+		--80 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -14706,7 +13789,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14715,11 +13798,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--80 SteelFullPlateTunic
+		--80 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
-			Amount = 80,
+			Material = "Cobalt",
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -14730,7 +13813,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14739,13 +13822,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--120s
+	--80s
 
-		--120 SteelChainHelm
+		--80 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -14765,11 +13848,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelChainLeggings
+		--80 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -14789,11 +13872,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelChainTunic
+		--80 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "ten",
 
@@ -14813,11 +13896,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelScaleHelm
+		--80 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -14828,7 +13911,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14837,11 +13920,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelScaleLeggings
+		--80 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -14852,7 +13935,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14861,11 +13944,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelScaleTunic
+		--80 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "eleven",
 
@@ -14876,7 +13959,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14885,11 +13968,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelFullPlateHelm
+		--80 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -14909,11 +13992,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelFullPlateLeggings
+		--80 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -14933,11 +14016,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 SteelFullPlateTunic
+		--80 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
-			Amount = 120,
+			Material = "Cobalt",
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -14957,13 +14040,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--150s
+	--100s
 
-		--150 SteelChainHelm
+		--100 CobaltChainHelm
 		{
 			Recipe = "ChainHelm",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -14974,7 +14057,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -14983,11 +14066,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelChainLeggings
+		--100 CobaltChainLeggings
 		{
 			Recipe = "ChainLeggings",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -14998,7 +14081,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15007,11 +14090,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelChainTunic
+		--100 CobaltChainTunic
 		{
 			Recipe = "ChainTunic",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "eleven",
 
@@ -15022,7 +14105,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15031,11 +14114,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelScaleHelm
+		--100 CobaltScaleHelm
 		{
 			Recipe = "ScaleHelm",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15055,11 +14138,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelScaleLeggings
+		--100 CobaltScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15079,11 +14162,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelScaleTunic
+		--100 CobaltScaleTunic
 		{
 			Recipe = "ScaleTunic",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15103,11 +14186,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelFullPlateHelm
+		--100 CobaltFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15118,7 +14201,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15127,11 +14210,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelFullPlateLeggings
+		--100 CobaltFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15142,7 +14225,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15151,11 +14234,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 SteelFullPlateTunic
+		--100 CobaltFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
-			Material = "Steel",
-			Amount = 150,
+			Material = "Cobalt",
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15166,7 +14249,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15190,7 +14273,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -15214,7 +14297,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -15238,7 +14321,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_table", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
 					},
 				},	
 
@@ -15334,7 +14417,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15358,7 +14441,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15382,7 +14465,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15397,7 +14480,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainHelm",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -15421,7 +14504,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainLeggings",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -15445,7 +14528,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ChainTunic",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "ten",
 
@@ -15469,7 +14552,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleHelm",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -15480,7 +14563,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15493,7 +14576,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -15504,7 +14587,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15517,7 +14600,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "ScaleTunic",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "eleven",
 
@@ -15528,7 +14611,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
 					},
 				},	
 
@@ -15541,7 +14624,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -15565,7 +14648,7 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "FullPlateLeggings",
 			Material = "Obsidian",
-			Amount = 80,
+			Amount = 60,
 
 			RewardCoins = "twelve",
 
@@ -15589,6 +14672,104 @@ CraftingOrderDefines.MetalsmithSkill =
 		{
 			Recipe = "FullPlateTunic",
 			Material = "Obsidian",
+			Amount = 60,
+
+			RewardCoins = "twelve",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+	--80s
+
+		--80 ObsidianChainHelm
+		{
+			Recipe = "ChainHelm",
+			Material = "Obsidian",
+			Amount = 80,
+
+			RewardCoins = "eleven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 ObsidianChainLeggings
+		{
+			Recipe = "ChainLeggings",
+			Material = "Obsidian",
+			Amount = 80,
+
+			RewardCoins = "eleven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 ObsidianChainTunic
+		{
+			Recipe = "ChainTunic",
+			Material = "Obsidian",
+			Amount = 80,
+
+			RewardCoins = "eleven",
+
+			LootTables = 
+			{
+				--Reward 1
+				{
+					NumItems = 1,
+	    			LootItems = 
+	    			{
+	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+					},
+				},	
+
+				--Reward 2
+				CraftingOrderRecipes,
+			},
+		},
+
+		--80 ObsidianScaleHelm
+		{
+			Recipe = "ScaleHelm",
+			Material = "Obsidian",
 			Amount = 80,
 
 			RewardCoins = "twelve",
@@ -15609,109 +14790,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--120s
-
-		--120 ObsidianChainHelm
-		{
-			Recipe = "ChainHelm",
-			Material = "Obsidian",
-			Amount = 120,
-
-			RewardCoins = "eleven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 ObsidianChainLeggings
-		{
-			Recipe = "ChainLeggings",
-			Material = "Obsidian",
-			Amount = 120,
-
-			RewardCoins = "eleven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 ObsidianChainTunic
-		{
-			Recipe = "ChainTunic",
-			Material = "Obsidian",
-			Amount = 120,
-
-			RewardCoins = "eleven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_bronze_anvil", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 ObsidianScaleHelm
-		{
-			Recipe = "ScaleHelm",
-			Material = "Obsidian",
-			Amount = 120,
-
-			RewardCoins = "twelve",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
-					},
-				},	
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--120 ObsidianScaleLeggings
+		--80 ObsidianScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Obsidian",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -15731,11 +14814,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 ObsidianScaleTunic
+		--80 ObsidianScaleTunic
 		{
 			Recipe = "ScaleTunic",
 			Material = "Obsidian",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "twelve",
 
@@ -15755,11 +14838,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 ObsidianFullPlateHelm
+		--80 ObsidianFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Obsidian",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -15770,7 +14853,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15779,11 +14862,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 ObsidianFullPlateLeggings
+		--80 ObsidianFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
 			Material = "Obsidian",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -15794,7 +14877,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15803,11 +14886,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--120 ObsidianFullPlateTunic
+		--80 ObsidianFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
 			Material = "Obsidian",
-			Amount = 120,
+			Amount = 80,
 
 			RewardCoins = "thirteen",
 
@@ -15818,7 +14901,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15827,13 +14910,13 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-	--150s
+	--100s
 
-		--150 ObsidianChainHelm
+		--100 ObsidianChainHelm
 		{
 			Recipe = "ChainHelm",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15853,11 +14936,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianChainLeggings
+		--100 ObsidianChainLeggings
 		{
 			Recipe = "ChainLeggings",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15877,11 +14960,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianChainTunic
+		--100 ObsidianChainTunic
 		{
 			Recipe = "ChainTunic",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "twelve",
 
@@ -15901,11 +14984,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianScaleHelm
+		--100 ObsidianScaleHelm
 		{
 			Recipe = "ScaleHelm",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15916,7 +14999,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15925,11 +15008,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianScaleLeggings
+		--100 ObsidianScaleLeggings
 		{
 			Recipe = "ScaleLeggings",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15940,7 +15023,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15949,11 +15032,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianScaleTunic
+		--100 ObsidianScaleTunic
 		{
 			Recipe = "ScaleTunic",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "thirteen",
 
@@ -15964,7 +15047,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_steel_anvil", Unique = true },
+	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
 					},
 				},	
 
@@ -15973,11 +15056,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianFullPlateHelm
+		--100 ObsidianFullPlateHelm
 		{
 			Recipe = "FullPlateHelm",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 
@@ -15997,11 +15080,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianFullPlateLeggings
+		--100 ObsidianFullPlateLeggings
 		{
 			Recipe = "FullPlateLeggings",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 
@@ -16021,11 +15104,11 @@ CraftingOrderDefines.MetalsmithSkill =
 			},
 		},
 
-		--150 ObsidianFullPlateTunic
+		--100 ObsidianFullPlateTunic
 		{
 			Recipe = "FullPlateTunic",
 			Material = "Obsidian",
-			Amount = 150,
+			Amount = 100,
 
 			RewardCoins = "fourteen",
 

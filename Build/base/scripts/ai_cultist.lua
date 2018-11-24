@@ -12,7 +12,7 @@ AI.Settings.Debug = false
 
 AI.Settings.AggroRange = 10.0
 AI.Settings.ChaseRange = 10.0
-AI.Settings.LeashDistance = 20
+AI.Settings.LeashDistance = 30
 AI.Settings.CanConverse = true
 AI.Settings.ScaleToAge = false
 AI.Settings.CanWander = false
@@ -25,3 +25,21 @@ AI.Settings.ShouldFlee = true
 if (this:GetObjVar("controller") ~= nil) then
     AI.Settings.CanWander = true
 end
+
+RegisterEventHandler(EventType.Message, "DamageInflicted", 
+	function (damager)    
+	    if (damager == nil or not damager:IsValid()) then return end
+	    if (IsFriend(damager) and AI.Anger < 100) then return end
+	        --but attack anyone that attack's my bretheren
+	    local nearbyTeam = FindObjects(SearchMulti(
+	    {
+	        SearchMobileInRange(AI.GetSetting("ChaseRange")), --in 10 units
+	        SearchObjVar("MobileTeamType",this:GetObjVar("MobileTeamType")), --find cultists
+	    }))
+	    for i,j in pairs (nearbyTeam) do
+	        if (not IsInCombat(j) and not j:HasTimer("RecentlyAlerted")) then
+	            j:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"RecentlyAlerted")
+	            j:SendMessage("AttackEnemy",damager,true) --defend me
+	        end
+	    end
+	end)

@@ -258,14 +258,14 @@ function AddEnhancement(targetItem, enhancementName, enhancementTool, enhancemen
 	
 	local availSpace = GetAvailableSlots(targetItem)
 	if(availSpace == nil) or (availSpace <= 0) or ((availSpace - reqSpace) < 0 ) then 
-		enhancementUser:SystemMessage("[$1866]")
+		enhancementUser:SystemMessage("[$1866]","info")
 		return false
 	end
 	--DebugMessage(" Space: " .. tostring(availSpace) .. " Required: " ..tostring(reqSpace))
 	local enInstances = GetEnhancementInstances(targetItem, enhancementName)
 
 	if not(enInstances < enTable.EnhancementMaxInstances) then
-		enhancementUser:SystemMessage("[$1867]")
+		enhancementUser:SystemMessage("[$1867]","info")
 		return false
 	end
 		local enhanceScript = enTable.EnhancementScript
@@ -276,7 +276,7 @@ function AddEnhancement(targetItem, enhancementName, enhancementTool, enhancemen
 	local enhanceIngredients = enTable.ResourcesRequired or {}
 	if not(IsTableEmpty(enhanceIngredients)) then
 		if not(HasResources(enhanceIngredients, enhancementUser)) then
-			enhancementUser:SystemMessage("[$1868]")
+			enhancementUser:SystemMessage("[$1868]","info")
 			return false
 		end
 		ConsumeResources(enhanceIngredients, enhancementUser, "enhancement_consumption")
@@ -285,7 +285,7 @@ function AddEnhancement(targetItem, enhancementName, enhancementTool, enhancemen
 	AddEnhancementToDict(targetItem, enhancementName)
 	targetItem:AddModule(enhanceScript)		
 	targetItem:SendMessage("PerformEnhancementMessage", enhancementName, enhancementUser)
-	enhancementUser:SystemMessage("[$1869]")
+	enhancementUser:SystemMessage("[$1869]","info")
 	return true
 end
 

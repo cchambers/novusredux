@@ -1,0 +1,29 @@
+<ObjectTemplate>
+	<ClientId>2216</ClientId>
+	<Name>[FF9500]Dire Wolf Lair[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="ObjectOffset" type="double" value="3"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+		<DoubleVariable Name="BaseHealth">1300</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="attackable_object_skill_gain">
+		</LuaModule>
+		<LuaModule Name="destructable_mob_spawner">
+			<Initializer>
+			{	
+				Spawns = 
+				{
+					{
+						Template = "mission_wolf_3", 
+						Max = 2,
+						AddSpawns = 1
+					},
+				},
+				SpawnRange = 12,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -19,25 +19,13 @@ function ShowNewSearch(arg)
 	local newWindow = DynamicWindow("ObjectList","New Search",450,320)
 	newWindow:AddLabel(20, 20, "[F3F781]New Object Search[-]",600,0,18,"left",false)
 
-	if(searchInfo.Type == nil) then searchInfo.Type = "Name" end
-
-	local buttonStates = { 
-		Name = (searchInfo.Type=="Name") and "pressed" or "", 
-		Region = (searchInfo.Type=="Region") and "pressed" or "",
-		HasObjVar = (searchInfo.Type=="HasObjVar") and "pressed" or "",
-		HasModule = (searchInfo.Type=="HasModule") and "pressed" or "",
-		DistanceFrom = (searchInfo.Type=="DistanceFrom") and "pressed" or "",
-		Container = (searchInfo.Type=="Container") and "pressed" or "",		
-		Template = (searchInfo.Type=="Template") and "pressed" or "",		
-	}
-
-	newWindow:AddButton(80, 50, "Type:Name", "Name", 100, 23, "", "", false,"Selection",buttonStates.Name)
-	newWindow:AddButton(230, 50, "Type:Region", "Region", 100, 23, "", "", false,"Selection",buttonStates.Region)	
-	newWindow:AddButton(80, 80, "Type:HasModule", "HasModule", 100, 23, "", "", false,"Selection",buttonStates.HasModule)
-	newWindow:AddButton(230, 80, "Type:DistanceFrom", "DistanceFrom", 100, 23, "", "", false,"Selection",buttonStates.DistanceFrom)	
-	newWindow:AddButton(80, 110, "Type:Container", "Container", 100, 23, "", "", false,"Selection",buttonStates.Container)
-	newWindow:AddButton(230, 110, "Type:HasObjVar", "HasObjVar", 100, 23, "", "", false,"Selection",buttonStates.HasObjVar)
-	newWindow:AddButton(80, 140, "Type:Template", "Template", 100, 23, "", "", false,"Selection",buttonStates.Template)
+	newWindow:AddButton(80, 50, "Type:Name", "Name", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"Name"))
+	newWindow:AddButton(230, 50, "Type:Region", "Region", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"Region"))	
+	newWindow:AddButton(80, 80, "Type:HasModule", "HasModule", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"HasModule"))
+	newWindow:AddButton(230, 80, "Type:DistanceFrom", "DistanceFrom", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"DistanceFrom"))	
+	newWindow:AddButton(80, 110, "Type:Container", "Container", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"Container"))
+	newWindow:AddButton(230, 110, "Type:HasObjVar", "HasObjVar", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"HasObjVar"))
+	newWindow:AddButton(80, 140, "Type:Template", "Template", 100, 23, "", "", false,"Selection",GetButtonState(searchInfo.Type,"Template"))
 
 	newWindow:AddLabel(20, 193, "[F3F781]Value:[-]",600,0,18,"left",false)
 	newWindow:AddTextField(80, 190, 300,20, "StringValue", searchInfo.Param or "")
@@ -47,8 +35,8 @@ function ShowNewSearch(arg)
 end
 
 function OpenSearchMap(_search,searchResults)
-	local mapName = GetWorldName()
-	local subregionName = GetSubregionName()
+	local mapName = ServerSettings.WorldName
+	local subregionName = ServerSettings.SubregionName
 	if(subregionName) then
 		mapName = subregionName
 	end
@@ -71,7 +59,7 @@ function OpenSearchMap(_search,searchResults)
 			table.insert(mapIcons,{Icon="marker_diamond1", Location=objectLocation, Tooltip = object:GetName().."\nID:"..tostring(object.Id)})
 		end
 	end
-	dynWindow:AddMap(0,0,700,700,mapName,true,mapIcons)
+	dynWindow:AddMap(0,0,700,700,mapName,false,true,mapIcons)
 	this:OpenDynamicWindow(dynWindow)
 end
 

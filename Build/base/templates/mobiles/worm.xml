@@ -30,7 +30,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 2,
 					AnimalParts =
 					{
 						{ ResourceType="WormExtract", RarityPct=50, Count=2 },

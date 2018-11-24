@@ -48,7 +48,6 @@
 								{ Weight = 30,Template = "potion_attackspeed", Unique = true },
 								{ Weight = 30,Template = "tool_hunting_knife", Unique = true },
 								{ Weight = 15, Template = "bandage", Unique = true },
-								{ Weight = 15, Template = "animalparts_meat", Unique = true },
 								{ Weight = 15, Template = "animalparts_spider_silk", Unique = true },
 								{ Weight = 15, Template = "resource_iron", Unique = true },
 								{ Weight = 60, Template = "cooked_stew", Unique = true },

@@ -17,7 +17,7 @@ function RequestPlacementTarget(user)
 		return
 	end
 
-	user:SystemMessage("Who do you wish to apply this to?")
+	user:SystemMessage("Who do you wish to apply this to?","info")
 	user:RequestClientTargetGameObj(this, "targetObj")
 end
 

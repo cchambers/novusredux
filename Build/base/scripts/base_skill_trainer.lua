@@ -170,7 +170,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"TrainDialog",
 		if( CountCoins(user) < 30 ) then
 
 			--DebugMessage("Error here 1")
-			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)]..""..tostring(DEFAULT_TRAIN_PRICE).." Copper."
+			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)]..""..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true).."."
 		
 			response = {}
 
@@ -185,7 +185,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"TrainDialog",
 	    
 		user:CloseDynamicWindow("TrainDialog")
 
-		text = "I can teach you the basics of "..skillData.DisplayName.." for "..tostring(DEFAULT_TRAIN_PRICE).." Copper."
+		text = "I can teach you the basics of "..skillData.DisplayName.." for "..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true).."."
 		response = {}
 
 		response[1] = {}
@@ -221,7 +221,7 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
 		if not(transactionId:match("Teach")) then return end
 
 		if not(success) then
-			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)].."[D7D700]("..tostring(DEFAULT_TRAIN_PRICE).." Copper)"
+			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)].."[D7D700]("..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true)..")"
 
 			response = {}
 			

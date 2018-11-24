@@ -39,7 +39,7 @@
 					{ 
 					Evocation=100,
 					Manifestation=100,
-					Bashing=50,  
+					Brawling = 50,  
 					MagicAffinity=100,
 					},	
 				EquipTable = 
@@ -48,7 +48,6 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(90,240),
 						},
@@ -59,7 +58,6 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 3,					
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=3 },

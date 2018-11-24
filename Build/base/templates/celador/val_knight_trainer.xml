@@ -2,10 +2,12 @@
 <ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Gabriel the Master Knight</Name>
+	<Name>Gabriel</Name>
+	<SharedStateEntry name="Title" type="string" value="Fighter"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="WanderRegion">ValusKnight</StringVariable>
-		<StringVariable Name="PrestigeClass">Knight</StringVariable>
+		<BoolVariable Name="AI-CanWander">true</BoolVariable>
+		<StringVariable Name="PrestigeClass">Fighter</StringVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
 		<BoolVariable Name="noloot">True</BoolVariable>	

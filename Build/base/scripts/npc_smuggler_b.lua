@@ -95,3 +95,8 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"Responses",function (user,
 		NPCInteraction(text,this,user,"Responses",response)
 	end
 end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

@@ -1,5 +1,3 @@
-ServerSettings = {}
-
 require 'globals.server_settings.ai'
 require 'globals.server_settings.combat'
 require 'globals.server_settings.crafting'
@@ -26,3 +24,4 @@ require 'globals.server_settings.allegiance'
 require 'globals.server_settings.group'
 require 'globals.server_settings.teleport'
 require 'globals.server_settings.executioner'
+require 'globals.server_settings.plot'

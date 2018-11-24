@@ -5,6 +5,9 @@ require 'base_ai_intelligent'
 AI.Settings.CanFlee = false
 AI.Settings.CanUseCombatAbilities = false
 
+AI.Settings.ChaseRange = 20.0
+AI.Settings.LeashDistance = 30
+
 --Special ability
 
 --[[RegisterEventHandler(EventType.Message, "HasDiedMessage",

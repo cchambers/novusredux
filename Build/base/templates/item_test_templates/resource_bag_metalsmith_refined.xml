@@ -20,9 +20,10 @@
 							LootItems = 
 							{ 	
 								{ Chance = 100, Template = "resource_iron", Unique = true, StackCount = 100 },
-								{ Chance = 100, Template = "resource_steel", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_copper", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_gold", Unique = true, StackCount = 100 },
 								{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCount = 100 },
-								{ Chance = 100, Template = "resource_cobalt_crystallized", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCount = 100 },
 							} 
 						},	
 					}

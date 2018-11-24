@@ -2,15 +2,36 @@ MobileEffectLibrary.Hide =
 {
 
 	OnEnterState = function(self,root,target,args)
+		if ( IsDead(self.ParentObj) ) then return EndMobileEffect(root) end
 		-- cpu is more valuable than memory, so let's cache this here.
 		self.IsPlayer = self.ParentObj:IsPlayer()
 
-		if ( args.Force ~= true and HasMobileEffect(self.ParentObj, "HuntersMark") ) then
-			if ( self.IsPlayer ) then
-				self.ParentObj:SystemMessage("You are revealed and cannot hide right now.", "info")
+		if ( args.Force ~= true ) then
+			if ( IsMobileDisabled(self.ParentObj) ) then
+				if ( self.IsPlayer ) then
+					self.ParentObj:SystemMessage("Cannot hide right now.", "info")
+				end
+				EndMobileEffect(root)
+				return
 			end
-			EndMobileEffect(root)
-			return
+			if ( HasMobileEffect(self.ParentObj, "HuntersMark") ) then
+				if ( self.IsPlayer ) then
+					self.ParentObj:SystemMessage("You are revealed and cannot hide right now.", "info")
+				end
+				EndMobileEffect(root)
+				return
+			end
+			if ( self.IsPlayer ) then
+				local nearbyMobs = FindObjects(SearchMobileInRange(ServerSettings.Combat.NoHideRange))
+				for i=1,#nearbyMobs do
+					local mob = nearbyMobs[i]
+					if not((ShareGroup(self.ParentObj,mob) or IsController(self.ParentObj,mob))) and mob:HasLineOfSightToObj(self.ParentObj,ServerSettings.Combat.LOSEyeLevel) then
+						self.ParentObj:SystemMessage("Cannot hide with others nearby.", "info")
+						EndMobileEffect(root)
+						return
+					end
+				end
+			end
 		end
 
 		-- prevent hiding right away after hide breaks.
@@ -21,8 +42,7 @@ MobileEffectLibrary.Hide =
 				ProgressBar.Cancel("Cannot Hide", self.ParentObj)
 			else
 				self.ParentObj:SystemMessage("Too soon to hide.", "info")
-				EndMobileEffect(root)
-				return
+				return EndMobileEffect(root)
 			end
 		end
 
@@ -35,11 +55,27 @@ MobileEffectLibrary.Hide =
 			return
 		end
 
+		local mountObj = GetMount(self.ParentObj)
+		if ( mountObj ) then DismountMobile(self.ParentObj, mountObj) end
+	
+		-- disallow combat
+		self.ParentObj:SendMessage("EndCombatMessage")
+		self.ParentObj:SetSharedObjectProperty("IsSneaking", true)
+		-- make them walk slower
+		SetMobileMod(self.ParentObj, "MoveSpeedTimes", "Sneak", -0.50) -- 50% slower
+
 		if ( self.IsPlayer ) then
 			self.ParentObj:SystemMessage("You are hidden.", "info")
 		end
 
 		self.ParentObj:StopMoving()
+
+		local nearbyAttackers = FindObjects(SearchMulti(
+		{
+			SearchMobileInRange(30),
+			SearchObjVar("CurrentTarget", self.ParentObj),
+		}))
+		for i=1,#nearbyAttackers do nearbyAttackers[i]:SendMessage("ClearTarget") end
 
 		-- this is so EndEffect knows to remove the meat and potatoes of the effect when it's over.
 		self.Hidden = true
@@ -74,8 +110,11 @@ MobileEffectLibrary.Hide =
 
 		-- Register handlers for the events we need to know about while hidden.
 
-		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function()
-			EndMobileEffect(root)
+		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
+			-- allow combat mode while hidden
+			if ( what ~= "Combat" ) then
+				EndMobileEffect(root)
+			end
 		end)
 
 		RegisterEventHandler(EventType.StartMoving, "", function()
@@ -181,12 +220,13 @@ MobileEffectLibrary.Hide =
 				CanCancel = false
 			})
 		end
-		self.ParentObj:SendMessage("EndSneak")
 		-- nothing more was applied unless we actually hid.
 		if ( self.Hidden ) then
 			self.ParentObj:SystemMessage("You have been revealed.", "info")
 
 			-- Do everything we did in OnEnterState, but the opposite:
+			self.ParentObj:SetSharedObjectProperty("IsSneaking", false)
+			SetMobileMod(self.ParentObj, "MoveSpeedTimes", "Sneak", nil)
 			self.ParentObj:SendMessage("RemoveInvisEffect", "Hiding")
 			if ( self.IsPlayer ) then
 				RemoveBuffIcon(self.ParentObj, "HidingBuff")

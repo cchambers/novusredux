@@ -592,7 +592,7 @@ end
 function Dialog.OpenAttackDialog(user)
     user:SendMessage("AdvanceQuest","OutlandsRebelQuest","BringMessageToRothchilde")
      this:NpcSpeech("...Traitor!!!")
-    PlayerTitles.EntitleFromTable(user,AllTitles.ActivityTitles.Stupid)
+    CheckAchievementStatus(user, "Other", "Stupid", nil, {Description = "", CustomAchievement = "Stupid", Reward = {Title = "Stupid"}})
     this:SendMessage("AttackEnemy",user)
 end
 

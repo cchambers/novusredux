@@ -565,3 +565,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
 
 RegisterEventHandler(EventType.Arrived, "GoToGravestone",AI.StateMachine.AllStates.GoToGravestone.OnArrived)
 RegisterEventHandler(EventType.Arrived, "Wander", AI.StateMachine.AllStates.Wander.OnArrived)
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

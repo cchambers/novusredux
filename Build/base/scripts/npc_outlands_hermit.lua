@@ -88,3 +88,8 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"Responses",function (user,
 		this:NpcSpeech("Then so be it. Bother me not.")
 	end
 end)
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

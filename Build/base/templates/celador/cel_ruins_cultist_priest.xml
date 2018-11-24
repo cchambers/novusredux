@@ -18,7 +18,7 @@
 			<Initializer>
 				{
 					Stats = { Str=120, Agi=120, Int=110 },
-					Skills = { Manifestation = 100, Channeling = 100, MagicAffinity = 100, Bashing = 100, Melee = 100 },
+					Skills = { Manifestation = 100, Channeling = 100, MagicAffinity = 100, Brawling = 100, Melee = 100 },
 					AvailableSpells = {"Fireball","Lightning","Icelance", "Heal", "Teleport","Bombardment","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
 					EquipTable = {
 						RightHand = { ""},

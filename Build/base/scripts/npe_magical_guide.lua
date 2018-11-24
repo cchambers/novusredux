@@ -69,7 +69,7 @@ RegisterEventHandler(EventType.Timer,"DoWorldUpdate",
 				local spawnLoc = GetNearbyPassableLoc(PlayerObj,360,2,4)
 				this:SetWorldPosition(spawnLoc)
 				this:PlayEffect("TeleportToEffect")
-				this:PlayObjectSound("TeleportToEffect")
+				this:PlayObjectSound("event:/magic/air/magic_air_teleport")
 			else
 				local speedMod = ServerSettings.Pets.Follow.Speed.OnFoot
 				if ( IsMounted(PlayerObj) ) then
@@ -125,6 +125,38 @@ function Dialog.OpenGuideDialog(user)
 	elseif ( HasMobileEffect(user, "LowVitality") ) then
 		table.insert(responses,1,{ text = "I'm exhausted. What do I do?", handle = "Exhausted"})
 	end
+
+	NPCInteraction(text,this,PlayerObj,"Responses",responses)
+end
+
+function Dialog.OpenWelcomeDialog(user)
+	RefreshAutoDimissTimer(5)
+
+	user = user or PlayerObj
+
+	local text = "Welcome to Celador! The gods have sent me to help you get started with your new life."
+
+	responses = {
+		{
+			text = "Got it.",
+			handle = "Welcome2",
+		},		
+	}
+
+	NPCInteraction(text,this,PlayerObj,"Responses",responses)
+end
+
+function Dialog.OpenWelcome2Dialog(user)
+	RefreshAutoDimissTimer(5)
+
+	local text = "Why don't you take some time to get used to your new surroundings. When you are ready to learn more, you can summon or converse with me at any time.\n\n(Click the blue icon on the bottom of the screen)"
+
+	responses = {
+		{
+			text = "Ok.",
+			handle = "TempDismiss",
+		},		
+	}
 
 	NPCInteraction(text,this,PlayerObj,"Responses",responses)
 end
@@ -290,7 +322,7 @@ function Dialog.OpenMakeMoneyDialog(user)
 end
 
 function Dialog.OpenMakeMoney2Dialog(user)
-	local text = "Those dedicated to the art of harvesting resources and crafting items make money by selling those items to other adventurers."
+	local text = "There are folk in town who will pay coin for honest work. Mission dispatchers will reward you for assisting them with specific threats. Adventurers are always seeking companions and can lead you to some interesting places."
 
 	responses = {
 		{
@@ -307,7 +339,41 @@ function Dialog.OpenMakeMoney2Dialog(user)
 end
 
 function Dialog.OpenMakeMoney3Dialog(user)
-	local text = "And then there are those who choose less honest means. There too are theives and bandits who get rich by plundering those who rightfully earned their coin. Although, I do not suggest a young fellow such as yourself start down that path."
+	local text = "Those dedicated to the art of harvesting resources and crafting items make money by selling those items to other adventurers."
+
+	responses = {
+		{
+			text = "Go on.",
+			handle = "MakeMoney4",
+		},		
+		{
+			text = "Nevermind.",
+			handle = "Guide",
+		},
+	}
+
+	NPCInteraction(text,this,user,"Responses",responses)	
+end
+
+function Dialog.OpenMakeMoney4Dialog(user)
+	local text = "In addition, blacksmiths, carpenters and tailors in town are always looking to reward an honest day's work. Ask any of these craftsmen for work, and they will issue you an order to craft any number of goods."
+
+	responses = {
+		{
+			text = "Go on.",
+			handle = "MakeMoney5",
+		},		
+		{
+			text = "Nevermind.",
+			handle = "Guide",
+		},
+	}
+
+	NPCInteraction(text,this,user,"Responses",responses)	
+end
+
+function Dialog.OpenMakeMoney5Dialog(user)
+	local text = "And then there are those who choose less honest means. There too are theives and bandits who get rich by plundering those who rightfully earned their coin. Although, I do not suggest a greenhorn such as yourself start down that path."
 
 	responses = {
 		{
@@ -331,7 +397,7 @@ function Dialog.OpenTrainSkillsDialog(user)
 end
 
 function Dialog.OpenHuntMonstersDialog(user)
-	local text = "The forces of evil are everywhere. However there are a few places near the main villages that young fellows like you can begin to make a name for yourself as a vanquisher of evil. I would start in either the sewers located beneath the village or the nearby graveyard."
+	local text = "The forces of evil are everywhere. However there are a few places near the main villages that folk like you can begin to make a name for yourself as a vanquisher of evil. I would start in either the sewers located beneath the village or the nearby graveyard."
 
 	responses = {
 		{
@@ -372,7 +438,7 @@ function Dialog.OpenCreateItems2Dialog(user)
 end
 
 function Dialog.OpenLearnAbilitiesDialog(user)
-	local text = "Aside from the abilities granted to you from the item you hold in your right hand, you can perform up to three additional special abilities.\n\nThese abilities are trained by the various prestige trainers found throughout Celador. These trainers require that you bring them the training manual for the associated ability and training experience. The training manuals for the first level of all trained abilities can be obtained from corpses of any monsters, but a good place to look for them is in the local graveyard or sewers."
+	local text = "Aside from the abilities granted to you from the item you hold in your right hand, you can perform up to three additional special abilities.\n\nThese abilities are trained by the various prestige trainers found throughout Celador. These trainers require that you bring them the training manual for the associated ability and that you have enough ability points. The training manuals for the most basic abilities can be obtained from corpses of any monsters, but a good place to look for them is in the local graveyard or sewers."
 
 	responses = {
 		{
@@ -428,7 +494,7 @@ function Dialog.OpenLearnSpells3Dialog(user)
 end
 
 function Dialog.OpenGetHouseDialog(user)
-	local text = "House blueprints can be purchased from carpentry shops. However, even the smallest cottages can be very expensive to own and maintain. I suggest you save every penny you can so that one day you can have a place to call home. Until then, the villages have almost everything you might need including a warm bed at the inn."
+	local text = "You must first obtain a land deed from the carpentry shop in town. I suggest you save every penny you can so can eventually afford one. Once you've got one, you can go out and find a small piece of the world you can call your own."
 
 	responses = {
 		{
@@ -440,7 +506,7 @@ function Dialog.OpenGetHouseDialog(user)
 end
 
 function Dialog.OpenHealSelfDialog(user)
-	local text = "There are many ways to heal yourself. Drinking healing potion will instantly heal you from damage you have taken.\n\nYou can also use bandages to heal from damage. Using bandage takes more time to recover and effectivenss of using bandage is determined by your experience with healing, so be aware of that."
+	local text = "There are many ways to heal yourself. You can eat food after battle to restore some health.\n\nMages can use the art of Manifestion to cast heal spells, and warriors will more often rely on bandages and potions to recover health in combat."
 
 	responses = {
 		{
@@ -454,8 +520,8 @@ end
 -- location answers
 
 function TownCheck(user)
-	local subregionName = GetSubregionName()
-	if(GetWorldName() ~= "NewCelador" or (subregionName ~= "UpperPlains" and subregionName ~= "SouthernHills" and subregionName ~= "SouthernRim" and subregionName ~= "EasternFrontier")) then 
+	local subregionName = ServerSettings.SubregionName
+	if(ServerSettings.WorldName ~= "NewCelador" or (subregionName ~= "UpperPlains" and subregionName ~= "SouthernHills" and subregionName ~= "SouthernRim" and subregionName ~= "EasternFrontier")) then 
 		local text = "You are really far from one of the main villages. Head back the way you came."
 		
 		NPCInteraction(text,this,user,"Responses")
@@ -565,7 +631,7 @@ function Dialog.OpenFindCraftDialog(user)
 			handle = "FindForge",
 		},		
 		{
-			text = "I want to practice Woodsmithing.",
+			text = "I want to practice Carpentry.",
 			handle = "FindCarpentry",
 		},		
 		{
@@ -602,7 +668,7 @@ end
 
 function DoFindTownObj(user,eldeirTemplate,valusTemplate,pyrosTemplate,helmTemplate)
 	local templateName = eldeirTemplate
-	local subregionName = GetSubregionName()
+	local subregionName = ServerSettings.SubregionName
 	if(valusTemplate ~= nil) then				
 		if(subregionName == "UpperPlains") then
 			templateName = eldeirTemplate
@@ -654,7 +720,7 @@ end
 function DoFindTownLoc(user,eldeirLocationName,valusLocationName,pyrosLocationName,helmLocationName)
 	local destLoc = nil
 	local destName = nil
-	local subregionName = GetSubregionName()
+	local subregionName = ServerSettings.SubregionName
 	if(subregionName == "UpperPlains") then
 		destLoc = MapLocations.NewCelador[eldeirLocationName]
 		destName = eldeirLocationName
@@ -738,6 +804,8 @@ RegisterEventHandler(EventType.Message, "UseObject", function(user, usedType)
 	end
 end)
 RegisterEventHandler(EventType.Message,"Interact", function ( ... )	Dialog.OpenGuideDialog(...) end)
+
+RegisterEventHandler(EventType.Message,"Welcome", function ( ... ) Dialog.OpenWelcomeDialog(...) end)
 
 RegisterEventHandler(EventType.LoadedFromBackup,"",
 	function ()

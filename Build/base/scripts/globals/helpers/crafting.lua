@@ -45,7 +45,7 @@ end
 function HasResources(resourceTable, user, quality)
 	local backpackObj = user:GetEquippedObject("Backpack")
 	if( backpackObj == nil ) then	
-		user:SystemMessage("You have no backpack equipped.")
+		user:SystemMessage("You have no backpack equipped.","info")
 		return false
 	end
 
@@ -175,7 +175,7 @@ function ApplyCraftedMaterialProperties(objRef, material, skillLevel)
 	-- pre-pend the name with the material
 	local name = StripColorFromString(objRef:GetName())
 	if ( ResourceData.ResourceInfo[material].CraftedItemPrefix ~= nil ) then
-		objRef:SetName(string.format("%s %s", ResourceData.ResourceInfo[material].DisplayName, name))
+		objRef:SetName(MaterialTooltipColors[ResourceData.ResourceInfo[material].CraftedItemPrefix]..ResourceData.ResourceInfo[material].CraftedItemPrefix.." "..name.."[-]")
 	else
 		objRef:SetName(name)
 	end
@@ -193,10 +193,13 @@ function ApplyCraftedMaterialProperties(objRef, material, skillLevel)
 
 	-- add weapon bonuses
 	if ( objRef:HasObjVar("WeaponType") ) then
-		local bonus = WeightedRandom(0, ServerSettings.Crafting.MaterialBonus.Attack.Max, ServerSettings.Crafting.MaterialBonus.Attack.Weight[material])
+		local attackBonus = WeightedRandom(0, ServerSettings.Crafting.MaterialBonus.Attack.Max, ServerSettings.Crafting.MaterialBonus.Attack.Weight[material])
+		local accuracyBonus = WeightedRandom(0, ServerSettings.Crafting.MaterialBonus.Accuracy.Max, ServerSettings.Crafting.MaterialBonus.Accuracy.Weight[material])
 		-- add the skill bonus
-		bonus = bonus + math.floor( ServerSettings.Crafting.SkillBonus.Attack.Max * skillPercent )
-		objRef:SetObjVar("AttackBonus", bonus)
+		attackBonus = attackBonus + math.floor( ServerSettings.Crafting.SkillBonus.Attack.Max * skillPercent )
+		--apply bonus
+		objRef:SetObjVar("AttackBonus", attackBonus)
+		objRef:SetObjVar("AccuracyBonus", accuracyBonus)
 		return
 	end
 

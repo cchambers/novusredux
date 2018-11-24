@@ -93,7 +93,6 @@ end
 function BroadcastSystemMessage(message)
 	ForEachPlayer(function (playerObj)
 			playerObj:SystemMessage(message,"event")
-			playerObj:SystemMessage(message)
 		end,true)
 end
 

@@ -15,7 +15,7 @@
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="empty_decay"/>
-		<LuaModule Name="base_mobile">
+		<LuaModule Name="base_player_corpse">
 			<Initializer>
 			{
 				EquipTable = {}

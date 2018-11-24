@@ -9,8 +9,7 @@ function HandleLoaded()
 		return
 	end
 	local cureSkill = GetSkillLevel(myCureSource,"ChannelingSkill")
-	this:SendMessage("CurePoison")
-	this:PlayEffect("HeadFlareEffect")
+	this:SendMessage("EndPoisonEffect")
 	EndEffect()
 end
 

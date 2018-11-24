@@ -26,7 +26,7 @@ function GetFormCategories()
 		return {'Mobiles','StartingTemplates','GodFavorites','TwoTowers'}
 	end
 
-	if(categoryName == "TwoTowers" and this:GetWorldName() == "TwoTowers") then
+	if(categoryName == "TwoTowers" and ServerSettings.WorldName == "TwoTowers") then
 	    local twoTowersController = FindObjectWithTag("MapController")
         if(twoTowersController ~= nil and twoTowersController:GetObjVar("FormChangeEnabled")) then
         	return {'TwoTowers'}

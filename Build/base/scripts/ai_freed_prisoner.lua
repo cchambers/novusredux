@@ -500,3 +500,7 @@ RegisterEventHandler(EventType.Arrived, "runAway", OnNextPath)
 
 this:SetObjVar("shouldRunAway",true)
 
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

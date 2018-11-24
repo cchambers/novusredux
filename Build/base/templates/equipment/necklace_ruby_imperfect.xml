@@ -1,0 +1,9 @@
+<ObjectTemplate>
+    <Name>[d9d9d9]Imperfect Ruby Necklace[-]</Name>
+	<ClientId>2238</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>   		
+		<StringVariable Name="JewelryType">RubyImperfect</StringVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

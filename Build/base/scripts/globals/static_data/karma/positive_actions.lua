@@ -2,7 +2,7 @@
 KarmaActions.Positive = {
     DailyLogin = {
         Adjust = 50,
-        UpTo = 5000,
+        UpTo = 2500,
     },
     SlayMonster = {
         Adjust = 1,

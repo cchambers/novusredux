@@ -62,12 +62,12 @@ end)
 local function ValidateHellportal(targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2601]")
+		this:SystemMessage("[$2601]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2602]")
+		this:SystemMessage("[$2602]","info")
 		return false
 	end
 	return true

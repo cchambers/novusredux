@@ -4,6 +4,8 @@
 	<SharedStateEntry name="Capacity" type="int" value="50"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">15</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
@@ -34,18 +36,25 @@
 							LootItems = 
 							{									
 								{ Weight = 35,Template = "potion_lheal", Unique = true },
-								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
-								{ Weight = 10, Template = "tool_mining_pick", Unique = true },
-    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-								{ Weight = 10, Template = "tool_shovel", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
 							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+				    		}
 						},
 
 						--regs
@@ -60,22 +69,6 @@
 								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
-
-						--ScrollsLow
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,	
-
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_cure", Unique = true },
-								{ Weight = 5, Template = "lscroll_poison", Unique = true },
-								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_defence", Unique = true },
-
-							},
-						},	
 					}
 				}
 			</Initializer>

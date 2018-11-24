@@ -38,10 +38,11 @@
 						{ Count = 8, TemplateId = "spider_hunter",    Region = "BlackForrestSpiders" }, 
 						{ Count = 6, TemplateId = "spider_vile",    Region = "BlackForrestSpiders" }, 
 						{ Count = 2, TemplateId = "spider_huntress",    Region = "BlackForrestSpiders", DelayMin=4, Chance=7 }, 
+						{ Count = 1, TemplateId = "spider_vile_boss",    Region = "BlackForrestSpiders", DelayMin=4, Chance=3},
 
 						--Dread
-						{ Count = 1, TemplateId = "dread",    Region = "Dread2", DelayMin=4, Chance=7},
-						{ Count = 1, TemplateId = "dread_black",    Region = "Dread2", DelayMin=10, Chance=1},
+						--{ Count = 1, TemplateId = "dread",    Region = "Dread2", DelayMin=4, Chance=7},
+						--{ Count = 1, TemplateId = "dread_black",    Region = "Dread2", DelayMin=10, Chance=1},
 
 						--Crocs
  						{ Count = 12, TemplateId = "crocodile",    Region = "BlackForrestSwamp", DelayMin=4 }, 

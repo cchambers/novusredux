@@ -9,7 +9,7 @@ SetDefaultInteraction(this,"Add item to order")
 
 function InitCraftingOrder()
 	if (this:GetObjVar("OrderInfo") == nil) then 
-		this:SetObjVar("OrderInfo", CraftingOrderDefines.MetalsmithSkill.CraftingOrders[math.random(1, #CraftingOrderDefines.MetalsmithSkill.CraftingOrders)])
+		this:SetObjVar("OrderInfo", CraftingOrderDefines.FabricationSkill.CraftingOrders[6])
 	end
 
 	local orderInfo = this:GetObjVar("OrderInfo")
@@ -22,12 +22,23 @@ function InitCraftingOrder()
 	local tooltip = "[ffffff]"..this:GetObjVar("CurrentAmount").."/"..this:GetObjVar("OrderAmount")
 	SetTooltipEntry(this,"amount",tooltip)
 
-	this:SetName("[FF0000]Craft Order: [-]"..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo())
+	this:SetName("Craft Order: "..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo())
+end
+
+function GetRecipeTemplateObjectName(recipeTable,material)
+	if (recipeTable == nil) then
+		LuaDebugCallStack("ERROR: recipeTable is nil") 
+	end
+	local materialName = ""
+	if ( material and Materials[material] and ResourceData.ResourceInfo[material].CraftedItemPrefix ~= nil ) then
+		materialName = ResourceData.ResourceInfo[material].CraftedItemPrefix .. " "
+	end
+	return materialName .. ( GetTemplateObjectName(recipeTable.CraftingTemplateFile) )
 end
 
 function GetItemNameFromOrderInfo()
 	if (this:GetObjVar("OrderInfo") ~= nil) then
-		return GetRecipeItemName(this:GetObjVar("OrderRecipe"), this:GetObjVar("OrderInfo").Material)
+		return GetRecipeTemplateObjectName(this:GetObjVar("OrderRecipe"), this:GetObjVar("OrderInfo").Material)
 	else 
 		return this:GetObjVar("OrderRecipe").DisplayName
 	end
@@ -42,30 +53,35 @@ function HandleSelectedTaskItem(target, user)
 	local orderInfo = this:GetObjVar("OrderInfo")
 	local crafter = target:GetObjVar("Crafter")
 
-	if (crafter == nil or orderInfo == nil) then return end
 
-	if not (crafter:IsValid()) then
-		user:SystemMessage("This crafting order is indecipherable.")
-		return 
-	end
+	if (orderInfo == nil) then return end
+
 	if (crafter ~= user) then
-		user:SystemMessage("This item was not created by you.")
+		user:SystemMessage("This item was not created by you.","info")
 		user:RequestClientTargetGameObj(this, "select_task_item")
 	 	return 
 	end
 
 	if (user ~= this:GetObjVar("OrderOwner")) then
-		user:SystemMessage("This crafting order was not issued to you.")
+		user:SystemMessage("This crafting order was not issued to you.","info")
 		user:RequestClientTargetGameObj(this, "select_task_item")
 	 	return 
 	end
 
+	-- DAB TODO: We should never identify an item by its name!!
+	local orderItemName = StripColorFromString(GetItemNameFromOrderInfo())
+	if(target:HasObjVar("UnpackedTemplate")) then
+		orderItemName = orderItemName .. " (Packed)"
+	end
+
+	local targetName = StripColorFromString(target:GetName())
 	if (target:GetObjVar("StackCount")) then
-		--DebugMessage(target:GetObjVar("SingularName").." "..GetItemNameFromOrderInfo())
-		if (target:GetObjVar("SingularName") ~= GetItemNameFromOrderInfo()) then return end
-	else
-		--if (GetItemNameFromOrderInfo() ~= target:GetName()) then return end
-		if (GetItemNameFromOrderInfo() ~= target:GetName()) then return end
+		targetName = StripColorFromString(target:GetObjVar("SingularName") or targetName)
+	end
+		
+	if (orderItemName ~= targetName) then 
+		user:SystemMessage("That is not the correct item for this order.","info")
+		return 
 	end
 
 	AddToOrder(target, user)
@@ -74,7 +90,7 @@ function HandleSelectedTaskItem(target, user)
 		if not (this:GetObjVar("OrderComplete")) then 
 			CompleteOrder(user)
 		else
-			user:SystemMessage("This order is already complete. Turn it in to a craftsman for your reward!")
+			user:SystemMessage("This order is already complete. Turn it in to a craftsman for your reward!","info")
 			return
 		end
 	end
@@ -101,10 +117,10 @@ function AddToOrder(target, user)
 	end
 
 	if (stackCount ~= nil) then
-		user:SystemMessage("Added "..amountToAdd.." "..GetItemNameFromOrderInfo().." to crafting order.")
+		user:SystemMessage("Added "..amountToAdd.." "..GetItemNameFromOrderInfo().." to crafting order.","info")
 		RequestConsumeResource(user,target:GetObjVar("ResourceType"), amountToAdd ,"ConsumeResourceResponse",this, target)
 	else
-		user:SystemMessage("Added "..GetItemNameFromOrderInfo().." to crafting order.")
+		user:SystemMessage("Added "..GetItemNameFromOrderInfo().." to crafting order.","info")
 		target:Destroy()
 	end
 
@@ -112,9 +128,10 @@ function AddToOrder(target, user)
 end
 
 function CompleteOrder(user)
-	user:PlayObjectSound("SkillGain")
+	user:PlayObjectSound("event:/ui/skill_gain", false)
 	user:SystemMessage("Crafting order complete. Turn in to craftsman for reward.", "info")
 	RemoveUseCase(this, "Add item to order")
+	SetDefaultInteraction(this, "Read order")
 	this:SetObjVar("OrderComplete", true)
 end
 
@@ -128,9 +145,9 @@ RegisterEventHandler(EventType.Message,"UseObject",function (user,useType)
     	if (useType == "Read order") then
     		local orderOwner = this:GetObjVar("OrderOwner")
     		if (orderOwner ~= nil) then
-    			user:SystemMessage("The order was issued to "..orderOwner:GetName().. " and calls for "..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo())
+    			user:SystemMessage("The order was issued to "..orderOwner:GetName().. " and calls for "..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo(),"info")
     		else
-    			user:SystemMessage("This order calls for "..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo())
+    			user:SystemMessage("This order calls for "..this:GetObjVar("OrderAmount").." "..GetItemNameFromOrderInfo(),"info")
     		end
     	end
 end)

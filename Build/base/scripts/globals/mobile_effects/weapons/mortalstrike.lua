@@ -14,7 +14,12 @@ MobileEffectLibrary.MortalStrike =
 		end
 
 		target:PlayEffect("BuffEffect_A")
-		self.ParentObj:PlayObjectSound("HumanMaleAttack")
+		
+		if (IsMale(self.ParentObj)) then
+			self.ParentObj:PlayObjectSound("event:/character/human_male/human_male_attack")
+		else
+			self.ParentObj:PlayObjectSound("event:/character/human_female/human_female_attack")
+		end
 
 		SetCombatMod(self.ParentObj, "AttackTimes", "MortalStrike", self.AttackModifier)
 		self.ParentObj:SendMessage("ExecuteHitAction", target, "RightHand", false)

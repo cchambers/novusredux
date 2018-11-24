@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=110, 
+					Brawling = 110, 
 					Evocation=110,
 					Channeling=110,
 					},	
@@ -51,6 +51,11 @@
 						TemplateDefines.LootTable.Boss,
 						{
 							NumCoins = math.random(1500,2800),
+							NumItems = 2,
+					    	LootItems = {
+				    			{ Chance = 20, Template = "animalparts_meat_dragon"},
+				    			{ Chance = 20, Template = "animalparts_meat_dragon"},
+				    		},
 						},
 					},	
 				ScavengeTables =
@@ -65,6 +70,8 @@
 			<Initializer>
 				{
 					MeatCount = 1,	
+
+					MeatType = "DragonMeat",
 					AnimalParts =
 					{
 						{ ResourceType="VileLeatherHide", RarityPct=100, Count=7 },

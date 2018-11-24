@@ -21,7 +21,7 @@ function GetMinimumCraftingOrders(user)
 					end
 				end
 			else
-				DebugMessage("[Recipe "..order.Recipe.." does not exist]")
+				--DebugMessage("[Recipe "..order.Recipe.." does not exist]")
 			end
 		end
 	end
@@ -44,7 +44,6 @@ function PickCraftingOrder(user)
 
 		for i = 1, #availableOrders, 1 do
 			local order = availableOrders[i]
-
 			--Add Skill Weight
 			weightScores[i] = (weightScores[i] or 0) + GetRecipeSkillRequired(user, order.Recipe, order.Material)
 
@@ -52,6 +51,7 @@ function PickCraftingOrder(user)
 			weightScores[i] = weightScores[i] + GetCraftingOrderMaterialWeight(user, order)
 
 			--Add Amount Weight
+			--DebugMessage(GetCraftingOrderAmountWeight(user, order))
 			weightScores[i] = weightScores[i] + GetCraftingOrderAmountWeight(user, order)
 
 			weightScores[i] = weightScores[i] * weightScores[i]
@@ -103,13 +103,18 @@ function PickCraftingOrder(user)
 end
 
 function GetCraftingOrderAmountWeight(user, order)
+
+	local currentWeight = 1
 	for i, j in pairs(CraftingOrderTable["AmountWeights"]) do
 		--user:SystemMessage(j.Amount.." "..order.Amount)
+
+		currentWeight = j.Weight
+
 		if (j.Amount >= order.Amount) then
 			return tonumber(j.Weight)
 		end
-	end	
-	return nil
+	end
+	return currentWeight
 end
 
 function GetCraftingOrderMaterialWeight(user, order)
@@ -125,10 +130,7 @@ end
 function AddCommission(user, orderInfo)
 	--If player is already commissioned, pull up corresponding order and set new order info
 	if (GetCommission(user) ~= nil) then return end
-	local commissions = this:GetObjVar("Commissions")
-	if (commissions == nil) then
-		commissions = {}
-	end
+	local commissions = this:GetObjVar("Commissions") or {}
 
 	--Commission includes the order info, and wether it's been accepted by the player
 	commissions[user] = {orderInfo, false}
@@ -184,25 +186,66 @@ function HandleOrderSubmission(target, user)
 
 	--If the order is complete, issue reward and destroy the order.
     if (target:GetObjVar("OrderComplete")) then
+    	if (CraftingOrderTable == nil) then
+			CraftingOrderTable = CraftingOrderDefines[this:GetObjVar("CraftOrderSkill")]
+		end
+
         target:Destroy()
+
+        user:SystemMessage("Completed Crafting Order", "info")
+		user:PlayEffect("HealEffect")
+		user:PlayObjectSound("event:/ui/quest_complete",false)
 
         text = "Everything checks out. Here's your payment. If you need more work, feel free to check in with me. I might have something more fruitful for you."
         response[1].text = "You're welcome"
         
+        --Reset commission
+        local commissions = this:GetObjVar("Commissions") or {}
+        commissions[user] = nil
+        this:SetObjVar("Commissions", commissions)
+
         --Handle reward
         CreateStackInBackpack(user,"coin_purse", CraftingOrderDefines.Coins[orderInfo.RewardCoins])
-    	LootTables.SpawnLoot(target:GetObjVar("OrderInfo").LootTables,user:GetEquippedObject("Backpack"))
+    	local templatesSpawned = LootTables.SpawnLoot(target:GetObjVar("OrderInfo").LootTables,user:GetEquippedObject("Backpack"))
+
+    	local lifetimeStats = user:GetObjVar("LifetimePlayerStats")
+    	lifetimeStats.CraftingOrdersDone = (lifetimeStats.CraftingOrdersDone or 0) + 1
+    	CheckAchievementStatus(user, "Crafting", "CraftingOrder", lifetimeStats.CraftingOrdersDone)
 
     	if (target:GetObjVar("OrderInfo").RewardRecipes ~= nil) then
     		local recipeRewards = target:GetObjVar("OrderInfo").RewardRecipes
     		if (recipeRewards ~= nil) then
 	    		if (CraftingOrderTable.CraftingOrderRecipes[recipeRewards] ~= nil) then
-	    			LootTables.SpawnLoot(CraftingOrderTable.CraftingOrderRecipes[recipeRewards], user:GetEquippedObject("Backpack"))
+	    			local loot = LootTables.SpawnLoot(CraftingOrderTable.CraftingOrderRecipes[recipeRewards], user:GetEquippedObject("Backpack"))
+	    			for index, lootName in pairs(loot) do
+	    				table.insert(templatesSpawned, lootName)
+	    			end
 		    	end
 		    end
 	    else
-    		LootTables.SpawnLoot(CraftingOrderTable.CraftingOrderRecipes, user:GetEquippedObject("Backpack"))
+    		local loot = LootTables.SpawnLoot(CraftingOrderTable.CraftingOrderRecipes, user:GetEquippedObject("Backpack"))
+    		for index, lootName in pairs(loot) do
+				table.insert(templatesSpawned, lootName)
+			end
 	    end
+
+    	local rewardString = "You have recieved "
+    	if (#templatesSpawned > 1) then
+	    	for index, templateName in pairs(templatesSpawned) do
+	    		local templateData = GetTemplateData(templateName)
+	    		if (index >= #templatesSpawned) then
+	    			rewardString = rewardString.." and "..templateData.Name
+	    		else
+	    			rewardString = rewardString..templateData.Name..", "
+	    		end
+	    	end
+	    else
+	    	local templateData = GetTemplateData(templatesSpawned[1])
+	    	rewardString = rewardString.." "..templateData.Name
+	    end
+
+	    rewardString = rewardString.."."
+    	user:SystemMessage(rewardString,"info")
     	--DebugMessage(target:GetObjVar("OrderInfo").LootTables[1].LootItems[1].StackCountMin.." stack count min")
 
     	seed = math.random(1,3)

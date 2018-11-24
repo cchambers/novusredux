@@ -9,12 +9,10 @@ function PrestigePostCastBow(player, target)
     PerformClientArrowShot(player, target)
 end
 
-require 'globals.static_data.prestige.fieldmage'
-require 'globals.static_data.prestige.gladiator'
-require 'globals.static_data.prestige.knight'
+require 'globals.static_data.prestige.fighter'
 require 'globals.static_data.prestige.rogue'
-require 'globals.static_data.prestige.scout'
-require 'globals.static_data.prestige.sorcerer'
+require 'globals.static_data.prestige.mage'
+--require 'globals.static_data.prestige.monk'
 require 'globals.static_data.prestige.crafter'
 require 'globals.static_data.prestige.npc'
 require 'globals.static_data.prestige.skills'

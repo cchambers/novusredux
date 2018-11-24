@@ -205,7 +205,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Interact",
 					for i,j in pairs(money) do
 						j:MoveToContainer(backpackObj,randomLoc)
 					end
-					user:SystemMessage("You received "..amount.." coins!")
+					user:SystemMessage("You received "..amount.." coins!","info")
 				end
 			end
 			ProvokeCultists(user)
@@ -221,7 +221,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Interact",
 
 			local lifetimeStats = user:GetObjVar("LifetimePlayerStats")
 			lifetimeStats.SlavesFreed = (lifetimeStats.SlavesFreed or 0) + 1
-			PlayerTitles.CheckTitleGain(user,AllTitles.ActivityTitles.SlaveFreer,lifetimeStats.SlavesFreed)
+			CheckAchievementStatus(user, "Other", "SlavesFreed", nil, {Description = "", CustomAchievement = "Slaves Freed", Reward = {Title = "Slaves Freed"}})
 			user:SetObjVar("LifetimePlayerStats",lifetimeStats)
 
 			local firstName = this:GetObjVar("FirstName")

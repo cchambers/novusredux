@@ -7,117 +7,7 @@ mShowOffline = true
 mCurPage = 1
 mNumPages = 0
 mSelectedMemberId = nil
-
-function ShowCreateGuild()
-	TextFieldDialog.Show{
-        TargetUser = this,
-        Title = "Create Guild",
-        DialogId = "Create Guild",
-        Description = "Enter the guild name.",
-        ResponseFunc = function(user,newName)
-        	if(newName ~= nil and newName ~= "") then
-        		-- dont allow colors in guild names
-        		newName = StripColorFromString(newName)
-
-        		-- DAB TODO: VALIDATE GUILD NAME!
-        		if (string.len(newName) < 4) then
-			 		this:SystemMessage("The guild name must longer than 3 characters.")
-			 		return
-			 	end
-
-        		if (string.len(newName) > 35) then
-			 		this:SystemMessage("The guild name must be less than 36 characters.")
-			 		return
-			 	end
-
-			 	if(#newName:gsub("[%a ]","") ~= 0) then
-				    this:SystemMessage("[$1696]")
-			 		return
-				end
-
-        		if(ServerSettings.Misc.EnforceBadWordFilter and HasBadWords(newName)) then
-    		 		this:SystemMessage("[$1697]")
-    		 		return
-    		 	end
-
-				if (g ~= nil) then
-					this:SystemMessage("You are already in a guild")
-					return
-				end
-
-				local guildInvite = this:GetObjVar("GuildInvitation")
-
-				if (guildInvite ~= nil) then
-					user:SystemMessage("You are already considering joining another guild")
-					return
-				end
-
-				--TODO GW hack to use same window id for sub window. Should re-work into proper dynamic window state system.
-				CallFunctionDelayed(TimeSpan.FromSeconds(0.25), function()
-					ShowCreateGuildTag(newName)
-					end)
-				
-	        end
-        end
-    }            
-end
-
-function ShowCreateGuildTag(newName)
-	TextFieldDialog.Show{
-        TargetUser = this,
-        Title = "Guild Tag",
-        DialogId = "Create Guild",
-        Description = "[$1698]",
-        ResponseFunc = function(user,tag)
-        	if(tag ~= nil and tag ~= "") then
-        		-- dont allow colors in guild names
-        		tag = StripColorFromString(tag)
-
-        		-- DAB TODO: VALIDATE GUILD NAME!
-        		if (string.len(tag) < 2) then
-			 		this:SystemMessage("The guild tag must be more than 1 character.")
-			 		return
-			 	end
-
-        		if (string.len(tag) > 4) then
-			 		this:SystemMessage("The guild tag must be less than 4 characters.")
-			 		return
-			 	end
-
-			 	if(tag:match("%A")) then
-				    this:SystemMessage("The guild tag can only contain letters.")
-			 		return
-				end
-
-        		if(ServerSettings.Misc.EnforceBadWordFilter and HasBadWords(tag)) then
-    		 		this:SystemMessage("[$1699]")
-    		 		return
-    		 	end
-
-	        	local g = Guild.Get(this)
-
-				if (g ~= nil) then
-					this:SystemMessage("You are already in a guild")
-					return
-				end
-
-				local guildInvite = this:GetObjVar("GuildInvitation")
-
-				if (guildInvite ~= nil) then
-					user:SystemMessage("You are already considering joining another guild")
-					return
-				end
-
-				if(Guild.IsTagUnique(tag) == false) then
-					user:SystemMessage("This guild tag is already in use")
-					return
-				end
-
-				Guild.TryCreate(this,newName,tag)
-	        end
-        end
-    }      
-end
+mGuildWindowOpen = false
 
 function ShowMessageEditWindow(messageType)
 	TextFieldDialog.Show{
@@ -132,7 +22,7 @@ function ShowMessageEditWindow(messageType)
         		
         		-- DAB TODO: VALIDATE GUILD NAME!
         		if (string.len(newName) > 250) then
-			 		this:SystemMessage("The message must be less than 250 characters.")
+			 		this:SystemMessage("The message must be less than 250 characters.","info")
 			 		return
 			 	end
 
@@ -148,7 +38,7 @@ function ShowLeaveGuildConfirm()
 	local g = Guild.Get(this)
 
 	if (g == nil) then
-		user:SystemMessage("You are not in a guild");
+		user:SystemMessage("You are not in a guild","info");
 		return
 	end
 
@@ -170,6 +60,7 @@ function ShowLeaveGuildConfirm()
 				if (buttonId == 0) then
 					Guild.Disband(this)
 					this:CloseDynamicWindow("GuildWindow")
+					mGuildWindowOpen = false
 					return
 				end
 			end,
@@ -192,6 +83,7 @@ function ShowLeaveGuildConfirm()
 				if (buttonId == 0) then
 					Guild.Remove(user, g)
 					this:CloseDynamicWindow("GuildWindow")
+					mGuildWindowOpen = false
 					return
 				end
 			end,
@@ -271,9 +163,11 @@ function GuildInfo()
 	local resultTable = {}
 
 	if (g == nil) then		
-		ShowCreateGuild()
+		this:SystemMessage("You are not in a guild","info");
 		return
 	end
+
+	mGuildWindowOpen = true
 
 	-- populate the table with is online
 	for id,memberData in pairs(g.Members) do
@@ -416,6 +310,13 @@ function GuildInfo()
 
 	this:OpenDynamicWindow(newWindow)
 end
+RegisterEventHandler(EventType.Message,"UpdateGuildInfo",
+	function()
+		if(mGuildWindowOpen) then
+			GuildInfo()
+		end
+	end)
+RegisterEventHandler(EventType.Message,"OpenGuildInfo",GuildInfo)
 
 RegisterEventHandler(EventType.DynamicWindowResponse,"GuildWindow",
 	function ( user, buttonId )
@@ -537,5 +438,16 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GuildWindow",
 				mSelectedMemberId = nil
 				GuildInfo()
 			end
+		elseif(buttonId == "" or buttonId == nil) then
+			mGuildWindowOpen = false
 		end
 	end)
+
+function ToggleGuildWindow()
+	if(mGuildWindowOpen) then
+		mGuildWindowOpen = false
+		this:CloseDynamicWindow("GuildWindow")
+	else
+		GuildInfo()
+	end
+end

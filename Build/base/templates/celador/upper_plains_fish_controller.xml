@@ -13,11 +13,33 @@
 					-- order matters here!
 					FishRegions = {						
 						{
+							Region = "WaterUpperNorthPond",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},
+						{
+							Region = "WaterUpperNorthEastPond",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},
+						{
 							Region = "Water",
 							Fish = {
-								Barrelfish = 80,						
-								Terofish = 19,							
-								SpottedTerofish = 1,
+								Barrelfish = 60,						
+								Terofish = 30,							
+								SpottedTerofish = 10,
 							}
 						},
 					}

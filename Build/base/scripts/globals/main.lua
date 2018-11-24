@@ -50,7 +50,7 @@ NEW_PLAYER_GUILD_ID = "0000"
 
 
 
-if(EDITMODE == true) then
+if(ServerSettings.EditMode == true) then
 	require 'globals.editmode'
 end
 
@@ -59,8 +59,6 @@ require 'globals.htmlwindows.htmlwindows'
 require 'globals.helpers.main'
 require 'globals.mobile_effects.main'
 require 'globals.special_effects.main'
-
-require 'globals.patch_notes.main'
 
 -- Common global variables
 -- Lua Helpers
@@ -504,3 +502,6 @@ end
 Statistics = {
 	ItemsCrafted = "ItemsCrafted"
 }
+
+-- uncomment this on test map to run tests
+--require 'globals.tests.main'

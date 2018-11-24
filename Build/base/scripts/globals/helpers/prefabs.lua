@@ -14,18 +14,15 @@ end
 
 -- Checks to see if the specified bounds overlap trees, houses, or camps
 function CheckBounds(relativeBounds,allowStumps)
-	local boundsCenter = Loc(relativeBounds.Center)
-	local nearbyHouses = GetNearbyHouses(boundsCenter,100)
-	for i,houseControlObj in pairs(nearbyHouses) do
-		local otherBounds = GetHouseControlPlot(houseControlObj)
-		if(otherBounds ~= nil) then
-			if(otherBounds:Intersects(relativeBounds)) then
-				return false,"House"
-			end
+	local points = relativeBounds.Points
+	points[#points+1] = relativeBounds.Center
+	for i=1,#points do
+		if ( Plot.GetAtLoc(points[i]) ~= nil ) then
+			return false,"House"
 		end
 	end
 
-	local nearbyPrefabs = GetNearbyCamps(boundsCenter,100)
+	local nearbyPrefabs = GetNearbyCamps(Loc(relativeBounds.Center),100)
 	for i,nearbyPrefab in pairs(nearbyPrefabs) do
 		local prefabName = nearbyPrefab:GetObjVar("PrefabName")
 		if(prefabName) then

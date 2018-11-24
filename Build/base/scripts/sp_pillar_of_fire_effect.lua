@@ -5,12 +5,12 @@ local mPillarActive = false
 local function ValidatePillarOfFire(targetLoc)
 
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[$2616]")
+		this:SystemMessage("[$2616]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2617]")
+		this:SystemMessage("[$2617]","info")
 		return false
 	end
 	return true
@@ -25,7 +25,7 @@ RegisterEventHandler(EventType.Message,"PillaroffireSpellTargetResult",
 		if(mPillarActive == false) then
 			mTargetLoc = targetLoc
 		end
-		this:PlayObjectSound("PillarofFire", false)
+		this:PlayObjectSound("event:/magic/fire/magic_fire_pillar_of_fire", false)
 		PlayEffectAtLoc("FireTornadoEffect",mTargetLoc, 5)
 		local mobiles = FindObjects(SearchMulti({
 						SearchRange(mTargetLoc,PILLAROFFIRE_DAMAGE_RANGE),

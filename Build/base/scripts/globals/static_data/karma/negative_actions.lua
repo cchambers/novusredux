@@ -1,35 +1,71 @@
 
 --[[
     Negative actions, obviously, are only applicable to 'bad' player choices.
-    (ie LootContainer should never apply when looting something from your bank or a mob you killed for example, but should apply if the thing you're looting has positive Karma)
+    (ie LootPlayerContainer should never apply when looting something from your bank or a mob you killed for example, but should apply if the thing you're looting has positive Karma)
 ]]
 
 KarmaActions.Negative = {
+    Nothing = {
+        Adjust = 0,
+    },
     Attack = {
-        Adjust = -50,
+        Adjust = -100,
+        UpTo = -9999,
         NpcModifier = 0.5,
         EndInitiate = true,
+        PvPMods = {
+            Innocent = 1,
+            Neutral = 0,
+            Chaos = 1,
+            Outcast = 0,
+        },
+        -- when preventing attacking, we also need to prevent murders since attacking leads to murders and we can't deny a kill.
+        PreventAdditional = "Murder"
     },
-    -- This applies to looting players bodies as well as anything with ObjVar Karma
-    LootContainer = {
-        Adjust = -10,
+    -- This applies to looting players bodies as well, containers players own (like pets too)
+    LootPlayerContainer = {
+        Adjust = -1000,
+        UpTo = -9999,
         NpcModifier = 0.25,
         EndInitiate = true,
+        PvPMods = {
+            Innocent = 1,
+            Neutral = 1,
+            Chaos = 0,
+            Outcast = 0,
+        }
     },
     LootUnownedKill = {
-        Adjust = -25,
+        Adjust = -250,
+        UpTo = -9999,
         NpcModifier = 1, -- set to 1 to negate the effects of this modifer for this action since this only applies to npcs (corpses n such)
         EndInitiate = true,
+        PvPMods = {
+            Innocent = 1,
+            Neutral = 1,
+            Chaos = 0,
+            Outcast = 0,
+        },
+        Range = 30,
     },
     Murder = {
-        Adjust = -500,
+        Adjust = -10000,
         NpcModifier = 0.1,
         EndInitiate = true,
+        PvPMods = {
+            Innocent = 1,
+            Neutral = 1,
+            Chaos = 0,
+            Outcast = 0,
+        },
+        Range = 60,
     },
     -- applies when a player performs a benefical act on a karma level set to punish beneficial acts
     PunishForBeneficial = {
-        Adjust = -50,
+        Adjust = -500,
+        UpTo = -9999,
         NpcModifier = 0.1,
         EndInitiate = true,
+        Beneficial = true,
     },
 }

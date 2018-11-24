@@ -19,7 +19,9 @@
 						    NumItems = 1,
 							LootItems = 
 							{ 	
-								{ Chance = 100, Template = "resource_blankscroll", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_frayed_scroll", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_fine_scroll", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_ancient_scroll", Unique = true, StackCount = 100 },
 							} 
 						},	
 					}

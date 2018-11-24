@@ -4,7 +4,6 @@ CharacterCustomization = {
 		{Name = "Male B",Template = "head_male02"},
 		{Name = "Male C",Template = "head_male03"},
 		{Name = "Male D",Template = "head_male04"},
-		{Name = "Male E",Template = "head_male05"},
 	},
 	FaceTypesFemale = {
 		{Name = "Female A",Template = "head_female01"},
@@ -133,8 +132,15 @@ CharacterCustomization = {
 	},
 
 	StartingItems = {
+		{ Skill = "", Items = { "torch" } },
+		{ Skill = "", Items = { "tool_hunting_knife" } },
+		{ Skill = "", Items = { {"item_bread", 5} } },
+		{ Skill = "", Items = { "hearthstone" } },
+		{ Skill = "", Items = { {"coin_purse", 100} } },
 		{ Skill = "MeleeSkill", Items = { {"bandage", 10 } } },
-		{ Skill = "HealingSkill", Items = { {"bandage", 10 } } },
+		{ Skill = "MeleeSkill", Items = { "armor_leather_leggings" } },
+		{ Skill = "MeleeSkill", Items = { "armor_leather_chest"  } },
+		{ Skill = "HealingSkill", Items = { {"bandage", 50 } } },
 		{ Skill = "PiercingSkill", Items = { "weapon_kryss" }},
 		{ Skill = "SlashingSkill", Items = { "weapon_saber"}},
 		{ Skill = "LancingSkill", Items = { "weapon_spear" }},
@@ -145,6 +151,8 @@ CharacterCustomization = {
 		{ Skill = "ManifestationSkill", Items = { "spellbook_noob", "reagent_bag_noob" } },
 		{ Skill = "EvocationSkill", Items = { "spellbook_noob", "reagent_bag_noob" } },
 		{ Skill = "ChannelingSkill", Items = { "spellbook_noob", "reagent_bag_noob" } },
+		{ Skill = "ChannelingSkill", Items = { "robe_padded_leggings"  } },
+		{ Skill = "ChannelingSkill", Items = { "robe_padded_tunic"  } },
 		{ Skill = "MagicAffinitySkill", Items = { "spellbook_noob", "reagent_bag_noob" } },
 		{ Skill = "CookingSkill", Items = { "tool_cookingpot" } },
 		{ Skill = "FishingSkill", Items = { "tool_fishing_rod" } },
@@ -160,10 +168,10 @@ CharacterCustomization = {
 	},
 
 	StartingTrades = {
-		{ Name = "Warrior", Skills = { {"SlashingSkill", 30 },  {"MeleeSkill", 30 }, {"HealingSkill", 20 }, {"None", 0 } } },
-       	{ Name = "Mage", Skills = { {"ManifestationSkill", 30 }, {"EvocationSkill", 30 }, {"MagicAffinitySkill", 20 }, {"None", 0 } } },
+		{ Name = "Warrior", Skills = { {"SlashingSkill", 30 },  {"MeleeSkill", 30 }, {"HealingSkill", 20 }, {"BlockingSkill", 20 } } },
+       	{ Name = "Mage", Skills = { {"ManifestationSkill", 30 }, {"EvocationSkill", 30 }, {"MagicAffinitySkill", 20 }, {"ChannelingSkill", 20 } } },
        	{ Name = "Archer", Skills = { {"ArcherySkill", 30 }, {"MeleeSkill", 30 }, {"HealingSkill", 20 }, {"None", 0 } } },
-       	{ Name = "Blacksmith", Skills = { {"MetalsmithSkill", 30 },  {"MiningSkill", 30 }, {"BashingSkill", 20 }, {"None", 0 } } },
+       	{ Name = "Blacksmith", Skills = { {"MetalsmithSkill", 30 },  {"MiningSkill", 30 }, {"BashingSkill", 20 }, {"MeleeSkill", 20 } } },
 		{ Name = "Advanced", Skills = {  {"None", 0 },  {"None", 0 }, {"None", 0 }, {"None", 0 } } },
 	}
 }

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Nectar[-]</Name>
+	<ClientId>1017</ClientId>
+	<Color>0xFFF0F0F0</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Nectar</StringVariable>	
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

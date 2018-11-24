@@ -1,12 +1,12 @@
 <ObjectTemplate>
-  <Name>[FF0000]Alchemy Table[-]</Name>
+  <Name>Alchemy Table</Name>
 	<ClientId>894</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ToolType">AlchemyTable</StringVariable>
 		<StringVariable Name="ToolSkill">AlchemySkill</StringVariable>	
 		<StringVariable Name="ToolAnimation">alchemy</StringVariable>
-		<StringVariable Name="ToolSound">Alchemy</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/alchemy/alchemy</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent> 
 		<LuaModule Name="crafting_alchemy"/>

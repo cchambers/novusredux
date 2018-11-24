@@ -2,7 +2,7 @@
 Weapon = {}
 
 Weapon.GetPrimary = function(mobileObj)
-	if ( mobileObj ~= nil ) then
+	if ( mobileObj ~= nil and mobileObj:IsPlayer()) then
 		return mobileObj:GetEquippedObject("RightHand")
 	end
 	return nil
@@ -46,7 +46,7 @@ Weapon.GetSkill = function(weaponType)
 		and ES.BaseWeaponClass[ES.BaseWeaponStats[weaponType].WeaponClass].WeaponSkill ) then
 		return ES.BaseWeaponClass[ES.BaseWeaponStats[weaponType].WeaponClass].WeaponSkill
 	end
-	return "BashingSkill"
+	return "BrawlingSkill"
 end
 
 Weapon.GetDamageType = function(weaponType)
@@ -85,4 +85,9 @@ end
 Weapon.GetAttackBonus = function(weaponObj)
 	if ( weaponObj == nil ) then return 0 end
 	return weaponObj:GetObjVar("AttackBonus") or 0
+end
+
+Weapon.GetAccuracyBonus = function(weaponObj)
+	if ( weaponObj == nil ) then return 0 end
+	return weaponObj:GetObjVar("Accuracy") or 0
 end

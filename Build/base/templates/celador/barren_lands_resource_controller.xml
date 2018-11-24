@@ -18,24 +18,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -49,24 +49,24 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 60,
-										Count = 20, 
+										AvailablityPct = 30,
+										Count = 40, 
 									},
 									CopperOre = {
+										AvailablityPct = 25,
+										Count = 40, 
+									},
+									GoldOre = {
 										AvailablityPct = 20,
-										Count = 12, 
+										Count = 40, 
 									},
-									BronzeOre = {
-										AvailablityPct = 10,
-										Count = 12, 
-									},
-									SteelOre = {
-										AvailablityPct = 7,
-										Count = 12, 
+									CobaltOre = {
+										AvailablityPct = 15,
+										Count = 40, 
 									},
 									ObsidianOre = {
-										AvailablityPct = 3,
-										Count = 12, 
+										AvailablityPct = 10,
+										Count = 40, 
 									},
 								}
 							},
@@ -109,18 +109,12 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 5,
-										Count = 20, 
+										AvailablityPct = 0,
+										Count = 10, 
 									},
 								}
 							},
 						},						
-					},
-
-					SpawnedSources = 
-					{						
-						{ MaxCount = 250, Region = "Subregion-BarrenLands" , Resource = "Cactus"},
-						{ MaxCount = 250, Region = "Subregion-BarrenLands" , Resource = "Kindling"},
 					},
 				}
 			</Initializer>

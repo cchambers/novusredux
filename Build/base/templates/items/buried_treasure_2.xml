@@ -4,6 +4,8 @@
 	<SharedStateEntry name="Capacity" type="int" value="50"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">55</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
@@ -37,20 +39,34 @@
 							LootItems = 
 							{									
 								{ Weight = 35,Template = "potion_lheal", Unique = true },
-								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
-								{ Weight = 10, Template = "tool_mining_pick", Unique = true },
-    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-								{ Weight = 10, Template = "tool_shovel", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
 								{ Weight = 4, Template = "treasure_map_1", Unique = true },
 								{ Weight = 3, Template = "treasure_map_2", Unique = true },
 							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+
+				    			{ Chance = 1, Template = "necklace_ruby_imperfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_sapphire_imperfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_topaz_imperfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_sapphire_imperfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_ruby_imperfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_topaz_imperfect", Unique = true },
+				    		}
 						},
 
 						--regs
@@ -68,8 +84,8 @@
 
 						--ScrollsLow
 						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,	
+							NumItemsMin = 0,
+							NumItemsMax = 1,	
 
 							LootItems = 
 							{ 
@@ -77,23 +93,8 @@
 								{ Weight = 5, Template = "lscroll_cure", Unique = true },
 								{ Weight = 5, Template = "lscroll_poison", Unique = true },
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_defence", Unique = true },
+								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
 
-							},
-						},	
-
-						--ScrollsMed
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,	
-
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
-								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
-								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
-								{ Weight = 5, Template = "lscroll_attack", Unique = true },
 							},
 						},	
 					}

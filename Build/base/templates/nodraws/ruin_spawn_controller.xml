@@ -30,7 +30,9 @@
 
 					    { Count = 3, TemplateId = "skeleton_mage", Region = "RoomA16", DelayMin=4 }, 
 
-					    { Count = 4, TemplateId = "ruin_lich_lord", Region = "RoomA15", DelayMin=4 }, 
+					  --  { Count = 4, TemplateId = "ruin_lich_lord", Region = "RoomA15", DelayMin=4 }, 
+
+					   -- { Count = 1, TemplateId = "lich_lord_boss", Region = "RoomA15", Chance=3, DelayMin=4 },
 
 						{ Count = 2, TemplateId = "mummy", Region = "RoomA3", DelayMin=4 },
 

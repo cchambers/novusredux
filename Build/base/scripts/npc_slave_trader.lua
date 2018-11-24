@@ -443,7 +443,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Actions",
 
 			text="Who are you looking to sell, good sir?"
 
-			user:SystemMessage("What prisoner to you wish to sell?")
+			user:SystemMessage("What prisoner to you wish to sell?","info")
 			user:RequestClientTargetGameObj(this, "sellSlave")
 
 			response = {}
@@ -514,7 +514,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Actions",
 			
 			local lifetimeStats = user:GetObjVar("LifetimePlayerStats")
 			lifetimeStats.SlavesTraded = (lifetimeStats.SlavesTraded or 0) + 1
-			PlayerTitles.CheckTitleGain(user,AllTitles.ActivityTitles.SlaveTrader,lifetimeStats.SlavesTraded)
+			CheckAchievementStatus(user, "Other", "SlaveTrader", nil, {Description = "", CustomAcheivement = "Slave Trader", Reward = {Title = "Slave Trader"}})
 			user:SetObjVar("LifetimePlayerStats",lifetimeStats)
 
 			--give the slave over to the trader
@@ -697,3 +697,9 @@ RegisterEventHandler(EventType.Message, "DamageInflicted",
 			GuardsKillHim(damager)
 		end
 	end)
+
+
+RegisterSingleEventHandler(EventType.ModuleAttached,GetCurrentModule(),
+    function( ... )
+        AddUseCase(this,"Interact",true)
+    end)

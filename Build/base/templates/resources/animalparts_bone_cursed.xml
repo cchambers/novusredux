@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<Name>[bdbdbd]Cursed Bones[-]</Name>
-	<ClientId>909</ClientId>
+	<ClientId>905</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="6"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">CursedBones</StringVariable>

@@ -14,24 +14,24 @@ RegisterEventHandler(EventType.Message, "UseObject",
             if( this:HasObjVar("lockUniqueId") ) then
                 user:RequestClientTargetGameObj(this, "keyTarget")
             else
-                user:SystemMessage("This key does not seem to belong to anything.")
+                user:SystemMessage("This key does not seem to belong to anything.","info")
             end
         elseif(usedType == "Add to Key Ring") then
             if IsBlankKey(this) then
-                user:SystemMessage("You cannot add a blank key to your keyring.")
+                user:SystemMessage("You cannot add a blank key to your keyring.","info")
                 return
             end
             if(this:HasObjVar("OneTimeKey")) then
-                user:SystemMessage("The key is too fragile to add to your keyring.")
+                user:SystemMessage("The key is too fragile to add to your keyring.","info")
                 return
             end            
             
             if(AddKeyToKeyRing(user,this)) then
-                user:SystemMessage("You add the key to your key ring.")
+                user:SystemMessage("You add the key to your key ring.","info")
             end
         elseif(usedType == "Copy") then    
             if(this:HasObjVar("OneTimeKey")) then
-                user:SystemMessage("The key is too fragile to copy.")
+                user:SystemMessage("The key is too fragile to copy.","info")
                 return
             end
             MakeCopy(user,this)
@@ -52,6 +52,6 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "keyTarget",
                 target:SendMessage("Lock", user, this)              
             end
         else
-            user:SystemMessage("You try, but that key does not fit the lock.")
+            user:SystemMessage("You try, but that key does not fit the lock.","info")
         end
     end)

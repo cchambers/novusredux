@@ -55,30 +55,30 @@ function GroupWindow()
     dynamicWindow:AddImage(8,27,"BasicWindow_Panel",344,10 + membersHeight,"Sliced")
     dynamicWindow:AddImage(10,5,"HeaderRow_Bar",340,21,"Sliced")
     dynamicWindow:AddLabel(
-            25, --(number) x position in pixels on the window
-            10, --(number) y position in pixels on the window
-            "Name", --(string) text in the label
-            0, --(number) width of the text for wrapping purposes (defaults to width of text)
-            0, --(number) height of the label (defaults to unlimited, text is not clipped)
-            16, --(number) font size (default specific to client)
-            "left" --(string) alignment "left", "center", or "right" (default "left")
-            --false, --(boolean) scrollable (default false)
-            --false, --(boolean) outline (defaults to false)
-            --"" --(string) name of font on client (optional)
-        )
+        25, --(number) x position in pixels on the window
+        10, --(number) y position in pixels on the window
+        "Name", --(string) text in the label
+        0, --(number) width of the text for wrapping purposes (defaults to width of text)
+        0, --(number) height of the label (defaults to unlimited, text is not clipped)
+        16, --(number) font size (default specific to client)
+        "left" --(string) alignment "left", "center", or "right" (default "left")
+        --false, --(boolean) scrollable (default false)
+        --false, --(boolean) outline (defaults to false)
+        --"" --(string) name of font on client (optional)
+    )
 
-        dynamicWindow:AddLabel(
-            280, --(number) x position in pixels on the window
-            10, --(number) y position in pixels on the window
-            "Status", --(string) text in the label
-            0, --(number) width of the text for wrapping purposes (defaults to width of text)
-            0, --(number) height of the label (defaults to unlimited, text is not clipped)
-            16, --(number) font size (default specific to client)
-            "center" --(string) alignment "left", "center", or "right" (default "left")
-            --false, --(boolean) scrollable (default false)
-            --false, --(boolean) outline (defaults to false)
-            --"" --(string) name of font on client (optional)
-        )
+    dynamicWindow:AddLabel(
+        280, --(number) x position in pixels on the window
+        10, --(number) y position in pixels on the window
+        "Status", --(string) text in the label
+        0, --(number) width of the text for wrapping purposes (defaults to width of text)
+        0, --(number) height of the label (defaults to unlimited, text is not clipped)
+        16, --(number) font size (default specific to client)
+        "center" --(string) alignment "left", "center", or "right" (default "left")
+        --false, --(boolean) scrollable (default false)
+        --false, --(boolean) outline (defaults to false)
+        --"" --(string) name of font on client (optional)
+    )
 
     local y = 32
     local myGroupKarma = nil
@@ -99,7 +99,7 @@ function GroupWindow()
     ]]
     --TEST
         local groupKarma = member:GetObjVar("GroupKarma")
-        local name = GlobalVarReadKey("User.Name", member) or "Unknown"
+        local name = member:GetCharacterName() or "Unknown"
         local online = false
         if ( member == this ) then
             -- if it's yourself, you're definitely online.

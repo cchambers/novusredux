@@ -46,7 +46,7 @@ function AddSkillToTracker(skillName,index)
 	--DebugMessage(2)
 	local skillsToTrack = this:GetObjVar("TrackedSkills") or {}
 	if (#skillsToTrack >= MAX_SKILLS_CAN_TRACK) then
-		this:SystemMessage("You can only track "..tostring(MAX_SKILLS_CAN_TRACK).. " at a time.")
+		this:SystemMessage("You can only track "..tostring(MAX_SKILLS_CAN_TRACK).. " at a time.","info")
 		return
 	end
 	if(IsInTableArray (skillsToTrack, skillName)) then return end

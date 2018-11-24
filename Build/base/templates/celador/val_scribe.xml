@@ -12,7 +12,7 @@
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="guard_protect" />
-		<LuaModule Name="ai_npc_alchemist">
+		<LuaModule Name="ai_npc_scribe">
 			<Initializer>
 				{
 					Stats= {

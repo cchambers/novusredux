@@ -1,8 +1,7 @@
 <ObjectTemplate>
-	<ClientId>39</ClientId>
-	<Color>0xFF908070</Color>
-	<Name>Whitetail</Name>
-	<ScaleModifier>1.2</ScaleModifier>
+	<ClientId>133</ClientId>
+	<Name>Elk</Name>
+	<ScaleModifier>1</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="0.5"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -11,7 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
-<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -31,7 +30,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Bashing=15,  
+					Brawling = 15,  
 					},	
 				LootTables = 
 					{ 
@@ -43,6 +42,8 @@
 			<Initializer>
 				{
 					MeatCount = 3,
+
+					MeatType = "GourmetMeat",
 					AnimalParts =
 					{
 						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },

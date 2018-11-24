@@ -62,11 +62,14 @@ function CanEquip(equipper,equipObject,equippedOn)
 	if ( equipper:IsPlayer() ) then
 		local weaponType = equipObject:GetObjVar("WeaponType")
 		if ( weaponType and EquipmentStats.BaseWeaponStats[weaponType] and EquipmentStats.BaseWeaponStats[weaponType].NoCombat ~= true ) then
-			local weaponClass = EquipmentStats.BaseWeaponStats[weaponType].WeaponClass
-			if ( GetSkillLevel(equippedOn, EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill) < EquipmentStats.BaseWeaponStats[weaponType].MinSkill ) then
-				local skillDisplayName = SkillData.AllSkills[EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill].DisplayName or EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill
-				equipper:SystemMessage(EquipmentStats.BaseWeaponStats[weaponType].MinSkill.. " " .. skillDisplayName .. " required.", "info")
-				return false
+			local minSkill = EquipmentStats.BaseWeaponStats[weaponType].MinSkill or 0
+			if ( minSkill > 0 ) then
+				local weaponClass = EquipmentStats.BaseWeaponStats[weaponType].WeaponClass
+				if ( GetSkillLevel(equippedOn, EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill) < minSkill ) then
+					local skillDisplayName = SkillData.AllSkills[EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill].DisplayName or EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill
+					equipper:SystemMessage(string.format("%s %s required.", minSkill, skillDisplayName), "info")
+					return false
+				end
 			end
 		end
 	end
@@ -102,8 +105,7 @@ function DoEquip(equipObject, equippedOn, user)
 
 	--BB HACK: For no equip
 	if(equipObject:HasModule("temporary_no_equip_item")) then
-		user:SystemMessage("[$1878]")
-		equippedOn:SendMessage("BreakInvisEffect")
+		user:SystemMessage("[$1878]","info")
 		return
 	end
 
@@ -123,7 +125,7 @@ function DoEquip(equipObject, equippedOn, user)
 		end
 
 		local backpackObj = equippedOn:GetEquippedObject("Backpack")
-		if (backpackObj ~= nil) then
+		if (backpackObj ~= nil or GetEquipSlot(equipObject) == "Backpack") then
 			local equippedObj = equippedOn:GetEquippedObject(equipSlot)
 			if( equippedObj ~= nil ) then
 				-- dont swap for backpacks that could get wierd
@@ -132,7 +134,7 @@ function DoEquip(equipObject, equippedOn, user)
 					equippedObj:MoveToContainer(backpackObj, randomLoc)
 					equippedObj:SendMessage("WasUnequipped", equippedOn)
 	   			else
-					user:SystemMessage("You are already wearing something there.")
+					user:SystemMessage("You are already wearing something there.","info")
 					return
 				end
 			end
@@ -172,13 +174,12 @@ function DoEquip(equipObject, equippedOn, user)
 			--#End2HanderForceBothHands
 
 		else
-			user:SystemMessage("You need a backpack to swap equipment.")
+			user:SystemMessage("You need a backpack to swap equipment.","info")
 		end
 	else
-		user:SystemMessage("You cannot equip that.")
+		user:SystemMessage("You cannot equip that.","info")
 		return
 	end
-	equippedOn:SendMessage("BreakInvisEffect")
 	equippedOn:EquipObject(equipObject)
 	equipObject:SendMessage("WasEquipped")
 end
@@ -201,7 +202,6 @@ function DoUnequip(equipObject,equippedOn,user)
    				-- try to put the object in the container
    				if(TryPutObjectInContainer(equipObject, backpackObj, randomLoc)) then
    					equipObject:SendMessage("WasUnequipped", equippedOn)
-					equippedOn:SendMessage("BreakInvisEffect")
 				end
 			end
 		end
@@ -287,6 +287,13 @@ function MountMobile(mobileObj, mountObj)
 		return false
 	end
 
+	if ( mountObj:HasObjVar("Dismissing") ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Cannot mount that right now.", "info")
+		end
+		return false
+	end
+
 	if (IsMobileDisabled(mobileObj)) then
 		if (mobileObj:IsPlayer()) then
 			mobileObj:SystemMessage("Cannot mount now.", "info")
@@ -328,11 +335,13 @@ function MountMobile(mobileObj, mountObj)
 		mountObj:SetObjectOwner(nil)
 		mobileObj:EquipObject(mountObj)
 		--break invis/hide effects
-		mobileObj:SendMessage("BreakInvisEffect");
+		mobileObj:SendMessage("BreakInvisEffect", "Mount");
 		-- mark movespeed stat dirty
 		mobileObj:SendMessage("RecalculateStats", {MoveSpeed=true})
 		AddUseCase(mobileObj,"Dismount",true,"IsSelf")
+		return true
 	end
+	return false
 end
 
 --- Dismount a mobile, does nothing if not mounted
@@ -342,12 +351,7 @@ end
 function DismountMobile(mobileObj, mountObj)
 	mountObj = mountObj or GetMount(mobileObj)
 	if ( mobileObj and mountObj ) then
-		--TODO IR A hack to fix horse teleporting
-		--Can be removed on next client release
-		local speed = mountObj:GetBaseMoveSpeed()
-		mountObj:SetBaseMoveSpeed(speed + 0.1)
-		mountObj:SetBaseMoveSpeed(speed)
-		
+		mobileObj:StopMoving()
 		mountObj:SetWorldPosition(mobileObj:GetLoc())
 		mobileObj:SendMessage("RecalculateStats", {MoveSpeed=true})-- mark movespeed stat dirty
 		mountObj:SetObjectOwner(mobileObj)
@@ -379,9 +383,21 @@ function HasHumanAnimations(mobileObj)
 end
 
 function Resisted(mobileObj)
+	if(TRAILER_BUILD) then
+		return false
+    end
+
 	if Success(0.5*((GetWill(mobileObj) - ServerSettings.Stats.IndividualStatMin) / (ServerSettings.Stats.IndividualPlayerStatCap - ServerSettings.Stats.IndividualStatMin))) then
-		mobileObj:NpcSpeech("[99ffbb]*resisted*[-]", "combat")
+		mobileObj:PlayEffect("FrostShield", 1)
 		return true
 	end
 	return false
+end
+
+function GetStatusIconOverride(mobileObj)
+	return mobileObj:GetSharedObjectProperty("StatusIconOverride")
+end
+
+function SetStatusIconOverride(mobileObj,statusIcon)	
+	mobileObj:SetSharedObjectProperty("StatusIconOverride",statusIcon)
 end

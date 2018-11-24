@@ -6,7 +6,7 @@ end)
 RegisterEventHandler(EventType.Timer,"TriggerPotion",function(...)
 	this:PlayEffect("RegenEffect",15)
 	this:PlayEffect("StrangerEffect",15)
-	this:SystemMessage("You begin to glow!")
+	this:SystemMessage("You begin to glow!","info")
 	EndEffect()
 end)
 

@@ -1,5 +1,4 @@
 require 'incl_magic_sys'
-require 'incl_player_guild'
 
 --TODO
 -- Mana Take on Cast
@@ -11,7 +10,6 @@ SPV_MIN_EFFECTIVENESS_MOD = 15
 
 mCastingDisplayName = ""
 mCurSpell = nil
-mCastFX = nil
 mPrimedSpell = nil
 mQueuedTarget = nil
 mQueuedTargetLoc = nil
@@ -62,8 +60,10 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
 		return false
-	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile()) ) then
-		return false
+	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
+		if not (spellTarget:HasObjVar("Attackable")) then
+			return false
+		end
 	elseif( not LineOfSightCheck(spellName, spellTarget)) then
 		this:SystemMessage("Cannot see that.", "info")
 		return false
@@ -110,6 +110,8 @@ function PrimeSpell(spellName, spellSource)
 	if(spellSource == nil) then spellSource = this end
 	if(spellName == nil) then return false end
 
+	CancelCurrentSpellEffects()
+
 	if ( HasMobileEffect(this, "Silence") ) then
 		if(this:IsPlayer()) then
 			this:SystemMessage("You are silenced.", "info")
@@ -152,7 +154,7 @@ function PrimeSpell(spellName, spellSource)
 		return false
 	end
 
-	this:SendMessage("BreakInvisEffect", "Casting")
+	spellSource:SendMessage("BreakInvisEffect", "Casting")
 
 	if not( HasManaForSpell(spellName, this) ) then 
 		if ( this:IsPlayer() ) then
@@ -188,10 +190,25 @@ function PrimeSpell(spellName, spellSource)
 
 		local castFX = GetSpellInformation(spellName, "SpellPrimeFXName")
 		if (castFX ~= nil) then
+			local mySpEffectArgs = GetSpellInformation(spellName, "SpellPrimeFXArgs")
 		--D*ebugMessage("CFX: " ..tostring(castFX) .. " CTIM: " ..tostring(myCastTime) .. this:GetName())
-			this:PlayEffect(castFX,myCastTime)--,"Bone=Ground")
-			this:SetObjVar("CastFX",castFX)
+			if(mySpEffectArgs) then
+				this:PlayEffectWithArgs(castFX,myCastTime,mySpEffectArgs)
+			else
+				this:PlayEffect(castFX,myCastTime)--,"Bone=Ground")
+			end			
 		end
+		local castFX2 = GetSpellInformation(spellName, "SpellPrimeFX2Name")
+		if (castFX2 ~= nil) then
+			local mySpEffectArgs2 = GetSpellInformation(spellName, "SpellPrimeFX2Args")
+		--D*ebugMessage("CFX: " ..tostring(castFX2) .. " CTIM: " ..tostring(myCastTime) .. this:GetName())
+			if(mySpEffectArgs2) then
+				this:PlayEffectWithArgs(castFX2,myCastTime,mySpEffectArgs2)
+			else
+				this:PlayEffect(castFX2,myCastTime)--,"Bone=Ground")
+			end			
+		end
+
 		local mySound = GetSpellInformation(spellName, "SpellPrimeSFX")
 		if not (mySound == nil) then
 			--DebugMessage("SpellSound: " .. mySound)
@@ -206,13 +223,23 @@ function PrimeSpell(spellName, spellSource)
 			this:SendClientMessage("StartCasting",myCastTime)
 			mCastingDisplayName = tostring(spellDisplayName)
 			this:SetObjVar("LastSpell",spellDisplayName)
-			
+
 			if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
 				RequestSpellTarget(spellName)
 			end
+
+			ProgressBar.Show(
+			{
+				TargetUser = spellSource,
+				Label="Casting "..spellDisplayName,
+				Duration=myCastTime,
+				PresetLocation="UnderPlayer",
+			})
 		end
 
 		if not(CanMoveWhileCasting(spellName)) then
+			mSwingReady.RightHand = false
+			mSwingReady.LeftHand = false
 			SetMobileMod(this, "Disable", "CastFreeze", true)
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(myCastTime), "CastFreezeTimer")
 		end
@@ -225,6 +252,7 @@ function PrimeSpell(spellName, spellSource)
 end
 
 RegisterEventHandler(EventType.Timer, "CastFreezeTimer", function()
+	DelaySwingTimer(ServerSettings.Combat.CastSwingDelay, "All")
 	SetMobileMod(this, "Disable", "CastFreeze", nil)
 end)
 
@@ -258,14 +286,10 @@ end
 
 function SetSpellTravelTime(spellName, spTarget, spellSource)
 	Verbose("Magic", "SetSpellTravelTime", spellName, spTarget, spellSource)
-
-	this:StopEffect("PrimedWater2")
-	this:StopEffect("PrimedFire2")
-	this:StopEffect("PrimedAir2")
-	this:StopEffect("PrimedEarth2")
-	this:StopEffect("PrimedVoid2")
-
+	
 	if (spellSource == nil) then spellSource = this end
+
+	spellSource:SendMessage("BreakInvisEffect", "Action")
 
 	if not ( mFreeSpell == true ) then
 
@@ -301,7 +325,8 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		local mySpEffectArgs = GetSpellInformation(spellName, "SpellFXArgs")
 		this:PlayProjectileEffectTo(mySpEffect,spTarget,overrideRate,1,mySpEffectArgs)
 	elseif(mySpEffectType == "Projectile") then 
-		overrideRate = GetSpellInformation(spellName, "OverRideSpellTravelRate")
+		local mySpEffectDespawnDelay = GetSpellInformation(spellName, "SpellFXDespawnDelay") or 0
+		overrideRate = GetSpellInformation(spellName, "SpellTravelRate")
 		isReverseProjectile = GetSpellInformation(spellName, "IsReverseProjectile")
 		if (overrideRate == nil ) then overrideRate = 10 end
 		local bodyOffset = .5
@@ -317,14 +342,14 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		elseif( mySpEffect ~= nil ) then
 			--DebugMessage ("Projectile")
 			local mySpEffectArgs = GetSpellInformation(spellName, "SpellFXArgs")
-			local mySpEffectDelay = GetSpellInformation(spellName, "SpellFXDelay") 
+			local mySpEffectDelay = GetSpellInformation(spellName, "SpellFXDelay") 			
 			if(mySpEffectDelay) then				
 				CallFunctionDelayed(TimeSpan.FromSeconds(mySpEffectDelay),
 					function()
 						if (isReverseProjectile) then
-							spTarget:PlayProjectileEffectTo(mySpEffect,this,overrideRate,timer,mySpEffectArgs)
+							spTarget:PlayProjectileEffectTo(mySpEffect,this,overrideRate,timer,mySpEffectArgs, mySpEffectDespawnDelay)
 						else
-							this:PlayProjectileEffectTo(mySpEffect,spTarget,overrideRate,timer,mySpEffectArgs)
+							this:PlayProjectileEffectTo(mySpEffect,spTarget,overrideRate,timer,mySpEffectArgs, mySpEffectDespawnDelay)
 						end
 					end)
 			else
@@ -339,20 +364,21 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		if( mySpEffect ~= nil ) then
 			local mySpEffectArgs = GetSpellInformation(spellName, "SpellFXArgs") or ""
 			local mySpEffectDelay = GetSpellInformation(spellName, "SpellFXDelay") 
+			local mySpEffectDuration = GetSpellInformation(spellName, "SpellFXDuration") or 0
 			if(mySpEffectDelay) then				
 				CallFunctionDelayed(TimeSpan.FromSeconds(mySpEffectDelay),
 					function()
 						if(mySpEffectArgs ~= nil) then
-							spTarget:PlayEffectWithArgs(mySpEffect,0.0, mySpEffectArgs)
+							spTarget:PlayEffectWithArgs(mySpEffect,mySpEffectDuration, mySpEffectArgs)
 						else
-							spTarget:PlayEffect(mySpEffect,0.0)
+							spTarget:PlayEffect(mySpEffect,mySpEffectDuration)
 						end
 					end)
 			else
 				if(mySpEffectArgs ~= nil) then
-					spTarget:PlayEffectWithArgs(mySpEffect,0.0, mySpEffectArgs)
+					spTarget:PlayEffectWithArgs(mySpEffect,mySpEffectDuration, mySpEffectArgs)
 				else
-					spTarget:PlayEffect(mySpEffect,0.0)
+					spTarget:PlayEffect(mySpEffect,mySpEffectDuration)
 				end
 			end
 		end
@@ -428,6 +454,11 @@ function ApplyReleaseEffects(spellName, spTarget, spellSource, targLoc)
 		spTarget:AddModule(targetReleaseEffect)
 		spTarget:SendMessage("TargetReleaseEffect" .. targetReleaseEffect,spellSource,spTarget,targLoc)
 	end
+
+	local userReleseMobileEffect = GetSpellInformation(spellName, "SpellReleaseUserMobileEffect")
+	if(userReleseMobileEffect ~= nil) then
+		this:SendMessage("StartMobileEffect", userReleseMobileEffect, this, { Target = spTarget, SpellLoc = targLoc})
+	end
 end
 
 
@@ -439,8 +470,6 @@ function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 		-- TODO: Add a bonus of sorts here from spell power or whatever
 		StartMobileEffect(this, mobileEffect, this, args)
 	end
-	
-	DelaySwingTimer(ServerSettings.Combat.CastSwingDelay, "All")
 
 	local spCasterEffectScript = GetSpellInformation(spellName, "completionEffectUserScript")
 	if not(spCasterEffectScript == nil) and not(this:HasModule(spCasterEffectScript)) then
@@ -518,8 +547,6 @@ function ApplySpellEffects(spellName, spTarget, spellSource)
 			end
 		end
 
-		DelaySwingTimer(ServerSettings.Combat.CastSwingDelay, "All")
-
 		local spellHitFX = GetSpellInformation(spellName, "SpellHitFX")
 		if( spellHitFX ~= nil ) then
 			spTarget:PlayEffect(spellHitFX)
@@ -538,6 +565,8 @@ end
 
 function PerformSpellLocationActions(spellName,spellTarget, targetLoc, spellSource)
 	Verbose("Magic", "PerformSpellLocationActions", spellName,spellTarget, targetLoc, spellSource)
+
+	spellSource:SendMessage("BreakInvisEffect", "Action")
 
 	if not( CheckMana(spellName, spellSource) ) then
 		return
@@ -580,6 +609,11 @@ function PerformSpellLocationActions(spellName,spellTarget, targetLoc, spellSour
 	if (mySound ~= nil) then
 		--DebugMessage("SpellHitSound: " .. mySound)
 		this:PlayObjectSound(mySound)
+	end
+
+	local myLauchSFX = GetSpellInformation(spellName, "SpellLaunchSFX")
+	if( myLauchSFX ~= nil ) then
+		spellSource:PlayObjectSound(myLauchSFX,false)
 	end
 end
 
@@ -774,12 +808,7 @@ function CastSpell(spellName, spellSource, spellTarget)
 	local player = spellSource:IsPlayer()
 	if( mPrimedSpell ~= nil ) then		
 		if( player ) then
-			spellSource:SendClientMessage("ClearPrimed")
-			spellSource:StopEffect("PrimedWater2")
-			spellSource:StopEffect("PrimedFire2")
-			spellSource:StopEffect("PrimedAir2")
-			spellSource:StopEffect("PrimedEarth2")
-			spellSource:StopEffect("PrimedVoid2")
+			spellSource:SendClientMessage("ClearPrimed")			
 			spellSource:PlayAnimation("idle")
 		end
 	end
@@ -819,7 +848,7 @@ function CastSpell(spellName, spellSource, spellTarget)
 	end
 
 	mCurSpell = nil
-	mPrimedSpell = nil
+	--mPrimedSpell = nil
 	mQueuedTarget = nil
 	mQueuedTargetLoc = nil
 
@@ -866,8 +895,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	if ( free == true ) then
 		mFreeSpell = true
 	end
-	this:PlayAnimation("idle")
-	this:DelObjVar("CastFX")
+	this:PlayAnimation("idle")	
 	this:DelObjVar("LastSpell")
 	if (spellName == nil) then spellName = mCurSpell end
 	if (spellName == nil) then LuaDebugCallStack("NIL SPELL") end
@@ -876,6 +904,8 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	mCastingDisplayName = spellName
 	mSpellSource = spellSource or this
 	mCurSpell = nil
+
+	mSpellSource:SendMessage("BreakInvisEffect", "Action")
 
 	--Trying it off
 	--this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "SpellGlobalCooldownTimer")
@@ -987,7 +1017,23 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 		local primedFX = GetSpellInformation(spellName, "SpellPrimedFXName") 	
 		if( primedFX ~= nil ) then
-			this:PlayEffect(primedFX, 60)
+			local mySpEffectArgs = GetSpellInformation(spellName, "SpellPrimedFXArgs")
+		    --D*ebugMessage("CFX: " ..tostring(primedFX) .. " " .. this:GetName())
+			if(mySpEffectArgs) then
+				this:PlayEffectWithArgs(primedFX,60,mySpEffectArgs)
+			else
+				this:PlayEffect(primedFX,60)--,"Bone=Ground")
+			end	
+		end
+		local primedFX2 = GetSpellInformation(spellName, "SpellPrimedFX2Name") 	
+		if( primedFX2 ~= nil ) then
+			local mySpEffectArgs2 = GetSpellInformation(spellName, "SpellPrimedFX2Args")
+			--D*ebugMessage("CFX: " ..tostring(primedFX2) .. " " .. this:GetName())
+			if(mySpEffectArgs2) then
+				this:PlayEffectWithArgs(primedFX2,60,mySpEffectArgs2)
+			else
+				this:PlayEffect(primedFX2,60)--,"Bone=Ground")
+			end	
 		end
 	end
 end
@@ -1095,6 +1141,21 @@ function HandleSpellTravelled(spellName, spTarget, spellSource, spellID)
 	
 end
 
+function CancelCurrentSpellEffects()
+	if (mPrimedSpell ~= nil) then
+		local primedFX = GetSpellInformation(mPrimedSpell, "SpellPrimedFXName") 	
+		if( primedFX ~= nil ) then
+		--DebugMessage("RemovingEffect")
+			this:StopEffect(primedFX)
+		end
+		local primedFX2 = GetSpellInformation(mPrimedSpell, "SpellPrimedFX2Name") 	
+		if( primedFX2 ~= nil ) then
+		--DebugMessage("RemovingEffect")
+			this:StopEffect(primedFX2)
+		end
+	end
+end
+
 function CancelSpellCast()
 	Verbose("Magic", "CancelSpellCast")
 
@@ -1102,13 +1163,8 @@ function CancelSpellCast()
 		this:FireTimer("CastFreezeTimer")
 	end
 	--DebugMessage("MagicDeathCleanup")
-	if (mPrimedSpell ~= nil) then
-		local primedFX = GetSpellInformation(mPrimedSpell, "SpellPrimedFXName") 	
-		if( primedFX ~= nil ) then
-		--DebugMessage("RemovingEffect")
-			this:StopEffect(primedFX)
-		end
-	end
+	CancelCurrentSpellEffects()
+	
 	if(this:GetTimerDelay("SpellPrimeTimer") ~= nil) then
 		--DebugMessage("Removing Timer")
 		this:RemoveTimer("SpellPrimeTimer")
@@ -1122,10 +1178,7 @@ function CancelSpellCast()
 	mCastingDisplayName = ""
 	mCurSpell = nil
 	mPrimedSpell = nil
-	this:StopEffect("PrimedWater2")
-	this:StopEffect("PrimedFire2")
-	this:StopEffect("PrimedAir2")
-	this:StopEffect("PrimedEarth2")
+
 	this:PlayAnimation("idle")
 end
 

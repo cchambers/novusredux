@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>1183</ClientId>
+	<Name>[FF9500]Ash Arrow[-]</Name>
+	<Hue>866</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<StringVariable Name="ResourceType">AshArrows</StringVariable>
+		<StringVariable Name="SingularName">Ash Arrow</StringVariable>
+		<StringVariable Name="PluralName">Ash Arrows</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+		<DoubleVariable Name="AttackBonus">10</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

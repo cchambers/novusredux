@@ -19,7 +19,7 @@
 		<DoubleVariable Name="Armor">59</DoubleVariable>
 		<DoubleVariable Name="Attack">38</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=50,  
+					Brawling = 50,  
 					},	
 				EquipTable = 
 					{
@@ -46,7 +46,6 @@
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Average,
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(125,175),
 						},

@@ -6,7 +6,7 @@ require 'base_ai_intelligent'
 AI.Settings.Debug = false
 AI.Settings.AggroRange = 10.0
 AI.Settings.ChaseRange = 15.0
-AI.Settings.LeashDistance = 20
+AI.Settings.LeashDistance = 25
 AI.Settings.CanConverse = true
 AI.Settings.ScaleToAge = false
 AI.Settings.CanWander = false

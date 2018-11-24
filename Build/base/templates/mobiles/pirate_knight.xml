@@ -10,6 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Pirate</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +19,7 @@
 		<DoubleVariable Name="Armor">60</DoubleVariable>
 		<DoubleVariable Name="Attack">51</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -60,7 +61,7 @@
 					},
 				Skills = 
 					{ 
-					Bashing=60,  
+					Brawling = 60,  
 					},	
 				EquipTable = 
 					{
@@ -81,7 +82,6 @@
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Average,
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(200,350),
 						},

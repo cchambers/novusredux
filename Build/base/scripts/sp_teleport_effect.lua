@@ -3,12 +3,12 @@
 function ValidateSpellTeleport(targetLoc)
 	--DebugMessage("Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
-		this:SystemMessage("[FA0C0C]You cannot teleport to that location.[-]")
+		this:SystemMessage("[FA0C0C]You cannot teleport to that location.[-]","info")
 		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2630]")
+		this:SystemMessage("[$2630]","info")
 		return false
 	end
 
@@ -27,6 +27,6 @@ RegisterEventHandler(EventType.Message,"TeleportSpellTargetResult",
 		PlayEffectAtLoc("TeleportToEffect",targetLoc)
 		ignoreView = false
 		this:SetWorldPosition(targetLoc)
-		this:SendMessage("BreakInvisEffect")
+		this:SendMessage("BreakInvisEffect", "Action")
 		this:DelModule("sp_teleport_effect")
 	end)

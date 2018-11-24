@@ -3,8 +3,7 @@
 	<ClientId>882</ClientId>
   	<Hue>13</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>			
-		<StringVariable Name="ArmorType">VeryLight</StringVariable>
+	<ObjectVariableComponent>
    		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
 	</ObjectVariableComponent>					
 </ObjectTemplate>

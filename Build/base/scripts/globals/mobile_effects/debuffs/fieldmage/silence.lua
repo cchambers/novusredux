@@ -7,6 +7,7 @@ MobileEffectLibrary.Silence =
 
 		-- play the effects on the one that is silenced
 		self.ParentObj:PlayEffectWithArgs("LaughingSkullEffect",20.0,"Bone=Ground")
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/adrenaline_rush")
 
 		-- play the effects on the one that did the silencing
 		target:PlayEffect("GrimAuraEffect")

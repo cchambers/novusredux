@@ -461,7 +461,8 @@ end
 -- @param weight(number)
 -- @param candidates(number)(optional) Number of candidates to choose from, defaults to 3
 function WeightedRandom(min, max, weight, candidates)
-	if ( candidates == nil ) then candidates = 3 end
+  if ( candidates == nil ) then candidates = 3 end
+  local math = math -- local variables are faster to index than global
 	local rolls = {}
 	local closest = 99999
 	-- establish all candidates
@@ -475,15 +476,77 @@ function WeightedRandom(min, max, weight, candidates)
 			closest = roll[2]
 		end
 		-- add the roll to the table
-		table.insert(rolls, roll)
+    	rolls[#rolls+1] = roll
 	end
 	-- too account for rolling a 30 30 50 and a weight of 40, for example,
 	-- we do another roll between all candidates that match the closest
 	local fin = {}
 	for i=1,candidates do
-		if ( rolls[i][2] == closest ) then
-			table.insert(fin, rolls[i][1])
+    if ( rolls[i][2] == closest ) then
+      fin[#fin+1] = rolls[i][1]
 		end
 	end
 	return fin[math.random(1,#fin)]
+end
+
+--- Get a spiral location by distance from origin
+-- @param (number)index - Distance from origin
+-- @param (Loc)center (optional)
+-- @param (number) size (optional) - The size of the 'grid' the spiral follows
+-- @return Loc
+function GetSpiralLoc(index, center, size)
+  if ( index < 1 ) then return center or Loc(0,0,0) end
+  local math = math
+  local shell = math.floor((math.sqrt(index)+1)/2);
+  local leg = math.floor( ( index - math.pow( 2 * shell - 1, 2 ) ) / ( 2 * shell ) );
+  local element = (index - math.pow(2 * shell -1, 2 )) - 2 * shell * leg - shell + 1;
+  
+  if ( leg == 0 ) then
+      x, z = shell, element
+  elseif ( leg == 1 ) then
+      x, z = -element, shell
+  elseif ( leg == 2 ) then
+      x, z = -shell, -element
+  else
+      x, z = element, -shell
+  end
+
+  if ( size ) then
+    x, z = x*size, z*size
+  end
+
+  if ( center ) then
+    x, z = x+center.X, z+center.Z
+  end
+    
+  return Loc(x, 0, z)
+end
+
+local romanNumbers = { 1, 5, 10, 50, 100, 500, 1000 }
+local romanChars = { "I", "V", "X", "L", "C", "D", "M" }
+function ToRomanNumerals(s)
+  --s = tostring(s)
+  s = tonumber(s)
+  if not s or s ~= s then return "" end
+  if s == math.huge then return "" end
+  s = math.floor(s)
+  if s <= 0 then return s end
+  local ret = ""
+        for i = #romanNumbers, 1, -1 do
+        local num = romanNumbers[i]
+        while s - num >= 0 and s > 0 do
+            ret = ret .. romanChars[i]
+            s = s - num
+        end
+        --for j = i - 1, 1, -1 do
+        for j = 1, i - 1 do
+            local n2 = romanNumbers[j]
+            if s - (num - n2) >= 0 and s < num and s > 0 and num - n2 ~= n2 then
+                ret = ret .. romanChars[j] .. romanChars[i]
+                s = s - (num - n2)
+                break
+            end
+        end
+    end
+    return ret
 end

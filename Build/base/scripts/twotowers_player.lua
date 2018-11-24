@@ -53,7 +53,7 @@ RegisterEventHandler(EventType.LoadedFromBackup,"",
 	function ( ... )
 		DebugMessage("twotowers_player LoadedFromBackup")
 
-		if(GetWorldName() ~= "TwoTowers") then
+		if(ServerSettings.WorldName ~= "TwoTowers") then
 			CleanUp()
 		else 
 			OnLoad()

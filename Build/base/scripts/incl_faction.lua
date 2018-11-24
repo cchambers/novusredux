@@ -39,6 +39,7 @@ function GetFactionTitle(player,amount,factionName)
 	local handle = ""
 	--DebugMessage(2)
 	--DebugMessage("This should appear")
+	--[[
 	if(AllTitles.FactionTitles[factionName] ~= nil) then
 		for i,j in pairs(AllTitles.FactionTitles[factionName]) do
 				--DebugMessage(2.5)
@@ -52,7 +53,8 @@ function GetFactionTitle(player,amount,factionName)
 					--DebugMessage(4)
 				end
 		end
-	end
+	end]]
+
 	--DebugMessage("RETURNING: "..tostring(title).." "..tostring(description).." "..tostring(handle))
 	return title,description,handle
 end
@@ -68,9 +70,9 @@ function AssignTitle(target,amount,factionName)
 	--DebugMessage("RESULTS: "..tostring(title).." "..tostring(description).." "..tostring(handle))
 
 	--DebugMessage("Adding title")
-	if (not PlayerTitles.HasTitle(target,title)) then
+	--[[if (not PlayerTitles.HasTitle(target,title)) then
 		PlayerTitles.Entitle(target,title,false,description,handle)
-	end
+	end]]
 end
 
 function StartFactionDecay(player,factionName)

@@ -4,6 +4,7 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">Apple</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/vegetable/vegetable_use</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

@@ -20,8 +20,8 @@
 							LootItems = 
 							{ 	
 								{ Chance = 100, Template = "resource_boards", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_ash_boards", Unique = true, StackCount = 100 },
 								{ Chance = 100, Template = "resource_blightwood_boards", Unique = true, StackCount = 100 },
-								{ Chance = 100, Template = "resource_boards_durable", Unique = true, StackCount = 100 },
 							} 
 						},	
 					}

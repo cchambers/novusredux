@@ -26,9 +26,15 @@ MobileEffectLibrary.Campfire =
 	end,
 
 	OnExitState = function(self,root)
-		SetMobileMod(self.ParentObj, "HealthRegenPlus", "Campfire", nil)
-		--SetMobileMod(self.ParentObj, "ManaRegenPlus", "Campfire", nil)
-		SetMobileMod(self.ParentObj, "StaminaRegenPlus", "Campfire", nil)
+		if(ServerSettings.Campfire.Bonus.Health > 0) then
+			SetMobileMod(self.ParentObj, "HealthRegenPlus", "Campfire", nil)
+		end
+		if(ServerSettings.Campfire.Bonus.Mana > 0) then
+			SetMobileMod(self.ParentObj, "ManaRegenPlus", "Campfire", nil)
+		end
+		if(ServerSettings.Campfire.Bonus.Stamina > 0) then
+			SetMobileMod(self.ParentObj, "StaminaRegenPlus", "Campfire", nil)
+		end
 		RemoveBuffIcon(self.ParentObj, "CampfireEffect")
 		if ( ServerSettings.Campfire.Disturb.Players ) then
 			UnregisterEventHandler("", EventType.Message, "CombatStatusUpdate")
@@ -82,9 +88,15 @@ MobileEffectLibrary.Campfire =
 		-- bonus hasn't changed, no reason to continue.
 		if ( bonus == self._CampfireBaseBonus ) then return end
 		self._CampfireBaseBonus = bonus
-		SetMobileMod(self.ParentObj, "HealthRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Health)
-		--SetMobileMod(self.ParentObj, "ManaRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Mana)
-		SetMobileMod(self.ParentObj, "StaminaRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Stamina)
+		if(ServerSettings.Campfire.Bonus.Health > 0) then
+			SetMobileMod(self.ParentObj, "HealthRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Health)
+		end
+		if(ServerSettings.Campfire.Bonus.Mana > 0) then
+			SetMobileMod(self.ParentObj, "ManaRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Mana)
+		end
+		if(ServerSettings.Campfire.Bonus.Stamina > 0) then
+			SetMobileMod(self.ParentObj, "StaminaRegenPlus", "Campfire", self._CampfireBaseBonus + ServerSettings.Campfire.Bonus.Stamina)
+		end
 	end,
 
 	GetBestBonus = function(self,root)

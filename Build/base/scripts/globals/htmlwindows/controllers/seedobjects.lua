@@ -5,7 +5,7 @@
 ]]
 
 function seedobjectsHtmlController()
-	return GetWorldName()
+	return ServerSettings.WorldName
 end
 
 --[[

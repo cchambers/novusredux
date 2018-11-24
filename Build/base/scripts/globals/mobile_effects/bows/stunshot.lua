@@ -17,9 +17,12 @@ MobileEffectLibrary.StunShot =
 			target:SendMessage("StartMobileEffect", "Stun", self.ParentObj, {Duration = self.Duration})
 			target:SendMessage("AddThreat", self.ParentObj, 1)
 		end
+
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/shield_bash")
+		
 		EndMobileEffect(root)
 	end,
 
 	Duration = TimeSpan.FromSeconds(1),
-	PlayerDuration = TimeSpan.FromSeconds(1)
+	PlayerDuration = TimeSpan.FromSeconds(1),
 }
