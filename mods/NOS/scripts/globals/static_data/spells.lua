@@ -124,6 +124,7 @@ SpellData = {
 		Fireball = {
 			SpellDisplayName = "Fireball",
 			PowerWords = "Vas Flam",
+			Circle = 3,
 			manaCost = 9,
 			upkeepCost = 0,
 			effectDamageType = "Fire",
@@ -176,7 +177,6 @@ SpellData = {
 			Reagents = {
 				"Blackpearl",
 			},
-			Circle = 3,
 		},
 
 		Frost = {
@@ -283,6 +283,7 @@ SpellData = {
 		Reflectivearmor = {
 			SpellDisplayName = "Reactive Armor",
 			PowerWords = "Flam Sanct",
+			Circle = 1,
 			manaCost = 4,
 			Icon = "Elemental Shield",
 			PowerText = "Flam Sanct",
@@ -318,11 +319,11 @@ SpellData = {
 				"Sulfurousash",
 				"Spidersilk"
 			},
-			Circle = 1,
 		},
 		Lightning = {
 			SpellDisplayName = "Lightning",
 			PowerWords = "Por Ort Grav",
+			Circle = 4,
 			manaCost = 11,
 			upkeepCost = 0,
 			effectDamageType = "Energy",
@@ -361,13 +362,14 @@ SpellData = {
 				},
 			},
 			Reagents = {
-				"Bloodmoss",
+				"Mandrake",
+				"Sulfurousash"
 			},
-			Circle = 4,
 		},
 		Ruin = {
 			SpellDisplayName = "Harm",
 			PowerWords = "An Mani",
+			Circle = 2,
 			Icon = "Arcane Arrow",
 			manaCost = 6,
 			upkeepCost = 0,
@@ -411,7 +413,6 @@ SpellData = {
 				"Nightshade",
 				"Spidersilk"
 			},
-			Circle = 2,
 		},
 		Bombardment = {
 			SpellDisplayName = "Meteor Swarm",
@@ -468,6 +469,7 @@ SpellData = {
 		Electricbolt = {
 			SpellDisplayName = "Energy Bolt",
 			PowerWords = "Corp Por",
+			Circle = 6,
 			Icon = "Ball Lightning 01",
 			MinTravelTime = 0,
 			manaCost = 20,
@@ -514,9 +516,9 @@ SpellData = {
 					Air = 2,
 				},
 			Reagents = {
-				"Bloodmoss",
+				"Blackpearl",
+				"Nightshade"
 			},
-			Circle = 6,
 		},
 		Attack = {
 			SpellDisplayName = "Power Up",
@@ -672,6 +674,7 @@ SpellData = {
 		Weaken = {
 			SpellDisplayName = "Weaken",
 			PowerWords = "Des Mani",
+			Circle = 1,
 			Icon = "Thunder Strike 04",
 			manaCost = 4,
 			effectType = "InstantHitSpell",
@@ -701,8 +704,8 @@ SpellData = {
 			spellHitEffectTargetScript = "sp_weaken_effect",
 			Reagents = {
 				"Garlic",
+				"Nightshade"
 			},
-			Circle = 1,
 		},
 
 		Clumsy = {
@@ -1046,6 +1049,7 @@ SpellData = {
 		Heal = {
 			SpellDisplayName = "Heal",
 			PowerWords = "In Mani",
+			Circle = 1,
 			SpellPower = 2,
 			manaCost = 4,
 			effectType = "InstantHitSpell",
@@ -1080,12 +1084,14 @@ SpellData = {
 			ReagentsRequired = false,
 			Reagents = {
 				"Ginseng",
+				"Garlic",
+				"Spidersilk"
 			},
-			Circle = 1,
 		},
 		Greaterheal = {
 			SpellDisplayName = "Greater Heal",
 			PowerWords = "In Vas Mani",
+			Circle = 4,
 			SpellPower = 10,
 			Icon = "restore",
 			manaCost = 11,
@@ -1121,8 +1127,10 @@ SpellData = {
 			ReagentsRequired = true,
 			Reagents = {
 				"Ginseng",
+				"Garlic",
+				"Mandrake",
+				"Spidersilk"
 			},
-			Circle = 4,
 		},
 		Resurrect = {
 			SpellDisplayName = "Resurrection",
@@ -1292,6 +1300,7 @@ SpellData = {
 		Cure = {
 			SpellDisplayName = "Cure",
 			PowerWords = "An Nox",
+			Circle = 2,
 			Icon = "regenfocus",
 			manaCost = 6,
 			effectType = "InstantHitSpell",
@@ -1329,11 +1338,11 @@ SpellData = {
 				"Garlic",
 				"Ginseng",
 			},
-			Circle = 2,
 		},
 		Poison = {
 			SpellDisplayName = "Poison",
 			PowerWords = "In Nox",
+			Circle = 3,
 			Icon = "Poison Cloud",
 			manaCost = 9,
 			effectType = "InstantHitSpell",
@@ -1365,14 +1374,14 @@ SpellData = {
 			TargetMobileEffect = "SpellPoison",
 			ReagentsRequired = false,
 			Reagents = {
-				"Garlic",
+				"Nightshade",
 			},
-			Circle = 3,
 		},
 
 		Pillaroffire = {
 			SpellDisplayName = "Flame Strike",
 			PowerWords = "Kal Vas Flam",
+			Circle = 7,
 			manaCost = 40,
 			effectDamageType = "Fire",			
 			effectType = "InstantHitSpell",
@@ -1413,9 +1422,9 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"Mandrake"
+				"Spidersilk",
+				"Sulfurousash"
 			},
-			Circle = 7,
 		},	
 
 		Icerain = {
@@ -1514,7 +1523,7 @@ SpellData = {
 		
 		Auraoffire = {
 			SpellDisplayName = "Flame Aura",
-			PowerWords = "Goodness Gracious",
+			PowerWords = "Por Vas Flam",
 			manaCost = 15,
 			upkeepCost = -5,
 			effectDamageType = "Fire",			
@@ -1564,7 +1573,7 @@ SpellData = {
 		
 		Auraofheal = {
 			SpellDisplayName = "Healing Aura",
-			PowerWords = "Goodness Gracious",
+			PowerWords = "Por Vas Mani",
 			manaCost = 15,
 			upkeepCost = -5,
 			effectDamageType = "Fire",			
@@ -1614,6 +1623,7 @@ SpellData = {
 		Walloffire = {
 			SpellDisplayName = "Fire Field",
 			PowerWords = "In Flam Grav",
+			Circle = 4,
 			manaCost = 11,
 			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
@@ -1652,9 +1662,10 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"Mandrake"
+				"Blackpearl",
+				"Spidersilk",
+				"Sulfurousash"
 			},
-			Circle = 4,
 		},	
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
@@ -1825,7 +1836,10 @@ SpellData = {
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_shaken_slow_effect",
 			Reagents = {
-				"Mandrake"
+				"Bloodmodss",
+				"Ginseng",
+				"Mandrake",
+				"Sulfurousash"
 			},
 			Circle = 8,
 		},
