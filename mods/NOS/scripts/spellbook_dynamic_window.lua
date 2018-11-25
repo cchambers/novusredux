@@ -158,15 +158,13 @@ function ShowSpellBookDialog(from)
 			local skill = spellEntry.Data.Skill
 			skill = string.sub(skill, 1, 1)
 			local circle = tostring(spellEntry.Data.Circle or 1)
-			DebugMessage("KHI " .. command .. " - " .. name)
-			dynamicWindow:AddButton(xOffset, yOffset, command, spellEntry.id .. "|" .. name, 250, 34, "", "", false, "BookList")
+			dynamicWindow:AddButton(xOffset, yOffset, command, skill .. "|" .. name, 250, 34, "", "", false, "BookList")
 			yOffset = yOffset + 36
 		end
 	end
 
 	-- IS DETAIL PAGE
 	if (mPageType == detailPageStr) then
-		DebugMessage("IS DETAIL PAGE..." .. tostring(#spellsSorted))
 		local pageActual = 1
 
 		if ((mPageNumber % 2) == 0) then

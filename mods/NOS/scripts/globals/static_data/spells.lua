@@ -62,7 +62,7 @@ SpellData = {
             Circle = 2
         },
 		ManaMissile = {
-			PowerWords = "Mana Missile",
+			PowerWords = "In Por Ylem",
 			manaCost = 4,
 			upkeepCost = 0,
 			effectDamageType = "Fire",
@@ -104,7 +104,7 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "spell_fire",
-			SpellDisplayName = "Mana Missile",
+			SpellDisplayName = "Magic Arrow",
 			StanceOverride = {
 				Defensive = {
 					SpellReleaseUserScript  = "sp_fireshockwave_effect",
@@ -115,7 +115,7 @@ SpellData = {
 				},
 			},
 			Reagents = {
-				"LemonGrass",
+				"Sulfurousash",
 			},
 			Circle = 1,
 			Icon = "Starfall 01",
@@ -173,12 +173,13 @@ SpellData = {
 				},
 			},
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 3,
 		},
 		Frost = {
-			PowerWords = "Ray of Frost",
+			SpellDisplayName = "Ray of Frost",
+			PowerWords = "Vas Chil",
 			manaCost = 14,
 			upkeepCost = 0,
 			effectDamageType = "Fire",
@@ -220,7 +221,6 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "spell_fire",
-			SpellDisplayName = "Ray of Frost",
 			StanceOverride = {
 				Defensive = {
 					SpellReleaseUserScript  = "sp_fireshockwave_effect",
@@ -232,13 +232,14 @@ SpellData = {
 			},
 			TargetMobileEffect = "Frost",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 5,
 			Icon = "Chill",
 		},
 
 		Meteor = {
+			SpellDisplayName = "Meteor",
 			PowerWords = "Meteor",
 			manaCost = 40,
 			effectDamageType = "Fire",			
@@ -264,7 +265,6 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellDisplayName = "Meteor",
 			SpellReleaseUserScript  = "sp_meteor_effect",
 			SpellPotencySkill = "EvocationSkill",
 			DoNotReplaceTarget = true,
@@ -273,16 +273,17 @@ SpellData = {
 			critEffectTargetScript = "sp_burn_effect",
 			Icon = "Hellstorm",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 7,
 		},	
 
 		Reflectivearmor = {
-			PowerWords = "Feir Gar",
+			SpellDisplayName = "Reactive Armor",
+			PowerWords = "Flam Sanct",
 			manaCost = 4,
 			Icon = "Elemental Shield",
-			PowerText = "Rel Armour",
+			PowerText = "Flam Sanct",
 			effectType = "BuffSpell",
 			critChance = 0,
 			SpellRange = 12,
@@ -308,11 +309,12 @@ SpellData = {
 			MinSkillRequired = 5,
 			spellSkillLevel = 15,
 			BeneficialSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellDisplayName = "Repel",
 			Reagents = {
-				"Ginseng",
+				"Garlic",
+				"Sulfurousash",
+				"Spidersilk"
 			},
 			Circle = 1,
 		},
@@ -362,7 +364,8 @@ SpellData = {
 			Circle = 4,
 		},
 		Ruin = {
-			PowerWords = "Ruin",
+			SpellDisplayName = "Harm",
+			PowerWords = "An Mani",
 			Icon = "Arcane Arrow",
 			manaCost = 6,
 			upkeepCost = 0,
@@ -397,14 +400,14 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "spell_fire",
-			SpellDisplayName = "Ruin",
 			StanceOverride = {
 				Defensive = {
 					SpellReleaseUserScript  = "sp_staticshockwave_effect",
 				},
 			},
 			Reagents = {
-				"Moss",
+				"Nightshade",
+				"Spidersilk"
 			},
 			Circle = 2,
 		},
@@ -535,7 +538,7 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			BeneficialSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			SpellDisplayName = "Attack",
 
@@ -580,7 +583,7 @@ SpellData = {
 			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Teleports you to the location marked on the targetted rune. Cannot be used in Dungeons, Barren Lands, and Black Forest.",
 			SpellFXArgs = "Bone=Ground",
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			SpellDisplayName = "Recall",
 			BeneficialSpellType = true,
@@ -673,7 +676,7 @@ SpellData = {
 			requireLineOfSight = true,
 			Skill = "ManifestationSkill",
 			BeneficialSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			SpellDisplayName = "Defense",
 			TargetMobileEffect = "DefenseBuff",
@@ -687,8 +690,9 @@ SpellData = {
 			},
 			Circle = 1,
 		},
+
 		Weaken = {
-			PowerWords = "Fal Ex",
+			PowerWords = "Des Mani",
 			Icon = "Thunder Strike 04",
 			manaCost = 4,
 			effectType = "InstantHitSpell",
@@ -713,12 +717,86 @@ SpellData = {
 			Skill = "EvocationSkill",
 			BeneficialSpellType = false,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
-			SpellDisplayName = "Exhaust",
+			SpellDisplayName = "Weaken",
 			spellHitEffectTargetScript = "sp_weaken_effect",
 			Reagents = {
 				"Mushrooms",
+			},
+			Circle = 1,
+		},
+
+		Clumsy = {
+			PowerWords = "Uus Jux",
+			Icon = "Thunder Strike 04",
+			manaCost = 4,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Decrease targets dexterity.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "EvocationSkill",
+			BeneficialSpellType = false,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Clumsy",
+			spellHitEffectTargetScript = "sp_clumsy_effect",
+			Reagents = {
+				"Bloodmoss",
+				"Nightshade"
+			},
+			Circle = 1,
+		},
+
+		Feeblemind = {
+			PowerWords = "Uus Jux",
+			Icon = "Thunder Strike 04",
+			manaCost = 4,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Decrease targets dexterity.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "EvocationSkill",
+			BeneficialSpellType = false,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Feeblemind",
+			spellHitEffectTargetScript = "sp_feeblemind_effect",
+			Reagents = {
+				"Ginseng",
+				"Nightshade"
 			},
 			Circle = 1,
 		},
@@ -754,11 +832,12 @@ SpellData = {
 			TargetRequired = false,
 			MobileEffect = "Intellect",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 1,
 			PlayEffect = HealEffect,
 		},
+		-- TODO: rewrite this to be +agility
 		Agility = {
 			PowerWords = "Refresh",
 			Icon = "Ball Lightning 02",
@@ -790,10 +869,122 @@ SpellData = {
 			TargetRequired = false,
 			MobileEffect = "Agility",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 1,
 		},		
+		
+		Agile = {
+			PowerWords = "Ex Uus",
+			Icon = "Thunder Strike 04",
+			manaCost = 4,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Decrease targets strength.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "EvocationSkill",
+			BeneficialSpellType = false,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Agile",
+			spellHitEffectTargetScript = "sp_agile_effect",
+			Reagents = {
+				"Bloodmoss",
+				"Mandrake"
+			},
+			Circle = 1,
+		},
+
+		Cunning = {
+			PowerWords = "Uus Wis",
+			Icon = "Thunder Strike 04",
+			manaCost = 4,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Decrease targets strength.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "EvocationSkill",
+			BeneficialSpellType = false,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Agility",
+			spellHitEffectTargetScript = "sp_cunning_effect",
+			Reagents = {
+				"Bloodmoss",
+				"Mandrake"
+			},
+			Circle = 1,
+		},
+
+		Bless = {
+			PowerWords = "Rel Sanct",
+			Icon = "Thunder Strike 04",
+			manaCost = 4,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Decrease targets strength.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "EvocationSkill",
+			BeneficialSpellType = false,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Agility",
+			spellHitEffectTargetScript = "sp_bless_effect",
+			Reagents = {
+				"Garlic",
+				"Mandrake"
+			},
+			Circle = 1,
+		},
+
 		
 		Heal = {
 			PowerWords = "Heal",
@@ -1043,7 +1234,8 @@ SpellData = {
 			CastTime = 6,
 		},
 		Cure = {
-			PowerWords = "Cure",
+			SpellDisplayName = "Cure",
+			PowerWords = "An Nox",
 			Icon = "regenfocus",
 			manaCost = 6,
 			effectType = "InstantHitSpell",
@@ -1075,10 +1267,10 @@ SpellData = {
 			spellSkillLevel = 30,
 			AttackSpellType = false,
 			SpellEnabled = true,
-			SpellDisplayName = "Cure",
 			spellHitEffectTargetScript = "sp_cure_effect",
 			ReagentsRequired = false,
 			Reagents = {
+				"Garlic",
 				"Ginseng",
 			},
 			Circle = 2,
@@ -1149,7 +1341,7 @@ SpellData = {
 			MinSkillRequired = 70,
 			spellSkillLevel = 65,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
 			SpellDisplayName = "Pillar of Fire",
 			SpellReleaseUserScript  = "sp_pillar_of_fire_effect",
@@ -1164,7 +1356,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 7,
 		},	
@@ -1199,7 +1391,7 @@ SpellData = {
 			MinSkillRequired = 80,
 			spellSkillLevel = 70,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
 			SpellDisplayName = "Ice Storm",
 			SpellReleaseUserScript  = "sp_ice_rain_effect",
@@ -1213,7 +1405,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},	
@@ -1245,7 +1437,7 @@ SpellData = {
 			MinSkillRequired = 100,
 			spellSkillLevel = 85,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
 			SpellDisplayName = "Black Hole",
 			SpellReleaseUserScript  = "sp_blackhole_effect",
@@ -1258,7 +1450,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},			
@@ -1292,7 +1484,7 @@ SpellData = {
 			MinSkillRequired = 40,
 			spellSkillLevel = 50,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
 			SpellDisplayName = "Flame Aura",
 			completionEffectUserScript  = "sp_flameaura_effect",
@@ -1306,7 +1498,7 @@ SpellData = {
 				},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},
@@ -1351,7 +1543,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 4,
 		},	
@@ -1381,7 +1573,7 @@ SpellData = {
 			MinSkillRequired = 35,
 			spellSkillLevel = 50,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
 			SpellDisplayName = "Flame Wave",
 			SpellReleaseUserScript  = "sp_flamewave_effect",
@@ -1395,7 +1587,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},	
@@ -1430,7 +1622,7 @@ SpellData = {
 			MinSkillRequired = 70,
 			spellSkillLevel = 60,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_earth",
 			SpellDisplayName = "Spike Path",
 			SpellReleaseUserScript  = "sp_spikepath_effect",
@@ -1443,7 +1635,7 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},			
@@ -1472,12 +1664,12 @@ SpellData = {
 			Skill = "EvocationSkill",
 			MinSkillRequired = 30,
 			spellSkillLevel = 30,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "",
 			SpellDisplayName = "",
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},
@@ -1521,12 +1713,12 @@ SpellData = {
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_shaken_slow_effect",
 			Reagents = {
-				"LemonGrass"
+				"Mandrake"
 			},
 			Circle = 8,
 		},
 		Energywall = {
-			PowerWords = "Wall of Energy",
+			PowerWords = "In Sanct Grav",
 			manaCost = 40,
 			effectDamageType = "Energy",
 			effectType = "InstantHitSpell",
@@ -1565,10 +1757,61 @@ SpellData = {
 			},
 			ReagentsRequired = false,
 			Reagents = {
-				"LemonGrass"
+				"Mandrake",
+				"Blackpearl",
+				"Spidersilk",
+				"Sulfurousash"
 			},
 			Circle = 6,
-		},	
+		},
+
+		Stonewall = {
+			PowerWords = "In Sanct Ylem",
+			manaCost = 40,
+			effectDamageType = "Energy",
+			effectType = "InstantHitSpell",
+			SpellPower = 5,
+			critChance = 10,
+			SpellRange = 12,
+			TargetType = "targetLocation",
+			TargetRequired = true,
+			CanBeInterrupted = true,
+			SpellType = "WallSpellType",
+			SpellPotencySkill = "EvocationSkill",
+			SpellPrimeSFX = "CastAir",
+			SpellPrimeFXName = "ConjurePrimeRedEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandRedEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellTooltipString = "Creates a wall of stone between 2 points.",
+			Skill = "EvocationSkill",
+			MinSkillRequired = 50,
+			spellSkillLevel = 60,
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_air",
+			SpellDisplayName = "Wall of Stone",
+			SpellReleaseUserMobileEffect  = "Stonewall",
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			requireLineOfSight = true,
+			SpellLaunchSFX = "CastFire",
+			AffinityRequired = {
+				Fire = 4,
+			},
+			ReagentsRequired = false,
+			Reagents = {
+				"Mandrake",
+				"Blackpearl",
+				"Spidersilk",
+				"Sulfurousash"
+			},
+			Circle = 6,
+		},
 
 
 		Energyvortex = {
@@ -1597,12 +1840,12 @@ SpellData = {
 			SpellPotencySkill = "ManifestationSkill",
 			MinSkillRequired = 50,
 			spellSkillLevel = 60,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
 			SpellReleaseUserScript  = "sp_energy_vortex",
 			SpellDisplayName = "Energy Vortex",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 8
 		},
@@ -1631,12 +1874,12 @@ SpellData = {
 			SpellPotencySkill = "ManifestationSkill",
 			MinSkillRequired = 50,
 			spellSkillLevel = 60,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
 			SpellReleaseUserScript  = "sp_arcane_storm",
 			SpellDisplayName = "Summon Arcane Storm",
 			Reagents = {
-				"LemonGrass",
+				"Mandrake",
 			},
 			Circle = 8	
 		},
