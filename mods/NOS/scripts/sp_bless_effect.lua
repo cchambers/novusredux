@@ -18,7 +18,7 @@ function HandleLoaded()
 	AddBuffIcon(
 		this,
 		"WeakenSpellBuff",
-		"Weaken",
+		"Bless",
 		"Thunder Strike 04",
 		"Stats increased by " .. mAmount,
 		false,
@@ -26,7 +26,7 @@ function HandleLoaded()
 	)
 	this:ScheduleTimerDelay(TimeSpan.FromMinutes(mDurationMinutes), "SpellBlessBonusTimer")
 	if not (mBuffed) then
-		this:SystemMessage("Your stats have increased by " .. mAmount, "event")
+		this:SystemMessage("Bless! Your stats have increased by " .. mAmount, "event")
 	end
 	mBuffed = true
 end 
@@ -51,7 +51,7 @@ RegisterEventHandler(
 
 RegisterEventHandler(
 	EventType.Message,
-	"SpellHitEffectsp_agile_effect",
+	"SpellHitEffectsp_bless_effect",
 	function(caster)
 		HandleLoaded()
 	end
