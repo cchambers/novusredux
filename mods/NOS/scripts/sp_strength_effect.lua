@@ -7,31 +7,31 @@ mBuffed = false
 function HandleLoaded()
 	local skillLevel = GetSkillLevel(this, "ManifestationSkill")
 
-	if (this:HasTimer("SpellCunningBonusTimer")) then
-		this:RemoveTimer("SpellCunningBonusTimer")
+	if (this:HasTimer("SpellStrengthBonusTimer")) then
+		this:RemoveTimer("SpellStrengthBonusTimer")
 	end
 	mAmount = math.floor(skillLevel / 10)
 
-	SetMobileMod(this, "IntelligencePlus", "SpellCunning", mAmount)
+	SetMobileMod(this, "StrengthPlus", "SpellStrength", mAmount)
 	AddBuffIcon(
 		this,
 		"WeakenSpellBuff",
-		"Cunning",
+		"Strength",
 		"Thunder Strike 04",
-		"Intelligence is increased by " .. mAmount,
+		"Strength is increased by " .. mAmount,
 		false,
 		mDurationMinutes * 60
 	)
-	this:ScheduleTimerDelay(TimeSpan.FromMinutes(mDurationMinutes), "SpellCunningBonusTimer")
+	this:ScheduleTimerDelay(TimeSpan.FromMinutes(mDurationMinutes), "SpellStrengthBonusTimer")
 	if not (mBuffed) then
-		this:SystemMessage("Your intelligence has increased by " .. mAmount, "event")
+		this:SystemMessage("Your strength has increased by " .. mAmount, "event")
 	end
 	mBuffed = true
 end 
 
 function CleanUp()
-	SetMobileMod(this, "IntelligencePlus", "SpellCunning", nil)
-	this:SystemMessage("Cunning has worn off, decreasing your intelligence by " .. mAmount, "event")
+	SetMobileMod(this, "StrengthPlus", "SpellStrength", nil)
+	this:SystemMessage("Strength has worn off, decreasing your strength by " .. mAmount, "event")
 	RemoveBuffIcon(this, "WeakenSpellBuff")
 	mAmount = 0
 	this:DelModule(GetCurrentModule())
@@ -39,7 +39,7 @@ end
 
 RegisterEventHandler(
 	EventType.Timer,
-	"SpellCunningBonusTimer",
+	"SpellStrengthBonusTimer",
 	function()
 		CleanUp()
 	end
