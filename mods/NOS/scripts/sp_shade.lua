@@ -1,49 +1,39 @@
 foods = {
-	"item_bread",
-	"item_cheese_slice",
-	"item_cheese_plate",
-	"item_cheese_wheel",
-	"item_mead",
-	"item_meat_slices",
-	"item_meat_leg_bone_grilled",
-	"item_meat_bone_grilled_plate"
+	"Degenerates like you belong on a cross!",
+	"The best part of waking up is not being next to you.",
+	"You look like I need a drink!"
 }
 
-function doCreateFood(target)
-	startAt = 1
-	endAt = math.random(startAt, CountTable(foods))
-	CreateTempObj(foods[endAt], target, "created_food")
-	PlayEffectAtLoc("TeleportToEffect", target)
+mDurationMinutes = 2
+
+mBuffed = false
+
+function HandleLoaded(caster)
+	local skillLevel = GetSkillLevel(caster,"ManifestationSkill")
+
+	if( this:HasTimer("SpellShadeBonusTimer") ) then
+		this:RemoveTimer("SpellShadeBonusTimer")
+	end
+
+	AddBuffIcon(this,"StrengthSpellBuff","Strength","Imbue Holy","lol",false,mDurationMinutes*60)
+	this:ScheduleTimerDelay(TimeSpan.FromMinutes(mDurationMinutes), "SpellShadeBonusTimer")
+	if not( mBuffed ) then
+		this:SystemMessage("Your confidence has decreased slightly.")
+	end
+	mBuffed = true
 end
 
-RegisterEventHandler(
-	EventType.CreatedObject,
-	"created_food",
-	function(success, objRef)
-		-- DecayTime is the time (in seconds) before the item disappears.
-		objRef:SetObjVar("DecayTime", 15)
-		if (objRef:HasModule("summoned_food")) then
-			-- this item already has the summoned_food module applied
-		else
-			-- it doesn't (most cases)
-			objRef:AddModule("summoned_food")
-		end
+function CleanUp()
+	this:SystemMessage("You regain your confidence.")
+	RemoveBuffIcon(this,"StrengthSpellBuff")
+	this:DelModule(GetCurrentModule())
+end
 
-		-- stacking can reset scripts causing unwanted stuff...
-		-- and most food has the stackable module applied
-		if (objRef:HasModule("stackable")) then
-			objRef:DelModule("stackable")
-		end 
-	end
-)
+RegisterEventHandler(EventType.Timer, "SpellShadeBonusTimer", function()
+	CleanUp()
+	end)
 
-RegisterEventHandler(
-	EventType.Message,
-	"CreateFoodSpellTargetResult",
-	function(targetLoc)
-		-- can't actually get skill levels here because the player object isn't passed...
-		-- local manifestationSkill = GetSkillLevel(this, "Manifestation")
-		-- DebugMessage("level " .. manifestationSkill)
-		doCreateFood(targetLoc)
-	end
-)
+RegisterEventHandler(EventType.Message, "SpellHitEffectsp_strength_effect", 
+	function(caster)
+		HandleLoaded(caster)
+	end)

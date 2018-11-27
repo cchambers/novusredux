@@ -1,3 +1,5 @@
+require 'default:currency'
+
 Denominations = {
-    {Name = "Gold", Value = (1), Abbrev = "ℊ", Color = "[FFD700]"} -- 10,000 copper
+    {Name = "Gold", Value = (1), Abbrev = "g", Color = "[FFD700]"}
 }

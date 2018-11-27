@@ -285,7 +285,7 @@ end
 
 function UpdateName()
 	Verbose("Player", "UpdateName")
-	local charName = ColorizePlayerName(this, this:GetName() .. GetNameSuffix())
+	local charName = ColorizePlayerName(this, GetNamePrefix() .. this:GetName() .. GetNameSuffix())
 	this:SetSharedObjectProperty("DisplayName", charName)
 end
 

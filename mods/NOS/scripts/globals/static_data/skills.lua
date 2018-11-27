@@ -105,6 +105,13 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
 		},
+		ParryingSkill = {
+			DisplayName = "Parry",
+			PrimaryStat = "Agility",
+			Description = "Parrying determines your chance to block an attack without a shield.",
+			SkillType = "CombatTypeSkill",
+			GainFactor = 0.3,
+		},
 		MetalsmithSkill = {
 			DisplayName = "Blacksmithing",
 			Description = "Blacksmithing is the capacity to be able to work metal and allows creation of metal items.",

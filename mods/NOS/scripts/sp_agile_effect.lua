@@ -4,8 +4,8 @@ mDurationMinutes = 2
 
 mBuffed = false
 
-function HandleLoaded()
-	local skillLevel = GetSkillLevel(this, "ManifestationSkill")
+function HandleLoaded(caster)
+	local skillLevel = GetSkillLevel(caster, "ManifestationSkill")
 
 	if (this:HasTimer("SpellAgileBonusTimer")) then
 		this:RemoveTimer("SpellAgileBonusTimer")
@@ -16,7 +16,7 @@ function HandleLoaded()
 	AddBuffIcon(
 		this,
 		"WeakenSpellBuff",
-		"Weaken",
+		"Agile",
 		"Thunder Strike 04",
 		"Agility is increased by " .. mAmount,
 		false,
@@ -49,6 +49,6 @@ RegisterEventHandler(
 	EventType.Message,
 	"SpellHitEffectsp_agile_effect",
 	function(caster)
-		HandleLoaded()
+		HandleLoaded(caster)
 	end
 )

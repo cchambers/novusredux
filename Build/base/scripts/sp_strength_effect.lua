@@ -5,8 +5,8 @@ mDurationMinutes = 2
 
 mBuffed = false
 
-function HandleLoaded()
-	local skillLevel = GetSkillLevel(this,"ManifestationSkill")
+function HandleLoaded(caster)
+	local skillLevel = GetSkillLevel(caster,"ManifestationSkill")
 
 	if( this:HasTimer("SpellStrengthBonusTimer") ) then
 		this:RemoveTimer("SpellStrengthBonusTimer")
@@ -36,5 +36,5 @@ RegisterEventHandler(EventType.Timer, "SpellStrengthBonusTimer", function()
 
 RegisterEventHandler(EventType.Message, "SpellHitEffectsp_strength_effect", 
 	function(caster)
-		HandleLoaded()
+		HandleLoaded(caster)
 	end)

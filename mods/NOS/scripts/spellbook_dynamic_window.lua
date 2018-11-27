@@ -152,10 +152,11 @@ function ShowSpellBookDialog(from)
 		local circleIndex = 0
 		for i, spellEntry in pairs(spellsSorted) do
 			if (circleIndex == 0) then
-				circleIndex = spellEntry.Data.Circle
+				circleIndex = mPageNumber
+				nextCircle = circleIndex + 1
 				local labelStr = "[412A08]Circle " .. circleIndex .. "[-]"
 				dynamicWindow:AddLabel(236, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
-				local labelStr = "[412A08]Circle " .. circleIndex + 1 .. "[-]"
+				local labelStr = "[412A08]Circle " .. nextCircle .. "[-]"
 				dynamicWindow:AddLabel(550, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
 			end
 

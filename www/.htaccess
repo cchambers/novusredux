@@ -1,0 +1,7 @@
+<IfModule mod_headers.c>
+    <IfModule mod_rewrite.c>
+        SetEnvIf Origin ^(https?://(?:.+\.)?novusredux\.com(?::\d{1,5})?)$   CORS_ALLOW_ORIGIN=$1
+        Header append Access-Control-Allow-Origin  %{CORS_ALLOW_ORIGIN}e   env=CORS_ALLOW_ORIGIN
+        Header merge  Vary "Origin"
+    </IfModule>
+</IfModule>

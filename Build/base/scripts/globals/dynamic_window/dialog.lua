@@ -81,8 +81,11 @@ end
 
 ButtonMenu = {}
 function ButtonMenu.Show(args)
-	if(args.Buttons == nil or #args.Buttons == 0
-			or args.TargetUser == nil or not(args.TargetUser:IsValid())) then 
+	DebugMessage(#args.Buttons)
+	if(args.Buttons == nil
+		or #args.Buttons == 0
+		or args.TargetUser == nil
+		or not(args.TargetUser:IsValid())) then 
 		DebugMessage("ERROR: Invalid ButtonMenu arguments see ButtonMenu.Show in incl_dialogwindow.lua")
 		return
 	end

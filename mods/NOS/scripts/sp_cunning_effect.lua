@@ -4,8 +4,8 @@ mDurationMinutes = 2
 
 mBuffed = false
 
-function HandleLoaded()
-	local skillLevel = GetSkillLevel(this, "ManifestationSkill")
+function HandleLoaded(caster)
+	local skillLevel = GetSkillLevel(caster, "ManifestationSkill")
 
 	if (this:HasTimer("SpellCunningBonusTimer")) then
 		this:RemoveTimer("SpellCunningBonusTimer")
@@ -49,6 +49,6 @@ RegisterEventHandler(
 	EventType.Message,
 	"SpellHitEffectsp_cunning_effect",
 	function(caster)
-		HandleLoaded()
+		HandleLoaded(caster)
 	end
 )
