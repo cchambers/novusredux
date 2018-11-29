@@ -25,13 +25,13 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 10,Template = "packed_pillow_round", Unique = true },
-								{ Chance = 5,Template = "packed_pillow_square", Unique = true },
-								{ Chance = 5,Template = "packed_painting3", Unique = true },
-								{ Chance = 2,Template = "packed_painting2", Unique = true },
-								{ Chance = 1,Template = "packed_rug_ornate_blue", Unique = true },
-								{ Chance = 1,Template = "packed_rug_ornate_red", Unique = true },
-								{ Chance = 1,Template = "packed_painting1", Unique = true },
+								{ Chance = 10,Template = "furniture_pillow_round", Packed = true, Unique = true },
+								{ Chance = 5,Template = "furniture_pillow_square", Packed = true, Unique = true },
+								{ Chance = 5,Template = "furniture_painting3", Packed = true, Unique = true },
+								{ Chance = 2,Template = "furniture_painting2", Packed = true, Unique = true },
+								{ Chance = 1,Template = "furniture_rug_ornate_blue", Packed = true, Unique = true },
+								{ Chance = 1,Template = "furniture_rug_ornate_red", Packed = true, Unique = true },
+								{ Chance = 1,Template = "furniture_painting1", Packed = true, Unique = true },
 							}
 						},
 

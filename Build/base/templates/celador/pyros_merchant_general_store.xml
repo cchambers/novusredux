@@ -60,7 +60,7 @@
 						{
 							Template = "bandage",
 							Price = 0,
-							Amount = 500,
+							Amount = 9999,
 							RelativeLoc = "2.427002, 0.9419556, -1.948975",
 							Rotation = "0, 340.6, 0",
 							UnlimitedStock = false,
@@ -68,7 +68,7 @@
 						{
 							Template = "rune_blank",
 							Price = 0,
-							Amount = 20,
+							Amount = 9999,
 							RelativeLoc = "-0.7539063, 0.9529572, -1.844971",
 							Rotation = "0, 320.6003, 0",
 							UnlimitedStock = false,

@@ -11,8 +11,6 @@
 				{
 					SpawnInfo = {
 						--valus
-						{ Count = 1, TemplateId = "val_rogue_trainer",    Region = "ValusScout"}, 
-						{ Count = 1, TemplateId = "val_knight_trainer",    Region = "ValusKnight"},
 
 						--villagers
 						{ Count = 6, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 

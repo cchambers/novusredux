@@ -24,6 +24,7 @@
 					},
 					Skills= {
 						Mining = 100,
+						Lockpicking = 100,
 					},
 					EquipTable= {
 						BodyPartHead= {
@@ -54,9 +55,9 @@
 					},
 					ItemInventory= {
 						{
-							Template = "resource_iron_ore",
+							Template = "tool_lockpick",
 							Price = 0,
-							Amount = 500,
+							Amount = 100,
 							RelativeLoc = "4.090088, 0.6210003, -1.394043",
 							Rotation = "-2.544444E-14, 344.3622, 4.26887E-07",
 							UnlimitedStock = false,

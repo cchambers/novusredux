@@ -574,7 +574,7 @@ function CheckKarmaLoot(player, container)
             IsGuaranteedProtected(containerOwner, player)
             or
             -- prevent accidental flagging chaotic (order)
-            ShouldChaoticProtect(player, containerOwner, true, false)
+            ShouldChaoticProtect(player, containerOwner)
             or
             -- prevent losing karma if set to and would
             ShouldKarmaProtect(player, KarmaActions.Negative.LootPlayerContainer, containerOwner) 

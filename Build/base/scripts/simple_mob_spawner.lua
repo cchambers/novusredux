@@ -44,8 +44,8 @@ function GetSpawnLoc()
 end
 
 function ShouldSpawn(spawnData, spawnIndex)
-    local isValid = spawnData[spawnIndex].ObjRef and true
-    local isDead = isValid and spawnData[spawnIndex].ObjRef and IsDead(spawnData[spawnIndex].ObjRef)
+    local isValid = spawnData[spawnIndex].ObjRef and spawnData[spawnIndex].ObjRef:IsValid()
+    local isDead = isValid and spawnData[spawnIndex].ObjRef and spawnData[spawnIndex].ObjRef:IsMobile() and IsDead(spawnData[spawnIndex].ObjRef)
 
     -- the mob is still on the map and hes not a pet, no spawn
     if( isValid and not(isDead) and not(IsPet(spawnData[spawnIndex].ObjRef)) ) then
@@ -113,7 +113,7 @@ function CheckSpawn()
     end
 
     if( templateId == nil ) then
-        DebugMessage("Simple mob spawner picked invalid template: "..tostring(this.Id))
+        DebugMessage("ERROR: Simple mob spawner picked invalid template: "..tostring(this.Id))
         return
     end
     
@@ -153,25 +153,25 @@ function CheckSpawn()
     	for i=spawnCount+1,#spawnData do
             table.remove(spawnData,i)
         end
-    end            
+    end        
 
     --DebugMessage("---CheckSpawn SpawnCount: "..spawnCount.." spawnChance: "..tostring(spawnChance))     
-    
-    --DebugMessage("SPAWNING")
-    for i=1, spawnCount do
-        --DebugMessage("---Checking i="..i)     
+
+        --DebugMessage("SPAWNING")
+        for i=1, spawnCount do
+            --DebugMessage("---Checking i="..i)     
         if(spawnData[i] == nil) then spawnData[i] = {} end
         if( ShouldSpawn(spawnData, i) ) then   
-            --DebugMessage("---Create "..templateId)     
-            local spawnLoc = GetSpawnLoc()
-        	CreateObj(templateId, spawnLoc, "mobSpawned", i)            	
+                --DebugMessage("---Create "..templateId)     
+                local spawnLoc = GetSpawnLoc()
+            	CreateObj(templateId, spawnLoc, "mobSpawned", i)
             -- DAB NOTE: SHOULD WE ONLY SPAWN ONE PER PULSE? AND SHOULD WE ONLY ROLL ONCE?
-            break
+            	break
+            end
         end
-    end
 
     this:SetObjVar("spawnData", spawnData)
-end
+    end
 
 RegisterEventHandler(EventType.Message,"Activate",function ( ... )
     this:DelObjVar("Disable")

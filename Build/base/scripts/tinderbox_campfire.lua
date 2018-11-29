@@ -172,5 +172,5 @@ end)]]
 RegisterSingleEventHandler(EventType.ModuleAttached, "tinderbox_campfire", function()
 	SetTooltipEntry(this,"campfire","Can be used to cook food.")
 	this:SetSharedObjectProperty("IsLit", true)
-	ScheduleDecay()
+	Decay(this, ServerSettings.Misc.ObjectDecayTimeSecs)
 end)

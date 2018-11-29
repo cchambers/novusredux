@@ -71,7 +71,6 @@
 					{ 
 						TemplateDefines.LootTable.Ten,
 						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.ClothScrapsLow,
 					},
 				ScavengeTables =
 					{

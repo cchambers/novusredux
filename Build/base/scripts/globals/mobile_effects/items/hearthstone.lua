@@ -88,3 +88,12 @@ MobileEffectLibrary.Hearthstone =
 
 	SummonTime = TimeSpan.FromSeconds(4),
 }
+
+function BindLocationIfNot(playerObj)
+	if not( playerObj:HasObjVar("SpawnPosition") ) then
+		local hearth = FindObject(SearchModule("hearth"))
+		if ( hearth and hearth:HasObjVar("BindLocation") ) then
+			playerObj:SendMessage("BindToLocation", hearth:GetObjVar("BindLocation"))
+		end
+	end
+end

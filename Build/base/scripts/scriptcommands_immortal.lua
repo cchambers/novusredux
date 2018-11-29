@@ -41,7 +41,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"ClockWindow",
 
 UserListPage = 1
 
-function ShowUserList(selectedUser)
+function ShowUserList(selectedUser, keyword)
 	if (selectedUser == nil) then selectedUser = this end
 	local newWindow = DynamicWindow("UserList","Player List",450,530) 
 	local allPlayers = FindPlayersInRegion()
@@ -52,20 +52,23 @@ function ShowUserList(selectedUser)
 
 	local scrollWindow = ScrollWindow(20,40,380,375,25)
 	for i,player in pairs(allPlayers) do
-		local scrollElement = ScrollElement()	
+		local name = player:GetName()
+		if ( not keyword or name:match(keyword) ) then
+			local scrollElement = ScrollElement()	
 
-		if((i-1) % 2 == 1) then
-            scrollElement:AddImage(0,0,"Blank",360,25,"Sliced","1A1C2B")
-        end
-		
-		scrollElement:AddLabel(5, 3, player:GetName(),0,0,18)
+			if((i-1) % 2 == 1) then
+				scrollElement:AddImage(0,0,"Blank",360,25,"Sliced","1A1C2B")
+			end
+			
+			scrollElement:AddLabel(5, 3, name,0,0,18)
 
-		local selState = ""
-		if(player.Id == selectedUser.Id) then
-			selState = "pressed"
+			local selState = ""
+			if(player.Id == selectedUser.Id) then
+				selState = "pressed"
+			end
+			scrollElement:AddButton(340, 3, "select|"..player.Id, "", 0, 18, "", "", false, "Selection",selState)
+			scrollWindow:Add(scrollElement)
 		end
-		scrollElement:AddButton(340, 3, "select|"..player.Id, "", 0, 18, "", "", false, "Selection",selState)
-		scrollWindow:Add(scrollElement)
 	end
 	newWindow:AddScrollWindow(scrollWindow)
 
@@ -164,8 +167,8 @@ ImmortalCommandFuncs = {
 		this:FireTimer("Clock")
 	end,
 
-	WhoDialog =	function()
-		ShowUserList(this)
+	WhoDialog =	function(keyword)
+		ShowUserList(this, keyword)
 	end,
 
 	Cloak = function(nameOrId)	

@@ -57,13 +57,6 @@
 						TemplateDefines.LootTable.Twelve,
 						TemplateDefines.LootTable.Twelve,
 						TemplateDefines.LootTable.Humanoid,
-						{
-							NumItems = 1,
-							LootItems = 
-							{ 
-								{  Chance = 5, Template = "resource_clothscraps", Unique = true },
-							},
-						},
 					},
 				ScavengeTables =
 					{

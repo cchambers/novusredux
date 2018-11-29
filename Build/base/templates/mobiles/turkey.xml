@@ -42,9 +42,13 @@
     <LuaModule Name="animal_parts">
       <Initializer>
         {
-          MeatCount = 1,          
+          MeatCount = 4,          
 
-          MeatType = "StringyMeat",
+          MeatType = "MysteryMeat",
+          AnimalParts =
+          {
+            { ResourceType="Feather", RarityPct=100, Count=5 },
+          },
         }
       </Initializer>
     </LuaModule>

@@ -26,6 +26,7 @@
 					Skills= {
 						Woodsmith = 100,
 						Lumberjack = 100,
+						Archery = 100,
 					},
 					EquipTable= {
 						BodyPartHead= {
@@ -67,6 +68,7 @@
 						},
 						{
 							Template = "arrow",
+							Amount = 999,
 							Price = 0,
 							RelativeLoc = "-1.420593, 0.9302788, -2.085999",
 							Rotation = "0, 316.3568, 0",

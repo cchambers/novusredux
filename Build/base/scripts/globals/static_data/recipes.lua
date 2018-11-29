@@ -56,7 +56,7 @@ RecipeCategories = {
 			Name = "Furnishings",
 			Subcategories = {
 				{"CraftingStations" ,"Crafting Stations"},
-				{"TablesChairs" ,"Chairs"},
+				{"TablesChairs" ,"Tables & Chairs"},
 				{"DecorativeItems" ,"Decorative Items"},
 				{"Lighting" ,},
 				{"Storage" ,},
@@ -177,7 +177,7 @@ MetalsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			CanSalvage = false,
 			Resources = {
 				CopperOre = 5,
@@ -193,7 +193,7 @@ MetalsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Ingots",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			CanSalvage = false,
 			Resources = {
 				GoldOre = 5,
@@ -1055,7 +1055,7 @@ WoodsmithSkill = {
 			StackCount = 20,
 			Resources = {
 				AshBoards = 1,
-				TurkeyFeather = 1,
+				Feather = 1,
 			},
 		},
 
@@ -1081,7 +1081,7 @@ WoodsmithSkill = {
 		Buckler = {
 			MinLevelToCraft = 35,
 			MaxLevelToGain = 60,
-			DisplayName = "Crook",
+			DisplayName = "Buckler",
 			CraftingTemplateFile = "shield_buckler",
 			Description = "",
 			ItemType = "WeaponClass",
@@ -1143,7 +1143,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "Storage",
 			Resources = {
-				Boards = 8,
+				Boards = 2,
 			},
 		},
 
@@ -1201,7 +1201,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 20,
+				Boards = 4,
 			},
 		},
 		BookshelfWooden = {
@@ -1215,7 +1215,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "DecorativeItems",
 			Resources = {
-				Boards = 30,
+				Boards = 20,
 			},
 		},
 		ChairFancy = {
@@ -1229,7 +1229,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 8,
+				Boards = 3,
 			},
 		},
 		ChairWooden = {
@@ -1243,7 +1243,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 5,
+				Boards = 2,
 			},
 		},
 		DeskFancy = {
@@ -1285,7 +1285,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 10,
+				Boards = 4,
 			},
 		},
 		TableWoodenLarge = {
@@ -1299,7 +1299,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 30,
+				Boards = 10,
 			},
 		},
 		Shelf = {
@@ -1313,7 +1313,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "DecorativeItems",
 			Resources = {
-				Boards = 10,
+				Boards = 1,
 			},
 		},
 		StoolWooden = {
@@ -1327,7 +1327,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "TablesChairs",
 			Resources = {
-				Boards = 3,
+				Boards = 1,
 			},
 		},
 		Campfire = {
@@ -1336,7 +1336,7 @@ WoodsmithSkill = {
 			DisplayName = "Campfire",
 			Description = "[$3147]",
 			ItemType = "FurnitureClass",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			CraftingTemplateFile = "campfire",
 			Category = "Furnishings",
 			Subcategory = "DecorativeItems",
@@ -1354,7 +1354,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "Storage",
 			Resources = {
-				Boards = 8,
+				Boards = 2,
 			},
 		},
 		Lockbox = {
@@ -1394,7 +1394,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "FencesWalls",
 			Resources = {
-				Boards = 8,
+				Boards = 2,
 			},
 		},
 		Gate = {
@@ -1407,7 +1407,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "FencesWalls",
 			Resources = {
-				Boards = 8,
+				Boards = 4,
 			},
 		},
 		Chest = {
@@ -1421,7 +1421,7 @@ WoodsmithSkill = {
 			Category = "Furnishings",
 			Subcategory = "Storage",
 			Resources = {
-				Boards = 8,
+				Boards = 4,
 			},
 		},
 		WoodsmithTable = {
@@ -1432,6 +1432,20 @@ WoodsmithSkill = {
 			ItemType = "FurnitureClass",
 			NeedRecipe = true,
 			CraftingTemplateFile = "tool_carpentry_table",
+			Category = "Furnishings",
+			Subcategory = "CraftingStations",
+			Resources = {
+				Boards = 150,
+			},
+		},
+		InscriptionTable = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
+			DisplayName = "Inscription Table",
+			Description = "Used to create items using the inscription skill.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = true,
+			CraftingTemplateFile = "workbench_inscription",
 			Category = "Furnishings",
 			Subcategory = "CraftingStations",
 			Resources = {
@@ -1487,10 +1501,10 @@ WoodsmithSkill = {
 			NeedRecipe = false,
 			CraftingTemplateFile = "tool_fishing_rod",
 			Description = "[$3161]",
-			Category = "Furnishings",
+			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
-				Boards = 2,
+				Boards = 1,
 			},
 		},	
 		Anvil = {

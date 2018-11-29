@@ -25,7 +25,7 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 1,Template = "packed_shackles", Unique = true },
+								{ Chance = 1,Template = "deco_shackles", Packed = true, Unique = true },
 							}
 						},
 

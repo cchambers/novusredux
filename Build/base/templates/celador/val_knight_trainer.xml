@@ -5,7 +5,6 @@
 	<Name>Gabriel</Name>
 	<SharedStateEntry name="Title" type="string" value="Fighter"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="WanderRegion">ValusKnight</StringVariable>
 		<BoolVariable Name="AI-CanWander">true</BoolVariable>
 		<StringVariable Name="PrestigeClass">Fighter</StringVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>

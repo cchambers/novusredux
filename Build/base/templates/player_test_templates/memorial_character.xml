@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<Name>Roetipkin</Name>
+	<ClientId>1</ClientId>
+	<Hue>807</Hue>
+	<SharedStateEntry name="Title" type="string" value="Swashbuckler"/>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = 
+					{ 
+					    Backpack = { "backpack" },
+					    RightHand = { "weapon_broadsword" },
+                        Legs = { {"clothing_pirate_legs",0},}, 
+                        Chest = { "clothing_padded_leather_chest" },
+                        Head = { {"clothing_bandana_helm",941},}, 
+						BodyPartHead = {{"head_male02",808},},
+						BodyPartHair = {{"hair_male_undercut",768},}
+                    },
+					LootTables = {	
+					    -- Starting items
+					    {
+							NumCoins = 350,
+							NumItems = 5,
+					    	LootItems = {
+			        			{ Template = "torch", Unique = true },
+			        			{ Template = "tool_hunting_knife", Unique = true },
+			        			{ Template = "cooked_stew", Unique = true },
+			        			{ Template = "weapon_saber", Unique = true },
+			        			{ Template = "bandage", Unique = true, StackCount = 20 },
+			        		},
+				    	},
+				    },	 	       
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

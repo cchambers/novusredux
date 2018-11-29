@@ -50,39 +50,10 @@ function HandleSelectedTaskItem(target, user)
 	
 	if (target == nil) then return end	
 	--if (target:GetObjVar("CraftedBy") ~= user:GetName() or GetItemNameFromOrderInfo()  ~= target:GetName()) then return end
-	local orderInfo = this:GetObjVar("OrderInfo")
-	local crafter = target:GetObjVar("Crafter")
+	
 
+	if not (VerifyTarget(target, user)) then return end
 
-	if (orderInfo == nil) then return end
-
-	if (crafter ~= user) then
-		user:SystemMessage("This item was not created by you.","info")
-		user:RequestClientTargetGameObj(this, "select_task_item")
-	 	return 
-	end
-
-	if (user ~= this:GetObjVar("OrderOwner")) then
-		user:SystemMessage("This crafting order was not issued to you.","info")
-		user:RequestClientTargetGameObj(this, "select_task_item")
-	 	return 
-	end
-
-	-- DAB TODO: We should never identify an item by its name!!
-	local orderItemName = StripColorFromString(GetItemNameFromOrderInfo())
-	if(target:HasObjVar("UnpackedTemplate")) then
-		orderItemName = orderItemName .. " (Packed)"
-	end
-
-	local targetName = StripColorFromString(target:GetName())
-	if (target:GetObjVar("StackCount")) then
-		targetName = StripColorFromString(target:GetObjVar("SingularName") or targetName)
-	end
-		
-	if (orderItemName ~= targetName) then 
-		user:SystemMessage("That is not the correct item for this order.","info")
-		return 
-	end
 
 	AddToOrder(target, user)
 	local currentAmount = this:GetObjVar("CurrentAmount")
@@ -98,6 +69,54 @@ function HandleSelectedTaskItem(target, user)
 	user:RequestClientTargetGameObj(this, "select_task_item")
 	local tooltip = "[ffffff]"..this:GetObjVar("CurrentAmount").."/"..this:GetObjVar("OrderAmount")
 	SetTooltipEntry(this,"amount",tooltip)
+end
+
+function VerifyTarget(target, user)
+
+	local orderInfo = this:GetObjVar("OrderInfo")
+	local orderRecipe = this:GetObjVar("OrderRecipe")
+	local crafter = target:GetObjVar("Crafter")
+
+	if (target:TopmostContainer() ~= user) then
+		user:SystemMessage("Item must be in your backpack.","info")
+		user:RequestClientTargetGameObj(this, "select_task_item")
+		return false
+	end	
+	
+	if (orderInfo == nil) then return end
+
+	if (crafter ~= user) then
+		user:SystemMessage("This item was not created by you.","info")
+		user:RequestClientTargetGameObj(this, "select_task_item")
+	 	return false
+	end
+	
+	local targetMaterial = target:GetObjVar("Material")
+	local targetTemplate = target:GetCreationTemplateId()
+
+	--If object is packed, get the unpacked template
+	local weight = GetTemplateObjectProperty(orderRecipe.CraftingTemplateFile,"Weight")
+	if (weight == -1) then
+		if (target:HasObjVar("UnpackedTemplate")) then 
+			targetTemplate = target:GetObjVar("UnpackedTemplate")
+		else
+			return false
+		end
+	end
+
+	if ((targetTemplate ~= orderRecipe.CraftingTemplateFile or targetMaterial ~= orderInfo.Material)) then
+		user:SystemMessage("That is not the correct item for this order.","info")
+		user:RequestClientTargetGameObj(this, "select_task_item")
+		return false
+	end
+
+	if (user ~= this:GetObjVar("OrderOwner")) then
+		user:SystemMessage("This crafting order was not issued to you.","info")
+		user:RequestClientTargetGameObj(this, "select_task_item")
+	 	return false
+	end
+
+	return true
 end
 
 function AddToOrder(target, user)
@@ -117,10 +136,10 @@ function AddToOrder(target, user)
 	end
 
 	if (stackCount ~= nil) then
-		user:SystemMessage("Added "..amountToAdd.." "..GetItemNameFromOrderInfo().." to crafting order.","info")
+		user:SystemMessage("Added "..amountToAdd.." "..target:GetName().." to crafting order.","info")
 		RequestConsumeResource(user,target:GetObjVar("ResourceType"), amountToAdd ,"ConsumeResourceResponse",this, target)
 	else
-		user:SystemMessage("Added "..GetItemNameFromOrderInfo().." to crafting order.","info")
+		user:SystemMessage("Added "..target:GetName().." to crafting order.","info")
 		target:Destroy()
 	end
 
@@ -139,6 +158,12 @@ RegisterEventHandler(EventType.Message,"UseObject",function (user,useType)
     if (not useType == "Add item to order" or not useType == "Read order") then return end
 
     	if (useType == "Add item to order") then
+
+    		if (this:TopmostContainer() ~= user) then
+				user:SystemMessage("Crafting order must be in your backpack.","info")
+				return
+			end
+
     		user:RequestClientTargetGameObj(this, "select_task_item")
     	end
 

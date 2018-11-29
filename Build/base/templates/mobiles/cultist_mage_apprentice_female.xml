@@ -53,7 +53,6 @@
 						TemplateDefines.LootTable.Eleven,
 						TemplateDefines.LootTable.ScrollsLow,
 						TemplateDefines.LootTable.MagePoor,
-						TemplateDefines.LootTable.ClothScrapsLow,
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.FrayedScrolls,
 					},	

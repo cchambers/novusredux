@@ -54,7 +54,7 @@ DebugMessage("-- WRITING MERCHANTS.CSV")
 local merchantFile = io.open("export/merchants.csv","w")
 io.output(merchantFile)
 for i,templateName in pairs(GetAllTemplateNames()) do
-	--DebugMessage("---- LOADING: "..templateName)
+	DebugMessage("---- LOADING: "..templateName)
 	local templateData = GetTemplateData(templateName)
 	if(templateData.LuaModules) then
 		for moduleName,initializer in pairs(templateData.LuaModules) do

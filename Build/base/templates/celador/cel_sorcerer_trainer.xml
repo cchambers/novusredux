@@ -24,6 +24,8 @@
 					{ 
 					MagicAffinity = 100, 
 					Evocation = 100,
+					Manifestation = 100,
+					Channeling = 100,
 					},
 					MobTraits =
 					{

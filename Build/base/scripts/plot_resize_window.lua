@@ -105,7 +105,7 @@ function UpdateWindow()
 
     local can = CanCommit()
     
-    local cost = math.max(newRate - rate, 0) -- it's free to make plot smaller
+    local cost = math.max((newRate*ServerSettings.Plot.CommitCostMultiplier - rate*ServerSettings.Plot.CommitCostMultiplier), 0)-- it's free to make plot smaller
     local signX = ((newSize.X - size.X) < 0) and "" or "+"
     local signZ = ((newSize.Z - size.Z) < 0) and "" or "+"
     dynamicWindow:AddLabel(162,44,string.format("New Size: %d ("..signX.."%d) x %d ("..signZ.."%d)", newSize.X, newSize.X - size.X, newSize.Z, newSize.Z - size.Z),0,0,18)
@@ -166,7 +166,7 @@ function HandleResizeWindowResponse(returnId)
 end
 
 function Confirm()
-    local cost = math.max(newRate - rate, 0)
+    local cost = math.max((newRate*ServerSettings.Plot.CommitCostMultiplier - rate*ServerSettings.Plot.CommitCostMultiplier), 0)
     local costStr = ValueToAmountStr(cost,false,true)
     if ( costStr == "" ) then costStr = "Nothing" end
     -- Are you sure?

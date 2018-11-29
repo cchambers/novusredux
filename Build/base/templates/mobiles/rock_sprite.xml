@@ -48,7 +48,7 @@
 							LootItems = 
 							{ 
 								{  Chance = 70, Template = "resource_iron", Unique = true, StackCount = math.random(1,2)  },
-								{  Chance = 30, Template = "resource_Gold", Unique = true },
+								{  Chance = 30, Template = "resource_gold", Unique = true },
 							},
 						},
 					},							

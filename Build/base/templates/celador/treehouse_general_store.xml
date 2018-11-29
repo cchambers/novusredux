@@ -60,7 +60,7 @@
 						{
 							Template = "bandage",
 							Price = 0,
-							Amount = 500,
+							Amount = 9999,
 							RelativeLoc = "2.229736, 0.9720001, 0.8550415",
 							Rotation = "359.2671, 265.608, 359.4789",
 							UnlimitedStock = false,

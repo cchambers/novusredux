@@ -118,8 +118,8 @@ PlayerGuildFactions = {
 	{		
 		Icon = "WaterFactionSymbolLarge",
 		NameColor = "[2E9AF2]",
-		PatronGodName = "[2E9AF2]Probe[-]",
-		PatronGodFullName = "[2E9AF2]Probe the Wise[-]",
+		PatronGodName = "[2E9AF2]Tethys[-]",
+		PatronGodFullName = "[2E9AF2]Tethys the Water Goddess[-]",
 		ChooseDescription = "[$2697]",
 		Description = "[$2698]",
 		FriendlyWith = {

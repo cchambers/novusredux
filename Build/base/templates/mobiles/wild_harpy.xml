@@ -58,7 +58,7 @@
 				{
 					AnimalParts =
 					{
-						{ ResourceType="Feather", RarityPct=100, Count=	20 },
+						{ ResourceType="WildFeather", RarityPct=100, Count=	20 },
 					},
 				}
 			</Initializer>

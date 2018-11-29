@@ -115,7 +115,7 @@ function ShouldSpawn(spawnInfo,spawnIndex)
     --DebugMessage("TEST "..spawnIndex,DumpTable(spawnInfo.SpawnData[spawnIndex]))
 
     local isValid = spawnData[spawnIndex].ObjRef and spawnData[spawnIndex].ObjRef:IsValid()
-    local isDead = isValid and spawnData[spawnIndex].ObjRef and IsDead(spawnData[spawnIndex].ObjRef)
+    local isDead = isValid and spawnData[spawnIndex].ObjRef and spawnData[spawnIndex].ObjRef:IsMobile() and IsDead(spawnData[spawnIndex].ObjRef)
     
     --DebugMessageB(this,"ShouldSpawn "..spawnInfo.TemplateId.." isValid: "..tostring(isValid).." isDead: "..tostring(isDead))
     -- the mob is still on the map and hes not a pet, no spawn

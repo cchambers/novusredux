@@ -30,7 +30,7 @@
 						{ Count = 1, TemplateId = "skeleton_hq",    Region = "OasisGraveyard", DelayMin=4, Chance=10},
 
 						--Cultist Throne
-						{ Count = 4, TemplateId = "cultist_honor_guard",  Region = "CultistRuins1", DelayMin=4 },
+						--{ Count = 4, TemplateId = "cultist_honor_guard",  Region = "CultistRuins1", DelayMin=4 },
 
 						--Cultist Upper
 						{ Count = 1, TemplateId = "cultist_lord",  Region = "CultistRuins1", DelayMin=4 },

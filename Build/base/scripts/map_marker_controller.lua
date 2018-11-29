@@ -18,14 +18,36 @@ RegisterEventHandler(EventType.Message, "MapMarkerCreated",
 			local regionName = marker.RegionName
 			local regionMarkers = this:GetObjVar("RegionMarkers") or {}
 			if (regionMarkers[regionName] == nil) then regionMarkers[regionName] = {} end
-			table.insert(regionMarkers[regionName], marker)
+
+			local markerExists = false
+			for i, j in pairs(regionMarkers[regionName]) do
+				if (j.Id == marker.Id) then
+					regionMarkers[regionName][i] = marker
+					markerExists = true
+				end
+			end
+
+			if not (markerExists) then
+				table.insert(regionMarkers[regionName], marker)
+			end
 
 			this:SetObjVar("RegionMarkers", regionMarkers)
 		end
 		
 		if (marker.Familiar ~= nil) then
 			local familiarMarkers = this:GetObjVar("FamiliarMarkers") or {}
-			table.insert(familiarMarkers, marker)
+
+			local markerExists = false
+			for i, j in pairs(familiarMarkers) do
+				if (j.Id == marker.Id) then
+					familiarMarkers[i] = marker
+					markerExists = true
+				end
+			end
+
+			if not (markerExists) then
+				table.insert(familiarMarkers, marker)
+			end
 
 			this:SetObjVar("FamiliarMarkers", familiarMarkers)
 		end

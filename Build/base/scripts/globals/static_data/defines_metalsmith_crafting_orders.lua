@@ -37,7 +37,7 @@ CraftingOrderDefines.MetalsmithSkill =
 				{ Weight = 10, Template = "recipe_maul", Unique = true},
 				{ Weight = 10, Template = "recipe_largeaxe", Unique = true},
 				{ Weight = 10, Template = "recipe_warmace", Unique = true},
-				{ Weight = 10, Template = "recipe_vouge", Unique = true},
+				{ Weight = 10, Template = "recipe_voulge", Unique = true},
 				{ Weight = 10, Template = "recipe_spear", Unique = true},
 				{ Weight = 10, Template = "recipe_scalehelm", Unique = true},
 				{ Weight = 10, Template = "recipe_warhammer", Unique = true},
@@ -47,8 +47,6 @@ CraftingOrderDefines.MetalsmithSkill =
 				{ Weight = 10, Template = "recipe_fullplatehelm", Unique = true},
 				{ Weight = 10, Template = "recipe_fullplatelegs", Unique = true},
 				{ Weight = 10, Template = "recipe_fullplatetunic", Unique = true},
-				{ Weight = 10, Template = "recipe_gold", Unique = true},
-				{ Weight = 10, Template = "recipe_copper", Unique = true},
 				{ Weight = 10, Template = "recipe_cobalt", Unique = true},
 				{ Weight = 10, Template = "recipe_obsidian", Unique = true},
 			},
@@ -5488,7 +5486,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -5512,7 +5510,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -5536,7 +5534,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -5760,7 +5758,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -5784,7 +5782,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -5808,7 +5806,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6030,7 +6028,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6054,7 +6052,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6078,7 +6076,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6302,7 +6300,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6326,7 +6324,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6350,7 +6348,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6475,7 +6473,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6499,7 +6497,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6523,7 +6521,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6547,7 +6545,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6571,7 +6569,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6595,7 +6593,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6720,7 +6718,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6744,7 +6742,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6768,7 +6766,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6792,7 +6790,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6816,7 +6814,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6840,7 +6838,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6963,7 +6961,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -6987,7 +6985,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7011,7 +7009,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7035,7 +7033,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7059,7 +7057,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7083,7 +7081,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7208,7 +7206,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7232,7 +7230,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7256,7 +7254,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7280,7 +7278,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7304,7 +7302,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7328,7 +7326,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7354,7 +7352,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7378,7 +7376,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7402,7 +7400,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7426,7 +7424,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7450,7 +7448,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7474,7 +7472,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7498,7 +7496,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7522,7 +7520,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7546,7 +7544,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7572,7 +7570,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7596,7 +7594,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7620,7 +7618,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7644,7 +7642,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7668,7 +7666,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7692,7 +7690,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7716,7 +7714,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7740,7 +7738,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -7764,7 +7762,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -10773,7 +10771,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -10797,7 +10795,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -10821,7 +10819,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11045,7 +11043,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11069,7 +11067,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11093,7 +11091,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11218,7 +11216,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11242,7 +11240,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11266,7 +11264,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11290,7 +11288,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11314,7 +11312,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11338,7 +11336,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11463,7 +11461,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11487,7 +11485,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11511,7 +11509,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11535,7 +11533,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11559,7 +11557,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11583,7 +11581,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11706,7 +11704,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11730,7 +11728,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11754,7 +11752,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11778,7 +11776,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11802,7 +11800,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11826,7 +11824,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11951,7 +11949,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11975,7 +11973,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -11999,7 +11997,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12023,7 +12021,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12047,7 +12045,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12071,7 +12069,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12097,7 +12095,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12121,7 +12119,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12145,7 +12143,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12169,7 +12167,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12193,7 +12191,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12217,7 +12215,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12241,7 +12239,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12265,7 +12263,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12289,7 +12287,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12315,7 +12313,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12339,7 +12337,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12363,7 +12361,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12387,7 +12385,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12411,7 +12409,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12435,7 +12433,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12459,7 +12457,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12483,7 +12481,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12507,7 +12505,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12531,7 +12529,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12555,7 +12553,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12579,7 +12577,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12603,7 +12601,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12627,7 +12625,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12651,7 +12649,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12675,7 +12673,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12699,7 +12697,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12723,7 +12721,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12749,7 +12747,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12773,7 +12771,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12799,7 +12797,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_gold", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12823,7 +12821,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12847,7 +12845,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12871,7 +12869,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12895,7 +12893,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12919,7 +12917,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12943,7 +12941,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12969,7 +12967,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -12993,7 +12991,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13017,7 +13015,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13041,7 +13039,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13065,7 +13063,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13089,7 +13087,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13113,7 +13111,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13137,7 +13135,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13161,7 +13159,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13187,7 +13185,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13211,7 +13209,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13235,7 +13233,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13259,7 +13257,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13283,7 +13281,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13307,7 +13305,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13331,7 +13329,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13355,7 +13353,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13379,7 +13377,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13403,7 +13401,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13427,7 +13425,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13451,7 +13449,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13475,7 +13473,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13499,7 +13497,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13523,7 +13521,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13547,7 +13545,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13571,7 +13569,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13595,7 +13593,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13621,7 +13619,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13645,7 +13643,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13669,7 +13667,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13693,7 +13691,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13717,7 +13715,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13741,7 +13739,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13765,7 +13763,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13789,7 +13787,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13813,7 +13811,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13839,7 +13837,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13863,7 +13861,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13887,7 +13885,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -13911,7 +13909,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13935,7 +13933,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13959,7 +13957,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -13983,7 +13981,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14007,7 +14005,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14031,7 +14029,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14057,7 +14055,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14081,7 +14079,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14105,7 +14103,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14129,7 +14127,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14153,7 +14151,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14177,7 +14175,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14201,7 +14199,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14225,7 +14223,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14249,7 +14247,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14273,7 +14271,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14297,7 +14295,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14321,7 +14319,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14345,7 +14343,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14369,7 +14367,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14393,7 +14391,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14417,7 +14415,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14441,7 +14439,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14465,7 +14463,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14491,7 +14489,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14515,7 +14513,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14539,7 +14537,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_table", Unique = true },
+	    				{ Chance = 100, Template = "furniture_table_blacksmith_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14563,7 +14561,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14587,7 +14585,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14611,7 +14609,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14635,7 +14633,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "pa1", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14659,7 +14657,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14683,7 +14681,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14709,7 +14707,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14733,7 +14731,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14757,7 +14755,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_gold_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_gold", Unique = true },
 					},
 				},	
 
@@ -14781,7 +14779,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14805,7 +14803,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14829,7 +14827,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14853,7 +14851,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14877,7 +14875,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14901,7 +14899,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14927,7 +14925,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14951,7 +14949,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14975,7 +14973,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_copper_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_copper", Packed = true, Unique = true },
 					},
 				},	
 
@@ -14999,7 +14997,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -15023,7 +15021,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -15047,7 +15045,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_cobalt_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_cobalt", Packed = true, Unique = true },
 					},
 				},	
 
@@ -15071,7 +15069,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -15095,7 +15093,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_obsidian", Packed = true, Unique = true },
 					},
 				},	
 
@@ -15119,7 +15117,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_obsidian_anvil", Unique = true },
+	    				{ Chance = 100, Template = "tool_anvil_obsidian", Packed = true, Unique = true },
 					},
 				},	
 

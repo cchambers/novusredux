@@ -182,6 +182,9 @@ function CanUseCase(user, targetObj, useCase)
 					plot = topCont
 				else
 					plot = topCont:GetObjVar("PlotController")
+					if not(plot) then
+						plot = Plot.GetAtLoc(topCont:GetLoc())
+					end
 				end
 				return ( plot and Plot.HasControl(user, plot) )
 			elseif(restrictionEntry == "NotInHouse") then

@@ -11,14 +11,17 @@ ServerSettings.Plot = {
     MaximumSize = 30,
 
     -- multiply the resource cost of building a house by this amount
-    HouseResourceCostModifier = 0.05,
+    HouseResourceCostModifier = 1,
+
+    -- multiply the tax cost for the commit cost
+    CommitCostMultiplier = 5,
 
     Tax = {
         -- disable for free plot tax.
         Enabled = true,
 
         -- how much tax rate scales with plot size, expoentially.
-        RateCoefficient = 1.5,
+        RateCoefficient = 1.6,
 
         -- since each payment writes to globals, 
             --enforce a minimum so they aren't dropping 1 as fast as possible and DoSing the globalvars.

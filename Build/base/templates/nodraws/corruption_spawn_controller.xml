@@ -14,7 +14,7 @@
 					    --Room 2
 					    { Count = 3, TemplateId = "imp", Region = "Room2", DelayMin=4 },
 					    --Room 3
-					    { Count = 4, TemplateId = "imp", Region = "Room3", DelayMin=4 },
+					    --{ Count = 4, TemplateId = "imp", Region = "Room3", DelayMin=4 },
 					    { Count = 4, TemplateId = "hell_hound", Region = "Room3", DelayMin=4 },
 					    --Room 4
 					    { Count = 2, TemplateId = "imp", Region = "Room4", DelayMin=4 },
@@ -77,7 +77,7 @@
 
 
 					   	--End Room
-					    { Count = 3, TemplateId = "demon", Region = "EndRoom", DelayMin=4 }, 
+					    --{ Count = 3, TemplateId = "demon", Region = "EndRoom", DelayMin=4 }, 
 					},
 				}
 			</Initializer>

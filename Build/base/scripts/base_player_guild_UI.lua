@@ -250,7 +250,7 @@ function GuildInfo()
 
 					local frameHeight = #buttons * 30 + 4
 					local yVal = 12 - frameHeight/2
-					scrollElement:AddImage(530,yVal,"SearchBarFrame",130,frameHeight,"Sliced")
+					scrollElement:AddImage(530,yVal,"BasicWindow_Panel",130,frameHeight,"Sliced")
 					yVal = yVal + 2
 					for i,button in pairs(buttons) do
 						scrollElement:AddButton(532,yVal,"Action|"..button,button,126,28,"","",false,"")
@@ -378,7 +378,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GuildWindow",
 
 				local kickMember = GameObj(mSelectedMemberId)
 				local kickName = g.Members[mSelectedMemberId].Name or "him"
-
+				
 				if (Guild.CanKickMembers(this,kickMember)) then
 					ClientDialog.Show{
 						TargetUser = this,

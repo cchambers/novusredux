@@ -39,7 +39,7 @@ function UpdateWindow()
     local dynamicWindow = DynamicWindow("PlotTaxWindow", "Tax Payment",260,230,0,0,"")
     
     local curY = 10 
-    local i = 1
+    local i = 4
 	while(i > 0) do
 		local denomInfo = Denominations[i]
 		dynamicWindow:AddLabel(20,curY+4,denomInfo.Color..denomInfo.Name.."[-]",0,0,18)

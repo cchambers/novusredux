@@ -25,7 +25,7 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 1,Template = "packed_bone_candleabra", Unique = true },
+								{ Chance = 1,Template = "furniture_candleabra_catacombs", Packed = true, Unique = true },
 							}
 						},
 

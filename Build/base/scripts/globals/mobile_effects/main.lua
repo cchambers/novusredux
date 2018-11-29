@@ -130,6 +130,11 @@ function ApplyPersistentMobileEffects(mobileObj)
     Verbose("MobileEffect", "ApplyPersistentMobileEffects", mobileObj)
 	local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
 	mobileObj:DelObjVar("MobileEffects")
+	if ( mobileObj:HasObjVar("IsChaotic") ) then
+		-- this will be re-applied if the mobile is still infact chaotic
+		mobileObj:DelObjVar("IsChaotic")
+		SetStatusIconOverride(mobileObj,"")
+	end
 	-- need to clear this one too..
 	mobileObj:DelObjVar("SpellChamberLevel")
 	for effect,data in pairs(mobileEffects) do

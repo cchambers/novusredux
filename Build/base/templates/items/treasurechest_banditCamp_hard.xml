@@ -36,26 +36,6 @@
 							}
 						},
 
-						--armor
-						{
-							NumItemsMin = 1,
-							NumItemsMax = 2,
-							LootItems = 
-							{
-
-								--Journeyman
-								{ Weight = 10,Template = "armor_scale_helm", Unique = true },
-								{ Weight = 10,Template = "armor_scale_tunic", Unique = true },
-								{ Weight = 10,Template = "armor_scale_leggings", Unique = true },
-								{ Weight = 10,Template = "armor_bone_helm", Unique = true },
-								{ Weight = 10,Template = "armor_bone_chest", Unique = true },
-								{ Weight = 10,Template = "armor_bone_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 10,Template = "robe_padded_tunic", Unique = true },
-							}
-						},
-
 						--ingredients
 						{
 							NumItemsMin = 1,
@@ -71,8 +51,7 @@
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
 								{ Weight = 4, Template = "treasure_map_1", Unique = true },
 								{ Weight = 3, Template = "treasure_map_2", Unique = true },

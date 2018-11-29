@@ -86,7 +86,7 @@ ServerSettings.Karma = {
                 Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 1,
+            SlayMonsterModifier = 50,
         },
         {
             Amount = -10000,
@@ -114,7 +114,7 @@ ServerSettings.Karma = {
                 Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 2,
+            SlayMonsterModifier = 50,
         }
     }
 }

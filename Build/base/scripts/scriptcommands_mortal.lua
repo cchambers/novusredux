@@ -195,6 +195,10 @@ MortalCommandFuncs = {
         if ( createdAt ) then
             local totalTime = DateTime.UtcNow - createdAt
             local overrideExists = (this:GetObjVar("AllowCharDelete") ~= nil)
+            if ( totalTime.TotalDays < ServerSettings.NewPlayer.MinimumDeleteDays and overrideExists == false) then
+                this:SystemMessage("Your character must be at least "..ServerSettings.NewPlayer.MinimumDeleteDays.." days old before it can be deleted. This character has existed for "..TimeSpanToWords(totalTime)..".")
+                return
+            end
         end
         TextFieldDialog.Show{
             TargetUser = this,
@@ -250,8 +254,12 @@ MortalCommandFuncs = {
 		if ( line ~= nil) then
 			local player = GetPlayerByNameOrIdGlobal(userNameOrId)
 			if( player ~= nil ) then
+
 				local name = player:GetCharacterName() or "Unknown"
-				this:LogChat("[Tell]["..name.."] "..line)
+				local encoded = json.encode(line)
+				local msgtype = 'tell","tellto":"' .. name
+        		this:LogChat(msgtype, encoded)
+
 				player:SendMessageGlobal("PrivateMessage",this:GetName(),line,this.Id)
 				this:SystemMessage("[E352EA]To "..name..":[-] "..line,"custom")
 			end
@@ -259,7 +267,7 @@ MortalCommandFuncs = {
 	end,
 
 	ReplyTell = function(...)
-		DefaultCommandFuncs.Tell(mLastTeller,...)
+		MortalCommandFuncs.Tell(mLastTeller,...)
 	end,
 }
 

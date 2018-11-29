@@ -3,7 +3,7 @@
 	<Name>Misty Cavern Spawner</Name>
 	<ObjectVariableComponent>	
 	<StringVariable Name="spawnRegion">WaterfallMine</StringVariable>
-	<DoubleVariable Name="spawnDelay">4</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
 	<DoubleVariable Name="spawnCount">36</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

@@ -14,8 +14,8 @@ MissionData =
 				PrefabName = "WolfLair_1",
 				Title = "Wolves on the prowl",
 				Description = "A wolfpack has moved in and has been laying waste to honest folks' livestock. I can offer you some coin if you wouldn't mind running them out?",
-				RewardMin = 300,
-				RewardMax = 500,
+				RewardMin = 100,
+				RewardMax = 200,
 			},
 			Bears_1 =
 			{
@@ -24,18 +24,18 @@ MissionData =
 				PrefabName = "BearLair_1",
 				Title = "Bears Sighted",
 				Description = "A couple of amatuer bandits have been giving people trouble. Head on over to their little camp and give 'em a good smackdown, would you?",
-				RewardMin = 300,
-				RewardMax = 500,
+				RewardMin = 100,
+				RewardMax = 200,
 			},
 			Spiders_2 =
 			{
 				Difficulty = 2,
 				MissionType = "Lair",
-				PrefabName = "SpiderLair_1",
+				PrefabName = "SpiderLair_2",
 				Title = "Spider Infestation",
 				Description = "Bloody spiders are everywhere! Talking about them gives me the creeps, I'll pay you good money to take care of it.",
-				RewardMin = 500,
-				RewardMax = 800,
+				RewardMin = 200,
+				RewardMax = 400,
 			},
 			Bandits_2 =
 			{
@@ -44,8 +44,8 @@ MissionData =
 				PrefabName = "BanditLair_2",
 				Title = "Bandit Bounty",
 				Description = "Bandits have been reported robbing travellers on the surrounding roads. Take out their encampment and you'll be rewarded handsomely.",
-				RewardMin = 500,
-				RewardMax = 800,
+				RewardMin = 200,
+				RewardMax = 400,
 			},
 			Undead_3 =
 			{
@@ -54,18 +54,18 @@ MissionData =
 				PrefabName = "UndeadLair_3",
 				Title = "Living Dead",
 				Description = "Stories have reached us of ancient burial grounds raising from the ground, protected by the living dead. We must repel this scorge!",
-				RewardMin = 800,
-				RewardMax = 1200,
+				RewardMin = 400,
+				RewardMax = 800,
 			},
 			Orks_4 =
 			{
 				Difficulty = 4,
 				MissionType = "Lair",
-				PrefabName = "OrkLair_3",
+				PrefabName = "OrkLair_4",
 				Title = "Ork Raiders",
 				Description = "The orks have been getting gutsy lately. They've been ambushing caravans and robbing adventurers. We found their camp though. Get over there and teach them a thing or two.",
-				RewardMin = 1200,
-				RewardMax = 1500,
+				RewardMin = 800,
+				RewardMax = 1200,
 			},
 			Giants_5 =
 			{
@@ -110,7 +110,7 @@ MissionData =
 			{
 				Difficulty = 3,
 				MissionType = "Lair",
-				PrefabName = "CultistLair_2",
+				PrefabName = "CultistLair_3",
 				Title = "Cultist Encampment",
 				Description = "A group of cultists was spotted nearby. Possibly scouting for an upcoming raid. Clearly they need a reminder of who's boss around here. Go trash their camp, and take out those cultists.",
 				RewardMin = 800,

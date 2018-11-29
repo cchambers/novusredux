@@ -222,8 +222,8 @@ TemplateDefines = {
 				{ Weight = 1, Template = "weapon_death_scythe", Unique = true},
 				{ Weight = 1, Template = "weapon_silver_longsword", Unique = true},
 				{ Weight = 1, Template = "weapon_dark_maul", Unique = true},
-				{ Weight = 1, Template = "packed_throne_reaper", Unique = true},
-				{ Weight = 1, Template = "packed_teleporter", Unique = true},
+				{ Weight = 1, Template = "furniture_throne_reaper", Packed = true, Unique = true},
+				{ Weight = 1, Template = "furniture_teleporter_catacombs", Packed = true,  Unique = true},
 				{ Weight = 1, Template = "item_statue_death", Unique = true},
 			},
 		},
@@ -248,7 +248,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 10, Template = "animalparts_spider_silk", Unique = true, StackCountMin = 1, StackCountMax = 3 },
+    			{ Chance = 25, Template = "animalparts_spider_silk", Unique = true, StackCountMin = 1, StackCountMax = 3 },
     		},
 		},
 
@@ -486,25 +486,6 @@ TemplateDefines = {
 
 			},
 		},
-
-		ClothScrapsLow = 
-		{
-			NumItems = 1,	
-
-			LootItems = 
-			{ 
-				{ Chance = 50, Template = "resource_clothscraps", Unique = true, StackCountMin = 1, StackCountMax = 2, },
-			},
-		},
-		ClothScrapsHigh = 
-		{
-			NumItems = 1,	
-
-			LootItems = 
-			{ 
-				{ Chance = 50, Template = "resource_clothscraps", Unique = true, StackCountMin = 3, StackCountMax = 5, },
-			},
-		},
 		IronLow = 
 		{
 			NumItems = 1,	
@@ -704,16 +685,16 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "prestige_stasis", Unique = true },
-				{ Chance = 0.5, Template = "prestige_empower", Unique = true },
-				{ Chance = 0.5, Template = "prestige_charge", Unique = true },
-				{ Chance = 0.5, Template = "prestige_wound", Unique = true },
-				{ Chance = 0.5, Template = "prestige_dart", Unique = true },
-				{ Chance = 0.5, Template = "prestige_evasion", Unique = true },
-				{ Chance = 0.5, Template = "prestige_spellchamber", Unique = true },
-				{ Chance = 0.5, Template = "prestige_empower", Unique = true },
-				{ Chance = 0.5, Template = "prestige_stunstrike", Unique = true },
-				{ Chance = 0.5, Template = "prestige_hamstring", Unique = true },
+				{ Chance = 2, Template = "prestige_stasis", Unique = true },
+				{ Chance = 2, Template = "prestige_empower", Unique = true },
+				{ Chance = 2, Template = "prestige_charge", Unique = true },
+				{ Chance = 2, Template = "prestige_wound", Unique = true },
+				{ Chance = 2, Template = "prestige_dart", Unique = true },
+				{ Chance = 2, Template = "prestige_evasion", Unique = true },
+				{ Chance = 2, Template = "prestige_spellchamber", Unique = true },
+				{ Chance = 2, Template = "prestige_empower", Unique = true },
+				{ Chance = 2, Template = "prestige_stunstrike", Unique = true },
+				{ Chance = 2, Template = "prestige_hamstring", Unique = true },
 			},
 		},
 		Poor = 
@@ -761,6 +742,16 @@ TemplateDefines = {
 				{ Weight = 1, Template = "prestige_vanish", Unique = true },
 				{ Weight = 1, Template = "prestige_meditate", Unique = true },
 
+			}
+		},
+		CultistKing =
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 10, Template = "armor_cultist_king_helm", Unique = true },
+				{ Chance = 10, Template = "armor_cultist_king_chest", Unique = true },
+				{ Chance = 10, Template = "armor_cultist_king_leggings", Unique = true },
 			}
 		},
 	},

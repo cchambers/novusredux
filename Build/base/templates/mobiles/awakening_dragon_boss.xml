@@ -51,10 +51,9 @@
 						TemplateDefines.LootTable.Boss,
 						{
 							NumCoins = math.random(1500,2800),
-							NumItems = 2,
+							NumItems = 1,
 					    	LootItems = {
-				    			{ Chance = 20, Template = "animalparts_meat_dragon"},
-				    			{ Chance = 20, Template = "animalparts_meat_dragon"},
+				    			{ Chance = 15, Template = "shield_dragon"},
 				    		},
 						},
 					},	

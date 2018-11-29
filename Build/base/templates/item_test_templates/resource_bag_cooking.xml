@@ -18,6 +18,7 @@
 						{						
 						    NumItems = 9,
 							LootItems = 
+							{
 								{ Chance = 100, Template = "animalparts_barrel_fish_fillet", Unique = true, StackCount = 100 },
 								{ Chance = 100, Template = "animalparts_tero_fish_fillet", Unique = true, StackCount = 100 },
 								{ Chance = 100, Template = "animalparts_spotted_tero_fish_fillet", Unique = true, StackCount = 100 },

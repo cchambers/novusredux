@@ -14,7 +14,7 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(400,600),
+					    	NumCoins = math.random(200,400),
 				    	},
 
 				    	--weapons
@@ -34,26 +34,6 @@
 							}
 						},
 
-						--armor
-						{
-							NumItemsMin = 1,
-							NumItemsMax = 2,
-							LootItems = 
-							{
-								--Apprentice							
-								{ Weight = 35,Template = "armor_brigandine_helm", Unique = true },
-								{ Weight = 35,Template = "armor_brigandine_tunic", Unique = true },
-								{ Weight = 35,Template = "armor_brigandine_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
-								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
-							}
-						},
-
-
 						--ingredients
 						{
 							NumItemsMin = 1,
@@ -69,8 +49,7 @@
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
 								{ Weight = 4, Template = "treasure_map_1", Unique = true },
 							}
@@ -101,20 +80,6 @@
 								{ Weight = 5, Template = "lscroll_poison", Unique = true },
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
 
-							},
-						},	
-
-						--ScrollsMed
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,	
-
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
-								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
-								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
 							},
 						},	
 					}
