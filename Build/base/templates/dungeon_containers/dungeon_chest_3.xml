@@ -25,7 +25,7 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 1,Template = "packed_torture_cage", Unique = true },
+								{ Chance = 1,Template = "deco_torture_cage", Packed = true, Unique = true },
 							}
 						},
 

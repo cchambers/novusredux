@@ -223,7 +223,10 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 		if ( mQueuedWeaponAbility.SpellInterrupt == true ) then
 			CheckSpellCastInterrupt(atTarget)
 		end
-		ClearQueuedWeaponAbility()
+		if ( hitSuccess ) then
+			-- ability was used and we hit, let's clear it.
+			ClearQueuedWeaponAbility()
+		end
 	end
 end
 

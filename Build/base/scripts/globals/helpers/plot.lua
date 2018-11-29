@@ -511,6 +511,11 @@ Plot.PointToLoc = function(point)
     return Loc(point.X, 0, point.Z)
 end
 
+--- Validate the plot bound with error output to player
+-- @param playerObj
+-- @param bound AABox2
+-- @param size Loc
+-- @param ignoreLoc Loc - if a plot bound matches will not be included
 Plot.ValidateBound = function(playerObj, bound, size, ignoreLoc)
     if not( playerObj ) then
         LuaDebugCallStack("[Plot.ValidateBound] playerObj not provided.")
@@ -537,7 +542,17 @@ Plot.ValidateBound = function(playerObj, bound, size, ignoreLoc)
 			playerObj:SystemMessage("That land cannot be claimed.", "info")
 			return false
 		end
-	end]]
+    end]]
+    
+    -- if any of the four corners are not passable then fail
+    local pointsToCheck = bound.Points
+	table.insert(pointsToCheck,bound.Center)
+	for i=1,#pointsToCheck do
+		if not( IsPassable(Loc(pointsToCheck[i])) ) then 
+			playerObj:SystemMessage("That land cannot be claimed.", "info")
+			return false
+		end
+	end
 
 	local noHousingRegion = GetRegion("NoHousing")
 	if ( noHousingRegion ~= nil and noHousingRegion:Intersects(bound) ) then
@@ -1152,7 +1167,6 @@ Plot.Adjust = function(playerObj, controller, amount, i)
     local allow, newBound, newLoc, newSize = Plot.TryAdjust(playerObj, controller, amount, i)
 
     if ( allow ) then
-        -- TODO, consume coins
         if ( Plot.SetBound(controller, newLoc, newSize, i) ) then
             -- move the markers
             local markers = Plot.GetMarkers(controller)
@@ -1374,7 +1388,7 @@ end
 -- @param object
 -- @return plot controller
 Plot.GetForObject = function(object)
-    if not( loc ) then
+    if not( object ) then
         LuaDebugCallStack("[Plot.GetAtLoc] loc not provided.")
         return nil, {}
     end

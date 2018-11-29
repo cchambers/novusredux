@@ -25,8 +25,8 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 0.5,Template = "packed_pillow_round", Unique = true },
-								{ Chance = 0.5,Template = "packed_pillow_square", Unique = true },
+								{ Chance = 0.5,Template = "furniture_pillow_round", Packed = true, Unique = true },
+								{ Chance = 0.5,Template = "furniture_pillow_square", Packed = true, Unique = true },
 							}
 						},
 

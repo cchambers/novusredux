@@ -1,0 +1,64 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>		
+				<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					--PyrosLandingInn
+						{ Count = 3, TemplateId = "pyros_chef",    Region = "PyrosLandingInn", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--PyrosTradeGuild
+						{ Count = 1, TemplateId = "guildleader_trade",    Region = "PyrosLandingTradersGuild"},
+						{ Count = 5, TemplateId = "pyros_trader",    Region = "PyrosLandingTradersGuild", SpawnTime = 4, SpawnDuration = 18}, 
+
+					--PyrosTailor
+						{ Count = 1, TemplateId = "pyros_weaver",    Region = "PyrosLandingTailor", SpawnTime = 4, SpawnDuration = 18},
+
+					--PyrosStable
+						{ Count = 1, TemplateId = "pyros_stable_master",    Region = "PyrosLandingStable"},
+						{ Count = 6, TemplateId = "chicken",    Region = "PyrosLandingStable"},
+
+					--PyrosLandingDocks
+						{ Count = 15, TemplateId = "pyros_villager_docks",    Region = "PyrosLandingVilDocks", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 10, TemplateId = "pyros_villager",    Region = "PyrosLandingVilMain", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 10, TemplateId = "pyros_villager",    Region = "PyrosLandingVilEast", SpawnTime = 4, SpawnDuration = 18}, 
+
+						{ Count = 6, TemplateId = "pyros_fisher",    Region = "PyrosLandingVilDocks", SpawnTime = 4, SpawnDuration = 18},
+
+					--Pyros at night
+						{ Count = 3, TemplateId = "pyros_villager",    Region = "PyrosLandingVilMain", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 3, TemplateId = "pyros_villager",    Region = "PyrosLandingVilEast", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 3, TemplateId = "pyros_fisher",    Region = "PyrosLandingVilDocks", SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 7, TemplateId = "pyros_villager_docks",    Region = "PyrosLandingVilDocks", SpawnTime = 23, SpawnDuration = 5},
+
+						--TAMING
+						--39.1+
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim30" }, 
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim31" },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim32" },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernRim33" },
+						--57.1+
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernRim50" }, 
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernRim51" }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernRim52" }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernRim53" }, 
+						--71.1+
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernRim50", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernRim51", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernRim52", DelayMin=4 }, 
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernRim53", DelayMin=4}, 
+
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

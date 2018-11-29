@@ -6,7 +6,7 @@ MobileEffectLibrary.Bandage =
 
 		if ( HasMobileEffect(self.ParentObj, "NoBandage") ) then
 			if ( self.ParentObj:IsPlayer() ) then
-				self.ParentObj:SystemMessage("Cannot bandage again yet.", "info")
+				self.ParentObj:NpcSpeechToUser("You cannot bandage yet.",self.ParentObj)
 			end
 			EndMobileEffect(root)
 			return false
@@ -25,7 +25,7 @@ MobileEffectLibrary.Bandage =
 		end
 
 		if ( not self.IsPlayer and not self.IsPet and not target:HasObjVar("CanBandage") ) then
-			self.ParentObj:SystemMessage("Cannot bandage that.", "info")
+			self.ParentObj:NpcSpeechToUser("You cannot bandage that.",self.ParentObj)
 			EndMobileEffect(root)
 			return false
 		end
@@ -33,9 +33,9 @@ MobileEffectLibrary.Bandage =
 		if ( HasMobileEffect(target, "MortalStruck") ) then
 			if ( self.IsPlayer ) then
 				if ( self.ParentObj == target ) then
-					self.ParentObj:SystemMessage("Cannot bandage right now.", "info")
+					self.ParentObj:NpcSpeechToUser("You cannot bandage right now.",self.ParentObj)
 				else
-					self.ParentObj:SystemMessage("They cannot be bandaged right now.", "info")
+					self.ParentObj:NpcSpeechToUser("They cannot be bandaged right now.",self.ParentObj)
 				end
 			end
 			EndMobileEffect(root)
@@ -57,7 +57,7 @@ MobileEffectLibrary.Bandage =
 			-- attempt to resurrect.
 			if ( IsPlayerCharacter(self.Target) ) then
 				-- you can't bandage a ghost back to life, only bodies.
-				self.ParentObj:SystemMessage("Cannot bandage a ghost.", "info")
+				self.ParentObj:NpcSpeechToUser("You cannot bandage a ghost.",self.ParentObj)
 				EndMobileEffect(root)
 				return false
 			end
@@ -67,12 +67,11 @@ MobileEffectLibrary.Bandage =
 				self.Supplimental >= SkillData.AllSkills.HealingSkill.Options.SkillRequiredToResurrect
 			) then
 				LookAt(self.ParentObj, self.Target)
-				self.ParentObj:SystemMessage("Attempting to revive your target.", "info")
 				if ( IsPlayerCharacter(self.Target) ) then
 					self.Target:SystemMessage("" .. self.ParentObj:GetName() .. " is attempting to revive you.", "info")
 				end
 			else
-				self.ParentObj:SystemMessage("Not skilled enough to revive this corpse.", "info")
+				self.ParentObj:NpcSpeechToUser("You are not skilled enough to revive this corpse.",self.ParentObj)
 				EndMobileEffect(root)
 				return false
 			end
@@ -86,7 +85,7 @@ MobileEffectLibrary.Bandage =
 
 		if ( GetCurHealth(self.Target) >= self._MaxHealth ) then
 			if ( self.ParentObj:IsPlayer() ) then
-				self.ParentObj:SystemMessage("Patient seems fine.", "info")
+				self.ParentObj:NpcSpeechToUser("That patient seems fine.",self.ParentObj)
 			end
 			EndMobileEffect(root)
 			return false
@@ -94,8 +93,8 @@ MobileEffectLibrary.Bandage =
 
 		self._HealMultiplier = 0.1 + ( (self.Healing) / 110 )
 		self._HealAmount = 10 + self._BaseHeal + ((self.Supplimental) * 2.5)
-		DebugMessage("self._HealMultiplier" .. self._HealMultiplier)
-		DebugMessage("self._HealAmount" .. self._HealAmount)
+		--DebugMessage("self._HealMultiplier" .. self._HealMultiplier)
+		--DebugMessage("self._HealAmount" .. self._HealAmount)
 
 		if ( self.ParentObj ~= self.Target ) then
 			LookAt(self.ParentObj, self.Target)
@@ -111,7 +110,7 @@ MobileEffectLibrary.Bandage =
 			if ( self.Healing >= 60 ) then
 				self.Target:SendMessage("EndPoisonEffect")
 			else
-				self.ParentObj:SystemMessage("You lack the skill to cure poison.", "info")
+				self.ParentObj:NpcSpeechToUser("You lack the skill to cure poison.",self.ParentObj)
 			end
 		end
 
@@ -142,7 +141,7 @@ MobileEffectLibrary.Bandage =
 				CheckSkill(self.ParentObj, "HealingSkill", self.Healing, SkillData.AllSkills.HealingSkill.Options.SkillRequiredToResurrect)
 				CheckSkill(self.ParentObj, self.SupplimentalSkill, self.Supplimental, SkillData.AllSkills.HealingSkill.Options.SkillRequiredToResurrect)
 			else
-				self.ParentObj:SystemMessage("Fail to stir the corpse.", "info")
+				self.ParentObj:NpcSpeechToUser("You fail to stir the corpse.",self.ParentObj)
 			end
 		end
 		EndMobileEffect(root)

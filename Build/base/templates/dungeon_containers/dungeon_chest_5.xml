@@ -24,7 +24,7 @@
 					    	NumItems = 1,
 					    	LootItems =
 					    	{
-				    			{ Chance = 1,Template = "packed_guillotine", Unique = true },
+				    			{ Chance = 1,Template = "deco_guillotine", Packed = true, Unique = true },
 				    		}
 			    		},
 				    	--ingredients

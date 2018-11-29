@@ -98,8 +98,8 @@ CraftingOrderDefines.FabricationSkill =
 	{
 		Default = 5,
 		Cloth = 60,
-		Quilted = 45,
-		Silk = 5,
+		Quilted = 39,
+		Silk = 1,
 	},
 
 	CraftingOrders = 
@@ -2933,7 +2933,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -2956,7 +2956,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -2979,7 +2979,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3002,7 +3002,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3233,7 +3233,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3256,7 +3256,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3279,7 +3279,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3302,7 +3302,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3532,7 +3532,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3555,7 +3555,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3578,7 +3578,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3601,7 +3601,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3832,7 +3832,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3855,7 +3855,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -3878,7 +3878,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 
@@ -3910,7 +3910,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4072,7 +4072,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4095,7 +4095,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4118,7 +4118,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4141,7 +4141,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4164,7 +4164,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4187,7 +4187,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4210,7 +4210,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4372,7 +4372,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4395,7 +4395,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4418,7 +4418,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4441,7 +4441,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4464,7 +4464,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4487,7 +4487,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -4510,7 +4510,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5404,7 +5404,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5427,7 +5427,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5450,7 +5450,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5473,7 +5473,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5496,7 +5496,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5519,7 +5519,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5704,7 +5704,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5727,7 +5727,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5750,7 +5750,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5773,7 +5773,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5796,7 +5796,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5819,7 +5819,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5935,7 +5935,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5958,7 +5958,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -5981,7 +5981,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6004,7 +6004,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6027,7 +6027,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6050,7 +6050,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6235,7 +6235,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6258,7 +6258,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6281,7 +6281,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6304,7 +6304,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6327,7 +6327,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6350,7 +6350,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6534,7 +6534,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6557,7 +6557,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6580,7 +6580,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6603,7 +6603,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6626,7 +6626,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6649,7 +6649,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6834,7 +6834,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6857,7 +6857,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6880,7 +6880,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_mannequin", Unique = true },
+	    				{ Chance = 100, Template = "furniture_mannequin", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6903,7 +6903,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6926,7 +6926,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -6949,7 +6949,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7134,7 +7134,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7157,7 +7157,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7180,7 +7180,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7434,7 +7434,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7457,7 +7457,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7480,7 +7480,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7733,7 +7733,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7756,7 +7756,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -7779,7 +7779,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -8033,7 +8033,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -8056,7 +8056,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2
@@ -8079,7 +8079,7 @@ CraftingOrderDefines.FabricationSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Chance = 100, Template = "packed_fabric_rack", Unique = true },
+	    				{ Chance = 100, Template = "furniture_fabric_rack", Packed = true, Unique = true },
 					},
 				},
 				--Reward 2

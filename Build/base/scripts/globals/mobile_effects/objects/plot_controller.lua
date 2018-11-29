@@ -60,8 +60,9 @@ MobileEffectLibrary.PlotDestroy =
                         if ( user == self.ParentObj and buttonId == 0 ) then
                             Plot.Destroy(target, function(success)
                                 if ( success ) then
-                                    CreateObjInBackpack(self.ParentObj, "land_deed", "RefundPlotDeed")
-                                    Plot.CloseControlWindow(self.ParentObj)
+                                    Create.InBackpack("land_deed", self.ParentObj, nil, function(deed)
+                                        Plot.CloseControlWindow(self.ParentObj)
+                                    end)
                                 end
                             end)
                         end

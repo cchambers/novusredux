@@ -29,6 +29,7 @@
 					Skills= {
 						Woodsmith = 100,
 						Lumberjack = 100,
+						Archery = 100,
 					},
 					EquipTable= {
 						Chest= {
@@ -44,6 +45,7 @@
 					ItemInventory= {
 						{
 							Template = "arrow",
+							Amount = 999,
 							Price = 0,
 							RelativeLoc = "1.532959, 0.6650734, -1.008911",
 							Rotation = "0, 318.4927, 0",

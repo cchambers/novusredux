@@ -4,8 +4,8 @@
 	<Hue>970</Hue>
 	<SharedStateEntry name="Weight" type="int" value="8"/>
 	<ObjectVariableComponent>			
-   		<DoubleVariable Name="MaxDurability">80</DoubleVariable>
-   		<DoubleVariable Name="Amorbonus">1</DoubleVariable>
+   		<DoubleVariable Name="MaxDurability">200</DoubleVariable>
+   		<DoubleVariable Name="Amorbonus">2</DoubleVariable>
    		<StringVariable Name="ArmorType">Leather</StringVariable>
 	</ObjectVariableComponent>					
 </ObjectTemplate>

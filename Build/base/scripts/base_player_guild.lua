@@ -113,7 +113,7 @@ Guild.CanInvite = function(target,user)
 		local g = Guild.Get( user );
 		local mg = Guild.Get( target );
 
-		if ( g ~= nil and not(Guild.HasAccessLevel(this, "Emissary",g))) then
+		if ( g ~= nil and not(Guild.HasAccessLevel(user, "Emissary",g))) then
 			user:SystemMessage("[$1690]","custom")
 			return false
 		end
@@ -485,9 +485,9 @@ Guild.HasAccessLevel = function(user,required,g)
 	if (g == nil) then
 		return
 	end
-
+	
 	local mi = g.Members[user.Id]
-
+	
 	if (mi == nil) then return false end
 
 	local level = mi.AccessLevel

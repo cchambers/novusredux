@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<Name>Slave Destination Marker</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="SlaveDestinationMarker">true</BoolVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -39,14 +39,9 @@ function UpdateWindow()
     local dynamicWindow = DynamicWindow("PlotTaxWindow", "Tax Payment",260,230,0,0,"")
     
     local curY = 10 
-    local i = 1
-	while(i > 0) do
-		local denomInfo = Denominations[i]
-		dynamicWindow:AddLabel(20,curY+4,denomInfo.Color..denomInfo.Name.."[-]",0,0,18)
-		dynamicWindow:AddTextField(20+147,curY,50,20,denomInfo.Name,_FieldAmounts[denomInfo.Name] or "0")
-		curY = curY + 30
-		i = i - 1
-    end
+    local denomInfo = Denominations[1]
+    dynamicWindow:AddLabel(20,curY+4,denomInfo.Color..denomInfo.Name.."[-]",0,0,18)
+    dynamicWindow:AddTextField(20+147,curY,50,20,denomInfo.Name,_FieldAmounts[denomInfo.Name] or "0")
 
     dynamicWindow:AddButton(10,140,"Pay","Deposit",220,26,"Deposit money into plot lockbox. (Non-Refundable)","",false,"List")
     
@@ -59,15 +54,14 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
 
         if ( returnId == "Pay" ) then
             local amount = 0
-            for i=1,4 do
-                local denomInfo = Denominations[i]
-                local denomAmount = tonumber(fieldData[denomInfo.Name])
-				if ( denomAmount ) then
-					denomAmount = math.floor(denomAmount)
-                    if ( denomAmount ~= nil and denomAmount > 0 ) then
-                        amount = amount + ( denomAmount * denomInfo.Value )
-					end
-				end
+
+            local denomInfo = Denominations[1]
+            local denomAmount = tonumber(fieldData[denomInfo.Name])
+            if ( denomAmount ) then
+                denomAmount = math.floor(denomAmount)
+                if ( denomAmount ~= nil and denomAmount > 0 ) then
+                    amount = amount + ( denomAmount * denomInfo.Value )
+                end
             end
             if ( amount < ServerSettings.Plot.Tax.MinimumPayment ) then
                 this:SystemMessage("Minimum tax payment is "..ValueToAmountStr(ServerSettings.Plot.Tax.MinimumPayment), "info")

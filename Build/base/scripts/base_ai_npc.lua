@@ -274,7 +274,7 @@ function Dialog.OpenWorkDialog(user)
 
     response[1] = {}
     response[1].text = "What orders do you need filled?"
-    response[1].handle = "CraftOrder"
+    response[1].handle = "CraftingOrder"
 
     response[2] = {}
     response[2].text = "I have a completed order."
@@ -367,12 +367,16 @@ function Dialog.OpenRepairItemDialog(user)
     --this:SendMessage("RESTART_REPAIR_PROCESS", user,this,this:GetObjVar("RepairSkill"))
 end
 
-function Dialog.OpenCraftOrderDialog(user)
+function Dialog.OpenCraftingOrderDialog(user)
     
-    local orderInfo = nil
+    local orderInfo = {}
     --If the commission has already been offered, use it. Otherwise, pick a new one.
     if (GetCommission(user) == nil) then
-        orderInfo = PickCraftingOrder(user)
+        for i=1,3 do
+            table.insert(orderInfo,PickCraftingOrder(user))
+        end
+        AddCommission(user, orderInfo)
+        --orderInfo = PickCraftingOrder(user)
     else
         orderInfo = GetCommission(user)[1]
     end
@@ -380,36 +384,37 @@ function Dialog.OpenCraftOrderDialog(user)
     response = {}
 
     --If the player doesn't meet minimum skill for any order, shoo them away
-    if (orderInfo ~= nil) then
-        AddCommission(user, orderInfo)
     
+    if (orderInfo ~= nil) then
+        text = "Here's what I have."
         if not (GetCommission(user)[2]) then
-            if (orderInfo.Material ~= nil) then
-                text = "I just got this one in! The client is looking for "..orderInfo.Amount.." "..orderInfo.Material.." "..GetItemNameFromRecipe(orderInfo.Recipe).."."
-            else
-                text = "I just got this one in! The client is looking for "..orderInfo.Amount.." "..GetItemNameFromRecipe(orderInfo.Recipe).."."
-            end
-            response[1] = {}
-            response[1].text = "I'll do it!"
-            response[1].handle = "OrderAccept" 
-        else
-            text = "Sorry pal, but I'm fresh out of orders. Come back later and I might have something new for you."
+            for i, j in pairs(orderInfo) do
+                response[i] = {}
 
+                if (orderInfo[i].Material ~= nil) then
+                    response[i].text = orderInfo[i].Amount.." "..ResourceData.ResourceInfo[orderInfo[i].Material].CraftedItemPrefix.." "..GetItemNameFromRecipe(orderInfo[i].Recipe)
+                else
+                    response[i].text = orderInfo[i].Amount.." "..GetItemNameFromRecipe(orderInfo[i].Recipe)
+                end
+
+                
+                response[i].handle = "CraftOrder|"..i
+            end
+        else 
+            text = "I already gave you a crafting order. Why don't you try completing that first. If you really want more work, come back later and I'll see what I can get for you."
         end
     else
         text = "Sorry pal, but I'm not paying amatuers. Try getting some experience under your belt, and maybe I'll be able to pull up something for you."
     end
 
-    response[2] = {}
-    response[2].text = "Nevermind."
-    response[2].handle = "Nevermind" 
+    response[#orderInfo+1] = {}
+    response[#orderInfo+1].text = "Nevermind."
+    response[#orderInfo+1].handle = "Nevermind" 
 
     NPCInteractionLongButton(text,this,user,"Responses",response)
 end
 
 function Dialog.OpenOrderAcceptDialog(user)
-    CreateCraftingOrder(user, GetCommission(user)[1])
-    CommissionAccepted(user)
     text = ("Here you go then. Don't be thinking you just bring me a pile of scattered items though. Use the crafting order to package them up, and return it to me. Other craftsmen like myself will also accept a completed order. It'll get back to me one way or another.")
 
     response = {}
@@ -525,6 +530,15 @@ function ResponsesDialog (user,buttonID)
         Dialog["Open"..buttonID.."Dialog"](user)
     elseif(buttonID == "Close") then
         user:CloseDynamicWindow("Responses")
+    elseif (this:GetObjVar("CraftOrderSkill")) then
+        local items = StringSplit(buttonID, "|")
+        if (items[1] == "CraftOrder") then
+            local orderIndex = tonumber(items[2])
+            local order =  GetCommission(user)[1][orderIndex]
+            CreateCraftingOrder(user, order)
+            CommissionAccepted(user)
+            Dialog.OpenOrderAcceptDialog(user)
+        end
     elseif (buttonID ~= nil and buttonID ~= "" and buttonID ~= "Ok") then
         DebugMessage("[base_ai_npc|ResponsesDialog] ERROR: Invalid NPC dialog received! buttonID is "..tostring(buttonID))
     end

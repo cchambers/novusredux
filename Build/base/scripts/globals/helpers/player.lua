@@ -206,7 +206,7 @@ function GetUnstuckLoc(mobile, checkCurrent)
 			center = bounds[index].Center
 		end
 	end
-	for i=1,500 do
+	for i=10,500 do --temp increase from i=1 due to server/client mismatch
 		local loc = (checkCurrent and i == 0) and mobileLoc or GetSpiralLoc(start+i, center)
 		if ( 
 			( dungeonBounds and ValidDungeonPosition(dungeonBounds, loc) )

@@ -52,10 +52,11 @@
 						TemplateDefines.LootTable.Boss,
 						{
 							NumCoins = math.random(1500,2800),
-							NumItems = 2,
+							NumItems = 3,
 					    	LootItems = {
-				    			{ Chance = 20, Template = "animalparts_golden_tree_bark"},
-				    			{ Chance = 20, Template = "animalparts_golden_tree_bark"},
+				    			{ Chance = 5, Template = "armor_leather_chest_slime"},
+				    			{ Chance = 5, Template = "armor_leather_leggings_slime"},
+				    			{ Chance = 5, Template = "armor_leather_helm_slime"},
 				    		},
 						},
 					},	

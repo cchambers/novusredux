@@ -19,6 +19,8 @@ MobileEffectLibrary.MountSummon =
 			return false
 		end
 
+		self._Applied = true
+
         SetMobileMod(self.ParentObj, "Busy", "MountSummon", true)
 		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
 			EndMobileEffect(root)
@@ -34,8 +36,8 @@ MobileEffectLibrary.MountSummon =
 	end,
 
 	Can = function(self,root)
-		if ( not self.Pet or not self.Pet:IsValid() ) then
-			self.ParentObj:SystemMessage("Something wrong with this statue, sorry.", "info")
+		if ( self.Pet and not self.Pet:IsValid() ) then
+			self.ParentObj:SystemMessage("Statue appears to be broken, sorry!", "info")
 			return false
 		end
 		if not( IsInBackpack(self.Statue, self.ParentObj) ) then
@@ -43,31 +45,55 @@ MobileEffectLibrary.MountSummon =
 			return false
 		end
 		-- make sure they can control the pet
-		if not( CanControlCreature(self.ParentObj, self.Pet) ) then
+		if ( self.Pet and not CanControlCreature(self.ParentObj, self.Pet) ) then
 			self.ParentObj:SystemMessage("You have no chance of controlling this pet.", "info")
 			return false
 		end
 		-- make sure the player has room to take this pet
-		if ( GetPetSlots(self.Pet) > GetRemainingActivePetSlots(self.ParentObj) ) then
+		if ( self.Pet and GetPetSlots(self.Pet) > GetRemainingActivePetSlots(self.ParentObj) ) then
 			self.ParentObj:SystemMessage("You cannot control anymore pets.", "info")
 			return false
 		end
 		return true
 	end,
 
-	OnExitState = function(self,root)
-        SetMobileMod(self.ParentObj, "Busy", "MountSummon", nil)
-		UnregisterEventHandler("", EventType.StartMoving, "")
-		UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
-		if ( self.ParentObj:HasTimer("MountSummonClose") ) then
-			self.ParentObj:FireTimer("MountSummonClose") -- close progress bar
+	CreateFromTemplate = function(self,root)
+		local template = self.Statue:GetObjVar("StatuePetTemplate")
+		if ( template ) then
+			Create.AtLoc(template, self.ParentObj:GetLoc(), function(mobile)
+				if ( mobile ) then
+					SetCreatureAsPet(mobile, self.ParentObj)
+					self.Pet = mobile
+                    self.Statue:SetObjVar("StatuePet", self.Pet)
+                    self.Pet:SetObjVar("PetStatue", self.Statue)
+					self.OnDone(self,root)
+				else
+					self.ParentObj:SystemMessage("This statue appears to be broken, failed to create the creatue.", "info")
+					EndMobileEffect(root)
+				end
+			end, true)
+		else
+			self.ParentObj:SystemMessage("This statue appears to be broken, cannot create the creatue.", "info")
+			EndMobileEffect(root)
 		end
-		self.ParentObj:PlayAnimation("idle")
-		if ( self.Done and self.Can(self,root) ) then
+	end,
+
+	OnDone = function(self,root)
+		if ( self._Applied ) then
+			SetMobileMod(self.ParentObj, "Busy", "MountSummon", nil)
+			UnregisterEventHandler("", EventType.StartMoving, "")
+			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
+			if ( self.ParentObj:HasTimer("MountSummonClose") ) then
+				self.ParentObj:FireTimer("MountSummonClose") -- close progress bar
+			end
+			self.ParentObj:PlayAnimation("idle")
+		end
+		if ( self.Done and self.Pet and self.Can(self,root) ) then
 			self.Pet:SetWorldPosition(self.ParentObj:GetLoc())
-			self.Pet:SetObjectOwner(self.ParentObj)
-			-- reassign owner if applicable
-			if ( self.Pet:GetObjVar("controller") ~= self.ParentObj ) then
+			if ( self.Pet:GetObjVar("controller") == self.ParentObj ) then
+				self.Pet:SetObjectOwner(self.ParentObj)
+			else
+				-- reassign owner
 				self.Pet:SendMessage("SetPetOwner", self.ParentObj)
 			end
 			-- move the statue into pet
@@ -75,6 +101,14 @@ MobileEffectLibrary.MountSummon =
 
 			-- auto mount
 			MountMobile(self.ParentObj, self.Pet)
+		end
+	end,
+
+	OnExitState = function(self,root)
+		if ( self.Pet ) then
+			self.OnDone(self,root)
+		else
+			self.CreateFromTemplate(self,root)
 		end
 	end,
 

@@ -53,14 +53,14 @@ local BaseHandleApplyDamage = HandleApplyDamage
 function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 
-	-- if we are being attacked by a mortal player
-	if ( not IsGod(damager) and damager ~= this and (damager:IsPlayer() or IsPet(damager)) ) then
-
-		if ( ServerSettings.PlayerInteractions.PlayerVsPlayerEnabled ~= true ) then
+	-- if we are being attacked by a player
+	if ( IsPlayerCharacter(damager) or IsPet(damager) ) then
+		if ( ServerSettings.PlayerInteractions.PlayerVsPlayerEnabled ~= true and damager ~= this and not IsGod(damager) ) then
+			-- if pvp enabled, not damaging ourselves, and the damager is not a god, stop here (disabled PVP)
 			return true
 		end
-		
-		-- autodefend against players
+	else
+		-- autodefend against NPCs (auto defending against players could result in guard whack for both attacker and victim)
 		this:SendMessage("ForceCombat", damager)
 	end
 
@@ -285,7 +285,7 @@ end
 
 function UpdateName()
 	Verbose("Player", "UpdateName")
-	local charName = ColorizePlayerName(this, GetNamePrefix() .. this:GetName() .. GetNameSuffix())
+	local charName = ColorizePlayerName(this, this:GetName() .. GetNameSuffix())
 	this:SetSharedObjectProperty("DisplayName", charName)
 end
 
@@ -1155,6 +1155,8 @@ function HandleStuckTimer(args)
 	local stuckLoc = this:GetObjVar("stuckLoc")
 	if ( this:GetLoc() == stuckLoc ) then
 		UnstickPlayer(this)
+	else
+		this:SystemMessage("You have moved. Unstuck Canceled.", "info")
 	end
 	this:DelObjVar("stuckLoc")
 end
@@ -1401,7 +1403,10 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(20),"UpdateTooltip")
 -- Initialization Code
 
 RegisterEventHandler(EventType.Message,"DamageInflicted",function(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	this:RemoveTimer("StuckTimer")
+	if ( this:HasTimer("StuckTimer") ) then
+		this:RemoveTimer("StuckTimer")
+		this:SystemMessage("Damage taken, Unstuck Canceled.", "info")
+	end
 end)
 ----------------------------------------------------------------------
 
@@ -1580,9 +1585,12 @@ function InitializePlayer()
 		SetKarmaAlignment(this, ServerSettings.Karma.NewPlayerKarmaAlignment)
 	end
 
+	-- bind their hearth for the first time
+	BindLocationIfNot(this)
+
 	if not( this:HasObjVar("CreationDate") ) then 
 		this:SetObjVar("CreationDate", DateTime.UtcNow)
-	end	
+	end
 
 	--Check for achievement for every skills on character creation
 	CheckAchievementStatusAllSkills(this)

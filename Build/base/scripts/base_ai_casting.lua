@@ -3,7 +3,9 @@ require 'base_ai_mob'
 --Set to cast
 AI.SetSetting("CanCast", true)
 
+AI.SetSetting("SpellRangeMod", 20)
 
+AI.SetSetting("ChaseRange", AI.GetSetting("LeashDistance") - 5)
 AI.Spells = {
     Heal = {
         Type = "healspell"
@@ -64,7 +66,7 @@ AI.StateMachine.AllStates.CastFireball = {
             end
 
             FaceTarget()
-            if ((not CanCast("Fireball",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Fireball",this)) then
+            if ((not CanCast("Fireball",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > (GetSpellRange("Fireball",this) + AI.GetSetting("SpellRangeMod"))) then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -94,7 +96,7 @@ AI.StateMachine.AllStates.CastRuin = {
             end
 
             FaceTarget()
-            if ((not CanCast("Ruin",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Ruin",this)) then
+            if ((not CanCast("Ruin",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > (GetSpellRange("Ruin",this) + AI.GetSetting("SpellRangeMod"))) then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -124,7 +126,7 @@ AI.StateMachine.AllStates.CastElectricbolt = {
                 return
             end
 
-            if ((not CanCast("Electricbolt",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Electricbolt",this)) then
+            if ((not CanCast("Electricbolt",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Electricbolt",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -155,7 +157,7 @@ AI.StateMachine.AllStates.CastPoison = {
             end
 
             FaceTarget()
-            if ((not CanCast("Poison",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Poison",this)) then
+            if ((not CanCast("Poison",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Poison",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -185,7 +187,7 @@ AI.StateMachine.AllStates.CastVoidblast = {
                 return
             end
 
-            if ((not CanCast("Voidblast",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Voidblast",this)) then
+            if ((not CanCast("Voidblast",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Voidblast",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -215,7 +217,7 @@ AI.StateMachine.AllStates.CastSouldrain = {
                 return
             end
 
-            if ((not CanCast("Souldrain",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Souldrain",this)) then
+            if ((not CanCast("Souldrain",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Souldrain",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -245,7 +247,7 @@ AI.StateMachine.AllStates.CastLightning = {
                 return
             end
 
-            if ((not CanCast("Lightning",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Lightning",this)) then
+            if ((not CanCast("Lightning",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Lightning",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -276,7 +278,7 @@ AI.StateMachine.AllStates.CastChainlightning = {
                 return
             end
 
-            if ((not CanCast("Chainlightning",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Chainlightning",this)) then
+            if ((not CanCast("Chainlightning",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Chainlightning",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -307,7 +309,7 @@ AI.StateMachine.AllStates.CastBombardment = {
                 return
             end
 
-            if ((not CanCast("Bombardment",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Bombardment",this)) then
+            if ((not CanCast("Bombardment",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Bombardment",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -388,7 +390,7 @@ AI.StateMachine.AllStates.CastBlackhole = {
             end
             local teleLoc = GetRandomTeleportLocation(AI.MainTarget)
 
-            if ((not CanCast("Blackhole",AI.MainTarget)) or this:GetLoc():Distance(teleLoc) > GetSpellRange("Blackhole",this)) then
+            if ((not CanCast("Blackhole",AI.MainTarget)) or this:GetLoc():Distance(teleLoc) > GetSpellRange("Blackhole",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Teleport in OnEnterState")
                 --DebugMessage(2)
                 AI.StateMachine.ChangeState("Chase")
@@ -436,7 +438,7 @@ AI.StateMachine.AllStates.CastSpawnskeleton = {
                 FaceObject(this,healTarget)
             end
             DebugMessageA(this,CanCast("Spawnskeleton"),healTarget == this)
-            if ((not CanCast("Spawnskeleton",healTarget)) or (healTarget == this) or (this:DistanceFrom(healTarget) > GetSpellRange("Spawnskeleton",this))) then
+            if ((not CanCast("Spawnskeleton",healTarget)) or (healTarget == this) or (this:DistanceFrom(healTarget) > GetSpellRange("Spawnskeleton",this)+AI.GetSetting("SpellRangeMod"))) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -614,7 +616,7 @@ AI.StateMachine.AllStates.CastHeal = {
                 return
             end
 
-            if ((not CanCast("Heal",healTarget)) or this:DistanceFrom(healTarget) > GetSpellRange("Heal",this)) then
+            if ((not CanCast("Heal",healTarget)) or this:DistanceFrom(healTarget) > GetSpellRange("Heal",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -672,7 +674,7 @@ AI.StateMachine.AllStates.CastGreaterheal = {
                 return
             end
 
-            if ((not CanCast("Heal",healTarget)) or this:DistanceFrom(healTarget) > GetSpellRange("Greaterheal",this)) then
+            if ((not CanCast("Heal",healTarget)) or this:DistanceFrom(healTarget) > GetSpellRange("Greaterheal",this)+AI.GetSetting("SpellRangeMod")) then
                 --DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
@@ -705,7 +707,7 @@ AI.StateMachine.AllStates.CastPillaroffire = {
             end
 
             FaceTarget()
-            if (not CanCast("Pillaroffire",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Pillaroffire",this) then
+            if (not CanCast("Pillaroffire",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Pillaroffire",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -735,7 +737,7 @@ AI.StateMachine.AllStates.CastMeteor = {
             end
 
             FaceTarget()
-            if (not CanCast("Meteor",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Meteor",this) then
+            if (not CanCast("Meteor",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Meteor",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -766,7 +768,7 @@ AI.StateMachine.AllStates.CastGrimaura = {
             end
 
             FaceTarget()
-            if (not CanCast("Grimaura",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Grimaura",this) then
+            if (not CanCast("Grimaura",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Grimaura",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -797,7 +799,7 @@ AI.StateMachine.AllStates.CastIcerain = {
             end
 
             FaceTarget()
-            if (not CanCast("Icerain",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Icerain",this) then
+            if (not CanCast("Icerain",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Icerain",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -827,7 +829,7 @@ AI.StateMachine.AllStates.CastSpikepath = {
             end
 
             FaceTarget()
-            if (not CanCast("Spikepath",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Spikepath",this) then
+            if (not CanCast("Spikepath",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Spikepath",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -861,7 +863,7 @@ AI.StateMachine.AllStates.CastFlamewave = {
             end
 
             FaceTarget()
-            if (not CanCast("Flamewave",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Flamewave",this) then
+            if (not CanCast("Flamewave",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Flamewave",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
@@ -895,7 +897,7 @@ AI.StateMachine.AllStates.CastIcelance = {
             end
 
             FaceTarget()
-            if (not CanCast("Icelance",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Icelance",this) then
+            if (not CanCast("Icelance",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Icelance",this)+AI.GetSetting("SpellRangeMod") then
                 --DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return

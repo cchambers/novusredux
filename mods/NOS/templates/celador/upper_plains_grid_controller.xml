@@ -1,0 +1,82 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Grid Controller</Name>
+	<Tag>MapGridController</Tag>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="SpawnMultiplier">1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="grid_spawner">
+			<Initializer>
+				{
+					GridSize = 256,
+					ExcludeRegions = {"NoHousing"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+					GridInfo = {
+				        { GridLoc = {-3,2}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {-3,1}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {-3,0}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {-3,-1}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {-2,3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-2,2}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-2,1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-2,0}, SpawnMultiplier = 0.5, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-2,-1}, SpawnMultiplier = 0.5, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {-1,5}, SpawnMultiplier = 0.5, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-1,4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {-1,3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {-1,2}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {-1,1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-1,0}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {-1,-1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },				        
+				        { GridLoc = {0,6}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {0,5}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {0,4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {0,3}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {0,2}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {0,1}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {0,0}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {0,-1}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },				        
+				        { GridLoc = {1,6}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {1,5}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {1,2}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {1,1}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {1,0}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {1,-1}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {1,-2}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },				        
+				        { GridLoc = {2,7}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {2,6}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {2,5}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {2,3}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.UpperPlains.Easy },
+				        { GridLoc = {2,2}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {2,1}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {2,0}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {2,-1}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {2,-2}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {3,7}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,6}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,5}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,3}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,1}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,0}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {3,-1}, SpawnMultiplier = 0.5, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {3,-2}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Medium },
+				        { GridLoc = {4,7}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {4,6}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {4,5}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {4,4}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {4,3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {4,2}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {5,6}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {5,5}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {5,4}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {5,3}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+				        { GridLoc = {5,2}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.UpperPlains.Hard },
+					}
+				}
+			</Initializer>
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

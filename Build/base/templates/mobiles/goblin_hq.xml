@@ -51,6 +51,7 @@
 						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(90,225),
+							NumItems = 1,
 							{
 				    			{ Weight = 95, Template = "weapon_cleaver", Unique = true },
 				    			{ Weight = 5, Template = "furniture_box", Unique = true },

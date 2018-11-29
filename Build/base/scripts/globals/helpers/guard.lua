@@ -171,12 +171,12 @@ function GetGuardProtection(mobile)
 	end
 
 	local mobileLoc = mobile:GetLoc()
-	local guardTower = FindObjectWithTagInRange("GuardTowerObject",mobileLoc,ServerSettings.PlayerInteractions.GuardTowerProtectionRange)
+	local guardTower = FindObjectWithTagInRange("GuardTowerObject",mobileLoc,ss.GuardTowerProtectionRange)
 	if ( guardTower ) then
 		return "Protection",guardTower
 	end
 	
-	local teleportTower = FindObjectWithTagInRange("TeleportTowerObject",mobileLoc,ServerSettings.PlayerInteractions.GatekeeperProtectionRange)
+	local teleportTower = FindObjectWithTagInRange("TeleportTowerObject",mobileLoc,ss.GatekeeperProtectionRange)
 	if ( teleportTower ) then
 		return "Town",teleportTower
 	end

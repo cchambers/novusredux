@@ -141,7 +141,7 @@ function LootCoinPurseCreated(success,objRef,numCoins,objVars)
 	if( success == true ) then
 		-- fill the mob's backpack
 		if( numCoins ~= nil and numCoins > 0 ) then			
-				objRef:SendMessage("SetCoins",{Gold = numCoins})
+				objRef:SendMessage("SetCoins",{Copper = numCoins})
 		end
 	end
 end

@@ -46,8 +46,7 @@ function RemoveFromSale(buyer)
 	RemoveUseCase(this,"Buy")
 	ClearOverrideDefaultInteraction(this)
 	--DebugMessage("Yes, exactly what you think is happening is happening.")
-	RemoveUseCase(this,"Remove from Sale")
-	this:DelModule("hireling_merchant_sale_item")
+	RemoveUseCase(this,"Remove from Sale")	
 	this:DelObjVar("NoReset")
 
 	local stackCount = this:GetObjVar("StackCount") or 1
@@ -68,6 +67,8 @@ function RemoveFromSale(buyer)
 	        this:SetWorldPosition(buyer:GetLoc())
 	    end
 	end
+
+	this:DelModule("hireling_merchant_sale_item")
 end
 
 RegisterEventHandler(EventType.Timer, "check_valid", 
@@ -159,6 +160,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 			end
 			
 			RemoveFromSale()
+			user:SystemMessage("The item is no longer for sale.","info")
 		end
 	end)
 RegisterEventHandler(EventType.LoadedFromBackup,"",function ( ... )

@@ -8,7 +8,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Sewer</StringVariable>
+		<StringVariable Name="MobileTeamType">Sewer</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -21,6 +21,7 @@
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>

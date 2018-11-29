@@ -149,8 +149,8 @@ function GetHighestWeaponSkill(targMob)
 	local curHighestSkill = {Skill = "", Level = 0}
 	for keys, vals in pairs(mySkillsTable) do
 			if (IsWeaponSkill(keys)) then
-			if (vals.SkillLevel >= curHighestSkill.Level) then
-				curHighestSkill = {Skill = Keys, Level = vals.SkillLevel}
+			if ((vals.SkillLevel or 0) >= curHighestSkill.Level) then
+				curHighestSkill = {Skill = Keys, Level = (vals.SkillLevel or 0)}
 			end
 		end
 	end

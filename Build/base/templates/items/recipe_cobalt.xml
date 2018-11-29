@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>[d9d9d9]Recipe: Cobalt[-]</Name>
+  <Name>[FF9500]Recipe: Cobalt[-]</Name>
 	<ClientId>639</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>

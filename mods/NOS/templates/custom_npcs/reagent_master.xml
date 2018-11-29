@@ -3,7 +3,7 @@
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
 	<Name>Reggie the Dude</Name>
-	<SharedStateEntry name="Title" type="string" value="Alchemist"/>
+	<SharedStateEntry name="Title" type="string" value="Reagent Master"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<DoubleVariable Name="Armor">62</DoubleVariable>
@@ -38,7 +38,7 @@
 					ItemInventory= {
 						{
 							Template = "ingredient_bloodmoss",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "-0.75, 0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -46,7 +46,7 @@
 						},
 						{
 							Template = "ingredient_ginsengroot",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "0.75, 0.0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -54,7 +54,7 @@
 						},
 						{
 							Template = "ingredient_mandrakeroot",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "1.25, 0.0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -62,7 +62,7 @@
 						},
 						{
 							Template = "ingredient_garlic",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "-1, 0.0, 0",
 							Rotation = "0, 307.7894, 0",
@@ -70,7 +70,7 @@
 						},
 						{
 							Template = "ingredient_blackpearl",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "0.25, 0.0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -78,7 +78,7 @@
 						},
 						{
 							Template = "ingredient_nightshade",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "-0.2, 0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -86,7 +86,7 @@
 						},
 						{
 							Template = "ingredient_spidersilk",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "1, 0.1, 0",
 							Rotation = "0, 270.0002, 0",
@@ -94,7 +94,7 @@
 						},
 						{
 							Template = "ingredient_sulfurousash",
-							Price = 1,
+							Price = 4,
 							Amount = 1000,
 							RelativeLoc = "-1.5, 0.0, -1",
 							Rotation = "0, 270.0002, 0",
@@ -102,7 +102,7 @@
 						},
 						{
 							Template = "regbag_noob",
-							Price = 200,
+							Price = 600,
 							Amount = 1000,
 							RelativeLoc = "-1.5, 0.0, 0",
 							Rotation = "0, 270.0002, 0",

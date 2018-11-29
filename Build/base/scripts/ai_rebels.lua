@@ -47,7 +47,7 @@ AI.StateMachine.AllStates.DecidingCombat = {
             if (math.random(1,50) == 1) then
                 this:StopMoving()
                 this:PlayAnimation("rend")
-                this:NpcSpeech(quotes[math.random(1,#quotes)])
+                --this:NpcSpeech(quotes[math.random(1,#quotes)])
             end
         end,
     }

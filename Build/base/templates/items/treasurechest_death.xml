@@ -34,8 +34,8 @@
 				    			{ Weight = 25, Template = "weapon_death_scythe", Unique = true },
 				    			{ Weight = 25, Template = "weapon_silver_longsword", Unique = true },
 				    			{ Weight = 25, Template = "weapon_dark_bow", Unique = true },
-				    			{ Weight = 10, Template = "packed_throne_reaper", Unique = true },
-								{ Weight = 10, Template = "packed_teleporter", Unique = true },
+				    			{ Weight = 10, Template = "furniture_throne_reaper", Unique = true },
+								{ Weight = 10, Template = "furniture_teleporter_catacombs", Unique = true },
 				    		}
 			    		},
 				    	--stuff

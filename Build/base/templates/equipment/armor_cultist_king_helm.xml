@@ -1,12 +1,10 @@
 <ObjectTemplate>
-  <Name>[FF9500]Cultist King's Ceremonial Helm[-]</Name>
+  <Name>[FFBF00]Cultist King's Ceremonial Helm[-]</Name>
 	<ClientId>1474</ClientId>
 	<Hue>828</Hue>
 	<SharedStateEntry name="Weight" type="int" value="5"/>
 	<ObjectVariableComponent>			
    		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
    		<StringVariable Name="ArmorType">FullPlate</StringVariable>
-   		<BoolVariable Name="Blessed">True</BoolVariable>
-		<BoolVariable Name="Cursed">True</BoolVariable>
 	</ObjectVariableComponent>					
 </ObjectTemplate>

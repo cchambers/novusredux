@@ -51,14 +51,15 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.WarriorRich,				
+						TemplateDefines.LootTable.WarriorRich,	
+						TemplateDefines.LootTable.CultistKing,			
 						{
 							NumCoins = math.random(250,350),
-							NumItems = 2,
+							NumItems = 1,
 							LootItems = 
 							{ 
-								{ Chance = 10, Template = "armor_cultist_king_helm", Unique = true },
-								{ Chance = 10, Template = "armor_cultist_king_chest", Unique = true },
+								{ Weight = 90, Template = "furniture_box", Unique = true },
+				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },
 							},
 						},
 					},		

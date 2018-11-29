@@ -18,7 +18,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">50</DoubleVariable>
 		<DoubleVariable Name="Attack">20</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					

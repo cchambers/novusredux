@@ -45,7 +45,7 @@
 				LootTables =
 					{
 						TemplateDefines.LootTable.Potions,
-						TemplateDefines.LootTable.SpiderPoor,
+						TemplateDefines.LootTable.Spider,
 						TemplateDefines.LootTable.Maps,
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.SicklyEye,

@@ -52,8 +52,8 @@ Materials = {
 
 MaterialTooltipColors = {
     Iron = "[969696]",
-    Copper = "[9cff3c]",
     Gold = "[e6b032]",
+    Copper = "[9cff3c]",
     Cobalt = "[d7f5f2]",
     Obsidian = "[b459ff]",
 
@@ -65,7 +65,7 @@ MaterialTooltipColors = {
     BeastLeather = "[b459ff]",
     VileLeather = "[d61c1c]",
 
-    Wooden = "[b5751b]",
-    Ash = "[dbb47d]",
-    Blightwood = "[b459ff]",
+    Boards = "[b5751b]",
+    AshBoards = "[dbb47d]",
+    BlightwoodBoards = "[b459ff]",
 }

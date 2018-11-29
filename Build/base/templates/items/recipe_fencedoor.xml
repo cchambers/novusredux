@@ -1,10 +1,10 @@
 <ObjectTemplate>
-  <Name>[FF9500]Recipe: Fence Door[-]</Name>
+  <Name>[d9d9d9]Recipe: Gate[-]</Name>
 	<ClientId>639</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="Recipe">FenceDoor</StringVariable>
-		<StringVariable Name="RecipeDisplayName">FenceDoor</StringVariable>
+		<StringVariable Name="Recipe">Gate</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Gate</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="recipe"/>

@@ -1,0 +1,67 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Grid Controller</Name>
+	<Tag>MapGridController</Tag>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="SpawnMultiplier">1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="grid_spawner">
+			<Initializer>
+				{
+					GridSize = 256,
+					ExcludeRegions = {"NoHousing"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+
+					GridInfo = {
+						{ GridLoc = {-12,-9}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-11,-8}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-11,-9}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-10,-8}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-10,-9}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-10,-10}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Easy },
+				        { GridLoc = {-9,-8}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-9,-9}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },				        
+				        { GridLoc = {-8,-7}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-8,-8}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-8,-9}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },				        
+				        { GridLoc = {-7,-7}, SpawnMultiplier = 0.9, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-7,-8}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-7,-9}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-6,-7}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-6,-8}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-6,-9}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },				        
+				        { GridLoc = {-5,-7}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-5,-8}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-5,-9}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-4,-4}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-4,-5}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-4,-6}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-4,-7}, SpawnMultiplier = 0.9, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-4,-8}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },
+				        { GridLoc = {-4,-9}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-3}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-4}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-5}, SpawnMultiplier = 0.9, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-6}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-7}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-3,-8}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-2}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-3}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-4}, SpawnMultiplier = 1.0, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-5}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-6}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-2,-7}, SpawnMultiplier = 0.1, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-1,-2}, SpawnMultiplier = 0.8, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-1,-3}, SpawnMultiplier = 0.9, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {-1,-4}, SpawnMultiplier = 0.7, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {0,-2}, SpawnMultiplier = 0.4, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {0,-3}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },
+				        { GridLoc = {0,-4}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Medium },				        
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

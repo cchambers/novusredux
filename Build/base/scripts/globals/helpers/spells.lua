@@ -80,29 +80,34 @@ function CheckSpellCastSuccess(spell, mobileObj, scrollObj)
 
 	local skillDictionary = GetSkillDictionary(mobileObj)
 
-	-- only beneficial spells can gain channeling with casting
-	if ( SpellData.AllSpells[spell].BeneficialSpellType == true ) then
-		local channelingSkillLevel = GetSkillLevel(mobileObj, "ChannelingSkill", skillDictionary) or 0
-		CheckSkillChance(
-			mobileObj,
-			"ChannelingSkill",
-			channelingSkillLevel,
-			SkillValueMinMax(channelingSkillLevel, SpellData.CircleSkills[circle][1], SpellData.CircleSkills[circle][2])
-		)
-	else
-		-- non-bene spells can gain affinity with casting
-		local affinitySkillLevel = GetSkillLevel(mobileObj, "MagicAffinitySkill", skillDictionary) or 0
-		CheckSkillChance(
-			mobileObj,
-			"MagicAffinitySkill",
-			affinitySkillLevel,
-			SkillValueMinMax(affinitySkillLevel, SpellData.CircleSkills[circle][1], SpellData.CircleSkills[circle][2])
-		)
-	end
-
 	local skillLevel = GetSkillLevel(mobileObj, castSkillName, skillDictionary) or 0
 	local skillGainMinMax = SkillValueMinMax(skillLevel, SpellData.CircleSkills[circle][1], SpellData.CircleSkills[circle][2])
-	local success = CheckSkillChance(mobileObj, castSkillName, skillLevel, skillGainMinMax)
+	local success = Success( skillGainMinMax )
+
+	--- when scroll casting, skill check only on a success
+	if ( scrollObj == nil or success ) then
+		-- only beneficial spells can gain channeling with casting
+		if ( SpellData.AllSpells[spell].BeneficialSpellType == true ) then
+			local channelingSkillLevel = GetSkillLevel(mobileObj, "ChannelingSkill", skillDictionary) or 0
+			CheckSkillChance(
+				mobileObj,
+				"ChannelingSkill",
+				channelingSkillLevel,
+				SkillValueMinMax(channelingSkillLevel, SpellData.CircleSkills[circle][1], SpellData.CircleSkills[circle][2])
+			)
+		else
+			-- non-bene spells can gain affinity with casting
+			local affinitySkillLevel = GetSkillLevel(mobileObj, "MagicAffinitySkill", skillDictionary) or 0
+			CheckSkillChance(
+				mobileObj,
+				"MagicAffinitySkill",
+				affinitySkillLevel,
+				SkillValueMinMax(affinitySkillLevel, SpellData.CircleSkills[circle][1], SpellData.CircleSkills[circle][2])
+			)
+		end
+
+		CheckSkillChance(mobileObj, castSkillName, skillLevel, skillGainMinMax)
+	end
 	
 	-- only consume scroll on success
 	if ( success and scrollObj ~= nil ) then

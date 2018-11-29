@@ -260,7 +260,7 @@ ResourceData = {
 
 			Difficulty = {
 				Min = 0,
-				Max = 100
+				Max = 80
 			}
 		},
 		CopperOre = {
@@ -1089,9 +1089,9 @@ ResourceData = {
 			Template = "recipe_smallfence",
 			DisplayName = "Recipe: Small Fence",
 		},
-		RecipeFenceDoor = {
+		RecipeGate = {
 			Template = "recipe_fencedoor",
-			DisplayName = "Recipe: Fence Door",
+			DisplayName = "Recipe: Gate",
 		},
 		RecipeBarrel = {
 			Template = "recipe_barrel",
@@ -1173,8 +1173,8 @@ ResourceData = {
 			Template = "recipe_stove",
 			DisplayName = "Recipe: Stove",
 		},
-		RecipeStoneFireplace = {
-			Template = "recipe_stonefireplace",
+		RecipeFireplaceStone = {
+			Template = "recipe_fireplacestone",
 			DisplayName = "Recipe: Stone Fireplace",
 		},
 		-- FOOD RESOURCES --

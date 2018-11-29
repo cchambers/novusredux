@@ -348,6 +348,11 @@ function DoDismiss()
 
     this:DelObjVar("merchantSaleItem")
 
+    local owner = this:GetObjVar("FollowTarget")
+    if(owner) then
+        owner:DelObjVar("MerchantFollower")
+    end
+
     CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
         CreateObj("portal",this:GetLoc(),"dismiss_portal_created")
     end)
@@ -681,9 +686,15 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Responses",
                 return
             end
             if(IsHired() or GetFollowTarget()) then return end
+            local userFollower = user:GetObjVar("MerchantFollower")
+            if(userFollower and userFollower:IsValid()) then
+                this:NpcSpeech("It appears you already have a merchant following you.")
+                return
+            end
             this:ScheduleTimerDelay(TimeSpan.FromSeconds(60),"ClearSpawnerTimer")
             this:SetObjVar("InvalidTarget", true)
             this:SetObjVar("FollowTarget",user)
+            user:SetObjVar("MerchantFollower",this)
             AI.StateMachine.ChangeState("BeingHired")
             user:CloseDynamicWindow("Responses")
         elseif(buttonId == "HireSetLocation") then
@@ -695,6 +706,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Responses",
         elseif(buttonId == "CancelHire") then
             if(GetFollowTarget() == user) then
                 this:DelObjVar("FollowTarget")
+                user:DelObjVar("MerchantFollower")
             end
             DoDismiss()
         elseif(buttonId:match("BuyItem")) then

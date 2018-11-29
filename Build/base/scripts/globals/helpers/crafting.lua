@@ -175,7 +175,7 @@ function ApplyCraftedMaterialProperties(objRef, material, skillLevel)
 	-- pre-pend the name with the material
 	local name = StripColorFromString(objRef:GetName())
 	if ( ResourceData.ResourceInfo[material].CraftedItemPrefix ~= nil ) then
-		objRef:SetName(MaterialTooltipColors[ResourceData.ResourceInfo[material].CraftedItemPrefix]..ResourceData.ResourceInfo[material].CraftedItemPrefix.." "..name.."[-]")
+		objRef:SetName(MaterialTooltipColors[material]..ResourceData.ResourceInfo[material].CraftedItemPrefix.." "..name.."[-]")
 	else
 		objRef:SetName(name)
 	end

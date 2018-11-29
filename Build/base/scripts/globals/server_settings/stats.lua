@@ -1,5 +1,5 @@
 ServerSettings.Stats = {
-	GainFactor = 1,
+	GainFactor = 0.5,
 	PlayerBaseHealth = 150,
 	NPCBaseHealth = 100,
 	IndividualStatMin = 10,

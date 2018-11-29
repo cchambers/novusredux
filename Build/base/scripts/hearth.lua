@@ -1,3 +1,5 @@
+local bindLocation = this:GetObjVar("BindLocation")
+
 RegisterEventHandler(EventType.EnterView, "NearbyPlayer", function(playerObj)
 	if ( IsDead(playerObj) ) then return end
 	playerObj:SendMessage("StartMobileEffect", "VitalityHearth", this, {})
@@ -28,7 +30,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
 			return
 		end
 
-		user:SendMessage("BindToLocation",user:GetLoc())
+		user:SendMessage("BindToLocation",bindLocation or user:GetLoc())
 	end)
 
 RegisterSingleEventHandler(EventType.ModuleAttached, "hearth", function()

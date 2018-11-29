@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<TemplateName>Male</TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = { 
+						Backpack = { "backpack" },
+					    RightHand = { "" },
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartHead = TemplateDefines.MaleHeads,
+					    Chest = { "clothing_chest_beggar" }, 
+                        Legs = { "clothing_legs_beggar" }, 
+			        },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

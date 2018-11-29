@@ -362,9 +362,6 @@ function UserPetCommand(cmdName, target, forceAccept)
 	Verbose("PetController", "UserPetCommand", cmdName)
 
 	if( IsStabled(this) and cmdName ~= "unstable" ) then
-		if ( _MyOwner ~= nil ) then -- really shouldn't warn users about this..
-			_MyOwner:SystemMessage("[$2391]","info")	
-		end
 		return 
 	end
 
@@ -488,7 +485,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "TransferPetTarget",
 			return
 		end
 
-		if ( not target or not target:IsValid() ) then
+		if ( not target or not target:IsValid() or not target:IsPlayer()) then
 			user:SystemMessage("Invalid Target.", "info")
 			return
 		end

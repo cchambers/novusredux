@@ -5,10 +5,10 @@ ServerSettings.Allegiance = {
     Allegiances = {
         {
             Id = 1,
-            Name = "Chaos",
+            Name = "Pyros",
             Icon = "Fire",
             IconLarge = "FireFactionSymbolLarge",
-            AllegianceLeaderTitle = "Agent of Chaos",
+            AllegianceLeaderTitle = "Agent of Pyros",
 
             -- important to keep these listed from lowest to highest
             Titles = {
@@ -34,17 +34,17 @@ ServerSettings.Allegiance = {
                 },
                 {
                     Percent = 0.99,
-                    Title = "Overseer of Chaos",
+                    Title = "Overseer of Fire",
                     Description = "This is an Allegiance title."
                 },
             },
         },
         {
             Id = 2,
-            Name = "Order",
+            Name = "Tethys",
             Icon = "Water",
             IconLarge = "WaterFactionSymbolLarge",
-            AllegianceLeaderTitle = "Agent of Order",
+            AllegianceLeaderTitle = "Priest of Tethys",
 
             -- important to keep these listed from lowest to highest
             Titles = {
@@ -70,7 +70,7 @@ ServerSettings.Allegiance = {
                 },
                 {
                     Percent = 0.99,
-                    Title = "Harbringer of Order",
+                    Title = "Lord of the Storms",
                     Description = "This is an Allegiance title."
                 },
             },

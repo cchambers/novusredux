@@ -44,9 +44,7 @@ function MemorizeDialogResponse(user,buttonId)
 	end
 
 	if (buttonId == 0 and ValidateUse(user)) then		
-		mySpell = this:GetObjVar("Recipe")			
-		
-		user:SystemMessage("[F7CC0A] You attempt to commit the "..this:GetName().." to memory.","info")
+		mySpell = this:GetObjVar("Recipe")
 		MemorizeRecipe(user, mySpell, this)			
 	else
 		mUser = nil
@@ -103,8 +101,7 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 
 function MemorizeRecipe(user,recipe,recipeSource)
 	local userRecipes = (user:GetObjVar("AvailableRecipies") or {})
-	user:SystemMessage("[$2430]".. GetItemNameFromRecipe(recipe) .. "[-]","info")
-	user:SystemMessage("[$2431]","info")
+	user:SystemMessage(GetItemNameFromRecipe(recipe) .. " recipe memorized.", "info")
 	userRecipes[recipe] = true
 
 	local skillForRecipe = GetSkillForRecipe(recipe)

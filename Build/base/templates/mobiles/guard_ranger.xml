@@ -31,6 +31,7 @@
 				Skills = 
 					{ 
 					Brawling=100,  
+					Archery=100,
 					},	
 				EquipTable = 
 					{

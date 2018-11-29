@@ -17,9 +17,9 @@ CustomItemValues = {
 	animalparts_eye_sickly = 20,
 	animalparts_eye_decrepid = 40,
 
-	resource_wood = 20,
-	resource_ash = 40,
-	resource_blightwood = 80,
+	resource_wood = 4,
+	resource_ash = 12,
+	resource_blightwood = 20,
 
 	resource_cotton = 10,
 	resource_cotton_fluffy = 20,
@@ -145,30 +145,30 @@ CustomItemValues = {
 	bandage = 1,
 
 
-	blueprint_woodhouse_worthless = 20000,
-	blueprint_woodhousecottage = 30000,
+	blueprint_woodhouse_worthless = 22500,
+	blueprint_woodhousecottage = 45450,
 
-	blueprint_tudorhousemahogany = 45000,
-	blueprint_tudorhousebirch = 55000,
+	blueprint_tudorhousemahogany = 55250,
+	blueprint_tudorhousebirch = 97500,
 
-	blueprint_woodhousemahogany = 45000,
-	blueprint_woodhousebirch = 55000,
+	blueprint_woodhousemahogany = 55250,
+	blueprint_woodhousebirch = 97500,
 
-	blueprint_stonehousetuscan = 45000,
-	blueprint_stonehousecottage = 55000,
+	blueprint_stonehousetuscan = 55250,
+	blueprint_stonehousecottage = 97500,
 
-	blueprint_terracottahousetuscan = 45000,
-	blueprint_terracottahousecottage = 55000,
+	blueprint_terracottahousetuscan = 55250,
+	blueprint_terracottahousecottage = 97500,
 
-	blueprint_tudorhousemayor = 120000,
-	blueprint_terracottahousevilla = 120000,
-	blueprint_stonehousevilla = 120000,
-	blueprint_woodhousemayor = 120000,
+	blueprint_tudorhousemayor = 216600,
+	blueprint_terracottahousevilla = 216600,
+	blueprint_stonehousevilla = 216600,
+	blueprint_woodhousemayor = 216600,
 
-	blueprint_stonehouseestate = 220000,
-	blueprint_woodhousetavern = 220000,
-	blueprint_tudorhousetavern = 220000,
-	blueprint_terracottahouseestate = 220000,
+	blueprint_stonehouseestate = 332600,
+	blueprint_woodhousetavern = 332600,
+	blueprint_tudorhousetavern = 332600,
+	blueprint_terracottahouseestate = 332600,
 	
 
 	fruit_catacombs = 150,
@@ -178,8 +178,8 @@ CustomItemValues = {
 	tool_engraving = 100,
 
 	packed_bind_stone = 100000,
-	land_deed = 50000,
-	guild_charter = 10000,
+	land_deed = 14000,
+	guild_charter = 50000,
 	escape_scroll = 400,
 
 	arrow = 1,

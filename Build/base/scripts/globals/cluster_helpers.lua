@@ -94,8 +94,8 @@ function FindGlobalUsersByName(name)
 	local online = GlobalVarRead("User.Online") or {}
 	local results = {}
 	for gameObj,dummy in pairs(online) do
-		if ( name == nil or gameObj:GetCharacterName():lower():match(name) ) then			
-			table.insert(results, user)
+		if ( name == nil or gameObj:GetCharacterName():lower():match(name) ) then	
+			table.insert(results, gameObj)
 		end
 	end
 	return results
