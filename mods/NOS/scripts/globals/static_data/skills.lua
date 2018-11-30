@@ -68,10 +68,10 @@ SkillData = {
 		},
 		-- MAGIC SKILLS
 		MagicAffinitySkill = {
-			DisplayName = "Magic Affinity",
+			DisplayName = "Evaluate Intelligence",
 			PrimaryStat = "Intelligence",
 			NoStatGain = true,
-			Description = "Magic Affinity determines the power of your offensive spells.",
+			Description = "Evaluate Intelligence determines the power of your offensive spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
 		},
@@ -83,9 +83,9 @@ SkillData = {
 			GainFactor = 0.4,
 		},
 		ChannelingSkill = {
-			DisplayName = "Channeling",
+			DisplayName = "Meditation",
 			PrimaryStat = "Intelligence",
-			Description = "Channeling determines your ability to actively and passively regenerate mana.",
+			Description = "Meditation determines your ability to actively and passively regenerate mana.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.375,
 			Abilities = { "Focus" },
@@ -97,6 +97,13 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
 		},
+		MagicResistSkill = {
+			DisplayName = "Magic Resistance",
+			PrimaryStat = "Intelligence",
+			Description = "Magic Resistance determines your chance resist offensive magical spells.",
+			SkillType = "CombatTypeSkill",
+			GainFactor = 0.8,
+		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
 			DisplayName = "Blocking",
@@ -106,9 +113,9 @@ SkillData = {
 			GainFactor = 0.3,
 		},
 		ParryingSkill = {
-			DisplayName = "Parry",
+			DisplayName = "Parrying",
 			PrimaryStat = "Agility",
-			Description = "Parrying determines your chance to block an attack without a shield.",
+			Description = "Parrying determines your chance to parry with your weapon.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
 		},

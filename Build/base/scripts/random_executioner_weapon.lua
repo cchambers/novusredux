@@ -27,9 +27,9 @@ function RandomExecutionerWeapon()
 			-- set the random level
 			objRef:SetObjVar("ExecutionerLevel", GetLevelByIntensity())
 			-- set the random mobile kind
-			objRef:SetObjVar("Executioner", ServerSettings.Executioner.RandomMobileKinds[
-				math.random(1, #ServerSettings.Executioner.RandomMobileKinds)
-			])
+			-- objRef:SetObjVar("Executioner", ServerSettings.Executioner.RandomMobileKinds[
+			-- 	math.random(1, #ServerSettings.Executioner.RandomMobileKinds)
+			-- ])
 			-- set the tooltip
 			SetItemTooltip(objRef)
 		end

@@ -721,7 +721,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 				end
 			elseif (damageInfo.Source) then
 				local executioner = damageInfo.Source:GetObjVar("Executioner")
-				if (executioner ~= nil and executioner == victim:GetObjVar("MobileKind")) then
+				if (executioner ~= nil) then
 					finalDamage =
 						finalDamage *
 						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
