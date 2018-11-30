@@ -6,16 +6,20 @@ ServerSettings.Executioner = {
  
 	-- Modifier applied to final damage of Executioner weapons when hitting the correct MobileKind for the weapon
 	LevelModifier = {
-		1.25, -- level 1
-		1.50, -- level 2
-		1.75, -- level 3
+		1.25, -- Ruin
+		1.50, -- Might
+		1.75, -- Force
+		2.00, -- Power
+		2.25, -- Vanquishing
 	},
 
 	-- This will be put on the tooltip of the weapon and %s will be replaced with the MobileKind of the weapon.
 	LevelString = {
-		"Lesser %s Executioner",
-		"%s Executioner",
-		"Greater %s Executioner",
+		"%s of Ruin (+1)",
+		"%s of Might (+3)",
+		"%s of Force (+5)",
+		"%s of Power (+7)",
+		"%s of Vanquishing (+9)",
 	},
 
 	-- The default intensity of an executioner weapon when created randomly

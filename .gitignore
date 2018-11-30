@@ -9,9 +9,7 @@ AccessList.xml
 /launcher_data
 /logs
 
-/Build/*.dll
-/Build/base/luatools
-/Build/base/mapdata
+/Build
 
 !/mods
 /mods/*
