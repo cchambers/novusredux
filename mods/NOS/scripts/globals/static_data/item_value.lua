@@ -4,8 +4,8 @@ CustomItemValues = {
 	resource_stone = 0.1,
 	
 	resource_iron_ore = 8,
-	resource_gold_ore = 16,
-	resource_copper_ore = 24,
+	resource_copper_ore = 16,
+	resource_gold_ore = 24,
 	resource_cobalt_ore = 32,
 	resource_obsidian_ore = 40,
 
