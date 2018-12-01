@@ -829,7 +829,7 @@ function DoUse(usedObject,usedType)
 				end
 				StartLootAll(targetContainer)
 			elseif (usedType == "God Info") then
-				if (IsGod(this)) then
+				if (IsDemiGod(this)) then
 					DoInfo(usedObject)
 				else
 					DebugMessage("WARNING: Player "..this:GetName().." attempted to open a god info window for "..usedObject:GetName()..", player is not a God character.")
