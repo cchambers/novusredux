@@ -145,8 +145,9 @@ ImmortalCommandFuncs = {
 		local online = GlobalVarRead("User.Online")
 		for user,y in pairs(online) do
 			local name = user:GetCharacterName()
+			local region = GetRegionalName(user:GetLoc())
 			if ( total < max and (keyword == nil or name:match(keyword)) ) then
-			    this:SystemMessage(string.format("[FFBF00]%s (%s)[-]", name, user.Id))
+			    this:SystemMessage(string.format("[FFBF00]%s (%s)[-] in %s", name, user.Id, region))
 			end
 			total = total + 1
 		end
