@@ -5,9 +5,6 @@
 	<ObjectVariableComponent>			
 		<StringVariable Name="WeaponType">Crook</StringVariable>
 		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
-		<StringVariable Name="ToolType">Axe</StringVariable>
+		<StringVariable Name="ToolType">AdminCrook</StringVariable>
 	</ObjectVariableComponent>
-	<ScriptEngineComponent>
-		<LuaModule Name="tool_teleporter"/>		
-	</ScriptEngineComponent>
 </ObjectTemplate>
