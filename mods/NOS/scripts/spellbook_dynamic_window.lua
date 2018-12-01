@@ -197,37 +197,37 @@ function ShowSpellBookDialog(from)
 		local isFirstPage = (pageActual == 1)
 		local isLastPage = (pageActual >= #spellsSorted)
 
-		if not (isFirstPage) then
-			local pageStr = tostring(mPageNumber - 2)
-			dynamicWindow:AddButton(
-				60,
-				24,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				"",
-				154,
-				93,
-				"",
-				"",
-				false,
-				"BookPageDown"
-			)
-		end
+		-- if not (isFirstPage) then
+		-- 	local pageStr = tostring(mPageNumber - 2)
+		-- 	dynamicWindow:AddButton(
+		-- 		60,
+		-- 		24,
+		-- 		"ChangePage|" .. detailPageStr .. "|" .. pageStr,
+		-- 		"",
+		-- 		154,
+		-- 		93,
+		-- 		"",
+		-- 		"",
+		-- 		false,
+		-- 		"BookPageDown"
+		-- 	)
+		-- end
 
-		if not (isLastPage) then
-			local pageStr = tostring(pageActual + 2)
-			dynamicWindow:AddButton(
-				574,
-				24,
-				"ChangePage|" .. detailPageStr .. "|" .. pageStr,
-				"",
-				154,
-				93,
-				"",
-				"",
-				false,
-				"BookPageUp"
-			)
-		end
+		-- if not (isLastPage) then
+		-- 	local pageStr = tostring(pageActual + 2)
+		-- 	dynamicWindow:AddButton(
+		-- 		574,
+		-- 		24,
+		-- 		"ChangePage|" .. detailPageStr .. "|" .. pageStr,
+		-- 		"",
+		-- 		154,
+		-- 		93,
+		-- 		"",
+		-- 		"",
+		-- 		false,
+		-- 		"BookPageUp"
+		-- 	)
+		-- end
 	end
 
 	this:OpenDynamicWindow(dynamicWindow)

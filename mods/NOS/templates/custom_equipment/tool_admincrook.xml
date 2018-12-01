@@ -3,7 +3,7 @@
 	<ClientId>1248</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>			
-		<StringVariable Name="WeaponType">Crook</StringVariable>
+		<StringVariable Name="WeaponType">AdminCrook</StringVariable>
 		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>
