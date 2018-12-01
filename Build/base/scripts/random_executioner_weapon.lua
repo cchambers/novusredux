@@ -4,19 +4,8 @@
 function GetLevelByIntensity()
 	local intensity = ServerSettings.Executioner.DefaultIntensity
 	if ( initializer ) then intensity = initializer.Intensity end
-	local random = math.random(intensity[1] or 0, intensity[2] or 0)
-
-	if ( 60 > random ) then
-		return 1
-	else
-		random = random - 60
-	end
-
-	if ( 30 > random ) then
-		return 2
-	end
-
-	return 3
+	local random = math.random(1, 5)
+	return random
 end
 
 function RandomExecutionerWeapon()
@@ -27,9 +16,9 @@ function RandomExecutionerWeapon()
 			-- set the random level
 			objRef:SetObjVar("ExecutionerLevel", GetLevelByIntensity())
 			-- set the random mobile kind
-			-- objRef:SetObjVar("Executioner", ServerSettings.Executioner.RandomMobileKinds[
-			-- 	math.random(1, #ServerSettings.Executioner.RandomMobileKinds)
-			-- ])
+			objRef:SetObjVar("Executioner", ServerSettings.Executioner.RandomMobileKinds[
+			math.random(1, #ServerSettings.Executioner.RandomMobileKinds)
+			 ])
 			-- set the tooltip
 			SetItemTooltip(objRef)
 		end

@@ -30,7 +30,7 @@
                     	{
                     		NumItems = 2,
                     		LootItems = {
-			        			{ Template = "reagent_bag_noob", Unique = true },
+			        			{ Template = "regbag_noob", Unique = true },
 			        			{ Template = "spellbook_noob", Unique = true },
 			        		},
                     	}
@@ -41,7 +41,7 @@
                     	{ Slot=21, Type="Object", Name="spellbook_noob"},
                     	{ Slot=22, Type="Object", Name="tool_hunting_knife"},
                     	{ Slot=23, Type="Object", Name="torch"},
-                    	{ Slot=24, Type="Object", Name="reagent_bag_noob"},
+                    	{ Slot=24, Type="Object", Name="regbag_noob"},
                     	{ Slot=25, Type="Object", Name="item_bread"},
                     }
 				}

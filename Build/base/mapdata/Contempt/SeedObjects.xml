@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Group Name="Level1" Exclude="False">
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawn_position 166.44 2.082 -43.277 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnController</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>contempt_spawn_controller 186.783 2.968 -35.9 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="ConfigAll" Exclude="False">
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>catacombs_door_arch 58.45 0.067 -58.368 270 90.071 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DemonLordSpawner</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>demonlord_spawner 33.258 0.014 -58.668 0 90.757 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorToCerberus</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>catacombs_wood_door 58.59 0.067 -58.437 0 270.664 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<DoubleVariable Name="OneWay">1</DoubleVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>ContemptOgreSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>contempt_ogre_mob_spawner 43.41 0 -57.34 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+	<Group Name="Config4Upper" Exclude="False">
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>catacombs_wooden_door 224 0.061 -28.52 0 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>catacombs_door_arch 224 0 -28.42 270 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>catacombs_door_arch 230.899 0 -36.4 270 358.484 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>catacombs_wooden_door 230.8 0.076 -36.4 0 358.48 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>catacombs_wooden_door 245.69 0 -20.93 0 359.846 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>catacombs_door_arch 245.789 0 -20.93 270 359.85 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>catacombs_door_arch 253.483 0 -13.444 270 90.559 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>catacombs_wooden_door 253.485 0 -13.347 0 90.558 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>catacombs_wooden_door 258.269 0 -43.527 0 90.558 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>10</Id>
+			<ObjectCreationParams>catacombs_door_arch 258.269 0 -43.63 270 90.559 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>11</Id>
+			<ObjectCreationParams>catacombs_door_arch 258.058 0 -58.388 270 90.559 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>12</Id>
+			<ObjectCreationParams>catacombs_wooden_door 258.058 0 -58.29 0 90.558 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>13</Id>
+			<ObjectCreationParams>catacombs_wooden_door 245.983 0 -66.138 0 179.074 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>14</Id>
+			<ObjectCreationParams>catacombs_door_arch 245.884 0 -66.147 270 179.076 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>15</Id>
+			<ObjectCreationParams>catacombs_door_arch 246.119 0 -81.055 270 179.076 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>16</Id>
+			<ObjectCreationParams>catacombs_wooden_door 246.22 0 -81.055 0 179.074 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>17</Id>
+			<ObjectCreationParams>catacombs_wooden_door 252.893 0 -73.555 0 269.691 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>18</Id>
+			<ObjectCreationParams>catacombs_door_arch 252.895 0 -73.458 270 269.694 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>19</Id>
+			<ObjectCreationParams>catacombs_wooden_door 238.88 0 -73.625 0 269.691 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>20</Id>
+			<ObjectCreationParams>catacombs_door_arch 238.88 0 -73.527 270 269.694 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>21</Id>
+			<ObjectCreationParams>catacombs_door_arch 239.039 0.05 -103.458 270 269.694 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>22</Id>
+			<ObjectCreationParams>catacombs_wooden_door 239.039 0.154 -103.555 0 269.691 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>23</Id>
+			<ObjectCreationParams>catacombs_wooden_door 246.05 0 -111.319 0 179.524 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>24</Id>
+			<ObjectCreationParams>catacombs_door_arch 245.949 0 -111.319 270 179.526 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>25</Id>
+			<ObjectCreationParams>catacombs_door_arch 258.368 0 -129.35 270 270.25 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>26</Id>
+			<ObjectCreationParams>catacombs_wooden_door 258.368 0 -129.449 0 270.247 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>27</Id>
+			<ObjectCreationParams>catacombs_wooden_door 258.35 0 -133.82 0 270.247 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>28</Id>
+			<ObjectCreationParams>catacombs_door_arch 258.35 0 -133.72 270 270.25 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>29</Id>
+			<ObjectCreationParams>catacombs_door_arch 258.329 0 -137.72 270 270.25 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>30</Id>
+			<ObjectCreationParams>catacombs_wooden_door 258.329 0 -137.82 0 270.247 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>31</Id>
+			<ObjectCreationParams>catacombs_door_arch 163.52 0 16.729 270 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>32</Id>
+			<ObjectCreationParams>catacombs_wooden_door 163.52 0 16.628 0 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>33</Id>
+			<ObjectCreationParams>catacombs_wooden_door 185.949 0 23.708 0 179.371 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>34</Id>
+			<ObjectCreationParams>catacombs_door_arch 185.85 0 23.697 270 179.375 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>35</Id>
+			<ObjectCreationParams>catacombs_door_arch 191.449 0 21.429 270 270.401 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>36</Id>
+			<ObjectCreationParams>catacombs_wooden_door 191.449 0 21.326 0 270.398 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>37</Id>
+			<ObjectCreationParams>catacombs_wooden_door 191.41 0.115 16.368 0 270.398 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>38</Id>
+			<ObjectCreationParams>catacombs_door_arch 191.41 0.014 16.468 270 270.401 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>39</Id>
+			<ObjectCreationParams>catacombs_door_arch 191.38 0 11.55 270 270.401 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>40</Id>
+			<ObjectCreationParams>catacombs_wooden_door 191.38 0 11.446 0 270.398 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>41</Id>
+			<ObjectCreationParams>catacombs_door_arch 208.22 0 16.61 270 270.401 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>42</Id>
+			<ObjectCreationParams>catacombs_wooden_door 208.22 0 16.509 0 270.398 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>43</Id>
+			<ObjectCreationParams>catacombs_wooden_door 215.871 0 23.791 0 179.313 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>44</Id>
+			<ObjectCreationParams>catacombs_door_arch 215.871 0 23.891 270 176.882 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>45</Id>
+			<ObjectCreationParams>catacombs_wooden_door 147.949 0 1.671 0 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>46</Id>
+			<ObjectCreationParams>catacombs_door_arch 147.949 0 1.771 270 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>47</Id>
+			<ObjectCreationParams>catacombs_door_arch 133.82 0 1.768 270 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorLockA</Name>
+			<Id>48</Id>
+			<ObjectCreationParams>catacombs_wooden_door 133.82 0.014 1.667 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>49</Id>
+			<ObjectCreationParams>catacombs_wooden_door 118.083 0.029 1.667 0 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>50</Id>
+			<ObjectCreationParams>catacombs_door_arch 118.083 0 1.768 270 269.937 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>51</Id>
+			<ObjectCreationParams>catacombs_door_arch 110.79 0 -5.565 270 359.944 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>52</Id>
+			<ObjectCreationParams>catacombs_wooden_door 110.79 0 -5.669 0 359.941 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>53</Id>
+			<ObjectCreationParams>catacombs_wooden_door 110.79 0 -35.75 0 359.941 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>54</Id>
+			<ObjectCreationParams>catacombs_door_arch 110.79 0 -35.65 270 359.944 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>55</Id>
+			<ObjectCreationParams>catacombs_wooden_door 110.79 0 -21.197 0 359.941 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>56</Id>
+			<ObjectCreationParams>catacombs_door_arch 110.79 0 -53.29 270 359.944 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>57</Id>
+			<ObjectCreationParams>catacombs_wooden_door 110.79 0 -53.388 0 359.941 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>58</Id>
+			<ObjectCreationParams>catacombs_wooden_door 111.097 0.102 -80.8 0 359.941 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>59</Id>
+			<ObjectCreationParams>catacombs_door_arch 111.097 0.001 -80.694 270 359.944 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>60</Id>
+			<ObjectCreationParams>catacombs_door_arch 88.597 0.001 -88.597 270 90.501 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>61</Id>
+			<ObjectCreationParams>catacombs_wooden_door 88.597 0.102 -88.694 0 90.5 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>62</Id>
+			<ObjectCreationParams>catacombs_wooden_door 68.299 0.104 -73.597 0 90.5 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>63</Id>
+			<ObjectCreationParams>catacombs_door_arch 68.299 0.005 -73.5 270 90.501 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>64</Id>
+			<ObjectCreationParams>catacombs_door_arch 68.08 0 -58.416 270 90.501 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>65</Id>
+			<ObjectCreationParams>catacombs_wooden_door 68.08 0 -58.52 0 90.5 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>66</Id>
+			<ObjectCreationParams>catacombs_wooden_door 65.87 0 -55.416 0 180.283 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>67</Id>
+			<ObjectCreationParams>catacombs_door_arch 65.98 0 -55.409 270 180.285 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DoorArchway</Name>
+			<Id>68</Id>
+			<ObjectCreationParams>catacombs_door_arch 63.609 0 -58.298 270 90.501 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Door</Name>
+			<Id>69</Id>
+			<ObjectCreationParams>catacombs_wooden_door 63.609 0 -58.4 0 90.5 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>TeleporterLever</Name>
+			<Id>70</Id>
+			<ObjectCreationParams>lever_config4_teleporters 155.772 1.955 -10 0 84.958 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SkeletonSpawner</Name>
+			<Id>71</Id>
+			<ObjectCreationParams>spawner_skeleton 111.128 0.315 5.678 0 206.753 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Teleporter4A</Name>
+			<Id>72</Id>
+			<ObjectCreationParams>teleporter_catacombs 131.44 0.466 -28.53 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="Type">Config4A</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Teleporter4A</Name>
+			<Id>73</Id>
+			<ObjectCreationParams>teleporter_catacombs 264.975 0.029 -13.401 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="Type">Config4A</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>ContemptExit</Name>
+			<Id>74</Id>
+			<ObjectCreationParams>portal_inv_universe_select 163.979 2.927 -43.534 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="DestinationMap">NewCelador</StringVariable>
+				<StringVariable Name="DestinationSubregion">BlackForest</StringVariable>
+				<StringVariable Name="PortalName">[B768D5]Exit to Black Forest[-]</StringVariable>
+				<DoubleVariable Name="DestinationFacing">132</DoubleVariable>
+				<LocVariable Name="Destination">2981.14,0,-478.03</LocVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>ContemptStairs</Name>
+			<Id>75</Id>
+			<ObjectCreationParams>catacombs_dirt_stairs 166.619 0.039 -43.31 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>76</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 134.399 1.412 -1 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>77</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 147.3 1.412 -1 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>78</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 111.4 1.412 -28.399 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>79</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 107.194 1.404 -41.597 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>80</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 259.114 1.832 -52.95 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>81</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 103.3 1.414 -86.4 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>82</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 102.3 1.414 -46.097 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>83</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 76 1.406 -56.597 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>84</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 64.097 1.406 -61.5 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>85</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 64.097 1.406 -55.298 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>86</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 98.5 1.414 -94.9 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>87</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 93.5 1.414 -86.097 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>88</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 93.597 1.414 -101.097 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>89</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 99.694 1.414 -96.694 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>90</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 258.398 1.414 -75.5 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>91</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 263.299 1.414 -71.4 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>92</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 247.6 1.406 -94.194 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>93</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 253.899 1.406 -41.7 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>94</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 243.399 1.41 -7.197 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>95</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 247.6 1.401 -34.097 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>96</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 256.2 1.401 -11.699 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>97</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 109.4 1.406 -75.9 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>98</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 112.597 1.406 -19.1 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>99</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 117.597 1.412 -2.299 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>100</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 113.194 1.412 3.799 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>101</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 79.097 1.408 -83.4 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>102</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 82.597 1.408 -78.4 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>103</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 64.097 1.406 -67.9 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>104</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 221.6 1.406 -86.694 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>105</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 222 1.414 19.1 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>106</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 209.6 1.414 34 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>107</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 183.6 1.414 33.9 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>108</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 193.5 1.414 19.1 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>109</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 213.399 1.414 9.899 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>110</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 213.8 1.414 24.1 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>111</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 164.1 1.414 14.199 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>112</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 173.399 1.414 22.798 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>113</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 183.8 1.414 24.1 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>114</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 123.4 1.406 3 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>115</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 108.5 1.412 -90.694 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>116</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 104.194 1.412 -84.5 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>117</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 271.2 1.406 -41.7 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (1)</Name>
+			<Id>118</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 210 1.957 -26.645 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject</Name>
+			<Id>119</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 220.77 1.957 -26.642 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (2)</Name>
+			<Id>120</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 232.645 1.957 -34.02 0 179.998 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (3)</Name>
+			<Id>121</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 238.229 1.955 -41.65 0 89.999 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (4)</Name>
+			<Id>122</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 244.11 1.832 -63.055 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (5)</Name>
+			<Id>123</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 252.69 1.832 -56.659 0 89.999 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (6)</Name>
+			<Id>124</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 241.639 1.832 -66.663 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (7)</Name>
+			<Id>125</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 250.279 1.832 -66.663 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (8)</Name>
+			<Id>126</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 241.74 1.832 -80.178 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (9)</Name>
+			<Id>127</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 250.38 1.832 -80.178 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (10)</Name>
+			<Id>128</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 109.165 1.406 -63.353 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (11)</Name>
+			<Id>129</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 109.164 1.404 -49.7 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (12)</Name>
+			<Id>130</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 229.164 1.408 -78.847 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (13)</Name>
+			<Id>131</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 229.16 1.408 -96.65 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (14)</Name>
+			<Id>132</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 235.733 1.408 -101.716 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (15)</Name>
+			<Id>133</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 242.25 1.404 -101.72 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (16)</Name>
+			<Id>134</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 248.751 1.412 -116.291 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (17)</Name>
+			<Id>135</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 242.919 1.412 -116.29 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (18)</Name>
+			<Id>136</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 248.751 1.412 -120.986 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (19)</Name>
+			<Id>137</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 242.919 1.412 -120.983 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (20)</Name>
+			<Id>138</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 242.919 1.412 -126.152 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (21)</Name>
+			<Id>139</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 248.751 1.412 -126.155 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (22)</Name>
+			<Id>140</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 238.57 1.412 -133.406 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>WallTorchCatacombObject (23)</Name>
+			<Id>141</Id>
+			<ObjectCreationParams>torch_catacombs_dirt 253.173 1.412 -133.41 0 180 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawner</Name>
+			<Id>142</Id>
+			<ObjectCreationParams>dungeon_chest_spawner_contempt 234.871 2.514 -132.783 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>143</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 225.559 0.091 -127.98 0 134.998 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>144</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 225.529 0.091 -138.729 0 44.999 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>145</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 266.07 0.091 -138.729 0 330 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>146</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 266.07 0.091 -128.36 0 224.999 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>147</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 252.3 0.091 -133.369 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>148</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 239.509 0.091 -133.369 0 90 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>149</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 215.899 0.083 -17.878 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>150</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 240.57 0.087 -8.038 0 135.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>151</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 240.57 0.087 -18.6 0 45 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>152</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 251.1 0.087 -18.6 0 330.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>153</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 251.1 0.087 -8.06 0 225.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>154</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 281.5 0.085 -43.56 0 270.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>155</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 265.92 0.091 -67.87 0 180.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>156</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 255.77 0.091 -78.625 0 0.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>157</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 240.66 0.091 -68.19 0 150.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>158</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 251.46 0.091 -79.098 0 315.001 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>159</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 220.36 0.083 -88.378 0 90 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>160</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 135.77 0.091 -3.43 0 30 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>161</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 146.389 0.091 -2.868 0 270.002 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>162</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 146.035 0.156 6.763 0 225.057 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>163</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 116.238 -0.011 7.36 11.087 226.16 11.324 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>164</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 105.099 0.156 1.514 0 90.057 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>165</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 116.088 0.156 -3.559 0 315.058 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>166</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 116.338 0.156 -23.03 0 225.057 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>167</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 105.138 0.156 -28.628 0 90.058 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>168</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 100.47 0.149 -43.54 0 90.058 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>169</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 105.57 0.029 -93.513 5.453 57.641 12.127 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>170</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 116.043 0.343 -83.331 0 224.999 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>171</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 97.68 0.02 -91.052 0 270 12.058 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>172</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 91.58 0.076 -92.848 0 45 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>173</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 90.22 0.08 -98.18 11.345 121.154 11.576 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>174</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 95.838 0.22 -108.905 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>175</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 65.97 0.212 -48 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>176</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 86.188 0.214 -58.33 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>177</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 155.828 0.212 -9.005 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>178</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 190.729 0.22 36.498 0 224.999 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>179</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 180.75 0.22 26.44 0 44.999 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>180</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 200.83 0.22 22.309 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>181</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 210.6 0.22 31.67 0 90 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>182</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 221.6 0.22 31.489 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>183</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 215.91 0.22 37.208 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>184</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 181.07 0.22 36.358 0 135 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerContempt</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>

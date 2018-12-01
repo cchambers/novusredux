@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<WorldTemplateObjects>
+    <Group Exclude="False" Name="Main">
+        <DynamicObject>
+            <Name>NoDraw(Clone)</Name>
+            <Id>1</Id>
+            <ObjectCreationParams>spawn_position -25.17 0.085 -35.479 0 0 0 1 1 1</ObjectCreationParams>
+        </DynamicObject>
+        <DynamicObject>
+            <Name>Controller</Name>
+            <Id>2</Id>
+            <ObjectCreationParams>twotowers_controller -27.17 0.085 -35.479 0 0 0 1 1 1</ObjectCreationParams>
+        </DynamicObject>
+    </Group>
+</WorldTemplateObjects>
+

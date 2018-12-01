@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<WorldTemplateObjects>
+  <StaticObject>
+    <ObjectCreationParams>1097 1 2.509 17.802 0.174 270.019 0 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1050 2 2.579 6.672 2.25 0 180 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+  <StaticObject>
+    <ObjectCreationParams>1098 3 29.57 -0.81 49.909 0 180 0 1 1 1</ObjectCreationParams>
+  </StaticObject>
+</WorldTemplateObjects>

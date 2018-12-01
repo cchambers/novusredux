@@ -15,14 +15,14 @@ ServerSettings.Executioner = {
 
 	-- This will be put on the tooltip of the weapon and %s will be replaced with the MobileKind of the weapon.
 	LevelString = {
-		"%s of Ruin (+1)",
-		"%s of Might (+3)",
-		"%s of Force (+5)",
-		"%s of Power (+7)",
-		"%s of Vanquishing (+9)",
+		"Ruin (+1)",
+		"Might (+3)",
+		"Force (+5)",
+		"Power (+7)",
+		"Vanquishing (+9)",
 	},
 
-	-- The default intensity of an executioner weapon when created randomly
+	-- The default intensity an executioner weapon when created randomly
 	DefaultIntensity = {0, 50},
 	-- List of templates that are possible to be created via random_executioner_weapon.lua
 	RandomTemplateList = {
@@ -51,7 +51,7 @@ ServerSettings.Executioner = {
 	},
 	-- List of all possible MobileKind types for a weapon created via random_executioner_weapon.lua
 	RandomMobileKinds = {
-		"Undead",
+		-- "Undead",
 		-- "Dragon",
 		"Humanoid",
 		-- "Reptile",
