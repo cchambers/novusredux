@@ -5,6 +5,5 @@
 	<ObjectVariableComponent>			
 		<StringVariable Name="WeaponType">Crook</StringVariable>
 		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
-		<StringVariable Name="ToolType">AdminCrook</StringVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>
