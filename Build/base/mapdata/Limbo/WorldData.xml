@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<RegionDefinition>
+		<RegionName>Limbo</RegionName>
+		<RegionBounds>
+			<Rect>[(-30.79006,0.7300004,-29.98)(30.90994,0.7300004,-29.98)(30.90994,0.7300004,30.04)(-30.79006,0.7300004,30.04)(-30.79006,0.6300004,-29.98)(30.90994,0.6300004,-29.98)(30.90994,0.6300004,30.04)(-30.79006,0.6300004,30.04)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(61.7,0.1,60.02)</Size>
+			<Position>(0.05993652,-0.76776,0.02999878)</Position>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</RegionBounds>
+	</RegionDefinition>
+</WorldData>

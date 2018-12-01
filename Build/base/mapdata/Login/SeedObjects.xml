@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Group Name="Main" Exclude="False">		
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawn_position 336.91 2.71 -179.49 0 -152 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>		
+	</Group>
+</WorldTemplateObjects>

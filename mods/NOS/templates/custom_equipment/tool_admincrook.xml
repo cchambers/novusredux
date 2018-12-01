@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]You, there.[-]</Name>
+	<ClientId>1248</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Crook</StringVariable>
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+		<StringVariable Name="ToolType">Axe</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="tool_teleporter"/>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

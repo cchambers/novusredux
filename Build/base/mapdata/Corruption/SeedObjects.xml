@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Group Name="Main" Exclude="False">
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawn_position 193.3 -0.057 91.208 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>outcast_spawn_position 193.3 -0.057 91.208 0 90 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>SpawnController</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>corruption_spawn_controller 193.289 -0.031 91.197 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>CorruptionExit</Name>
+			<Id>4</Id>
+			<ObjectCreationParams>portal_red_universe_select 193.1 0 93.697 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="DestinationMap">NewCelador</StringVariable>
+				<StringVariable Name="DestinationSubregion">UpperPlains</StringVariable>
+				<StringVariable Name="PortalName">[B768D5]Exit to Upper Plains[-]</StringVariable>
+				<DoubleVariable Name="DestinationFacing">126</DoubleVariable>
+				<LocVariable Name="Destination">669.20,0,606.87</LocVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawner</Name>
+			<Id>5</Id>
+			<ObjectCreationParams>dungeon_chest_spawner_corruption 57.33 0.121 128.889 0 270 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>6</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 178.16 0.018 38.81 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>7</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 165.86 0.018 38.81 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>8</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 151.869 -0.037 24.329 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>9</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 95.98 -0.069 35.208 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>10</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 110.4 -0.069 35.208 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>11</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 110.4 -0.069 1.5 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>12</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 61.712 0.057 24.107 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>13</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -61.11 0.009 -9.538 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>14</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -62.688 0.009 -12.81 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>15</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -23.17 0.057 48.47 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>16</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 9.81 -0.082 58.229 0 180 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>17</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 31.909 -0.011 84.25 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>18</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 59.168 0.11 93.4 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>19</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -10.26 -0.07 39.54 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>20</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 21.888 -0.141 201.919 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>21</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -38.081 0.033 192.669 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>22</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node -38.081 0.033 189.16 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>23</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 13.84 0.005 194.649 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>24</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 12.538 0.005 194.649 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>25</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 57.798 0.033 249.419 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>26</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 127.888 0.089 232.46 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>27</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 107.87 -0.082 232.46 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>28</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 163.363 0.035 143.889 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>29</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 165.223 0.207 143.889 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>30</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 80.698 -0.05 154.029 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>31</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 78.58 0.121 152.169 0 0 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>32</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 59.45 -0.05 130.75 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DungeonChestSpawnNode</Name>
+			<Id>33</Id>
+			<ObjectCreationParams>dungeon_chest_spawn_node 57.33 0.121 128.889 0 270 0 1 1 1</ObjectCreationParams>
+			<ObjVarOverrides>
+				<StringVariable Name="ControllerTag">DungeonChestSpawnerCorruption</StringVariable>
+			</ObjVarOverrides>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>ImpSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>corruption_imp_spawner 193.289 -0.031 91.197 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>DemonSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>corruption_demon_spawner 193.289 -0.031 91.197 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>
