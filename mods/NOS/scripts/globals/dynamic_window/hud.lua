@@ -30,13 +30,44 @@ function ShowStatusElement(mobileObj, args)
 
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
 
-		-- statusWindow:AddButton(20, 100, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+		statusWindow:AddButton(20, 100, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
 
 		RegisterEventHandler(
 			EventType.DynamicWindowResponse,
 			args.DialogId,
 			function(user, buttonId)
-				user:AddModule("powerhour")
+				local next = user:GetObjVar("NextPowerHour")
+				local hasNext = next ~= nil
+				local now = DateTime.UtcNow
+				if (hasNext) then
+					canPowerHour = now > next
+				else
+					canPowerHour = true
+				end
+				if (canPowerHour) then
+					ClientDialog.Show {
+						TargetUser = user,
+						DialogId = "PowerHour" .. user.Id,
+						TitleStr = "Start Power Hour",
+						DescStr = string.format("Are you ready to begin your power hour? You will be able to use it again in 24 hours."),
+						Button1Str = "Yes",
+						Button2Str = "No",
+						ResponseObj = user,
+						ResponseFunc = function(user, buttonId)
+							local buttonId = tonumber(buttonId)
+							if (user == nil or buttonId == nil) then
+								return
+							end
+							-- Handles the invite command of the dynamic window
+							if (buttonId == 0) then
+								user:SendMessage("StartMobileEffect", "PowerHourBuff")
+								return
+							end
+						end
+					}
+				else 
+					user:SystemMessage("You cannot power hour quite yet.")
+				end
 				return
 			end
 		)
