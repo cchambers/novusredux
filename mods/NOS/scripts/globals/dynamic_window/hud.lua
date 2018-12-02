@@ -30,23 +30,13 @@ function ShowStatusElement(mobileObj, args)
 
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
 
-		statusWindow:AddButton(20, 100, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+		-- statusWindow:AddButton(20, 100, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
 
 		RegisterEventHandler(
 			EventType.DynamicWindowResponse,
 			args.DialogId,
 			function(user, buttonId)
-				DebugMessage("Adding buff")
-				local hour = 10
-				user:SendMessage("StartMobileEffect", "PowerHourBuff")
-				user:ScheduleTimerDelay(TimeSpan.FromSeconds(hour), "PowerHourTimer")
-				RegisterEventHandler(
-					EventType.Timer,
-					"PowerHourTimer",
-					function()
-						user:SystemMessage("[ff0000]Attention:[-] Your Power Hour has ended!")
-					end
-				)
+				user:AddModule("powerhour")
 				return
 			end
 		)
