@@ -30,7 +30,7 @@ function ShowStatusElement(mobileObj, args)
 
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
 
-		statusWindow:AddButton(20, 100, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+		statusWindow:AddButton(10, 60, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
 
 		RegisterEventHandler(
 			EventType.DynamicWindowResponse,
