@@ -5,6 +5,7 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">Spidersilk</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
 	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

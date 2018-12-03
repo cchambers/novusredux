@@ -9,7 +9,7 @@ AccessList.xml
 /launcher_data
 /logs
 
-/Build/base
+# /Build/base
 
 !/mods
 /mods/*

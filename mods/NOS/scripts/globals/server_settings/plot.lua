@@ -18,7 +18,7 @@ ServerSettings.Plot = {
 
     Tax = {
         -- disable for free plot tax.
-        Enabled = true,
+        Enabled = false,
 
         -- how much tax rate scales with plot size, expoentially.
         RateCoefficient = 1.6,
