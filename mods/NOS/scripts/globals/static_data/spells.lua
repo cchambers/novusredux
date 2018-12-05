@@ -841,7 +841,7 @@ SpellData = {
             SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
             SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
-			SpellTooltipString = "Decrease targets strength.",
+			SpellTooltipString = "Increase targets agility.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
@@ -894,8 +894,6 @@ SpellData = {
 			Circle = 2,
 		},
 
-		
-
 		Cunning = {
 			SpellDisplayName = "Cunning",
 			PowerWords = "Uus Wis",
@@ -917,7 +915,7 @@ SpellData = {
             SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
             SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
-			SpellTooltipString = "Decrease targets strength.",
+			SpellTooltipString = "Increase targets intelligence.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
@@ -954,7 +952,7 @@ SpellData = {
             SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
             SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
-			SpellTooltipString = "Decrease targets strength.",
+			SpellTooltipString = "Increase targets strength.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
@@ -991,7 +989,7 @@ SpellData = {
             SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
             SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
-			SpellTooltipString = "Decrease targets strength.",
+			SpellTooltipString = "Increase targets base stats.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
@@ -1029,7 +1027,7 @@ SpellData = {
             SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
             SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
-			SpellTooltipString = "Decrease targets strength.",
+			SpellTooltipString = "Decrease targets base stats.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
