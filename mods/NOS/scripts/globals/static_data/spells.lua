@@ -1203,7 +1203,8 @@ SpellData = {
 			ReagentsRequired = false,
 			BeneficialSpellType = true,
 			Reagents = {
-				"Garlic"
+				"Bloodmoss",
+				"Nightshade"
 			},
 			Circle = 6,
 		},
