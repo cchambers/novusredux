@@ -243,7 +243,7 @@ SpellData = {
 		Meteor = {
 			SpellDisplayName = "Meteor",
 			PowerWords = "Des Flam Ylem",
-			manaCost = 40,
+			manaCost = 45,
 			effectDamageType = "Fire",			
 			effectType = "InstantHitSpell",
 			SpellPower = 52,
@@ -276,6 +276,8 @@ SpellData = {
 			Icon = "Hellstorm",
 			Reagents = {
 				"Mandrake",
+				"Blackpearl",
+				"Sulfurousash"
 			},
 			Circle = 5,
 		},	
@@ -633,7 +635,6 @@ SpellData = {
 				"Blackpearl",
 			},
 		},
-
 
 		Defense = {
 			SpellDisplayName = "Defense Up",
@@ -1004,7 +1005,6 @@ SpellData = {
 			},
 			Circle = 3,
 		},
-
 		
 		Curse = {
 			SpellDisplayName = "Curse",
@@ -1086,6 +1086,7 @@ SpellData = {
 				"Spidersilk"
 			},
 		},
+
 		Greaterheal = {
 			SpellDisplayName = "Greater Heal",
 			PowerWords = "In Vas Mani",
@@ -1130,6 +1131,7 @@ SpellData = {
 				"Spidersilk"
 			},
 		},
+
 		Resurrect = {
 			SpellDisplayName = "Resurrection",
 			PowerWords = "An Corp",
@@ -1296,6 +1298,7 @@ SpellData = {
 			Circle = 7,
 			CastTime = 6,
 		},
+
 		Cure = {
 			SpellDisplayName = "Cure",
 			PowerWords = "An Nox",
@@ -1338,6 +1341,7 @@ SpellData = {
 				"Ginseng",
 			},
 		},
+
 		Poison = {
 			SpellDisplayName = "Poison",
 			PowerWords = "In Nox",
@@ -1384,7 +1388,7 @@ SpellData = {
 			manaCost = 40,
 			effectDamageType = "Fire",			
 			effectType = "InstantHitSpell",
-			SpellPower = 5,
+			SpellPower = 25,
 			critChance = 12,
 			SpellRange = 12,
 			TargetType = "targetLocation",
@@ -1427,7 +1431,7 @@ SpellData = {
 		},	
 
 		Icerain = {
-			SpellDisplayName = "Ice Storm",
+			SpellDisplayName = "Hailstorm",
 			Icon = "icestorm",
 			Circle = 7,
 			manaCost = 90,
@@ -1564,7 +1568,10 @@ SpellData = {
 				},
 			ReagentsRequired = false,
 			Reagents = {
-				"Mandrake"
+				"Mandrake",
+				"Blackpearl",
+				"Spidersilk",
+				"Sulfurousash"
 			},
 			Circle = 8,
 		},
@@ -1668,7 +1675,7 @@ SpellData = {
 		},	
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
-			PowerWords = "That's hot.",
+			PowerWords = "Vas In Flam",
 			Circle = 7,
 			manaCost = 48,
 			effectDamageType = "Fire",
@@ -1791,7 +1798,9 @@ SpellData = {
 			SpellFireAnim = "",
 			ReagentsRequired = false,
 			Reagents = {
-				"Mandrake"
+				"Mandrake",
+				"Ginseng",
+				"Blackpearl"
 			},
 		},
 
@@ -2000,7 +2009,7 @@ SpellData = {
 			SpellPotencySkill = "ManifestationSkill",
 			MinSkillRequired = 50,
 			spellSkillLevel = 60,
-			SpellEnabled = true,
+			SpellEnabled = false,
 			SpellFireAnim = "cast_heal",
 			SpellReleaseUserScript  = "sp_arcane_storm",
 			Reagents = {
