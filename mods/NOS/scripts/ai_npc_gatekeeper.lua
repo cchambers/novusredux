@@ -26,7 +26,7 @@ function Dialog.OpenGreetingDialog(user)
     FaceObject(this,user)
     
     local karmaLevel = GetKarmaLevel(GetKarma(user))
-    -- if not( karmaLevel.GuardProtectPlayer ) then
+    if not( karmaLevel.GuardProtectPlayer ) then
         this:NpcSpeech("Okay, "..karmaLevel.Name.."... take it easy!")
         -- return
     end
