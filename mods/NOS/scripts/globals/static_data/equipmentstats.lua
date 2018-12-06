@@ -490,17 +490,17 @@ EquipmentStats = {
 			Head = {
 				AgiBonus = -3,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0
+				ManaRegenModifier = 0.01
 			},
 			Chest = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0
+				ManaRegenModifier = 0.01
 			},
 			Legs = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0
+				ManaRegenModifier = 0.01
 			}
 		}
 	},
@@ -561,7 +561,7 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 11
+				ArmorRating = 14
 			},
 			Chest = {
 				ArmorRating = 18
