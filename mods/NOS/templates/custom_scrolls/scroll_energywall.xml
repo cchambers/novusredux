@@ -5,7 +5,7 @@
 	<ObjectVariableComponent>		
 		<StringVariable Name="Spell">Energywall</StringVariable>
 		<StringVariable Name="ResourceType">Energywall</StringVariable>
-	</ObjectVariableComponent>	
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>
 		<LuaModule Name="stackable"/>

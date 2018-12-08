@@ -1,10 +1,10 @@
 <ObjectTemplate>
-  <Name>[00FF00]Agility[-]</Name>
+  <Name>[00FF00]Flame Aura[-]</Name>
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="Spell">Agile</StringVariable>
-		<StringVariable Name="ResourceType">Agile</StringVariable>
+		<StringVariable Name="Spell">Flameaura</StringVariable>
+		<StringVariable Name="ResourceType">Flameaura</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>
