@@ -49,7 +49,7 @@ function ShowStatusElement(mobileObj, args)
 						TargetUser = user,
 						DialogId = "PowerHour" .. user.Id,
 						TitleStr = "Start Power Hour",
-						DescStr = string.format("Are you ready to begin your power hour? You will be able to use it again in 24 hours."),
+						DescStr = string.format("Are you ready to begin your power hour? You will be able to use it again in 24 hours. PLEASE NOTE: THE BUFF WILL DROP IF YOU CHANGE REGIONS!"),
 						Button1Str = "Yes",
 						Button2Str = "No",
 						ResponseObj = user,
