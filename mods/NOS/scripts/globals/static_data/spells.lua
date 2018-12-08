@@ -772,7 +772,7 @@ SpellData = {
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
 			BeneficialSpellType = false,
-			AttackSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_feeblemind_effect",
@@ -846,8 +846,8 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
-			BeneficialSpellType = false,
-			AttackSpellType = true,
+			BeneficialSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_agile_effect",
@@ -883,8 +883,8 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
-			BeneficialSpellType = false,
-			AttackSpellType = true,
+			BeneficialSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = false,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_protection_effect",
@@ -920,8 +920,8 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
-			BeneficialSpellType = false,
-			AttackSpellType = true,
+			BeneficialSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_cunning_effect",
@@ -957,8 +957,8 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
-			BeneficialSpellType = false,
-			AttackSpellType = true,
+			BeneficialSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_strength_effect",
@@ -994,8 +994,8 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "EvocationSkill",
-			BeneficialSpellType = false,
-			AttackSpellType = true,
+			BeneficialSpellType = true,
+			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_bless_effect",
@@ -1079,7 +1079,7 @@ SpellData = {
 			BeneficialSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Ginseng",
 				"Garlic",
@@ -1165,7 +1165,7 @@ SpellData = {
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
 			spellHitEffectTargetScript = "sp_resurrect_effect",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Bloodmoss",
 			},
@@ -1202,7 +1202,7 @@ SpellData = {
 			SpellEnabled = true,
 			SpellFireAnim = "cast_cloak",
 			spellHitEffectTargetScript = "sp_cloak_effect",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			BeneficialSpellType = true,
 			Reagents = {
 				"Bloodmoss",
@@ -1247,7 +1247,7 @@ SpellData = {
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/air/magic_air_teleport",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Ginseng",
 			},
@@ -1335,7 +1335,7 @@ SpellData = {
 			AttackSpellType = false,
 			SpellEnabled = true,
 			spellHitEffectTargetScript = "sp_cure_effect",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Garlic",
 				"Ginseng",
@@ -1375,7 +1375,7 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			TargetMobileEffect = "SpellPoison",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Nightshade",
 			},
@@ -1423,7 +1423,7 @@ SpellData = {
 			AffinityRequired = {
 						Fire = 1,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Spidersilk",
 				"Sulfurousash"
@@ -1473,7 +1473,7 @@ SpellData = {
 			AffinityRequired = {
 						Water = 1,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake"
 			},
@@ -1517,7 +1517,7 @@ SpellData = {
 			AffinityRequired = {
 						Void = 5,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake"
 			},
@@ -1566,7 +1566,7 @@ SpellData = {
 			AffinityRequired = {
 					Fire = 3,
 				},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
@@ -1619,7 +1619,7 @@ SpellData = {
 			AffinityRequired = {
 					Fire = 3,
 				},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake"
 			},
@@ -1666,13 +1666,14 @@ SpellData = {
 			AffinityRequired = {
 				Fire = 4,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Blackpearl",
 				"Spidersilk",
 				"Sulfurousash"
 			},
 		},	
+		
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
 			PowerWords = "Vas In Flam",
@@ -1713,11 +1714,12 @@ SpellData = {
 			AffinityRequired = {
 				Fire = 3,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake"
 			},
 		},	
+
 		Spikepath = {
 			SpellDisplayName = "Spike Path",
 			PowerWords = "Ow My Toe",
@@ -1760,12 +1762,13 @@ SpellData = {
 			AffinityRequired = {
 				Earth = 3,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake"
 			},
 			Circle = 8,
-		},			
+		},	
+
 		Iceblade = {
 			SpellDisplayName = "Ice Blade",
 			PowerWords = "Oof Chil",
@@ -1796,7 +1799,7 @@ SpellData = {
 			spellSkillLevel = 30,
 			SpellEnabled = true,
 			SpellFireAnim = "",
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Ginseng",
@@ -1851,6 +1854,7 @@ SpellData = {
 			},
 			Circle = 8,
 		},
+
 		Energywall = {
 			SpellDisplayName = "Energy Field",
 			PowerWords = "In Sanct Grav",
@@ -1890,7 +1894,7 @@ SpellData = {
 			AffinityRequired = {
 				Fire = 4,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
@@ -1938,7 +1942,7 @@ SpellData = {
 			AffinityRequired = {
 				Fire = 4,
 			},
-			ReagentsRequired = false,
+			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
@@ -1946,7 +1950,6 @@ SpellData = {
 				"Sulfurousash"
 			},
 		},
-
 
 		Energyvortex = {
 			SpellDisplayName = "Summon Energy Vortex",
@@ -1983,6 +1986,7 @@ SpellData = {
 			},
 			Circle = 10
 		},
+
 		Arcanestorm = {
 			SpellDisplayName = "Summon Arcane Storm",
 			Icon = "lightningmastery",

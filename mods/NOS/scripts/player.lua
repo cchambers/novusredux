@@ -1,5 +1,10 @@
 
 require 'default:player'
+require 'incl_player_names.lua'
+
+if(IsDemiGod(this)) then
+	require 'defaults:base_player_mobedit'
+end
 
 function UpdateName()
 	Verbose("Player", "UpdateName")
