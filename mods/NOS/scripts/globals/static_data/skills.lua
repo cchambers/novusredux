@@ -76,20 +76,21 @@ SkillData = {
 			GainFactor = 0.4,
 		},
 
-		-- MagerySkill = {
-		-- 	DisplayName = "Magery",
-		-- 	PrimaryStat = "Intelligence",
-		-- 	Description = "Magery determines your knowledge of magics.",
-		-- 	SkillType = "CombatTypeSkill",
-		-- 	GainFactor = 0.4,
-		-- },
-
 		MagerySkill = {
 			DisplayName = "Magery",
+			PrimaryStat = "Intelligence",
+			Description = "Magery determines your knowledge of magics.",
+			SkillType = "CombatTypeSkill",
+			GainFactor = 0.4,
+		},
+
+		ManifestationSkill = {
+			DisplayName = "Manifestation",
 			PrimaryStat = "Intelligence",
 			Description = "Magery determines your knowledge of beneficial spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
+			Skip = true
 		},
 		ChannelingSkill = {
 			DisplayName = "Meditation",
@@ -99,12 +100,13 @@ SkillData = {
 			GainFactor = 0.375,
 			Abilities = { "Focus" },
 		},
-		MagerySkill = {
-			DisplayName = "Magery",
+		EvocationSkill = {
+			DisplayName = "Evocation",
 			PrimaryStat = "Intelligence",
 			Description = "Magery determines your knowledge of damage dealing spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
+			Skip = true,
 		},
 		MagicResistSkill = {
 			DisplayName = "Magic Resistance",
