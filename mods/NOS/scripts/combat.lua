@@ -593,32 +593,6 @@ function CalculateBlockDefense(victim)
 	return 0
 end
 
-function CalculateParryDefense(victim)
-	Verbose("Combat", "CalculateParryDefense", victim)
-	local weapon = victim:GetEquippedObject("RightHand")
-	if not (weapon) then
-		return 0
-	end
-	local shield = victim:GetEquippedObject("LeftHand")
-	local shieldType = GetShieldType(shield)
-	if (shieldType and EquipmentStats.BaseShieldStats[shieldType]) then
-		return 0
-	end
-	CheckSkill(
-		victim,
-		"ParryingSkill",
-		GetSkillLevel(this, EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill)
-	)
-	if (Success(GetSkillLevel(victim, "ParryingSkill") / 335)) then
-		victim:PlayAnimation("block")
-		if (Success(ServerSettings.Durability.Chance.OnHit)) then
-			AdjustDurability(weapon, -1)
-		end
-		return 10
-	end
-	return 0
-end
-
 function ApplyDamageToTarget(victim, damageInfo)
 	Verbose("Combat", "ApplyDamageToTarget", victim, damageInfo)
 	if damageInfo == nil then
@@ -689,7 +663,6 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			blockDefense = CalculateBlockDefense(victim)
-			-- parryDefense = CalculateParryDefense(victim)
 			local defense = math.max(victim:GetStatValue("Defense"), 40) + blockDefense
 
 			finalDamage = ((damageInfo.Attack * 70) / defense)
