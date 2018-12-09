@@ -1,0 +1,95 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Chest of Stolen Goods[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(10,20),
+				    	},
+						--armor
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,
+							LootItems = 
+							{
+								--Apprentice							
+								{ Weight = 35,Template = "armor_brigandine_helm", Unique = true },
+								{ Weight = 35,Template = "armor_brigandine_tunic", Unique = true },
+								{ Weight = 35,Template = "armor_brigandine_leggings", Unique = true },
+								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
+								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
+								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
+								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
+								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
+								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
+							}
+						},	
+						--weapons
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,
+							LootItems = 
+							{
+								--Rookie								
+								{ Weight = 10,Template = "weapon_longsword", Unique = true },
+								{ Weight = 10,Template = "weapon_dagger", Unique = true },
+								{ Weight = 10,Template = "weapon_largeaxe", Unique = true },
+								{ Weight = 10,Template = "weapon_hammer", Unique = true },
+								{ Weight = 10,Template = "weapon_warhammer", Unique = true },
+								{ Weight = 10,Template = "weapon_warfork", Unique = true },
+								{ Weight = 10,Template = "weapon_longbow", Unique = true },
+								{ Weight = 10,Template = "weapon_shortbow", Unique = true },
+								{ Weight = 10,Template = "shield_curvedshield", Unique = true },
+							}
+						},
+
+						--spells
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 33, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 33, Template = "lscroll_fireball", Unique = true },
+								{ Chance = 33, Template = "lscroll_heal", Unique = true },
+							}
+						},
+
+						--ingredients
+						{
+							NumItems = math.random(0,2),
+							LootItems = 
+							{									
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+								{ Chance = 5, Template = "tool_shovel", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
+								{ Chance = 5, Template = "resource_clothscraps", Unique = true },
+								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },
+								{ Chance = 5, Template = "ingredient_mushroom", Unique = true },
+								{ Chance = 5, Template = "ingredient_ginsengroot", Unique = true },
+								{ Chance = 5, Template = "resource_iron", Unique = true },
+								{ Chance = 5, Template = "metal_scraps", Unique = true },
+								{ Chance = 20, Template = "cooked_stew", Unique = true },
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

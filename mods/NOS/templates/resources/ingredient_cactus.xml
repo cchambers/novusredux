@@ -1,0 +1,21 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Cactus[-]</Name>
+	<ClientId>586</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FoodValue">1.0</DoubleVariable>
+		<StringVariable Name="ResourceType">Cactus</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+			<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						foodFillingnessMod = {Multiplier = 1.25},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

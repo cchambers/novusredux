@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Beast Leather Hide[-]</Name>
+	<ClientId>988</ClientId>
+	<Hue>893</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BeastLeatherHide</StringVariable>
+		<StringVariable Name="PluralName">Beast Leather Hides</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

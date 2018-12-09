@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1271</ClientId>
+	<Name>[FF9500]Broken Monument Arch[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

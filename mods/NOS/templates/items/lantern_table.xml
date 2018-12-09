@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>402</ClientId>
+	<Name>[FF9500]Table Lantern[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

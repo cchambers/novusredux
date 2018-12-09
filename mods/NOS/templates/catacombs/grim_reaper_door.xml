@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>345</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="NoAutoClose">True</BoolVariable>
+		<StringVariable Name="BossTemplate">grim_reaper</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+		<LuaModule Name="boss_door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

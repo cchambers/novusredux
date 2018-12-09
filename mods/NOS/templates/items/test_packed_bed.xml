@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Small Bed (Packed)</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">furniture_bed_small</StringVariable>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

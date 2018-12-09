@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Hardened Leggings[-]</Name>
+	<ClientId>1486</ClientId>
+	<Hue>800</Hue>
+	<SharedStateEntry name="Weight" type="int" value="8"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>
+   		<StringVariable Name="ArmorType">Hardened</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

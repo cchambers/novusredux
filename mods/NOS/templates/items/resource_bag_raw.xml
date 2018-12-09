@@ -1,0 +1,42 @@
+<ObjectTemplate>
+	<ClientId>34</ClientId>
+	<Name>[0078ff]Bag of Raw Resources[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 18,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "resource_stone", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_blightwood", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_wood", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_wood_durable", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_iron_ore", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_iron_ore_gleaming", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cobalt_ore", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cobalt_ore_crystallized", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cotton", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "resource_cotton_fluffy", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_spider_silk", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_spider_silk_golden", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_gloss_silk", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_leather_hide", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_beast_leather_hide", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_fabled_beast_leather_hide", Unique = true, StackCount = 1000 },
+								{ Chance = 100, Template = "animalparts_brute_leather_hide", Unique = true, StackCount = 1000 },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[2E64FE]Outcast Shrine[-]</Name>
+	<Tag>Shrine_Red</Tag>
+	<ScaleModifier>1.0</ScaleModifier>
+	<ClientId>1866</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ReviveAll">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="shrine"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

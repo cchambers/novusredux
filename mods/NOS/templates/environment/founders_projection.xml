@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1060</ClientId>
+	<Name>[FF9500]Projection[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

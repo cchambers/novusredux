@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Linen Helm[-]</Name>
+	<ClientId>815</ClientId>
+	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="MaxDurability">40</DoubleVariable>
+		<StringVariable Name="ArmorType">Linen</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

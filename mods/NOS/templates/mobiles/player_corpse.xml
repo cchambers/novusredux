@@ -1,0 +1,28 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Player Corpse</Name>
+	<MobileComponent>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<BoolVariable Name="lootable">true</BoolVariable>
+		<DoubleVariable Name="DecayTime">3600</DoubleVariable>
+		<BoolVariable Name="NoSkele">true</BoolVariable>
+		<BoolVariable Name="PrivateLoot">true</BoolVariable>
+		<BoolVariable Name="NoReset">true</BoolVariable>
+		<BoolVariable Name="CanBandage">true</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="empty_decay"/>
+		<LuaModule Name="base_player_corpse">
+			<Initializer>
+			{
+				EquipTable = {}
+			}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="decay">
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

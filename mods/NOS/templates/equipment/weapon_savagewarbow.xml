@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Savage Warbow[-]</Name>
+	<ClientId>1337</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="16"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Warbow</StringVariable>
+		<DoubleVariable Name="AttackBonus">50</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

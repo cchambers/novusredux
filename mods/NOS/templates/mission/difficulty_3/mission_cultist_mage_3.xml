@@ -1,0 +1,62 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Cultist Mage</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">320</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">16</DoubleVariable>
+		<DoubleVariable Name="Power">14</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_cultist">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Magery=100,
+					Magery=100,
+					Brawling = 60, 
+					MagicAffinity=100, 
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = { "head_cultist" },
+						BodyPartHair = {{"hair_cultist" ,"0x7a6841"}},	
+						Backpack = { "backpack" },	
+						RightHand = {{"weapon_staff"}},
+						Chest = {{"npc_cultist_chest"}},
+						Legs = {{"npc_cultist_legs"}},				
+					},	
+					LootTables = 
+					{ 		
+					},	
+				ScavengeTables =
+					{
+					},	
+					AvailableSpells = {"Heal", "Poison", "Cure", "Ruin", "Fireball"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

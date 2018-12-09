@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>52</ClientId>
+	<Name>[d9d9d9]Cobalt Blacksmith Table[-]</Name>
+	<Hue>836</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

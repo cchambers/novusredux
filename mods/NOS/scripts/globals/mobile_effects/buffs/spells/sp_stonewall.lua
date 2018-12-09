@@ -7,7 +7,7 @@ MobileEffectLibrary.Stonewall =
 		WallStart = args.SpellLoc
 		Caster = self.ParentObj
 		RootEffect = root
-		CastSkill = GetSkillLevel(self.ParentObj,"ManifestationSkill")
+		CastSkill = GetSkillLevel(self.ParentObj,"MagerySkill")
 		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "StoneWallTargetTimeout")
 		RegisterEventHandler(EventType.Timer, "StoneWallTargetTimeout", 
 		function( )

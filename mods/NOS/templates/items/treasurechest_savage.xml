@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>1874</ClientId>
+	<Name>[0078ff]Savage Chest[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

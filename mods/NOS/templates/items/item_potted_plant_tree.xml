@@ -1,0 +1,5 @@
+﻿<ObjectTemplate>
+	<Name>Potted Tree</Name>
+	<ClientId>2113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5" />
+</ObjectTemplate>

@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[FF9500]Copper Mining Pick[-]</Name>
+	<ClientId>193</ClientId>
+	<Hue>667</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>			
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="HarvestDelaySecs">2</DoubleVariable>
+		<StringVariable Name="WeaponType">MiningPick</StringVariable>
+		<DoubleVariable Name="MaxDurability">80</DoubleVariable>
+		<StringVariable Name="ToolType">Pick</StringVariable>
+    </ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="tool_miningpick"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

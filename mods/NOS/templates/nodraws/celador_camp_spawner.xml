@@ -1,0 +1,70 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>			
+		<StringVariable Name="CampTemplate">cultist_camp</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+			<LuaModule Name="item_spawner">
+				<Initializer>
+				{
+					MaxItems = 4,
+					ItemTemplates = 
+					{
+						"treasure_chest_ruins",
+					},
+					ItemLocations = {
+						{Location = Loc(-49,   0, -443),},
+						{Location = Loc(-58,   0, -445),},
+						{Location = Loc(-62,   0, -445),},
+						{Location = Loc(-69,   0, -446),},
+						{Location = Loc(-73,   0, -449),},
+						{Location = Loc(-101,   0, -405),},
+						{Location = Loc(-122,   0, -420),},
+						{Location = Loc(-149,   0, -396),},
+						{Location = Loc(-120,   0, -459),},
+						{Location = Loc(-129,   0, -327),},
+						{Location = Loc(-139,   0, -324),},
+						{Location = Loc(-151,   0, -319),},
+						{Location = Loc(-156,   0, -320),},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+			<LuaModule Name="cultist_camp_spawner">
+				<Initializer>
+				{
+					maxCamps = 5,
+					campLocations = {
+						{ Loc=Loc(-186, 0, -269), Difficulties={"Easy"} },
+						{ Loc=Loc(-191, 0, -297), Difficulties={"Easy"} },
+						{ Loc=Loc(-187, 0, -293), Difficulties={"Easy"} },
+						{ Loc=Loc(-166, 0, -280), Difficulties={"Easy"} },
+						{ Loc=Loc(-117, 0, -251), Difficulties={"Easy"}},
+						{ Loc=Loc(-153, 0, -251), Difficulties={"Easy"} },
+						{ Loc=Loc(-120, 0, -268), Difficulties={"Easy"} },
+						{ Loc=Loc(-84, 0, -269), Difficulties={"Easy"}},
+						{ Loc=Loc(-102, 0, -255), Difficulties={"Easy"} },
+						{ Loc=Loc(-102, 0, -273), Difficulties={"Easy"} },
+						{ Loc=Loc(-41, 0, -296), Difficulties={"Easy"}},
+						{ Loc=Loc(-48, 0, -314), Difficulties={"Easy"}},
+						{ Loc=Loc(-26, 0, -315), Difficulties={"Easy"}},
+						{ Loc=Loc(-26, 0, -331), Difficulties={"Easy"}},
+						{ Loc=Loc(-34, 0, -335), Difficulties={"Easy"} },
+						{ Loc=Loc(-56, 0, -338), Difficulties={"Easy"}},
+						{ Loc=Loc(-77, 0, -317), Difficulties={"Easy"}},
+						{ Loc=Loc(-84, 0, -309), Difficulties={"Easy"}},
+						{ Loc=Loc(-80, 0, -297), Difficulties={"Easy"}},
+						{ Loc=Loc(-99, 0, -299), Difficulties={"Easy"}},
+						{ Loc=Loc(-119, 0, -292), Difficulties={"Easy","Medium"}},
+						{ Loc=Loc(-120, 0, -281), Difficulties={"Easy","Medium"}},
+						{ Loc=Loc(-130, 0, -280), Difficulties={"Easy","Medium"}},
+						{ Loc=Loc(-153, 0, -286), Difficulties={"Easy","Medium"}},
+						{ Loc=Loc(-173, 0, -311), Difficulties={"Easy","Medium"}},
+						{ Loc=Loc(-119, 0, -329), Difficulties={"Easy","Medium"}},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

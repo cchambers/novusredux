@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Stun Bread[-]</Name>
+	<ClientId>351</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">StunBread</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

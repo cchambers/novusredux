@@ -84,10 +84,10 @@ SkillData = {
 		-- 	GainFactor = 0.4,
 		-- },
 
-		ManifestationSkill = {
-			DisplayName = "Manifestation",
+		MagerySkill = {
+			DisplayName = "Magery",
 			PrimaryStat = "Intelligence",
-			Description = "Manifestation determines your knowledge of beneficial spells.",
+			Description = "Magery determines your knowledge of beneficial spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
 		},
@@ -99,10 +99,10 @@ SkillData = {
 			GainFactor = 0.375,
 			Abilities = { "Focus" },
 		},
-		EvocationSkill = {
-			DisplayName = "Evocation",
+		MagerySkill = {
+			DisplayName = "Magery",
 			PrimaryStat = "Intelligence",
-			Description = "Evocation determines your knowledge of damage dealing spells.",
+			Description = "Magery determines your knowledge of damage dealing spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
 		},

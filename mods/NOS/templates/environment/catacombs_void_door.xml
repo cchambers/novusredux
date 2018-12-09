@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>345</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="TrapType">6</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="void_door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

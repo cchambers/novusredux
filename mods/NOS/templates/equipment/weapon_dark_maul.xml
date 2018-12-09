@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Dark Maul[-]</Name>
+	<ClientId>1493</ClientId>
+	<Hue>940</Hue>
+	<SharedStateEntry name="Weight" type="int" value="10"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="Executioner">Giant</StringVariable>
+		<DoubleVariable Name="ExecutionerLevel">3</DoubleVariable>
+		<DoubleVariable Name="AttackBonus">50</DoubleVariable>
+		<StringVariable Name="WeaponType">Warhammer</StringVariable>
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+		<BoolVariable Name="Cursed">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

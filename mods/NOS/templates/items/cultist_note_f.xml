@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Hymm of Huthaukar:\nPraise be to Glory\nPraise be to Piety\nPraise Be to Bravery\nHe who does not kill\nWill be nothing still!\nAll in time for night\nAll in time for blight\nChaos Come, Chaos Come\nTake us in the night!\nDesolation, Desolation\nShow us the morning night!\nStar Dweller, Star Dweller\nTake us to the sky\nThat we might find you so high\nOld Ones, Elder Gods\nBring us the gift of blight\nFor remember the prophecy, of Huthaukar the Right:\n\n When the Last Tree is Cut\nAnd the Last river Poisoned\nAnd the last Fish is Caught\nAnd the last rain Dropped\nThen will we find the blessings we saught\nAnd then the Star Dweller will return his flock."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>Human Head</Name>
+	<ClientId>204</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="IsRaw">true</BoolVariable >
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent/>
+</ObjectTemplate>

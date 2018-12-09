@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>347</ClientId>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="pendulum_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

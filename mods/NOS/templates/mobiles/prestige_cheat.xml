@@ -1,0 +1,39 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Name>!!PRESTIGE CHEAT!!</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">5000</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<StringVariable Name="MonsterAR">16</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">7</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">61</DoubleVariable>
+		<DoubleVariable Name="FameXP">450</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100000</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=10000, Agi=10000, Int=10000, },
+				Skills = 
+					{ 
+					Channeling=math.random(45.1,60), 
+					Melee=math.random(45.1,60), 
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

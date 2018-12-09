@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[b459ff]Obsidian[-]</Name>
+	<ClientId>25</ClientId>
+	<Hue>893</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Obsidian</StringVariable>
+		<StringVariable Name="PluralName">Obsidian</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

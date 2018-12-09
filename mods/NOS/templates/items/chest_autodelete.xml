@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>2327</ClientId>
+	<Name>Trash Barrel</Name>
+	<Hue>0</Hue>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container_autodelete"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

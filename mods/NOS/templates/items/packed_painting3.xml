@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Portrait of a Man with Eyes</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">furniture_painting3</StringVariable>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

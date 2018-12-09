@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[0078ff]Crate[-]</Name>
+	<ClientId>29</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

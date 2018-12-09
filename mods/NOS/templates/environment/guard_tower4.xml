@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>2258</ClientId>
+	<Name>[FF9500]Guard Tower[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>			
+</ObjectTemplate>

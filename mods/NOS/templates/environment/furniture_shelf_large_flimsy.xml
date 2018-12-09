@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>794</ClientId>
+	<Name>[FF9500]Flimsy Shelf[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

@@ -1,0 +1,36 @@
+<ObjectTemplate>
+  <Name>Tattered Map</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<DoubleVariable Name="Difficulty">10</DoubleVariable>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="treasure_map">
+				<Initializer>
+				{
+				RegionalNames = 
+                    {
+                        {"Area-Valus","Valus"},
+                        {"Area-Lake Tethys","Lake Tethys"},
+                        {"Area-Black Grove","Black Grove"},
+
+                        {"Area-Cast Lake","Cast Lake"},
+                        {"Area-Cape Worth","Cape Worth"},
+                        {"Area-Ceyr Pond","Ceyr Pond"},
+
+                        {"Area-Lume Coast","Lume Coast"},
+
+                        {"Area-Mer Beach","Mer Beach"},
+                        {"Area-The Caravan Path","The Caravan Path"},
+                        {"Area-Sacred Isle","Sacred Isle"},
+                    },
+				Rewards = 
+					{
+						"buried_treasure",
+					},
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

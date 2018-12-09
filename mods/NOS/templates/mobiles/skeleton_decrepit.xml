@@ -1,0 +1,50 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Name>Decrepit Skeleton</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">15</DoubleVariable>		
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">False</BoolVariable>
+		<StringVariable Name="MonsterAR">18</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">7</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+					Stats = { Str=20, Agi=30, Int=5, },
+					Skills = 
+					{ 
+						Melee=20, 
+						Channeling=20,
+					},
+					EquipTable = 
+					{
+						Backpack = { "backpack" },	
+					},
+					LootTables = 
+					{
+						TemplateDefines.LootTable.Poor,
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{ 
+								{ Chance = 10, Template = "animalparts_human_skull", Unique = true },
+							},	
+						},
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

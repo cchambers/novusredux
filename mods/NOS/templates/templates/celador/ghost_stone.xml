@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Ghost Stone[-]</Name>
+	<ClientId>26</ClientId>
+	<Color>0xFF00FF3F</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ghost_stone"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

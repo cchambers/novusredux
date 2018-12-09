@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Crude Padded Leather Leggings[-]</Name>
+	<ClientId>1478</ClientId>
+	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="2"/>				
+	<ScriptEngineComponent/>
+</ObjectTemplate>

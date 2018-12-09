@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[d61c1c]Fabled Beast Leather[-]</Name>
+	<ClientId>998</ClientId>
+	<Hue>941</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">VileLeather</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.5</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1815</ClientId>
+	<Name>[FF9500]Inn Bar[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

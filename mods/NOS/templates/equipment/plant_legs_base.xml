@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Plant Legs[-]</Name>
+	<ClientId>808</ClientId>
+	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ArmorClass">Medium</StringVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

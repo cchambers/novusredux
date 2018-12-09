@@ -1,0 +1,96 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Pirate</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Pirate</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">35</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_pirate">
+			<Initializer>
+				{ 
+				PirateNames = {
+						"John",
+						"Richard",
+						"Patrick",
+						"Martin",
+						"Bill",
+						"Vincent",
+						"Pierre",
+						"Shawn",
+						"Billy",
+						"Scurvy",
+						"Edmund",
+						"Daryl",
+						"William",
+						"Joseph",
+						"Michael",
+						"Jeremy",
+						"Samson",
+						"Gustave",
+						"Fulbert",
+						"Melvin",
+						"Marc",
+						"Garrett",
+						"Luke",
+					},
+				PirateJobs = {
+						"Buccaneer",
+					},
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 50,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { {"clothing_short_sleeve_shirt_chest",199}, "clothing_long_sleeve_shirt_chest", "clothing_chest_beggar", "" },
+						Legs = { {"clothing_legs_pants",199}, "clothing_shorts_legs", "clothing_pirate_legs" },	
+						LeftHand = 	{ "shield_buckler" },
+						RightHand = {"weapon_saber", "weapon_longsword"},	
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Head= {	{"clothing_bandana_helm","0xff3300"},},		
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.WarriorPoor,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Average,
+						{
+							NumCoins = math.random(60,150),
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>78</ClientId>
+	<Name>[FF9500]Small Bed[-]</Name>
+		<ScriptEngineComponent>		
+			<LuaModule Name="bed"/>
+		</ScriptEngineComponent>		
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

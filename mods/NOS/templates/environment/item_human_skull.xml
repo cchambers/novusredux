@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Human Skull</Name>
+	<ClientId>317</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">HumanSkull</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

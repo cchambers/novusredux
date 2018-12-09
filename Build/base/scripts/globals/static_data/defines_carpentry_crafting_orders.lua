@@ -121,6 +121,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Torch
 		{
 			Recipe = "Torch",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -144,6 +145,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Crook
 		{
 			Recipe = "Crook",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -167,6 +169,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 FishingRod
 		{
 			Recipe = "FishingRod",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -5035,6 +5038,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -5058,6 +5062,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -5081,6 +5086,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -5104,6 +5110,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -5325,6 +5332,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -5348,6 +5356,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -5371,6 +5380,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -5394,6 +5404,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -5615,6 +5626,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "four",
@@ -5638,6 +5650,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "four",
@@ -5661,6 +5674,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "five",
@@ -5684,6 +5698,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "five",
@@ -5910,6 +5925,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 Arrow
 		{
 			Recipe = "Arrow",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "five",
@@ -5933,6 +5949,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 Arrow
 		{
 			Recipe = "Arrow",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "five",
@@ -5956,6 +5973,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 Arrow
 		{
 			Recipe = "Arrow",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "six",
@@ -5979,6 +5997,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 Arrow
 		{
 			Recipe = "Arrow",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "six",
@@ -6203,6 +6222,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "six",
@@ -6226,6 +6246,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "six",
@@ -6249,6 +6270,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "seven",
@@ -6272,6 +6294,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "seven",
@@ -6496,6 +6519,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "six",
@@ -6519,6 +6543,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "six",
@@ -6542,6 +6567,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "seven",
@@ -6565,6 +6591,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "seven",
@@ -6790,6 +6817,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "six",
@@ -6813,6 +6841,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "six",
@@ -6836,6 +6865,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "seven",
@@ -6859,6 +6889,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "seven",
@@ -7092,6 +7123,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "seven",
@@ -7115,6 +7147,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "seven",
@@ -7138,6 +7171,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "eight",
@@ -7161,6 +7195,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 ShortBow
 		{
 			Recipe = "ShortBow",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "eight",
@@ -7390,6 +7425,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "seven",
@@ -7413,6 +7449,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "seven",
@@ -7436,6 +7473,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "eight",
@@ -7459,6 +7497,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 LongBow
 		{
 			Recipe = "LongBow",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "eight",
@@ -7688,6 +7727,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "seven",
@@ -7711,6 +7751,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "seven",
@@ -7734,6 +7775,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "eight",
@@ -7757,6 +7799,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 WarBow
 		{
 			Recipe = "WarBow",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "eight",

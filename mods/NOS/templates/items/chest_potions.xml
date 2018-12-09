@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Chest of Potions[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="NumTemplates">3</DoubleVariable>	
+		<DoubleVariable Name="MaxItems">3</DoubleVariable>	
+		<StringVariable Name="Template2">potion_mana</StringVariable>
+		<StringVariable Name="Template3">potion_lheal</StringVariable>
+		<DoubleVariable Name="SpawnDelaySecs">25</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="autofill_random_loot"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

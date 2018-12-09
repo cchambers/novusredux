@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>A null</Name>
+	<ClientId>35</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="NameHue">FFFFFF</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="random_executioner_weapon">
+			<Initializer>
+				{
+					Intensity = { 10, 70 }
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

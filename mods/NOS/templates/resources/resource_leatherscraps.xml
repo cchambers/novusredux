@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Leather Scraps[-]</Name>
+  <ClientId>215</ClientId>
+    <SharedStateEntry name="Weight" type="int" value="1" />
+  <ObjectVariableComponent>
+    <StringVariable Name="ResourceType">LeatherScraps</StringVariable>
+    <DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="stackable" />
+  </ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>671</ClientId>
+	<ObjectVariableComponent/>					
+	<Name>[FF9500]Soldier's Cot[-]</Name>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="AngleOffset">90</DoubleVariable>	
+	</ObjectVariableComponent>
+		<ScriptEngineComponent>		
+			<LuaModule Name="bed"/>
+		</ScriptEngineComponent>		
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

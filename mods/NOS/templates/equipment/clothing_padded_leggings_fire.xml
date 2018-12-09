@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Fire Padded Leggings[-]</Name>
+	<ClientId>106</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>		
+	<SharedStateEntry name="Variation" type="string" value="Fire"/>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

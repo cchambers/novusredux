@@ -1,0 +1,24 @@
+<ObjectTemplate>
+  <Name>[00FF00]Hymn of the Wayun[-]</Name>
+	<ClientId>685</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<!--
+    	<StringVariable Name="QuestName">CatacombsStartQuest</StringVariable>
+    	<StringVariable Name="QuestTask">TalkToTheLibrarian</StringVariable>
+    	<StringVariable Name="QuestRequiredTask">ReadScripture</StringVariable>
+    	<StringVariable Name="DeleteObjVar">CatacombsIgnorePlayerInteract</StringVariable>
+    -->
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Praise be to the Wayun!\n    Our holiest of holies!\nFor only they know the Way\n    And we are to seek it!\nFor all we know is the lies!\n    And they know the truth!\n\nHuzzah!\n\nHuzzah!\n\nPraise be to the Wayun,\n    Keepers of the way!\n[574D00]For they came through the Portal of Old,[-]\n    Showing us the Way!\nWhat the Wayun Will!\n    That is the Way!\nPraise to them!\n\nHuzzah!\n\nHuzzah!\n\nPraise to them!\n    And in their glory we give thanks!\nFor the evils of the elemental gods,\n    The sins of their kin!\n[574D00]Through their persecutions\n   Of the elemental gods followers,\nWe will persevere\n   No matter how they slay\nOr drag us into their courts[-]\n   For the time for vengance has come!\nWe will show them no mercy!\n    We will win!\nFor all is done\n    And all is written\nWhen the Strangest of help arrives\n    We will defeat sin!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

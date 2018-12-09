@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>House Survey Tool</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="test_house_placement"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

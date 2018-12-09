@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Skin of Cerberus[-]</Name>
+	<ClientId>624</ClientId>
+	<Color>0xFF70593A</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

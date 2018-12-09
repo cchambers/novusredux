@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Rthaugnaa[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Know all to those who wish to learn the greater world, that this is how the world works. The world itself will bow to the desires of those who desire the dead ones, the Old Ones, blessed be their name. \n\nThe Elder Gods told me, the Rthaugnaa, or of How They Came to Be, giving me this sacred knowledge in the hope that it will be passed on for generations, that the True Gods will be known to all who desire knowledge of it. \n\nFor many ages have come to pass in the world before the dawning of the Elder Ones, but when they appeared, they appeared on the sacred realm of the Dark Place. \n\nOn this realm, they multiplied, and built, and conquered, and ascended, until they were masters of all. In this time they knew that there would be others who would attempt to rise up against them, who would seek their destruction. \n\nThus, they killed all those who oppose them, and set an example to all those who desired it. All should know the glory of the Elder Gods, who chose to rise up and become one with the aether, and that they brought the Dark Place to the Realm of Nethers, where they would rest for all eternity, and bless those who work in their name. \n\nWe all must worship and fear the Ancient Ones, for their place in this universe is very real, and they know and seek nothing but the truth and the domination of all things, and they are the rulers of all. Blessed be them, honored be their cause. \n\nThe cause of destruction and chaos!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

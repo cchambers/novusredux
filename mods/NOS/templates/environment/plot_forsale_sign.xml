@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>363</ClientId>
+	<Name>[66A3FF]For Sale[-]</Name>
+	<ObjectVariableComponent>
+    	<StringVariable Name="ResourceType">PlotSaleSign</StringVariable>
+		<BoolVariable Name="NoReset">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

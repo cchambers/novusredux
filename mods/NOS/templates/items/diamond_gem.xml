@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>349</ClientId>
+	<Color>0xFFECFFFF</Color>
+	<Name>[E0FFFF]Diamond[-]</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">Diamond</StringVariable>
+		<StringVariable Name="PluralName">Diamonds</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

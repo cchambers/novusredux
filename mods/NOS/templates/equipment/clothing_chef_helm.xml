@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Chef Hat[-]</Name>
+	<ClientId>2269</ClientId>
+	<Hue>0</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>2226</ClientId>
+	<Name>[0078ff]Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">35</DoubleVariable>
+		<BoolVariable Name="NoDecay">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container">
+			<Initializer>
+				{
+					ResetTimer = 
+					{
+						DelayMin = 10,
+						Chance = 30,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					NoRemove = true,
+
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(30,45),
+				    	},
+						
+						--ingredients
+						{
+							NumItems = math.random(0,6),
+							LootItems = 
+							{									
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "tool_shovel", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },
+								{ Chance = 5, Template = "ingredient_mushroom", Unique = true },
+								{ Chance = 5, Template = "ingredient_ginsengroot", Unique = true },
+							}
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

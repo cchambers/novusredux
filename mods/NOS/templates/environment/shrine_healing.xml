@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>[2E64FE]Resurrection Shrine[-]</Name>
+	<Tag>Shrine</Tag>
+	<ScaleModifier>1.0</ScaleModifier>
+	<ClientId>1855</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="shrine"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

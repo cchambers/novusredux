@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>469</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="attackable_object_skill_gain">
+			<Initializer>
+			{
+				SkillLevel = 5,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

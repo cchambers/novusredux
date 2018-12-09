@@ -1,0 +1,100 @@
+<ObjectTemplate>
+	<ClientId>11</ClientId>
+	<ScaleModifier>8</ScaleModifier>
+	<Color>0xFFFF0000</Color>
+	<Name>Ituamonga the Devourer</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value="0.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.5</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">20000</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
+		<StringVariable Name="NaturalWeaponType">LongSword</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Poisonous Fangs</StringVariable>
+		<StringVariable Name="NaturalArmor">VeryHeavy</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default_animal">
+			<Initializer>				
+				{ 
+					Stats = { Str=300, Agi=130, Int=20 },
+					Skills = 
+					{ 
+						Melee = 100, 
+						Brawling = 100,
+						Dodge = 100,
+					},
+					CombatAbilitiesOld = {
+						ParalyzingBite = { 
+							Slot = 1,
+							DisplayName = "Paralyzing Bite",
+							Icon="impale",
+							AlwaysUsable = true,
+							AbilityTriggertype= {
+								Instant = true
+							},
+							isTargetRequired = true,
+							CooldownTimer = 5,
+							MinDamModInst = 200,
+							MaxDamModInst = 300,
+							StaminaCost = 0,
+							nextSwingDelay= .4,
+							combatAbilityTriggerScriptTarget = "ca_freeze_effect",
+							FreezeDuration = 2000,
+							AttackerFX = "BuffEffect_B",
+							TargetFX = "BloodEffect_A",
+							AbilitySlot = "Secondary",
+							AttackerIdObjvar = "RendInflicter",
+							TooltipString = "Type: Instant\nFreeze your enemy in place with this bite.",
+							AbilityEnabled = true,
+							AssociatedSkill = "SlashingSkill",
+							LevelRequired = 0,
+							SwingAnimation = "rend",
+						},	
+
+						VenemousBite = { 
+							Slot = 2,
+							DisplayName = "Venemous Bite",
+							AlwaysUsable = true,
+							AbilityTriggertype= {
+								Triggered = true
+							},
+							Icon = "crosscut",
+							CooldownTimer = 5,
+							MinDamModTrig = 300,
+							MaxDamModTrig = 300,
+							StaminaCost = 0,
+							nextSwingDelay= .4,
+							combatAbilityTriggerScriptTarget = "ca_bite_target_effect",
+							AttackerFX = "BuffEffect_B",
+							TargetFX = "BloodEffect_A",
+							AbilitySlot = "Secondary",
+							AttackerIdObjvar = "RendInflicter",
+							TooltipString = "Type: Triggered\nFill your victim with poison with this vicious bite.",
+							AbilityEnabled = true,
+							AssociatedSkill = "SlashingSkill",
+							LevelRequired = 0,
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+		
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="animalparts_spider_silk_golden", RarityPct=100, Count = 5 }, 
+						{ ResourceType="SpiderSilk", RarityPct=100, Count = 4 },		
+						{ ResourceType="SpiderEye", RarityPct=100, Count = 5 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

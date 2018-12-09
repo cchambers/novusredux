@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Bone Dagger[-]</Name>
+	<ClientId>855</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">BoneDagger</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

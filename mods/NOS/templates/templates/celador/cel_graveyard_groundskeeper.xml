@@ -1,0 +1,32 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Mason the Groundskeeper</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>			
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">450</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">UndeadGraveyard</StringVariable>
+		<BoolVariable Name="AI-CanWander">true</BoolVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_groundskeeper">
+			<Initializer>
+				{
+					Stats = { Str=120, Agi=120, Int=110 },
+					Skills = { Melee = 100, Blocking = 100 },
+					EquipTable = {
+						RightHand = { "torch"},
+						BodyPartHead = { "head_blacksmith" },
+						Chest = { {"clothing_chest_beggar","0xFFCFCFCF"} },
+			            Legs = { {"clothing_legs_beggar","0xFFCFCFCF"} }, 
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

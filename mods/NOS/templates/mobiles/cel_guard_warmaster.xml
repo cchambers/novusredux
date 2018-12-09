@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Ciro the Warmaster</Name>
+	<MobileComponent>
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>	
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+    	<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_npc_warmaster">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling=100,  
+					},	
+					EquipTable = 
+					{
+						RightHand = { "weapon_broadsword" },
+						LeftHand = { "shield_curvedshield" },
+						Head = { "head_male03" },
+						BodyPartHair = {{"hair_male_buzzcut","0xFF191919"}},
+						Chest = { {"armor_fullplate_tunic","0xFFFFD7D7"} },
+						Legs = { {"armor_fullplate_leggings","0xFFFFD7D7"} },
+						Backpack = { "backpack" }			
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

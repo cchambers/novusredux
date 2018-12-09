@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>2</ClientId>
+	<Color>0xFFF0FF00</Color>
+	<Name>Beatrix's House Controller</Name>
+	<ObjectVariableComponent />
+	<ScriptEngineComponent>
+		<LuaModule Name="scene_item_spawner">
+			<Initializer>
+				{
+					ItemInventory= {
+						{
+							Template = "skill_channeling",
+							RelativeLoc = "-2.888, 0.8830001, 4.374001",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "tool_hunting_knife",
+							RelativeLoc = "0.5989838, 0.6770012, 3.364021",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "bandage",
+							RelativeLoc = "-3.976028, 1.355998, 3.973015",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "lscroll_resurrect",
+							RelativeLoc = "-2.898529, 0.7979996, 3.669395",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "potion_lheal",
+							RelativeLoc = "-3.887039, 0.7979996, 3.460014",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "potion_refresh",
+							RelativeLoc = "-3.965042, 2.18, 3.914009",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "potion_lheal",
+							RelativeLoc = "-3.994034, 2.18, 3.64901",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "item_beer",
+							RelativeLoc = "0.4589996, 0.6729996, 3.146019",
+						},
+						{
+							Template = "skill_magic_affinity",
+							RelativeLoc = "-0.1910095, -0.1163487, -1.419998",
+						},
+						{
+							Template = "weapon_longsword_crude",
+							RelativeLoc = "-3.714005, 0.5386512, 1.627007",
+							Rotation = "0, 0, 284.0742",
+						},
+						{
+							Template = "weapon_greathammer_crude",
+							RelativeLoc = "-3.808014, 0.6026511, 1.926003",
+							Rotation = "2.608124, 2.136647E-07, 273.7296",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

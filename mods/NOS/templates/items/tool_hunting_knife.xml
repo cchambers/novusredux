@@ -1,0 +1,25 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Hunting Knife[-]</Name>
+	<ClientId>116</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="WeaponType">HuntingKnife</StringVariable>
+		<StringVariable Name="ResourceType">HuntingKnife</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/gathering_skills/hunting/hunting_knife</StringVariable>
+		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="tool_hunting_knife"/>	
+		<LuaModule Name="apply_bonuses">		
+			<Initializer>
+				{
+					NumBonuses = math.random(1,2),
+					AvailableBonuses = {
+						BonusMinDamage = { min = -2, max = -4, precision = 0 },
+						BonusMaxDamage = { min = -2, max = -4, precision = 0 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,121 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Buried Treasure[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">35</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(400,600),
+				    	},
+
+						--rare
+						{
+							NumItems = 1,
+							LootItems = 
+							{	
+								{ Chance = 5,Template = "idol_animal", Unique = true },
+								{ Chance = 2,Template = "idol_hunger", Unique = true },
+								{ Chance = 0.5,Template = "idol_demon", Unique = true },
+								{ Chance = 0.5,Template = "ancient_idol", Unique = true },
+							}
+						},
+
+						--ingredients
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 5,
+							LootItems = 
+							{									
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
+								{ Weight = 25, Template = "bandage", Unique = true },
+								{ Weight = 1, Template = "sapphire_gem", Unique = true },
+								{ Weight = 1, Template = "ruby_gem", Unique = true },
+								{ Weight = 1, Template = "topaz_gem", Unique = true },
+								{ Weight = 5, Template = "treasure_map", Unique = true },
+								{ Weight = 5, Template = "treasure_map_1", Unique = true },
+							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+				    		}
+						},
+
+						--regs
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+							}
+						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_cure", Unique = true },
+								{ Weight = 5, Template = "lscroll_poison", Unique = true },
+								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
+							},
+						},	
+
+						--ScrollsMed
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+							},
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="buried_treasure_lock">
+			<Initializer>
+				{
+					MobTables = {
+						{ "lich", "lich", "lich"},
+						{ "scorpion", "scorpion", "scorpion"},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

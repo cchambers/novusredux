@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>362</ClientId>
+	<Name>A House</Name>
+	<ObjectVariableComponent>
+    	<StringVariable Name="ResourceType">HouseController</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

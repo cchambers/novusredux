@@ -1,0 +1,46 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Spawn Controller</Name>
+	<Tag>MapSpawnController</Tag>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+						--valus
+
+						--villagers
+						{ Count = 6, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 6, TemplateId = "val_villager_female",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 8, TemplateId = "chicken",    Region = "SouthernHillsValus"}, 
+
+						--villagers at night
+						{ Count = 3, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 23, SpawnDuration = 5}, 
+						{ Count = 3, TemplateId = "val_villager_female",    Region = "SouthernHillsValus" , SpawnTime = 23, SpawnDuration = 5}, 
+
+						--TAMING
+						--39.1+
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills30", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills31", DelayMin=4 },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills32", DelayMin=4 },
+						{ Count = 8, TemplateId = "black_bear",    Region = "SouthernHills33", DelayMin=4 },
+						--57.1+
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernHills50", DelayMin=4 }, 
+						{ Count = 8, TemplateId = "great_hart",    Region = "SouthernHills51", DelayMin=4 }, 
+						{ Count = 10, TemplateId = "great_hart",    Region = "SouthernHills52", DelayMin=4 }, 
+						{ Count = 6, TemplateId = "great_hart",    Region = "SouthernHills53", DelayMin=4 }, 
+						--71.1+
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernHills50", DelayMin=4 }, 
+						{ Count = 3, TemplateId = "whitetail",    Region = "SouthernHills51", DelayMin=4 }, 
+						{ Count = 5, TemplateId = "whitetail",    Region = "SouthernHills52", DelayMin=4 }, 
+						{ Count = 4, TemplateId = "whitetail",    Region = "SouthernHills53", DelayMin=4 }, 
+ 
+					},
+				}
+			</Initializer>	
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

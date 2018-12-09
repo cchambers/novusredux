@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[978161]Mage Hat[-]</Name>
+	<ClientId>533</ClientId>
+	<Hue>139</Hue>
+  	<SharedStateEntry name="Weight" type="int" value="1"/>	
+  	<ObjectVariableComponent>
+   		<BoolVariable Name="CanDye">true</BoolVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

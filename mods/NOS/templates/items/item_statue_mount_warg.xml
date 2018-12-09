@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>1833</ClientId>
+	<Name>[FF9500]A Warg Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="10"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">WolfEnvironment</StringVariable>
+		<StringVariable Name="ResourceType">MountStatue</StringVariable>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

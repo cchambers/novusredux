@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>872</ClientId>
+	<Name>[FF9500]Pedestal[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="NoInteract" type="bool" value="True"/>
+</ObjectTemplate>

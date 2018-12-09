@@ -1,0 +1,32 @@
+<ObjectTemplate>
+	<Name>Potions</Name>
+
+	<ClientId>554</ClientId>
+
+	<SharedStateEntry name="Capacity" type="int" value="20"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 7,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "potion_cure", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "potion_gheal", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "potion_gstamina", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "potion_gmana", Unique = true, StackCount = 20, },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>331</ClientId>
+	<Name>[FF9500]Ancient Mask Artifact[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="artifact"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

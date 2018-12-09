@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Torch[-]</Name>
+	<ClientId>37</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+			<StringVariable Name="WeaponType">Torch</StringVariable>
+			<BoolVariable Name="CanBeEquippedWithTwoHandedWeapon">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent/>
+</ObjectTemplate>

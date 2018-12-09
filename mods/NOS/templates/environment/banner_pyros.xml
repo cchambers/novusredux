@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>927</ClientId>
+	<Name>[FF9500]Pyros Flag[-]</Name>
+	<ScaleModifier>0.5</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

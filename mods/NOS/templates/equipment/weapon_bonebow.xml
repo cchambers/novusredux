@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Bone Bow[-]</Name>
+	<ClientId>1340</ClientId>
+	<Hue>0</Hue>
+	<SharedStateEntry name="Weight" type="int" value="16"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Longbow</StringVariable>
+		<StringVariable Name="Attack Bonus">90</StringVariable>
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

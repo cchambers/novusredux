@@ -1,0 +1,58 @@
+<ObjectTemplate>
+	<ClientId>59</ClientId>
+	<Name>Horse</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
+	<SharedStateEntry name="Variation" type="string" value="Desert"/>
+		<MobileComponent>			
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">45</DoubleVariable>
+		<DoubleVariable Name="Attack">5</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">29.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<StringVariable Name="MountType">Horse</StringVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_prey">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Brawling = 15,  
+					},	
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Test,
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 3,
+
+					MeatType = "ToughMeat",
+					AnimalParts =
+					{
+						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
+</ObjectTemplate>

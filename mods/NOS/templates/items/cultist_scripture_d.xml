@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Ihauactu[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "I, Shant'cur, from the far Kingdom of Knossus, know all there is to know, for the Old Ones have communed their desires to me directly. I saught out the truth, and now I know that you too have known the wisdom of the elder gods! Ihauactu himself spoke to me, telling me how all should conduct their manners in accordance with the Gods! \n\nListen closely, and write down all for posterities sake all that I speak here, for it shall be known across the Kingdoms. \n\nIhauactu has said, struggle against all that do not believe in the Old Ones, and destroy and ravage all the powers that do not believe. Leave no Kingdom, Republic or Empire standing from the might of the Brotherhood. \n\nIhauactu has said, know that your acts are being watched at every moment. The Old Ones seek to have despair on the world of Aria, so all that you accomplish should be to encourage such. Your vileness should not exceed your cruelty, and your malice should not exceed your desires. \n\n Ihauactu has said, Chaos should be the act, destruction the goal. Kill all that oppose you, leave none surviving. \n\n Ihauactu has said, the act of destruction is not the means to the end, it is the end. Destroy all in the name of Chaos Incarnate!\n\nIhauactu has said, Make the others weep at your thought, spare not a child nor a woman who struggles against the Gods and refuses to join the True Religion. \n\nIhauactu has said, be lax and multiply, for the more that are believers, the more that can be sacrificed in the name of the Ancient Evils. \n\nIhauactu has said turn your other cheek against you betters, for the strongest survive, and the weak perish. If you should be weak, if you should consider yourself weak, improve or perish, for the sake of your work. \n\nIhauactu has said be the worst you can be, but be the strongest you can be, for those who are strong are admired. \n\nIhauactu has said, destroy all the temples of the enemies, crush all those who blashphem against the word. \n\nIhauactu hath spoken, and all shall know the truth of the manner that we should do. \n\nNow in the name of Kommen, in the name of the Prophets, murder, rob, and kill!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

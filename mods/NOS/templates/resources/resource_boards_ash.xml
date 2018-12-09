@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[dbb47d]Ash Boards[-]</Name>
+	<ClientId>1008</ClientId>
+	<Hue>866</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">AshBoards</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+﻿<ObjectTemplate>
+	<Name>Hedge</Name>
+	<ClientId>2106</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2" />
+</ObjectTemplate>

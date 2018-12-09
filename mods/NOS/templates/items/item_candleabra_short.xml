@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>566</ClientId>
+	<Name>[FF9500]Short Candelabra[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+</ObjectTemplate>

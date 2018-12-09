@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>680</ClientId>
+	<Name>[FF9500]Library Wooden Table[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

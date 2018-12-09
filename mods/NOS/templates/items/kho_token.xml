@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>Ancient Token</Name>
+	<ClientId>907</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">KhoToken</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.025</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

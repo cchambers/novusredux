@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Lich Lord Spawner</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="TrapKey">TriggerCerberus</StringVariable>
+		<StringVariable Name="BossTemplate">lich_lord</StringVariable>
+		<StringVariable Name="BossSpawnMessage">ForceCharge</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="catacombs_boss_spawner"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

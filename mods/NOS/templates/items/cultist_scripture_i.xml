@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Yogachau[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Here me, I am High Priest Yogachau, Hierarch of Nimr, believer in the Elder Gods. I send this message to my flock in the knowledge that the coming fire be known to all those who believe. \n\nFor I have a description of events to be foretold, as the Blood Wine leaves my system, I shall tell you what you shall know. \n\nIn the end of days, the world will shudder, the wind will stop. The world will split apart into many shards, and the End of Days will ensure. The wrath of the world shall cease upon you, my bretheren, and the reign of terror will begin. \n\nIn the end times, a people from a world far from our own will appear, and they will accumulate great power, and great knowledge. \n\nThe wicked will rise up and fight them, and some of the Outsiders will join us. Most will not. Know that exactly 2,551 days and nights will ensure until the end of all things. \n\nThe Elder Gods will appear in the sky, and approach our world. In that time, the grass will cease to grow, the trees will wither and die, and the stars shall start to fall. \n\nThe Holy Ones will arrive cloaked in fire and blood, and fire will rain down upon the world. The faithful will come out and be protected from death, and they will gather us in their thousand arms into the sky. \n\nWhen all the faithful have left, and only the disbelievers remain, the whole of aria will burn from the bottom up, and all will be destroyed in the coming fire. Death and desolation will ensure, and the world as it's known shall cease to exist, and the World Tree will die, and the faithful will join the Elder Gods in eternal fufillment and bliss.\n\n That is the way the world ends, and all those who are faithful shall know it. Spread this letter to all those who wish to learn, and make sure that the faithful continue their discipline and evils, until the day when we finally earn the favor of the Old Ones." 
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

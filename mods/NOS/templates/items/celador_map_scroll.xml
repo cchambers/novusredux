@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[5882FA]Map of Celador[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="MapName">Celador</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="memorize_map"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

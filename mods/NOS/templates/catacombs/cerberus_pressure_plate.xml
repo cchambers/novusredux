@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>316</ClientId>
+	<ScaleModifier>1.6</ScaleModifier>
+	<Name>Pressure Plate</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="TrapKey">TriggerCerberus</StringVariable>
+		<DoubleVariable Name="CooldownSeconds">1200</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="pressure_plate_trigger" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

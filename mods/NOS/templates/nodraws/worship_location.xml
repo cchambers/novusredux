@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>Worship Location</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name= "WorshiperModule">ai_catacombs_stranger_worshiper</StringVariable>
+		<StringVariable Name= "PriestModule">ai_npc_catacombs_priest</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="worship_location"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

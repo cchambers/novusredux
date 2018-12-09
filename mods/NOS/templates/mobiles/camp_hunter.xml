@@ -1,0 +1,344 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Hunter</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_reverseHireling">
+			<Initializer>
+				{ 
+					Stats = { Str=120, Agi=60, Int=20 },
+					Skills = { Melee = 90, Slashing = 90, Brawling = 90},
+					Names = {
+						"Gearald the Hunter",
+						"Ervin the Hunter",
+						"Randy the Hunter",
+						"Sal the Hunter",
+						"Earnest the Hunter",
+						"Ivan the Hunter",
+					},
+
+					--MapMarker uses tooltip name of DefaultMapMarkers
+					Tasks = {
+						--EasternFrontier
+						{
+							RegionalName = "Mer Beach", 
+							Template = "giantcrab", 
+							Poi = "Mer Beach", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						{
+							RegionalName = "Denir", 
+							Template = "lich", 
+							Poi = "Destroyed Town", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Denir", 
+							Template = "zombie", 
+							Poi = "Destroyed Town", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						{
+							RegionalName = "Eastern Range Peninsula", 
+							Template = "lich", 
+							Poi = "Lich Area", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						
+						{
+							RegionalName = "Helm", 
+							Template = "lich", 
+							Poi = "Helm Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						{
+							RegionalName = "Helm", 
+							Template = "skeleton", 
+							Poi = "Helm Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						--UpperPlains
+						{
+							RegionalName = "Everdale", 
+							Template = "lich", 
+							Poi = "Haunted Ruins", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Black Grove", 
+							Template = "spider", 
+							Poi = "Dark Web Wood", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Soldier's Rest", 
+							Template = "lich", 
+							Poi = "Abandoned Shrine", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Upper Plains", 
+							Template = "lich", 
+							Poi = "Haunted Ruins", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Soldier's Rest", 
+							Template = "giant", 
+							Poi = "Giant Steppes", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Eldeir", 
+							Template = "skeleton", 
+							Poi = "Eldeir Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						--Southern Rim
+						{
+							RegionalName = "Southern Rim", 
+							Template = "ork_warrior", 
+							Poi = "Orc Camp", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Serpent's Pass", 
+							Template = "rabid_wolf", 
+							Poi = "Wolves Den", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Misty Caverns", 
+							Template = "rock_golem", 
+							Poi = "Waterfall Cave", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Pyros Landing", 
+							Template = "skeleton", 
+							Poi = "Pyros Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Pyros Landing", 
+							Template = "zombie", 
+							Poi = "Pyros Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						--Southern Hills
+						{
+							RegionalName = "Breca Mines", 
+							Template = "ork_archer", 
+							Poi = "Breca Mines", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Southern Hills", 
+							Template = "skeleton", 
+							Poi = "Lower Valus Cemetary", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Southern Hills", 
+							Template = "zombie", 
+							Poi = "Lower Valus Cemetary", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Southern Hills", 
+							Template = "mummy", 
+							Poi = "Upper Valus Cemetary", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Southern Hills", 
+							Template = "lich_lord", 
+							Poi = "Valus Cemetary Peak", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						--Black Forest
+						{
+							RegionalName = "Treacher Path", 
+							Template = "harpy", 
+							Poi = "Harpy Nests", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Spiritwood", 
+							Template = "ent_mage", 
+							Poi = "Northern Mushroom Grove", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Radiant Woodlands", 
+							Template = "ent", 
+							Poi = "Southern Mushroom Grove", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "The Brushwoods", 
+							Template = "troll", 
+							Poi = "Troll Den", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Black Forest", 
+							Template = "troll", 
+							Poi = "Eastern Troll Den", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Spider Nest", 
+							Template = "spider_hunter", 
+							Poi = "Spider Nest", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Spider Nest", 
+							Template = "spider_vile", 
+							Poi = "Spider Nest", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+
+						--Barren Lands
+						{
+							RegionalName = "Gazer Isle", 
+							Template = "half_gazer", 
+							Poi = "Gazer Isle", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Gazer Isle", 
+							Template = "gazer", 
+							Poi = "Gazer Isle", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Arid Lake", 
+							Template = "scorpion_skull", 
+							Poi = "Mahjo Lake", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Arid Lake", 
+							Template = "scorpion", 
+							Poi = "Mahjo Lake", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Scorched Print", 
+							Template = "beetle_giant", 
+							Poi = "Scorched Print Mesa", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Oasis", 
+							Template = "skeleton", 
+							Poi = "Oasis Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+						{
+							RegionalName = "Oasis", 
+							Template = "zombie",
+							Poi = "Oasis Graveyard", 
+							RequiredLifetimePrestige = 450,
+							RewardMin = 250,
+							RewardMax = 400,
+						},
+					},
+
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

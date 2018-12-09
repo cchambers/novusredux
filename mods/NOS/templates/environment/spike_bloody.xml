@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>31</ClientId>
+	<Name>[FF9500]Bloody Spike[-]</Name>
+	<ObjectVariableComponent/>					
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

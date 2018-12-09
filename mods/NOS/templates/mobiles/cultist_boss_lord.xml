@@ -1,0 +1,76 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Cultist Boss Lord</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">260</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">51</DoubleVariable>
+		<DoubleVariable Name="Attack">23</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_cultist">
+			<Initializer>
+				{ 
+				
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness = 3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Brawling = 60,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { {"npc_cultist_chest",13}, },
+						Legs = { {"npc_cultist_legs",13}, },	
+						LeftHand = 	{ "shield_curvedshield" },
+						RightHand = {"weapon_saber", "weapon_longsword"},	
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Twelve,
+						TemplateDefines.LootTable.Twelve,
+						TemplateDefines.LootTable.Twelve,
+						TemplateDefines.LootTable.Twelve,
+						TemplateDefines.LootTable.Humanoid,
+					},
+				ScavengeTables =
+					{
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 10, Template = "resource_clothscraps", Unique = true },
+							},
+						},
+					},	
+					WeaponAbilities = { primary="Bleed" },			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

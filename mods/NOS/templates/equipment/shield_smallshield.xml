@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Small Shield[-]</Name>
+	<ClientId>155</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ShieldType">SmallShield</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>				
+</ObjectTemplate>

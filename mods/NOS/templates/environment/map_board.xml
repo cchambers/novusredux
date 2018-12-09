@@ -1,0 +1,16 @@
+<ObjectTemplate>
+  <Name>World Map Board</Name>
+	<ClientId>1980</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<StringVariable Name="MapName">NewCelador</StringVariable>
+		<BoolVariable Name = "CanZoom"></BoolVariable>
+		<BoolVariable Name = "CanAddMarkers">false</BoolVariable>
+		<BoolVariable Name = "MustBeInPack">true</BoolVariable>
+		<BoolVariable Name = "noloot">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="world_map">
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

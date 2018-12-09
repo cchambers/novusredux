@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>205</ClientId>
+	<Name>House Bawwwt</Name>
+	<ScaleModifier>15</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="7.5"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="test_fill_region_with_houses" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

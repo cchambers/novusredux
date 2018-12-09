@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>1586</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<Tag>TeleportTowerObject</Tag>
+	<Name></Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="gatekeeper_tower"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

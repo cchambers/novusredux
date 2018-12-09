@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>316</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="TrapTemplate">spike_floor_narrow</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="pressure_plate"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

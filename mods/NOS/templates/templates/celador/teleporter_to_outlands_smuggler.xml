@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<Name>Teleporter</Name>
+	<ClientId>278</ClientId>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="ChooseUniverse">False</BoolVariable>
+		<StringVariable Name="DestinationMap">Outlands</StringVariable>
+		<BoolVariable Name="NoTeleportEffect">True</BoolVariable>
+		<LocVariable Name="Destination">214.01,0,15.4</LocVariable>
+		<DoubleVariable Name="DestinationFacing">77</DoubleVariable>		
+		<DoubleVariable Name="TeleportRange">2.5</DoubleVariable>		
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter_map"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

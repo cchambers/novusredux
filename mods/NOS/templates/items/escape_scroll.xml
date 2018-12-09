@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>2270</ClientId>
+	<Name>[FF9500]Escape Scroll[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">EscapeScroll</StringVariable>
+		<StringVariable Name="PluralName">Escape Scrolls</StringVariable>
+	</ObjectVariableComponent>				
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

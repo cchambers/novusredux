@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Poisonous Mushroom</Name>
+	<ClientId>584</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">MushroomsPoison</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

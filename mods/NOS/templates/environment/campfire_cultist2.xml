@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>Campfire</Name>
+	<ClientId>385</ClientId>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="HeatSource">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

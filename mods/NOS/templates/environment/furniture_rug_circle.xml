@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>453</ClientId>
+	<Name>[FF9500]Circle Rug[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

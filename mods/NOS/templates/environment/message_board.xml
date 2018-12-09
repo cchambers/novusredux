@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1096</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="NoInteract" type="bool" value="True"/>		
+</ObjectTemplate>
