@@ -4449,6 +4449,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -4472,6 +4473,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4495,6 +4497,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4518,6 +4521,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -6521,6 +6525,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--40 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 40,
 
 			RewardCoins = "six",
@@ -6544,6 +6549,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--60 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 60,
 
 			RewardCoins = "six",
@@ -6567,6 +6573,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--80 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 80,
 
 			RewardCoins = "seven",
@@ -6590,6 +6597,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--100 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 100,
 
 			RewardCoins = "seven",

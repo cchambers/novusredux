@@ -57,13 +57,13 @@ SkillData = {
 			SkillIcon = "Skill_Regeneration",
 			GainFactor = 1,
 			Options = {
-				SkillRequiredToResurrect = 80,
+				SkillRequiredToResurrect = 85,
 				HealTimeBaseSelf = 8000,
 				HealTimeBaseOther = 8000,
 				MinHealTime = 3000,
 				InterruptDamagePlayer = 19,
 				InterruptDamageNPC = 26,
-				BandageRange = 3.25
+				BandageRange = 5
 			}
 		},
 		-- MAGIC SKILLS
@@ -75,6 +75,15 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.4,
 		},
+
+		-- MagerySkill = {
+		-- 	DisplayName = "Magery",
+		-- 	PrimaryStat = "Intelligence",
+		-- 	Description = "Magery determines your knowledge of magics.",
+		-- 	SkillType = "CombatTypeSkill",
+		-- 	GainFactor = 0.4,
+		-- },
+
 		ManifestationSkill = {
 			DisplayName = "Manifestation",
 			PrimaryStat = "Intelligence",
