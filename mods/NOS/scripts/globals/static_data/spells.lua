@@ -1847,7 +1847,7 @@ SpellData = {
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_shaken_slow_effect",
 			Reagents = {
-				"Bloodmodss",
+				"Bloodmoss",
 				"Ginseng",
 				"Mandrake",
 				"Sulfurousash"
