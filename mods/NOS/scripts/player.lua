@@ -1620,13 +1620,11 @@ end
 -- This gets called on both creation and loading from backup
 function OnLoad(isPossessed)		
 
+	-- BYPASS EVOC/MANIF
 	local magery = GetSkillLevel(this, "MagerySkill")
-	DebugMessage(magery)
 	if (magery == 0) then
 		local evoc = GetSkillLevel(this, "EvocationSkill")
-		DebugMessage(evoc)
 		local mani = GetSkillLevel(this, "ManifestationSkill")
-		DebugMessage(mani)
 		local newMagerySkill = 0.1;
 		if (evoc > mani) then 
 			newMagerySkill = evoc
@@ -1635,6 +1633,7 @@ function OnLoad(isPossessed)
 		end	
 		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
 	end
+
 	if not(isPossessed) then
 		if(not(this:HasObjVar("playerInitialized"))) then
 			this:SetObjVar("playerInitialized",true)
