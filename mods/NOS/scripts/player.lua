@@ -3,7 +3,7 @@ require 'default:player'
 require 'incl_player_names.lua'
 
 if(IsDemiGod(this)) then
-	require 'defaults:base_player_mobedit'
+	require 'default:base_player_mobedit'
 end
 
 function UpdateName()
