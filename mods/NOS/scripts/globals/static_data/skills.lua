@@ -57,13 +57,13 @@ SkillData = {
 			SkillIcon = "Skill_Regeneration",
 			GainFactor = 1,
 			Options = {
-				SkillRequiredToResurrect = 80,
+				SkillRequiredToResurrect = 85,
 				HealTimeBaseSelf = 8000,
 				HealTimeBaseOther = 8000,
 				MinHealTime = 3000,
 				InterruptDamagePlayer = 19,
 				InterruptDamageNPC = 26,
-				BandageRange = 3.25
+				BandageRange = 5
 			}
 		},
 		-- MAGIC SKILLS
