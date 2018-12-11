@@ -509,13 +509,13 @@ EquipmentStats = {
 			--naked
 			ArmorClass = "Cloth",
 			Head = {
-				ArmorRating = 12
+				ArmorRating = 0
 			},
 			Chest = {
-				ArmorRating = 16
+				ArmorRating = 0
 			},
 			Legs = {
-				ArmorRating = 17
+				ArmorRating = 0
 			}
 		},
 		Padded = {
@@ -535,26 +535,26 @@ EquipmentStats = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 14
+				ArmorRating = 12
 			},
 			Chest = {
-				ArmorRating = 18
+				ArmorRating = 14
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 14
 			}
 		},
 		MageRobe = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 14
+				ArmorRating = 10
 			},
 			Chest = {
-				ArmorRating = 18
+				ArmorRating = 10
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 10
 			}
 		},
 		Leather = {

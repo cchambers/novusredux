@@ -90,10 +90,10 @@ ServerSettings.Karma = {
         },
         {
             Amount = -10000,
-            Name = "Outcast",
+            Name = "Dread",
             AlignmentName = "Unlawful",
             NameColor = "FF0000",
-            Title = "The Outcast",
+            Title = "The Dread",
             NegativeKarmaAdjustMod = 0.15,
             -- guards will attack this player, don't set guard protect to true when this is true, things might get weird?
             GuardHostilePlayer = true,

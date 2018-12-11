@@ -54,7 +54,7 @@
 					},
 					ItemInventory= {
 						{
-							Template = "resource_iron_ore",
+							Template = "tool_hammer",
 							Price = 0,
 							Amount = 500,
 							RelativeLoc = "-2.062012, 0.5620003, -5.570007",

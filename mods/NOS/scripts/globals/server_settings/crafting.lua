@@ -65,7 +65,7 @@ ServerSettings.Crafting = {
             Iron = 0,
             Copper = 50,
             Gold = 100,
-            Cobalt = 15,
+            Cobalt = 150,
             Obsidian = 200,
 
             Cloth = 0,
@@ -74,7 +74,7 @@ ServerSettings.Crafting = {
 
             Leather = 0,
             BeastLeather = 75,
-            VileLeather = 15,
+            VileLeather = 150,
 
             Boards = 0,
             AshBoards = 100,

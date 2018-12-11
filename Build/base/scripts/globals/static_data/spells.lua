@@ -716,7 +716,7 @@ SpellData = {
 			TargetRequired = false,
 			MobileEffect = "Intellect",
 			Reagents = {
-				"LemonGrass",
+				"Garlic",
 			},
 			Circle = 1,
 			PlayEffect = HealEffect,
