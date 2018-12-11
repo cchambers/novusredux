@@ -1,0 +1,44 @@
+	<ObjectTemplate>
+	<ClientId>271</ClientId>
+	<Name>Decrepit Ghoul</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="0.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">15</DoubleVariable>		
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">False</BoolVariable>
+		<StringVariable Name="MonsterAR">18</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">7</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+						Melee = 20, 
+						Channeling = 20,
+					},	
+					EquipTable = {
+						Backpack = { "backpack" },					
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.Poor,
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>[00FF00]Stone Tablet[-]</Name>
+	<ClientId>338</ClientId>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="AnotherLanguage">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Fixed prices of all goods at market, on decree of King Ashmurr, King of the Pheonos:\n1: Pork 10 Gold\n2: Beef 15 gold \n3: Chicken 12 Gold\n4: Dragon Meat 50 Gold \n Other Meat: 15 Gold\n\n Vegtables of any kind: 10 Gold \n Ginsing: 66 Gold, and not to be sold without approval of the judges. \n Grain and barley at 20 Gold per Pound. \n\n All other foodstuffs may be priced as determined by the seller. Breaking of the famine laws will result in stoning until judgment is rendered!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>Advanced Cooking</Name>
+	<ClientId>564</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="book">
+			<Initializer>
+				{ 
+				Text = "Advanced Cooking\n\nApple Pie - 20 Wheat, 5 Apples\n\nPumpkin Pie - 20 Wheat, 5 Pumpkins\n\nWolf Steak - 3 Wolf Meat, 1 Mushroom\n\nDeer Steak - 3 Deer Meat, 1 Mushroom\n\nHorse Steak - 3 Horse Meat, 1 Mushroom\n\nBear Steak - 2 Bear Meat, 1 Mushroom\n\nFried Crocodile - 5 Crocodile Meat, 2 Green Pepper\n\nSpider Eye Soup - 5 Spider Eyes, 1 Water, 1 Onion\n\nCooked Razor Fish - 1 Razor Fillet, 1 Lemongrass, 1 Ginseng\n\nCooked Golden Aetherfish - 1 Golden Aetherfish Fillet, 1 Lemongrass, 1 Mushroom\n\nSmoked Dragon Steak - ?"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

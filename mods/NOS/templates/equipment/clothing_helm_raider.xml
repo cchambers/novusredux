@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Raider Masked Cloth Hood[-]</Name>
+  <ClientId>815</ClientId>
+  <Hue>139</Hue>
+  <SharedStateEntry name="Weight" type="int" value="1"/>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>1116</ClientId>
+	<Name>[FF9500]Spider Statue[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Sound">SpiderDeath</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="statue_effect" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

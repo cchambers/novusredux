@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[5882FA]Curse Scroll[-]</Name>
+	<ClientId>2230</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">CurseScroll</StringVariable>
+	</ObjectVariableComponent>	
+</ObjectTemplate>

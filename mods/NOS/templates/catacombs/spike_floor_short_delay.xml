@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>313</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="SpikeDelayTime">6</DoubleVariable>
+		<DoubleVariable Name="SpikeActivationTime">4</DoubleVariable>
+		<DoubleVariable Name="InitialTimerOffset">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="timed_spike_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

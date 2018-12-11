@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Chest of Rusty Weapons[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="NumTemplates">2</DoubleVariable>		
+		<StringVariable Name="Template1">weapon_longsword_rusty</StringVariable>
+		<StringVariable Name="Template2">shield_buckler_rusty</StringVariable>
+		<DoubleVariable Name="SpawnDelaySecs">10</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="autofill_random_loot"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

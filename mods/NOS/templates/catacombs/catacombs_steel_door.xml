@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>345</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="NoAutoClose">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

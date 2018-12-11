@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>664</ClientId>
+	<Name>[FF9500]Rib Cage Candel[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

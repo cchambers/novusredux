@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Remember the Old Ones when doing any conduct, that all your sacrifices amount to nothing if you are not malicious in conduct. Beat any opponent that tries to best you, slay any creature that tries to attack you. Know that the truth is known to all, and that hatred is your greatest sword in battle."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[00FF00]Skill Training Book[-]</Name>
+	<ClientId>118</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Skill">AnimalKenSkill</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="skill_book"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

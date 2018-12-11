@@ -1,0 +1,71 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>Void Worshiper</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/incubus/incubus"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">650</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Void</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">59</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_worshiper">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Brawling = 80,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = {""},	
+						Backpack = { "backpack" },		
+						Chest = {  "armor_bone_chest" },	
+						Legs = {  "armor_bone_leggings" },		
+						Head = {  "armor_bone_helm" },	
+						RightHand = {{  Weight = 1, Template = "weapon_mace", Unique = true },
+								{  Weight = 1, Template = "weapon_broadsword", Unique = true },
+								{  Weight = 1, Template = "weapon_dagger", Unique = true }},
+						LeftHand = {{  Weight = 70, Template = "torch", Unique = true }},			
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.WarriorRich,
+						TemplateDefines.LootTable.Humanoid,
+						{
+							NumCoins = math.random(500,650),
+						},
+					},	
+				ScavengeTables =
+					{
+					},					
+					WeaponAbilities = { primary="Slash" },	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

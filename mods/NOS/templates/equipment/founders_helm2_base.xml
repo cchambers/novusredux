@@ -1,0 +1,6 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Afterglow Suit Helmet[-]</Name>
+	<ClientId>1027</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ScriptEngineComponent/>
+</ObjectTemplate>

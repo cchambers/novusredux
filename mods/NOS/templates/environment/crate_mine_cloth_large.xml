@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>422</ClientId>
+	<Name>[FF9500]Large Mining Crate with Cloth[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

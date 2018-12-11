@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<ClientId>267</ClientId>
+	<Color>0xFFFF0000</Color>
+	<Name>Imp Minion</Name>
+	<ScaleModifier>0.5</ScaleModifier>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/imp/imp"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1.5</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="BaseHealth">75</DoubleVariable>
+		<StringVariable Name="NaturalArmor">Medium</StringVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<StringVariable Name="NaturalWeaponType">Gladius</StringVariable>
+		<StringVariable Name="AutoDestroyVersion">0.3.4</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Claws</StringVariable>
+		<BoolVariable Name="AutoUnstable">True</BoolVariable>
+		<BoolVariable Name="HasSkillCap">True</BoolVariable>
+		<BoolVariable Name="DoesNotBleed">true</BoolVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_imp_minion">
+			<Initializer>
+				{ 
+				Stats = { Str=45, Agi=40, Int=35 },
+				Skills = 
+				{ 
+					Melee = 70, 
+					Brawling = 70,
+					Piercing = 70,
+					Slashing = 70,
+					Dodge = 70,
+				},			
+				EquipTable = 
+					{
+						Backpack = { "backpack" },						
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

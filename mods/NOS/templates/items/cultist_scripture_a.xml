@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]The Book of Ragnatha[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "The words of Elacatha the Prophet be known to thee, he who readith this text must understand. For all is known, and all shall be known during the Reckoning. \n\nWoe be to all who disbelieve! Woe be to those who pray to the false gods! For the time of truth is at hand! I say to you, truth can be found in the words of the Old Ones! Word can be found only through prayer and sacrifice! For those who disbelieve, beware! Your time is at hand to fail! You shall not resist, the end will come and wash out all those who disbelieve.\n\n Let it be known that in the time before, the Elder Ones held supreme over all that is, and all that shall be. They came in the night, and left during the day. All of creation we owe to them, all of creation is owned by them. For those who claim that knowledge is held by another god, nay we say. They are owned by Demons and Inpiety, they have forgotten the covenant made with the Star Dweller who will return and claim his righousness over the land!\n\n For the faithful, I give you these seven laws to follow as a guide to all those who wish to be saved: \n\n1: Kill any man who disrespects thee. \n\n2: Slay the Rat and Venerate the Snake, for the Rat be the lowest of creatures, and the Snake the highest. \n\n3:Tolerate not the heretics, for they promote schism, and are against the True Path. \n\n4: Man has a right to dominate, over all including other men. \n\n5: Sin is but a form of worship to the Elder Gods, commit it openly and without shame. \n\n6: Eat no more than what you need eat, for gluttony is but the start of heresy \n\n7: Oppose all who disbelieve in the true religion, for that is the knowledge of the true path, the slaughter of disbelievers. \n\nAnd thus, Elactha hath spoken. Know that every disbeliever can become a knower of the truth, should he only desire it. Let him not be helped, for he must help himself who believes. \n\nAnd hear ye, traitors of the faith, you will be desolated like a burnt forest, only those who know not what they do can be spared. For Elacatha hath spoken, and you have known."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

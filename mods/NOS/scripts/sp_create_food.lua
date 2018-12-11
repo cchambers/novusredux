@@ -42,8 +42,8 @@ RegisterEventHandler(
 	"CreateFoodSpellTargetResult",
 	function(targetLoc)
 		-- can't actually get skill levels here because the player object isn't passed...
-		-- local manifestationSkill = GetSkillLevel(this, "Manifestation")
-		-- DebugMessage("level " .. manifestationSkill)
+		-- local MagerySkill = GetSkillLevel(this, "Magery")
+		-- DebugMessage("level " .. MagerySkill)
 		doCreateFood(targetLoc)
 	end
 )

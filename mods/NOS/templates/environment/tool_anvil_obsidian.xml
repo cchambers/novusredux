@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>45</ClientId>
+	<Name>[FF9500]Obsidian Anvil[-]</Name>
+	<Hue>893</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolSkill">MetalsmithSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="metalsmith_crafting"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

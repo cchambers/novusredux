@@ -1,0 +1,18 @@
+<ObjectTemplate>
+  <Name>Book of Kho: Chapter 5</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "On the nature of the beings of the Void, there are two that arise, of importance. First and foremost, is that of the Daemons, servants of the Dark One, the God of Light and Dark. They, arising naturally in the Void, or from being forged by that of souls of the living, are closest to Him. \n\nSecond is that of the damned. The Damned are made from the magic that pervades through all things, or inhabitted by a soul from the Void, and as such life has returned to them. They can think as we do, because what are our thoughts but magic itself? \n\nThat which is not risen from dead magic is from that of souls which have returned from the Underworld to serve and show the living the truth: Hope. For that is our purpose. That is our secret. \nWe bring hope to the cosmos. \n\nHope. \n\nHope that when we pass on, that we die, it is not the end. It is the beginning. And in the end, if one shows loyalty and does not oppose Kho, then we shall see our loved ones and our families again, in eternal bliss in the Twilight that is the Void. \n\nFor was it not our God that userped the throne of the Underworld from the Strangers? Was it not him who came into being and showed us the light? Remember this, that our God is a vengeful God, a cruel, callous God. \n\nBut he is also the God of Love and Hope.\n\nThat is the light side of our God. \n\nBut our God is the Lord of Darkness as well, King of the Damned. \n\nFor he is not only the God of Love, but the God of Hatred and Darkness. Know this when you send to the sword all those who oppose Him, that they will not only suffer at the end of their lives but be cursed ever after. Let all who oppose the King of the Damned know His fury, so that they will see the light when they are crushed beneath the fist of the Corpse God."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

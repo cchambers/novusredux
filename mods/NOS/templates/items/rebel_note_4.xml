@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<!--
+    	<StringVariable Name="StartQuest">NoteQuest2</StringVariable>
+    	<BoolVariable Name="IsRebelNote">True</BoolVariable>
+    -->
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "The people of the Southern Hills aren't to be trusted. Stay away from their village and their guards, they are just as hostile to us as the Guardian Order of Petra."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

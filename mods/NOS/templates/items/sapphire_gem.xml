@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>2251</ClientId>
+	<Color>0xFF00EEEE</Color>
+	<Name>[00EEEE]Sapphire[-]</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">Sapphire</StringVariable>
+		<StringVariable Name="PluralName">Sapphire</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1730</ClientId>
+	<Name>[FF9500]Torture Rack[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

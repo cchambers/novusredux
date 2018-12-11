@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>316</ClientId>
+	<ScaleModifier>1.6</ScaleModifier>
+	<Name>Pressure Plate</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="InfoMessage">This will be unlocked in a future release.</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="info_on_use"/>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

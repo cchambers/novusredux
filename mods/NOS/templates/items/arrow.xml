@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>1183</ClientId>
+	<Name>[FF9500]Arrow[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<StringVariable Name="ResourceType">Arrows</StringVariable>
+		<StringVariable Name="SingularName">Arrow</StringVariable>
+		<StringVariable Name="PluralName">Arrows</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[0078ff]Sign[-]</Name>
+	<ClientId>1259</ClientId>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="name_replacer"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

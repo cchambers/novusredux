@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>1057</ClientId>
+  	<Name>[FFFFFF]Burning Hot Flask of the Habenero[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<Color>0xFFFF0000</Color>
+	<ObjectVariableComponent>
+		<StringVariable Name= "UserScript">potion_firehead_effect</StringVariable>
+		<StringVariable Name= "ItemUseMessage">You quaff the potion...</StringVariable>
+		<StringVariable Name= "ItemCannotUseMessage">You have already drank a potion.</StringVariable>
+		<StringVariable Name= "UseTimer">GlowPotion</StringVariable>
+		<BoolVariable Name="DestroyOnUse">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="script_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

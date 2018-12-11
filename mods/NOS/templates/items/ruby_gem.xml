@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2250</ClientId>
+	<Name>Ruby</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">Ruby</StringVariable>
+		<StringVariable Name="PluralName">Ruby</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

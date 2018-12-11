@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1065</ClientId>
+	<Name>[FF9500]Crystal Wall[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

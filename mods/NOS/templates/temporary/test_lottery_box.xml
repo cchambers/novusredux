@@ -1,0 +1,26 @@
+<ObjectTemplate>
+    <Name>Artifact Crate</Name>
+    <ClientId>2262</ClientId>
+    <SharedStateEntry name="Weight" type="int" value="1"/>
+    <ObjectVariableComponent>
+        <StringVariable Name="ResourceType">LotteryBox</StringVariable>
+    </ObjectVariableComponent>
+    <ScriptEngineComponent>
+        <LuaModule Name="set_initializer_variables">
+            <Initializer>
+                {   
+                    LootTable = {
+                        NumItems = 1,
+                        LootItems = {
+                            { Weight = 10, Template = "item_statue_bear", Unique = true },
+                            { Weight = 10, Template = "item_statue_cerberus", Unique = true },
+                            { Weight = 10, Template = "item_statue_death", Unique = true },
+                            { Weight = 10, Template = "furniture_table_round", Unique = true, Packed=true },
+                            { Weight = 10, Template = "furniture_globe", Unique = true, Packed=true },
+                        },
+                    },
+                }
+            </Initializer>
+        </LuaModule>
+    </ScriptEngineComponent>
+</ObjectTemplate>

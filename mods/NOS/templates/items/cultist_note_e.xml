@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Partial Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "The Ritual of Sarkassishth must be done as follows every month, once a month, on the third tuesday of the month, in honor of Kommen himself, he who first tamed the snake. \nPick a snake and slice it open from it's right side of the mouth down to it's tail. Pull the snake open, and drink it's blood. Chant the holy phrase \"Karrass, Bardar, Icholah\" thrice. Smear the snake's blood on your cheeks, and burn the body. While the body is alight, chant the phrase \"Fiat Voluntas Tua, Ut Rediisse Chaosae\" until the body has burnt to ash. Abstaining from this ritual is punishable by 20 lashes."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

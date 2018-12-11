@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>641</ClientId>
+	<Name>[FF9500]Tall Pile of Bones[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

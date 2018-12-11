@@ -1,0 +1,93 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Treasure Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="ChanceToBeTrapped">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="chance_to_trap"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(4000,6000),
+				    	},
+				    	--rares
+				    	{
+			    		},
+				    	--stuff
+				    	{
+					    	NumItems = 3,
+					    	LootItems =
+					    	{
+				    			{ Weight = 25, Template = "torch", Unique = true },
+				    			{ Weight = 25, Template = "tool_hunting_knife", Unique = true },
+				    			{ Weight = 25, Template = "item_apple", Unique = true },
+				    			{ Weight = 25, Template = "item_bread", Unique = true },
+				    			{ Weight = 25, Template = "item_ale", Unique = true },
+				    			{ Weight = 10, Template = "clothing_bandana_helm", Unique = true },
+				    			{ Weight = 10, Template = "clothing_tattered_legs", Unique = true },
+				    			{ Weight = 10, Template = "clothing_tattered_shirt_chest", Unique = true },
+				    			{ Weight = 10, Template = "tool_cookingpot", Unique = true },
+				    			{ Weight = 10, Template = "tool_hatchet", Unique = true },
+				    			{ Weight = 10, Template = "tool_mining_pick", Unique = true },
+				    			{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
+				    		}
+			    		},
+			    		--potions
+				    	{
+					    	NumItems = 5,
+					    	LootItems =
+					    	{
+				    			{ Weight = 5, Template = "potion_mana", Unique = true },
+				    			{ Weight = 5, Template = "potion_stamina", Unique = true },
+				    			{ Weight = 5, Template = "potion_heal", Unique = true },
+				    			{ Weight = 5, Template = "potion_cure", Unique = true },
+				    		}
+			    		},
+			    		--maps
+						{
+							NumItems = 2,	
+
+							LootItems = 
+							{ 
+								{ Weight = 50, Template = "treasure_map_3", Unique = true },
+								{ Weight = 25, Template = "treasure_map_4", Unique = true },
+							},
+						},
+						--spells
+						{
+							NumItems = 5,	
+
+							LootItems = 
+							{ 
+								{ Weight = 0, Template = "lscroll_heal", Unique = true },
+								{ Weight = 0, Template = "lscroll_heal", Unique = true },
+								{ Weight = 0, Template = "lscroll_cure", Unique = true },
+								{ Weight = 0, Template = "lscroll_poison", Unique = true },
+								{ Weight = 0, Template = "lscroll_ruin", Unique = true },
+
+								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+								{ Weight = 5, Template = "lscroll_mark", Unique = true },
+
+								{ Weight = 10, Template = "lscroll_resurrect", Unique = true },
+								{ Weight = 10, Template = "lscroll_earthquake", Unique = true },
+								{ Weight = 10, Template = "lscroll_meteor", Unique = true },
+								{ Weight = 10, Template = "lscroll_portal", Unique = true },
+							},
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

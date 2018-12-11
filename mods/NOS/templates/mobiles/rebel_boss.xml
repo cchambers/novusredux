@@ -1,0 +1,74 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Rebel General</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
+		<DoubleVariable Name="BaseHealth">210</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Rebel</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">47</DoubleVariable>
+		<DoubleVariable Name="Attack">28</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_rebel">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness = 2,
+					Might = 2,
+					},
+				Skills = 
+					{ 
+					Brawling = 40,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { "armor_brigandine_tunic" },
+						Legs = { "armor_brigandine_leggings" },	
+						RightHand = {"weapon_shortbow"},	
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Head= {	"robe_padded_helm" },		
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.ArcherPoor,
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Poor,
+						{
+							NumCoins = math.random(50,100),
+							{
+				    			{ Weight = 90, Template = "weapon_rebel", Unique = true },
+				    			{ Weight = 10, Template = "furniture_box", Unique = true },
+				    		}
+						},
+					},	
+				ScavengeTables =
+					{
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

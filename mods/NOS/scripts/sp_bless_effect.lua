@@ -5,7 +5,7 @@ mDurationMinutes = 2
 mBuffed = false
 
 function HandleLoaded(caster)
-	local skillLevel = GetSkillLevel(caster, "ManifestationSkill")
+	local skillLevel = GetSkillLevel(caster, "MagerySkill")
 
 	if (this:HasTimer("SpellBlessBonusTimer")) then
 		this:RemoveTimer("SpellBlessBonusTimer")

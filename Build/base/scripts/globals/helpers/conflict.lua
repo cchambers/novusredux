@@ -256,7 +256,7 @@ function AdvanceConflictRelation(mobileA, mobileB, karmaAction, neverGuards)
         refreshB = false
         -- warn players when they are attacked by other players
         if ( isPlayerA and isPlayerB ) then
-            mobileB:SystemMessage(string.format("%s is attacking you!", StripColorFromString(mobileA:GetName())), "info")
+            mobileB:SystemMessage(string.format("%s [FF8C00]is attacking you![-]", StripColorFromString(mobileA:GetName())), "info")
         end
         -- Karma action for becoming the aggressor
         ExecuteKarmaAction(mobileA, karmaAction or KarmaActions.Negative.Attack, mobileB)

@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>268</ClientId>
+	<Name>Ghoul</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">280</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name= "MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Brawling = 40,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Poor,
+						TemplateDefines.LootTable.BonesCursed,
+						{
+							NumCoins = math.random(50,120),
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+					WeaponAbilities = { primary="Bleed" },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

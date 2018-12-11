@@ -1,0 +1,104 @@
+<ObjectTemplate>
+	<ClientId>2229</ClientId>
+	<Name>[0078ff]Dungeon Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="ChanceToBeTrapped">0</DoubleVariable>
+		<BoolVariable Name="locked">true</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(400,800),
+				    	},
+				    	--rares
+				    	{
+					    	NumItems = 1,
+					    	LootItems =
+					    	{
+				    			{ Chance = 1,Template = "deco_guillotine", Packed = true, Unique = true },
+				    		}
+			    		},
+				    	--ingredients
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 3,
+							LootItems = 
+							{									
+								{ Weight = 35,Template = "potion_heal", Unique = true },
+								{ Weight = 35,Template = "potion_mana", Unique = true },
+								{ Weight = 35,Template = "potion_stamina", Unique = true },
+								{ Weight = 35, Template = "bandage", Unique = true },
+								{ Weight = 25, Template = "arrow", Unique = true, StackCountMin = 10, StackCountMax = 20},
+							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
+
+				    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
+
+				    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
+				    		}
+						},
+
+						--regs
+						{
+							NumItemsMin = 3,
+							NumItemsMax = 4,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 20},
+								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 25},
+							}
+						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 2,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_cure", Unique = true },
+								{ Weight = 5, Template = "lscroll_poison", Unique = true },
+								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
+							},
+						},		
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

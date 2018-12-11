@@ -2675,7 +2675,7 @@ InscriptionSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 		EnergyWallScroll = {

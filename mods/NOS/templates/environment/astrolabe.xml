@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>744</ClientId>
+	<Name>[FF9500]Astrolabe[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

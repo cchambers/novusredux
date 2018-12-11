@@ -1,0 +1,34 @@
+<ObjectTemplate>
+	<ClientId>59</ClientId>
+	<Name>George</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
+	<SharedStateEntry name="Variation" type="string" value="Black"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="NaturalWeaponType">BattleAxe</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Claws</StringVariable>
+		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Horse</StringVariable>
+		<StringVariable Name="MonsterAR">0</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">4</DoubleVariable>
+		<!--<DoubleVariable Name="TamingDifficulty">20.1</DoubleVariable>-->
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_horse">
+			<Initializer>				
+				{ 
+					Stats = { Str=math.random(22,98), Agi=math.random(56,75), Int=math.random(6,10), },
+					Skills = 
+					{ 
+						Channeling=math.random(30.1,45), 
+						Melee=math.random(30.1,45), 
+					},					
+				}
+			</Initializer>
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

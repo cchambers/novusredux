@@ -1,0 +1,57 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Zealot</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>	
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+     	<BoolVariable Name="noloot">True</BoolVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>		
+    	<StringVariable Name= "MobileTeamType">Wayun</StringVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_catacombs_guard">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					},
+				Skills = 
+					{ 
+					Brawling=100,  
+					},	
+					EquipTable = {
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						BodyPartHead = {"head_male04"},
+						Chest = {"plant_chest_base"},
+						Legs = {"plant_legs_base"},
+						Helm = {"plant_helm_base"},
+						Backpack = { "backpack" },	
+					},
+					LootTables = { 
+						{
+							NumCoins = math.random(10,20),
+						},
+						--Right Hand Equipment
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Weight = 50, Template = "weapon_halberd_silver", Unique = true },
+							},
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

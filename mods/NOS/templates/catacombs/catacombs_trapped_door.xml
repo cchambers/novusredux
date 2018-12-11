@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>344</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="NoAutoClose">True</BoolVariable>
+		<DoubleVariable Name="TrapChance">5</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="trapped_object"/>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

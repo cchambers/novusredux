@@ -1,0 +1,6 @@
+<ObjectTemplate>
+  <Name>[978161]Apron[-]</Name>
+	<ClientId>543</ClientId>
+	<Hue>139</Hue>
+    <SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

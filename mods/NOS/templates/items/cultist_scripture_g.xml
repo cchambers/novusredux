@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book Of Yihosiglok[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="BookOfYihosiglok">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Yihosiglok the creature, praise be to him! \nHe who is all that should be known! \nHe with his thousand tentacles, fourty eyes, and twelve wings, soul as black as hell! It is he who is the Star Dweller, the lord of all things, the true God of Aria! \n\nWhen he made himself appear to the chosen, he took the firstborn of them and brought them to the Dark Realm, the place of eternal darkness! The ancient god appeared to Kommen himself in a dream, telling him all there was to know, and giving all people purpose, to serve him and his brothers for all eternity! \n\nLet it be known that he has a mind as cold as winter, and is wiser than any owl. His vileness is to be spread, his malice to be known to all. All sacred things are to be known from him, for he is the avatar of the Elder Ones. \n\nHe spoke first to Kommen, saying 'You are to be a god among men. You are to lead your race to serve us, and in consequence, you will receive all glory'. The words of the Elder One Himself are to be known to all! \n\nWe exist to serve, and all shall bow to his truth. Bend to his will, and he will spare you and give you glory beyond measure. Disobey him, and know his wrath. \n\nAll that is the truth shall be known from him, and should all follow him, we shall join him in the stars."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

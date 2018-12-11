@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>657</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="TeleportRange">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="sewer_teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

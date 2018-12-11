@@ -1,0 +1,67 @@
+<ObjectTemplate>
+	<ClientId>1580</ClientId>
+	<Name>Wild Harpy</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">720</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Harpy</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">51</DoubleVariable>
+		<DoubleVariable Name="Attack">32</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 70,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 		
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Prestige,	
+						TemplateDefines.LootTable.Potions,		
+						{
+							NumCoins = math.random(123,342),
+						},	
+					},	
+				ScavengeTables =
+					{
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="WildFeather", RarityPct=100, Count=	20 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

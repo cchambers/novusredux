@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Full Plate Leggings[-]</Name>
+	<ClientId>1475</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="7"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">FullPlate</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

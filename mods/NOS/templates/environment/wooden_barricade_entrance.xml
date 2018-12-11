@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>432</ClientId>
+	<Name>[FF9500]Barricade Entrance[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

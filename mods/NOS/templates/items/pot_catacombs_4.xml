@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>650</ClientId>
+	<Name>[FF9500]Clay Jug[-]</Name>
+	<ScriptEngineComponent/>		
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

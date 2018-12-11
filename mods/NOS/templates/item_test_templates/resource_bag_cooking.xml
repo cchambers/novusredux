@@ -1,0 +1,34 @@
+<ObjectTemplate>
+	<TemplateName></TemplateName>
+	<Name>Cooking Resources</Name>
+
+	<ClientId>554</ClientId>
+
+	<SharedStateEntry name="Capacity" type="int" value="20"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 9,
+							LootItems = 
+							{
+								{ Chance = 100, Template = "animalparts_barrel_fish_fillet", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "animalparts_tero_fish_fillet", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "animalparts_spotted_tero_fish_fillet", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "animalparts_razor_fish_fillet", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "animalparts_golden_aether_fish_fillet", Unique = true, StackCount = 100 },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[FF9500]Recipe: Halberd[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">Halberd</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Halberd</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

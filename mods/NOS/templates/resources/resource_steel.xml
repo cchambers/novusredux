@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Steel[-]</Name>
+	<ClientId>1000</ClientId>
+	<Hue>836</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Steel</StringVariable>
+		<StringVariable Name="PluralName">Steel</StringVariable>	
+		<DoubleVariable Name="UnitWeight">0.5</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

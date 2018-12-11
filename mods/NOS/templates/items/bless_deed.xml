@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>Bless Deed</Name>
+	<ClientId>2095</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BlessDeed</StringVariable>
+	</ObjectVariableComponent>					    	
+</ObjectTemplate>

@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>R.E.W.</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="random_executioner_weapon"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

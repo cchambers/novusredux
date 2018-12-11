@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Sickly Eye[-]</Name>
+	<ClientId>906</ClientId>
+	<Hue>964</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SicklyEye</StringVariable>
+		<StringVariable Name="PluralName">Sickly Eyes</StringVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -1,0 +1,75 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>Void Mage</Name>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/incubus/incubus"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Void</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">44</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_void_worshiper">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness=3,
+					Might = 3,
+					},
+				Skills = 
+					{ 
+					Brawling=100, 
+					Magery=100,
+					Magery=100,
+					MagicAffinity=100, 
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartHair = {""},	
+						Backpack = { "backpack" },		
+						Chest = {  "robe_padded_tunic" },	
+						Legs = {  "robe_padded_tunic" },		
+						Head = {  "robe_padded_helm" },	
+						RightHand = {{  Template = "weapon_staff", Unique = true }},
+						LeftHand = {{  Weight = 70, Template = "torch", Unique = true }},			
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.AncientScrolls,
+						{
+							NumCoins = math.random(500,650),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},					
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

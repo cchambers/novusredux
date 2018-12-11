@@ -1,0 +1,28 @@
+<ObjectTemplate>
+	<ClientId>2221</ClientId>
+	<Name>[FF9500]Scorpion Nest[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="ObjectOffset" type="double" value="3"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+		<DoubleVariable Name="BaseHealth">1400</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="destructable_mob_spawner">
+			<Initializer>
+			{	
+				SkillLevel = 80,
+				Spawns = 
+				{
+					{
+						Template = "mission_scorpion_4", 
+						Max = 2,
+						AddSpawns = 1
+					},
+				},
+				SpawnRange = 12,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

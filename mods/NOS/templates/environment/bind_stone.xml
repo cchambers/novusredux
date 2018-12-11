@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[2E64FE]Bind Stone[-]</Name>
+	<ClientId>2169</ClientId>
+	<ObjectVariableComponent/>
+	<ScaleModifier>0.5</ScaleModifier>
+	<ScriptEngineComponent>
+		<LuaModule Name="bindstone"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

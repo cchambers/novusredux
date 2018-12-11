@@ -1,0 +1,67 @@
+<ObjectTemplate>
+	<ClientId>1250</ClientId>
+	<Name>Half Gazer</Name>
+	<ScaleModifier>.5</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">310</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Gazer</StringVariable>
+		<StringVariable Name= "MobileKind">Beholder</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">53</DoubleVariable>
+		<DoubleVariable Name="Attack">27</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<DoubleVariable Name="Power">14</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Magery=100,
+					Magery=100,
+					Brawling = 60,  
+					MagicAffinity=100,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MagePoor,
+						TemplateDefines.LootTable.ScrollsLow,
+						TemplateDefines.LootTable.Poor,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.AncientScroll,
+						TemplateDefines.LootTable.FineScrolls,
+						{
+							NumCoins = math.random(120,180),
+						},
+					},		
+				ScavengeTables =
+					{
+					},						
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

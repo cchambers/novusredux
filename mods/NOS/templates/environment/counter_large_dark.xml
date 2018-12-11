@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1813</ClientId>
+	<Name>[FF9500]Large Counter[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

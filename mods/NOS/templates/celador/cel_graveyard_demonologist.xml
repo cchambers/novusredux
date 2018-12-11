@@ -18,7 +18,7 @@
 			<Initializer>
 				{
 					Stats = { Str=120, Agi=120, Int=110 },
-					Skills = { Melee = 100, Blocking = 100, Manifestation = 100, Channeling = 100, MagicAffinity = 100, Dodge = 90, Blocking = 90},
+					Skills = { Melee = 100, Blocking = 100, Magery = 100, Channeling = 100, MagicAffinity = 100, Dodge = 90, Blocking = 90},
 					AvailableSpells = {"Souldrain","Voidblast","Spawnskeleton","Fireball", "Heal", "Grimaura","Teleport","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
 					EquipTable = {
 						RightHand = { "torch"},

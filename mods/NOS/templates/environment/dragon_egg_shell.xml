@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>1022</ClientId>
+	<Color>0xFFA4A4A4</Color>
+	<Name>[FF9500]Dragon Egg Shell[-]</Name>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="dragon_egg"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -20,7 +20,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=10, Agi=4, Int=250 },
-					Skills = { Manifestation = 60 },
+					Skills = { Magery = 60 },
 					EquipTable = 
 					{
             			BodyPartHead = { "head_male02" },

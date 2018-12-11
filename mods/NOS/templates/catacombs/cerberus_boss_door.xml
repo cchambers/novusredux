@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>344</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="NoAutoClose">True</BoolVariable>
+		<StringVariable Name="BossTemplate">cerberus</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+		<LuaModule Name="boss_door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

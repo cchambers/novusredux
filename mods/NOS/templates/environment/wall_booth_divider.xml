@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1818</ClientId>
+	<Name>[FF9500]Wall Booth[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

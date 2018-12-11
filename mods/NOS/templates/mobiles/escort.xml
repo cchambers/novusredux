@@ -1,0 +1,112 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Hunter</Name>
+	<SharedStateEntry name="Title" type="string" value="Traveller"/>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1.30</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_escort">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = { Melee = 90, Slashing = 90, Brawling = 90},
+					Names = {
+						"Bryan",
+						"Robert",
+						"Anthony",
+						"Martin",
+						"Gregory",
+						"Vincent",
+						"Pierre",
+						"Shawn",
+						"Malcolm",
+						"Allan",
+						"Edmund",
+						"Daryl",
+						"Isaac",
+						"Griffon",
+						"Joseph",
+						"Michael",
+						"Jeremy",
+						"Samson",
+						"Flint",
+						"Gustave",
+						"Fulbert",
+						"Melvin",
+						"Marc",
+						"Travis",
+						"Garrett",
+						"Luke",
+					},
+
+					EquipTable = 
+					{
+						BodyPartHair = TemplateDefines.MaleHairVillage,
+						BodyPartHead = TemplateDefines.MaleHeads,
+						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+						Backpack = { "backpack" },
+						Chest = {{"merchant_clothing_chest",734}},
+						Legs = {{"merchant_clothing_legs",0}},		
+					},
+
+					HailPlayerSpeech = 
+					{
+						"You there! I have gold for a mercenary escort! Interested?",
+						"Looking for a job? I have easy coin for easy work!",
+						"Would you happen to be a traveller? I'm looking for an escort.",					
+					},
+
+					--MapMarker is looked up in DefaultMapMarkers, and it's loc is used to calculate reward
+					Tasks = 
+					{
+						{
+							DestinationRegionalName = "City of Valus",
+							MapMarker = "City of Valus",
+						},
+						{
+							DestinationRegionalName = "Eldeir Village",
+							MapMarker = "Eldeir Village",
+						},
+						
+						{
+							DestinationRegionalName = "Pyros Landing",
+							MapMarker = "Pyros Landing",
+						},
+						{
+							DestinationRegionalName = "Helm",
+							MapMarker = "Helm",
+						},
+						{
+							DestinationRegionalName = "Pyros Landing",
+							MapMarker = "Pyros Landing",
+						},
+						{
+							DestinationRegionalName = "Oasis",
+							MapMarker = "Oasis",
+						},
+						{
+							DestinationRegionalName = "Trinit",
+							MapMarker = "Trinit",
+						},
+						{
+							DestinationRegionalName = "Belhaven",
+							MapMarker = "Belhaven",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

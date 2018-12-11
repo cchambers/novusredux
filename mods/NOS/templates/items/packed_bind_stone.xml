@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Bindstone</Name>
+	<ClientId>2260</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">bind_stone</StringVariable>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+		<BoolVariable Name="ExteriorDecoration">true</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

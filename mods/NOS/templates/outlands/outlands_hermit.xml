@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Jebediah the Hermit</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+    	<StringVariable Name= "MobileTeamType">Rebels</StringVariable>
+    	<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="npc_outlands_hermit">
+			<Initializer>
+				{
+					Stats = {
+						Str = 150,
+						Agi = 150,
+						Int = 45,
+					},
+					Skills = { Melee = 70, Slashing = 70},
+					StatMods = {
+						{Name="DamageMod", Identifier="Hermit", Type="Multiplier", Amount=9},
+					},
+					EquipTable = {
+						BodyPartHead= {
+							"head_blacksmith",
+						},
+						RightHand= {
+							"tool_hunting_knife",
+						},
+						Head= {
+							"clothing_mage_hat_helm",
+						},
+						Chest= {
+							"clothing_chest_beggar",
+						},
+						Legs= {
+							"clothing_legs_beggar",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

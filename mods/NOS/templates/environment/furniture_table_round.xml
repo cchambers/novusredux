@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>2115</ClientId>
+	<Name>[FF9500]Round Inn Table[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

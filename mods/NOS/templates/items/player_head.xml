@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>Player Head</Name>
+	<ClientId>204</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="IsRaw">true</BoolVariable >
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="food"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClientId>1020</ClientId>
+  <ScaleModifier>1.5</ScaleModifier>
+    <Name>Ol'Kalu the Pedesii</Name>
+  <MobileComponent>      
+    <BaseRunSpeed>20.0</BaseRunSpeed>
+    <MobileType>Friendly</MobileType>
+  </MobileComponent>
+  <ObjectVariableComponent>
+    <BoolVariable Name="ImportantNPC">True</BoolVariable>
+     <DoubleVariable Name="BaseHealth">50000</DoubleVariable>
+      <StringVariable Name= "MobileTeamType">Pedesii</StringVariable>
+      <BoolVariable Name="SlayOnAttack">True</BoolVariable>
+      <BoolVariable Name="Invulnerable">True</BoolVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="guard_protect" />
+    <LuaModule Name="ai_npc_founders_pedesii">
+      <Initializer>
+				{ 
+					Stats = { Str=700, Agi=700, Int=700 },
+          Skills = { },
+					EquipTable = {
+						RightHand = { "" },
+						Chest = { "" },
+            BodyPartHair = {""},
+					},
+				}
+			</Initializer>
+    </LuaModule>
+  </ScriptEngineComponent>
+</ObjectTemplate>

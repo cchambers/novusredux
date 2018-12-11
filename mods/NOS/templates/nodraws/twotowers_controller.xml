@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Tag>MapController</Tag>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="twotowers_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

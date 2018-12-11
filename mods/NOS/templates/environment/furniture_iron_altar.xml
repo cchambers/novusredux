@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>793</ClientId>
+	<Name>[FF9500]Iron Table[-]</Name>
+	<ObjectVariableComponent/>					
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

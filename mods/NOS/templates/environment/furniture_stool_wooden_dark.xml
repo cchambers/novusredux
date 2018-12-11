@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>1811</ClientId>
+	<Name>[FF9500]Wooden Stool[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="chair"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

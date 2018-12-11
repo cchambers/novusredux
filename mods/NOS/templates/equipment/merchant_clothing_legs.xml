@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>[978161]Traveler's Pants[-]</Name>
+	<ClientId>120</ClientId>
+	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>		
+	<ScriptEngineComponent/>
+</ObjectTemplate>

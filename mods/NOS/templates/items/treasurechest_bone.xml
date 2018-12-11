@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Bone Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

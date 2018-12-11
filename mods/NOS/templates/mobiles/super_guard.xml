@@ -1,0 +1,49 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Guard</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>1.25</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
+    	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+    	<BoolVariable Name= "noloot">true</BoolVariable>
+		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Attack">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<BoolVariable Name="IsNeutralGuard">true</BoolVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_super_guard">
+			<Initializer>
+				{
+				Stats = { Str=40, Agi=30, Int=21 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling=100,  
+					},	
+				EquipTable = 
+					{
+						BodyPartHead = { "head_male02","head_male03","head_male04","head_male05", },
+						RightHand = { "weapon_halberd" },
+						Head = { "armor_plate_helm" },
+						Chest = { "armor_plate_tunic" },
+						Legs = { "armor_plate_leggings" },
+						Backpack = { "backpack" }					
+					},
+				LootTables = 
+					{
+					},
+				CombatAbilities = { "NPCCharge" },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

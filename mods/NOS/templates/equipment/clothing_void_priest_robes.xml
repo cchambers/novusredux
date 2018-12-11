@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Void Priest Robes[-]</Name>
+	<ClientId>919</ClientId>
+  	<Hue>139</Hue>
+	<SharedStateEntry name="Weight" type="int" value="3"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ArmorType">VeryLight</StringVariable>
+   		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

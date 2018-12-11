@@ -1,0 +1,56 @@
+<ObjectTemplate>
+	<ClientId>11</ClientId>
+	<Name>Nest Spider</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">320</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Arachnid</StringVariable>
+		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">16</DoubleVariable>
+		<DoubleVariable Name="Power">0</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Magery=0,
+					Magery=0,
+					MagicAffinity=0,
+					Brawling = 60,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+					},	
+				ScavengeTables =
+					{
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

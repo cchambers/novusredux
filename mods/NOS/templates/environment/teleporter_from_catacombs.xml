@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>Teleporter</Name>
+	<ClientId>278</ClientId>
+	<ObjectVariableComponent>	
+		<StringVariable Name="WindowTitle">Select Home Universe</StringVariable>
+		<StringVariable Name="DestinationMap">Celador</StringVariable>
+		<LocVariable Name="Destination">258,0,-1334</LocVariable>
+		<DoubleVariable Name="DestinationFacing">151</DoubleVariable>
+		<BoolVariable Name="CreatePortalOnExit">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter_map"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

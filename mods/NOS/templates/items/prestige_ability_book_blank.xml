@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[2E9AFE]Prestige Ability Book[-]</Name>
+	<ClientId>1346</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="prestige_ability_book"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

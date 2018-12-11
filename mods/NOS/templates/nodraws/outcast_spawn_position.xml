@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<Name>Spawn Position</Name>
+	<ClientId>2</ClientId>
+	<Tag>OutcastSpawnPosition</Tag>	
+</ObjectTemplate>

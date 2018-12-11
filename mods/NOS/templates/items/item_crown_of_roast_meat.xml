@@ -1,0 +1,22 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Crown of Roast Meat[-]</Name>
+	<ClientId>941</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FoodValue">12.0</DoubleVariable>
+		<BoolVariable Name = "cooked">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						StaminaRegenMod = { 
+							Multiplier = 1.01,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

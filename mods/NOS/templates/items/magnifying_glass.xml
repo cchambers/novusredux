@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>694</ClientId>
+	<Name>[FF9500]Magnifying Glass[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="magnifying_glass"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

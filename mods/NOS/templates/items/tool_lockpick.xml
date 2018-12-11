@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Lockpick[-]</Name>
+	<ClientId>2222</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Lockpick</StringVariable>
+		<DoubleVariable Name="MaxDurability">10</DoubleVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent/>
+</ObjectTemplate>

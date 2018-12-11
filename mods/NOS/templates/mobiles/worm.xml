@@ -1,0 +1,41 @@
+<ObjectTemplate>
+	<ClientId>289</ClientId>
+	<Name>Worm</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>.5</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">50</DoubleVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<StringVariable Name="NaturalArmor">VeryLight</StringVariable>
+		<BoolVariable Name="CanBeTamed">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default_animal">
+			<Initializer>				
+				{ 
+					Stats = { Str=35, Agi=10, Int=5 },
+					Skills = 
+					{ 
+						Melee = 40, 
+						Channeling = 20,
+					},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="leash"/>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="WormExtract", RarityPct=50, Count=2 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

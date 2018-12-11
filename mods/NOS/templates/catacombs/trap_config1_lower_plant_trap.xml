@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Archdemon Trap Room</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="sealed_room">
+			<Initializer>
+			{
+				Spawns = {{"ghoul",8}},
+				RoomType = "Region",
+				Region = "RoomB25",
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

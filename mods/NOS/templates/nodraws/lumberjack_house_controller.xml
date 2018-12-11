@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>2</ClientId>
+	<Color>0xFFF0FF00</Color>
+	<Name>Lumberjack House Controller</Name>
+	<ObjectVariableComponent />
+	<ScriptEngineComponent>
+		<LuaModule Name="scene_item_spawner">
+			<Initializer>
+				{
+					ItemInventory= {
+						{
+							Template = "skill_lumberjack",
+							RelativeLoc = "-4.158997, 1.318, 1.828003",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "skill_lumberjack",
+							RelativeLoc = "3.979004, 1.084372, -4.487",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "tool_hatchet",
+							RelativeLoc = "-2.243988, -0.2852612, -17.701",
+							Rotation = "331.5351, 110.3904, 139.9082",
+						},
+						{
+							Template = "skill_lumberjack",
+							RelativeLoc = "-4.158997, 1.167, 1.828003",
+							Rotation = "0, 180, 0",
+						},
+						{
+							Template = "skill_lumberjack",
+							RelativeLoc = "-2.951996, 1.167, 1.828003",
+							Rotation = "0, 180, 0",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,59 @@
+<ObjectTemplate>
+	<ClientId>21</ClientId>
+	<Name>Snake</Name>
+	<ScaleModifier>.75</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/animals/snake/snake"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+	<DoubleVariable Name="BaseHealth">80</DoubleVariable>
+    <StringVariable Name= "MobileTeamType">Awakening</StringVariable>
+    <StringVariable Name="MobileKind">Reptile</StringVariable>
+    <BoolVariable Name="AI-Leash">False</BoolVariable>
+    <BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+    <BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+    <BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+    <BoolVariable Name="AI-CanFlee">True</BoolVariable>
+    <DoubleVariable Name="Armor">44</DoubleVariable>
+    <DoubleVariable Name="Attack">1</DoubleVariable>
+    <DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+    <BoolVariable Name="DoNotEquip">True</BoolVariable>
+    <DoubleVariable Name="PetSlots">1</DoubleVariable>
+    <DoubleVariable Name="TamingDifficulty">-1.1</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default_animal">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 10,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+					},	
+				ScavengeTables =
+					{
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+    <LuaModule Name="animal_parts">
+      <Initializer>
+        {
+        }
+      </Initializer>
+    </LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

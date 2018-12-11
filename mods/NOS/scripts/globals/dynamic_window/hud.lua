@@ -11,7 +11,18 @@ function ShowStatusElement(mobileObj, args)
 	local width = 166
 	local height = (args.IsSelf and 58) or 44
 	local statusWindow = DynamicWindow(args.DialogId, "", width, height, args.ScreenX, args.ScreenY, "Transparent")
-
+	-- local online = GlobalVarRead("User.Online")
+	-- local userCount = "CNX: " .. tostring(#online)
+	-- 	statusWindow:AddLabel(
+	-- 		200, -- (number) x position in pixels on the window 
+	-- 		10, -- (number) y position in pixels on the window 
+	-- 		userCount)
+	-- 	-- RegisterEventHandler(EventType.Message, "CheckCount", 
+	-- 	-- function(user,count)
+		
+	-- 	-- end)	
+	-- end
+	
 	-- this is a special command that handles the click client side by targeting the mob with the id of the buttonid
 	statusWindow:AddButton(0, 0, "", "", width, height, "", "$target " .. mobileObj.Id, false, "Invisible")
 

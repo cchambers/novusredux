@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Ginseng[-]</Name>
+	<ClientId>8</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Ginseng</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

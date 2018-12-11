@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[2E9AFE]Empower[-]</Name>
+	<ClientId>2180</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+	<StringVariable Name="PrestigeAbility">Empower</StringVariable>	
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--LuaModule Name="skill_buff_on_use"/-->
+		<LuaModule Name="prestige_ability_book"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

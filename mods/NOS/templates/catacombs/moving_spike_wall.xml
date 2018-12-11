@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>315</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="MaxDistance">10</DoubleVariable>
+		<DoubleVariable Name="TrapTravelTime">3</DoubleVariable>
+		<DoubleVariable Name="TrapReturnTime">15</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="moving_wall_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

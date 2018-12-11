@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Orcish Cleaver[-]</Name>
+	<ClientId>1121</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="AttackBonus">60</DoubleVariable>
+		<StringVariable Name="WeaponType">Longsword</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

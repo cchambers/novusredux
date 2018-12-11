@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>1911</ClientId>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>The Sealed City</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

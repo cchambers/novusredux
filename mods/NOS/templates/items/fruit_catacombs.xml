@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[00FF00]Fruit of Life[-]</Name>
+	<ClientId>348</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">FruitCatacombs</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

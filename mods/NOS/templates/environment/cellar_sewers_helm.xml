@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>657</ClientId>
+	<Name>[FF9500]Entrance to Helm Sewers[-]</Name>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="TeleportRange">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="sewer_teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

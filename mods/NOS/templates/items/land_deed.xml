@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Land Deed[-]</Name>
+	<ClientId>2095</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">LandDeed</StringVariable>
+	</ObjectVariableComponent>					    	
+</ObjectTemplate>

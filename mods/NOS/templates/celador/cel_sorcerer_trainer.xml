@@ -23,8 +23,8 @@
 					Skills = 
 					{ 
 					MagicAffinity = 100, 
-					Evocation = 100,
-					Manifestation = 100,
+					Magery = 100,
+					Magery = 100,
 					Channeling = 100,
 					},
 					MobTraits =

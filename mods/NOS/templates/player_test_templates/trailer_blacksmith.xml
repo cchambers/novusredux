@@ -1,0 +1,43 @@
+<ObjectTemplate>
+	<TemplateName>Blacksmith</TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = 
+					{ 
+					    Backpack = { "backpack" },
+					    RightHand = { "weapon_hammer" },
+                        Legs = { {"clothing_legs_beggar",898},}, 
+                        Chest = { {"clothing_chest_blacksmith",139},},
+						BodyPartHead = {{"head_male03",817},},
+						BodyPartHair = {{"hair_male_messy",4},},
+						BodyPartFacialHair = {{"facial_hair_beard_long",4},}
+                    },
+					LootTables = {	
+					    -- Starting items
+					    {
+							NumCoins = 350,
+							NumItems = 5,
+					    	LootItems = {
+			        			{ Template = "torch", Unique = true },
+			        			{ Template = "tool_hunting_knife", Unique = true },
+			        			{ Template = "cooked_stew", Unique = true },
+			        			{ Template = "item_bread", Unique = true },
+			        			{ Template = "bandage", Unique = true, StackCount = 20 },
+			        		},
+				    	},
+				    },	 	       
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

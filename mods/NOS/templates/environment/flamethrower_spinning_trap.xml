@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>822</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="InitialTimerOffset">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="spinning_flamethrower_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[FF9500]Recipe: Linen Chest[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">LinenChest</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Linen Chest</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

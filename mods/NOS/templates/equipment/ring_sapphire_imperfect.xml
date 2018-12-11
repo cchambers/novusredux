@@ -1,0 +1,9 @@
+<ObjectTemplate>
+    <Name>[d9d9d9]Imperfect Sapphire Ring[-]</Name>
+	<ClientId>2241</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>   		
+		<StringVariable Name="JewelryType">SapphireImperfect</StringVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

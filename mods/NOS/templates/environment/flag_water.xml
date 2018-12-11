@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>445</ClientId>
+	<Name>[FF9500]Water Flag[-]</Name>
+	<ScriptEngineComponent/>		
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

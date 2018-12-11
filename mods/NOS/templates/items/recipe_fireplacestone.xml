@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[FF9500]Recipe: Stone Fireplace[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">FireplaceStone</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Stone Fireplace</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

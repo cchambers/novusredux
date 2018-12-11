@@ -15,8 +15,8 @@
 					Stats = { Str=20, Agi=20, Int=30, Con=10, Wis=10, Will=10 },
 					Skills = 
 					{ 
-					Evocation=50, 
-					Manifestation=50,
+					Magery=50, 
+					Magery=50,
 					},	
 					EquipTable = {
 						Chest = { "clothing_long_sleeve_shirt_chest" },

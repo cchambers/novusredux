@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[FF9500]Round Forge[-]</Name>
+	<ClientId>1819</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">MetalsmithSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
+		<StringVariable Name="GuideEventId">NearForge</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

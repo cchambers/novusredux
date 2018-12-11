@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Dragon Fang[-]</Name>
+	<ClientId>243</ClientId>
+	<Color>0xFFF14F4F</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">DragonFang</StringVariable>
+		<StringVariable Name="PluralName">Dragon Fangs</StringVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

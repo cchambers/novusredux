@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>227</ClientId>
+	<Name>[FF9500]Boat[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>	
+	<ObjectVariableComponent>
+		<StringVariable Name="NoTeleportEffect">True</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

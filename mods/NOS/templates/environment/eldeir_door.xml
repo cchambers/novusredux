@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>301</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="IsLocked" type="bool" value="True"/>
+</ObjectTemplate>

@@ -1,0 +1,28 @@
+<ObjectTemplate>
+	<Name>Invitation to PRZM Lounge</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>	
+		<StringVariable Name="WindowTitle">Select Universe</StringVariable>
+		<StringVariable Name="DestinationMap">Founders</StringVariable>
+		<BoolVariable Name="CannotUseInCombat">true</BoolVariable>
+		<BoolVariable Name="Soulbound">true</BoolVariable>
+		<LocVariable Name="Destination">30,0,63</LocVariable>
+		<DoubleVariable Name="DestinationFacing">218</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter_map">
+			<Initializer>
+				{
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Dear Member,\n\nYou have been invited by the Pedesii to join them in the party at PRZM Lounge, located 16 light-years away, in orbit around the remains of Planet Erodas! Come on over whenever you can if you want to party! We're open 24 hours a day 7 days a week! Feel free to drop by and have a good time!\n\nSincerely,\nClub Prizm Staff. \n\nP.S. - If you are incapable of interstellar travel then simply activate this invitation! Do not lose it however, we cannot provide more copies!"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

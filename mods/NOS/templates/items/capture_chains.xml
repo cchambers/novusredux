@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>Chains</Name>
+	<ClientId>323</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Worthless">true</BoolVariable>
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="chains"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

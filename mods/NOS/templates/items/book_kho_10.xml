@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>Book of Kho: Chapter 10</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Death is Eternal. The Void is eternal. The Hells and the Underworld are eternal. For the Underworld is the breeding ground for all of His armies. For it is there that the Void God raises his fist of hatred, hatred of injustice. Hatred of mortals. For only when the universe is swallowed by the Void, will He be able to remake it in His image. We must ask though, why does the God of the Void hate the mortals? Was it not the beings of life that struggle to sustain themselves by seeking mortality, avoiding the Dark Ones and the God of the Damned? Perhaps because they merely exist. They seek only life, avoidance of the truth. Help them meet it. Help them meet the Infernal Prince that is the Void God. Seek to slay the bitter ones, the heartbroken, the cursed. Above all drag the worst that mankind has to offer, the murderers, theves, gluttons, lust-mongers, traitors down to the Hells. It is written that we should slay them whenever possible, as their torments make joy in the God of Justice. But know this, those who should meet the God of the Void are the injust. Those who are pure of heart should be given the choice, let those who convert and join us have a prolonged first passing. Those who do not, should meet Kho and he will take pleasure in convincing them to join with him, as a part of his hatred. He will swallow the needless whole. Take pleasure in their suffering, for it is only when their souls are brought to the eternal Hells that they will be broken, and become one with the Cause. Those who are beyond hope, will join Him in the nothingness that is the Void. Those who remain loyal, shall reside in the Underworld until the Void consumes all. We are but meek playthings for the Void God, and those that serve Him are true. Listen to His word, learn it well. Take pride in the suffering and slow death of sinners, for their screams of terror are but the first step of their conversion into servants of the Void God. All those who opposed to the Void God are privy to His knowledge. All will meet him. Make them all suffer."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

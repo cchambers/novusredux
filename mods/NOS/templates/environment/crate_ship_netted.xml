@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1718</ClientId>
+	<Name>[FF9500]Netted Crate[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>
