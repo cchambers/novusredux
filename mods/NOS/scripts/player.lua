@@ -1618,7 +1618,7 @@ function InitializePlayer()
 end
 
 -- This gets called on both creation and loading from backup
-function OnLoad(isPossessed)		
+function OnLoad(isPossessed)
 
 	-- BYPASS EVOC/MANIF
 	local magery = GetSkillLevel(this, "MagerySkill")
