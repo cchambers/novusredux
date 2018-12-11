@@ -3,7 +3,7 @@ ServerSettings.Pets = {
         Distance = 5, -- closest a following pet will get to leader.
         Speed = {
             OnFoot = 5, -- speed that pets will follow at while owner is on foot
-            Mounted = 8, -- speed that pets will follow at while owner is mounted.
+            Mounted = 12, -- speed that pets will follow at while owner is mounted.
         },
     },
     Command = {

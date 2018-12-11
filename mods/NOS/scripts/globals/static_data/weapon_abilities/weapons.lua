@@ -166,12 +166,12 @@ WeaponAbilitiesData.Stab = {
     MobileEffect = "Stab",
     MobileEffectArgs = {
         AttackModifier = 1.25,
-        StealthAttackModifier = 3,
+        StealthAttackModifier = 2,
     },
     Stamina = 25,
     Action = {
         DisplayName = "Stab",
-        Tooltip = "Attempt to stab your target 125% attack bonus. Stabbing from stealth rewards 300% attack bonus.",
+        Tooltip = "Attempt to stab your target 125% attack bonus. Stabbing from stealth rewards 200% attack bonus.",
         Icon = "Fatal Strike",
         Enabled = true,
     },

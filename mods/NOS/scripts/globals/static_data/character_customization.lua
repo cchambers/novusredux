@@ -168,7 +168,7 @@ CharacterCustomization = {
 
 	StartingTrades = {
 		{ Name = "Warrior", Skills = { {"SlashingSkill", 30 },  {"MeleeSkill", 30 }, {"HealingSkill", 20 }, {"BlockingSkill", 20 } } },
-       	{ Name = "Mage", Skills = { {"MagerySkill", 30 }, {"MeleeSkill", 30 }, {"MagicAffinitySkill", 20 }, {"ChannelingSkill", 20 } } },
+       	{ Name = "Mage", Skills = { {"MagerySkill", 30 }, {"MagicAffinitySkill", 20 }, {"ChannelingSkill", 20 }, {"None", 0 } } },
        	{ Name = "Archer", Skills = { {"ArcherySkill", 30 }, {"MeleeSkill", 30 }, {"HealingSkill", 20 }, {"None", 0 } } },
        	{ Name = "Blacksmith", Skills = { {"MetalsmithSkill", 30 },  {"MiningSkill", 30 }, {"BashingSkill", 20 }, {"MeleeSkill", 20 } } },
 		{ Name = "Advanced", Skills = {  {"None", 0 },  {"None", 0 }, {"None", 0 }, {"None", 0 } } },
