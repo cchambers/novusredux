@@ -10,6 +10,7 @@ AccessList.xml
 /logs
 
 # /Build/base
+/www
 
 !/mods
 /mods/*
