@@ -21,14 +21,14 @@ ServerSettings.PlayerInteractions = {
 
 	-- same as ProtectionZones, but entire maps
 	ProtectionMaps = {
-		"Corruption",
 		"Founders",
 	},
 
 	-- areas a nearby physical guard should protect you from anyone despite your karma
 	NeutralZones = {
 		"Area-Oasis",
-		"ForestOutpost"
+		"ForestOutpost",
+		"PyrosLanding"
 	},
 
 	GuardTowerProtectionRange = 15.0,
