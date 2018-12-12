@@ -1,12 +1,12 @@
 MobileEffectLibrary.Recall = 
 {
 	OnEnterState = function(self,root,target,args)
-		if ( GetKarmaLevel(GetKarma(self.ParentObj)).GuardHostilePlayer ) then
-			self.ParentObj:SystemMessage("You must attone for your negative actions before the gods will allow you to do this.","info")
+		-- if ( GetKarmaLevel(GetKarma(self.ParentObj)).GuardHostilePlayer ) then
+		-- 	self.ParentObj:SystemMessage("You must attone for your negative actions before the gods will allow you to do this.","info")
 
-			EndMobileEffect(root)
-			return false
-		end
+		-- 	EndMobileEffect(root)
+		-- 	return false
+		-- end
 		
 		if ( target == self.ParentObj ) then
 			local bindLoc = GetPlayerSpawnPosition(self.ParentObj)
