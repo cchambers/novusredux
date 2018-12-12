@@ -214,7 +214,7 @@ function CheckSkill( mobileObj, skillName, difficulty, skipGains )
 		difficulty = skillLevel
 	end
 	
-	if (mobilObj:GetObjVar("NoGains")) then
+	if (mobileObj:GetObjVar("NoGains")) then
 		skipGains = true
 	end
 
