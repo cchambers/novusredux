@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<ClientId>59</ClientId>
-	<Name>Dung Horse</Name>
+	<Name>Poopy Horse</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
 	<SharedStateEntry name="Variation" type="string" value="Bay"/>
 		<MobileComponent>			
@@ -26,45 +26,6 @@
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_dung_horse">
-			<Initializer>
-				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
-				Skills = 
-					{ 
-					Brawling = 15,  
-					},	
-				LootTables = 
-					{ 
-					},		
-				}
-			</Initializer>
-		</LuaModule>
-		<LuaModule Name="ai_prey">
-			<Initializer>
-				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
-				Skills = 
-					{ 
-					Brawling = 15,  
-					},	
-				LootTables = 
-					{ 
-					},		
-				}
-			</Initializer>
-		</LuaModule>
-		<LuaModule Name="animal_parts">
-			<Initializer>
-				{
-					MeatCount = 3,
-
-					MeatType = "ToughMeat",
-					AnimalParts =
-					{
-						{ ResourceType="LeatherHide", RarityPct=100, Count=4 },
-					}
-				}
-			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>

@@ -36,6 +36,8 @@ RegisterEventHandler(
         WriteAccountVar(user_id, "jail", "sentence", 240)
         WriteAccountVar(user_id, "jail", "characterJailed", tostring(target))
 
+        target:SetObjVar("NoGains", true);
+        
         local jail_settings = GlobalVarRead("settings_jail")
 
         local jailLocation = jail_settings["location"]

@@ -35,14 +35,11 @@ RegisterEventHandler(
 		user:SetFacing(user:GetLoc():YAngleTo(this:GetLoc()));
 		SetMobileMod(user, "Disable", "CastFreeze", true);
 
-
-
 		local user_id = user:GetAttachedUserId();
 		local table = GlobalVarRead(user_id.."_jail");
 		if (not(table["isJailed"])) then
 			user:SystemMessage(tostring("Account not jailed"));
 		end
-
 		
 		local newJailTime = table["jailTime"] - 10;
 		WriteAccountVar(user_id, "jail", "jailTime", newJailTime);
@@ -54,15 +51,13 @@ RegisterEventHandler(
 		local timeLeftMinutes = math.floor(timeLeft/60);
 		user:SystemMessage(tostring("You picked up some poo, 10 seconds off your jail sentence. Time left in sentence: "..timeLeftMinutes.." minutes."));
 		this:PlayEffect("LaughingSkullEffect",0);
-		user:PlayAnimation("kneel");
-		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(2500), "destroyObjectTimer");
+		user:PlayAnimation("forage");
+		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(4000), "destroyObjectTimer");
 	
 		RegisterEventHandler(EventType.Timer, "destroyObjectTimer", function()
 			user:PlayAnimation("idle");
 			SetMobileMod(user, "Disable", "CastFreeze", nil);
 			this:Destroy();
-		
 		end)
-
 	end
 )
