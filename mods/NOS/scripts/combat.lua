@@ -920,6 +920,9 @@ end
 --Actors
 mCombatMusicPlaying = false
 function SetInCombat(inCombat, force)
+	
+	if (this:HasObjVar("NoGains")) then return end
+
 	if (inCombat == true) then
 		if (IsSitting(this)) then
 			this:SendMessage("StopSitting")
