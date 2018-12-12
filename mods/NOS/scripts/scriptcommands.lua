@@ -13,7 +13,7 @@ RegisterCommand {
 }
 
 RegisterCommand {
-    Command = "setj_loc",
+    Command = "setjail",
     AccessLevel = AccessLevel.Immortal,
     Func = function()
         this:RequestClientTargetLoc(this, "set_jail_loc")
