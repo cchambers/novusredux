@@ -35,7 +35,6 @@ RegisterEventHandler(
 		if (timeLeft < 0) then
 			user:SetWorldPosition(table["jailLocation"]);
 			user:DelObjVar("NoGains");
-			user:SystemMessage(jail_record);
 			GlobalVarDelete(jail_record, "delComplete");
 		end
 

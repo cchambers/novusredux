@@ -23,7 +23,7 @@ function CheckJail(user)
         
         if (table["characterJailed"] ~= tostring(user)) then
             --DebugMessage(tostring(user).." "..table["characterJailed"]);
-            user:KickUser("You must log into the character that got jailed to finish your sentence.");
+            if (user ~= nil) then user:KickUser("You must log into the character that got jailed to finish your sentence.") end
         end
 
         --local jailLocation = jail_settings["location"];
