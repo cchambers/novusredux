@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[2E64FE]a pile of horse dung[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<Color>0xFF362d26</Color>
+	<ClientId>1012</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="jail_dung_script"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="TooltipString" type="string" value="a pile of horse dung"/>
+</ObjectTemplate>
