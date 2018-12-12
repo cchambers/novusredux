@@ -48,6 +48,12 @@ MortalCommandFuncs = {
 		end
 	end,
 
+	ResetTrackers = function()
+		this:DelObjVar("TrackedSkills")
+		this:DelObjVar("SkillFavorites")
+		this:SystemMessage("Your skills have been untracked and unfavored.")
+	end,
+
 	Title = function()
 		ToggleAchievementWindow(this)
 	end,
@@ -64,7 +70,7 @@ MortalCommandFuncs = {
 			this:SetObjVar("NoQueueHarvest",true)
 		end
 	end,
-
+	
 	Say = function(...)
 		local line = CombineArgs(...)
 		this:LogChat("say", json.encode(line))
@@ -263,6 +269,7 @@ MortalCommandFuncs = {
 	end,
 }
 
+RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.ResetTrackers, Desc="Prints out your stats" }
 RegisterCommand{ Command="help", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Help, Usage="<command_name>", Desc="[$2471]" }
 RegisterCommand{ Command="title", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Title, Desc="Show title window" }
 RegisterCommand{ Command="achievement", Accesslevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Achievement, Desc = "Show achievement window" }
