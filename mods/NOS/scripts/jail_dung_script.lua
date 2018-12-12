@@ -51,6 +51,7 @@ RegisterEventHandler(
 		local timeLeftMinutes = math.floor(timeLeft/60);
 		user:SystemMessage(tostring("You picked up some poo, 10 seconds off your jail sentence. Time left in sentence: "..timeLeftMinutes.." minutes."));
 		this:PlayEffect("LaughingSkullEffect",0);
+		this:PlayObjectSound("WormAttack",false)
 		user:PlayAnimation("forage");
 		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(4000), "destroyObjectTimer");
 	

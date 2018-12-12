@@ -48,6 +48,12 @@ MortalCommandFuncs = {
 		end
 	end,
 
+	ResetTrackers = function() 
+		this:DelObjVar("SkillFavorites")
+		this:DelObjVar("TrackedSkills")
+		this:SendMessage("RefreshQuestUI")
+	end,
+
 	Title = function()
 		ToggleAchievementWindow(this)
 	end,
@@ -263,6 +269,7 @@ MortalCommandFuncs = {
 	end,
 }
 
+RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.ResetTrackers, Usage="<command_name>", Desc="[$2471]" }
 RegisterCommand{ Command="help", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Help, Usage="<command_name>", Desc="[$2471]" }
 RegisterCommand{ Command="title", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Title, Desc="Show title window" }
 RegisterCommand{ Command="achievement", Accesslevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Achievement, Desc = "Show achievement window" }
