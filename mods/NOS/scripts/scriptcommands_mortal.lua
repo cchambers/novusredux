@@ -49,9 +49,8 @@ MortalCommandFuncs = {
 	end,
 
 	ResetTrackers = function() 
-		this:DelObjVar("SkillFavorites")
 		this:DelObjVar("TrackedSkills")
-		this:SendMessage("RefreshQuestUI")
+		this:DelObjVar("SkillFavorites")
 	end,
 
 	Title = function()

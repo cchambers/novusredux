@@ -7,5 +7,5 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="jail_dung_script"/>
 	</ScriptEngineComponent>
-	<SharedStateEntry name="TooltipString" type="string" value="a pile of horse dung"/>
+	<SharedStateEntry name="TooltipString" type="string" value="it is pungent and warm"/>
 </ObjectTemplate>
