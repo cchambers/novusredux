@@ -327,6 +327,7 @@ function DoCollectMoney(user)
         local coinsObj = FindItemInContainerByTemplate(bankObj,"coin_purse")                
         if(coinsObj ~= nil) then
             if(userBackpack:CanHold(coinsObj)) then
+                coinsObj:SendMessage("ChangeUp")
                 coinsObj:MoveToContainer(userBackpack,GetRandomDropPosition(userBackpack))
                 QuickDialogMessage(this,user,"[$82]")
             else

@@ -21,7 +21,12 @@ MobileEffectLibrary.Heroism =
         end
 
         self.ParentObj:PlayEffect("ShoutEffect",0,"Bone=Ground")
-		self.ParentObj:PlayObjectSound("Charge")
+		--Play different sound by the gender of a character
+		if (IsMale(self.ParentObj)) then
+			self.ParentObj:PlayObjectSound("event:/character/combat_abilities/charge")
+		else
+			self.ParentObj:PlayObjectSound("event:/character/combat_abilities/female_shout")
+		end
 		self.ParentObj:PlayAnimation("roar")
 	end,
 

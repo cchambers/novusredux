@@ -23,15 +23,11 @@ MobileEffectLibrary.MountDismiss =
 
         self.Pet:SetObjVar("Dismissing", true)
 
-        self.Pet:PlayEffect("CloakEffect")
-        self.Pet:PlayObjectSound("Pain")
+        PlayEffectAtLoc("CloakEffect", self.Pet:GetLoc())
 
         -- get the pet's statue (if any)
         self.Statue = self.Pet:GetObjVar("PetStatue")
 
-    end,
-
-    AiPulse = function(self,root)
         if ( self.Statue and self.Statue:IsValid() ) then
             self.Statue:MoveToContainer(self.Backpack, self.Statue:GetLoc())
             self.ToStatue(self,root)
@@ -50,7 +46,8 @@ MobileEffectLibrary.MountDismiss =
                 end
             end)
         end
-	end,
+
+    end,
 
     ToStatue = function(self,root)
         self.Pet:DelObjVar("Dismissing")
@@ -86,11 +83,4 @@ MobileEffectLibrary.MountDismiss =
     
         return ValidateRangeWithError(5, self.ParentObj, self.Pet, "Too far away.")
     end,
-
-	GetPulseFrequency = function(self,root)
-		return self.Duration
-	end,
-
-	Duration = TimeSpan.FromSeconds(0.5),
-
 }

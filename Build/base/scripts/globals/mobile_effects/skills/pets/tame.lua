@@ -7,10 +7,9 @@ MobileEffectLibrary.Tame =
 			return false
 		end
 		
-		if (IsMounted(self.ParentObj)) then
-			self.ParentObj:SystemMessage("You cannot tame while mounted.","info")
-			EndMobileEffect(root)
-			return false
+		local mountObj = GetMount(self.ParentObj)
+		if ( mountObj ~= nil ) then
+			DismountMobile(self.ParentObj, mountObj)
 		end
 
 		self.Target = target

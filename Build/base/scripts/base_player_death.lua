@@ -183,7 +183,7 @@ function OnDeathEnd( resurrector, corpse, force )
 		this:PlayEffect("ResurrectEffect", 1.5)
 
 		local oldCorpse = this:GetObjVar("CorpseObject")
-		if ( oldCorpse ~= nil ) then
+		if ( oldCorpse ~= nil and oldCorpse:IsValid()) then
 			-- try to do it local first
 			if not( UpdateCorpseOnPlayerResurrected(oldCorpse) ) then
 				local corpseAddress = this:GetObjVar("CorpseAddress") or ServerSettings.RegionAddress

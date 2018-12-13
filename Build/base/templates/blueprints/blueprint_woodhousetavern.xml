@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>Tudor House Tavern Blueprint</Name>
+  <Name>Wood House Tavern Blueprint</Name>
 	<ClientId>638</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		

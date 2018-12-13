@@ -54,12 +54,7 @@ RegisterEventHandler(EventType.Message, "OnGroupLeave", function(member)
 		GroupClearPlayer(this)
 		GroupInfo(this, "You have left your group.", true)
 	else
-		local name = "Unknown"
-		if ( member:IsValid() ) then
-			name = StripColorFromString(member:GetName())
-		else
-            name = GlobalVarReadKey("User.Name", member)
-		end
+		local name = member:GetCharacterName()
 		GroupInfo(this, string.format("%s has left your group.", name), true)
 	end
 end)

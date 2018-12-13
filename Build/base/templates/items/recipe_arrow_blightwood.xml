@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Recipe: Blightwood Arrows[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">BlightwoodArrows</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Blightwood Arrows</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -74,7 +74,7 @@ MobileEffectLibrary.CookingPot =
                 self.Interrupted(self, root)
             end,
         })
-        --self.ParentObj:PlayObjectSound("Fabrication", false, self.PulseFrequency.TotalSeconds)
+        --self.ParentObj:PlayObjectSound("event:/character/skills/crafting_skills/fabrication/fabrication", false, self.PulseFrequency.TotalSeconds)
     end,
 
     CanCook = function(self, root)

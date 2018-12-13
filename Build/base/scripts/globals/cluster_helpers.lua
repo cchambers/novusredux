@@ -86,7 +86,7 @@ function GetClusterController()
 end
 
 function MessageRemoteClusterController(regionAddress,messageName,...)
-	SendRemoteMessage(regionAddress,Loc(0.1,0.1,0.1),1.0,messageName,...)
+	return SendRemoteMessage(regionAddress,Loc(0.1,0.1,0.1),1.0,messageName,...)
 end
 
 function FindGlobalUsersByName(name)

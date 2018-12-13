@@ -163,10 +163,36 @@ function Dialog.OpenJoinAllegianceConfirmDialog(user)
     local response = {}
     response[1] = {}
     response[1].text = "I'm ready to fight."
-    response[1].handle = "JoinAllegiance" 
+    response[1].handle = "ConfirmJoin" 
+
+    response[2] = {}
+    response[2].text = "Not Yet."
+    response[2].handle = "" 
 
     NPCInteractionLongButton(text,this,user,"Responses",response)
 end
+
+function Dialog.OpenConfirmJoinDialog(user)
+    ClientDialog.Show{
+        TargetUser = user,
+        ResponseObj = this,
+        DialogId = "JoinAllegianceWindow",
+        TitleStr = "Join Allegiance",
+        DescStr = "Upon joining allegiance, you will not be able to leave the allegiance for 7 days. Do you wish to join "..AllegianceData().Name.."?",
+        Button1Str = "Ok.",
+        Button2Str = "Cancel."
+    }
+end
+
+RegisterEventHandler(EventType.DynamicWindowResponse, "JoinAllegianceWindow", function(user,buttonId)
+    local buttonId = tonumber(buttonId)
+    if (user == nil) then return end
+    if (buttonId == nil) then return end
+    if ( buttonId == 0 ) then
+        Dialog.OpenJoinAllegianceDialog(user)
+    end
+end)
+
 
 function Dialog.OpenJoinAllegianceDialog(user)
 

@@ -1,5 +1,5 @@
 KARMA_WINDOW_WIDTH = 550
-KARMA_WINDOW_HEIGHT = 448
+KARMA_WINDOW_HEIGHT = 478
 
 function CloseKarmaWindow()
 	this:CloseDynamicWindow("KarmaWindow")
@@ -88,16 +88,19 @@ function ShowKarmaWindow()
 	local isDisabled = this:HasObjVar("ForceOrderOptIn")
 	dynamicWindow:AddButton(28, 200, "OrderOptIn", "Disable Order confirmation when attacking chaotic players.", 400, 23, "", "", false,"Selection",GetButtonState(isDisabled,true))
 
-	local yOffset = 232
+	isDisabled = this:HasObjVar("DisableWildernessConfirm")
+	dynamicWindow:AddButton(28, 230, "DisableWildernessConfirm", "Disable unsafe portal confirmation window.", 400, 23, "", "", false,"Selection",GetButtonState(isDisabled,true))
+
+	local yOffset = 262
 
 	dynamicWindow:AddImage(20,yOffset+2,"Divider",480,0,"Sliced")
 
 	dynamicWindow:AddLabel(265,yOffset+14,"Icon Legend",0,32,20,"center",false,true,"SpectralSC-SemiBold")
 	
-	dynamicWindow:AddImage(10,yOffset+40,"Aggressed")
+	dynamicWindow:AddImage(10,yOffset+40,"Aggressor")
 	dynamicWindow:AddLabel(50,yOffset+40,"Victim: Can attack you with no karma loss.",122,80,18)
 
-	dynamicWindow:AddImage(180,yOffset+40,"Aggressor")
+	dynamicWindow:AddImage(180,yOffset+40,"Aggressed")
 	dynamicWindow:AddLabel(220,yOffset+40,"Aggressor: Can be attacked with no karma loss.",122,80,18)
 
 	dynamicWindow:AddImage(350,yOffset+40,"OrderShieldIcon",32,32,"Sliced")
@@ -123,18 +126,66 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"KarmaWindow",
 	function (user, buttonId)
 		if(buttonId:match("State")) then
 			local alignment = buttonId:sub(7)
-			local level = GetKarmaLevelFromAlignmentName(alignment)
-			SetKarmaAlignment(this, level)
-			this:SendClientMessage("SetKarmaState", alignment)
-			ShowKarmaWindow(this)
-		elseif(buttonId == "OrderOptIn") then
-			local isDisabled = this:HasObjVar("ForceOrderOptIn")
-			if(isDisabled) then
-				this:DelObjVar("ForceOrderOptIn")
+			local level, amount = GetKarmaLevelFromAlignmentName(alignment)
+			local karma = GetKarma(user)
+			if ( amount < 0 and karma > 0 ) then
+				-- warn them they are about to lose ALL KARMA!
+				-- Are you sure?
+				ClientDialog.Show{
+					TargetUser = user,
+					DialogId = "KarmaDestroy",
+					TitleStr = "Karma",
+					DescStr = string.format("Choosing Chaotic alignment will surrender all positive karma and make you vulnerable to attack.\n\nAll of your positive karma (%s) will be removed and your Karma will become negative.", karma),
+					Button1Str = "I Understand",
+					Button2Str = "Cancel",
+					ResponseObj = user,
+					ResponseFunc = function( usr, buttonId )
+						buttonId = tonumber(buttonId)
+						if ( user == usr and buttonId == 0 ) then
+							-- Are you super sure?
+							ClientDialog.Show{
+								TargetUser = user,
+								DialogId = "KarmaDestroyConfirm",
+								TitleStr = "Karma",
+								DescStr = string.format("Do you truly wish to become Chaotic?", karma),
+								Button1Str = "Yes",
+								Button2Str = "No",
+								ResponseObj = user,
+								ResponseFunc = function( usr, buttonId )
+									buttonId = tonumber(buttonId)
+									if ( user == usr and buttonId == 0 ) then
+										SetKarmaAlignment(user, level)
+										user:SendClientMessage("SetKarmaState", alignment)
+										user:SystemMessage(string.format("Karma Alignment set to %s.", alignment), "info")
+										ShowKarmaWindow(user)
+									end
+								end,
+							}
+						end
+					end,
+				}
 			else
-				this:SetObjVar("ForceOrderOptIn",true)
+				SetKarmaAlignment(user, level)
+				user:SendClientMessage("SetKarmaState", alignment)
+				user:SystemMessage(string.format("Karma Alignment set to %s.", alignment), "info")
+				ShowKarmaWindow(user)
 			end
-			ShowKarmaWindow(this)
+		elseif(buttonId == "OrderOptIn") then
+			local isDisabled = user:HasObjVar("ForceOrderOptIn")
+			if(isDisabled) then
+				user:DelObjVar("ForceOrderOptIn")
+			else
+				user:SetObjVar("ForceOrderOptIn",true)
+			end
+			ShowKarmaWindow(user)
+		elseif(buttonId == "DisableWildernessConfirm") then
+			local isDisabled = user:HasObjVar("DisableWildernessConfirm")
+			if(isDisabled) then
+				user:DelObjVar("DisableWildernessConfirm")
+			else
+				user:SetObjVar("DisableWildernessConfirm",true)
+			end
+			ShowKarmaWindow(user)
 		elseif(buttonId == "" or buttonId == nil) then		
 			CloseKarmaWindow()
 		end

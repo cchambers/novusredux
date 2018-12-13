@@ -203,8 +203,9 @@ RegisterEventHandler(EventType.Message, "ValidatePortalLoc",
 	function (user, dest)
 		local invalidMessage, newDestLoc = ValidatePortalSpawnLoc(user, dest)
 		local regionalName = GetRegionalName(dest)
+		local protection = GetGuardProtectionForLoc(newDestLoc)
 
-		user:SendMessageGlobal("PortalLocValidated", invalidMessage, newDestLoc, regionalName)
+		user:SendMessageGlobal("PortalLocValidated", invalidMessage, newDestLoc, protection, regionalName)
 	end)
 
 RegisterEventHandler(EventType.Message, "MapMarkerRequest",
@@ -219,8 +220,160 @@ RegisterEventHandler(EventType.Message, "MapMarkerRequest",
 		
 	end)
 
-RegisterEventHandler(EventType.Message, "PlotRateRequest", function(playerObj, controller)
-	playerObj:SendMessageGlobal("PlotRateResponse", Plot.CalculateRateController(controller))
+RegisterEventHandler(EventType.Message, "PlotInfoRequest", function(playerObj, controller)
+	playerObj:SendMessageGlobal("PlotInfoResponse", Plot.GetInfo(controller))
+end)
+RegisterEventHandler(EventType.Message, "TaxPaymentRequest", function(playerObj, controller, amount)
+	playerObj:SendMessageGlobal("TaxPaymentResponse", Plot.TaxPayment(controller, playerObj, amount))
 end)
 
 RegisterEventHandler(EventType.Message, "PlayerResurrected", UpdateCorpseOnPlayerResurrected)
+
+--- fix desync'd global var/region data thereby fixing plots for broken players (this can be removed after desync issues are solved)
+CallFunctionDelayed(TimeSpan.FromSeconds(10), function()
+	local plots = GlobalVarListRecords("Plot.")
+	DebugMessage("Remove globalvars for invalid plots on this region.")
+	local deletePlots = {}
+	for i=1,#plots do
+		local val = GlobalVarRead(plots[i]) or {}
+		if (
+			-- same region
+			val.Region == ServerSettings.RegionAddress
+			and
+			-- controller is invalid
+			(
+				not val
+				or
+				not val.Controller
+				or
+				not val.Controller:IsValid()
+			)
+		) then
+			deletePlots[#deletePlots+1] = plots[i]
+			DebugMessage("Record '"..plots[i].."' does not have a valid plot.")
+		end
+	end
+	if ( #deletePlots > 0 ) then
+		for i=1,#deletePlots do
+			-- slowly fix all of them
+			CallFunctionDelayed(TimeSpan.FromSeconds(i*1), function()
+				local owner = GlobalVarReadKey(deletePlots[i], "Owner")
+				if ( owner ) then
+					-- delete all of user plots (we only allow one currently)
+					DelGlobalVar("User.Plots."..owner, function(success)
+						DebugMessage("Delete 'User.Plots."..owner.."' success:", success)
+					end)
+				end
+				DelGlobalVar(deletePlots[i], function(success)
+					DebugMessage("Delete '"..deletePlots[i].."' success:", success)
+				end)
+			end)
+		end
+	end
+	DebugMessage("Total of "..#deletePlots.." plot global records will be removed. Please wait for finish.")
+	CallFunctionDelayed(TimeSpan.FromSeconds(#deletePlots), function()
+		DebugMessage("Global var plots cleanup finished. Starting User Record Cleanup.")
+		CallFunctionDelayed(TimeSpan.FromSeconds(2), function()
+			local userPlotKeys = GlobalVarListRecords("User.Plots.")
+			local deleteUserPlots = {}
+			for i=1,#userPlotKeys do
+				local userPlot = GlobalVarRead(userPlotKeys[i])
+				if ( userPlot ) then
+					userPlot = userPlot[1] -- only need to check first since we've only allowed a single plot thus far
+					if ( userPlot and userPlot.Id and not GlobalVarRead("Plot."..userPlot.Id) ) then
+						deleteUserPlots[#deleteUserPlots+1] = userPlotKeys[i]
+					end
+				end
+			end
+			DebugMessage("Total User Records without co-existing plot record to be removed:", #deleteUserPlots, "Please wait for finish.")
+			for i=1,#deleteUserPlots do
+				CallFunctionDelayed(TimeSpan.FromSeconds(1*i), function()
+					DelGlobalVar(deleteUserPlots[i])
+				end)
+			end
+			CallFunctionDelayed(TimeSpan.FromSeconds(#deleteUserPlots), function()
+				DebugMessage("User Record Cleanup Finished.")
+			end)
+		end)
+	end)
+end)
+CallFunctionDelayed(TimeSpan.FromSeconds(10), function()
+	local controllers = FindObjects(SearchTemplate("plot_controller"))
+	DebugMessage("Destroying Plots that do not have have a global variable.")
+	DebugMessage(#controllers.." plot_controller GameObjs found.")
+	local total = 0
+	for i=1,#controllers do
+		if ( GlobalVarRead("Plot."..controllers[i].Id) == nil ) then
+			DebugMessage(controllers[i].Id.." does not have a global record. Destroying.")
+			-- no global record here, delete the plot.
+			CallFunctionDelayed(TimeSpan.FromSeconds(1*total), function()
+				Plot.Destroy(controllers[i], function(success)
+					DebugMessage("Plot Destroy ("..controllers[i].Id..") success:", success)
+				end)
+			end)
+			total = total + 1
+		end
+	end
+	DebugMessage("Total of "..total.." plots where destroyed. Please wait for finish.")
+	CallFunctionDelayed(TimeSpan.FromSeconds(total), function()
+		DebugMessage("Finished Destroying Plots.")
+	end)
+end)
+
+-- tax was moved from global vars to local vars, fix all plots that still have globalvars
+-- (this only needs to exist through a single update round)
+CallFunctionDelayed(TimeSpan.FromSeconds(10), function()
+	local plots = GlobalVarListRecords("Plot.")
+	DebugMessage("Remove globalvars for invalid plots on this region.")
+	local updatePlots = {}
+	for i=1,#plots do
+		local val = GlobalVarRead(plots[i]) or {}
+		if (
+			val
+			and
+			-- same region
+			val.Region == ServerSettings.RegionAddress
+			and
+			-- controller is valid
+			val.Controller
+			and
+			val.Controller:IsValid()
+			-- balance is not nil (needs to be updated)
+			and
+			(
+				val.Balance ~= nil
+				or
+				val.Ledger ~= nil
+			)
+		) then
+			updatePlots[#updatePlots+1] = plots[i]
+		end
+	end
+	if ( #updatePlots > 0 ) then
+		for i=1,#updatePlots do
+			-- slowly fix all of them
+			CallFunctionDelayed(TimeSpan.FromSeconds(i*1), function()
+				local data = GlobalVarRead(updatePlots[i])
+				if ( not data.Controller or not data.Controller:IsValid() ) then
+					return
+				end
+
+				-- set local variables
+				if ( data.Balance and data.Balance > 0 ) then
+					local current = data.Controller:GetObjVar("PlotTaxBalance") or 0 -- just incase they add while the update is happeing (takes a few minutes to get them all)
+					data.Controller:SetObjVar("PlotTaxBalance", current + data.Balance)
+				end
+				if ( data.Ledger ) then
+					data.Controller:SetObjVar("PlotTaxLedger", data.Ledger)
+				end
+
+				-- remove global variables
+				SetGlobalVar(updatePlots[i], function(record)
+					record.Balance = nil
+					record.Ledger = nil
+					return true
+				end)
+			end)
+		end
+	end
+end)

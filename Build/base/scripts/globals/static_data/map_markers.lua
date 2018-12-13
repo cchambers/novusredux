@@ -66,7 +66,7 @@ DefaultMapMarkers =
 	    	{ Icon="marker_circle2", Tooltip="The Dead Gate", Location= Loc(-80.62495,0,201.276) },
 	    	{ Icon="marker_circle2", Tooltip="The Arena", Location= Loc(113.4,0,832.7) },
 	    	{ Icon="marker_circle2", Tooltip="Grim's Cavern", Location= Loc(892,0,515) },
-    		{ Icon="marker_diamond1", Tooltip="Dungeon Corruption", Location= Loc(-335.2,0,119.097) },
+    		{ Icon="marker_diamond1", Tooltip="Dungeon Corruption", Location= Loc(668.65,0,607.18) },
 	    	{ Icon="pentagram_marker", Tooltip="Gatekeeper", Location= Loc(674,0,603.7) },
 		},
 		EasternFrontier = 

@@ -114,3 +114,59 @@ function GetRandomPassableLocationInRadius(loc,radius,excludeHousing)
 
 	return nil
 end 
+
+function GetRandomLocationInObjectBounds(bounds)
+    if(bounds == nil or #bounds == 0) then
+        return nil
+    end
+
+    local bounds3 = bounds[math.random(#bounds)]
+    local curBounds = bounds3:Flatten()
+
+    return Loc(curBounds:GetRandomLocation())
+end
+
+function GetRandomDungeonSpawnLocation(regionName)
+    --DebugMessage("GetRandomSpawnLocation "..tostring(entry.Region))
+    local region = GetRegion(regionName)
+    if( region == nil ) then
+        --LuaDebugCallStack("REGION IS NIL: "..regionName)
+        return nil
+    end
+
+    local searcher = PermanentObjSearchMulti{
+            PermanentObjSearchRegion(regionName),
+            PermanentObjSearchHasObjectBounds(),
+            PermanentObjSearchVisualState("Default")
+        }
+
+    --local objs1 = FindPermanentObjects(PermanentObjSearchRegion(regionName))
+    --local objs2 = FindPermanentObjects(PermanentObjSearchHasObjectBounds())
+    --local objs3 = FindPermanentObjects(PermanentObjSearchVisualState("Default"))
+    --DebugMessage("TEST",tostring(#objs1),tostring(#objs2),tostring(#objs3))
+
+    local objs = FindPermanentObjects(searcher)
+    if(#objs == 0) then
+        --DebugMessage("ERROR: No dungeon tiles found in region "..tostring(regionName))
+        return nil
+    end
+
+    local curPermObj = objs[math.random(#objs)]
+    local curBounds = curPermObj:GetPermanentObjectBounds()
+    local spawnLoc = GetRandomLocationInObjectBounds(curBounds)
+    local maxTries = 20
+    while(maxTries > 0 and (spawnLoc ~= nil and not(spawnLoc:IsValid()) or not(IsPassable(spawnLoc)) or TrapAtLocation(spawnLoc))) do--(spawnLoc,false))) do
+        local curPermObj = objs[math.random(#objs)]
+        local curBounds = curPermObj:GetPermanentObjectBounds()
+        spawnLoc = GetRandomLocationInObjectBounds(curBounds)
+        maxTries = maxTries - 1        
+    end
+
+    if(maxTries <= 0) then
+        --DebugMessage("ERROR: Tried 20 times for a passable location and failed. "..regionName)
+        return nil
+    end
+
+    return spawnLoc,curPermObj
+    --return Loc(0,0,0),PermanentObj(0)
+end

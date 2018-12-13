@@ -1,8 +1,7 @@
-Guild = {}
+GuildHelpers = {}
 -- Main Guild Module
-Guild.Capacity = 10
 
-Guild.AccessLevels = 
+GuildHelpers.AccessLevels = 
 {
 	"Guildmaster",
 	"Officer",
@@ -11,7 +10,7 @@ Guild.AccessLevels =
 	"Trial",
 }
 
-Guild.UpdateGuildRecord = function(g)
+GuildHelpers.UpdateGuildRecord = function(g)
 	GlobalVarWrite("Guild."..g.Id,nil,
 		function(record)
 			record.Data = g
@@ -19,11 +18,11 @@ Guild.UpdateGuildRecord = function(g)
 		end)
 end
 
-Guild.DeleteGuildRecord = function(guildId)
+GuildHelpers.DeleteGuildRecord = function(guildId)
 	GlobalVarDelete("Guild."..guildId,nil)
 end
 
-Guild.GetGuildRecord = function(id)
+GuildHelpers.GetGuildRecord = function(id)
 	--LuaDebugCallStack("GetGuildRecord")
 	local record = GlobalVarRead("Guild."..id)
 	if(record ~= nil) then
@@ -31,7 +30,7 @@ Guild.GetGuildRecord = function(id)
 	end
 end
 
-Guild.SendMessageToAll = function(g,messageName,...)
+GuildHelpers.SendMessageToAll = function(g,messageName,...)
 	for id,memberData in pairs(g.Members) do
 		local user = GameObj(id)
 		if ( GlobalVarReadKey("User.Online", user) ) then
@@ -40,7 +39,7 @@ Guild.SendMessageToAll = function(g,messageName,...)
 	end
 end
 
-Guild.SendToAll = function(from, g , line)
+GuildHelpers.SendToAll = function(from, g , line)
 	local name = ""
 	if ( from ~= nil) then
 		local actualName = from:GetObjVar("actualName")
@@ -52,10 +51,10 @@ Guild.SendToAll = function(from, g , line)
 		end
 	end
 
-	Guild.SendMessageToAll(g,"GuildChat",name,line)		
+	GuildHelpers.SendMessageToAll(g,"GuildChat",name,line)		
 end
 
-Guild.Get = function (mobile)
+GuildHelpers.Get = function (mobile)
 	if (mobile == nil or not mobile:IsValid()) then
 		return nil
 	end
@@ -63,20 +62,20 @@ Guild.Get = function (mobile)
 
 	if (guildId == nil) then return nil end
 
-	return Guild.GetGuildRecord(guildId)
+	return GuildHelpers.GetGuildRecord(guildId)
 end
 
-Guild.GetName = function(user,guild)
+GuildHelpers.GetName = function(user,guild)
 	if (user == nil or not user:IsValid()) then return end
-	if (guild == nil) then guild = Guild.Get(user) end
+	if (guild == nil) then guild = GuildHelpers.Get(user) end
 	if (guild == nil) then return end
 
 	return guild.Name
 end
 
 
-Guild.IsInGuildWith = function (playerA,playerB)
-	local g = Guild.Get(playerA)
+GuildHelpers.IsInGuildWith = function (playerA,playerB)
+	local g = GuildHelpers.Get(playerA)
 	if(g == nil) then 
 		return false
 	end
@@ -84,17 +83,17 @@ Guild.IsInGuildWith = function (playerA,playerB)
 	return g.Members[playerB.Id] ~= nil
 end
 
-Guild.IsInGuild = function(m)
-	return Guild.Get(m) ~= nil
+GuildHelpers.IsInGuild = function(m)
+	return GuildHelpers.Get(m) ~= nil
 end
 
-Guild.IsTagUnique = function(guildtag)
+GuildHelpers.IsTagUnique = function(guildtag)
 local tag = string.lower(guildtag)
 	if ( GlobalVarReadKey("Guild.Tag", tag) == nil ) then return true end
 	return false
 end
 
-Guild.AddTagToGlobalList = function(guildtag, guildID, callbackFunction)
+GuildHelpers.AddTagToGlobalList = function(guildtag, guildID, callbackFunction)
 local tag = string.lower(guildtag)
 
 local eventId = uuid()
@@ -113,7 +112,7 @@ GlobalVarWrite("Guild.Tag",eventId,
 		end)
 end
 
-Guild.RemoveTagFromGlobalList = function(guild)
+GuildHelpers.RemoveTagFromGlobalList = function(guild)
 if(guild == nil) then return end
 local tag = string.lower(guild.Tag)
 

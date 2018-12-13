@@ -10,14 +10,21 @@ function GetMinimumCraftingOrders(user)
 		for i, order in pairs(CraftingOrderTable.CraftingOrders) do
 			if (recipeTable[order.Recipe] ~= nil) then
 				local material = order.Material or nil
+				--If they have the skill
 				if (HasRequiredCraftingSkill(user, order.Recipe, craftOrderSkill, material)) then
-					--DebugMessage(order.Recipe, knownRecipes[order.Recipe])
-					if (knownRecipes[material] or material == nil or recipeTable[order.Recipe].NeedRecipe == false) then
-						if (recipeTable[order.Recipe].NeedRecipe == false) then
-							minSkillOrders[#minSkillOrders + 1] = order
-						elseif (knownRecipes ~= nil and (recipeTable[order.Recipe] and knownRecipes[order.Recipe]) and (knownRecipes[material] or material == nil)) then
-							minSkillOrders[#minSkillOrders + 1] = order
-						end
+					local hasMaterialRecipe = true
+					if(material ~= nil and recipeTable[material].NeedRecipe) then
+						hasMaterialRecipe = knownRecipes[material]
+					end
+
+					local hasOrderRecipe = true
+					if (recipeTable[order.Recipe].NeedRecipe) then 
+						hasOrderRecipe = knownRecipes[order.Recipe]
+					end
+
+					--If they don't need a recipe, or if the order doesn't require a material
+					if (hasMaterialRecipe and hasOrderRecipe) then
+						minSkillOrders[#minSkillOrders + 1] = order
 					end
 				end
 			else

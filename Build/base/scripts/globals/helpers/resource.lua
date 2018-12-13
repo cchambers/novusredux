@@ -116,13 +116,7 @@ function UseResource(user, target, resourceObj, resourceType, useType)
 		CheckKarmaBeneficialAction(user, target)
 	end
 
-	useSFX = resourceObj:GetObjVar("ResourceUseSFX")
-
-	if (useSFX ~= nil) then
-		user:PlayObjectSound(useSFX)
-	else
-		user:PlayObjectSound("Use", true)
-	end
+	user:PlayObjectSound("Use", true)
 
 	return true
 end

@@ -36,7 +36,7 @@ MobileEffectLibrary.SummonPortal =
 		local portalSourceSpawnLoc =self.SourceSpawnLoc
 
 		-- used to validate location in another subregion.
-		RegisterEventHandler(EventType.Message, "PortalLocValidated", function (InvalidMessage, NewDestLoc, RegionalName)
+		RegisterEventHandler(EventType.Message, "PortalLocValidated", function (InvalidMessage, NewDestLoc, Protection, RegionalName)
 			if (InvalidMessage == "") then
 				self.PortalSuccess = true
 				local dest = destination
@@ -46,9 +46,9 @@ MobileEffectLibrary.SummonPortal =
 				end
 				self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"TeleportDelay")
 				if (args.IsOneWay or IsOneWay(self.ParentObj:GetLoc())) then
-					OpenRemoteOneWayPortal(portalSourceSpawnLoc,dest,destRegionAddress,20, RegionalName, self.ParentObj)
+					OpenRemoteOneWayPortal(portalSourceSpawnLoc,dest,destRegionAddress,20, RegionalName, self.ParentObj, Protection)
 				else
-					OpenRemoteTwoWayPortal(portalSourceSpawnLoc,dest,destRegionAddress,20, RegionalName, self.ParentObj)
+					OpenRemoteTwoWayPortal(portalSourceSpawnLoc,dest,destRegionAddress,20, RegionalName, self.ParentObj, Protection)
 				end
 				self.ParentObj:RemoveTimer("NoValidation")
 			
@@ -78,7 +78,9 @@ MobileEffectLibrary.SummonPortal =
 			--Skip cluster controller validation if player is in same subregion as destination
 			if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
 				local invalidMessage, newDestLoc = ValidatePortalSpawnLoc(self.ParentObj, destination, target:GetObjVar("RegionAddress"))
-				self.ParentObj:SendMessage("PortalLocValidated", invalidMessage, newDestLoc)
+				local regionalName = GetRegionalName(newDestLoc)
+				local protection = GetGuardProtectionForLoc(newDestLoc)
+				self.ParentObj:SendMessage("PortalLocValidated", invalidMessage, newDestLoc, protection, regionalName)
 			else
 				MessageRemoteClusterController(destRegionAddress,"ValidatePortalLoc",self.ParentObj, destination)
 			end

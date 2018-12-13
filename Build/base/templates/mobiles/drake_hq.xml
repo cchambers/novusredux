@@ -50,6 +50,7 @@
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.Prestige,
 						TemplateDefines.LootTable.DecrepidEye,
+						TemplateDefines.LootTable.DeceptionMob,
 						{
 							NumCoins = math.random(1100,1400),
 							NumItems = 1,

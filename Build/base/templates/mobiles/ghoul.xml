@@ -38,7 +38,7 @@
 				LootTables =
 					{
 						TemplateDefines.LootTable.Poor,
-						TemplateDefines.LootTable.BonesCursed,
+						TemplateDefines.LootTable.Blood,
 						{
 							NumCoins = math.random(50,120),
 						},

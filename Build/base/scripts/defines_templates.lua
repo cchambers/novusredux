@@ -322,7 +322,7 @@ TemplateDefines = {
 			},
 		},
 
-		CursedBones = 
+		BonesCursed = 
 		{
 			NumItems = 1,		
 
@@ -708,7 +708,7 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "contempt_skull", Unique = true },
+				{ Chance = 50, Template = "contempt_skull", Unique = true },
 			}
 		},
 		RuinMob =
@@ -716,7 +716,7 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "ruin_skull", Unique = true },
+				{ Chance = 50, Template = "ruin_skull", Unique = true },
 			}
 		},
 		DeceptionMob =
@@ -724,7 +724,7 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "deception_skull", Unique = true },
+				{ Chance = 50, Template = "deception_skull", Unique = true },
 			}
 		},
 		AwakeningDragon =
@@ -732,16 +732,26 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Weight = 1, Template = "prestige_vanguard", Unique = true },
-				{ Weight = 1, Template = "prestige_shieldbash", Unique = true },
-				{ Weight = 1, Template = "prestige_stunshot", Unique = true },
-				{ Weight = 1, Template = "prestige_adrenaline_rush", Unique = true },
-				{ Weight = 1, Template = "prestige_silence", Unique = true },
-				{ Weight = 1, Template = "prestige_spellshield", Unique = true },
-				{ Weight = 1, Template = "prestige_huntersmark", Unique = true },
-				{ Weight = 1, Template = "prestige_vanish", Unique = true },
-				{ Weight = 1, Template = "prestige_meditate", Unique = true },
+				{ Chance = 0.5, Template = "prestige_vanguard", Unique = true },
+				{ Chance = 0.5, Template = "prestige_shieldbash", Unique = true },
+				{ Chance = 0.5, Template = "prestige_stunshot", Unique = true },
+				{ Chance = 0.5, Template = "prestige_adrenaline_rush", Unique = true },
+				{ Chance = 0.5, Template = "prestige_silence", Unique = true },
+				{ Chance = 0.5, Template = "prestige_magearmor", Unique = true },
+				{ Chance = 0.5, Template = "prestige_huntersmark", Unique = true },
+				{ Chance = 0.5, Template = "prestige_vanish", Unique = true },
+				{ Chance = 0.5, Template = "prestige_meditate", Unique = true },
 
+				{ Chance = 2, Template = "prestige_stasis", Unique = true },
+				{ Chance = 2, Template = "prestige_empower", Unique = true },
+				{ Chance = 2, Template = "prestige_charge", Unique = true },
+				{ Chance = 2, Template = "prestige_wound", Unique = true },
+				{ Chance = 2, Template = "prestige_dart", Unique = true },
+				{ Chance = 2, Template = "prestige_evasion", Unique = true },
+				{ Chance = 2, Template = "prestige_spellchamber", Unique = true },
+				{ Chance = 2, Template = "prestige_empower", Unique = true },
+				{ Chance = 2, Template = "prestige_stunstrike", Unique = true },
+				{ Chance = 2, Template = "prestige_hamstring", Unique = true },
 			}
 		},
 		CultistKing =

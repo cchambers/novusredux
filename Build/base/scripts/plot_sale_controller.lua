@@ -22,8 +22,7 @@ function SaleAll()
     for i=1,#controllers do
         local controller = controllers[i]
         if ( controller and controller:IsValid() ) then
-            local balance = GlobalVarReadKey("Plot."..controller.Id, "Balance") or 0
-            if ( balance < 0 ) then
+            if ( Plot.GetBalance(controller) < 0 ) then
                 _Controllers[#_Controllers+1] = controller
             end
         end

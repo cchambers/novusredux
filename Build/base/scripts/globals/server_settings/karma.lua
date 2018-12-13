@@ -86,15 +86,15 @@ ServerSettings.Karma = {
                 Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 50,
+            SlayMonsterModifier = 20,
         },
         {
             Amount = -10000,
-            Name = "Dread",
+            Name = "Outcast",
             AlignmentName = "Unlawful",
             NameColor = "FF0000",
-            Title = "The Dread",
-            NegativeKarmaAdjustMod = 0.15,
+            Title = "The Outcast",
+            NegativeKarmaAdjustMod = 0.1,
             -- guards will attack this player, don't set guard protect to true when this is true, things might get weird?
             GuardHostilePlayer = true,
             -- guards will attack this NPC, don't set guard protect to true when this is true, things might get weird?
@@ -114,7 +114,7 @@ ServerSettings.Karma = {
                 Chaos = 0,
                 Outcast = 0,
             },
-            SlayMonsterModifier = 50,
+            SlayMonsterModifier = 20,
         }
     }
 }

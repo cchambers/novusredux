@@ -5,9 +5,9 @@ ServerSettings.Campfire = {
     RequireGroup = true,
     -- Regen bonus for each stat the campfire 'refuels'
     Bonus = {
-        Health = 1,
-        Mana = 0.5,
-        Stamina = 0.03,
+        Health = 0.01,
+        Mana = 0,
+        Stamina = 0,
     },
     Disturb = {
         -- do player disturb campfires while in war mode?

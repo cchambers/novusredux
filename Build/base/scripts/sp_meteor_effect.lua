@@ -30,7 +30,7 @@ RegisterEventHandler(EventType.Message,"MeteorSpellTargetResult",
 
 RegisterEventHandler(EventType.Timer, "MeteorImpact",
 function()
-	this:PlayObjectSound("MeteorImpact", false)
+	this:PlayObjectSound("event:/magic/earth/magic_earth_cast_meteor", false)
 	local mobiles = FindObjects(SearchMulti({
 					SearchRange(mTargetLoc,METOR_IMPACT_RANGE),
 					SearchMobile()}), GameObj(0))

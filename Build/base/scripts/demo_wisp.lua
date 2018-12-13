@@ -42,7 +42,7 @@ RegisterEventHandler(EventType.Timer,"DoUpdate",
 				local spawnLoc = GetNearbyPassableLoc(PlayerObj,360,2,4)
 				this:SetWorldPosition(spawnLoc)
 				this:PlayEffect("TeleportToEffect")
-				this:PlayObjectSound("TeleportToEffect")
+				this:PlayObjectSound("event:/magic/air/magic_air_teleport")
 			else
 				local speedMod = ServerSettings.Stats.RunSpeedModifier
 				if(PlayerObj:GetEquippedObject("Mount")) then

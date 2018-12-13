@@ -12,7 +12,7 @@ MobileEffectLibrary.Backstab =
 		
 		self.ParentObj:PlayAnimation("attack_jump")
 		self.ParentObj:PlayEffect("BuffEffect_K")
-		self.ParentObj:PlayObjectSound("Stab")
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/puncture")
 
 		if ( self._HitChance >= 1 or Success(self._HitChance) ) then
 			SetCombatMod(self.ParentObj, "AttackPlus", "Backstab", self.AttackPlus)

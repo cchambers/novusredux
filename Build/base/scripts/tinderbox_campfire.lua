@@ -7,7 +7,7 @@
 
 -- different levels of campfires can be created by setting the ObjVar BaseBonus on the campfire object.
 
---[[_PlayersNearby = {}
+_PlayersNearby = {}
 
 -- keep track of the player that owns this campfire so only their group members get the benefit
 _Owner = nil
@@ -167,10 +167,4 @@ RegisterEventHandler(EventType.LoadedFromBackup,"", function()
 	if ( this:HasObjVar("BaseBonus") ) then
 		this:Destroy()
 	end
-end)]]
-
-RegisterSingleEventHandler(EventType.ModuleAttached, "tinderbox_campfire", function()
-	SetTooltipEntry(this,"campfire","Can be used to cook food.")
-	this:SetSharedObjectProperty("IsLit", true)
-	Decay(this, ServerSettings.Misc.ObjectDecayTimeSecs)
 end)

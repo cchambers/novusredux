@@ -129,8 +129,10 @@ MobileEffectLibrary.Lockpick =
             return
         end
 
-        if ( CheckSkill(self.ParentObj, "LockpickingSkill", self._Difficulty) ) then
-            self.Target:PlayObjectSound("DoorUnlock")
+        local skillLevel = GetSkillLevel(self.ParentObj, "LockpickingSkill")
+        local chance = SkillValueMinMax( skillLevel, self._Difficulty - 25, self._Difficulty + 25 )
+        if ( CheckSkillChance(self.ParentObj, "LockpickingSkill", skillLevel, chance) ) then
+            self.Target:PlayObjectSound("event:/objects/doors/door/door_lock_pick")
             self.Target:DelObjVar("locked")
             --RemoveTooltipEntry(self.Target,"lock")
             self.Target:SendMessage("Lockpicked", self.ParentObj)
@@ -140,7 +142,15 @@ MobileEffectLibrary.Lockpick =
             end
             EndMobileEffect(root)
         else
-            self.ParentObj:SystemMessage("Failed to pick lock.", "info")
+            if ( chance <= 0 ) then
+                self.ParentObj:SystemMessage("No chance to pick this lock.", "info")
+                EndMobileEffect(root)
+                return
+            elseif ( chance < 0.075 ) then
+                self.ParentObj:SystemMessage("Almost no chance to pick this lock.", "info")
+            else
+                self.ParentObj:SystemMessage("Failed to pick lock.", "info")
+            end
             self.StartProgressBar(self,root)
         end
     end,

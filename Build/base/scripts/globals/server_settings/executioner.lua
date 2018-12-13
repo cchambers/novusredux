@@ -6,23 +6,19 @@ ServerSettings.Executioner = {
  
 	-- Modifier applied to final damage of Executioner weapons when hitting the correct MobileKind for the weapon
 	LevelModifier = {
-		1.25, -- Ruin
-		1.50, -- Might
-		1.75, -- Force
-		2.00, -- Power
-		2.25, -- Vanquishing
+		1.25, -- level 1
+		1.50, -- level 2
+		1.75, -- level 3
 	},
 
 	-- This will be put on the tooltip of the weapon and %s will be replaced with the MobileKind of the weapon.
 	LevelString = {
-		"Ruin (+1)",
-		"Might (+3)",
-		"Force (+5)",
-		"Power (+7)",
-		"Vanquishing (+9)",
+		"Lesser %s Executioner",
+		"%s Executioner",
+		"Greater %s Executioner",
 	},
 
-	-- The default intensity an executioner weapon when created randomly
+	-- The default intensity of an executioner weapon when created randomly
 	DefaultIntensity = {0, 50},
 	-- List of templates that are possible to be created via random_executioner_weapon.lua
 	RandomTemplateList = {
@@ -51,15 +47,15 @@ ServerSettings.Executioner = {
 	},
 	-- List of all possible MobileKind types for a weapon created via random_executioner_weapon.lua
 	RandomMobileKinds = {
-		-- "Undead",
-		-- "Dragon",
+		"Undead",
+		"Dragon",
 		"Humanoid",
-		-- "Reptile",
-		-- "Ork",
-		-- "Arachnid",
-		-- "Animal",
-		-- "Demon",
-		-- "Giant",
+		"Reptile",
+		"Ork",
+		"Arachnid",
+		"Animal",
+		"Demon",
+		"Giant",
 		--"Ent",
 	},
 }

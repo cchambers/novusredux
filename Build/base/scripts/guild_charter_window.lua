@@ -1,3 +1,5 @@
+require 'base_player_guild'
+
 local numFoundingMembers = 4
 local scrollTarget = nil
 local guildMaster = nil
@@ -12,7 +14,7 @@ function ValidateForm()
 		return
 	end
 
-	if(Guild.IsInGuild(this)) then 
+	if(GuildHelpers.IsInGuild(this)) then 
 		this:SystemMessage("Cannot form. You are already in a guild.","info")
 		return
 	end
@@ -24,7 +26,7 @@ function ValidateForm()
 			this:SystemMessage("Cannot form. ".. guildMember.Name .. " is not here.","info")
 			return
 		end
-		if(Guild.IsInGuild(guildMember.ObjRef)) then 
+		if(GuildHelpers.IsInGuild(guildMember.ObjRef)) then 
 			this:SystemMessage("Cannot form. ".. guildMember.Name .. " is already in a guild.","info")
 			return
 		end
@@ -213,7 +215,7 @@ function ShowGuildTag(newName)
     		 		return
     		 	end
 
-				if(Guild.IsTagUnique(tag) == false) then
+				if(GuildHelpers.IsTagUnique(tag) == false) then
 					user:SystemMessage("This guild tag is already in use","info")
 					return
 				end
@@ -392,7 +394,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "select_founder",
 				return
 			end
 
-			if(Guild.IsInGuild(target)) then 
+			if(GuildHelpers.IsInGuild(target)) then 
 				this:SystemMessage("That person is already in a guild.","info")
 				return
 			end

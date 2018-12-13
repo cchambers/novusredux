@@ -60,9 +60,9 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "torch",
+							Template = "hearthstone",
 							Price = 0,
-							Amount = 50,
+							Amount = 20,
 							RelativeLoc = "-1.51416, 0.7575722, -1.938354",
 							Rotation = "359.3423, 302.1366, 0.3359878",
 							UnlimitedStock = false,

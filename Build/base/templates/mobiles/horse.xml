@@ -47,7 +47,7 @@
 					MeatType = "ToughMeat",
 					AnimalParts =
 					{
-						{ ResourceType="LeatherHide", RarityPct=100, Count=3 },
+						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },
 					}
 				}
 			</Initializer>

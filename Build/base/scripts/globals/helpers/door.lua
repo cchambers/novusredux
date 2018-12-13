@@ -49,7 +49,7 @@ Door.Lock = function(door, silent)
     if ( Door.IsLocked(door) ) then return end
     door:SetObjVar("locked",true)
     if not( silent ) then
-        door:PlayObjectSound("DoorLock")
+        door:PlayObjectSound("event:/objects/doors/door/door_lock")
     end
     SetTooltipEntry(door,"lock","[FF0000]*Locked*[-]",10)
 end
@@ -62,7 +62,7 @@ Door.Unlock = function(door, silent)
     if not( Door.IsLocked(door) ) then return end
     door:DelObjVar("locked")
     if not( silent ) then
-        door:PlayObjectSound("DoorUnlock")
+        door:PlayObjectSound("event:/objects/doors/door/door_unlock")
     end
     RemoveTooltipEntry(door,"lock")
 end

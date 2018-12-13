@@ -31,8 +31,13 @@ for i=1,#AI.CombatStateTable do
     end
 end
 
--- add npc charge to guards.
-SetInitializerCombatAbilities(this, {"NPCCharge"})
+if ( initializer and initializer.Skills and initializer.Skills.Archery ) then
+    -- add npc charge to guards.
+    SetInitializerCombatAbilities(this, {"NPCStunShot"})
+else
+    -- add npc charge to guards.
+    SetInitializerCombatAbilities(this, {"NPCCharge"})
+end
 
 guardNames = { 
     "Apollos",
@@ -150,6 +155,7 @@ end
 function IsEnemy(targetObj)
     if (targetObj == nil or not targetObj:IsValid()) then return true end
     if (targetObj:HasObjVar("IsGuard")) then return false end
+    if (targetObj:HasObjVar("IsNeutralGuard")) then return false end
 
     if not( AI.IsValidTarget(targetObj) ) then return false end
 

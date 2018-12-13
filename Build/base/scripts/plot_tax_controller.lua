@@ -46,7 +46,8 @@ function TaxNext()
 
     xpcall(function()
         -- tax the plot via controller
-        Plot.Tax(_Controllers[_I], CheckDone)
+        Plot.Tax(_Controllers[_I])
+        CheckDone()
     end, function(e)
         LuaDebugCallStack("[PLOT TAX CONTROLLER]" .. e)
     end)

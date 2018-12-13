@@ -401,7 +401,7 @@ RegisterEventHandler(EventType.CreatedObject,"deed_created",
 		if(mPlotTarget and mPlotTarget:IsValid()) then
 			objRef:SetName("Deed to Plot")
 			local bounds = mPlotTarget:GetObjVar("PlotBounds")
-			local balance = GlobalVarReadKey("Plot."..mPlotTarget.Id, "Balance") or 0
+			local balance = Plot.GetBalance(mPlotTarget)
 			SetTooltipEntry(objRef,"plot_balance", string.format("Balance\n%s\n", balance>0 and ValueToAmountStr(balance) or "Empty"), 100)
 			SetTooltipEntry(objRef,"plot_size", "Size", 99)
 			for i=1,#bounds do

@@ -344,7 +344,7 @@ OverrideEventHandler("stackable",EventType.Message,"StackOnto",
 		    if(IsInBank(this)) then
 		    	local amount = GetStackCount(otherObj)
 		    	AdjustStack(amount)
-		    	otherObj:Destroy("StackOnto",GetStackCount(otherObj))
+		    	otherObj:Destroy("StackOntoAddCoins",GetStackCount(otherObj))
 		    	pendingStack = true	
 		    	DoChangeUp()		
 		    -- otherwise just add the two sets of coins together

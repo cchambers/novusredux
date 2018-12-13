@@ -26,6 +26,8 @@ GuildInvitation = {
 	end
 }
 
+Guild = {}
+
 Guild.InviteTarget = function()
 	this:RequestClientTargetGameObj(this, "guildinvite")
 end
@@ -53,12 +55,12 @@ Guild.Initialize = function()
 	guild = Guild.UpdateMemberInfo(this)
 
 	if (guild ~= nil) then
-		Guild.SendToAll( this, guild, "(Has logged on)");	
+		GuildHelpers.SendToAll( this, guild, "(Has logged on)");	
 	end
 end
 
 Guild.Invite = function ( from, target )
-	local g = Guild.Get( from );
+	local g = GuildHelpers.Get( from );
 
 	if ( g == nil ) then
 		from:SystemMessage("[00FF00][Guild] You have not yet created a guild!","custom")
@@ -110,8 +112,8 @@ Guild.CanInvite = function(target,user)
 			return false
 		end
 
-		local g = Guild.Get( user );
-		local mg = Guild.Get( target );
+		local g = GuildHelpers.Get( user );
+		local mg = GuildHelpers.Get( target );
 
 		if ( g ~= nil and not(Guild.HasAccessLevel(user, "Emissary",g))) then
 			user:SystemMessage("[$1690]","custom")
@@ -146,7 +148,7 @@ Guild.Decline = function(target)
 			return
 		end
 
-		local g = Guild.Get(guildInvite.InvitedBy)
+		local g = GuildHelpers.Get(guildInvite.InvitedBy)
 
 		if (g == nil) then
 			target:SystemMessage( "[00FF00][Guild] The guild no longer exists." ,"custom")
@@ -166,7 +168,7 @@ Guild.Accept = function(target)
 	if( target:HasObjVar("GuildInvitation") ) then
 		local guildInvitation = target:GetObjVar("GuildInvitation")
 
-		local g = Guild.Get(guildInvitation.InvitedBy)
+		local g = GuildHelpers.Get(guildInvitation.InvitedBy)
 		Guild.AddToGuild(g.Id,target)	
 		target:DelObjVar("GuildInvitation");
 	else
@@ -177,7 +179,7 @@ end
 
 Guild.AddToGuild = function(guildId,target)
 	--DebugMessage(1)
-	local g =Guild.GetGuildRecord(guildId)
+	local g =GuildHelpers.GetGuildRecord(guildId)
 
 	if (g == nil) then
 		this:SystemMessage( "[00FF00][Guild] The guild no longer exists.","custom" )	
@@ -195,8 +197,8 @@ Guild.AddToGuild = function(guildId,target)
 		g.Members[target.Id] = mi
 		target:SetObjVar("Guild", g.Id);
 
-		Guild.SendToAll( nil, g, StripColorFromString(target:GetName()) .." has joined the guild.");
-		Guild.SendMessageToAll(g,"UpdateGuildInfo")
+		GuildHelpers.SendToAll( nil, g, StripColorFromString(target:GetName()) .." has joined the guild.");
+		GuildHelpers.SendMessageToAll(g,"UpdateGuildInfo")
 
 		CheckAchievementStatus(target, "Activity", "Guild", 1)
 
@@ -211,7 +213,7 @@ Guild.AddToGuild = function(guildId,target)
 		end)		
 	end
 	--DebugMessage(3)
-	Guild.UpdateGuildRecord(g)		
+	GuildHelpers.UpdateGuildRecord(g)		
 
 	EventTracking.UpdateGuildRecord(g)	
 end
@@ -221,7 +223,7 @@ Guild.Contains = function( m , g )
 end
 
 Guild.Remove = function ( m, g )
-	g = g or Guild.Get(this)
+	g = g or GuildHelpers.Get(this)
 	if(g == nil) then
 		return
 	end
@@ -235,13 +237,13 @@ Guild.Remove = function ( m, g )
 		CallFunctionDelayed(TimeSpan.FromSeconds(1),function() m:SendMessageGlobal("UpdateGuildMemberInfo") end)
 	end
 
-	Guild.SendToAll( nil, g, "A player has been removed from your guild.");
+	GuildHelpers.SendToAll( nil, g, "A player has been removed from your guild.");
 
 	if (g.Members[m.Id] ~= nil) then
 		g.Members[m.Id] = nil;			
 	end
 
-	Guild.UpdateGuildRecord(g)		
+	GuildHelpers.UpdateGuildRecord(g)		
 
 	EventTracking.UpdateGuildRecord(g)	
 
@@ -249,35 +251,30 @@ Guild.Remove = function ( m, g )
 			m:SendMessage("UpdateName")
 		end)
 
-	Guild.SendMessageToAll(g,"UpdateGuildInfo")
+	GuildHelpers.SendMessageToAll(g,"UpdateGuildInfo")
 	this:SendMessage("UpdateGuildInfo")
 end
 
 Guild.SendMessage = function (...)
 
-	local g = Guild.Get(this)
+	local g = GuildHelpers.Get(this)
 
 	if (g == nil) then
 		return
 	end
 
-	local arg = table.pack(...)
-
-	local line = ""
-	if(#arg > 0) then
-		for i = 1,#arg do line = line .. tostring(arg[i]) end
-	end
+	local line = CombineArgs(...)
 
 	local encoded = json.encode(line)
 	local msgtype = 'guild","guildname":"' .. g.Name
 	this:LogChat(msgtype, encoded)
 
-	Guild.SendToAll( this, g, line);
+	GuildHelpers.SendToAll( this, g, line);
 end
 
 Guild.SendAllegianceMessage = function (...)
 	--[[
-	local g = Guild.Get(this)
+	local g = GuildHelpers.Get(this)
 
 	if (g == nil) then
 		return
@@ -290,7 +287,7 @@ Guild.SendAllegianceMessage = function (...)
 		for i = 1,#arg do line = line .. tostring(arg[i]) .. " " end
 	end	
 
-	Guild.SendToAllAllegiance( this, g, line);
+	GuildHelpers.SendToAllAllegiance( this, g, line);
 	]]
 end
 
@@ -306,7 +303,7 @@ Guild.TryCreate = function(leader,guildName,guildTag,foundingMembers)
         end  
     end
 
-    Guild.AddTagToGlobalList(guildTag, guildID, cb)
+    GuildHelpers.AddTagToGlobalList(guildTag, guildID, cb)
 end
 
 -- NOTE: if no id is specified its generated automatically
@@ -365,20 +362,20 @@ Guild.Create = function(leader,guildName, guildId,guildTag,foundingMembers)
 		end
 	end
 
-	Guild.UpdateGuildRecord(res)		
+	GuildHelpers.UpdateGuildRecord(res)		
 	
 	EventTracking.UpdateGuildRecord(res)
 	return res
 end
 
 Guild.Disband = function(user)
-	local g = Guild.Get(user)
+	local g = GuildHelpers.Get(user)
 
 	if (g == nil) then
 		return
 	end
 
-	Guild.SendToAll( this, g, "Your guild has been disbanded!");
+	GuildHelpers.SendToAll( this, g, "Your guild has been disbanded!");
 
 	-- DAB TODO: This only hands users on the same region!
 	for mobile, entry in pairs (g.Members) do
@@ -392,12 +389,12 @@ Guild.Disband = function(user)
 		end
 	end
 
-	Guild.RemoveTagFromGlobalList(g)
+	GuildHelpers.RemoveTagFromGlobalList(g)
 
-	Guild.DeleteGuildRecord(g.Id)
+	GuildHelpers.DeleteGuildRecord(g.Id)
 
 	CallFunctionDelayed(TimeSpan.FromSeconds(1),function ( ... )
-					Guild.SendMessageToAll(g,"UpdateName")
+					GuildHelpers.SendMessageToAll(g,"UpdateName")
 				end)
 
 	this:SendMessage("UpdateGuildInfo")
@@ -414,11 +411,11 @@ Guild.ValidateInvitation = function(invite)
 		return nil
 	end
 
-	return Guild.GetGuildRecord(guild)
+	return GuildHelpers.GetGuildRecord(guild)
 end
 
 Guild.UpdateMemberInfo = function(user)
-	local g = Guild.Get(user)
+	local g = GuildHelpers.Get(user)
 
 	if (g == nil) then 
 		if(this:HasObjVar("Guild")) then
@@ -480,7 +477,7 @@ Guild.RemoveGuildTitle = function(mobileObj)
 end
 
 Guild.HasAccessLevel = function(user,required,g)
-	local g = g or Guild.Get(user)
+	local g = g or GuildHelpers.Get(user)
 
 	if (g == nil) then
 		return
@@ -515,8 +512,8 @@ Guild.CheckAccessLevel = function(level,required)
 	return false
 end
 
-Guild.GetAccessLevel = function(m,g)
-	g = g or Guild.Get(m)
+GuildHelpers.GetAccessLevel = function(m,g)
+	g = g or GuildHelpers.Get(m)
 
 	if (g == nil) then return nil end
 
@@ -528,10 +525,10 @@ Guild.GetAccessLevel = function(m,g)
 
 end
 Guild.CanBePromotedBy = function(promoter, promotee,g)
-	g = g or Guild.Get(promoter)
+	g = g or GuildHelpers.Get(promoter)
 
-	local mylevel = Guild.GetAccessLevel(promoter,g)
-	local theirlevel = Guild.GetAccessLevel(promotee,g)
+	local mylevel = GuildHelpers.GetAccessLevel(promoter,g)
+	local theirlevel = GuildHelpers.GetAccessLevel(promotee,g)
 
 	if (mylevel == "Guildmaster" and theirlevel =="Guildmaster") then return false end
 	if (mylevel == "Officer" and theirlevel =="Guildmaster") then return false end
@@ -564,10 +561,10 @@ Guild.DemoteAccessLevel = function (current)
 end
 
 Guild.PromoteMember = function(member, g, level, force)
-	local mylevel = Guild.GetAccessLevel(this,g)
-	local theirlevel = Guild.GetAccessLevel(member,g)
+	local mylevel = GuildHelpers.GetAccessLevel(this,g)
+	local theirlevel = GuildHelpers.GetAccessLevel(member,g)
 
-	g = g or Guild.Get(this)
+	g = g or GuildHelpers.Get(this)
 
 	if (g == nil or not(Guild.HasAccessLevel(this,"Emissary",g) or IsImmortal(this))) then return end
 
@@ -604,11 +601,11 @@ Guild.PromoteMember = function(member, g, level, force)
 
 		--DebugMessage("writing..."..g.Members[id].AccessLevel)
 
-		Guild.UpdateGuildRecord(g)
+		GuildHelpers.UpdateGuildRecord(g)
 	end
 end
 Guild.DemoteMember = function(member, g)
-	g = g or Guild.Get(this)
+	g = g or GuildHelpers.Get(this)
 
 	if (g == nil or not(Guild.HasAccessLevel(this,"Emissary",g))) then return end
 
@@ -633,15 +630,15 @@ Guild.DemoteMember = function(member, g)
 		g.Members[member.Id] = mi
 
 		--DebugMessage("writing..."..g.Members[id].AccessLevel)
-		Guild.UpdateGuildRecord(g)
+		GuildHelpers.UpdateGuildRecord(g)
 	end
 end
 
 Guild.CanChangeGuildMaster = function(member, g)
-	g = g or Guild.Get(this)
+	g = g or GuildHelpers.Get(this)
 	
-	local mylevel = Guild.GetAccessLevel(this,g)
-	local theirlevel = Guild.GetAccessLevel(member,g)
+	local mylevel = GuildHelpers.GetAccessLevel(this,g)
+	local theirlevel = GuildHelpers.GetAccessLevel(member,g)
 
 	if (mylevel ~= "Guildmaster") then
 		this:SystemMessage("[00FF00][Guild] You do not have a permission to transfer guild","custom")
@@ -655,10 +652,10 @@ Guild.CanChangeGuildMaster = function(member, g)
 end
 
 Guild.ChangeGuildMaster = function(member, g)
-	local mylevel = Guild.GetAccessLevel(this,g)
-	local theirlevel = Guild.GetAccessLevel(member,g)
+	local mylevel = GuildHelpers.GetAccessLevel(this,g)
+	local theirlevel = GuildHelpers.GetAccessLevel(member,g)
 
-	g = g or Guild.Get(this)
+	g = g or GuildHelpers.Get(this)
 
 	if (g == nil or not(Guild.HasAccessLevel(this,"Emissary",g) or IsImmortal(this))) then return end
 
@@ -686,36 +683,36 @@ Guild.ChangeGuildMaster = function(member, g)
 		g.Members[member.Id] = mi
 		g.Members[this.Id] = promoter
 
-		Guild.UpdateGuildRecord(g)
+		GuildHelpers.UpdateGuildRecord(g)
 	end
 end
 
 Guild.CanKickMembers = function(m,target,g)
-	if (Guild.GetAccessLevel(target,g) == "Guildmaster") then
+	if (GuildHelpers.GetAccessLevel(target,g) == "Guildmaster") then
 		m:SystemMessage("[00FF00][Guild] You cannot kick the guildmaster", "custom") 
 		return false 
 	end 
 	return Guild.HasAccessLevel(m,"Officer",g)
 end
 
-Guild.GetAccessLevelIndex = function(accessLevel)
-	return IndexOf(Guild.AccessLevels,accessLevel)
+GuildHelpers.GetAccessLevelIndex = function(accessLevel)
+	return IndexOf(GuildHelpers.AccessLevels,accessLevel)
 end
 
 Guild.SetGuildMessage = function(m, g, messageType, message)
-	g = g or Guild.Get(m)
+	g = g or GuildHelpers.Get(m)
 
 	if(g ~= nil and messageType and message and Guild.HasAccessLevel(this,"Officer",g)) then
 		if not(g.Messages) then
 			g.Messages = {}
 		end
 		g.Messages[messageType] = message
-		Guild.UpdateGuildRecord(g)
+		GuildHelpers.UpdateGuildRecord(g)
 	end
 end
 
-Guild.GetGuildMessage = function(m, g, messageType)
-	g = g or Guild.Get(m)
+GuildHelpers.GetGuildMessage = function(m, g, messageType)
+	g = g or GuildHelpers.Get(m)
 
 	-- no guild return nil
 	if not(g) then return end
@@ -726,7 +723,7 @@ Guild.GetGuildMessage = function(m, g, messageType)
 	return g.Messages[messageType] or ""
 end
 
-Guild.GetOnlineMemberCount = function(m, g)
+GuildHelpers.GetOnlineMemberCount = function(m, g)
 	local count = 0
 	for id,memberData in pairs(g.Members) do
 		if ( GlobalVarReadKey("User.Online", GameObj(id)) ) then
@@ -761,15 +758,11 @@ RegisterEventHandler(EventType.Message,"GuildChat",
 		end
 	end)
 
-RegisterEventHandler(EventType.Message,"LoggedIn",function ()
-	Guild.Initialize()
-end)
-
 RegisterEventHandler(EventType.Message,"JoinGuild",
 	function (guildId)
 		-- make sure this person isnt somehow in a guild
-		if(Guild.Get(this) == nil) then				
-			if ( Guild.GetGuildRecord(guildId) ~= nil ) then
+		if(GuildHelpers.Get(this) == nil) then				
+			if ( GuildHelpers.GetGuildRecord(guildId) ~= nil ) then
 				Guild.AddToGuild(guildId)
 			end				
 		end

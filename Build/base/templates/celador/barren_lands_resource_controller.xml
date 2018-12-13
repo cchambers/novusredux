@@ -13,7 +13,7 @@
 							Region = "BarrensMine1",
 							Rock = 
 							{								
-								RegenRate = (10 / 40), 
+								RegenRate = (5 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -44,7 +44,7 @@
 							Region = "BarrensMine2",
 							Rock = 
 							{								
-								RegenRate = (10 / 40), 
+								RegenRate = (5 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -109,8 +109,8 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 0,
-										Count = 10, 
+										AvailablityPct = 20,
+										Count = 20, 
 									},
 								}
 							},

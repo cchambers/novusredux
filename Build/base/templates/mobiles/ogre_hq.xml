@@ -49,7 +49,7 @@
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
-						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.ContemptMob,
 						{
 							NumCoins = math.random(550,700),
 							NumItems = 1,

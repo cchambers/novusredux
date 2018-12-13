@@ -444,7 +444,7 @@ function SetItemTooltip(item, noUseCases)
 
 	-- default weapons/armor to double click to equip
 	local slot = item:GetSharedObjectProperty("EquipSlot")
-	if ( slot ~= nil and slot ~= "TempPack" and slot ~= "Bank" and slot ~= "Familiar" and slot ~= "Mount" ) then
+	if ( slot ~= nil and slot ~= "TempPack" and slot ~= "Bank" and slot ~= "Familiar" and slot ~= "Mount" and not item:IsContainer() ) then
 		item:SetSharedObjectProperty("DefaultInteraction", "Equip")
 	end
 

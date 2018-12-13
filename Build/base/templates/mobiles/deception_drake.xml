@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<ClientId>1585</ClientId>
-	<Name>Dread Serpent</Name>
+	<Name>Abyss Serpent</Name>
 	<ScaleModifier>0.65</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
 	<MobileComponent>			
@@ -29,8 +29,9 @@
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
-				MobTraits =
 					{
+					Toughness = 2,
+					Might = 2,
 					},
 				Skills = 
 					{ 
@@ -44,7 +45,6 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.DeceptionMob,
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.MapsHigh,

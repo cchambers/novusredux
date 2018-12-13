@@ -70,10 +70,10 @@
 						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf2", DelayMin=4 },
 						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf3", DelayMin=4 },
 
-						--{ Count = 1, TemplateId = "wyvern",    Region = "Drake", DelayMin=4, Chance=1},
+						{ Count = 1, TemplateId = "wyvern",    Region = "Drake", DelayMin=4, Chance=1},
 
-						--{ Count = 1, TemplateId = "dread",    Region = "Dread1", DelayMin=4, Chance=1},
-						--{ Count = 1, TemplateId = "dread_black",    Region = "Dread1", DelayMin=10, Chance=1},
+						{ Count = 1, TemplateId = "dread",    Region = "Dread1", DelayMin=4, Chance=1},
+						{ Count = 1, TemplateId = "dread_black",    Region = "Dread1", DelayMin=10, Chance=1},
 					},
 				}
 			</Initializer>	

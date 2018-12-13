@@ -59,6 +59,7 @@ require 'globals.htmlwindows.htmlwindows'
 require 'globals.helpers.main'
 require 'globals.mobile_effects.main'
 require 'globals.special_effects.main'
+require 'globals.autofix.main'
 
 -- Common global variables
 -- Lua Helpers
@@ -271,14 +272,15 @@ function ServerBroadcast(message,isEvent)
 		isEvent = false
 	end
 
-	for user,y in pairs(onlineUsers) do
-		if( isEvent ) then
-			user:SendMessageGlobal("SystemMessage",message,"event")
-		else
-			user:SendMessageGlobal("SystemMessage",message)
+	if(onlineUsers) then
+		for user,y in pairs(onlineUsers) do
+			if( isEvent ) then
+				user:SendMessageGlobal("SystemMessage",message,"event")
+			else
+				user:SendMessageGlobal("SystemMessage",message)
+			end
 		end
 	end
-
 	DebugMessage("** ServerWideBroadcast: "..message)
 end
 
@@ -312,14 +314,12 @@ function ForEachPlayerInRegion(functor)
 end
 
 function FindPlayersInRegion(compFunc)
-	local result = {}
-
-	for i,playerObj in pairs(FindObjectsWithTag("AttachedUser")) do
-		if(not(compFunc) or compFunc(playerObj)) then
-			table.insert(result,playerObj)
+	local result,players = {},FindObjectsWithTag("AttachedUser")
+	for i=1,#players do
+		if ( not compFunc or compFunc(players[i]) ) then
+			result[#result+1] = players[i]
 		end
 	end
-
 	return result
 end
 

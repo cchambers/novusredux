@@ -231,6 +231,8 @@ SpellData = {
 			SpellPotencySkill = "EvocationSkill",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
+			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
+			--SpellLaunchSFX = "event:/magic/earth/magic_earth_cast_meteor",
 			SpellLaunchSFX = "FallingMeteor",
 			critEffectTargetScript = "sp_burn_effect",
 			Icon = "Hellstorm",
@@ -716,7 +718,7 @@ SpellData = {
 			TargetRequired = false,
 			MobileEffect = "Intellect",
 			Reagents = {
-				"Garlic",
+				"LemonGrass",
 			},
 			Circle = 1,
 			PlayEffect = HealEffect,

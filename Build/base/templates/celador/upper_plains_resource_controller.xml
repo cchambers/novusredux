@@ -13,7 +13,7 @@
 							Region = "UpperPlainsQuarryMineInner",
 							Rock = 
 							{								
-								RegenRate = (10 / 40), 
+								RegenRate = (2.65 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -32,7 +32,7 @@
 							Region = "UpperPlainsQuarryMineOuter",
 							Rock = 
 							{								
-								RegenRate = (10 / 40), 
+								RegenRate = (2.65 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -51,7 +51,7 @@
 							Region = "UpperPlainsSwordIsleMine",
 							Rock = 
 							{								
-								RegenRate = (10 / 40), 
+								RegenRate = (2.65 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -100,8 +100,8 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 0,
-										Count = 10, 
+										AvailablityPct = 20,
+										Count = 20, 
 									},
 								}
 							},

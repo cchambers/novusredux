@@ -69,4 +69,9 @@ MobTraits = {
 		MobileMod = "PiercingDamageTakenTimes",
 		Levels = { -0.2, -0.5 }
 	},
+	MagicResistance = {
+		DisplayName = "Magic Resistance",
+		MobileMod = "MagicDamageTakenTimes",
+		Levels = { -0.2, -0.5 }
+	},
 }

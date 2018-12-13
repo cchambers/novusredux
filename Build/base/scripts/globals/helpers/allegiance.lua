@@ -313,6 +313,6 @@ function UpdateAllegianceTitle(player, allegiance, totalFavor)
     --Check if player should earn achievement for current allegiance
     CheckAchievementStatus(player, "PvP", allegianceData.Icon.."Allegiance", percent, {TitleCheck = "Allegiance"}, "Allegiance")
 
-    --Check if player can still use allegiance title if they are using one
-    CheckTitleRequirement(allegianceData.Icon.."Allegiance")
+    --Check if a player who lost favor can use allegiance title
+    CheckTitleRequirement(playerA, allegianceData.Icon.."Allegiance")
 end

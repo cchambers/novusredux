@@ -97,11 +97,11 @@ end
 
 function OpenAchievementWindow(user)
 
-	local window = DynamicWindow("PlayerAchievementWindow","Achievements",604,668,-260,-185,"Default","Center")
+	local window = DynamicWindow("PlayerAchievementWindow","Achievements",604,678,-260,-185,"Default","Center")
 
 	window:AddImage(152, 4, "BasicWindow_Panel",402,567,"Sliced")
 
-	window:AddButton(247, 578, "RemoveTitle","Remove title", 100, 30, "", nil, false)
+	window:AddButton(247, 585, "RemoveTitle","Remove title", 100, 30, "", nil, false)
 
 	mCategory = string.gsub(mAchievementTab," ","")
 
@@ -111,11 +111,18 @@ function OpenAchievementWindow(user)
 	if (showOnlyTitle) then
 		buttonState = "pressed"
 	end
-	window:AddButton(357,582,"ShowOnlyTitle","Show titles only",110,30,"","",false,"Selection2",buttonState)
+
+	local lockTitle = user:HasObjVar("LockTitle")
+	local lockTitleButtonState = ""
+	if (lockTitle) then
+		lockTitleButtonState = "pressed"
+	end
+	window:AddButton(357,577,"ShowOnlyTitle","Show titles only",110,30,"","",false,"Selection2",buttonState)
+	window:AddButton(357,602,"LockTitle","Lock title",110,30,"","",false,"Selection2",lockTitleButtonState)
 
 	local totalRenown = this:GetObjVar("Renown") or 0
 
-	window:AddLabel(20, 586, "Renown Earned: "..tostring(totalRenown),200, 80, 18, "left")
+	window:AddLabel(20, 593, "Renown Earned: "..tostring(totalRenown),200, 80, 18, "left")
 
 	--Get all achievements that fits to current tab
 	local achievements = GetAllCategoryAchievements(mAchievementTab)
@@ -125,6 +132,7 @@ function OpenAchievementWindow(user)
 	--This function gets every completed achievements and achievements waiting to be completed
 	local availableAchievements = GetAllAchievementsObtained(user)
 	local activeTitle = GetActiveTitle(user)
+	local activeTitleType = GetActiveTitleType(user)
 
 	local completedAchievements = this:GetObjVar("CompletedAchievements") or {}
 	
@@ -172,7 +180,7 @@ function OpenAchievementWindow(user)
 					end
 
 					--If we are using title rewarded by achievement we are trying to show, set isActive true
-					if (achievementToShow.Reward.Title ~= nil and achievementToShow.Reward.Title == activeTitle) then
+					if (achievementToShow.Reward.Title ~= nil and activeTitleType == j.Type) then
 						isActive = true
 					end
 				end
@@ -197,8 +205,8 @@ function OpenAchievementWindow(user)
 	else
 		--Every Other achievements are going to be in table for completed achievement
 		for i,j in pairs(completedAchievements) do
-			if (j.Handle == "Other") then
-				AddAchievementElement(scrollWindow, j.Achievement, j.Description, false, activeTitle == j.Achievement, false, 1, 1, j.Reward, j.Type, j.Subcategory)	
+			if (j.Category == "Other") then
+				AddAchievementElement(scrollWindow, j.Achievement, j.Description, false, activeTitle == j.Achievement, true, 1, 1, j.Reward, j.Type, j.Subcategory)	
 			end
 		end
 	end
@@ -284,6 +292,10 @@ function CompleteAchievementPressed(achievement, achievementType, achievementSub
 					return false
 				end
 			elseif (completedAchievement.Reward.Title ~= nil and GetActiveTitle(this) ~= completedAchievement.Reward.Title) then
+				if (this:HasObjVar("LockTitle")) then
+					this:SystemMessage("Disable title lock to change the title.","info")
+					return
+				end
 				this:SetSharedObjectProperty("Title",completedAchievement.Reward.Title)
 				SetTooltipEntry(this, "Title",completedAchievement.Reward.Title, 100)
 				this:SystemMessage("Title has been set to "..completedAchievement.Reward.Title..".","info")
@@ -367,6 +379,17 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"PlayerAchievementWindow",
 				this:DelObjVar("ShowOnlyTitle")
 			else
 				this:SetObjVar("ShowOnlyTitle",true)
+			end
+			ReopenAchievementWindow()
+			return
+		end
+
+		if (buttonId == "LockTitle") then
+			local lockTitle = this:HasObjVar("LockTitle")
+			if (lockTitle) then
+				this:DelObjVar("LockTitle")
+			else
+				this:SetObjVar("LockTitle",true)
 			end
 			ReopenAchievementWindow()
 			return

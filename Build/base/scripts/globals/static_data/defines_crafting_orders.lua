@@ -2,13 +2,13 @@ CraftingOrderDefines = {}
 
 CraftingOrderDefines.Coins = 
 {
-	one = math.random(100, 200),
-	two = math.random(200, 400),
-	three = math.random(400, 600),
-	four = math.random(600, 800),
-	five = math.random(800, 1000),
-	six = math.random(1000, 1200),
-	seven = math.random(1200, 1400),
+	one = math.random(25, 50),
+	two = math.random(50, 100),
+	three = math.random(100, 200),
+	four = math.random(200, 300),
+	five = math.random(400, 500),
+	six = math.random(600, 800),
+	seven = math.random(1000, 1200),
 	eight = math.random(1400, 1600),
 	nine = math.random(1600, 1800),
 	ten = math.random(1800, 2000),

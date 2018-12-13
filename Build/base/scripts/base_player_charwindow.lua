@@ -153,7 +153,7 @@ function UpdateCharacterWindow(targetObj)
 	dynWindow:AddSubwindow(leftSubwindow)
 
 	local rightSubwindow = Subwindow(0,0)
-	rightSubwindow:AddButton(10,10,"","Guild|"..(Guild.GetName(targetObj) or "No Guild"),160,40,"","guild",false,"ScrollTitleText")
+	rightSubwindow:AddButton(10,10,"","Guild|"..(GuildHelpers.GetName(targetObj) or "No Guild"),160,40,"","guild",false,"ScrollTitleText")
 
 	local karmaStr,karmaVal = GetKarmaTitle(targetObj)
 	if(targetObj == this) then

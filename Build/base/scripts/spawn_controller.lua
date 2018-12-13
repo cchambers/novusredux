@@ -239,9 +239,12 @@ end
 
 function SpawnQueuePulse()
     if(#spawnQueue > 0) then
+        -- schedule this first to make sure exceptions dont stop it
+        this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(250 + math.random(1,50)),"spawn_queue_timer")
+
         local spawnData = table.remove(spawnQueue)
         --DebugMessage("--SC CREATING "..spawnData.Template.. " : "..tostring(spawnData.Loc))
-        CreateObj(spawnData.Template, spawnData.Loc, "created", spawnData)
+        CreateObj(spawnData.Template, spawnData.Loc, "created", spawnData)        
     end
 end
 
@@ -294,12 +297,6 @@ RegisterEventHandler(EventType.CreatedObject, "created",
             objRef:SetObjVar("homeRegion", region)
             objRef:SetObjVar("Spawner",this)     
             objRef:SetFacing(math.random(1,360))       
-        end
-
-        if(#spawnQueue > 0) then
-            this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(250 + math.random(1,50)),"spawn_queue_timer")
-        else
-            --DebugMessage("---- SPAWN DONE")
         end
     end)
 

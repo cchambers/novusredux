@@ -193,15 +193,33 @@ RegisterEventHandler(EventType.Message,"FoundSosTreasure",
 
 		local mapLocation = this:GetObjVar("MapLocation")
 		local reward = this:GetObjVar("Reward")
+		
+		--RemoveMapMarker(user,"TreasureMapMarker"..this.Id)
+
+		--First get nearby passable loc
+		local nearbyLoc = GetNearbyPassableLoc(user,180,1.5,3)
+
+		--If no passable loc found, try with different angle
+		if (not(IsPassable(nearbyLoc))) then
+			nearbyLoc = GetNearbyPassableLoc(user,-180,1.5,3)
+		end
+
+		--If no passable loc found yet, fails to fish up treasure
+		if (not(IsPassable(nearbyLoc))) then
+			user:NpcSpeechToUser("The line snaps!",user,"info")
+			return
+		end
 
 		user:PlayObjectSound("event:/ui/skill_gain")
-		
+
+		CreateObj(reward, nearbyLoc)
+
 		local lifetimeStats = user:GetObjVar("LifetimePlayerStats")
 		lifetimeStats.SunkenTreasureMaps = (lifetimeStats.SunkenTreasureMaps or 0) + 1
 		CheckAchievementStatus(user, "Fishing", "FishingTreasure", lifetimeStats.SunkenTreasureMaps)
+
 		user:SetObjVar("LifetimePlayerStats",lifetimeStats)
-		--RemoveMapMarker(user,"TreasureMapMarker"..this.Id)
-		CreateObj(reward, user:GetLoc():Project(180, 1.5))
+
 		user:SystemMessage("You fished something up.","info")
 		user:SystemMessage("The treasure map disintegrates in your hands.","info")
 		this:Destroy()

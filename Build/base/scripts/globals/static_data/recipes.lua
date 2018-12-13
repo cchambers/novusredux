@@ -876,9 +876,9 @@ MetalsmithSkill = {
 		},
 
 		EngravingTool = {
-			MinLevelToCraft = 50,
-			MaxLevelToGain = 75,
-			DisplayName = "Enrgaving Tool",
+			MinLevelToCraft = 10,
+			MaxLevelToGain = 35,
+			DisplayName = "Engraving Tool",
 			CraftingTemplateFile = "tool_engraving",
 			Description = "A engraving tool.",
 			ItemType = "HarvestToolClass",
@@ -1042,7 +1042,7 @@ WoodsmithSkill = {
 			},
 		},
 
-		AshArrow = {
+		AshArrows = {
 			MinLevelToCraft = 25,
 			MaxLevelToGain = 50,
 			DisplayName = "Ash Arrow",
@@ -1059,7 +1059,7 @@ WoodsmithSkill = {
 			},
 		},
 
-		BlightwoodArrow = {
+		BlightwoodArrows = {
 			MinLevelToCraft = 50,
 			MaxLevelToGain = 75,
 			DisplayName = "Blightwood Arrow",
@@ -2456,7 +2456,7 @@ InscriptionSkill = {
 		},]]
 		CureScroll = {
 			MinLevelToCraft = -25,
-			MaxLevelToGain = 50,
+			MaxLevelToGain = 25,
 			DisplayName = "Cure Scroll",
 			NeedRecipe = false,
 			Description = "A cure scroll. ",
@@ -2721,8 +2721,8 @@ InscriptionSkill = {
 			},
 		},
 		MarkScroll = {
-			MinLevelToCraft = 75,
-			MaxLevelToGain = 125,
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
 			DisplayName = "Mark Scroll",
 			NeedRecipe = false,
 			Description = "A mark scroll. ",
@@ -2735,8 +2735,8 @@ InscriptionSkill = {
 			},
 		},
 		FrostScroll = {
-			MinLevelToCraft = 75,
-			MaxLevelToGain = 125,
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
 			DisplayName = "Frost Scroll",
 			NeedRecipe = false,
 			Description = "A frost scroll. ",

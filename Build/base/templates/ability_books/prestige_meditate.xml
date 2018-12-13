@@ -1,9 +1,9 @@
 <ObjectTemplate>
-  <Name>[2E9AFE]Meditate[-]</Name>
+  <Name>[2E9AFE]Meditation[-]</Name>
 	<ClientId>2180</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>	
-	<StringVariable Name="PrestigeAbility">Meditate</StringVariable>	
+	<StringVariable Name="PrestigeAbility">Meditation</StringVariable>	
    	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<!--LuaModule Name="skill_buff_on_use"/-->

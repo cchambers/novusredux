@@ -40,7 +40,7 @@ RegisterSingleEventHandler(EventType.ModuleAttached,"buried_treasure_lock",
 				this:RemoveDecay()
 			end
 
-			this:PlayObjectSound("DoorLock")
+			this:PlayObjectSound("event:/objects/doors/door/door_lock")
 			this:SendMessage("Lock")
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"CheckEventComplete")
 			this:ScheduleTimerDelay(TimeSpan.FromMinutes(5),"EndEvent")
@@ -84,7 +84,7 @@ RegisterEventHandler(EventType.Timer,"CheckEventComplete",
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"CheckEventComplete")
 		else
 			this:PlayEffect("TeleportToEffect")
-			this:PlayObjectSound("DoorUnlock")
+			this:PlayObjectSound("event:/objects/doors/door/door_unlock")
 			this:SendMessage("Unlock")
 			Decay(this)
 			this:DelModule("buried_treasure_lock")

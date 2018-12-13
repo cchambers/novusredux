@@ -84,7 +84,7 @@ function Unlock(user,key)
         user:SystemMessage("*click*")
     end
 
-    this:PlayObjectSound("DoorUnlock")
+    this:PlayObjectSound("event:/objects/doors/door/door_unlock")
 
     if (key ~= nil) then
         if (key:HasObjVar("OneTimeKey")) then
@@ -121,7 +121,7 @@ function Lock(user,key)
     if(user ~= nil) then
         user:SystemMessage("*ka-chink*","info")
     end
-    this:PlayObjectSound("DoorLock")
+    this:PlayObjectSound("event:/objects/doors/door/door_lock")
 
     SetTooltipEntry(this,"lock","[FF0000]*Locked*[-]",10)
 

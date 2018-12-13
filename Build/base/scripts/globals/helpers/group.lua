@@ -172,12 +172,7 @@ function GroupInvitePrompt(player, target, groupId)
     
     local targetName = StripColorFromString(target:GetName())
 
-    local playerName = "Unknown"
-    if ( player:IsValid() ) then
-        playerName = StripColorFromString(player:GetName())
-    else
-        playerName = GlobalVarReadKey("User.Name", player) or "unknown"
-    end
+    local playerName = player:GetCharacterName() or "Unknown"
 
     ClientDialog.Show{
         TargetUser = target,

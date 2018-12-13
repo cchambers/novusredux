@@ -114,6 +114,10 @@ AI.CantAffordPurchaseMessages = {
 	"[$1022]",
 }
 
+AI.CantAffordTrainPurchaseMessages = {
+    "[$1724]"
+}
+
 AI.AskHelpMessages =
 {
 	"[$1023]",

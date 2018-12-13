@@ -109,7 +109,7 @@ function TriggerTrap()
 	end
 end
 function PlayTrapSound()
-    this:PlayObjectSound("DoorLock")
+    this:PlayObjectSound("event:/objects/doors/door/door_lock")
 end
 function DealDamage(curLoc)
 	CheckSuction(curLoc)

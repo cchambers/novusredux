@@ -35,6 +35,7 @@
 					{
 					Toughness = 2,
 					Might = 2,
+					MagicResistance = 2,
 					},
 				Skills = 
 					{ 

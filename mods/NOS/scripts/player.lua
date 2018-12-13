@@ -284,7 +284,7 @@ namePrefix = {
 }
 
 function GetNameSuffix(targetObj)
-	local guild = Guild.Get(this)
+	local guild = GuildHelpers.Get(this)
 	local suffix = ""
 	if (guild) then 
 		suffix = suffix .. " [" .. guild.Tag .. "]"

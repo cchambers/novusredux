@@ -9,6 +9,7 @@ ambiences : event:/ambiences/dungeons/ruin
 ambiences : event:/ambiences/dungeons/sewer
 ambiences : event:/ambiences/dungeons/vale_of_belhaven
 ambiences : event:/ambiences/indoor/eldeir_village_inn
+ambiences : event:/ambiences/indoor/helm_inn
 ambiences : event:/ambiences/indoor/valus_inn
 ambiences : event:/ambiences/outdoor/barren_lands
 ambiences : event:/ambiences/outdoor/black forest/great_tree
@@ -33,6 +34,9 @@ ambiences : event:/ambiences/outdoor/villages/helm/helm
 ambiences : event:/ambiences/outdoor/villages/valus/valus
 ambiences : event:/ambiences/outdoor/villages/valus/valus_streets1
 ambiences : event:/ambiences/outdoor/villages/valus/valus_streets2
+ambiences : event:/ambiences/weather/rain
+ambiences : event:/ambiences/weather/sandstorm
+ambiences : event:/ambiences/weather/thunderstorm
 ambiences : event:/music/dungeons/deception_music
 ambiences : event:/music/poi/graveyard_music
 ambiences : snapshot:/pirates_grotto
@@ -47,6 +51,7 @@ animals : event:/animals/bear/bear_death
 animals : event:/animals/bear/bear_environment
 animals : event:/animals/bear/bear_footsteps
 animals : event:/animals/bear/bear_pain
+animals : event:/animals/chicken/chicken_death
 animals : event:/animals/chicken/chicken_pain
 animals : event:/animals/deer/deer_attack
 animals : event:/animals/deer/deer_death
@@ -57,9 +62,10 @@ animals : event:/animals/dog/dog_bodyfall
 animals : event:/animals/dog/dog_death
 animals : event:/animals/dog/dog_environment
 animals : event:/animals/dog/dog_pain
+animals : event:/animals/horse/horse_attack
+animals : event:/animals/horse/horse_death
 animals : event:/animals/horse/horse_footsteps
-animals : event:/animals/horse/horse_neigh
-animals : event:/animals/horse/horse_whinnying
+animals : event:/animals/horse/horse_pain
 animals : event:/animals/rabbit/rabbit_death
 animals : event:/animals/rat/rat_attack
 animals : event:/animals/rat/rat_bodyfall
@@ -75,6 +81,7 @@ animals : event:/animals/spider/spider_attack
 animals : event:/animals/spider/spider_death
 animals : event:/animals/spider/spider_pain
 animals : event:/animals/turkey/turkey_death
+animals : event:/animals/turkey/turkey_pain
 animals : event:/animals/wolf/wolf_attack
 animals : event:/animals/wolf/wolf_death
 animals : event:/animals/wolf/wolf_environment
@@ -148,6 +155,7 @@ Magic : event:/magic/air/magic_air_lightning_impact
 Magic : event:/magic/air/magic_air_teleport
 Magic : event:/magic/earth/magic_earth_bombardment_impact
 Magic : event:/magic/earth/magic_earth_bombardment_throw
+Magic : event:/magic/earth/magic_earth_cast_meteor
 Magic : event:/magic/earth/magic_earth_spike_path
 Magic : event:/magic/fire/magic_fire_cast_fire
 Magic : event:/magic/fire/magic_fire_fireball
@@ -201,6 +209,10 @@ Monsters : event:/monsters/dragon/dragon_attack
 Monsters : event:/monsters/dragon/dragon_death
 Monsters : event:/monsters/dragon/dragon_flame_breath
 Monsters : event:/monsters/dragon/dragon_pain
+Monsters : event:/monsters/ent/ent_attack
+Monsters : event:/monsters/ent/ent_death
+Monsters : event:/monsters/ent/ent_miss
+Monsters : event:/monsters/ent/ent_pain
 Monsters : event:/monsters/gargoyle/gargoyle_attack
 Monsters : event:/monsters/gargoyle/gargoyle_death
 Monsters : event:/monsters/gargoyle/gargoyle_pain
@@ -225,6 +237,11 @@ Monsters : event:/monsters/incubus/incubus_pain
 Monsters : event:/monsters/lizardman/lizardman_attack
 Monsters : event:/monsters/lizardman/lizardman_death
 Monsters : event:/monsters/lizardman/lizardman_pain
+Monsters : event:/monsters/ogre/ogre_attack
+Monsters : event:/monsters/ogre/ogre_death
+Monsters : event:/monsters/ogre/ogre_miss
+Monsters : event:/monsters/ogre/ogre_pain
+Monsters : event:/monsters/ogre/ogre_wake
 Monsters : event:/monsters/phantom/phantom_attack
 Monsters : event:/monsters/phantom/phantom_death
 Monsters : event:/monsters/phantom/phantom_pain
@@ -237,7 +254,10 @@ Monsters : event:/monsters/succubus/succubus_pain
 Monsters : event:/monsters/werebat/werebat_attack
 Monsters : event:/monsters/werebat/werebat_death
 Monsters : event:/monsters/werebat/werebat_pain
+Monsters : event:/monsters/zombie/zombie_attack
+Monsters : event:/monsters/zombie/zombie_death
 Monsters : event:/monsters/zombie/zombie_environment
+Monsters : event:/monsters/zombie/zombie_pain
 Music : event:/music/areas/barren_lands_music
 Music : event:/music/areas/black_forest_music
 Music : event:/music/areas/eastern_frontier_music
@@ -250,6 +270,7 @@ Music : event:/music/dungeons/corruption_music
 Music : event:/music/dungeons/ruin_music
 Music : event:/music/dungeons/sewer_music
 Music : event:/music/poi/eldeir_village_inn_music
+Music : event:/music/poi/helm_inn_music
 Music : event:/music/poi/valus_inn_music
 Music : event:/music/villages/eldeir_village_music
 Music : event:/music/villages/helm_music
@@ -278,6 +299,10 @@ objects : event:/objects/consumables/soup_cook
 objects : event:/objects/consumables/vegetable/vegetable_drop
 objects : event:/objects/consumables/vegetable/vegetable_pickup
 objects : event:/objects/consumables/vegetable/vegetable_use
+objects : event:/objects/containers/chest/chest_drop
+objects : event:/objects/containers/chest/chest_pickup
+objects : event:/objects/containers/crate/crate_drop
+objects : event:/objects/containers/crate/crate_pickup
 objects : event:/objects/doors/door/door_close
 objects : event:/objects/doors/door/door_lock
 objects : event:/objects/doors/door/door_lock_pick
@@ -343,8 +368,14 @@ ui : event:/ui/click_positiv
 ui : event:/ui/hover
 ui : event:/ui/map_close
 ui : event:/ui/map_open
+ui : event:/ui/menu_hover
+ui : event:/ui/menu_negativ
+ui : event:/ui/menu_positiv
 ui : event:/ui/quest_complete
 ui : event:/ui/skill_gain
+VCA: vca:/MASTER
+VCA: vca:/MUSIC
+VCA: vca:/SFX
 weapons : event:/weapons/axe/axe_body_hits
 weapons : event:/weapons/axe/axe_draw
 weapons : event:/weapons/axe/axe_drop
@@ -355,6 +386,18 @@ weapons : event:/weapons/axe/axe_miss
 weapons : event:/weapons/axe/axe_parry
 weapons : event:/weapons/axe/axe_pickup
 weapons : event:/weapons/axe/axe_sheathe
+weapons : event:/weapons/bow/bow_body_hits
+weapons : event:/weapons/bow/bow_draw
+weapons : event:/weapons/bow/bow_drop
+weapons : event:/weapons/bow/bow_impactchainmail
+weapons : event:/weapons/bow/bow_impactleather
+weapons : event:/weapons/bow/bow_impactplate
+weapons : event:/weapons/bow/bow_load
+weapons : event:/weapons/bow/bow_miss
+weapons : event:/weapons/bow/bow_parry
+weapons : event:/weapons/bow/bow_pickup
+weapons : event:/weapons/bow/bow_sheathe
+weapons : event:/weapons/bow/bow_shoot
 weapons : event:/weapons/dagger/dagger_body_hits
 weapons : event:/weapons/dagger/dagger_draw
 weapons : event:/weapons/dagger/dagger_drop

@@ -18,13 +18,12 @@ ServerSettings.Plot = {
 
     Tax = {
         -- disable for free plot tax.
-        Enabled = true,
+        Enabled = false,
 
         -- how much tax rate scales with plot size, expoentially.
         RateCoefficient = 1.6,
 
-        -- since each payment writes to globals, 
-            --enforce a minimum so they aren't dropping 1 as fast as possible and DoSing the globalvars.
+        -- minimum tax payment
         MinimumPayment = 100,
 
         -- for Time settings:

@@ -164,8 +164,8 @@ function UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, newRelat
         if ( isPlayerA and isPlayerB ) then
             -- mobileB has zero karma concequences against mobileA
             -- Turn mobileA AGGRESSIVE on mobileB's client (so B is looking at an aggressive A)
-            mobileA:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressor",ServerSettings.Conflict.RelationDuration.TotalSeconds})
-            mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobileA,"Aggressed",ServerSettings.Conflict.RelationDuration.TotalSeconds})
+            mobileA:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressed",ServerSettings.Conflict.RelationDuration.TotalSeconds})
+            mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobileA,"Aggressor",ServerSettings.Conflict.RelationDuration.TotalSeconds})
 
             if ( karmaBLevel.IsChaotic ) then
                 karmaALevel = GetKarmaLevel(GetKarma(mobileA))
@@ -195,12 +195,12 @@ function UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, newRelat
                     not InOpposingAllegiance(mobileA, mobileB)
                 )
             ) then
-                -- allGuards vs neutral only
-                local allGuards = IsProtected(mobileB, mobileA, karmaBLevel, karmaALevel or GetKarmaLevel(GetKarma(mobileA)))
-                -- make the guards protect B from A
-                GuardProtect(mobileB, mobileA, allGuards)
-                -- only if you are guard protected (neutral don't count) is this aggressive action guard ignored (they won't attack you on sight)
-                if ( allGuards ) then guardIgnore = false end
+                -- check if B is protected from A
+                if ( IsProtected(mobileB, mobileA, karmaBLevel, karmaALevel or GetKarmaLevel(GetKarma(mobileA))) ) then
+                    -- make the guards protect B from A
+                    GuardProtect(mobileB, mobileA)
+                    guardIgnore = false
+                end
             end
 
             -- if guards don't protect mobileB's karma level, add an ignore guard entry
@@ -241,6 +241,9 @@ function AdvanceConflictRelation(mobileA, mobileB, karmaAction, neverGuards)
 
     local isPlayerA, isPlayerB = IsPlayerCharacter(mobileA), IsPlayerCharacter(mobileB)
 
+    -- protect B from A via neutral guards
+    NeutralGuardProtect(mobileB, mobileA, isPlayerB, isPlayerA)
+
     local aToBRelation = GetConflictRelation(mobileA, mobileB)
     local bToARelation = GetConflictRelation(mobileB, mobileA)
     local refreshA = true
@@ -256,7 +259,7 @@ function AdvanceConflictRelation(mobileA, mobileB, karmaAction, neverGuards)
         refreshB = false
         -- warn players when they are attacked by other players
         if ( isPlayerA and isPlayerB ) then
-            mobileB:SystemMessage(string.format("%s [FF8C00]is attacking you![-]", StripColorFromString(mobileA:GetName())), "info")
+            mobileB:SystemMessage(string.format("%s is attacking you!", StripColorFromString(mobileA:GetName())), "info")
         end
         -- Karma action for becoming the aggressor
         ExecuteKarmaAction(mobileA, karmaAction or KarmaActions.Negative.Attack, mobileB)
@@ -518,6 +521,26 @@ function SetAllRelationsGuardIgnore(mobile)
     SetConflictTable(mobile, conflictTable)
 end
 
+--- Clear the conflicts between two mobiles, both mobiles must be in the same region!
+-- @param mobileA
+-- @param mobileB
+function ClearConflicts(mobileA, mobileB)
+    if ( mobileA and mobileA:IsValid() and mobileB and mobileB:IsValid() ) then
+        local conflictTableA = GetConflictTable(mobileA)
+        if ( conflictTableA[mobileB] ~= nil ) then
+            conflictTableA[mobileB] = nil
+            SetConflictTable(mobileA, conflictTableA)
+            mobileA:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"",0})
+        end
+        local conflictTableB = GetConflictTable(mobileB)
+        if ( conflictTableB[mobileA] ~= nil ) then
+            conflictTableB[mobileA] = nil
+            SetConflictTable(mobileB, conflictTableB)
+            mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobileA,"",0})
+        end
+    end
+end
+
 --- Refresh the client with conflict status on login
 
 function InitializeClientConflicts(mobile)  
@@ -537,9 +560,9 @@ function InitializeClientConflicts(mobile)
                     ValidConflictRelationTable(relation)
                 ) then
                     local timeRemaining = relation[2] - DateTime.UtcNow
-                    mobile:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressed",timeRemaining.TotalSeconds})
+                    mobile:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressor",timeRemaining.TotalSeconds})
                     if ( IsPlayerCharacter(mobileB) ) then
-                        mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobile,"Aggressor",timeRemaining.TotalSeconds})
+                        mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobile,"Aggressed",timeRemaining.TotalSeconds})
                     end
                 elseif( 
                     ConflictEquals(relation[1], ConflictRelations.Aggressor)
@@ -553,9 +576,9 @@ function InitializeClientConflicts(mobile)
                     ValidConflictRelationTable(relation)
                 ) then 
                     local timeRemaining = relation[2] - DateTime.UtcNow
-                    mobile:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressor",timeRemaining.TotalSeconds})
+                    mobile:SendClientMessage("UpdateMobileConflictStatus",{mobileB,"Aggressed",timeRemaining.TotalSeconds})
                     if ( IsPlayerCharacter(mobileB) ) then
-                        mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobile,"Aggressed",timeRemaining.TotalSeconds})
+                        mobileB:SendClientMessage("UpdateMobileConflictStatus",{mobile,"Aggressor",timeRemaining.TotalSeconds})
                     end
                 end
             end

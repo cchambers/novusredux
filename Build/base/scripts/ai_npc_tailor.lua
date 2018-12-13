@@ -5,7 +5,7 @@ AI.Settings.EnableTrain = true
 AI.Settings.SetIntroObjVar = false
 AI.Settings.EnableBuy = true
 AI.Settings.StationedLeash = true
-AI.Settings.EnableRepair = true
+AI.Settings.EnableRepair = false
 
 fixPrice = 20
 
@@ -177,6 +177,10 @@ AI.WellTrainedMessage = {
 }
 
 AI.CannotAffordMessages = AI.CantAffordPurchaseMessages
+
+AI.CantAffordTrainPurchaseMessages = {
+    "[$1724]"
+}
 
 AI.TrainScopeMessages = {
 	"[$1472]",

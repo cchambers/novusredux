@@ -14,7 +14,7 @@
 							Region = "SouthernHillsNorthMine",
 							Rock = 
 							{								
-								RegenRate = (1 / 40), 
+								RegenRate = (2.65 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -33,7 +33,7 @@
 							Region = "SouthernHillsSouthMine",
 							Rock = 
 							{								
-								RegenRate = (1 / 40), 
+								RegenRate = (2.65 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -52,7 +52,7 @@
 							Region = "SouthernHillsOrcMine",
 							Rock = 
 							{								
-								RegenRate = (1 / 40), 
+								RegenRate = (5 / 40), 
 								Count = 25, 
 
 								RareResources = {
@@ -113,8 +113,8 @@
 
 								RareResources = {
 									IronOre = {					
-										AvailablityPct = 0,
-										Count = 10, 
+										AvailablityPct = 20,
+										Count = 20, 
 									},
 								}
 							},

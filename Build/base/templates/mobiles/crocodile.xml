@@ -37,8 +37,9 @@
 						Brawling = 10,  
 						},	
 					LootTables = 
-						{ 
-						},		
+					{ 
+						TemplateDefines.LootTable.Blood,			
+					},
 					WeaponAbilities = { primary="NpcStun" },
 				}
 			</Initializer>
@@ -51,7 +52,7 @@
 					MeatType = "CrocodileMeat",
 					AnimalParts =
 					{
-						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },
+						{ ResourceType="LeatherHide", RarityPct=100, Count=4 },
 					},
 				}
 			</Initializer>

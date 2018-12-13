@@ -270,6 +270,18 @@ function GetActiveTitle(playerObj)
 	return playerObj:GetSharedObjectProperty("Title")
 end
 
+--Returns true if currently using title is in the given category
+function GetActiveTitleType(playerObj)
+	local title = GetActiveTitle(playerObj)
+	local completedAchievements = playerObj:GetObjVar("CompletedAchievements") or {}
+	for i,j in pairs(completedAchievements) do
+		if (j.Reward.Title == title) then
+			return j.Type
+		end
+	end
+	return ""
+end
+
 function CanUseTitle(player, requirement, category, reference)
 	local currentPlayerValue = nil
 	if (requirement.Type == "Skill") then
@@ -286,7 +298,7 @@ function CanUseTitle(player, requirement, category, reference)
 		currentPlayerValue = GetFavor(player) / totalFavor
 	end
 
-	if currentPlayerValue ~= nil and (currentPlayerValue < requirement.Value) then
+	if currentPlayerValue ~= nil and requirement.Value ~= nil and (currentPlayerValue < requirement.Value) then
 		return false
 	end
 
@@ -399,8 +411,11 @@ function CheckTitleRequirement(player, achievementType)
 				player:SendMessage("ReopenAchievementWindow")
 			end
 		elseif (currentTitle ~= completedAchievement.Reward.Title) then
-			player:SetSharedObjectProperty("Title",completedAchievement.Reward.Title)
-			return
+			if ((titleChecked == false and not player:HasObjVar("LockTitle")) or titleChecked == true) then
+				player:SystemMessage("Title has been set to "..completedAchievement.Reward.Title..".")
+				player:SetSharedObjectProperty("Title",completedAchievement.Reward.Title)
+				return
+			end
 		end
 	end
 end
@@ -433,8 +448,18 @@ function AchievementTabHasTitle(player, category)
 	end
 
 	for key,value in pairs(AllAchievements[achievementToGet]) do
-		if (value[1] ~= nil and value[1][4] ~= nil and value[1][4].Title ~= nil) then
-			return true
+		if (value[1] ~= nil) then
+			if (value[1][4] ~= nil and value[1][4].Title ~= nil) then
+				return true
+			end
+		else
+			if (type(value) == "table") then
+				for i,j in pairs(value) do
+					if (j[1] ~= nil and j[1][4] ~= nil and j[1][4].Title ~= nil) then
+						return true
+					end
+				end
+			end
 		end
 	end
 

@@ -7,6 +7,7 @@ MAX_REELING_TIME = 20
 FISHING_RANGE = 25
 FISH_SCHOOL_DIFFICULTY_BONUS = 20
 mTargetLoc = nil
+mFoundSosTreasureMap = nil
 
 CHANCE_TO_FISH_SOS = { -- percent based
     0.05, --sos_map
@@ -123,12 +124,11 @@ function CheckFindSosTreasure(player)
         if( packObj:HasModule("sos_map") ) then
             local mapLocation = packObj:GetObjVar("MapLocation")
             if( mapLocation ~= nil and mapLocation:Distance(mTargetLoc) < 80 ) then
-                packObj:SendMessage("FoundSosTreasure", player)
-                return true
+                return packObj
             end
         end
     end
-    return false
+    return nil
 end
 
 function DoFish(targetLoc)        

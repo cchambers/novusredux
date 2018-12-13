@@ -1,11 +1,11 @@
 CustomItemValues = {
 
 	--Resources
-	resource_stone = 0.1,
+	resource_stone = 1,
 	
 	resource_iron_ore = 8,
-	resource_gold_ore = 16,
-	resource_copper_ore = 24,
+	resource_copper_ore = 16,
+	resource_gold_ore = 24,
 	resource_cobalt_ore = 32,
 	resource_obsidian_ore = 40,
 
@@ -114,7 +114,7 @@ CustomItemValues = {
 
 	spellbook = 200,
 	spellbook_noob = 200,
-	map_atlas_blank = 200,
+	map_atlas_blank = 20,
 
 	book_blue = 7,
 	book_brown = 7,
@@ -175,12 +175,19 @@ CustomItemValues = {
 
 	holy_water = 0,
 
-	tool_engraving = 100,
+	tool_engraving = 20,
 
 	packed_bind_stone = 100000,
 	land_deed = 14000,
 	guild_charter = 50000,
 	escape_scroll = 400,
+	hearthstone = 1000,
 
 	arrow = 1,
+	arrow_ash = 0.6,
+	arrow_blightwood = 0.2,
+
+	resource_wood = 20,
+	resource_ash = 60,
+	resource_blightwood = 100,
 }

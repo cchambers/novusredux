@@ -177,28 +177,32 @@ end
 
 function OpenTax(user,taxer)
 	local plots = Plot.GetUserPlots(user:GetAttachedUserId())
-	buttonList = {}
-	for i=1,#plots do
-		buttonList[i] = { Id=tostring(plots[i].Id), Text=GlobalVarReadKey("Plot."..plots[i].Id, "Name") or "A Plot of Land." }
-	end
+	if(plots and #plots > 0) then
+		buttonList = {}
+		for i=1,#plots do
+			buttonList[i] = { Id=tostring(plots[i].Id), Text=GlobalVarReadKey("Plot."..plots[i].Id, "Name") or "A Plot of Land." }
+		end
 
-	ButtonMenu.Show{
-        TargetUser = user,
-        DialogId = "paytax",
-        TitleStr = "Choose Plot",
-        ResponseType = "id",
-        Buttons = buttonList,
-        ResponseObj = taxer,
-		ResponseFunc = function(usr,plotId)
-			if(plotId ~= nil and usr == user) then
-				if not( user:HasModule("plot_tax_window") ) then
-					user:AddModule("plot_tax_window")
-				end
-				local controller = GameObj(tonumber(plotId))
-				user:SendMessage("InitTaxWindow", controller)
-            end
-        end,
-    }
+		ButtonMenu.Show{
+	        TargetUser = user,
+	        DialogId = "paytax",
+	        TitleStr = "Choose Plot",
+	        ResponseType = "id",
+	        Buttons = buttonList,
+	        ResponseObj = taxer,
+			ResponseFunc = function(usr,plotId)
+				if(plotId ~= nil and usr == user) then
+					if not( user:HasModule("plot_tax_window") ) then
+						user:AddModule("plot_tax_window")
+					end
+					local controller = GameObj(tonumber(plotId))
+					user:SendMessage("InitTaxWindow", controller)
+	            end
+	        end,
+	    }
+	else
+		user:SystemMessage("You do not own any plots", "info")
+	end
 end
 
 --Returns nil if not doing the quest, an empty string if the quest is finished, or the name of the current task in the quest

@@ -115,6 +115,8 @@ Plot.IsOwner = function(playerObj, controller)
         LuaDebugCallStack("[Plot.IsOwner] controller not provided.")
         return false
     end
+    if ( IsGod(playerObj) ) then return true end
+    
     local userId = playerObj:GetAttachedUserId()
     if ( userId ) then
         return Plot.GetOwner(controller) == userId
@@ -184,6 +186,11 @@ Plot.Destroy = function(controller, cb)
             marker:Destroy()
         end)
 
+        -- destroy all lockdowns
+        Plot.ForeachLockdown(controller, function(object)
+            object:Destroy()
+        end)
+
         -- destroy all houses
         Plot.ForeachHouse(controller, function(house)
             local door = house:GetObjVar("HouseDoor")
@@ -193,15 +200,12 @@ Plot.Destroy = function(controller, cb)
             house:Destroy()
         end)
 
-        -- destroy all lockdowns
-        Plot.ForeachLockdown(controller, function(object)
-            object:Destroy()
-        end)
-
-        Plot.DeleteGlobal(controller, function()
+        -- remove global and finally the controller
+        DelGlobalVar("Plot."..controller.Id, function()
             controller:Destroy()
             cb(true)
         end)
+
     end)
 end
 
@@ -289,12 +293,11 @@ Plot.DefaultName = function(playerObj)
     return "A plot of land. Owner: "..(playerObj:GetCharacterName() or "")
 end
 
---- Set the owner of a plot, clearing old owner.
+--- Set the owner of a plot, replacing old owner. Does not remove user records for old owner if they exist.
 -- @param controller
--- @param userId - new owner's userid
+-- @param userId - new owner's userId
 -- @param cb
--- @param clearBalance - if true, will zero out tax balance (auction win)
-Plot.SetOwner = function(controller, userId, cb, clearBalance)
+Plot.SetOwner = function(controller, userId, cb)
     if not ( cb ) then cb = function() end end
     if not( controller ) then
         LuaDebugCallStack("[Plot.SetOwner] controller not provided.")
@@ -305,40 +308,67 @@ Plot.SetOwner = function(controller, userId, cb, clearBalance)
         return cb(false)
     end
     -- make a mark globally so new characters on same account cannot place a plot
-    SetGlobalVar("User.Plots."..userId, function(record)
-        record[#record+1] = controller
-        return true
-    end, function(success)
-        if ( success ) then
-            local regionAddress = ServerSettings.RegionAddress
-            SetGlobalVar("Plot."..controller.Id, function(record)
-                record.Controller = controller
-                record.Owner = userId
-                record.Region = regionAddress
-                record.Name = nil -- always clear on owner change, so it defaults
-                -- clear the balance on an auction win
-                if ( clearBalance == true ) then record.Balance = nil end
-                return true
-            end, cb)
-        else
-            cb(false)
-        end
+    Plot.UpdateUserPlotRecord(controller, userId, function(success)
+        if not( success ) then return cb(false) end
+        local regionAddress = ServerSettings.RegionAddress
+        SetGlobalVar("Plot."..controller.Id, function(record)
+            record.Controller = controller
+            record.Owner = userId
+            record.Region = regionAddress
+            record.Name = nil -- always clear on owner change, so it defaults name
+            return true
+        end, function(success)
+            if ( success ) then return cb(true) end
+            -- failed to set plot record, clear user record
+            Plot.UpdateUserPlotRecord(controller, userId, function(success)
+                cb(false)
+            end, true)
+        end)
     end)
 end
 
---- Remove the plot's global entry, this should only be done on plot destroy!
--- @param controller
--- @param cb
-Plot.DeleteGlobal = function(controller, cb)
-    if not ( cb ) then cb = function(success) end end
+--- Update the userId plot entry list
+-- @param controller - plot_controller (mailbox)
+-- @param userId
+-- @param cb - function(success)
+-- @param remove - (bool) if true will remove, instead of add, the entry.
+Plot.UpdateUserPlotRecord = function(controller, userId, cb, remove)
+    if not ( cb ) then cb = function() end end
     if not( controller ) then
-        LuaDebugCallStack("[Plot.DeleteGlobal] controller not provided.")
+        LuaDebugCallStack("[Plot.UpdateUserPlotRecord] controller not provided.")
         return cb(false)
     end
-    DelGlobalVar("Plot."..controller.Id, cb)
+    if not( userId ) then
+        LuaDebugCallStack("[Plot.UpdateUserPlotRecord] userId not provided.")
+        return cb(false)
+    end
+
+    if ( remove ) then
+        -- if there's only one, clean up the entry completely.
+        if ( #Plot.GetUserPlots(userId) == 1 ) then
+            DelGlobalVar("User.Plots."..userId, cb)
+        else
+            -- remove global record of plot if it exists
+            SetGlobalVar("User.Plots."..userId, function(record)
+                for i=1,#record do
+                    if ( record[i] and record[i].Id == controller.Id ) then
+                        record[i] = nil
+                    end
+                end
+                return true -- always return true, even if not found, so we can rely on the success being the result of the actual write.
+            end, cb)
+        end
+    else
+        -- simple add to list
+        SetGlobalVar("User.Plots."..userId, function(record)
+            record[#record+1] = controller
+            return true
+        end, cb)
+    end
+
 end
 
---- Remove the owner from a plot, leaving it ownerless and owned by the game.
+--- Remove the owner from a plot, leaving it ownerless and owned by the game. Must be called on the region containing the plot.
 -- @param controller
 -- @param cb
 Plot.RemoveOwner = function(controller, cb)
@@ -360,31 +390,19 @@ Plot.RemoveOwner = function(controller, cb)
     end, function()
         controller:SetObjVar("PlotName", tempName)
         SetItemTooltip(controller)
-        -- remove old assigned co-owners
+        -- remove old assigned co-owners/friends
         Plot.ForeachHouse(controller, function(house)
             house:DelObjVar("HouseCoOwners")
+            house:DelObjVar("HouseFriends")
         end)
-        --clear the ledger
-        Plot.ResetLedger(controller)
-
-        -- if there's only one, clean up the entry completely.
-        if ( #Plot.GetUserPlots(userId) == 1 ) then
-            DelGlobalVar("User.Plots."..userId, cb)
-        else
-            -- remove global record of plot if it exists
-            SetGlobalVar("User.Plots."..userId, function(record)
-                local found = false
-                for i=1,#record do
-                    if ( record[i].Controller and record[i].Controller.Id == controller.Id ) then
-                        record[i] = nil
-                        found = true
-                    end
-                end
-                return found
-            end, cb)
-        end
+        -- remove user records
+        Plot.UpdateUserPlotRecord(controller, userId, function(success)
+            if not( success ) then
+                DebugMessage(string.format("WARNING! User Record for Controller(%s) and UserId(%s) failed to be removed!", controller.Id, userId))
+            end
+            cb(true)
+        end, true)
     end)
-
 end
 
 --- Get the number of remaining plot slots for an account (how many plots they can still create)
@@ -619,51 +637,83 @@ Plot.GetNearby = function(loc)
     return controllers
 end
 
---- Add the amount of tax to the controller
--- @param controller - the controller object for the plot, this is only used for the Id. (can be in a different region)
--- @param amount - amount of coins to add to balance
--- @param playerObj - (optional) the player that added the tax (for tax ledger)
--- @param cb function(success)
-Plot.AddTax = function(controller, amount, playerObj, cb)
-    if not( cb ) then cb = function(success) end end
+--- Get the cross region info for a plot (used in paying taxes)
+-- @param controller
+-- @return table
+Plot.GetInfo = function(controller)
+    if not( controller ) then
+        LuaDebugCallStack("[Plot.GetInfo] controller not provided.")
+        return {
+            Rate = 0,
+            Balance = 0,
+        }
+    end
 
-    SetGlobalVar("Plot."..controller.Id, function(record)
-        -- add onto the tax
-        record.Balance = ( record.Balance or 0 ) + amount
-        -- add onto the ledger
-        if ( playerObj ) then
-            if not( record.Ledger ) then record.Ledger = {} end
-            if not( record.Ledger[playerObj] ) then record.Ledger[playerObj] = 0 end
-            record.Ledger[playerObj] = record.Ledger[playerObj] + amount
-        end
-        return true
-    end, cb)
+    return {
+        Rate = Plot.CalculateRateController(controller),
+        Balance = Plot.GetBalance(controller),
+    }
+end
+
+--- Safely get the tax balance of a plot controller (must be called on same region containing the plot)
+-- @param controller
+-- @return balance (number)
+Plot.GetBalance = function(controller)
+    if not( controller ) then
+        LuaDebugCallStack("[Plot.GetBalance] controller not provided.")
+        return 0
+    end
+    if not( controller:IsValid() ) then
+        LuaDebugCallStack("[Plot.GetBalance] attempting to get the plot balance of In-Valid Object:", controller)
+        return 0
+    end
+    return controller:GetObjVar("PlotTaxBalance") or 0
+end
+
+--- Make a tax payment onto a plot_controller, updating the Tax Balance and the Tax Ledger by amount.
+Plot.TaxPayment = function(controller, playerObj, amount)
+    if not( controller ) then
+        LuaDebugCallStack("[Plot.TaxPayment] controller not provided.")
+        return false
+    end
+    if not( controller:IsValid() ) then
+        LuaDebugCallStack("[Plot.TaxPayment] attempting to make a tax payment on an invalid controller:", controller)
+        return false
+    end
+    amount = math.floor(amount or 0)
+    if ( amount < 1 ) then return false end
+
+    -- add onto the tax
+    local current = controller:GetObjVar("PlotTaxBalance") or 0
+    controller:SetObjVar("PlotTaxBalance", current + amount)
+
+    -- add onto the ledger
+    if not( playerObj ) then playerObj = GameObj(0) end
+    local ledger = controller:GetObjVar("PlotTaxLedger") or {}
+    if not( ledger[playerObj] ) then ledger[playerObj] = 0 end
+    ledger[playerObj] = ledger[playerObj] + amount
+    controller:SetObjVar("PlotTaxLedger", ledger)
+
+    return true
 end
 
 --- Will tax the plot, does not check if the plot as been taxed recently!
 -- @param controller
-Plot.Tax = function(controller, cb)
-    if not( cb ) then cb = function() end end
+Plot.Tax = function(controller)
     if not( controller ) then
         LuaDebugCallStack("[Plot.Tax] controller not provided.")
-        return cb()
+        return
     end
     if not( controller:IsValid() ) then
         LuaDebugCallStack("[Plot.Tax] invalid controller provided:", controller)
-        return cb()
+        return
     end
 
-    local plotBounds = controller:GetObjVar("PlotBounds")
-    local rate = Plot.CalculateRate(plotBounds)
-    SetGlobalVar("Plot."..controller.Id, function(record)
-        record.Balance = ( record.Balance or 0 ) - rate
-        return true
-    end, function(success)
-        if not( success ) then
-            DebugMessage("WARNING! Plot taxing FAILED for", controller)
-        end
-        cb()
-    end)
+    local rate = Plot.CalculateRate(controller:GetObjVar("PlotBounds"))
+    local current = Plot.GetBalance(controller)
+    local remaining = current - rate
+    controller:SetObjVar("PlotTaxBalance", remaining)
+    DebugMessage(string.format("[TAX] PlotController(%s) has had %s removed. Remaining Balance: %s", controller.Id, rate, remaining))
 end
 
 --- Get the string describing how long until tax time
@@ -739,7 +789,7 @@ Plot.Sale = function(controller, index, cb)
     if ( controller:HasModule("plot_bid_controller") ) then
         DebugMessage("WARNING! Attempting to sale a plot that is already up for sale!")
         return cb()
-    end 
+    end
 
     -- Put up for sale
 
@@ -939,29 +989,12 @@ Plot.FinalizeSale = function(controller, bidData, cb)
                 controller:SetObjVar("PlotName", Plot.DefaultName(user))
                 SetItemTooltip(controller)
             end
-           cb(success) 
+           cb(success)
         end, true)
     else
         -- no one to claim the win, bye bye plot
         Plot.Destroy(controller, cb)
     end
-end
-
---- Reset the Tax Ledger, clearing history of who added what
--- @param controller
--- @param cb - function(wasCleared) end
-Plot.ResetLedger = function(controller, cb)
-    if not( cb ) then cb = function(wasCleared) end end
-    if not( controller ) then
-        LuaDebugCallStack("[Plot.ResetLedger] controller not provided.")
-        return cb(false)
-    end
-    SetGlobalVar("Plot."..controller.Id, function(record)
-        -- no reason to commit a change if nothing to clear
-        if not( record.Ledger ) then return false end
-        record.Ledger = nil
-        return true
-    end, cb)
 end
 
 --- Calculate the tax rate for a plot given its boundsData
@@ -1432,7 +1465,7 @@ Plot.TryTransferOwnership = function(playerObj, controller, newOwner)
     end
 
     local oldUserId = Plot.GetOwner(controller)
-    if ( oldUserId ~= playerObj:GetAttachedUserId() ) then
+    if ( oldUserId ~= playerObj:GetAttachedUserId() and not IsGod(playerObj) ) then
         return false, "NotYours"
     end
 
@@ -1449,9 +1482,10 @@ Plot.TransferOwnership = function(playerObj, controller, newOwner, cb)
     local allow, oldUserId, newUserId = Plot.TryTransferOwnership(playerObj, controller, newOwner)
 
     if ( allow ) then
-        -- Update old global vars
-        Plot.RemoveOwner(controller, function(success)
+        -- remove user entry for old owner
+        Plot.UpdateUserPlotRecord(controller, oldUserId, function(success)
             if ( success ) then
+                -- set the new owner
                 Plot.SetOwner(controller, newUserId, function(success)
                     if ( success ) then
                         playerObj:SystemMessage("Plot Transfered to "..newOwner:GetName(), "event")
@@ -1461,24 +1495,25 @@ Plot.TransferOwnership = function(playerObj, controller, newOwner, cb)
                         SetItemTooltip(controller)
                         cb(true)
                     else
-                        -- put the real owner back on a failure.
-                        Plot.SetOwner(controller, oldUserId, function()
-                            playerObj:SystemMessage("Internal Server Error.", "info")
+                        -- failed to set the owner, put old owner's user entry back.
+                        Plot.UpdateUserPlotRecord(controller, oldUserId, function(success)
                             cb(false)
                         end)
+                        playerObj:SystemMessage("Internal Server Error.", "info")
                     end
                 end)
             else
+                -- failed to remove old owner's entry.
                 playerObj:SystemMessage("Internal Server Error.", "info")
                 cb(false)
             end
-        end)
+        end, true)
     else
         if ( oldUserId == "NotYours" ) then
             playerObj:SystemMessage("That is not yours to transfer.", "info")
         elseif ( oldUserId == "AlreadyOwner" ) then
             playerObj:SystemMessage("That person cannot own another plot.", "info")
-            newOwner:SystemMessage("You cannot own another plot.","info")
+            --newOwner:SystemMessage("You cannot own another plot.","info")
         end
         cb(false)
     end
@@ -1646,6 +1681,16 @@ Plot.Lockdown = function(playerObj, controller, object)
         if ( house ) then
             -- set the house obj var (to prevent moving items outside of house bounds)
             object:SetObjVar("PlotHouse", house)
+        else
+            if ( isContainer ) then
+                ClientDialog.Show{
+                    TargetUser = playerObj,
+                    DialogId = "UnsecureContainer",
+                    TitleStr = "Container Not Secure",
+                    DescStr = "Containers locked down outside are not secure.\n\nTo make a Container secure, place it in a house.",
+                    Button1Str = "Ok",
+                }
+            end
         end
     
         if(object:DecayScheduled()) then	
@@ -1893,6 +1938,16 @@ Plot.Unpack = function(playerObj, packedObj, loc, cb)
 
                 if ( house ) then
                     objRef:SetObjVar("PlotHouse", house)
+                else
+                    if ( isContainer ) then
+                        ClientDialog.Show{
+                            TargetUser = playerObj,
+                            DialogId = "UnsecureContainer",
+                            TitleStr = "Container Not Secure",
+                            DescStr = "Containers locked down outside are not secure.\n\nTo make a Container secure, place it in a house.",
+                            Button1Str = "Ok",
+                        }
+                    end
                 end
 
                 if ( house and isContainer ) then
@@ -2014,33 +2069,28 @@ Plot.GetHouseBounds = function(houseData, loc, buffered, roofBounds)
             bound.BottomLeft
         }
 
-        -- determine if TopLeft is indeed index 1 and if TopRight is indeed index 2
-        local topLeftIndex, topRightIndex
-        for ii=1,4 do
-            if ( points[ii].X == center.X or points[ii].Z == center.Z ) then
-                DebugMessage(string.format("[ERROR] House with template: %s has an invalid %s Bound at index %s.", houseData.Template, roofBounds and "Roof" or "Object", i))
-                break
-            end
-            if ( points[ii].X < center.X and points[ii].Z < center.Z ) then topLeftIndex = ii end
-            if ( points[ii].X > center.X and points[ii].Z < center.Z ) then topRightIndex = ii end
-            if ( topLeftIndex ~= nil and topRightIndex ~= nil ) then break end
-        end
-        if ( topLeftIndex == 1 and topRightIndex == 2 ) then
-            -- everything's good, this house object/roof bounds are just fine
-            --DebugMessage(houseData.Template)
-        elseif ( topLeftIndex == 2 and topRightIndex == 3 ) then
-            -- bounds are a little skeep-whomp, but nothing we can't handle
-            --DebugMessage(string.format("[WARNING] Fixing inconsistent %s Bounds for house template %s at index.", roofBounds and "Roof" or "Object", houseData.Template))
+        -- fix for some houses
+        if ( bound.TopLeft.X < bound.BottomLeft.X ) then
             points = {
-                points[2],
-                points[4],
-                points[1],
-                points[3],
+                bound.BottomLeft,
+                bound.TopLeft,
+                bound.TopRight,
+                bound.BottomRight,
             }
         end
         
         local topLeft,topRight,bottomLeft,bottomRight = points[1],points[2],points[3],points[4]
         local sizeX,sizeZ = topRight.X - topLeft.X,bottomLeft.Z - topLeft.Z
+
+        if ( sizeX < 0 ) then
+            topLeft.X = topLeft.X + sizeX
+            sizeX = math.abs(sizeX)
+        end
+
+        if ( sizeZ < 0 ) then
+            topLeft.Z = topLeft.Z + sizeZ
+            sizeZ = math.abs(sizeZ)
+        end
         
         if ( buffered ) then
             topLeft.X, topLeft.Z = topLeft.X - 3, topLeft.Z - 3

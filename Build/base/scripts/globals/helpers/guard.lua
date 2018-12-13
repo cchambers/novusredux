@@ -120,12 +120,11 @@ function IsProtected(mobile, from, mobileKarmaLevel, fromKarmaLevel, guaranteed)
 	return false
 end
 
-
---- Get the protection type for a mobile
--- @param mobile
+--- Get the protection type for a specific loc
+-- @param loc
 -- @return "None", "Neutral", "Protection", "Town"
-function GetGuardProtection(mobile)
-	Verbose("Guard", "GetGuardProtection", mobile)
+function GetGuardProtectionForLoc(loc)
+	Verbose("Guard", "GetGuardProtectionForLoc", tostring(loc))
 	local ss = ServerSettings.PlayerInteractions
 
     --if this setting is enabled do for the entire map
@@ -133,13 +132,13 @@ function GetGuardProtection(mobile)
         return "Town"
 	end
 	
-	if ( mobile:IsInRegion("Arena") ) then
+	if ( IsLocInRegion(loc,"Arena") ) then
 		return "None"
 	end
 
 	if ( ss.TownProtectionZones ) then
 		for i=1,#ss.TownProtectionZones do
-			if ( mobile:IsInRegion(ss.TownProtectionZones[i]) ) then
+			if ( IsLocInRegion(loc,ss.TownProtectionZones[i]) ) then
 				return "Town"
 			end
 		end
@@ -147,7 +146,7 @@ function GetGuardProtection(mobile)
 
 	if ( ss.ProtectionZones ) then
 		for i=1,#ss.ProtectionZones do
-			if ( mobile:IsInRegion(ss.ProtectionZones[i]) ) then
+			if ( IsLocInRegion(loc,ss.ProtectionZones[i]) ) then
 				return "Protection"
 			end
 		end
@@ -164,24 +163,30 @@ function GetGuardProtection(mobile)
 
 	if ( ss.NeutralZones ) then
 		for i=1,#ss.NeutralZones do
-			if ( mobile:IsInRegion(ss.NeutralZones[i]) ) then
+			if ( IsLocInRegion(loc,ss.NeutralZones[i]) ) then
 				return "Neutral"
 			end
 		end
 	end
 
-	local mobileLoc = mobile:GetLoc()
-	local guardTower = FindObjectWithTagInRange("GuardTowerObject",mobileLoc,ss.GuardTowerProtectionRange)
+	local guardTower = FindObjectWithTagInRange("GuardTowerObject",loc,ss.GuardTowerProtectionRange)
 	if ( guardTower ) then
 		return "Protection",guardTower
 	end
 	
-	local teleportTower = FindObjectWithTagInRange("TeleportTowerObject",mobileLoc,ss.GatekeeperProtectionRange)
+	local teleportTower = FindObjectWithTagInRange("TeleportTowerObject",loc,ss.GatekeeperProtectionRange)
 	if ( teleportTower ) then
 		return "Town",teleportTower
 	end
 
     return "None"
+end
+
+--- Get the protection type for a mobile
+-- @param mobile
+-- @return "None", "Neutral", "Protection", "Town"
+function GetGuardProtection(mobile)
+	return GetGuardProtectionForLoc(mobile:GetLoc())
 end
 
 --- Calling this on a lua vm context (attached module) will return the all guards near the gameObj of the lua VM context.
@@ -226,10 +231,9 @@ end
 --- Trigger guards to protect a victim from an aggressor
 -- @param victim(mobileObj)
 -- @param aggressor(mobileObj)
--- @param allGuards(boolean) if true will cause all guards to attack vs only neutral
 -- @return none
-function GuardProtect(victim, aggressor, allGuards)
-	Verbose("Guard", "GuardProtect", victim, aggressor, allGuards)
+function GuardProtect(victim, aggressor)
+	Verbose("Guard", "GuardProtect", victim, aggressor)
 	
 	if( TRAILER_BUILD ) then
 		do return end
@@ -250,12 +254,6 @@ function GuardProtect(victim, aggressor, allGuards)
 		return
 	end
 
-	-- call all neutral guards to protect
-	ForeachMobileAndPet(aggressor, CallNearbyNeutralGuardsOn)
-
-	-- if not calling all guards, we end here since neutral guards have already been called.
-	if ( allGuards ~= true ) then return end
-
 	-- call the non-neutral guards
 	ForeachMobileAndPet(aggressor, CallNearbyGuardsOn)
 
@@ -269,6 +267,39 @@ function GuardProtect(victim, aggressor, allGuards)
 	end
 	--]]
 	-- DEBUGING PURPOSES ONLY! FALLBACK DOUBLECHECK. ONCE SOLID THIS CAN BE REMOVED!
+end
+
+--- Neutral guard protect mobileB from mobileA
+-- @param mobileB
+-- @param mobileA
+-- @param isPlayerB
+-- @param isPlayerA
+function NeutralGuardProtect(mobileB, mobileA, isPlayerB, isPlayerA)
+	if (
+        -- if B is player and in neutral guard protection
+        isPlayerB and GetGuardProtection(mobileB) == "Neutral"
+        and
+        (
+            -- A is player not sharing karma group / not in opposing faction
+            (
+                isPlayerA
+                and
+                not ShareKarmaGroup(mobileA, mobileB)
+                and
+                not InOpposingAllegiance(mobileA, mobileB)
+            )
+            or
+            -- or A is non-guard protected npc (like a beetle or something)
+            (
+                not isPlayerA -- is npc
+                and
+                not GetKarmaLevel(GetKarma(mobileA)).GuardProtectNPC -- not guard protected
+            )
+        )
+    ) then
+        -- call all nearby neutral guards to attack A
+        ForeachMobileAndPet(mobileA, CallNearbyNeutralGuardsOn)
+    end
 end
 
 --- Spawn super guards on an aggressor, does not do saftey checks on aggressor

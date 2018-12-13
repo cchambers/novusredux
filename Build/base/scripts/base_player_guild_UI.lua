@@ -1,3 +1,4 @@
+require 'base_player_guild'
 
 mCurrentTab = "Guild"
 mSortOrder = {"LastOnline","Rank","Name"}
@@ -35,7 +36,7 @@ function ShowMessageEditWindow(messageType)
 end
 
 function ShowLeaveGuildConfirm()
-	local g = Guild.Get(this)
+	local g = GuildHelpers.Get(this)
 
 	if (g == nil) then
 		user:SystemMessage("You are not in a guild","info");
@@ -114,8 +115,8 @@ function GetRosterList(g)
 						return not(mSortDirection.Name)
 					end
 				elseif(sortType == "Rank") then
-					local rankA = Guild.GetAccessLevelIndex(a.Entry.AccessLevel)
-					local rankB = Guild.GetAccessLevelIndex(b.Entry.AccessLevel)
+					local rankA = GuildHelpers.GetAccessLevelIndex(a.Entry.AccessLevel)
+					local rankB = GuildHelpers.GetAccessLevelIndex(b.Entry.AccessLevel)
 					if( rankA < rankB ) then
 						return mSortDirection.Rank
 					elseif(rankB < rankA ) then
@@ -158,7 +159,7 @@ end
 function GuildInfo()
 	local array = {}
 
-	local g = Guild.Get(this)
+	local g = GuildHelpers.Get(this)
 
 	local resultTable = {}
 
@@ -241,7 +242,7 @@ function GuildInfo()
 					table.insert(buttons,"Demote")
 				end
 
-				if (Guild.GetAccessLevel(this, Guild.Get(this)) == "Guildmaster") then
+				if (GuildHelpers.GetAccessLevel(this, GuildHelpers.Get(this)) == "Guildmaster") then
 					table.insert(buttons,"Transfer Guild")
 				end
 
@@ -284,13 +285,13 @@ function GuildInfo()
 		newWindow:AddImage(8,33,"BasicWindow_Panel",550,174,"Sliced")
 		newWindow:AddLabel(20,37+8,"Guild Information",250,40,24,"",false,false,"SpectralSC-SemiBold")		
 
-		local guildInfo = Guild.GetGuildMessage(this,g,"Info")
+		local guildInfo = GuildHelpers.GetGuildMessage(this,g,"Info")
 		newWindow:AddLabel(25,37+40,guildInfo,500,200,18)		
 
 		newWindow:AddImage(8,33+180,"BasicWindow_Panel",550,174,"Sliced")
 		newWindow:AddLabel(20,37+180+8,"Message of the Day",250,40,24,"",false,false,"SpectralSC-SemiBold")		
 
-		local guildMessage = Guild.GetGuildMessage(this,g,"MOTD")
+		local guildMessage = GuildHelpers.GetGuildMessage(this,g,"MOTD")
 		newWindow:AddLabel(25,37+180+40,guildMessage,500,200,18)
 
 		if(Guild.HasAccessLevel(this,"Officer",g)) then
@@ -303,7 +304,7 @@ function GuildInfo()
 		newWindow:AddButton(10,392,"Leave|","Leave",110,30,"","",false,"")
 	end
 
-	local membersOnline = Guild.GetOnlineMemberCount(this,g)
+	local membersOnline = GuildHelpers.GetOnlineMemberCount(this,g)
 	local membersTotal = CountTable(g.Members)
 	local membersOnlineStr = tostring(membersOnline) .. "/" .. tostring(membersTotal)
 	newWindow:AddLabel(550,408,"Members Online: "..membersOnlineStr,250,40,18,"right")
@@ -373,7 +374,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GuildWindow",
 					GroupInvite(this, memberObj)
 				end
 			elseif(arg == "Kick") then				
-				local g = Guild.Get(this)
+				local g = GuildHelpers.Get(this)
 				if(g == nil or g.Members[mSelectedMemberId] == nil) then return end
 
 				local kickMember = GameObj(mSelectedMemberId)
@@ -414,7 +415,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"GuildWindow",
 					CallFunctionDelayed(TimeSpan.FromSeconds(1),GuildInfo)
 				end
 			elseif(arg == "Transfer Guild") then
-				local g = Guild.Get(this)
+				local g = GuildHelpers.Get(this)
 				local memberObj = GameObj(mSelectedMemberId)
 				if (Guild.CanChangeGuildMaster(memberObj)) then
 					ClientDialog.Show{

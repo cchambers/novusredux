@@ -5,6 +5,11 @@
 MobileEffectLibrary.Command = 
 {
 	OnEnterState = function(self,root,target,args)
+		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
+			if ( what == "Action" ) then
+				EndMobileEffect(root)
+			end
+		end)
 		self.RequestInitialTarget(self,root,target,args)
 	end,
 
@@ -12,14 +17,12 @@ MobileEffectLibrary.Command =
 		-- handle a new target
 		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "PetCommandInitialTarget",
 			function (success,targetLoc,targetObj,user)
-				if(success) then
+				if ( success ) then
 					self.ProcessCommand(self,root,targetObj,{TargetLoc=targetLoc})
 				else
-					self.ParentObj:SystemMessage("Command cancelled.","info")
 					EndMobileEffect(root)
 				end
 			end)
-
 		self.ParentObj:RequestClientTargetLoc(self.ParentObj, "PetCommandInitialTarget")
 	end,
 
@@ -35,24 +38,19 @@ MobileEffectLibrary.Command =
 				-- handle a new target
 				RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "PetCommandTarget",
 					function (success,targetLoc,targetObj,user)
-						self.EventRegistered = false
-						UnregisterEventHandler("", EventType.ClientUserCommand, "cancelspellcast")
 						if ( success ) then
-							-- update the arguments with the new loc
+							-- update the arguments with the new loc (if any)
 							args.TargetLoc = targetLoc
 							-- run command again
 							self.ProcessCommand(self,root,targetObj,args)
+						else
+							-- target cancelled
+							EndMobileEffect(root)
 						end
-					end)
-				RegisterEventHandler(EventType.ClientUserCommand, "cancelspellcast",
-					function()
-						-- target cancelled
-						EndMobileEffect(root)
 					end)
 				self.ParentObj:SystemMessage("Commanding "..StripColorFromString(target:GetName())..".", "info")
 				-- ask for a new target
 				self.ParentObj:RequestClientTargetLoc(self.ParentObj, "PetCommandTarget")
-				self.EventRegistered = true
 				return -- prevent ending mobile effect this go around.
 			elseif ( self.Pet == target ) then
 				-- targeted a pet on its self, make them stay.
@@ -81,12 +79,8 @@ MobileEffectLibrary.Command =
 	end,
 
 	OnExitState = function(self,root)
-		if ( self.EventRegistered ) then
-			UnregisterEventHandler("", EventType.ClientTargetLocResponse, "PetCommandTarget")
-			UnregisterEventHandler("", EventType.ClientUserCommand, "cancelspellcast")
-		end
+		UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
 	end,
 
 	Pet = nil, -- hold a reference to a pet
-	EventRegistered = false -- keep track of the necessity to unregister this event handler.
 }

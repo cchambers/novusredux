@@ -3,5 +3,7 @@
   <ClientId>1845</ClientId>
   <Hue>893</Hue>
     <SharedStateEntry name="Weight" type="int" value="1"/>		
-	<ScriptEngineComponent/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>

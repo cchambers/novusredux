@@ -187,6 +187,10 @@ function AllowFriendlyActions(mobileObj, potentialFriend, notSilent)
 	if ( ShouldKarmaProtect(mobileObj, KarmaActions.Negative.PunishForBeneficial, potentialFriend) ) then
 		return false
 	end
+	
+	if ( ShouldChaoticProtect(mobileObj, potentialFriend, true, not notSilent) ) then
+		return false
+	end
 
 	-- npcs don't follow further rules
     if( not(mobileObj:IsPlayer()) or not(potentialFriend:IsPlayer()) ) then return true end

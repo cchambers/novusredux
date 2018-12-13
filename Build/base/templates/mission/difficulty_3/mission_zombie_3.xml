@@ -13,7 +13,7 @@
 		<DoubleVariable Name="BaseHealth">320</DoubleVariable>
 		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
 		<StringVariable Name= "MobileKind">Undead</StringVariable>
-		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-Leash">True</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>

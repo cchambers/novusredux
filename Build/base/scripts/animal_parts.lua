@@ -44,7 +44,7 @@ function HarvestParts(user)
 
 		local meatCount = this:GetObjVar("MeatCount") or 0
 		if(meatCount > partCount) then
-			local meatType = this:GetObjVar("MeatType")
+			local meatType = this:GetObjVar("MeatType") or "MysteryMeat"
 			local templateId = ResourceData.ResourceInfo[meatType].Template
 			local dropPos = GetRandomDropPosition(backpackObj)
 	    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", partCount - meatCount)	    

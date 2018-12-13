@@ -170,7 +170,13 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"TrainDialog",
 		if( CountCoins(user) < 30 ) then
 
 			--DebugMessage("Error here 1")
-			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)]..""..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true).."."
+			if (AI.CantAffordTrainPurchaseMessages) then
+				text = AI.CantAffordTrainPurchaseMessages[math.random(1,#AI.CantAffordTrainPurchaseMessages)]
+			else
+				text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)]
+			end
+
+			text = text..""..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true).."."
 		
 			response = {}
 
@@ -221,7 +227,13 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
 		if not(transactionId:match("Teach")) then return end
 
 		if not(success) then
-			text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)].."[D7D700]("..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true)..")"
+			if (AI.CantAffordTrainPurchaseMessages) then
+				text = AI.CantAffordTrainPurchaseMessages[math.random(1,#AI.CantAffordTrainPurchaseMessages)]
+			else
+				text = AI.CannotAffordMessages[math.random(1,#AI.CannotAffordMessages)]
+			end
+
+			text = text..""..ValueToAmountStr(DEFAULT_TRAIN_PRICE,false,true).."."
 
 			response = {}
 			

@@ -40,8 +40,10 @@
 					{
 						Backpack = { "backpack" },					
 					},
+
 				LootTables = 
 					{ 
+						TemplateDefines.LootTable.Blood,			
 					},	
 				ScavengeTables =
 					{

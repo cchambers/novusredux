@@ -35,6 +35,10 @@ AI.WellTrainedMessage = {
 
 AI.CannotAffordMessages = AI.CantAffordPurchaseMessages
 
+AI.CantAffordTrainPurchaseMessages = {
+    "[$1724]"
+}
+
 AI.TrainScopeMessages = {
 	"[$3385]",
 }

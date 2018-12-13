@@ -27,7 +27,7 @@
 		<DoubleVariable Name="Power">20</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_lich_boss">
+		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },

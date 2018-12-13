@@ -44,7 +44,8 @@
 						TemplateDefines.LootTable.WarriorPoor,			
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.PotionsPoor,			
+						TemplateDefines.LootTable.PotionsPoor,		
+						TemplateDefines.LootTable.Blood,	
 						{
 							NumCoins = math.random(30,75),
 						},

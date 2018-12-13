@@ -72,7 +72,7 @@ function AdjustKarma(mobile, amount)
     if ( karmaLevel.Name ~= newKarmaLevel.Name ) then
         -- Karma was changed, update the name and whatever else, maybe a message?
         if ( newKarmaLevel.DisallowAllegiance ) then AllegianceRemovePlayer(mobile) end
-        mobile:SystemMessage("Your karma level is now "..newKarmaLevel.Name, "event")
+        mobile:SystemMessage("Your alignment is now "..newKarmaLevel.Name, "event")
         -- update all pets
         local activePets = GetActivePets(mobile, nil, true)
         for i=1,#activePets do
@@ -197,6 +197,9 @@ function CalculateKarmaAction(mobileA, action, mobileB)
 
     -- setup mobileB if supplied
     if ( mobileB ~= nil ) then
+        -- explicitly stop all karma actions on pets/followers.
+        local owner = mobileB:HasObjVar("controller") and mobileB:GetObjVar("controller") or mobileB:GetObjectOwner()
+        if ( mobileA == owner ) then return 0 end
         isPlayerB, karmaB = IsPlayerCharacter(mobileB), GetKarma(mobileB)
     end
 
@@ -332,9 +335,12 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
-    if ( adjust ~= nil ) then
+    if ( adjust and adjust ~= 0 ) then
         -- finally apply all the calculated karma
         AdjustKarma(mobileA, adjust)
+        if ( action.ClearConflicts ) then
+            ClearConflicts(mobileA, mobileB)
+        end
     end
 end
 
@@ -403,14 +409,21 @@ function ShouldKarmaProtect(player, action, target, silent)
     -- if they would not lose karma for this action, no protection necessary.
     if ( amount >= 0 ) then return false end
 
-    -- protect from losing a karma level if would-be new amount is less than the protectionAmount
     if (
+        -- protect losing any karma if karmaAlignment is set to a level above zero
+        karmaAlignment.Amount > 0 and amount < 0
+        or
+        -- protect from losing a karma level if would-be new amount is less than the protectionAmount
         GetKarma(player) + amount < karmaAlignment.Protect
     ) then
         -- then karma protect them.
         if ( not silent and not player:HasTimer("KarmaWarned")  ) then
             player:ScheduleTimerDelay(ServerSettings.Karma.MinimumBetweenNegativeWarnings, "KarmaWarned")
-            player:SystemMessage("That action would cause you to drop below your chosen Karma Alignment.", "info")
+            if ( karmaAlignment.Amount > 0 ) then
+                player:SystemMessage("That action would cause you to lose Karma.", "info")
+            else
+                player:SystemMessage("That action would cause you to drop below your chosen Karma Alignment.", "info")
+            end
         end
         return true
     end
@@ -503,8 +516,16 @@ function SetKarmaAlignment(player, level)
     end
     if ( level == nil ) then
         player:DelObjVar("KarmaAlignment")
+        -- clear it
+        player:SetObjVar("Karma", -1)
+        player:SendMessage("UpdateName")
     else
         player:SetObjVar("KarmaAlignment", level)
+        if ( (ServerSettings.Karma.Levels[level].Amount or 0) < 0 and GetKarma(player) > 0 ) then
+            -- clear it
+            player:SetObjVar("Karma", -1)
+            player:SendMessage("UpdateName")
+        end
     end
 end
 
@@ -536,7 +557,7 @@ end
 function GetKarmaLevelFromAlignmentName(alignment)    
     for i,karmaInfo in pairs(ServerSettings.Karma.Levels) do
         if(karmaInfo.AlignmentName == alignment) then
-            return i
+            return i, (karmaInfo.Amount or 0)
         end
     end
 end
@@ -579,8 +600,8 @@ function CheckKarmaLoot(player, container)
             -- prevent losing karma if set to and would
             ShouldKarmaProtect(player, KarmaActions.Negative.LootPlayerContainer, containerOwner) 
         ) then return false end
-        -- if looting a player owned container that's not theirs, advance the conflict
-        AdvanceConflictRelation(player, containerOwner, KarmaActions.Negative.LootPlayerContainer)
+        -- if looting a player owned container that's not theirs, execute negative action
+        ExecuteKarmaAction(player, KarmaActions.Negative.LootPlayerContainer, containerOwner)
         return
     else
         -- the container is not tagged by the player, therefor the player doesn't have the right to loot.
@@ -615,22 +636,9 @@ function CheckKarmaLoot(player, container)
                     end
                     return false -- protect them
                 end
+                ExecuteKarmaAction(player, KarmaActions.Negative.LootUnownedKill, wronged)
             end
-
-            local killers = containerOwner:GetObjVar("TagKillers") or {}
-            -- advance the conflict against all TagKillers (Those close enough for a chance at loot when it died, aka the ones being wronged)
-            for i=1,#killers do
-                killer = killers[i]
-                if ( killer ~= player and killer:IsValid() ) then
-                    -- advance conflict against all killers, only taking a karma hit against the one wronged
-                    AdvanceConflictRelation(player, killer, 
-                        (wronged and killer == wronged) and
-                            KarmaActions.Negative.LootUnownedKill
-                            or
-                            KarmaActions.Negative.Nothing
-                        )
-                end
-            end
+            
         end
     end
 end

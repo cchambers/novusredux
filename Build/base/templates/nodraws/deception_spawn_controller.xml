@@ -43,7 +43,7 @@
 
 						{ Count = 3, TemplateId = "lizardman_scout", Region = "RoomA23", DelayMin=4 },
 
-						{ Count = 3, TemplateId = "deception_drake", Region = "RoomA15", DelayMin=4 },
+						--{ Count = 3, TemplateId = "deception_drake", Region = "RoomA15", DelayMin=4 },
 
 						--{ Count = 1, TemplateId = "drake_boss", Region = "RoomA15", Chance=3, DelayMin=4 },
 					}

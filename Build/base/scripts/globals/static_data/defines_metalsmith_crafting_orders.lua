@@ -10615,7 +10615,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true},
 					},
 				},	
 
@@ -10648,7 +10648,7 @@ CraftingOrderDefines.MetalsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true, StackCountMin = 5, StackCountMax = 10},
+	    				{ Weight = 100, Template = "tool_mining_pick_cobalt", Unique = true},
 					},
 				},	
 

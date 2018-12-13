@@ -112,7 +112,7 @@ function CanUserSell(item,user)
 end
 
 function GetItemSellValue(item,user)	
-	return (GetItemValue(item,Merchant.CurrencyInfo.Resource) * 0.5)	
+	return (GetItemValue(item,Merchant.CurrencyInfo.Resource) * 0.125)	
 end
 
 function GetItemPurchaseValue(item,user)

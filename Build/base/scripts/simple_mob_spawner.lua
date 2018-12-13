@@ -8,9 +8,9 @@
         spawnCount - how many of this mob should be spawned (default 1)
 --]]
 
-
-
 require 'incl_gametime'
+
+isDungeon = IsDungeonMap()
 
 -- the delay between spawn attempts, can be overridden by adding "spawnDelay" objvar
 DEFAULT_DELAY_SECS = 180
@@ -32,13 +32,17 @@ end
 function GetSpawnLoc()
     local spawnRegion = this:GetObjVar("spawnRegion")
     if(spawnRegion) then
-        return GetRandomPassableLocation(spawnRegion,true)
+        if(isDungeon) then
+            return GetRandomDungeonSpawnLocation(spawnRegion)
+        else
+            return GetRandomPassableLocation(spawnRegion,true)
+        end
     end
 
     local spawnRadius = this:GetObjVar("spawnRadius")
     if(spawnRadius) then
         return GetRandomPassableLocationInRadius(this:GetLoc(),spawnRadius,true)
-    end
+    end    
 
     return this:GetLoc()
 end
@@ -164,9 +168,11 @@ function CheckSpawn()
         if( ShouldSpawn(spawnData, i) ) then   
                 --DebugMessage("---Create "..templateId)     
                 local spawnLoc = GetSpawnLoc()
-            	CreateObj(templateId, spawnLoc, "mobSpawned", i)
-            -- DAB NOTE: SHOULD WE ONLY SPAWN ONE PER PULSE? AND SHOULD WE ONLY ROLL ONCE?
-            	break
+                if(spawnLoc) then
+                	CreateObj(templateId, spawnLoc, "mobSpawned", i)
+                    -- DAB NOTE: SHOULD WE ONLY SPAWN ONE PER PULSE? AND SHOULD WE ONLY ROLL ONCE?
+                	break
+                end
             end
         end
 

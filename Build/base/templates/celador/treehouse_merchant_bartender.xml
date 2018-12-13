@@ -63,8 +63,9 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "ingredient_wine",
+							Template = "hearthstone",
 							Price = 0,
+							Amount = 20,
 							RelativeLoc = "2.008057, 1.017235, -0.1580811",
 							Rotation = "0, 311.8759, 0",
 							UnlimitedStock = false,

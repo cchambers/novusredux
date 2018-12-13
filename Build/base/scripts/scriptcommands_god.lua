@@ -247,6 +247,21 @@ GodCommandFuncs = {
 		end
 	end,	
 
+	GlobalSummon = function(id, force)
+		if not( id ) then
+			Usage("summon")
+			return
+		end
+
+		local player = GameObj(tonumber(id))
+		if ( force == "force" or GlobalVarReadKey("User.Online", player) ) then
+			player:SendMessageGlobal("GlobalSummon", this:GetLoc(), ServerSettings.RegionAddress)
+			this:SystemMessage("Summoning player with id "..id, "info")
+		else
+			this:SystemMessage("Did not find that player online. Add force to skip check.", "info")
+		end
+	end,
+
 	Shutdown = function(timeSecs,...)			
 		if( timeSecs ~= nil ) then
 			local arg = table.pack(...)
@@ -585,7 +600,8 @@ GodCommandFuncs = {
 	end,	
 }
 
-RegisterCommand{ Command="teleportall", Category = "God Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.TeleportAll, Desc="[$2484]" }			
+RegisterCommand{ Command="summon", Category = "God Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.GlobalSummon, Usage="<id>",  Desc="Will pull any mobile with this ID to your location." }	
+RegisterCommand{ Command="teleportall", Category = "God Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.TeleportAll, Desc="[$2484]" }
 RegisterCommand{ Command="props", Category = "Dev Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.ShowProps, Usage="<target_id|self>", Desc="List all object properties on an object." }
 RegisterCommand{ Command="setobjprop", Category = "Dev Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.SetObjProp, Usage="[$2501]", Desc="Set an object property (see TagDefinitions.xml) for the specified object. Can use 'self' in place of id. If no type specified, defaults to number or one word string." }
 RegisterCommand{ Command="setfacing", Category = "Dev Power", AccessLevel = AccessLevel.God, Func=GodCommandFuncs.SetFacing, Usage="<id> [<direction>]", Desc="[$2502]" }

@@ -30,6 +30,7 @@ MobileEffectLibrary.Hearthstone =
             end
         end)
         RegisterEventHandler(EventType.StartMoving, "", function() self.Interrupt(self,root) end)
+        RegisterEventHandler(EventType.Message, "Overweight", function() self.Interrupt(self,root) end)
         self.ParentObj:StopMoving()
         if ( IsInCombat(self.ParentObj) ) then
             self.ParentObj:SendMessage("EndCombatMessage")
@@ -81,6 +82,7 @@ MobileEffectLibrary.Hearthstone =
 			SetMobileMod(self.ParentObj, "Busy", "Hearthstone", nil)
 			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
 			UnregisterEventHandler("", EventType.StartMoving, "")
+			UnregisterEventHandler("", EventType.Message, "Overweight")
 			self.ParentObj:PlayAnimation("idle")
 			self.ParentObj:StopEffect("ConjurePrimeBlueEffect")
 		end

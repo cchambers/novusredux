@@ -375,7 +375,7 @@ function GetObjectInteractionList(user, targetObj)
 				table.insert(menuItems,"God Pick Up")	
 			end
 		end
-		if (IsDemiGod(user) and ServerSettings.EditMode == false) then
+		if (IsGod(user) and ServerSettings.EditMode == false) then
 			table.insert(menuItems,"God Info")
 			if(targetObj:IsMobile()) then
 				table.insert(menuItems,"Edit Mob")

@@ -288,7 +288,6 @@ Skill_Archery Width:84 Height:84
 Skill_Bashing Width:84 Height:84
 Skill_BeastMastery Width:84 Height:84
 Skill_Blocking Width:84 Height:84
-Skill_Brawling Width:84 Height:84
 Skill_Butchery Width:84 Height:84
 Skill_Channeling Width:84 Height:84
 Skill_Cooking Width:84 Height:84
@@ -1268,11 +1267,11 @@ Instructions_Abilities Width:386 Height:110
 Instructions_AbilityBar Width:118 Height:58
 Instructions_CharacterWindow Width:798 Height:488
 Instructions_CombatBasics Width:777 Height:777
-Instructions_Inventory Width:900 Height:439
+Instructions_Inventory Width:649 Height:439
 Instructions_ItemBar Width:90 Height:165
 Instructions_MageCombatBasics Width:777 Height:777
 Instructions_Mini Width:164 Height:164
-Instructions_MiniMap Width:486 Height:323
+Instructions_MiniMap Width:601 Height:291
 Instructions_Movement_Interaction Width:777 Height:777
 Instructions_SpellBar Width:58 Height:492
 Instructions_Spells Width:1313 Height:525

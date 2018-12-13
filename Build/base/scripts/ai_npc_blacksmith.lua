@@ -5,7 +5,7 @@ AI.Settings.EnableTrain = true
 AI.Settings.EnableBuy = true
 AI.Settings.SetIntroObjVar = false
 AI.Settings.StationedLeash = true
-AI.Settings.EnableRepair = true
+AI.Settings.EnableRepair = false
 
 --AI.QuestList = {"BlacksmithIntroQuest_V2"}
 --AI.Settings.KnowName = false
@@ -218,6 +218,10 @@ AI.CantAffordPurchaseMessages = {
 	"[$405]",
 	"I don't think you have enough for that.",
 	"You don't have enough money to buy that.",
+}
+
+AI.CantAffordTrainPurchaseMessages = {
+    "I don't think you have enough for that. I require a donation of "
 }
 
 AI.AskHelpMessages =

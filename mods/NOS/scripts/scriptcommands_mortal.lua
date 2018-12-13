@@ -48,10 +48,10 @@ MortalCommandFuncs = {
 		end
 	end,
 
-	ResetTrackers = function()
+	ResetTrackers = function() 
 		this:DelObjVar("TrackedSkills")
 		this:DelObjVar("SkillFavorites")
-		this:SystemMessage("Your skills have been untracked and unfavored.")
+		this:SystemMessage("Your tracked and favorited skills have been reset.")
 	end,
 
 	Title = function()
@@ -269,7 +269,8 @@ MortalCommandFuncs = {
 	end,
 }
 
-RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.ResetTrackers, Desc="Prints out your stats" }
+
+RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.ResetTrackers, Desc="Reset your tracked skills." }
 RegisterCommand{ Command="help", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Help, Usage="<command_name>", Desc="[$2471]" }
 RegisterCommand{ Command="title", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Title, Desc="Show title window" }
 RegisterCommand{ Command="achievement", Accesslevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Achievement, Desc = "Show achievement window" }

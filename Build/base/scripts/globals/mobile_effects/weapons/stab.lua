@@ -10,7 +10,7 @@ MobileEffectLibrary.Stab =
 		-- break cloak
 		self.ParentObj:SendMessage("BreakInvisEffect", "Action")
 
-		self.ParentObj:PlayObjectSound("Stab")
+		self.ParentObj:PlayObjectSound("event:/character/combat_abilities/puncture")
 		if ( wasHidden ) then
 			SetCombatMod(self.ParentObj, "AttackTimes", "Stab", self.StealthAttackModifier)
 		else

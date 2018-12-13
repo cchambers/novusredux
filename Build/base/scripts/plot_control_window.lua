@@ -197,7 +197,7 @@ function TaxTab(dynamicWindow)
     local plotBounds = plotController:GetObjVar("PlotBounds")
     -- this will need to be updated to support L shaped plots
     local plotSize = plotBounds[1][2]
-    local taxBalance = GlobalVarReadKey("Plot."..plotController.Id, "Balance") or 0
+    local taxBalance = Plot.GetBalance(plotController)
     local taxesBalanceStr = "0"
     if ( taxBalance < 0 ) then
         taxesBalanceStr = "[FF0000]-[-]" .. GetAmountStrShort(ValueToAmounts(math.abs(taxBalance)))

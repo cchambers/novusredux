@@ -43,7 +43,10 @@ function Dialog.OpenListMissionsDialog(user)
 	local missionKeys = PickMissions(user)
 	mSelectedMissions = {}
 	for i, j in pairs(missionKeys) do
-		mSelectedMissions[i] = {Key = j, Loc = PickMissionSpawnLoc(j)}
+		local loc = PickMissionSpawnLoc(j)
+		if(loc) then
+			mSelectedMissions[i] = {Key = j, Loc = loc}
+		end
 	end
 	text = "Looking for some work? I take mercenary jobs from all over and offer them to freelancers like yourself."
 
@@ -264,9 +267,6 @@ function PickMissionSpawnLoc(missionKey)
 		spawnLoc = GetRandomMissionSpawnLoc(missionTable.PrefabName)
 	end
 
-	if (spawnLoc == nil) then
-		spawnLoc = this:GetLoc()
-	end
 	return spawnLoc
 end
 

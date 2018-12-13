@@ -3,6 +3,19 @@ PetStance = {
 	Aggressive = "Aggressive"
 }
 
+--- Perform a callback function on each active pet
+-- @param mobile(mobileObj)
+-- @param cb(function)
+function ForeachActivePet(mobile, cb)
+	Verbose("Pet", "ForeachActivePet", mobile, cb)
+	local list = GetActivePets(mobile)
+	for i=1,#list do
+		if ( list[i] and list[i]:IsValid() ) then
+			cb(list[i])
+		end
+	end
+end
+
 --- Returns a list containing all pets and the owner.
 -- @param mobile, can be the owner or any pets
 -- @return luaTable (Array)
@@ -549,7 +562,7 @@ end
 -- @param chance
 -- @return none
 function AnimalTamingInformVeryDifficult(master, chance)
-	if ( chance < 0.1 ) then
+	if ( chance < 0.075 ) then
 		master:SystemMessage("You have almost no chance of taming this creature.", "info")
 	end
 end

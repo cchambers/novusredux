@@ -53,7 +53,7 @@ function ShowUserList(selectedUser, keyword)
 	local scrollWindow = ScrollWindow(20,40,380,375,25)
 	for i,player in pairs(allPlayers) do
 		local name = player:GetName()
-		if ( not keyword or name:match(keyword) ) then
+		if ( not keyword or string.lower(name):match(keyword) ) then
 			local scrollElement = ScrollElement()	
 
 			if((i-1) % 2 == 1) then
@@ -148,7 +148,7 @@ ImmortalCommandFuncs = {
 		local online = GlobalVarRead("User.Online")
 		for user,y in pairs(online) do
 			local name = user:GetCharacterName()
-			if ( total < max and (keyword == nil or name:match(keyword)) ) then
+			if ( total < max and (keyword == nil or string.lower(name):match(keyword)) ) then
 			    this:SystemMessage(string.format("[FFBF00]%s (%s)[-]", name, user.Id))
 			end
 			total = total + 1
@@ -204,8 +204,17 @@ ImmortalCommandFuncs = {
 		end
 	end,
 
-	Jump = function()		
-		this:RequestClientTargetLoc(this, "jump")			
+	Jump = function(id, force)
+		if ( id ) then
+			local player = GameObj(tonumber(id))
+			if ( force == "force" or GlobalVarReadKey("User.Online", player) ) then
+				player:SendMessageGlobal("GlobalJump", this)
+			else
+				this:SystemMessage("Did not find that player online. Add force to skip check.")
+			end
+		else
+			this:RequestClientTargetLoc(this, "jump")
+		end
 	end,
 
 	Goto = function(...)	
@@ -249,7 +258,7 @@ ImmortalCommandFuncs = {
 	end,
 
 	JoinGuild = function(guildId,guildName)
-		if(Guild.Get(this)) then
+		if(GuildHelpers.Get(this)) then
 			this:SystemMessage("You must leave your guild first")
 			return
 		end
@@ -259,7 +268,7 @@ ImmortalCommandFuncs = {
 			guildName = ServerSettings.Misc.NewPlayerGuildName
 		end
 
-		if not(Guild.GetGuildRecord(guildId)) then
+		if not(GuildHelpers.GetGuildRecord(guildId)) then
 			if(guildName == nil) then
 				this:SystemMessage("Guild does not exist, specify a guild name!")
 				return
@@ -272,7 +281,7 @@ ImmortalCommandFuncs = {
 		end)
 		
 		CallFunctionDelayed(TimeSpan.FromSeconds(2),function ( ... )
-			local guildRecord = Guild.GetGuildRecord(guildId)
+			local guildRecord = GuildHelpers.GetGuildRecord(guildId)
 			Guild.PromoteMember(this,guildRecord,"Officer",true)
 		end)	
 	end,
@@ -293,7 +302,7 @@ RegisterCommand{ Command="clock", AccessLevel = AccessLevel.Immortal, Func=Immor
 RegisterCommand{ Command="follow", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Follow, Desc="Automatically follow a mob."}
 RegisterCommand{ Command="cloak", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Cloak, Usage="[<name|id>]", Desc="[$2476]" }
 RegisterCommand{ Command="reveal", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=function() DoReveal(this) end, Desc="Reveal yourself in a cool cool way." }
-RegisterCommand{ Command="jump", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Jump, Desc="Get a cursor for a location to jump to" }
+RegisterCommand{ Command="jump", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Jump, Desc="Get a cursor for a location to jump to. Optionally provide a player's id to jump cross region to them." }
 RegisterCommand{ Command="gotolocation", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Goto, Usage="[<x>] [<y>] [<z>]", Desc="[$2477]", Aliases={"goto"}}
 RegisterCommand{ Command="teleportto", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.TeleportTo, Usage="<name|id>", Desc="Teleport to a person by name or an object by id", Aliases={"tpto"}}
 RegisterCommand{ Command="portal", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=ImmortalCommandFuncs.Portal, Usage="[<x>] [<y>] [<z>]", Desc="Open a two way portal to a location on the map" }

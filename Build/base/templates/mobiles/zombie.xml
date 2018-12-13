@@ -42,7 +42,7 @@
 				LootTables =
 					{
 						TemplateDefines.LootTable.Poor,
-						TemplateDefines.LootTable.Bones,
+						TemplateDefines.LootTable.Blood,
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
 						{

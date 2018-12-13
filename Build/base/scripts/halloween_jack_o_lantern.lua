@@ -30,16 +30,16 @@ RegisterEventHandler(EventType.Message,"RequestResource",
 	function(requester, user)		
 		if(math.random(1,100)==1) then
 			PlayEffectAtLoc("DigDirtParticle",this:GetLoc())
-			user:PlayObjectSound("WormPain",false)
+			user:PlayObjectSound("event:/animals/worm/worm_pain",false)
 			CreatePackedObjectAtLoc(this:GetObjVar("DecorationTemplate"),false,this:GetLoc())
 		elseif(math.random(1,5)==1) then
 			--DebugMessage("AnimalParts RequestResource "..tostring(this:GetName()))
 			PlayEffectAtLoc("VoidExplosionEffect",this:GetLoc())
-			user:PlayObjectSound("FireballImpact",false)
+			user:PlayObjectSound("event:/magic/fire/magic_fire_fireball_impact",false)
 			SpawnSpiders()
 		else
 			PlayEffectAtLoc("DigDirtParticle",this:GetLoc())
-			user:PlayObjectSound("WormPain",false)
+			user:PlayObjectSound("event:/animals/worm/worm_pain",false)
 			CreateObj(items[math.random(#items)],this:GetLoc(),"item_spawned")
 		end
 

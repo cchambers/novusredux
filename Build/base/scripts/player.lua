@@ -23,6 +23,8 @@ require 'base_player_keyring'
 require 'base_player_death'
 require 'base_player_buff_debuff'
 require 'base_player_weather'
+require 'base_player_guild'
+require 'base_player_guild_UI'
 require 'scriptcommands'
 require 'incl_player_group'
 require 'incl_gametime'
@@ -323,7 +325,7 @@ end
 function UpdateChatChannels()
 	-- each entry in the chat channels is the name and command in array form
 	local chatChannels = { {"Say","say"} }
-	local guild = Guild.Get(this)
+	local guild = GuildHelpers.Get(this)
 	if(guild ~= nil) then
 		table.insert(chatChannels,{ "Guild", "g" })
 	end
@@ -451,6 +453,7 @@ function HandleRequestPickUp(pickedUpObject)
 				this:SystemMessage("You are carrying too much (Max: " .. tostring(maxWeight) .. " stones)","info")
 				SetMobileMod(this, "Disable", "OverweightPickup", true)
 				AddBuffIcon(this,"Overweight","Overweight","steal","Cannot move again until item is dropped.")
+				this:SendMessage("Overweight")
 			end
 		end
 	end
@@ -605,13 +608,15 @@ function HandleRequestDrop(droppedObject, dropLocation, dropObject, dropLocation
 					dropLocation = dropObject:GetLoc()
 				end
 				if (dropObject ~= nil) then
-					local canHold, reason = TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this), true)
+					local canHold, reason = TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this), false, true)
 					if( not canHold ) then
 						this:SystemMessage("You cannot drop that there. "..(reason or ""),"info")
 						return
 					end
 					if( CanStack(dropObject,droppedObject) ) then
 						RequestStackOnto(dropObject,droppedObject)
+					else
+						TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this), false)
 					end
 				end
 			else
@@ -807,6 +812,10 @@ function DoUse(usedObject,usedType)
 					this:SystemMessage("You already have an active trade in progress.","info")
 				elseif(IsInActiveTrade(usedObject)) then
 					this:SystemMessage("The target already has an active trade in progress.","info")
+				elseif(IsInCombat(this)) then
+					this:SystemMessage("Cannot trade while in combat.","info")
+				elseif(IsInCombat(usedObject)) then
+					this:SystemMessage("The target is in combat.","info")
 				else
 					this:AddModule("trading_controller",{TradeTarget=usedObject})
 				end
@@ -829,7 +838,7 @@ function DoUse(usedObject,usedType)
 				end
 				StartLootAll(targetContainer)
 			elseif (usedType == "God Info") then
-				if (IsDemiGod(this)) then
+				if (IsGod(this)) then
 					DoInfo(usedObject)
 				else
 					DebugMessage("WARNING: Player "..this:GetName().." attempted to open a god info window for "..usedObject:GetName()..", player is not a God character.")
@@ -1552,6 +1561,9 @@ function InitializePlayer()
 
 	--this:AddModule("guard_protect")
 
+	-- new character, past auto fixes need not apply
+	this:SetObjVar("LastAutoFix", #AutoFixes)
+
 	if not(IsImmortal(this)) then
 		this:AddModule("temp_afkkick")	
 
@@ -1768,11 +1780,8 @@ RegisterSingleEventHandler(EventType.LoadedFromBackup,"",
 		OnLoad(isPossessed)
 		
 		if not(isPossessed) then
-			if not( this:HasModule('autofix') ) then
-				this:AddModule("autofix")
-			else
-				this:SendMessage("autofix")
-			end
+			-- do auto fix.
+			DoAutoFix(this)
 
 			--If we have any items in our trade pouch for some reason then move them back into our backpack.
 			local tradePouch = this:GetEquippedObject("Trade")
@@ -1859,6 +1868,9 @@ RegisterEventHandler(EventType.UserLogin,"",
 			if ( clusterController ) then
 				clusterController:SendMessage("UserLogin",this,loginType)			
 			end
+			if ( loginType == "Connect" ) then
+				Guild.Initialize()
+			end
 		end
 
 		if(loginType == "ChangeWorld") then
@@ -1934,6 +1946,18 @@ function PerformPlayerTick(notFirst)
 	CheckBidRefund()
 end
 
+function PerformPlayerShortTick()
+	UpdatePlayerProtection(this)
+
+	local newRegionalName = GetRegionalName(this:GetLoc())
+	if(newRegionalName ~= nil and newRegionalName ~= currentRegionalName) then
+		currentRegionalName = newRegionalName
+		this:SystemMessage("You have entered "..currentRegionalName,"event")
+		this:SendMessage("EnteredRegionalName", currentRegionalName)
+		UpdateRegionStatus(this,currentRegionalName)
+	end
+end
+
 local checkingBidRefund = false
 function CheckBidRefund()
 	if not( checkingPlotRefund ) then
@@ -1995,15 +2019,7 @@ end)]]
 
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"PlayerShortTick")
 RegisterEventHandler(EventType.Timer,"PlayerShortTick", function ( ... )
-	UpdatePlayerProtection(this)
-
-	local newRegionalName = GetRegionalName(this:GetLoc())
-	if(newRegionalName ~= nil and newRegionalName ~= currentRegionalName) then
-		currentRegionalName = newRegionalName
-		this:SystemMessage("You have entered "..currentRegionalName,"event")
-		this:SendMessage("EnteredRegionalName", currentRegionalName)
-		UpdateRegionStatus(this,currentRegionalName)
-	end
+	PerformPlayerShortTick()
 
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"PlayerShortTick")
 end)
@@ -2020,6 +2036,15 @@ RegisterEventHandler(EventType.Message,"ShowTutorialUI",
 	function ( ... )
 		ShowTutorialUI(this)
 	end)
+
+-- allow players to be summoned from any region (god command for example)
+RegisterEventHandler(EventType.Message, "GlobalSummon", function(loc, address)
+	TeleportUser(GameObj(0), this, loc, address)
+end)
+-- allow gods to jump to players locations
+RegisterEventHandler(EventType.Message, "GlobalJump", function(jumper)
+	jumper:SendMessageGlobal("GlobalSummon", this:GetLoc(), ServerSettings.RegionAddress)
+end)
 
 if(TRAILER_BUILD) then
 	RegisterEventHandler(EventType.ClientUserCommand, "dig", 

@@ -533,11 +533,14 @@ function ResponsesDialog (user,buttonID)
     elseif (this:GetObjVar("CraftOrderSkill")) then
         local items = StringSplit(buttonID, "|")
         if (items[1] == "CraftOrder") then
+            local commission = GetCommission(user)
             local orderIndex = tonumber(items[2])
-            local order =  GetCommission(user)[1][orderIndex]
-            CreateCraftingOrder(user, order)
-            CommissionAccepted(user)
-            Dialog.OpenOrderAcceptDialog(user)
+            local order =  commission[1][orderIndex]
+            if not (commission[2]) then
+                CommissionAccepted(user)
+                CreateCraftingOrder(user, order)
+                Dialog.OpenOrderAcceptDialog(user)
+            end
         end
     elseif (buttonID ~= nil and buttonID ~= "" and buttonID ~= "Ok") then
         DebugMessage("[base_ai_npc|ResponsesDialog] ERROR: Invalid NPC dialog received! buttonID is "..tostring(buttonID))

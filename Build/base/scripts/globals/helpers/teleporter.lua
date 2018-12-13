@@ -152,11 +152,16 @@ function TeleportUser(teleporter,user,targetLoc,destRegionAddress,destFacing, ov
 	end		
 end
 
-function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
-	local portalId = uuid()
+function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner, protection)
+	local portalId = uuid()	
+
+	protection = protection or GetGuardProtectionForLoc(destLoc)
+	local sourcePortalTemplate = (protection =="None") and "portal_red" or "portal"
+	local sourceProtection = GetGuardProtectionForLoc(sourceLoc) 
+	local destPortalTemplate = (sourceProtection == "None") and "portal_red" or "portal"
 
 	PlayEffectAtLoc("TeleportFromEffect",sourceLoc)
-	CreateObj("portal",sourceLoc,"source_portal_created",portalDuration,portalId, destLoc)
+	CreateObj(sourcePortalTemplate,sourceLoc,"source_portal_created",portalDuration,portalId, destLoc)
 	RegisterSingleEventHandler(EventType.CreatedObject,"source_portal_created",
 		function(success, objRef)
 			if(success) then
@@ -165,6 +170,9 @@ function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 				end
 				objRef:SetObjVar("PortalName", PortalDisplayName(destLoc, false))
 				objRef:SetObjVar("Destination", destLoc)
+				if(protection) then
+					objRef:SetObjVar("DestProtection", protection)
+				end
 				Decay(objRef, portalDuration)
 				if(portalId ~= nil) then
 					objRef:SetObjVar("Type",portalId)
@@ -172,8 +180,9 @@ function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 			end
 		end)
 
+
 	PlayEffectAtLoc("TeleportFromEffect",destLoc)
-	CreateObj("portal",destLoc,"dest_portal_created",portalDuration,portalId, sourceLoc)	
+	CreateObj(destPortalTemplate,destLoc,"dest_portal_created",portalDuration,portalId, sourceLoc)	
 	RegisterSingleEventHandler(EventType.CreatedObject,"dest_portal_created",
 		function(success, objRef)
 			if(success) then
@@ -182,6 +191,9 @@ function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 				end
 				objRef:SetObjVar("PortalName", PortalDisplayName(sourceLoc, false))
 				objRef:SetObjVar("Destination", sourceLoc)
+				if(protection) then
+					objRef:SetObjVar("DestProtection", sourceProtection)
+				end
 				Decay(objRef, portalDuration)
 
 				if(portalId ~= nil) then
@@ -192,9 +204,9 @@ function OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 end
 
 -- DAB TODO: Validate destination location by creating a nodraw object at destination first
-function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner)
+function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner, protection)
 	if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
-		OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner)
+		OpenTwoWayPortal(sourceLoc,destLoc,portalDuration, summoner, protection)
 		return
 	end
 
@@ -202,9 +214,13 @@ function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 
 	local portalId = uuid()	
 
+	local sourcePortalTemplate = (protection == "None") and "portal_red" or "portal"
+	local sourceProtection = GetGuardProtectionForLoc(sourceLoc) 
+	local destPortalTemplate = (sourceProtection == "None") and "portal_red" or "portal"
+
 	-- create local source portal
 	PlayEffectAtLoc("TeleportFromEffect",sourceLoc)
-	CreateObj("portal",sourceLoc,portalId, destLoc)
+	CreateObj(sourcePortalTemplate,sourceLoc,portalId, destLoc)
 	RegisterSingleEventHandler(EventType.CreatedObject,portalId,
 		function(success,objRef)
 			if(success) then
@@ -214,6 +230,9 @@ function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 				objRef:SetObjVar("Destination",destLoc)
 				objRef:SetObjVar("PortalName", PortalDisplayName(destLoc, false, destRegionalName))
 				objRef:SetObjVar("RegionAddress",destRegionAddress)
+				if(protection) then
+					objRef:SetObjVar("DestProtection",protection)
+				end
 				Decay(objRef, portalDuration)
 			end
 		end)
@@ -221,15 +240,23 @@ function OpenRemoteTwoWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 	-- create remote dest portal
 	local targetModules = {"decay"}
 	local targetObjVars = { Destination=sourceLoc, RegionAddress=ServerSettings.RegionAddress, DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, false), Summoner = summoner}
-	MessageRemoteClusterController(destRegionAddress,"CreateObject","portal",destLoc,targetModules,targetObjVars)
+	if(sourceProtection) then
+		targetObjVars.DestProtection = sourceProtection
+	end
+	MessageRemoteClusterController(destRegionAddress,"CreateObject",destPortalTemplate,destLoc,targetModules,targetObjVars)
 end
 
-function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,summoner)
+function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,summoner, protection)
 	local portalId = uuid()
+
+	protection = protection or GetGuardProtectionForLoc(destLoc)
+	local sourcePortalTemplate = (protection =="None") and "portal_red" or "portal"
+	local sourceProtection = GetGuardProtectionForLoc(sourceLoc) 
+	local destPortalTemplate = (sourceProtection == "None") and "portal_red" or "portal"
 
 	--Source portal
 	PlayEffectAtLoc("TeleportFromEffect",sourceLoc)
-	CreateObj("portal_red",sourceLoc,"source_portal_created",portalDuration,portalId, destLoc)
+	CreateObj(sourcePortalTemplate,sourceLoc,"source_portal_created",portalDuration,portalId, destLoc)
 	RegisterSingleEventHandler(EventType.CreatedObject,"source_portal_created",
 		function(success,objRef)
 			if (summoner ~= nil) then
@@ -237,13 +264,16 @@ function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,summoner)
 			end
 			objRef:SetObjVar("Destination",destLoc)
 			objRef:SetObjVar("PortalName", PortalDisplayName(destLoc, false))
+			if(protection) then
+				objRef:SetObjVar("DestProtection",protection)
+			end
 			Decay(objRef, portalDuration)
 		end)
 
 	--Destination portal
 	--Players cannot return though destination portal
 	PlayEffectAtLoc("TeleportFromEffect",sourceLoc)
-	CreateObj("portal_red",destLoc,"dest_portal_created",portalDuration,portalId)
+	CreateObj(destPortalTemplate,destLoc,"dest_portal_created",portalDuration,portalId)
 	RegisterSingleEventHandler(EventType.CreatedObject,"dest_portal_created",
 		function(success,objRef)
 			if (summoner ~= nil) then
@@ -254,14 +284,18 @@ function OpenOneWayPortal(sourceLoc,destLoc,portalDuration,summoner)
 		end)
 end
 
-function OpenRemoteOneWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner)
+function OpenRemoteOneWayPortal(sourceLoc,destLoc,destRegionAddress,portalDuration, destRegionalName, summoner, protection)
 	if(not(destRegionAddress) or destRegionAddress == ServerSettings.RegionAddress) then
 		OpenOneWayPortal(sourceLoc,destLoc,portalDuration, summoner)
 		return
 	end
 
+	local sourcePortalTemplate = (protection =="None") and "portal_red" or "portal"
+	local sourceProtection = GetGuardProtectionForLoc(sourceLoc) 
+	local destPortalTemplate = (sourceProtection == "None") and "portal_red" or "portal"
+
 	PlayEffectAtLoc("TeleportFromEffect",sourceLoc)
-	CreateObj("portal_red",sourceLoc,"transfer_portal_created")	
+	CreateObj(sourcePortalTemplate,sourceLoc,"transfer_portal_created")	
 	RegisterSingleEventHandler(EventType.CreatedObject,"transfer_portal_created",
 		function (success,objRef)
 			if(success) then
@@ -271,13 +305,16 @@ function OpenRemoteOneWayPortal(sourceLoc,destLoc,destRegionAddress,portalDurati
 				objRef:SetObjVar("Destination",destLoc)
 				objRef:SetObjVar("PortalName", PortalDisplayName(destLoc, false, destRegionalName))
 				objRef:SetObjVar("RegionAddress",destRegionAddress)
+				if(protection) then
+					objRef:SetObjVar("DestProtection",protection)
+				end
 				Decay(objRef, portalDuration)
 			end
 		end)
 	-- create remote dest portal
 	local targetModules = {"decay"}
 	local targetObjVars = {RegionAddress = ServerSettings.RegionAddress, DecayTime = portalDuration, PortalName = PortalDisplayName(sourceLoc, true), Summoner = summoner}
-	MessageRemoteClusterController(destRegionAddress,"CreateObject","portal_red",destLoc,targetModules,targetObjVars)
+	MessageRemoteClusterController(destRegionAddress,"CreateObject",destPortalTemplate,destLoc,targetModules,targetObjVars)
 end
 
 function IsOneWay(destination)

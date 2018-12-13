@@ -7,9 +7,12 @@
 		<BaseRunSpeed>1.0</BaseRunSpeed>
 		<MobileType>Player</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent/>	
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
-		<LuaModule Name="player">
+		<LuaModule Name="ai_npc_memorial">
 			<Initializer>
 				{ 
 					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },

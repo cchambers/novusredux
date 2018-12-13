@@ -1,9 +1,14 @@
 USE_RANGE = 2
-dismissDialogOpen = false
+confirmDialogOpen = false
 function DoTeleport(user,targetLoc,destRegionAddress)
+	if (confirmDialogOpen == true) then return end
+
+	if not(WildernessConfirmDialog(user, targetLoc, destRegionAddress)) then
+		return
+	end
+
 	local hirelings = user:GetObjVar("Hirelings")
-	if (hirelings ~= nil) then
-		if (dismissDialogOpen == true) then return end
+	if (hirelings ~= nil) then		
 		local escort = nil
 		for i, j in pairs(hirelings) do
 			if (j:HasModule("ai_escort")) then
@@ -22,7 +27,7 @@ end
 
 --If player has escort, let them know entering portal will dismiss escort
 function EscortDismissDialog(user, escort, targetLoc, destRegionAddress)
-	dismissDialogOpen = true
+	confirmDialogOpen = true
 	ClientDialog.Show
 	{
 	    TargetUser = user,
@@ -33,7 +38,7 @@ function EscortDismissDialog(user, escort, targetLoc, destRegionAddress)
 	    ResponseObj = this,
 	    ResponseFunc = function (user,buttonId)
 	    	if (buttonId == 1) then 
-	    		dismissDialogOpen = false
+	    		confirmDialogOpen = false
 	    		return
 	    	end
 	    	if (buttonId == 0) then
@@ -42,9 +47,39 @@ function EscortDismissDialog(user, escort, targetLoc, destRegionAddress)
 					TeleportUser(this,user,targetLoc,destRegionAddress)
 				end
 	    	end
-    		dismissDialogOpen = false
+    		confirmDialogOpen = false
 		end,
 	}
+end
+
+function WildernessConfirmDialog(user, targetLoc, destRegionAddress)
+	if(this:GetObjVar("DestProtection") == "None" and not(GetKarmaLevel(GetKarma(user)).GuardHostilePlayer) and not(user:HasObjVar("DisableWildernessConfirm"))) then
+		confirmDialogOpen = true
+		ClientDialog.Show
+		{
+		    TargetUser = user,
+		    TitleStr = "Confirm Travel",
+		    DescStr = "This portal has an unsafe destination. Are you sure you wish to activate it?",
+		    Button1Str = "Confirm",
+		    Button2Str = "Cancel",
+		    ResponseObj = this,
+		    ResponseFunc = function (user,buttonId)
+		    	if (buttonId == 1) then 
+		    		confirmDialogOpen = false
+		    		return
+		    	end
+		    	if (buttonId == 0) then
+		    		if not (IsDead(user)) then
+						TeleportUser(this,user,targetLoc,destRegionAddress)
+					end
+		    	end
+	    		confirmDialogOpen = false
+			end,
+		}
+		return false
+	end
+
+	return true
 end
 
 function ActivateTeleporter(user)	
@@ -70,7 +105,7 @@ function ActivateTeleporter(user)
 	if (carriedObject ~= nil) then
 		user:SystemMessage("You can't carry objects through a portal.","info")
 		return
-	end
+	end	
 
 	if not(this:HasObjVar("TeleporterRange")) then
 		if ( (this:DistanceFrom(user) > USE_RANGE) and this:GetObjVar("Summoner")) then 

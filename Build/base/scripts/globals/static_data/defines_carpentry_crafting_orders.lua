@@ -25,6 +25,10 @@ CraftingOrderDefines.WoodsmithSkill =
 			NumItems = 1,
 			LootItems = 
 			{
+				{ Weight = 10, Template = "recipe_ash", Unique = true},
+				{ Weight = 10, Template = "recipe_blightwood", Unique = true},
+				{ Weight = 10, Template = "recipe_arrow_ash", Unique = true},
+				{ Weight = 10, Template = "recipe_arrow_blightwood", Unique = true},
 				{ Weight = 10, Template = "recipe_longbow", Unique = true},
 				{ Weight = 10, Template = "recipe_warbow", Unique = true},
 				{ Weight = 10, Template = "recipe_stoolwooden", Unique = true},
@@ -35,9 +39,8 @@ CraftingOrderDefines.WoodsmithSkill =
 				{ Weight = 10, Template = "recipe_barrel", Unique = true},
 				{ Weight = 10, Template = "recipe_lockbox", Unique = true},
 				{ Weight = 10, Template = "recipe_shelf", Unique = true},
-				{ Weight = 10, Template = "recipe_largewoodentable", Unique = true},
-				{ Weight = 10, Template = "recipe_roundtable", Unique = true},
-				{ Weight = 10, Template = "recipe_inntable", Unique = true},
+				{ Weight = 10, Template = "recipe_tableround", Unique = true},
+				{ Weight = 10, Template = "recipe_tableinn", Unique = true},
 				{ Weight = 10, Template = "recipe_dresser", Unique = true},
 				{ Weight = 10, Template = "recipe_tablewoodenlarge", Unique = true},
 				{ Weight = 10, Template = "recipe_deskfancy", Unique = true},
@@ -121,7 +124,6 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Torch
 		{
 			Recipe = "Torch",
-			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -145,7 +147,6 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Crook
 		{
 			Recipe = "Crook",
-			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -169,7 +170,6 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 FishingRod
 		{
 			Recipe = "FishingRod",
-			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "one",
@@ -3860,295 +3860,6 @@ CraftingOrderDefines.WoodsmithSkill =
 
 	--Small Weapons
 
-	--Arrows
-
-		--5 Arrow
-		{
-			Recipe = "Arrow",
-			Amount = 5,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 Arrow
-		{
-			Recipe = "Arrow",
-			Amount = 10,
-
-			RewardCoins = "two",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--15 Arrow
-		{
-			Recipe = "Arrow",
-			Amount = 15,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 Arrow
-		{
-			Recipe = "Arrow",
-			Amount = 20,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--Arrows Ash
-
-		--5 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 5,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 10,
-
-			RewardCoins = "three",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--15 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 15,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 20,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--Arrows Blight
-
-		--5 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 5,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--10 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 10,
-
-			RewardCoins = "four",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_boards_ash", Unique = true, StackCountMin = 10, StackCountMax = 20},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--15 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 15,
-
-			RewardCoins = "five",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--20 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 20,
-
-			RewardCoins = "five",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_ash", Unique = true, StackCountMin = 5, StackCountMax = 10},
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
 
 	--Shields
 
@@ -4157,6 +3868,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -4180,6 +3892,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4203,6 +3916,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4226,6 +3940,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 SmallShield
 		{
 			Recipe = "SmallShield",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -4447,6 +4162,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -4470,6 +4186,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4493,6 +4210,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4516,6 +4234,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 Buckler
 		{
 			Recipe = "Buckler",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -4742,6 +4461,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--5 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 5,
 
 			RewardCoins = "three",
@@ -4765,6 +4485,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--10 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 10,
 
 			RewardCoins = "three",
@@ -4788,6 +4509,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--15 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 15,
 
 			RewardCoins = "four",
@@ -4811,6 +4533,7 @@ CraftingOrderDefines.WoodsmithSkill =
 		--20 KiteShield
 		{
 			Recipe = "KiteShield",
+			Material = "Boards",
 			Amount = 20,
 
 			RewardCoins = "four",
@@ -5196,7 +4919,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5220,7 +4943,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5490,7 +5213,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5514,7 +5237,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5784,7 +5507,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5808,7 +5531,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -5920,301 +5643,6 @@ CraftingOrderDefines.WoodsmithSkill =
 
 	--Large Weapons
 
-	--Arrows
-
-		--40 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "Boards",
-			Amount = 40,
-
-			RewardCoins = "five",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_boards", Unique = true, StackCountMin = 5, StackCountMax = 10 },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--60 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "Boards",
-			Amount = 60,
-
-			RewardCoins = "five",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_boards", Unique = true, StackCountMin = 5, StackCountMax = 10 },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "Boards",
-			Amount = 80,
-
-			RewardCoins = "six",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_boards", Unique = true, StackCountMin = 10, StackCountMax = 20 },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--100 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "Boards",
-			Amount = 100,
-
-			RewardCoins = "six",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "resource_blightwood_boards", Unique = true, StackCountMin = 10, StackCountMax = 20 },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--Arrows Ash
-
-		--40 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 40,
-
-			RewardCoins = "seven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--60 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 60,
-
-			RewardCoins = "seven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 80,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--100 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "AshBoards",
-			Amount = 100,
-
-			RewardCoins = "eight",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-	--Arrows Blight
-
-		--40 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 40,
-
-			RewardCoins = "nine",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--60 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 60,
-
-			RewardCoins = "ten",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
-					},
-				},
-
-				--Reward 2
-				CraftingOrderRecipes,
-			},
-		},
-
-		--80 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 80,
-
-			RewardCoins = "eleven",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 90, Template = "furniture_tool_board_oak", Unique = true },
-	    				{ Weight = 10, Template = "arena_dummy", Unique = true },
-					},
-				},
-				--Reward 3
-				CraftingOrderRecipes,
-			},
-		},
-
-		--100 Arrow
-		{
-			Recipe = "Arrow",
-			Material = "BlightwoodBoards",
-			Amount = 100,
-
-			RewardCoins = "twelve",
-
-			LootTables = 
-			{
-				--Reward 1
-				{
-					NumItems = 1,
-	    			LootItems = 
-	    			{
-	    				{ Weight = 90, Template = "furniture_market_stall", Packed = true, Unique = true},
-	    				{ Weight = 10, Template = "cellar_chest_tall", Packed = true, Unique = true},
-					},
-				},
-
-				--Reward 3
-				CraftingOrderRecipes,
-			},
-		},
-
 	--Shields
 
 	--SmallShield
@@ -6282,7 +5710,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6306,7 +5734,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6332,7 +5760,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6356,7 +5784,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6380,7 +5808,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -6404,7 +5832,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -6579,7 +6007,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6603,7 +6031,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6629,7 +6057,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6653,7 +6081,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6677,7 +6105,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -6701,7 +6129,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -6877,7 +6305,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6901,7 +6329,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", Unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, Unique = true },
 					},
 				},
 
@@ -6927,7 +6355,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6951,7 +6379,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -6975,7 +6403,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -6999,7 +6427,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7135,7 +6563,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7159,7 +6587,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7183,7 +6611,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7207,7 +6635,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7233,7 +6661,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7257,7 +6685,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7281,7 +6709,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 
@@ -7305,7 +6733,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 
@@ -7437,7 +6865,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7461,7 +6889,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7485,7 +6913,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7509,7 +6937,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7535,7 +6963,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7559,7 +6987,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7583,7 +7011,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 
@@ -7607,7 +7035,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 
@@ -7739,7 +7167,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7763,7 +7191,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_weapon_rack", unique = true },
+	    				{ Weight = 100, Template = "furniture_weapon_rack", Packed = true, unique = true },
 					},
 				},
 
@@ -7787,7 +7215,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7811,7 +7239,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_ornate_drawer", Unique = true },
+	    				{ Weight = 100, Template = "furniture_ornate_drawer", Packed = true, Unique = true },
 					},
 				},
 
@@ -7837,7 +7265,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7861,7 +7289,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_table_cloth", Unique = true },
+	    				{ Weight = 100, Template = "furniture_table_cloth", Packed = true, Unique = true },
 					},
 				},
 
@@ -7885,7 +7313,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 
@@ -7909,7 +7337,7 @@ CraftingOrderDefines.WoodsmithSkill =
 					NumItems = 1,
 	    			LootItems = 
 	    			{
-	    				{ Weight = 100, Template = "furniture_library_table", Unique = true },
+	    				{ Weight = 100, Template = "furniture_library_table", Packed = true, Unique = true },
 					},
 				},
 

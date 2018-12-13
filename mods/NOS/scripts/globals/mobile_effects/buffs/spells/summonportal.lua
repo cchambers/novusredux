@@ -27,11 +27,11 @@ MobileEffectLibrary.SummonPortal =
 			return
 		end
 
-		if ( GetKarmaLevel(GetKarma(self.ParentObj)).GuardHostilePlayer ) then
-			self.ParentObj:SystemMessage("You must attone for your negative actions before the gods will allow you to do this.","info")
-			EndMobileEffect(root)
-			return
-		end
+		-- if ( GetKarmaLevel(GetKarma(self.ParentObj)).GuardHostilePlayer ) then
+		-- 	self.ParentObj:SystemMessage("You must attone for your negative actions before the gods will allow you to do this.","info")
+		-- 	EndMobileEffect(root)
+		-- 	return
+		-- end
 
 		local portalSourceSpawnLoc =self.SourceSpawnLoc
 

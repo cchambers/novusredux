@@ -277,6 +277,42 @@ function GetMount(mobileObj)
 	return mobileObj:GetEquippedObject("Mount")
 end
 
+--- Determine if a mobile can mount or not (cd/location/etc)
+function CanMount(mobileObj)
+
+	if ( IsMobileDisabled(mobileObj) ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Cannot mount now.", "info")
+		end
+		return false
+	end
+
+	if ( HasMobileEffect(mobileObj, "NoMount") ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Cannot mount yet.", "info")
+		end
+		return false
+	end
+
+	-- prevent mounting in certain regions (like dungeons)
+	if ( mobileObj:IsInRegion("NoMount") ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Cannot mount here.", "info")
+		end
+		return false
+	end
+
+	-- prevent mounting when already mounted
+	if ( mobileObj:GetEquippedObject("Mount") ~= nil ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Already mounted.", "info")
+		end
+		return false
+	end
+
+	return true
+end
+
 --- Mount a mobile onto another mobile
 -- @param mobileObj
 -- @param mountObj
@@ -294,33 +330,8 @@ function MountMobile(mobileObj, mountObj)
 		return false
 	end
 
-	if (IsMobileDisabled(mobileObj)) then
-		if (mobileObj:IsPlayer()) then
-			mobileObj:SystemMessage("Cannot mount now.", "info")
-		end
-		return false
-	end
+	if not( CanMount(mobileObj) ) then return false end
 
-	if ( HasMobileEffect(mobileObj, "NoMount") ) then
-		if ( mobileObj:IsPlayer() ) then
-			mobileObj:SystemMessage("Cannot mount yet.", "info")
-		end
-		return false
-	end
-
-	if ( mobileObj:IsInRegion("NoMount") ) then
-		if ( mobileObj:IsPlayer() ) then
-			mobileObj:SystemMessage("Cannot mount here.", "info")
-		end
-		return false
-	end
-	-- prevent mounting when already mounted
-	if ( mobileObj:GetEquippedObject("Mount") ~= nil ) then
-		if ( mobileObj:IsPlayer() ) then
-			mobileObj:SystemMessage("Already mounted.", "info")
-		end
-		return false
-	end
 	-- prevent exceptions
 	if ( mountObj == nil ) then
 		LuaDebugCallStack("nil mountObj provided to MountMobile.")
@@ -339,6 +350,10 @@ function MountMobile(mobileObj, mountObj)
 		-- mark movespeed stat dirty
 		mobileObj:SendMessage("RecalculateStats", {MoveSpeed=true})
 		AddUseCase(mobileObj,"Dismount",true,"IsSelf")
+		-- update pet run speeds
+		ForeachActivePet(mobileObj, function(pet)
+			pet:SendMessage("UpdateFollow")
+		end)
 		return true
 	end
 	return false

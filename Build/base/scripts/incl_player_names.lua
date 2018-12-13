@@ -14,7 +14,7 @@ if(TRAILER_BUILD) then
 end
 
 function GetNameSuffix(targetObj)
-	local guild = Guild.Get(this)
+	local guild = GuildHelpers.Get(this)
 	local suffix = ""
 	for i,suffixEntry in pairs(nameSuffix) do
 		if(suffixEntry.Condition(guild,targetObj or this)) then

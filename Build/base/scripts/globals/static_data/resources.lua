@@ -406,6 +406,7 @@ ResourceData = {
 		Leather = {
 			Template = "resource_leather",
 			DisplayName = "Leather",
+			CraftedItemPrefix = "Tanned",
 			SkillGainDifficultyMultiplier = 10,
 		},
 		BeastLeather = {
@@ -522,6 +523,22 @@ ResourceData = {
 		RecipeObsidian = {
 			Template = "recipe_obsidian",
 			DisplayName = "Recipe: Obsidian",
+		},
+		RecipeAshArrows = {
+			Template = "recipe_arrow_ash",
+			DisplayName = "Recipe: Ash Arrows",
+		},
+		RecipeBlightwoodArrows = {
+			Template = "recipe_arrow_blightwood",
+			DisplayName = "Recipe: Blightwood Arrows",
+		},
+		RecipeAshBoards = {
+			Template = "recipe_ash",
+			DisplayName = "Recipe: Ash Boards",
+		},
+		RecipeBlightwoodBoards = {
+			Template = "recipe_blightwood",
+			DisplayName = "Recipe: Blightwood Boards",
 		},
 		RecipeChainHelm = {
 			Template = "recipe_chain_helm",
@@ -1074,15 +1091,15 @@ ResourceData = {
 			DisplayName = "Recipe: War bow",
 		},
 		RecipeWoodenStool = {
-			Template = "recipe_woodenstool",
+			Template = "recipe_stoolwooden",
 			DisplayName = "Recipe: Wooden Stool",
 		},
-		RecipeFancyChair = {
-			Template = "recipe_fancychair",
+		RecipeChairFancy = {
+			Template = "recipe_chairfancy",
 			DisplayName = "Recipe: Fancy Chair",
 		},
-		RecipeFancyBench = {
-			Template = "recipe_fancybench",
+		RecipeBenchFancy = {
+			Template = "recipe_benchfancy",
 			DisplayName = "Recipe: Fancy Bench",
 		},
 		RecipeSmallFence = {
@@ -1109,16 +1126,16 @@ ResourceData = {
 			Template = "recipe_shelf",
 			DisplayName = "Recipe: Shelf",
 		},
-		RecipeLargeWoodenTable = {
-			Template = "recipe_largewoodentable",
+		RecipeTableWoodeLarge = {
+			Template = "recipe_tablewoodenlarge",
 			DisplayName = "Recipe: Large Wooden Table",
 		},
-		RecipeRoundTable = {
-			Template = "recipe_roundtable",
+		RecipeTableRound = {
+			Template = "recipe_tableround",
 			DisplayName = "Recipe: Round Table",
 		},
-		RecipeInnTable = {
-			Template = "recipe_inntable",
+		RecipeTableInn = {
+			Template = "recipe_tableinn",
 			DisplayName = "Recipe: Inn Table",
 		},
 		RecipeDresser = {
@@ -1129,20 +1146,20 @@ ResourceData = {
 			Template = "recipe_woodenbookshelf",
 			DisplayName = "Recipe: Wooden Bookshelf",
 		},
-		RecipeFancyDesk = {
-			Template = "recipe_fancydesk",
+		RecipeDeskFancy = {
+			Template = "recipe_deskfancy",
 			DisplayName = "Recipe: Fancy Desk",
 		},
-		RecipeSmallBed = {
-			Template = "recipe_smallbed",
+		RecipeBedSmall = {
+			Template = "recipe_bedsmall",
 			DisplayName = "Recipe: Small Bed",
 		},
-		RecipeMediumBed = {
-			Template = "recipe_mediumbed",
+		RecipeBedMedium = {
+			Template = "recipe_bedmedium",
 			DisplayName = "Recipe: Medium Bed",
 		},
-		RecipeLargeBed = {
-			Template = "recipe_largebed",
+		RecipeBedLarge = {
+			Template = "recipe_bedlarge",
 			DisplayName = "Recipe: Large Bed",
 		},
 		RecipeAnvil = {
