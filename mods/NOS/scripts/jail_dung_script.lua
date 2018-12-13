@@ -37,6 +37,8 @@ RegisterEventHandler(
 
 		local user_id = user:GetAttachedUserId();
 		local table = GlobalVarRead(user_id.."_jail");
+		if (table == nil) then return end
+		
 		if (not(table["isJailed"])) then
 			user:SystemMessage(tostring("Account not jailed"));
 		end

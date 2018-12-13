@@ -257,7 +257,7 @@ ImmortalCommandFuncs = {
 		OpenTwoWayPortal(this:GetLoc(), Loc(x, y, z), 20)
 	end,
 	JoinGuild = function(guildId, guildName)
-		if (Guild.Get(this)) then
+		if (GuildHelpers.Get(this)) then
 			this:SystemMessage("You must leave your guild first")
 			return
 		end
@@ -267,26 +267,26 @@ ImmortalCommandFuncs = {
 			guildName = ServerSettings.Misc.NewPlayerGuildName
 		end
 
-		if not (Guild.GetGuildRecord(guildId)) then
+		if not (GuildHelpers.GetGuildRecord(guildId)) then
 			if (guildName == nil) then
 				this:SystemMessage("Guild does not exist, specify a guild name!")
 				return
 			end
-			npGuildRecord = Guild.Create(nil, guildName, guildId)
+			npGuildRecord = GuildHelpers.Create(nil, guildName, guildId)
 		end
 
 		CallFunctionDelayed(
 			TimeSpan.FromSeconds(1),
 			function(...)
-				Guild.AddToGuild(guildId)
+				GuildHelpers.AddToGuild(guildId)
 			end
 		)
 
 		CallFunctionDelayed(
 			TimeSpan.FromSeconds(2),
 			function(...)
-				local guildRecord = Guild.GetGuildRecord(guildId)
-				Guild.PromoteMember(this, guildRecord, "Officer", true)
+				local guildRecord = GuildHelpers.GetGuildRecord(guildId)
+				GuildHelpers.PromoteMember(this, guildRecord, "Officer", true)
 			end
 		)
 	end,
