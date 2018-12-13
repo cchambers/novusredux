@@ -1,0 +1,10 @@
+<ObjectTemplate>
+    <Name>[0078ff]Open Crate[-]</Name>
+	<ClientId>28</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="10"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

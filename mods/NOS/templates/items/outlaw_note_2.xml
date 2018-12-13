@@ -1,0 +1,20 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<!--
+    	<StringVariable Name="StartQuest">NoteQuest1</StringVariable>
+    -->
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "My contacts here tell me that you will have restored protection under the law should you give evidence of Rothchilde's wrongdoing.\n\nYour Benefactor."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

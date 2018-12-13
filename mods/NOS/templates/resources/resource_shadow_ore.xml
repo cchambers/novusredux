@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Shadow Ore[-]</Name>
+	<ClientId>26</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">ShadowOre</StringVariable>
+		<DoubleVariable Name="UnitWeight">2</DoubleVariable>
+		<BoolVariable Name="Smeltable">True</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

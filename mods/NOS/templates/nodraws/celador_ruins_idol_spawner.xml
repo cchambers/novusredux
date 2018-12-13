@@ -1,0 +1,33 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+			<LuaModule Name="item_spawner">
+				<Initializer>
+				{
+					MaxItems = 3,
+					ItemTemplates = 
+					{
+						"idol_animal",
+						"idol_clumsyness",
+						"idol_hunger",
+						"idol_flimsy",
+						"idol_demon",
+						"idol_debuff",
+					},
+					ItemLocations = {
+						{Location = Loc(-155,   0, -352),},
+						{Location = Loc(-139,   0, -326),},
+						{Location = Loc(-58,    0, -444),},
+						{Location = Loc(-100,   0, -450),},
+						{Location = Loc(-101,   0, -405),},
+						{Location = Loc(-127,   0, -449),},
+						{Location = Loc(-171,   0, -470),},
+						{Location = Loc(-61,    0, -387),},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

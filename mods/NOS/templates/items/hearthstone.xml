@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2328</ClientId>
+	<Name>[FF9500]Hearthstone[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Hearthstone</StringVariable>
+   		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

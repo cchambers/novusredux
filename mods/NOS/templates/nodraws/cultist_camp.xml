@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[0078ff]Campfire[-]</Name>
+	<ClientId>96</ClientId>
+	<ObjectVariableComponent>			
+		<StringVariable Name="Difficulty">Medium</StringVariable>
+		<BoolVariable Name="HeatSource">True</BoolVariable>		
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="cultist_camp"/>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

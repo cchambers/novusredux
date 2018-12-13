@@ -1,0 +1,34 @@
+<ObjectTemplate>
+	<Name>Box of Tools</Name>
+
+	<ClientId>554</ClientId>
+
+	<SharedStateEntry name="Capacity" type="int" value="20"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 7,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 100, Template = "tool_fishing_rod", Unique = true },
+								{ Chance = 100, Template = "tool_hatchet", Unique = true },
+								{ Chance = 100, Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 100, Template = "tool_mining_pick", Unique = true },
+								{ Chance = 100, Template = "tool_shovel", Unique = true },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

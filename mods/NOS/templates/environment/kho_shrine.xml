@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>319</ClientId>
+	<Name>[FF9500]Shrine to Kho[-]</Name>
+	<ObjectVariableComponent/>					
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

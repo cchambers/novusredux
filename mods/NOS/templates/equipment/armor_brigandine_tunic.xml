@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Brigandine Tunic[-]</Name>
+	<ClientId>1481</ClientId>
+	<Hue>800</Hue>
+	<SharedStateEntry name="Weight" type="int" value="10"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Brigandine</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

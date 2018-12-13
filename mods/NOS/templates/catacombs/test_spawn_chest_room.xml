@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Room Reward Controller</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="room_reward_controller">
+			<Initializer>
+			{	
+				Spawns = {{"wraith"},{"wraith_knight"},"wraith_lord","skeleton_knight",{"phantom",Loc(245,0,-17)}},
+				RewardDecayTime = 30,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

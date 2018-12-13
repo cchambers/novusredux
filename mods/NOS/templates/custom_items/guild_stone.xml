@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[2E64FE]Guild Stone[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<ClientId>250</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="name_replacer"/>
+		<LuaModule Name="guild_stone"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

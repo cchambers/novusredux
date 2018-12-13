@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>Guild Charter</Name>
+	<ClientId>2271</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">GuildCharter</StringVariable>
+	</ObjectVariableComponent>					    	
+</ObjectTemplate>

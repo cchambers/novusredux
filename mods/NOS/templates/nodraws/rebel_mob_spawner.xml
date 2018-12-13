@@ -1,0 +1,26 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Rebel Spawner</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">30</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">4</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 50, Template = "rebel" },
+						{ Weight = 50, Template = "rebel_female" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 30,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

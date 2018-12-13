@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Name>Robert the Tailor</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="RepairSkill">FabricationSkill</StringVariable>
+		<StringVariable Name="CraftOrderSkill">FabricationSkill</StringVariable>
+		<DoubleVariable Name="BaseHealth">192</DoubleVariable>
+		<DoubleVariable Name="Armor">62</DoubleVariable>
+		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_npc_tailor">
+			<Initializer>
+				{
+					Stats= {
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
+					},
+					Skills= {
+						Fabrication = 100,
+						LightArmor = 100,
+					},
+					EquipTable= {
+						BodyPartHair= {
+							{"hair_male_windswept", 768},
+						},
+						BodyPartFacialHair= {
+							{"facial_hair_beard_mustache2", 768},
+						},
+						Chest= {
+							{"armor_leather_chest"},
+						},
+						Legs= {
+							{"armor_leather_leggings"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+					MerchantContainers= {
+						{
+							Name = "",
+							DisplayName = "",
+						},
+					},
+					ItemInventory= {
+						{
+							Template = "armor_leather_leggings",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "4.734009, 0.6420021, -0.7199707",
+							Rotation = "11.75384, 277.3496, 32.34119",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "robe_padded_helm",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-4.336975, 0.6000023, -3.133057",
+							Rotation = "24.86378, 270, 0.000157146",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "armor_leather_chest",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "3.802979, 0.625, -0.7419434",
+							Rotation = "357.549, 93.07091, 326.9387",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "armor_leather_helm",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "2.718994, 0.6790009, -0.8640137",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "robe_padded_leggings",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-4.46698, 0.6390038, -0.9630127",
+							Rotation = "2.035555E-13, 180, 35.00132",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "robe_padded_tunic",
+							Price = 0,
+							Amount = 20,
+							RelativeLoc = "-4.547424, 0.6632423, -2.062012",
+							Rotation = "0, 0, 322.621",
+							UnlimitedStock = false,
+						},
+						{
+							Template = "resource_bolt_of_cloth",
+							Price = 0,
+							Amount = 999,
+							RelativeLoc = "-3.29303, 0.9167252, -0.2069092",
+							Rotation = "4.79642E-07, 312.1414, -1.638799E-06",
+							UnlimitedStock = false,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

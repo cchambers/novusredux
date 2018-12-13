@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>390</ClientId>
+	<Name>[FF9500]Ink Container[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

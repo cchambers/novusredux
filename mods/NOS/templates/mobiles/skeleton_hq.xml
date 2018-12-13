@@ -1,0 +1,84 @@
+<ObjectTemplate>
+	<ClientId>269</ClientId>
+	<Name>Skeleton Warrior</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="Variation" type="string" value="Dark"/>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<!-- Champion Mob-->
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">100</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">46</DoubleVariable>
+		<DoubleVariable Name="Attack">12</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					Toughness = 2,
+					Might = 2,
+					},
+				Skills = 
+					{ 
+					Brawling = 25,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						RightHand = {{"weapon_maul"}},
+						Head = {{"armor_scale_helm"}},							
+					},
+				LootTables = 
+					{
+						TemplateDefines.LootTable.Poor,
+						TemplateDefines.LootTable.PotionsLow,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.Bones,
+						{
+							NumCoins = math.random(20,50),
+					    	NumItems = 1,
+					    	LootItems =
+					    	{
+				    			{ Weight = 90, Template = "armor_bone_chest", Unique = true },
+				    			{ Weight = 90, Template = "armor_bone_helm", Unique = true },
+				    			{ Weight = 90, Template = "armor_bone_leggings", Unique = true },
+				    			{ Weight = 90, Template = "shield_bone", Unique = true },
+				    			{ Weight = 5, Template = "furniture_box", Unique = true },
+				    		}
+						},
+					},	
+				ScavengeTables =
+					{
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 10, Template = "animalparts_bone", Unique = true },
+
+							},
+						},
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

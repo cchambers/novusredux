@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<ClientId>209</ClientId>
+	<Name>Ogre Lord</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<MobileComponent>
+		<BaseRunSpeed>0.5</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>	
+		<StringVariable Name= "MobileTeamType">Ogre</StringVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<DoubleVariable Name="BaseHealth">520</DoubleVariable>
+		<StringVariable Name="MonsterAR">50</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">20</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">25</DoubleVariable>
+		<DoubleVariable Name="FameXP">15000</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+					Stats = { Str=math.random(767,945), Agi=math.random(66,75), Int=math.random(46,70), },
+					Skills =
+					{ 
+						Melee=math.random(90.1,100), 
+						Brawling = math.random(90.1,100), 
+					},
+					EquipTable =
+					{
+						Backpack = { "backpack" },			
+					},
+
+					LootTables = 
+					{
+						TemplateDefines.LootTable.FilthyRich,
+					},
+
+					WeaponAbilities = { primary="Stun" },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

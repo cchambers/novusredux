@@ -1,0 +1,29 @@
+<ObjectTemplate>
+	<TemplateName>Female</TemplateName>
+	<ClientId>208</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = 
+					{ 
+					    Backpack = { "backpack" },
+					    RightHand = { "" },
+                        Legs = { "clothing_chest_beggar" }, 
+                        Chest = { "clothing_legs_beggar" }, 
+						BodyPartHead = TemplateDefines.FemaleHeads,	
+						BodyPartHair = TemplateDefines.FemaleHairVillage,
+                    },
+                  	SpawnLoot = { true },	       
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

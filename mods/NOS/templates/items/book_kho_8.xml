@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>Book of Kho: Chapter 8</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>		
+    	<StringVariable Name="TextColor">[7D0F0F]</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Let it be known that many beings have exist, but there is only one true god. That of the Void God Himself. For there are many servants of the Void, that might be called Gods. Death is one of them. Judgment is another. But none of these are worthy of worship like our One True God, the King of Demons, Prince of the Hells. Let it be known that while others consider these servants of the Void God gods themselves, they are not true Gods like ours. They are not worthy of worship, and is it not that which makes a God a God? Some believe that we should pray to Death as God. Or that one should pray to Lilith, who is the Goddess of Chaos. Stray not from the Truth my believers, these are not Gods of worship. But servants of the Void God itself. Remember when you spare the cretans that pray to False Gods, such as the Strange Ones, or even worse, that of Eve or the Old Ones. For they are blashpemous fools. For if they believe themselves to be holy, then the Void God is all that is Unholy. And as such, we all must strive to be like the Void God Himself. Burn all that is Holy, sacrifice all that opposes us. For His justice is eternal, and the path to damnnation is paved with the blood of sinners is it not?\n\nFor priests, they must be fed to fiends. \nFor sinners, a quick death is their reward, the Judge shall drink his fill. \nFor common-folk, a first passing in any manner is appropriate, and Death will feed himself.\nBut for Kings and Rulers who claim to rule for false gods and idols, they should be dragged to the Place of Burning, so that the Void God will laugh at their misery, for opposing him. Let their first passing be that of pain, and misery, and torture until they submit to the Void. For all should know the true power of the darkness. All that oppose the Void must meet their passing. If you come across their dwellings, burn them. If you come across their kin, slay them. For all that die are now subject to the Void God, and all must be subject to him."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

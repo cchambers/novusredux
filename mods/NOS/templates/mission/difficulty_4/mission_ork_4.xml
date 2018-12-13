@@ -1,0 +1,78 @@
+<ObjectTemplate>
+	<ClientId>1141</ClientId>
+	<Name>Savage Ork</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="Incubus"/>
+	<SharedStateEntry name="Variation" type="string" value="Warrior"/>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Ork</StringVariable>
+		<StringVariable Name= "AI-SpeechTable">OrcSpeech</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">53</DoubleVariable>
+		<DoubleVariable Name="Attack">32</DoubleVariable>
+		<DoubleVariable Name="Power">0</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_orc">
+			<Initializer>
+				{ 
+				OrkNames = {
+						"Oilug",
+						"Womkug",
+						"Wutgarek",
+						"Derthag",
+						"Dulfish",
+						"Zarfu",
+						"Yegoth",
+						"Quimghig",
+						"Tandagh",
+						"Tulgan",
+						"Viguka",
+						"Sorgulg",
+						"Oglub",
+						"Xagu",
+						"Agugh",
+						"Yerug",
+						"Nofhug",
+						"Furbog",
+						"Urlgan",
+						"Xorag",
+					},
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 80,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+					},	
+				ScavengeTables =
+					{
+					},			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

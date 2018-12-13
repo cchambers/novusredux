@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>675</ClientId>
+	<Name>[0078ff]Stone Mailbox[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>			
+		<BoolVariable Name="IsMailbox">true</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

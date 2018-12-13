@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>1279</ClientId>
+	<Name>Thanos of the Depths</Name>
+	<MobileComponent>			
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+    <SharedStateEntry name="BodyOffset" type="double" value="4"/>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">1500</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Demon</StringVariable>
+		<StringVariable Name= "MobileKind">Demon</StringVariable>
+		<StringVariable Name="MonsterAR">20</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">25</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">32</DoubleVariable>
+		<DoubleVariable Name="FameXP">25000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">2500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_perilous_hydra">
+			<Initializer>				
+				{ 
+				Stats = { Str=math.random(500,600), Agi=math.random(100,200), Int=math.random(600,700), },
+				Skills = 
+					{ 
+					MagicAffinity=100, 
+					Magery=100,
+					Melee=100,
+					Magery=100,
+					},	
+					EquipTable =
+					{	
+						Backpack = { "backpack" },			
+					},
+					
+					LootTables = 
+					{ 
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.SuperRich,
+						TemplateDefines.LootTable.SuperRich,
+						TemplateDefines.LootTable.SuperRich,
+					},
+
+					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

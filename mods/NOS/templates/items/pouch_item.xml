@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2293</ClientId>
+	<Name>[0078ff]Item Pouch[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1184</ClientId>
+	<Name>[FF9500]Single Die[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

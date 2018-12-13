@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>	
+		<!--
+    	<StringVariable Name="StartQuest">NoteQuest2</StringVariable>
+    	<BoolVariable Name="IsRebelNote">True</BoolVariable>
+    -->
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "Be aware that the Clan of the Red Sun are as opposed to the villagers as we are, it might be best to aquire their help. \n\n-Albert"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

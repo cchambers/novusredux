@@ -1,0 +1,49 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Fish Controller</Name>
+	<Tag>FishController</Tag>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="fish_controller">
+			<Initializer>
+				{
+					-- order matters here!
+					FishRegions = {						
+						{
+							Region = "Area-Serpent's Pass",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},
+						{
+							Region = "Area-Ysel Lake",
+							Fish = {
+								Barrelfish = 10,						
+								Terofish = 15,							
+								SpottedTerofish = 40,
+								FourEyeSalar = 20,
+								RazorFish = 10,
+								AetherFish = 5,
+							}
+						},					
+						{
+							Region = "Water",
+							Fish = {
+								Barrelfish = 60,						
+								Terofish = 30,							
+								SpottedTerofish = 10,
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

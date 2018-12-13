@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>2211</ClientId>
+	<Name>[FF9500]Bandit Tent[-]</Name>
+	<Color>0xFF96897A</Color>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

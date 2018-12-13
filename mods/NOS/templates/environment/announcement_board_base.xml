@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>1095</ClientId>
+	<Name>[FF9500]Announcement Board Base[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

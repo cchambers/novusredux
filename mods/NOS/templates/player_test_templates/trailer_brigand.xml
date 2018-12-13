@@ -1,0 +1,45 @@
+<ObjectTemplate>
+	<TemplateName>Brigand</TemplateName>
+	<ClientId>1</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = 
+					{ 
+					    Backpack = { "backpack" },
+					    RightHand = { "weapon_savagewarbow" },
+                        Legs = { {"armor_hardened_leggings",697},}, 
+                        Chest = { {"armor_hardened_chest",697},},
+                        Head = { {"armor_hardened_helm",800},}, 
+						BodyPartHead = {{"head_male03",813},},
+						BodyPartHair = {{"hair_male_undercut",768},}
+                    },
+					LootTables = {	
+					    -- Starting items
+					    {
+							NumCoins = 350,
+							NumItems = 5,
+					    	LootItems = {
+			        			{ Template = "torch", Unique = true },
+			        			{ Template = "tool_hunting_knife", Unique = true },
+			        			{ Template = "cooked_stew", Unique = true },
+			        			{ Template = "item_bread", Unique = true },
+			        			{ Template = "bandage", Unique = true, StackCount = 20 },
+			        		},
+				    	},
+				    },	 	       
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

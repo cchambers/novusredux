@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>[00FF00]Printed Note[-]</Name>
+	<ClientId>1109</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Rewriteable">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = ""
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

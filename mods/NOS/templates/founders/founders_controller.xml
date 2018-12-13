@@ -1,0 +1,40 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Map Controller</Name>
+	<Tag>MapController</Tag>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="shard_time_controller">
+			<Initializer>
+				{
+					DaylightDurationSecs = 45 * 60,
+					NighttimeDurationSecs = 0,
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="founders_controller">
+			<Initializer>
+				{
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+						{ Count = 1, TemplateId = "founders_dancer_male", Region = "DanceFloor" }, 
+						{ Count = 1, TemplateId = "founders_dancer_female", Region = "DanceFloor" }, 
+						{ Count = 1, TemplateId = "founders_dancer_male", Region = "SideAreas" }, 
+						{ Count = 1, TemplateId = "founders_dancer_female", Region = "SideAreas" }, 
+						{ Count = 1, TemplateId = "founders_dancer_male", Region = "VIPArea" }, 
+						{ Count = 1, TemplateId = "founders_dancer_female", Region = "VIPArea" }, 
+						--{ Count = 4, TemplateId = "vip_male", Region = "VIPArea" }, 
+						--{ Count = 4, TemplateId = "vip_female", Region = "VIPArea" }, 
+					},
+				}
+			</Initializer>	
+		</LuaModule>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

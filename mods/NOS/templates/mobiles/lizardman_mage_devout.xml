@@ -1,0 +1,43 @@
+ <ObjectTemplate>
+	<ClientId>1137</ClientId>
+	<Name>Devout Karvra Mage</Name>
+	<SharedStateEntry name="Variation" type="string" value="BrownMage"/>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<StringVariable Name= "MobileTeamType">Karvra</StringVariable>
+		<StringVariable Name="MobileKind">Reptile</StringVariable>
+		<DoubleVariable Name="BaseHealth">220</DoubleVariable>
+		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.0</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_lizardmen">
+			<Initializer>
+				{ 
+					Stats = { Str=85, Agi=50, Int=85 },
+					Skills = { Magery = 85, Channeling = 84, MagicAffinity = 90, Dodge = 60 },
+					EquipTable = 
+					{						
+						Backpack = {"backpack"}
+					},
+					LootTables = { 
+						{
+							NumItems = math.random(0,1),
+							NumCoins = math.random(10,20),
+							LootItems = 
+							{ 
+								{ Weight = 50, Template = "potion_lheal" },
+								{ Weight = 10, Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 10, Template = "potion_refresh" },
+							},
+						},
+					},
+					AvailableSpells = {"Fireball","Icelance", "Lightning", "Heal", "Teleport","Auraoffire",},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

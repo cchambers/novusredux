@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>690</ClientId>
+	<Name>[FF9500]Crystal Lamp[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

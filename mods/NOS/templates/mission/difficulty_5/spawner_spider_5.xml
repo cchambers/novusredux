@@ -1,0 +1,28 @@
+<ObjectTemplate>
+	<ClientId>2212</ClientId>
+	<Name>[FF9500]Spider Nest[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="ObjectOffset" type="double" value="3"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+		<DoubleVariable Name="BaseHealth">1200</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="destructable_mob_spawner">
+			<Initializer>
+			{	
+				SkillLevel = 100,
+				Spawns = 
+				{
+					{
+						Template = "mission_spider_5", 
+						Max = 2,
+						AddSpawns = 1
+					},
+				},
+				SpawnRange = 12,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

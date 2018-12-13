@@ -1,0 +1,68 @@
+<ObjectTemplate>
+	<ClientId>59</ClientId>
+	<Name>Dread</Name>
+	<Hue>16</Hue>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
+	<SharedStateEntry name="Variation" type="string" value="Void"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/dragon/dragon"/>
+	<ScaleModifier>1.2</ScaleModifier>
+<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">1000</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Demon</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">42</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_demon">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 80,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						{
+							NumItems = 1,
+							NumCoins = math.random(400,600),
+						},
+					},		
+				ScavengeTables =
+					{
+					},					
+					WeaponAbilities = { primary="Slash" },	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

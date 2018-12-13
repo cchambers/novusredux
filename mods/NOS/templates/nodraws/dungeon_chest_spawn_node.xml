@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Dungeon Chest Spawn Node</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_chest_spawn_node"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,68 @@
+<ObjectTemplate>
+	<ClientId>1147</ClientId>
+	<Name>Emperor Scorpion</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
+	<SharedStateEntry name="Variation" type="string" value="Skull"/>
+	<ScaleModifier>0.8</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Insects</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">40</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 70,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.SicklyEye,
+						{
+							NumItems = 1,
+							NumCoins = math.random(60,150),
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+					WeaponAbilities = { primary="Poison", secondary="Stab" },	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{				
+					AnimalParts =
+					{
+						{ ResourceType="Venom", RarityPct=10, Count=1 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

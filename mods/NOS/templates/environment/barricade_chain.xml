@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>640</ClientId>
+	<Name>[FF9500]Chained Up Barricade[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

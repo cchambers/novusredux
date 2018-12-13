@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Weather Black Forest Swamp Controller</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="WeatherRegion">WeatherBlackForestSwamp</StringVariable>
+		<StringVariable Name="WeatherEffect">RainEffect</StringVariable>
+		<DoubleVariable Name="WeatherPulseFrequencyMins">30</DoubleVariable>
+		<DoubleVariable Name="WeatherStartChance">0.3</DoubleVariable>
+		<DoubleVariable Name="WeatherStopChance">0.5</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="weather_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

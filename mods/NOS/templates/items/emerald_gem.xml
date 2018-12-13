@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<ClientId>349</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>[00FF00]Emerald[-]</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">Emerald</StringVariable>
+		<StringVariable Name="PluralName">Emerald</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

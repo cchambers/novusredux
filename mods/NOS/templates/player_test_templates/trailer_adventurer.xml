@@ -1,0 +1,44 @@
+<ObjectTemplate>
+	<TemplateName>Adventurer</TemplateName>
+	<ClientId>208</ClientId>
+	<Hue>807</Hue>
+	<MobileComponent>
+		<BaseRunSpeed>1.0</BaseRunSpeed>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="player">
+			<Initializer>
+				{ 
+					Stats = { Str=50, Agi=10, Int=10, Con=10, Wis=10, Will=10 },
+					EquipTable = 
+					{ 
+					    Backpack = { "backpack" },
+					    RightHand = { {"weapon_warhammer",14}, },
+                        Legs = { {"armor_assassin_leggings",924},}, 
+                        Chest = { {"armor_assassin_chest",924},},
+                        Head = { {"armor_assassin_helm",924},}, 
+						BodyPartHead = {{"head_male05",809},},
+						BodyPartHair = {{"hair_male_messy",4},},
+						BodyPartFacialHair = {{"facial_hair_beard_long",4},}
+                    },
+					LootTables = {	
+					    -- Starting items
+					    {
+							NumCoins = 350,
+							NumItems = 5,
+					    	LootItems = {
+			        			{ Template = "torch", Unique = true },
+			        			{ Template = "tool_hunting_knife", Unique = true },
+			        			{ Template = "cooked_stew", Unique = true },
+			        			{ Template = "item_bread", Unique = true },
+			        			{ Template = "bandage", Unique = true, StackCount = 20 },
+			        		},
+				    	},
+				    },	 	       
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

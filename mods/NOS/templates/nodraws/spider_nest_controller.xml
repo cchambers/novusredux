@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Spider-Nest Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFFF0FF00</Color>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="spider_nest_controller">
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

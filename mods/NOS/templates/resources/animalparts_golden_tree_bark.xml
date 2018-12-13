@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Golden Tree Bark[-]</Name>
+	<ClientId>8</ClientId>
+	<Hue>690</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">GoldenTreeBark</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>681</ClientId>
+	<Name>[FF9500]Round Pillow[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="chair"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

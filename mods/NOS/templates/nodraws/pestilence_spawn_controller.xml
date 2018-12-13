@@ -1,0 +1,57 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+					  	--First rooms to the right.
+					    { Count = 2, TemplateId = "lizardman_mage", Region = "RoomA10", DelayMin=2 }, 
+
+					    { Count = 3, TemplateId = "viper", Region = "RoomA9", DelayMin=2 }, 
+
+					    { Count = 3, TemplateId = "lizardman", Region = "RoomA8", DelayMin=2 }, 
+
+					    { Count = 2, TemplateId = "lizardman", Region = "RoomA7", DelayMin=2 }, 
+
+					    { Count = 2, TemplateId = "gavri", Region = "RoomA6", DelayMin=2 }, 
+					    { Count = 3, TemplateId = "lizardman", Region = "RoomA5", DelayMin=2 }, 
+					    { Count = 2, TemplateId = "gavri", Region = "RoomA3", DelayMin=2 }, 
+
+					    { Count = 2, TemplateId = "lizardman", Region = "RoomA11", DelayMin=2 },  
+					    { Count = 2, TemplateId = "lizardman_mage", Region = "RoomA11", DelayMin=2 },  
+
+					    --Necromancer rooms
+					    { Count = 2, TemplateId = "gorgon", Region = "RoomA12", DelayMin=2 }, 
+					    { Count = 2, TemplateId = "lizardman_mage", Region = "RoomA13", DelayMin=2 },
+					    { Count = 2, TemplateId = "gorgon", Region = "RoomA14", DelayMin=2 },   
+
+					    { Count = 2, TemplateId = "lizardman_warrior", Region = "RoomA16", DelayMin=2 }, 
+			
+					    --Skeleton room
+					    { Count = 3, TemplateId = "lizardman_warrior", Region = "RoomA19", DelayMin=2 }, 
+					    { Count = 3, TemplateId = "lizardman_archer", Region = "RoomA19", DelayMin=2 }, 
+
+					    --Hallway to skeleton room, 
+					    { Count = 2, TemplateId = "lizardman_archer", Region = "HallwayA16", DelayMin=2 },
+
+					    --Hallway to ghoul room
+					    --{ Count = 2, TemplateId = "viper", Region = "HallwayA14", DelayMin=2 }, 
+					    { Count = 2, TemplateId = "viper", Region = "HallwayA14", DelayMin=2 }, 
+
+					    --Hallway next to werebat room
+					    { Count = 1, TemplateId = "viper", Region = "HallwayA11", DelayMin=2 }, 
+
+  						{ Count = 2, TemplateId = "lizardman_mage", Region = "HallwayA8", DelayMin=2 }, 
+
+						-----------------------------------------------------------
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

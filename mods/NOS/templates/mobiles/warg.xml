@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>1138</ClientId>
+	<Name>Warg</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Wargs</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<StringVariable Name="MountType">Warg</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_wolf">
+			<Initializer>				
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+						Channeling=math.random(60.1,80), 
+						Melee=math.random(65.1,87),						
+					},
+					EquipTable = 
+					{
+						Backpack = { "backpack" },			
+					},	
+					LootTables = 
+					{ 
+					},	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="LeatherHide", RarityPct=100, Count=3 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

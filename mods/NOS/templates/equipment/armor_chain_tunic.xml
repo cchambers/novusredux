@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Chain Tunic[-]</Name>
+	<ClientId>1479</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="10"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Chain</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

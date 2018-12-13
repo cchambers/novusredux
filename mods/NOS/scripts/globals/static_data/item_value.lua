@@ -1,0 +1,186 @@
+CustomItemValues = {
+
+	--Resources
+	resource_stone = 0.1,
+	
+	resource_iron_ore = 8,
+	resource_copper_ore = 16,
+	resource_gold_ore = 24,
+	resource_cobalt_ore = 32,
+	resource_obsidian_ore = 40,
+
+	animalparts_blood = 5,
+	animalparts_blood_beast = 25,
+	animalparts_blood_vile = 50,
+
+	animalparts_eye = 4,
+	animalparts_eye_sickly = 20,
+	animalparts_eye_decrepid = 40,
+
+	resource_wood = 20,
+	resource_ash = 40,
+	resource_blightwood = 80,
+
+	resource_cotton = 10,
+	resource_cotton_fluffy = 20,
+	animalparts_spider_silk = 40,
+	
+	animalparts_leather_hide = 45,
+	animalparts_beast_leather_hide = 135,
+	animalparts_vile_leather_hide = 225,
+	
+	resource_sand = 0.20,
+	resource_blankscroll = 10,
+
+	resource_frayed_scroll = 15,
+	resource_fine_scroll = 30,
+	resource_ancient_scroll = 60,
+
+	rune_blank = 200,
+
+	--Animal Parts
+	
+	animalparts_human_skull = 10,
+	animalparts_leather_hide = 15,
+
+	animalparts_mystery_meat = 1,
+	animalparts_stringy_meat = 5,
+	animalparts_tough_meat = 10,
+	animalparts_tender_meat = 20,
+	animalparts_gourmet_meat = 50,
+
+	item_cooked_meat = 2,
+	item_jerky = 10,
+	item_meat_loaf = 20,
+	item_brisket = 40,
+	item_wild_steak = 100,
+
+	resource_fish_barrel = 1,
+	resource_fish_tero = 5,
+	resource_fish_spotted_tero = 10,
+	resource_fish_razor = 20,
+	resource_fish_aether = 50,
+
+	item_cooked_barrelfish = 2,
+	item_cooked_terofish = 10,
+	item_cooked_spottedterofish = 20,
+	item_cooked_razorfish = 40,
+	item_cooked_aetherfish = 100,
+
+	animalparts_bone = 5,
+	animalparts_bone_cursed = 35,
+	animalparts_bone_ethereal = 50,
+	animalparts_bone_spectral = 20,
+
+	--Harvest Resources
+	ingredient_lemongrass = 4,
+	ingredient_ginsengroot = 4,
+	ingredient_mushroom = 5,
+	ingredient_moss = 5,
+	ingredient_olive_oil = 1.8,
+	ingredient_olive_oil_pure = 18,
+	ingredient_cactus = 2.5,
+	ingredient_sacred_cactus = 42,
+	ingredient_wine = 1,
+	ingredient_broccoli = 4,
+	ingredient_cabbage = 4,
+	ingredient_cucumber = 4,
+	ingredient_green_pepper = 4,
+	ingredient_onion = 4,
+	ingredient_potato = 4,
+	ingredient_tomato = 4,
+
+	--Items
+	candle = 10,
+	pouch = 10,
+	lockbox = 30,
+	celador_map_scroll = 40,
+
+	ruby_gem = 900,
+	sapphire_gem = 400,
+	topaz_gem = 200,
+
+	inn_stew = 15,
+	item_ale = 3,
+	item_apple = 4,
+	item_beer = 4,
+	item_bread = 7,
+	item_mead = 4,
+	item_bowl = 3,
+	item_pear = 4,
+	item_orange = 4,
+	item_lemon = 4,
+	cooked_stew = 7,
+
+	spellbook = 200,
+	spellbook_noob = 200,
+	map_atlas_blank = 200,
+
+	book_blue = 7,
+	book_brown = 7,
+	book_green = 7,
+	book_grey = 7,
+	book_red = 7,
+	book_yellow = 7,
+
+	artifact_gold_bracelet = 35,
+	artifact_mask = 35,
+	artifact_ornate_goblet = 35,
+	artifact_pendant = 35,
+	artifact_small_statue = 35,
+
+	key = 8,
+
+	cultist_scripture_a = 20,
+	cultist_scripture_b = 20,
+	cultist_scripture_c = 20,
+	cultist_scripture_d = 20,
+	cultist_scripture_e = 20,
+	cultist_scripture_f = 20,
+	cultist_scripture_g = 20,
+	cultist_scripture_h = 20,
+	cultist_scripture_i = 20,
+	cultist_scripture_j = 20,
+
+	bandage = 1,
+
+
+	blueprint_woodhouse_worthless = 20000,
+	blueprint_woodhousecottage = 30000,
+
+	blueprint_tudorhousemahogany = 45000,
+	blueprint_tudorhousebirch = 55000,
+
+	blueprint_woodhousemahogany = 45000,
+	blueprint_woodhousebirch = 55000,
+
+	blueprint_stonehousetuscan = 45000,
+	blueprint_stonehousecottage = 55000,
+
+	blueprint_terracottahousetuscan = 45000,
+	blueprint_terracottahousecottage = 55000,
+
+	blueprint_tudorhousemayor = 120000,
+	blueprint_terracottahousevilla = 120000,
+	blueprint_stonehousevilla = 120000,
+	blueprint_woodhousemayor = 120000,
+
+	blueprint_stonehouseestate = 220000,
+	blueprint_woodhousetavern = 220000,
+	blueprint_tudorhousetavern = 220000,
+	blueprint_terracottahouseestate = 220000,
+	
+
+	fruit_catacombs = 150,
+
+	holy_water = 0,
+
+	tool_engraving = 100,
+
+	packed_bind_stone = 100000,
+	land_deed = 50000,
+	guild_charter = 10000,
+	escape_scroll = 400,
+
+	arrow = 1,
+}

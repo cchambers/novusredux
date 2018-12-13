@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[FF5d3c]Whetstone[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="EnhancementName">Hone</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="enhancement_tool"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>Altar of the Old Religion</Name>
+	<ClientId>343</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolType">SacrificalAltarTable</StringVariable>	
+		<StringVariable Name="ToolSkill">MagerySkill</StringVariable>	
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<!--<LuaModule Name="altar_crafting"/>-->
+		<LuaModule Name="salvage_station"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

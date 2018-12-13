@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>393</ClientId>
+	<Name>[FF9500]Parchment Paper[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

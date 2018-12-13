@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<Name>Great Tree</Name>
+	<ClientId>569</ClientId>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="great_tree"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

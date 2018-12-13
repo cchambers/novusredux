@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[2E64FE]Jail Portal[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<ClientId>278</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="jail_exit_script"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="TooltipString" type="string" value="Portal to Freedom"/>
+</ObjectTemplate>

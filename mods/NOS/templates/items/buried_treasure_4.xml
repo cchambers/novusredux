@@ -1,0 +1,123 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Buried Treasure[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>		
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(2000,3000),
+				    	},
+
+						--rare
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{	
+								{ Chance = 50,Template = "idol_animal", Unique = true },
+								{ Chance = 20,Template = "idol_hunger", Unique = true },
+								{ Chance = 10,Template = "idol_demon", Unique = true },
+								{ Chance = 10,Template = "ancient_idol", Unique = true },
+							}
+						},
+
+						--ingredients
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 5,
+							LootItems = 
+							{									
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
+								{ Weight = 25, Template = "bandage", Unique = true },
+								{ Weight = 5, Template = "sapphire_gem", Unique = true },
+								{ Weight = 5, Template = "ruby_gem", Unique = true },
+								{ Weight = 5, Template = "topaz_gem", Unique = true },
+								{ Weight = 5, Template = "treasure_map", Unique = true },
+								{ Weight = 4, Template = "treasure_map_1", Unique = true },
+								{ Weight = 3, Template = "treasure_map_2", Unique = true },
+								{ Weight = 2, Template = "treasure_map_3", Unique = true },
+								{ Weight = 1, Template = "treasure_map_4", Unique = true },
+							}
+						},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
+
+				    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
+
+				    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
+				    		}
+						},
+
+						--regs
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+							}
+						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 3,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_cure", Unique = true },
+								{ Weight = 5, Template = "lscroll_poison", Unique = true },
+								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
+							},
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="buried_treasure_lock">
+			<Initializer>
+				{
+					MobTables = {
+						{ "drake", "drake", "gorgon", "gorgon" },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

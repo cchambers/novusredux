@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>418</ClientId>
+	<Name>[FF9500]Curtain Divider Straight[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+</ObjectTemplate>

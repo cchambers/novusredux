@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>306</ClientId>
+	<Color>0xFFA4A4A4</Color>
+	<Name>[d9d9d9]Spider Nest[-]</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="SpiderTemplate">spider</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="spider_nest"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

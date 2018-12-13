@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>618</ClientId>
+	<Name>[FF9500]Happy Jack O'Lantern[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>					
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="destroy_on_use"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

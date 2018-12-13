@@ -1,0 +1,78 @@
+<ObjectTemplate>
+	<ClientId>824</ClientId>
+	<Name>Gargoyle</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".75"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Demon</StringVariable>
+		<StringVariable Name= "MobileKind">Demon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">51</DoubleVariable>
+		<DoubleVariable Name="Attack">23</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">12</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_demon">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					BowResistance = 2,
+					},
+				Skills = 
+					{ 
+					Magery=100,
+					Magery=100,
+					Brawling = 60,  
+					MagicAffinity=100,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsMed,
+						TemplateDefines.LootTable.FineScrolls,
+						{
+							NumCoins = math.random(70,150),
+						},
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 5, Template = "animalparts_bone", Unique = true },
+							},
+						},
+					},	
+				ScavengeTables =
+					{
+						{
+							NumItems = 1,
+							LootItems = 
+							{ 
+								{  Chance = 10, Template = "animalparts_bone", Unique = true },
+
+							},
+						},
+					},	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},		
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

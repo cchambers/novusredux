@@ -1,0 +1,24 @@
+<ObjectTemplate>
+  <Name>[00FF00]Book of the Faith and Return of the Wayun[-]</Name>
+	<ClientId>686</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<!--
+    	<StringVariable Name="QuestName">CatacombsStartQuest</StringVariable>
+    	<StringVariable Name="QuestTask">TalkToTheLibrarian</StringVariable>
+    	<StringVariable Name="QuestRequiredTask">ReadScripture</StringVariable>
+    -->
+    	<StringVariable Name="DeleteObjVar">CatacombsIgnorePlayerInteract</StringVariable>
+   	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="quest_item"/>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "[574D00]...It is with great sadness that we see the Wayun leave us to return to their world, but they have given us the Gift of the Gates, their work complete[-]. \n\nThrough this time from ages ago, we have since time immemorable lived with the Wayun, known their true path, and the reasons behind why they saught us out. \n\nI shall write these things without my name so that all may know that the Strangers, as those who refuse to worship them call them, are worthy of all praise. For the time they spent here, they showed us the Way, that which they know and seek out to be true, that of their will. \n\nFor we all must know the True Path, that which all must seek out and obey. For there is much on the true path to be saught, and the way to knowing all things comes through the Strange Gods. For the Strange Gods are that of which we must obey.\n\nIn the time that we have spent here on Aria, we have learned much to be known from the blessings of the Wayun, and that the Wayun know only the truth regarding that which we should know. \n\nFor we have served them honorablly in all their ways, and that we should know the that they all have on humanity. But they say the time is coming, where we all must follow our own paths, for that is the Way, and to seek out peace, proseperity, and joy in our hearts forever more. That is the Way, that is the Way of the Strange Gods. For when their sole purpose of creating the gateways that cross our world exist, is it not true that they claimed it was for the distant future, when it will be nessasary to use them to travel place to place? For that is what they claim, that is how it shalt be. That all will be seperated from the True Path, and the knowledge that new Gods will appear, will it not? In time, it is likely that all will soon see the light that is to come, and that the end of all things, is not the end, even if such is claimed. \n\nFor there will be a time where those claim that the end is coming, that the end will arrive sooner than not. For there are those that claim that the future is dark, and that evil things will appear. For we must wait, for the Strangers have but one truth, that they will return to help us, and that they will send help to us. For they are timeless, without time, and seers of all. That is why, no matter what comes, we must wait. For when help arrives, we will recognize it."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

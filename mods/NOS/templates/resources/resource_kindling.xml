@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Kindling[-]</Name>
+  <ClientId>2158</ClientId>
+    <SharedStateEntry name="Weight" type="int" value="1" />
+  <ObjectVariableComponent>
+    <StringVariable Name="ResourceType">Kindling</StringVariable>
+    <DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="stackable" />
+  </ScriptEngineComponent>
+</ObjectTemplate>

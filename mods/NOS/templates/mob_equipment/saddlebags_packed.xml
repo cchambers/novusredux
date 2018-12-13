@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[0078ff]Leather Saddlebags (Packed)[-]</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="EquipmentTemplate">saddlebags</StringVariable>
+		<StringVariable Name="SupportedPetTag">Horse</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="mob_equipment_packed"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

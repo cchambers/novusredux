@@ -1,0 +1,6 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Prizm Suit Helmet[-]</Name>
+	<ClientId>1028</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ScriptEngineComponent/>
+</ObjectTemplate>

@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Human Skull[-]</Name>
+	<ClientId>317</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">HumanSkull</StringVariable>
+		<StringVariable Name="PluralName">Human Skulls</StringVariable>		
+	</ObjectVariableComponent>		
+</ObjectTemplate>

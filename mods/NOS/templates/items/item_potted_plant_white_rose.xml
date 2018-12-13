@@ -1,0 +1,5 @@
+﻿<ObjectTemplate>
+	<Name>White Rose</Name>
+	<ClientId>2111</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2" />
+</ObjectTemplate>

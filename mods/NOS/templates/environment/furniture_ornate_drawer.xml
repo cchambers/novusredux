@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2059</ClientId>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>Ornate Drawer</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

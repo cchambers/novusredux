@@ -1,0 +1,58 @@
+<ObjectTemplate>
+	<!-- <ClientId>1583</ClientId>-->
+	<ClientId>268</ClientId>
+	<Name>Decaying Corpse</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">50</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name= "MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">44</DoubleVariable>
+		<DoubleVariable Name="Attack">4</DoubleVariable>
+		<DoubleVariable Name="Power">0</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=10, Agi=7, Int=6, Wis=4, Wil=4 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Magery=100,
+					Magery=100,
+					MagicAffinity=100,
+					Brawling = 80,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+					},	
+				ScavengeTables =
+					{
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

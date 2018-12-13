@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>1934</ClientId>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>The Lady Tiffany</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>
+</ObjectTemplate>

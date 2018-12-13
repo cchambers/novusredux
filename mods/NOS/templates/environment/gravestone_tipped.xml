@@ -1,0 +1,21 @@
+<ObjectTemplate>
+  <Name>[0078ff]Gravestone[-]</Name>
+	<ClientId>246</ClientId>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="name_replacer"/>
+		<LuaModule Name="diggable_object">
+			<Initializer>		
+				{ 
+					BuriedItems = 
+					{
+						{item = "graveyard_skeleton", chance = 3},
+						{item = "ghoul", chance = 4},
+						{item = "treasure_map", chance = 10},
+						{item = "buried_treasure", chance = 40},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

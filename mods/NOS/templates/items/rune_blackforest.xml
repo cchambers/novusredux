@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>1103</ClientId>
+	<Color>676767</Color>
+	<Name>[1366AC]Teleportation Rune[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Rune</StringVariable>
+		<StringVariable Name="StaticDestination">BlackForest</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+	</ScriptEngineComponent>
+</ObjectTemplate>

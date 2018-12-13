@@ -1,0 +1,19 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_lever">
+			<Initializer>
+			{
+				Spawns = 
+				{
+					{"teleporter_triggered",Loc(85.53, 0.8970032, -58.56),45},
+					{"teleporter_triggered",Loc(101, 0.4259033, -43.5),45},
+				},
+				Time = 120,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

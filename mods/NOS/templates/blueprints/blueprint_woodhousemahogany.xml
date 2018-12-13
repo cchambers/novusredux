@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>Wood House Mahogany Blueprint</Name>
+	<ClientId>638</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="HouseType">wood_house_mahogany</StringVariable>
+		<StringVariable Name="ResourceType">HouseBlueprint</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

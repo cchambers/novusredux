@@ -1,0 +1,9 @@
+﻿<ObjectTemplate>
+  <Name>Dye Tub</Name>
+	<ScaleModifier>2.5</ScaleModifier>
+	<ClientId>2007</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1" />
+	<ScriptEngineComponent>
+		<LuaModule Name="dye_tub"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

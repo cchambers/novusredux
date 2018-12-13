@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[978161]Dark Energy Robes[-]</Name>
+	<ClientId>898</ClientId>
+	<Hue>139</Hue>
+  	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ArmorType">VeryLight</StringVariable>
+   		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

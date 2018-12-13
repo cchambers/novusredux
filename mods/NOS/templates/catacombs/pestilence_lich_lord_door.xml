@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>886</ClientId>
+	<SharedStateEntry name="PlayClosedIdle" type="bool" value="True"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="BossTemplate">lich_lord</StringVariable>
+		<StringVariable Name="TrapKey">TriggerCerberus</StringVariable>
+		<StringVariable Name="BossRegion">CerberusRoom</StringVariable>
+		<StringVariable Name="NotifyModule">catacombs_cerberus_barricade</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="triggered_boss_door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

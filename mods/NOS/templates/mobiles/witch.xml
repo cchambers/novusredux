@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Witch</Name>
+	<ObjectVariableComponent>
+    	<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+	    <StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_witch">
+			<Initializer>
+				{
+					Stats = {
+						Str = 99,
+						Agi = 99,
+						Int = 250,
+					},
+					AvailableSpells = {"Fireball","Voidblast","Chainlightning","Icelance", "Heal", "Grimaura","Spikepath","Auraoffire"},
+					Skills = {Blocking = 40, Magery = 100, Channeling = 100, MagicAffinity = 90},
+					--NOTE: These are also all the different witches on the map.
+					Names = {
+						"Ingrid the Witch",
+						"Lucia the Witch",
+						"Dahlia the Witch",
+						"Rue the Witch",
+						"Helga the Witch",
+						"Simone the Witch",
+						"Hazel the Witch",
+						"Lillian the Witch",
+						"Sabine the Witch",
+						"Deville the Witch",
+						"Jade the Witch",
+						"Amelia the Witch",
+						"Aileen the Witch",
+						"Fortuna the Witch",
+					},
+					EquipTable = {
+						BodyPartHead=FemaleHeads,
+						BodyPartHair=FemaleHairBeggar,
+						RightHand= {
+							"weapon_staff",
+						},
+						Chest= {
+							{"clothing_dress_chest","0xFF1C1C1C"},
+						},
+						Head= {
+							{"clothing_mage_hat_helm","0xFF1C1C1C"},
+						},
+						Legs= {
+							"scale_legs_base",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

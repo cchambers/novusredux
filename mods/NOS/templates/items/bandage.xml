@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Bandage[-]</Name>
+	<ClientId>107</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<!-- Stackable objvars -->
+		<StringVariable Name="ResourceType">Bandage</StringVariable>
+		<StringVariable Name="PluralName">Bandages</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/bandage_use</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

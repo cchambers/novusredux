@@ -1,0 +1,34 @@
+<ObjectTemplate>
+	<TemplateName></TemplateName>
+	<Name>Refined Metalsmith Resources</Name>
+
+	<ClientId>554</ClientId>
+
+	<SharedStateEntry name="Capacity" type="int" value="20"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 4,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "resource_iron", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_copper", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_gold", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_cobalt", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCount = 100 },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

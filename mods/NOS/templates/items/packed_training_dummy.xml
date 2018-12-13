@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Training Dummy</Name>
+	<ClientId>185</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="UnpackedTemplate">training_dummy</StringVariable>
+		<StringVariable Name="ResourceType">PackedObject</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

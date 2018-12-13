@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Partial Printed Note[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="note">
+			<Initializer>
+				{ 
+				Text = "... that one must always take care when handling idols, as they are cursed with magic that amplified itself after the destruction of Aria, and that many bad things occur as a result of posessing one."
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

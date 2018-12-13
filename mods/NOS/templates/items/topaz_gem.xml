@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2252</ClientId>
+	<Name>Topaz</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ResourceType">Topaz</StringVariable>
+		<StringVariable Name="PluralName">Topaz</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

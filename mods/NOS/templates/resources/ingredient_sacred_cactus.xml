@@ -1,0 +1,32 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Sacred Cactus[-]</Name>
+	<ClientId>328</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FoodValue">1.0</DoubleVariable>
+		<BoolVariable Name="Drug">true</BoolVariable>
+		<DoubleVariable Name="CookingDifficulty">20.0</DoubleVariable>
+		<StringVariable Name="ResourceType">SacredCactus</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+			<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						foodEffectDurationMod = {
+							Multiplier = 1.05,
+							},
+						foodFillingnessMod = 
+							{
+								Multiplier = 1.15,
+							},
+						foodEffectPotencyMod = { 
+							Multiplier = 1.05,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

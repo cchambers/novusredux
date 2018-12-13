@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>392</ClientId>
+	<Name>[FF9500]Ash Tray[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

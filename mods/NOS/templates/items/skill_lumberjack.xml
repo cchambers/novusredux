@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[00FF00]The Skill of Lumberjacking[-]</Name>
+	<ClientId>118</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Skill">LumberjackSkill</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="skill_book"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

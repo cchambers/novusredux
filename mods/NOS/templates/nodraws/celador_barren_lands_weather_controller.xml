@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Weather Barren Lands Controller</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="WeatherRegion">WeatherBarrenLands</StringVariable>
+		<StringVariable Name="WeatherEffect">DesertWeatherEffect</StringVariable>
+		<DoubleVariable Name="WeatherPulseFrequencyMins">4</DoubleVariable>
+		<DoubleVariable Name="WeatherStartChance">0.1</DoubleVariable>
+		<DoubleVariable Name="WeatherStopChance">1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="weather_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

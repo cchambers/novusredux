@@ -1,0 +1,8 @@
+<ObjectTemplate>
+    <Name>[d9d9d9]Necklace of Acumen[-]</Name>
+	<ClientId>2225</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>   		
+	</ObjectVariableComponent>					
+</ObjectTemplate>

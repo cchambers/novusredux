@@ -1,0 +1,49 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>176</Hue>
+	<Color>0xFF000000</Color>
+	<Name>Wraith</Name>
+    <SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/banshee/banshee"/>
+	<ScaleModifier>1</ScaleModifier>
+	<MobileComponent>
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>				
+	<ObjectVariableComponent>			
+		<BoolVariable   Name= "VisibleToAll">True</BoolVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<DoubleVariable Name= "BaseHealth">53</DoubleVariable>
+		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
+		<BoolVariable Name="CannotBeCaptured">True</BoolVariable>
+		<StringVariable Name="MonsterAR">28</StringVariable>
+		<DoubleVariable Name="NaturalMinDamage">7</DoubleVariable>
+		<DoubleVariable Name="NaturalMaxDamage">11</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_wraith">
+			<Initializer>
+				{ 
+				Stats = { Str=math.random(56,80), Agi=math.random(56,75), Int=math.random(16,40), },
+				Skills = 
+					{ 
+					Bashing=math.random(45.1,60), 
+					Melee=math.random(45.1,55),
+					Magery=math.random(55.1,70),
+					},		
+				EquipTable = {
+						BodyPartHead = TemplateDefines.MaleHeads,
+						Chest = { { "long_robes_crude", "0xFF2D2D2D" } },
+						Backpack = { "backpack" },	
+						},
+				LootTables = 
+					{ 
+						TemplateDefines.LootTable.Average,
+					},
+				AvailableSpells = {"Heal", "Poison", "Fireball"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

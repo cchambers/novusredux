@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Fire Plate Legs[-]</Name>
+	<ClientId>56</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<SharedStateEntry name="Variation" type="string" value="Fire"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Plate</StringVariable>
+	</ObjectVariableComponent>					
+
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>Skull of the Void</Name>
+	<ClientId>317</ClientId>
+	<Color>0x0d0d0d</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="UnitWeight">0.025</DoubleVariable>
+		<StringVariable Name="ResourceType">ContemptSkull</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

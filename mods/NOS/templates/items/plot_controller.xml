@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>679</ClientId>
+	<Name>[0078ff]Wooden Mailbox[-]</Name>
+	<ObjectVariableComponent>
+    	<StringVariable Name="ResourceType">PlotController</StringVariable>
+    	<BoolVariable Name="HandlesDrop">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

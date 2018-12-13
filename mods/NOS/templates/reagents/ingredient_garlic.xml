@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Garlic[-]</Name>
+	<ClientId>1012</ClientId>
+	<ScaleModifier>0.6</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Garlic</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

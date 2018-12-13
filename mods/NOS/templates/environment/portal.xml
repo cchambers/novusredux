@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Portal</Name>
+	<ClientId>278</ClientId>
+	<ObjectVariableComponent>
+		<BoolVariable Name="DisableLockDown">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

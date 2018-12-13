@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Catacombs State Controller</Name>
+	<Tag>CatacombsController</Tag>
+	<ScriptEngineComponent>
+		<LuaModule Name="catacombs_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

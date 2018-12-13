@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>Teleporter to Hub</Name>
+	<ClientId>879</ClientId>
+	<ObjectVariableComponent>	
+		<LocVariable Name="Destination">-11,0,-36</LocVariable>
+		<DoubleVariable Name="DestinationFacing">151</DoubleVariable>
+		<BoolVariable Name="CreatePortalOnExit">true</BoolVariable>
+		<DoubleVariable Name="DecayTime">1500</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+		<LuaModule Name="decay"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

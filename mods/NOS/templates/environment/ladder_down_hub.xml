@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>346</ClientId>
+	<ObjectVariableComponent>	
+		<LocVariable Name="Destination">193.13, 0.06535339, -36.13</LocVariable>
+		<DoubleVariable Name="DestinationFacing">108</DoubleVariable>
+		<BoolVariable Name="NoTeleportEffect">true</BoolVariable>
+		<StringVariable Name="InvalidUseMessage">As you reach for the ladder, the guards begin to unsheath their weapons.</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

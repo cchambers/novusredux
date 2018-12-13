@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>1732</ClientId>
+	<Name>[FF9500]Tinderbox[-]</Name>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Tinderbox</StringVariable>
+		<StringVariable Name="PluralName">Tinderboxes</StringVariable>	
+	</ObjectVariableComponent>
+</ObjectTemplate>

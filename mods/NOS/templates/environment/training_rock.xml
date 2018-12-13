@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>597</ClientId>
+	<ScaleModifier>1</ScaleModifier>
+	<Name>[FF9500]Target Rock[-]</Name>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="attackable">true</BoolVariable>
+		<DoubleVariable Name="CombatMaxSkillGain">40</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="target_dummy"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

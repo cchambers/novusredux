@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Spider Silk[-]</Name>
+	<ClientId>242</ClientId>
+	<ScaleModifier>0.7</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Spidersilk</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

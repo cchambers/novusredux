@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[00FF00]Token of Knowledge (1xGM)[-]</Name>
+	<ClientId>907</ClientId>
+	<Color>0xFFF90303</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="Uses">1</DoubleVariable>
+		<DoubleVariable Name="CombatTypeSkill">100</DoubleVariable>
+		<DoubleVariable Name="TradeTypeSkill">100</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="advanced_skill_token"/>			
+	</ScriptEngineComponent>
+</ObjectTemplate>

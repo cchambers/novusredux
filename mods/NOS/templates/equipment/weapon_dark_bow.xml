@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Dark Bow[-]</Name>
+	<ClientId>1340</ClientId>
+	<Hue>940</Hue>
+	<SharedStateEntry name="Weight" type="int" value="16"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="Executioner">Dragon</StringVariable>
+		<DoubleVariable Name="ExecutionerLevel">3</DoubleVariable>
+		<DoubleVariable Name="AttackBonus">50</DoubleVariable>
+		<StringVariable Name="WeaponType">Longbow</StringVariable>
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+		<BoolVariable Name="Cursed">True</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

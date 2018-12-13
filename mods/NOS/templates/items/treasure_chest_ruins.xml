@@ -1,0 +1,75 @@
+<ObjectTemplate>
+	<ClientId>36</ClientId>
+	<Name>[0078ff]Chest of Stashed Items[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="lock_object_ruins">
+			<Initializer>
+				{
+				LockChance = 2,
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(30,45),
+				    	},
+						
+						--ingredients
+						{
+							NumItems = math.random(3,6),
+							LootItems = 
+							{									
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+								{ Chance = 3, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 3, Template = "lscroll_fireball", Unique = true },
+								{ Chance = 5, Template = "tool_shovel", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
+								{ Chance = 5, Template = "resource_clothscraps", Unique = true },
+								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },
+								{ Chance = 5, Template = "ingredient_mushroom", Unique = true },
+								{ Chance = 5, Template = "ingredient_ginsengroot", Unique = true },
+								{ Chance = 5, Template = "resource_iron", Unique = true },
+								{ Chance = 5, Template = "metal_scraps", Unique = true },
+								{ Chance = 20, Template = "cooked_stew", Unique = true },
+								{ Chance = 5, Template = "artifact_small_statue" , Unique = true },
+								{ Chance = 5, Template = "artifact_pendant" , Unique = true },
+								{ Chance = 5, Template = "artifact_ornate_pottery" , Unique = true },
+								{ Chance = 5, Template = "artifact_ornate_goblet" , Unique = true },
+								{ Chance = 5, Template = "artifact_mask" , Unique = true },
+								{ Chance = 5, Template = "artifact_gold_bracelet" , Unique = true },
+								{ Chance = 5, Template = "artifact_flute" , Unique = true },
+								{ Chance = 5, Template = "idol_demon" , Unique = true },
+								{ Chance = 5, Template = "idol_debuff" , Unique = true },
+								{ Chance = 5, Template = "idol_flimsy" , Unique = true },
+								{ Chance = 5, Template = "idol_hunger" , Unique = true },
+								{ Chance = 5, Template = "idol_animal" , Unique = true },
+								{ Chance = 5, Template = "stone_tablet_a" , Unique = true },
+								{ Chance = 5, Template = "stone_tablet_b" , Unique = true },
+								{ Chance = 5, Template = "stone_tablet_c" , Unique = true },
+								{ Chance = 5, Template = "stone_tablet_d" , Unique = true },
+								{ Chance = 5, Template = "stone_tablet_e" , Unique = true },
+								{ Chance = 5, Template = "idol_clumsyness" , Unique = true },
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

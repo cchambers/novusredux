@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[0000F7]Decipher Scroll[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<StringVariable Name="ResourceType">Magic</StringVariable>
+    	<StringVariable Name="PluralName">Decipher Scrolls</StringVariable>
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+		<LuaModule Name="decipher_object"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

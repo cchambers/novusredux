@@ -1,0 +1,6 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Stasis Suit Chest[-]</Name>
+	<ClientId>1025</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ScriptEngineComponent/>
+</ObjectTemplate>

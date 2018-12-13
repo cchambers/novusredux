@@ -1,0 +1,26 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Contempt Ogre Spawner</Name>
+	<ObjectVariableComponent>	
+	<StringVariable Name="spawnRegion">RoomA15</StringVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">3</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 99.5, Template = "ogre" },
+						{ Weight = 0.5, Template = "ogre_hq" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 30,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

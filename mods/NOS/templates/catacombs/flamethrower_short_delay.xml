@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<ClientId>821</ClientId>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="FlameDelayTime">6</DoubleVariable>
+		<DoubleVariable Name="FlameActivationTime">4</DoubleVariable>
+		<DoubleVariable Name="InitialTimerOffset">0</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="timed_flamethrower_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

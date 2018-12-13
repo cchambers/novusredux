@@ -1,0 +1,5 @@
+<ObjectTemplate>
+	<ClientId>961</ClientId>
+	<Name>[FF9500]Fork[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>

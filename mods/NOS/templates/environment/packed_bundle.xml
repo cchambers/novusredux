@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>185</ClientId>
+	<Name>[FF9500]Packed Bundle[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>					
+    	<!-- Stackable objvars -->
+    	<StringVariable Name="PluralName">Packed Bundles</StringVariable>
+		<BoolVariable Name="Worthless">true</BoolVariable>
+   	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

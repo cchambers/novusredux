@@ -1,0 +1,36 @@
+<ObjectTemplate>
+	<TemplateName></TemplateName>
+	<Name>Refined Fabrication Resources</Name>
+
+	<ClientId>554</ClientId>
+
+	<SharedStateEntry name="Capacity" type="int" value="20"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+						{						
+						    NumItems = 8,
+							LootItems = 
+							{ 	
+								{ Chance = 100, Template = "resource_bolt_of_cloth", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_bolt_of_cloth_quilted", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_silk_cloth", Unique = true, StackCount = 100 },
+
+								{ Chance = 100, Template = "resource_leather", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_beast_leather", Unique = true, StackCount = 100 },
+								{ Chance = 100, Template = "resource_vile_leather", Unique = true, StackCount = 100 },
+							} 
+						},	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

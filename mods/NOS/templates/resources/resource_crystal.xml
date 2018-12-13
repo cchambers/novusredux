@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Crystalline Shard[-]</Name>
+	<ClientId>291</ClientId>
+	<Color>9A2EFE</Color>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Crystal</StringVariable>
+		<StringVariable Name="Worthless">true</StringVariable>
+		<StringVariable Name="PluralName">[bdbdbd]Crystalline Shards[-]</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

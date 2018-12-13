@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>278</ClientId>
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_portal"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

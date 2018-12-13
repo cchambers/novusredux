@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[00FF00]Lightning Scroll[-]</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Spell">Lightning</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spell_scroll"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
