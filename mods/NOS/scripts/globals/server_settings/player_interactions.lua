@@ -28,15 +28,15 @@ ServerSettings.PlayerInteractions = {
 	NeutralZones = {
 		"Area-Oasis",
 		"ForestOutpost",
-		"PyrosLanding"
+		"Area-Pyros Landing"
 	},
 
 	GuardTowerProtectionRange = 15.0,
 	GatekeeperProtectionRange = 15.0,
 	--Guarded, GuardTower, 
 	GuardProtectionEnterExitMsgMap = {
-		["Town.Enter"] = "[$1823]",
-		["Town.Exit"] = "[$1821]",
+		["Town.Enter"] = "You are under the protection of the guards.",
+		["Town.Exit"] = "You have left the protection of the guards.",
 		["Protection.Enter"] = "[$1822]",
 		["Protection.Exit"] =  "[$1821]",
 		["Neutral.Enter"] = "[$3375]",

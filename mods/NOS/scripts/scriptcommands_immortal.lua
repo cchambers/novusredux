@@ -53,41 +53,43 @@ RegisterEventHandler(
 UserListPage = 1
 
 function ShowUserList(selectedUser)
-	if (selectedUser == nil) then
-		selectedUser = this
+	if (selectedUser == nil) then selectedUser = this end
+	local newWindow = DynamicWindow("UserList","Player List",450,530) 
+	-- local allPlayers = FindPlayersInRegion()
+	local allPlayers = GlobalVarRead("User.Online")
+	
+	if(#allPlayers == 0) then
+		table.insert(allPlayers,{Name="Center",Loc=Loc(0,0,0)})
 	end
-	local newWindow = DynamicWindow("UserList", "Player List", 450, 530)
-	local allPlayers = FindPlayersInRegion()
 
-	if (#allPlayers == 0) then
-		table.insert(allPlayers, {Name = "Center", Loc = Loc(0, 0, 0)})
-	end
+	local scrollWindow = ScrollWindow(20,40,380,375,25)
+	for i,player in pairs(allPlayers) do
+		local name = player:GetName()
+		if ( not keyword or string.lower(name):match(keyword) ) then
+			local scrollElement = ScrollElement()	
 
-	local scrollWindow = ScrollWindow(20, 40, 380, 375, 25)
-	for i, player in pairs(allPlayers) do
-		local scrollElement = ScrollElement()
+			if((i-1) % 2 == 1) then
+				scrollElement:AddImage(0,0,"Blank",360,25,"Sliced","1A1C2B")
+			end
+			local region = player:GetLoc()
+			scrollElement:AddLabel(5, 3, name .. " test " .. region ,0,0,18)
 
-		if ((i - 1) % 2 == 1) then
-			scrollElement:AddImage(0, 0, "Blank", 360, 25, "Sliced", "1A1C2B")
+			local selState = ""
+			if(player.Id == selectedUser.Id) then
+				selState = "pressed"
+			end
+			scrollElement:AddButton(340, 3, "select|"..player.Id, "", 0, 18, "", "", false, "Selection",selState)
+			scrollWindow:Add(scrollElement)
 		end
-
-		scrollElement:AddLabel(5, 3, player:GetName(), 0, 0, 18)
-
-		local selState = ""
-		if (player.Id == selectedUser.Id) then
-			selState = "pressed"
-		end
-		scrollElement:AddButton(340, 3, "select|" .. player.Id, "", 0, 18, "", "", false, "Selection", selState)
-		scrollWindow:Add(scrollElement)
 	end
 	newWindow:AddScrollWindow(scrollWindow)
 
 	-- Goto
-	newWindow:AddButton(15, 420, "teleport|" .. selectedUser.Id, "Tele To", 100, 23, "", "", false, "", buttonState)
-	newWindow:AddButton(115, 420, "teleportToMe|" .. selectedUser.Id, "Tele Here", 100, 23, "", "", false, "", buttonState)
-	newWindow:AddButton(215, 420, "heal|" .. selectedUser.Id, "Heal", 100, 23, "", "", false, "", buttonState)
-	newWindow:AddButton(315, 420, "resurrect|" .. selectedUser.Id, "Resurrect", 100, 23, "", "", false, "", buttonState)
-
+	newWindow:AddButton(15, 420, "teleport|"..selectedUser.Id, "Tele To", 100, 23, "", "", false,"",buttonState)
+	newWindow:AddButton(115, 420, "teleportToMe|"..selectedUser.Id, "Tele Here", 100, 23, "", "", false,"",buttonState)
+	newWindow:AddButton(215, 420, "heal|"..selectedUser.Id, "Heal", 100, 23, "", "", false,"",buttonState)
+	newWindow:AddButton(315, 420, "resurrect|"..selectedUser.Id, "Resurrect", 100, 23, "", "", false,"",buttonState)
+	
 	this:OpenDynamicWindow(newWindow)
 end
 

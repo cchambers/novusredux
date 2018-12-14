@@ -72,7 +72,7 @@ ServerSettings.Karma = {
             Protect = -9999,
             Name = "Chaos",
             AlignmentName = "Chaotic",
-            NameColor = "FF8000",
+            NameColor = "C0C0C0",
             Title = "The Chaotic",
             IsChaotic = true, -- chaotic allignments are free to kill each other, and everyone can temporarily flag chaotic by choice
             NegativeKarmaAdjustMod = 1,
@@ -90,10 +90,10 @@ ServerSettings.Karma = {
         },
         {
             Amount = -10000,
-            Name = "Outcast",
+            Name = "Dread",
             AlignmentName = "Unlawful",
             NameColor = "FF0000",
-            Title = "The Outcast",
+            Title = "The Dreaded",
             NegativeKarmaAdjustMod = 0.15,
             -- guards will attack this player, don't set guard protect to true when this is true, things might get weird?
             GuardHostilePlayer = true,

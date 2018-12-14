@@ -522,19 +522,6 @@ EquipmentStats = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 14
-			},
-			Chest = {
-				ArmorRating = 18
-			},
-			Legs = {
-				ArmorRating = 18
-			}
-		},
-		Linen = {
-			ArmorClass = "Cloth",
-			SoundType = "Leather",
-			Head = {
 				ArmorRating = 12
 			},
 			Chest = {
@@ -544,21 +531,8 @@ EquipmentStats = {
 				ArmorRating = 14
 			}
 		},
-		MageRobe = {
+		Linen = {
 			ArmorClass = "Cloth",
-			SoundType = "Leather",
-			Head = {
-				ArmorRating = 10
-			},
-			Chest = {
-				ArmorRating = 10
-			},
-			Legs = {
-				ArmorRating = 10
-			}
-		},
-		Leather = {
-			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
 				ArmorRating = 14
@@ -570,48 +544,22 @@ EquipmentStats = {
 				ArmorRating = 18
 			}
 		},
-		Bone = {
-			ArmorClass = "Light",
+		MageRobe = {
+			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 15
+				ArmorRating = 0
 			},
 			Chest = {
-				ArmorRating = 20
+				ArmorRating = 10
 			},
 			Legs = {
-				ArmorRating = 20
+				ArmorRating = 0
 			}
 		},
-		Hardened = {
+		Leather = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
-			Head = {
-				ArmorRating = 15
-			},
-			Chest = {
-				ArmorRating = 20
-			},
-			Legs = {
-				ArmorRating = 20
-			}
-		},
-		Assassin = {
-			ArmorClass = "Light",
-			SoundType = "Leather",
-			Head = {
-				ArmorRating = 15
-			},
-			Chest = {
-				ArmorRating = 20
-			},
-			Legs = {
-				ArmorRating = 20
-			}
-		},
-		Chain = {
-			ArmorClass = "Light",
-			SoundType = "Plate",
 			Head = {
 				ArmorRating = 16
 			},
@@ -622,56 +570,108 @@ EquipmentStats = {
 				ArmorRating = 22
 			}
 		},
+		Bone = {
+			ArmorClass = "Light",
+			SoundType = "Leather",
+			Head = {
+				ArmorRating = 20
+			},
+			Chest = {
+				ArmorRating = 25
+			},
+			Legs = {
+				ArmorRating = 25
+			}
+		},
+		Hardened = {
+			ArmorClass = "Light",
+			SoundType = "Leather",
+			Head = {
+				ArmorRating = 20
+			},
+			Chest = {
+				ArmorRating = 30
+			},
+			Legs = {
+				ArmorRating = 30
+			}
+		},
+		Assassin = {
+			ArmorClass = "Light",
+			SoundType = "Leather",
+			Head = {
+				ArmorRating = 15
+			},
+			Chest = {
+				ArmorRating = 25
+			},
+			Legs = {
+				ArmorRating = 25
+			}
+		},
+		Chain = {
+			ArmorClass = "Light",
+			SoundType = "Plate",
+			Head = {
+				ArmorRating = 20
+			},
+			Chest = {
+				ArmorRating = 50
+			},
+			Legs = {
+				ArmorRating = 50
+			}
+		},
 		Brigandine = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 24
+				ArmorRating = 50
 			},
 			Chest = {
-				ArmorRating = 28
+				ArmorRating = 60
 			},
 			Legs = {
-				ArmorRating = 28
+				ArmorRating = 60
 			}
 		},
 		Scale = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 24
+				ArmorRating = 40
 			},
 			Chest = {
-				ArmorRating = 28
+				ArmorRating = 55
 			},
 			Legs = {
-				ArmorRating = 28
+				ArmorRating = 55
 			}
 		},
 		Plate = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 24
+				ArmorRating = 50
 			},
 			Chest = {
-				ArmorRating = 28
+				ArmorRating = 60
 			},
 			Legs = {
-				ArmorRating = 28
+				ArmorRating = 60
 			}
 		},
 		FullPlate = {
 			ArmorClass = "Heavy",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 24
+				ArmorRating = 50
 			},
 			Chest = {
-				ArmorRating = 28
+				ArmorRating = 60
 			},
 			Legs = {
-				ArmorRating = 28
+				ArmorRating = 60
 			}
 		}
 	},
@@ -811,3 +811,4 @@ JewelryTypeData = {
 		Will = 5
 	}
 }
+
