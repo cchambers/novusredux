@@ -835,9 +835,9 @@ end
 
 function BeginCombat()
 	Verbose("Combat", "BeginCombat")
-	if (IsDead(this)) then
-		return
-	end
+	-- if (IsDead(this)) then
+	-- 	return
+	-- end
 	-- make sure we are in combat! (this function does nothing if you are already in combat)
 	SetInCombat(true)
 	InitiateCombatSequence()
@@ -885,9 +885,9 @@ end
 
 function HandleScriptCommandToggleCombat()
 	Verbose("Combat", "HandleScriptCommandToggleCombat")
-	if (IsDead(this)) then
-		return
-	end
+	-- if (IsDead(this)) then
+	-- 	return
+	-- end
 
 	if (CancelCastPrestigeAbility(this)) then
 		return
@@ -947,9 +947,9 @@ function SetInCombat(inCombat, force)
 		inCombat = false
 	end
 	-- we use a local variable to be able to see changes to the state immediately
-	if (IsDead(this)) then
-		inCombat = false
-	end
+	-- if (IsDead(this)) then
+	-- 	inCombat = false
+	-- end
 	if (mInCombatState ~= inCombat or force) then
 		mInCombatState = inCombat
 		this:SendMessage("CombatStatusUpdate", inCombat)

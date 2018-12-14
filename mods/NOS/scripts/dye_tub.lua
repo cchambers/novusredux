@@ -58,6 +58,8 @@ RegisterEventHandler(
 	function(target, user)
 		local dyeable = true;
 
+		if (target == nil) then return end
+
 		if (target:HasObjVar("ArmorType")) then
 			local armorType = target:GetObjVar("ArmorType")
 			if (armorType ~= "Cloth") then dyeable = false end
