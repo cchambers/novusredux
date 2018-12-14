@@ -849,6 +849,19 @@ function InitiateCombatSequence()
 		return
 	end
 
+	if (mCurrentTarget ~= nil) then -- dead already
+		local table = mCurrentTarget:GetObjVar("PreviousOwners")
+		if (table) then 
+			local mine = "GameObj #" .. table[1]
+			local me = this:ToString()
+			local compare = (mine == me)
+			if (compare) then 
+				this:SystemMessage("You almost attacked your pet... I saved you! Love, Khi")
+				return
+			end
+		end
+	end
+
 	local ready = mSwingReady
 	if (ready.RightHand) then
 		-- swing is ready, do it
