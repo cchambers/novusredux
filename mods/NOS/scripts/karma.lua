@@ -8,7 +8,8 @@ ServerSettings.Karma = {
 
 	-- zones in-game will be disabled from karma.
 	DisableKarmaZones = {
-		"Arena"
+		"Arena",
+        "TestMap"
 	},
 	-- Regions with this address will be disabled
 	DisableKarmaRegionAddresses = {

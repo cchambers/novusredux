@@ -812,3 +812,9 @@ JewelryTypeData = {
 	}
 }
 
+EquipmentStats.BaseWeaponStats.Telecrook = {
+    WeaponClass = "Tool",
+    Attack = 7,
+    MinSkill = 0,
+    PrimaryAbility = "TelecrookMove",
+}

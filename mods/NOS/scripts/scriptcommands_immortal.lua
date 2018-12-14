@@ -55,8 +55,8 @@ UserListPage = 1
 function ShowUserList(selectedUser)
 	if (selectedUser == nil) then selectedUser = this end
 	local newWindow = DynamicWindow("UserList","Player List",450,530) 
-	-- local allPlayers = FindPlayersInRegion()
-	local allPlayers = GlobalVarRead("User.Online")
+	local allPlayers = FindPlayersInRegion()
+	-- local allPlayers = GlobalVarRead("User.Online")
 	
 	if(#allPlayers == 0) then
 		table.insert(allPlayers,{Name="Center",Loc=Loc(0,0,0)})

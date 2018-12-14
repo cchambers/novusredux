@@ -194,17 +194,18 @@ WeaponAbilitiesData.MortalStrike = {
     SkipHitAction = true
 }
 
-WeaponAbilitiesData.Move = {        
-    MobileEffect = "Move",
-    Stamina = 1,
+WeaponAbilitiesData.TelecrookMove = {
+    MobileEffect = "TelecrookMove",
+    Stamina = 0,
     NoCombat = true,
-    QueueTarget = "Any",
+    AllowMounted = true,
+    QueueTarget = "Loc",
     Instant = true,
-    Cooldown = TimeSpan.FromSeconds(1),
+    Cooldown = TimeSpan.FromSeconds(0),
     Action = {
         DisplayName = "Move",
-        Tooltip = "Move a player.",
-        Icon = "huntingknifeskinning",
+        Tooltip = "Teleport yourself or another object somewhere.",
+        Icon = "Leap",
         Enabled = true
     },
 }
