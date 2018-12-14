@@ -47,7 +47,7 @@ RegisterEventHandler(
 
 RegisterEventHandler(
 	EventType.Message,
-	"SpellHitEffectsp_agile_effect",
+	"SpellHitEffectsp_strength_effect",
 	function(caster)
 		HandleLoaded()
 	end
