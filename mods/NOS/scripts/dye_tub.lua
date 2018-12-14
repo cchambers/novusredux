@@ -60,7 +60,6 @@ RegisterEventHandler(
 
 		if (target:HasObjVar("ArmorType")) then
 			local armorType = target:GetObjVar("ArmorType")
-			user:SystemMessage("ArmorType" .. armorType)
 			if (armorType ~= "Cloth") then dyeable = false end
 		end
 		

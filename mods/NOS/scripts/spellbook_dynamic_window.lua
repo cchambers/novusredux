@@ -61,7 +61,7 @@ function ShowSpellBookDialog(from)
 			end
 		)
 
-		DebugMessage("Total Spells: " .. tostring(#spellsSorted))
+		-- DebugMessage("Total Spells: " .. tostring(#spellsSorted))
 	end
 
 	local dynamicWindow =
