@@ -345,6 +345,8 @@ function ChangePlayerBackFromGhost()
 	
 	UnregisterEventHandler("",EventType.Message, "CombatStatusUpdate")
 
+	this:SendMessage("BreakInvisEffect", "player_death")
+	
 	local hueTable = this:GetObjVar("OldHues")
 	if (hueTable ~= nil) then
 		if (this:GetEquippedObject("Chest") ~= nil and hueTable.ChestHue) then
