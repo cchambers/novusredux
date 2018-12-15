@@ -548,7 +548,7 @@ SpellData = {
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			BeneficialSpellType = true,
-			SpellEnabled = true,
+			SpellEnabled = false,
 			SpellFireAnim = "BuffEffect_C",
 			Skill = "MagerySkill",
 			RequireTarget = true,
@@ -663,7 +663,7 @@ SpellData = {
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
 			BeneficialSpellType = true,
-			SpellEnabled = true,
+			SpellEnabled = false,
 			SpellFireAnim = "BuffEffect_C",
 			TargetMobileEffect = "DefenseBuff",
 			Reagents = {
