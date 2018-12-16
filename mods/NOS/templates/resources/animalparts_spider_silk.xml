@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Silk[-]</Name>
+	<Name>[bdbdbd]Silk Thread[-]</Name>
 	<ClientId>242</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
@@ -8,5 +8,5 @@
 	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>
-	</ScriptEngineComponent>	
+	</ScriptEngineComponent>
 </ObjectTemplate>
