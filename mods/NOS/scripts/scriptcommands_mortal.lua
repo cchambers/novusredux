@@ -74,8 +74,17 @@ MortalCommandFuncs = {
 	
 	Say = function(...)
 		local line = CombineArgs(...)
-		this:LogChat("say", json.encode(line))
-		this:PlayerSpeech(line,30)
+		if (this:HasObjVar("IsGhost")) then
+			local gt = { "o", "O"}
+			local ghostTalk = line:gsub("[a-zA-Z0-9]", function() 
+				return gt[math.random(1,2)]
+			end)
+			this:LogChat("say", "oOoOoOoOoOo: " .. line)
+			this:PlayerSpeech(ghostTalk,30)
+		else
+			this:LogChat("say", json.encode(line))
+			this:PlayerSpeech(line,30)
+		end
 	end,
 
 	Roll = function(...)
