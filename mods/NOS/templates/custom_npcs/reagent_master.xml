@@ -26,6 +26,8 @@
 					},
 					Skills= {
 						Alchemy = 100,
+						Magery = 100,
+						MagicAffinity = 100
 					},
 					EquipTable= {
 						Legs= {

@@ -57,6 +57,7 @@ MortalCommandFuncs = {
 	Title = function()
 		ToggleAchievementWindow(this)
 	end,
+
 	Achievement = function()
 		ToggleAchievementWindow(this)
 	end,
@@ -267,10 +268,36 @@ MortalCommandFuncs = {
 	ReplyTell = function(...)
 		DefaultCommandFuncs.Tell(mLastTeller,...)
 	end,
+
+	CareBear = function(user, buttonId)
+		ClientDialog.Show {
+			TargetUser = user,
+			DialogId = "CareBear" .. user.Id,
+			TitleStr = "CONVERT TO PvE ONLY",
+			DescStr = string.format("This will PERMANENTLY alter your character! If you enter PvE mode, you will never be able to participate in PvP with this character. Are you sure you want to be Player vs Environment only?"),
+			Button1Str = "Continue",
+			Button2Str = "Cancel",
+			ResponseObj = user,
+			ResponseFunc = function(user, buttonId)
+				local buttonId = tonumber(buttonId)
+				if (user == nil or buttonId == nil) then
+					return
+				end
+				-- Handles the invite command of the dynamic window
+				if (buttonId == 0) then
+					user:SetObjVar("CareBear", true)
+					return
+				end
+			end
+		}
+	end,
 }
 
 
 RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.ResetTrackers, Desc="Reset your tracked skills." }
+
+-- RegisterCommand{ Command="pve", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.CareBear, Desc="Permenantly become PVE only." }
+
 RegisterCommand{ Command="help", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Help, Usage="<command_name>", Desc="[$2471]" }
 RegisterCommand{ Command="title", AccessLevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Title, Desc="Show title window" }
 RegisterCommand{ Command="achievement", Accesslevel = AccessLevel.Mortal, Func=MortalCommandFuncs.Achievement, Desc = "Show achievement window" }
