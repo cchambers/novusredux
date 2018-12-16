@@ -71,6 +71,8 @@ function ShowStatusElement(mobileObj, args)
 							end
 							-- Handles the invite command of the dynamic window
 							if (buttonId == 0) then
+								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(24)))
+								user:SetObjVar("PowerHourEnds", 2)
 								user:SendMessage("StartMobileEffect", "PowerHourBuff")
 								return
 							end

@@ -114,6 +114,7 @@ SkillData = {
 			Description = "Magic Resistance determines your chance resist offensive magical spells.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.8,
+			Skip = true
 		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {

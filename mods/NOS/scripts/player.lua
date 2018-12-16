@@ -326,6 +326,20 @@ function OnLoad(isPossessed)
 		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
 	end
 
+	-- POWER HOUR FIXER
+	local powerhour = this:GetObjVar("PowerHourEnds")
+
+	if (powerhour) then
+		powerhour = powerhour - 1;
+		if (powerhour > -1) then
+			this:SetObjVar("PowerHourEnds", powerhour)
+			this:SendMessage("StartMobileEffect", "PowerHourBuff")
+		else
+			this:DelObjVar("PowerHourEnds")
+			this:SystemMessage("Your Power Hour has ended.")
+		end
+	end
+
 	if not(isPossessed) then
 		if(not(this:HasObjVar("playerInitialized"))) then
 			this:SetObjVar("playerInitialized",true)
