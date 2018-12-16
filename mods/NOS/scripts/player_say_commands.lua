@@ -29,7 +29,7 @@ RegisterEventHandler(
 			return
 		end
 
-		if ("balance") then
+		if (cmd == "balance") then
 			if (this:HasTimer("AntiBankSpam") or IsDead(this)) then
 				return
 			end
@@ -46,15 +46,7 @@ RegisterEventHandler(
 			)
 
 			local bankObj = this:GetEquippedObject("Bank")
-			local tally = 0
-			local objects = FindItemsInContainerRecursive(bankObj)
-
-			for i, v in pairs(objects) do
-				local type = v:GetObjVar("ResourceType")
-				if (type == "coins") then
-					tally = tally + v:GetObjVar("StackCount")
-				end
-			end
+			local tally = CountResourcesInContainer(bankObj,"coins")
 
 			while true do
 				tally, k = string.gsub(tally, "^(-?%d+)(%d%d%d)", "%1,%2")
@@ -63,7 +55,7 @@ RegisterEventHandler(
 				end
 			end
 			local name = this:GetName();
-			banker:NpcSpeech(name .. ", your net worth is [FFD700]" .. tally .. "[-] Gold!")
+			banker:NpcSpeech(name .. ", your net worth is [FFD700]" .. tally .. "[-] gold!")
 			this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiBankSpam")
 			return
 		end
