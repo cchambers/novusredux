@@ -78,6 +78,8 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
+				{ Chance = 0.25, Template = "random_executioner_weapon_0_60", Unique = true},
+
 				{ Chance = 0.5, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 0.5, Template = "necklace_sapphire_flawed", Unique = true },
     			{ Chance = 0.5, Template = "necklace_topaz_flawed", Unique = true },
@@ -101,6 +103,8 @@ TemplateDefines = {
 			LootItems = 
 			{ 
 
+				{ Chance = 0.25, Template = "random_executioner_weapon_20_80", Unique = true},
+
 				{ Chance = 0.25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 0.25, Template = "necklace_sapphire_flawed", Unique = true },
     			{ Chance = 0.25, Template = "necklace_topaz_flawed", Unique = true },
@@ -123,6 +127,8 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
+				{ Chance = 0.25, Template = "random_executioner_weapon_50_100", Unique = true},
+				
 				{ Chance = 0.25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 0.25, Template = "necklace_sapphire_flawed", Unique = true },
     			{ Chance = 0.25, Template = "necklace_topaz_flawed", Unique = true },
@@ -152,6 +158,8 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
+				{ Weight = 0.25, Template = "random_executioner_weapon_80_100", Unique = true},
+
 				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
@@ -181,6 +189,8 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
+				{ Weight = 0.5, Template = "random_executioner_weapon_80_100", Unique = true},
+
 				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
@@ -578,9 +588,6 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 1, StackCountMax = 3,},
 				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
 				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
 				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 1, StackCountMax = 3,},
@@ -598,9 +605,6 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 2, StackCountMax = 5,},
 				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
 				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
 				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 2, StackCountMax = 5,},
@@ -638,10 +642,7 @@ TemplateDefines = {
 			NumItems = 3,	
 
 			LootItems = 
-			{ 
-				{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+			{   
 				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
 				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
 				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 50, StackCountMax = 100,},

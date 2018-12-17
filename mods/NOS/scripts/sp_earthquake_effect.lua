@@ -22,13 +22,16 @@ function ()
 		end
 
 	end
-	this:PlayEffectWithArgs("ScreenShakeEffect", 10.0,"Magnitude=10")
 
-  if(mPulsesLeft > 0) then 
-  	this:ScheduleTimerDelay(TimeSpan.FromSeconds(.6), "EarthquakePulseTimer")
-  else
-  	this:FireTimer("EndEarthquakeTimer")
-  end
+	if ( not this:IsInRegion("Town") ) then
+		this:PlayEffectWithArgs("ScreenShakeEffect", 10.0,"Magnitude=5,FadeOutTime=3")
+	end
+
+	if(mPulsesLeft > 0) then 
+		this:ScheduleTimerDelay(TimeSpan.FromSeconds(.6), "EarthquakePulseTimer")
+	else
+		this:FireTimer("EndEarthquakeTimer")
+	end
 
 end)
 

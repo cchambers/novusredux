@@ -326,6 +326,22 @@ function OnLoad(isPossessed)
 		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
 	end
 
+	this:DelObjVar("BuffIcons")	
+
+	-- POWER HOUR FIXER
+	local powerhour = this:GetObjVar("PowerHourEnds")
+
+	if (powerhour) then
+		powerhour = powerhour - 1;
+		if (powerhour > -1) then
+			this:SetObjVar("PowerHourEnds", powerhour)
+			this:SendMessage("StartMobileEffect", "PowerHourBuff")
+		else
+			this:DelObjVar("PowerHourEnds")
+			this:SystemMessage("Your Power Hour has ended.")
+		end
+	end
+
 	if not(isPossessed) then
 		if(not(this:HasObjVar("playerInitialized"))) then
 			this:SetObjVar("playerInitialized",true)
@@ -427,8 +443,6 @@ function OnLoad(isPossessed)
 	-- some scripts might not want to act on someone who has just entered the world
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"EnteringWorld")
 
-	this:DelObjVar("BuffIcons")	
-	-- KHI TODO: REBUFF, DON'T DEBUFF
 
 	-- Delayed OnLoadStuff
 	CallFunctionDelayed(TimeSpan.FromSeconds(0.5),
@@ -464,3 +478,23 @@ function OnLoad(isPossessed)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()),"UpdateChatChannels")
 end
 RegisterEventHandler(EventType.Message,"OnLoad",function(...) OnLoad(...) end)
+
+RegisterEventHandler(EventType.Message,"OpenBank",
+	function (bankSource)
+		local bankObj = this:GetEquippedObject("Bank")
+		this:SetObjVar("BankSource",bankSource)
+		if( bankObj ~= nil ) then
+			bankObj:SendOpenContainer(this)					
+		end
+
+		local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(12))
+		AddView("BankCloseCheck",searchDistanceFromBank,1.0)
+		RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck",
+			function()
+				local bankObj = this:GetEquippedObject("Bank")
+				if( bankObj ~= nil ) then
+					CloseContainerRecursive(this,bankObj)
+					CloseMap()
+				end
+			end)
+	end)

@@ -275,25 +275,23 @@ function EndDeath(ghostResurrect)
 	end
 end
 
-GHOST_HUE = "0xFFc0c0c0"
+GHOST_HUE = "0xC0C0C0FF"
 function TurnPlayerIntoGhost(shouldHueEquipment)
 	-- force them out of combat
 	RegisterEventHandler(EventType.Message, "CombatStatusUpdate", function(state)
 		if (state) then 
 			this:SystemMessage("You can be seen by the living.")
 			this:SendMessage("BreakInvisEffect", "player_death")
+			this:SetCloak(false)
 		else 
 			this:SystemMessage("You are invisible to the living world. Toggle combat mode to be seen.")
 			this:SendMessage("AddInvisEffect", "player_death")
+			this:SetCloak(true)
 		end
 	end)
 	
-	this:SendMessage("AddInvisEffect", "player_death")
 	this:SendMessage("EndCombatMessage")
 	
-	
-	-- IN COMBAT MODE...
-	-- this:SendMessage("BreakInvisEffect", "player_death")
 	-- make them look like a ghost
 	local hueTable = {}
 	hueTable.SelfHue = this:GetColor()
@@ -334,21 +332,29 @@ function TurnPlayerIntoGhost(shouldHueEquipment)
 			this:GetEquippedObject("LeftHand"):SetObjVar("OldHue",hueTable.LeftHand)
 			this:GetEquippedObject("LeftHand"):SetColor(GHOST_HUE)
 		end
+
 	end
+
+	hueTable.formTemplate = this:GetObjVar("FormTemplate")
 
 	this:SetObjVar("OldHues",hueTable)
 	this:SetObjVar("IsGhost",true)
 	this:SetCloak(true)
+	-- this:SetAppearanceFromTemplate("death_shroud")
+	-- this:SetScale(0.4*this:GetScale())
 end
 
 function ChangePlayerBackFromGhost()
 	
 	UnregisterEventHandler("",EventType.Message, "CombatStatusUpdate")
 
-	this:SendMessage("BreakInvisEffect", "player_death")
 	
 	local hueTable = this:GetObjVar("OldHues")
+	
 	if (hueTable ~= nil) then
+		-- this:SetAppearanceFromTemplate(hueTable.formTemplate)
+		-- this:SetObjVar("FormTemplate",hueTable.formTemplate)
+		-- this:SetScale((1/0.4)*this:GetScale())
 		if (this:GetEquippedObject("Chest") ~= nil and hueTable.ChestHue) then
 			this:GetEquippedObject("Chest"):SetColor(hueTable.ChestHue)
 		end
@@ -392,6 +398,7 @@ function ChangePlayerBackFromGhost()
 	end
 	this:DelObjVar("OldHues")
 	this:DelObjVar("IsGhost")
+	this:SendMessage("BreakInvisEffect", "player_death")
 	this:SetCloak(false)
 end
 

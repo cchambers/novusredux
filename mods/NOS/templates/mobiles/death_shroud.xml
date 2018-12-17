@@ -1,0 +1,7 @@
+<ObjectTemplate>
+	<ClientId>918</ClientId>
+	<Hue>825</Hue>
+	<ScaleModifier>0.4</ScaleModifier>
+    <SharedStateEntry name="IsBoss" type="bool" value="false"/>
+    <SharedStateEntry name="Variation" type="string" value="Default"/>
+</ObjectTemplate>

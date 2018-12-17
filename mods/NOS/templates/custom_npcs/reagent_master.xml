@@ -26,6 +26,8 @@
 					},
 					Skills= {
 						Alchemy = 100,
+						Magery = 100,
+						MagicAffinity = 100
 					},
 					EquipTable= {
 						Legs= {
@@ -45,7 +47,7 @@
 							Amount = 1000,
 							RelativeLoc = "2.34046, 0.9458385, -0.0037",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_ginsengroot",
@@ -53,7 +55,7 @@
 							Amount = 1000,
 							RelativeLoc = "1.19232, 1.005064, -0.27454",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_mandrakeroot",
@@ -61,7 +63,7 @@
 							Amount = 1000,
 							RelativeLoc = "0.89024, 0.9737217, 0.01377",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{	
 							Template = "ingredient_garlic",
@@ -69,7 +71,7 @@
 							Amount = 1000,
 							RelativeLoc = "2.00714, 0.9539757, -0.42453",
 							Rotation = "0, 307.7894, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_blackpearl",
@@ -77,7 +79,7 @@
 							Amount = 1000,
 							RelativeLoc = "1.23977, 0.9907448, -0.65435",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_nightshade",
@@ -85,7 +87,7 @@
 							Amount = 1000,
 							RelativeLoc = "1.63328, 0.928422, -0.61148",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_spidersilk",
@@ -93,7 +95,7 @@
 							Amount = 1000,
 							RelativeLoc = "1.92226, 0.9890537, 0.41332",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "ingredient_sulfurousash",
@@ -101,7 +103,7 @@
 							Amount = 1000,
 							RelativeLoc = "1.20232, 0.924379, 0.53349",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "regbag_noob",
@@ -109,7 +111,7 @@
 							Amount = 1000,
 							RelativeLoc = "0.84790, 0, 0.7139",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						{
 							Template = "lantern_table",
@@ -117,7 +119,7 @@
 							Amount = 1,
 							RelativeLoc = "1.57547, 0.9797916, -0.00306",
 							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
+							UnlimitedStock = false,
 						},
 						
 					},

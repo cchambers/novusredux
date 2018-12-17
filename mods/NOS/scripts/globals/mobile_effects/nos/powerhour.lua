@@ -1,7 +1,5 @@
 MobileEffectLibrary.PowerHourBuff = {
 	OnEnterState = function(self, root, target, args)
-		DebugMessage("User has entered powerhour.")
-		self.ParentObj:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(24)))
 		AddBuffIcon(
             self.ParentObj,
             "PowerHourEffect",
@@ -15,6 +13,8 @@ MobileEffectLibrary.PowerHourBuff = {
 	OnExitState = function(self,root)
 		if ( self.ParentObj:IsPlayer() ) then
 			RemoveBuffIcon(self.ParentObj, "PowerHourEffect")
+			self.ParentObj:SystemMessage("Your Power Hour has ended.")
+			self.ParentObj:DelObjVar("PowerHourEnds")
 		end
 	end,
 
@@ -23,8 +23,14 @@ MobileEffectLibrary.PowerHourBuff = {
 	end,
 
 	AiPulse = function(self,root)
-		EndMobileEffect(root)
+		local ends = self.ParentObj:GetObjVar("PowerHourEnds") or 0
+		ends = ends - 1
+		if (ends < 0) then
+			EndMobileEffect(root)
+		else 
+			self.ParentObj:SetObjVar("PowerHourEnds", ends)
+		end
 	end,
 
-	Duration = TimeSpan.FromHours(1)
+	Duration = TimeSpan.FromMinutes(1)
 }

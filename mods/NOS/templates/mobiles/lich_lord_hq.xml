@@ -26,7 +26,7 @@
 		<DoubleVariable Name="Power">20</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_lich_lord">
+		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
@@ -34,17 +34,17 @@
 					{
 					Toughness = 2,
 					Might = 2,
+					MagicResistance = 2,
 					},
 				Skills = 
 					{ 
 					Brawling = 80,  
 					MagicAffinity=100, 
-					Magery=100, 
+					Evocation=100, 
 					},	
 				EquipTable = 
 					{
 						Backpack = { "backpack" },
-
 					},
 				LootTables =
 					{
@@ -57,9 +57,10 @@
 						TemplateDefines.LootTable.AncientScrolls,
 						TemplateDefines.LootTable.BonesEthereal,
 						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.RuinMob,
 						{
-							NumItems = 1,
 							NumCoins = math.random(500,650),
+							NumItems = 1,
 							{
 				    			{ Weight = 90, Template = "furniture_box", Unique = true },
 				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },
