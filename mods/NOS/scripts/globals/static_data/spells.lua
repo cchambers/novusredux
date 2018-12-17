@@ -553,6 +553,7 @@ SpellData = {
 			Skill = "MagerySkill",
 			RequireTarget = true,
 			TargetMobileEffect = "AttackBuff",
+			spellHitEffectTargetScript = "sp_power_effect",
 			Reagents = {
 				"Garlic",
 				"Ginseng",
@@ -666,6 +667,7 @@ SpellData = {
 			SpellEnabled = false,
 			SpellFireAnim = "BuffEffect_C",
 			TargetMobileEffect = "DefenseBuff",
+			spellHitEffectTargetScript = "sp_defense_effect",
 			Reagents = {
 				"Ginseng",
 				"Blackpearl",
@@ -1391,7 +1393,7 @@ SpellData = {
 			SpellPower = 25,
 			critChance = 12,
 			SpellRange = 12,
-			TargetType = "targetLocation",
+			TargetType = "targetMobile",
 			TargetRequired = true,
 			CanBeInterrupted = true,
 			SpellType = "MagicAttackTypeSpell",
@@ -1413,7 +1415,7 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
-			SpellReleaseUserScript  = "sp_pillar_of_fire_effect",
+			spellHitEffectUserScript  = "sp_pillar_of_fire_effect",
 			SpellPotencySkill = "MagerySkill",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,

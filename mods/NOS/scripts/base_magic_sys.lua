@@ -18,6 +18,7 @@ mConSize = 0
 mConsumed = {}
 mConSuccess = {}
 mFreeSpell = false
+mSpellName = nil;
 
 --Messages
 --ObjVars
@@ -109,6 +110,13 @@ function PrimeSpell(spellName, spellSource)
 	Verbose("Magic", "PrimeSpell", spellName, spellSource)
 	if(spellSource == nil) then spellSource = this end
 	if(spellName == nil) then return false end
+
+	-- if (this:GetEquippedObject("LeftHand") ~= nil) then
+	-- 	DoUnequip(player:GetEquippedObject("LeftHand"), spellSource)
+	-- end
+	-- if (this:GetEquippedObject("RightHand") ~= nil) then
+	-- 	DoUnequip(this:GetEquippedObject("RightHand"), spellSource)
+	-- end
 
 	CancelCurrentSpellEffects()
 
@@ -224,10 +232,6 @@ function PrimeSpell(spellName, spellSource)
 			mCastingDisplayName = tostring(spellDisplayName)
 			this:SetObjVar("LastSpell",spellDisplayName)
 
-			if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
-				RequestSpellTarget(spellName)
-			end
-
 			ProgressBar.Show(
 			{
 				TargetUser = spellSource,
@@ -237,12 +241,12 @@ function PrimeSpell(spellName, spellSource)
 			})
 		end
 
-		if not(CanMoveWhileCasting(spellName)) then
-			mSwingReady.RightHand = false
-			mSwingReady.LeftHand = false
-			SetMobileMod(this, "Disable", "CastFreeze", true)
-			this:ScheduleTimerDelay(TimeSpan.FromSeconds(myCastTime), "CastFreezeTimer")
-		end
+		-- if not(CanMoveWhileCasting(spellName)) then
+		-- 	mSwingReady.RightHand = false
+		-- 	mSwingReady.LeftHand = false
+		-- 	SetMobileMod(this, "Disable", "CastFreeze", true)
+		-- 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(myCastTime), "CastFreezeTimer")
+		-- end
 		return true
 	else
 		--AdjustCurMana(this,-manaCost)
@@ -251,10 +255,10 @@ function PrimeSpell(spellName, spellSource)
 	end
 end
 
-RegisterEventHandler(EventType.Timer, "CastFreezeTimer", function()
-	DelaySwingTimer(ServerSettings.Combat.CastSwingDelay, "All")
-	SetMobileMod(this, "Disable", "CastFreeze", nil)
-end)
+-- RegisterEventHandler(EventType.Timer, "CastFreezeTimer", function()
+-- 	DelaySwingTimer(ServerSettings.Combat.CastSwingDelay, "All")
+-- 	SetMobileMod(this, "Disable", "CastFreeze", nil)
+-- end)
 
 function IsInstantHitSpell(spellName)
 	local mySpInfo = GetSpellInformation(spellName, "InstantHitSpell")
@@ -622,7 +626,7 @@ function GetSpellHealAmount(spellName, spellSource)
     if(spellSource == nil) then spellSource = this end
 	
 	local healAmount = 0
-	local magicSkill = GetSkillLevel(spellSource,"MagerySkill")
+	local magicSkill = GetSkillLevel(spellSource,"ManifestationSkill")
 	if(spellName == "Heal") then
 		healAmount = (magicSkill / 7.5) + (math.floor(math.random(1, 3) + 0.5))
 	elseif(spellName == "Greaterheal") then
@@ -751,6 +755,32 @@ end
 
 --Casting Activity
 
+function DoUnequip(equipObject,equippedOn,user)
+	if( equippedOn == nil ) then
+		LuaDebugCallStack("nil equippedOn provided.")
+	end
+	if( user == nil ) then user = equippedOn end
+
+	-- check valid object
+	if( equipObject ~= nil and equipObject:IsValid() ) then
+		local equipSlot = GetEquipSlot(equipObject)
+		-- check it is equipped in that slot
+		if(equipSlot ~= nil and equippedOn:GetEquippedObject(equipSlot) == equipObject) then
+			local backpackObj = equippedOn:GetEquippedObject("Backpack")
+			-- make sure we have a backpack
+			if( backpackObj ~= nil) then				
+   				local randomLoc = GetRandomDropPosition(backpackObj)
+   				-- try to put the object in the container
+   				if(TryPutObjectInContainer(equipObject, backpackObj, randomLoc)) then
+   					equipObject:SendMessage("WasUnequipped", equippedOn)
+				end
+			end
+		end
+	end
+end
+
+
+
 
 function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	Verbose("Magic", "HandleSpellCastCommand", spellName, spellTargetObj, spellSourceObj)
@@ -775,6 +805,7 @@ function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	end
 
 	mScrollObj = nil
+
 	CastSpell(spellName, spellSource, spellTarget)
 end
 
@@ -854,7 +885,20 @@ function CastSpell(spellName, spellSource, spellTarget)
 
 	mCurSpell = spellName
 	if(spellTarget ~= nil) then mQueuedTarget = spellTarget end
-	PrimeSpell(spellName, spellSource)
+	local myTarget = GetSpellInformation(spellName, "TargetType");
+	if ((myTarget == "Self") or (myTarget == "LeftHand") or (myTarget == "RightHand")) then
+		PrimeSpell(spellName, spellSource)
+		return;
+	end
+
+	mSpellName = spellName;
+	mSpellSource = spellSource;
+	
+	local myTargType = GetSpellTargetType(spellName)
+
+	if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
+		RequestSpellTarget(spellName)
+	end
 end
 
 function RequestSpellTarget(spellName)
@@ -895,6 +939,23 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	if ( free == true ) then
 		mFreeSpell = true
 	end
+	
+	local _spellTarget;
+    if (mQueuedTarget ~= nil) then
+        _spellTarget = mQueuedTarget;
+    elseif(mAutoTarg ~= nil) then
+        _spellTarget = mAutoTarg;
+    elseif(mAutoTargLoc ~= nil) then
+        _spellTarget = mAutoTargLoc;
+    end
+
+    if (mQueuedTargetLoc == nil) then
+        if (not ValidateSpellCastTarget(spellName,_spellTarget,this)) then        
+            CancelSpellCast();
+            DoFizzle(this);
+        end
+    end
+	
 	this:PlayAnimation("idle")	
 	this:DelObjVar("LastSpell")
 	if (spellName == nil) then spellName = mCurSpell end
@@ -953,7 +1014,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 					HandleSpellTargeted(mQueuedTarget)
 					mQueuedTarget = nil
 				else
-					this:RequestClientTargetGameObj(this, "SelectSpellTarget")
+					-- this:RequestClientTargetGameObj(this, "SelectSpellTarget")
 				end
 			end
 		end
@@ -1036,6 +1097,16 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 			end	
 		end
 	end
+end
+
+-- FIZZLE
+
+function DoFizzle(mobileObj)
+    mobileObj:NpcSpeech("*fizzle*", "combat")
+    mobileObj:PlayObjectSound("event:/animals/worm/worm_pain",false)
+    if ( mobileObj:IsPlayer() ) then
+        mobileObj:SystemMessage("Cast failed.", "info")
+    end
 end
 
 function HandleSpellTargeted(spellTarget)
@@ -1187,6 +1258,7 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "QueueSpellTarget",
 		if(target == nil) then return end
 		if(target:IsValid()) then
 			mQueuedTarget = target
+			PrimeSpell(mSpellName, mSpellSource);
 		end
 
 		end)
@@ -1194,6 +1266,7 @@ RegisterEventHandler(EventType.ClientTargetLocResponse, "QueueSpellLoc",
 	function(success,targetLoc)
 			if(success) then
 				mQueuedTargetLoc = targetLoc
+				PrimeSpell(mSpellName, mSpellSource);
 			else
 				mQueuedTargetLoc = nil
 			end

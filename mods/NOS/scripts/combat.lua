@@ -1463,17 +1463,18 @@ RegisterEventHandler(
 )
 
 -- Global functions inside helpers.
-RegisterEventHandler(
-	EventType.ClientUserCommand,
-	"wa",
-	function(primarySecondary)
-		PlayerUseWeaponAbility(this, primarySecondary)
-	end
-)
-RegisterEventHandler(
-	EventType.ClientUserCommand,
-	"pa",
-	function(prestigeClass, prestigeAbility)
-		PerformPrestigeAbility(this, mCurrentTarget, prestigeClass, prestigeAbility)
-	end
-)
+
+RegisterEventHandler(EventType.ClientUserCommand, "wa", function(primarySecondary)
+    if (this:HasTimer("SpellPrimeTimer")) then
+        this:SystemMessage("You cannot use an ability while casting a spell");
+        return
+    end
+    PlayerUseWeaponAbility(this, primarySecondary)
+end)
+RegisterEventHandler(EventType.ClientUserCommand, "pa", function(prestigeClass,prestigeAbility)
+    if (this:HasTimer("SpellPrimeTimer")) then
+        this:SystemMessage("You cannot use an ability while casting a spell");
+        return
+    end
+    PerformPrestigeAbility(this, mCurrentTarget, prestigeClass, prestigeAbility)
+end)
