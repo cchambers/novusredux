@@ -52,11 +52,10 @@ RegisterEventHandler(
 
 UserListPage = 1
 
-function ShowUserList(selectedUser)
+function ShowUserList(selectedUser, keyword)
 	if (selectedUser == nil) then selectedUser = this end
 	local newWindow = DynamicWindow("UserList","Player List",450,530) 
 	local allPlayers = FindPlayersInRegion()
-	-- local allPlayers = GlobalVarRead("User.Online")
 	
 	if(#allPlayers == 0) then
 		table.insert(allPlayers,{Name="Center",Loc=Loc(0,0,0)})
@@ -71,8 +70,8 @@ function ShowUserList(selectedUser)
 			if((i-1) % 2 == 1) then
 				scrollElement:AddImage(0,0,"Blank",360,25,"Sliced","1A1C2B")
 			end
-			local region = player:GetLoc()
-			scrollElement:AddLabel(5, 3, name .. " test " .. region ,0,0,18)
+			
+			scrollElement:AddLabel(5, 3, name,0,0,18)
 
 			local selState = ""
 			if(player.Id == selectedUser.Id) then

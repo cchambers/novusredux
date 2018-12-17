@@ -22,6 +22,7 @@ ServerSettings.PlayerInteractions = {
 	-- same as ProtectionZones, but entire maps
 	ProtectionMaps = {
 		"Founders",
+		"Corruption",
 	},
 
 	-- areas a nearby physical guard should protect you from anyone despite your karma
