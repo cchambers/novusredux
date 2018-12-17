@@ -626,7 +626,7 @@ function GetSpellHealAmount(spellName, spellSource)
     if(spellSource == nil) then spellSource = this end
 	
 	local healAmount = 0
-	local magicSkill = GetSkillLevel(spellSource,"ManifestationSkill")
+	local magicSkill = GetSkillLevel(spellSource,"MagerySkill")
 	if(spellName == "Heal") then
 		healAmount = (magicSkill / 7.5) + (math.floor(math.random(1, 3) + 0.5))
 	elseif(spellName == "Greaterheal") then
