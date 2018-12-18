@@ -13,7 +13,7 @@ MobileEffectLibrary.PowerHourBuff = {
 	OnExitState = function(self,root)
 		if ( self.ParentObj:IsPlayer() ) then
 			RemoveBuffIcon(self.ParentObj, "PowerHourEffect")
-			self.ParentObj:SystemMessage("Your Power Hour has ended.")
+			self.ParentObj:SystemMessage("Your Power Hour has ended.", "info")
 			self.ParentObj:DelObjVar("PowerHourEnds")
 		end
 	end,

@@ -62,7 +62,9 @@ RegisterEventHandler(
 
 		if (target:HasObjVar("ArmorType")) then
 			local armorType = target:GetObjVar("ArmorType")
-			if (armorType ~= "Cloth") then dyeable = false end
+			if (armorType ~= "Cloth"
+			and armorType ~= "MageRobe"
+			and armorType ~= "Linen") then dyeable = false end
 		end
 		
 		if (target:HasObjVar("LockedDown") or target:HasObjVar("NoReset")) then 
