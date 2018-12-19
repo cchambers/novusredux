@@ -58,6 +58,8 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	Verbose("Magic", "ValidateSpellCastTarget", spellName,spellTarget,spellSource)
 	local targetType = GetSpellInformation(spellName,"TargetType")
 
+	if (not(spellTarget)) then spellTarget = this end
+
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
 		return false
@@ -98,12 +100,6 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	end
 
 	return true
-end
-
-function UpdateSpellTarget(newTarget)
-	if (this:GetObjVar("AutotargetEnabled") and this:IsPlayer()) then
-		mAutoTarg = newTarget
-	end
 end
 
 function PrimeSpell(spellName, spellSource)
@@ -172,12 +168,7 @@ function PrimeSpell(spellName, spellSource)
 	end
 	
 	local myTargType = GetSpellTargetType(spellName)
-	if ( myTargType == "RequestTarget" and ShouldAutoTarget(spellName) ) then
-		if(not ValidateSpellCastTarget(spellName,mAutoTarg,spellSource)) then
-			return false
-		end
-		--FaceObject(this,mAutoTarg)
-	end
+
 
 	local myCastTime = GetSpellCastTime(spellName, spellSource)
 	if (myCastTime == nil) then 
@@ -411,10 +402,6 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		spellSource }
 	--DebugMessage(" Vect5: " .. tostring(myArgs[1]) .. " " .. tostring(myArgs[2]) .. " " .. tostring(myArgs[3]) .. " " .. tostring(myArgs[4]))
 
-	if(this:HasObjVar("AutotargetEnabled")) then
-		SetCurrentTarget(spTarget)
-	end
-
 	local myKey = tostring(spellName) .. tostring(myTime)
 	myDict[myKey] = myArgs
 	mySpellsFlyingDict = myDict
@@ -647,7 +634,7 @@ function IsInSpellRange(spellName, spellTarget, spellSource)
 
 	local topmostObj = spellTarget:TopmostContainer() or spellTarget
 	local theirLoc = topmostObj:GetLoc()
-	
+
 	local bodyOffset = GetBodySize(this) or ServerSettings.Combat.DefaultBodySize
 	local theirOffset = GetBodySize(spellTarget) or ServerSettings.Combat.DefaultBodySize
 
@@ -798,11 +785,8 @@ function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	if(spellTargetObj ~= nil) then
 		spellTarget = GameObj(tonumber(spellTargetObj))
 	end
-	if(this:HasObjVar("AutotargetEnabled")) then
-		mAutoTarg = mCurrentTarget		
-	else
-		mAutoTarg = nil
-	end
+
+	mAutoTarg = nil
 
 	mScrollObj = nil
 
@@ -906,7 +890,7 @@ function RequestSpellTarget(spellName)
 	if(mAutoTarg == nil) and this:IsPlayer() then
 		local myTargType = GetSpellTargetType(spellName)
 		local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName or spellName
-	--DefensivebugMessage("Target Type Set to " .. tostring(myTargType))
+		DebugMessage("Target Type Set to " .. tostring(myTargType))
 		if (myTargType == "RequestTarget") and (mQueuedTarget == nil) then
 				this:RequestClientTargetGameObj(this, "QueueSpellTarget")
 			return
@@ -918,18 +902,6 @@ function RequestSpellTarget(spellName)
 	else
 		return
 	end
-end
-
-function ShouldAutoTarget(spellName)
-	Verbose("Magic", "ShouldAutoTarget", spellName)
-	if not( this:IsPlayer() ) then return false end
-	if ( SpellData.AllSpells[spellName] == nil or mAutoTarg == nil or not mAutoTarg:IsValid() ) then return false end
-
-	return ( 
-		( SpellData.AllSpells[spellName].BeneficialSpellType ~= true )
-		or
-		( SpellData.AllSpells[spellName].BeneficialSpellType == true and AllowFriendlyActions(this,mAutoTarg) )
-	)
 end
 
 function HandleSuccessfulSpellPrime(spellName, spellSource, free)
@@ -1007,36 +979,22 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 			HandleSpellTargeted(mAutoTarg)
 			mAutoTarg = nil
 		else
-			if( ShouldAutoTarget(spellName) ) then
-				HandleSpellTargeted(mAutoTarg) 
+			if(mQueuedTarget ~= nil) then 
+				HandleSpellTargeted(mQueuedTarget)
+				mQueuedTarget = nil
 			else
-				if(mQueuedTarget ~= nil) then 
-					HandleSpellTargeted(mQueuedTarget)
-					mQueuedTarget = nil
-				else
-					-- this:RequestClientTargetGameObj(this, "SelectSpellTarget")
-				end
+				-- this:RequestClientTargetGameObj(this, "SelectSpellTarget")
 			end
 		end
 	elseif(myTargType == "RequestLocation") then
-		if ( ShouldAutoTarget(spellName) ) then
-			mPrimedSpell = spellName
-			if ( mAutoTargLoc == nil ) then
-				mAutoTargLoc = mAutoTarg:GetLoc()
-			end
-			HandleSpellLocTargeted(true, mAutoTargLoc)	
-			mAutoTargLoc = nil
-			--DebugMessage("Handling a requested targetloc")
+		mPrimedSpell = spellName
+		if(mQueuedTargetLoc ~= nil) then
+			HandleSpellLocTargeted(true, mQueuedTargetLoc)
+			mQueuedTargetLoc = nil
 		else
-			mPrimedSpell = spellName
-			if(mQueuedTargetLoc ~= nil) then
-				HandleSpellLocTargeted(true, mQueuedTargetLoc)
-				mQueuedTargetLoc = nil
-			else
-				local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName
-				this:SystemMessage("Select Location for " .. spellDisplayName)
-				this:RequestClientTargetLoc(this, "SelectSpellLoc")
-			end
+			local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName
+			this:SystemMessage("Select Location for " .. spellDisplayName)
+			this:RequestClientTargetLoc(this, "SelectSpellLoc")
 		end
 	else
 		mPrimedSpell = nil

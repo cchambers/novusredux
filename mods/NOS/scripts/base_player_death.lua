@@ -295,8 +295,6 @@ function TurnPlayerIntoGhost(shouldHueEquipment)
 	-- make them look like a ghost
 	local hueTable = {}
 	hueTable.SelfHue = this:GetColor()
-	this:SetColor(GHOST_HUE)
-
 	if (this:GetEquippedObject("BodyPartHair") ~= nil) then
 		--DebugMessage("Yessir")
 		hueTable.HairHue = this:GetEquippedObject("BodyPartHair"):GetColor()
@@ -339,7 +337,10 @@ function TurnPlayerIntoGhost(shouldHueEquipment)
 
 	this:SetObjVar("OldHues",hueTable)
 	this:SetObjVar("IsGhost",true)
-	this:SetCloak(true)
+	CallFunctionDelayed(TimeSpan.FromMilliseconds(400), function()
+		this:SetCloak(true)
+		this:SetColor(GHOST_HUE)
+	end)
 	-- this:SetAppearanceFromTemplate("death_shroud")
 	-- this:SetScale(0.4*this:GetScale())
 end

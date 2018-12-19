@@ -762,19 +762,6 @@ function SetCurrentTarget(newTarget, fromClient)
 		if (not fromClient and this:IsPlayer()) then
 			this:SendClientMessage("ChangeTarget", mCurrentTarget)
 		end
-
-		UpdateSpellTarget(newTarget)
-
-		if (this:GetObjVar("AutotargetEnabled")) then
-			if (mCurrentTarget == nil) then
-				this:CloseDynamicWindow("TargetWindow")
-			else
-				ShowStatusElement(
-					mCurrentTarget,
-					{User = this, DialogId = "TargetWindow", ScreenX = 200, ScreenY = 20, FrameImage = "UtilityBar_SmallRedFrame"}
-				)
-			end
-		end
 	end
 
 	if (mInCombatState) then

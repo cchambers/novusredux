@@ -89,10 +89,10 @@ AllAchievements = {
 		},
 
 		MagerySkill = {
-			{"Evoker"				,30		,"Given to those who can cast damaging spells."							,{Title = "Apprentice Evoker"			}},
-			{"Journeyman Evoker"	,50		,"Given to those who are good at casting damaging spells."				,{Title = "Journeyman Evoker"	}},
-			{"Master Evoker"		,80		,"Given to those who have mastered the art of damaging spells."			,{Title = "Master Evoker"		}},
-			{"Grandmaster Evoker"	,100	,"Given to those who know everything there is about damaging spells."	,{Title = "Grandmaster Evoker"}},
+			{"Mage"				,30		,"Given to those who can cast damaging spells."							,{Title = "Apprentice Mage"			}},
+			{"Journeyman Mage"	,50		,"Given to those who are good at casting damaging spells."				,{Title = "Journeyman Mage"	}},
+			{"Master Mage"		,80		,"Given to those who have mastered the art of damaging spells."			,{Title = "Master Mage"		}},
+			{"Grandmaster Mage"	,100	,"Given to those who know everything there is about damaging spells."	,{Title = "Grandmaster Mage"}},
 		},
 
 		FabricationSkill = {
@@ -163,20 +163,6 @@ AllAchievements = {
 			{"Journeyman Medium"		,50		,"Given to those who are good at absorbing magic in the world."						,{Title = "Journeyman Medium"	}},
 			{"Master Medium"			,80		,"Given to those who have mastered the ability to absorb the magic in the world."	,{Title = "Master Medium"		}},
 			{"Grandmaster Medium"		,100	,"Given to those who have become one with the magic of the world."				,{Title = "Grandmaster Medium"	}},
-		},
-
-		MagerySkill = {
-			{"Mage"					,30		,"Given to those who have learned the art of magic."		,{Title = "Apprentice Mage"			}},
-			{"Journeyman Mage"		,50		,"Given to those who are good at the art of magic."			,{Title = "Journeyman Mage"	}},
-			{"Master Mage"			,80		,"Given to those who have mastered the art of magic."		,{Title = "Master Mage"		}},
-			{"Grandmaster Mage"		,100	,"Given to those who are among the most profound mages."	,{Title = "Grandmaster Mage"}},
-		},
-		
-		MagerySkill = {
-			{"Mage"					,30		,"Given to those who have learned the art of magic."		,{Title = "Apprentice Mage"			}},
-			{"Journeyman Mage"		,50		,"Given to those who are good at the art of magic."			,{Title = "Journeyman Mage"	}},
-			{"Master Mage"			,80		,"Given to those who have mastered the art of magic."		,{Title = "Master Mage"		}},
-			{"Grandmaster Mage"		,100	,"Given to those who are among the most profound mages."	,{Title = "Grandmaster Mage"}},
 		},
 
 		--[[MarksmanshipSkill = {
