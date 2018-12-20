@@ -179,7 +179,6 @@ function ShowUserList(selectedUser)
 			if ((i - 1) % 2 == 1) then
 				scrollElement:AddImage(0, 0, "Blank", 360, 25, "Sliced", "1A1C2B")
 			end
-			local region = player:GetLoc()
 			scrollElement:AddLabel(5, 3, name, 0, 0, 18)
 
 			local selState = ""
