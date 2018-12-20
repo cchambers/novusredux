@@ -839,7 +839,7 @@ function InitiateCombatSequence()
 	if (mCurrentTarget ~= nil) then -- dead already
 		local table = mCurrentTarget:GetObjVar("PreviousOwners")
 		if (table) then 
-			local mine = "GameObj #" .. table[1] 
+			local mine = "GameObj #" .. table[#table] 
 			local me = this:ToString()
 			local compare = (mine == me)
 			if (compare) then 
