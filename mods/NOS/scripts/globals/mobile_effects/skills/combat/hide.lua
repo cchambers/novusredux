@@ -12,7 +12,6 @@ MobileEffectLibrary.Hide =
             local head = self.ParentObj:GetEquippedObject("Head");
     
 			if (chest ~= nil) then
-				DebugMessage("CHEST" .. GetArmorSoundType(GetArmorType(chest)))
                 if (GetArmorSoundType(GetArmorType(chest)) == "Plate") then 
                     self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
                     return EndMobileEffect(root)
@@ -20,7 +19,6 @@ MobileEffectLibrary.Hide =
             end
     
 			if (legs ~= nil) then
-				DebugMessage("LEGS" .. GetArmorSoundType(GetArmorType(legs)))
                 if (GetArmorSoundType(GetArmorType(legs)) == "Plate") then 
                     self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
                     return EndMobileEffect(root)
@@ -28,7 +26,6 @@ MobileEffectLibrary.Hide =
             end
     
 			if (head ~= nil) then
-				DebugMessage("HEAD" .. GetArmorSoundType(GetArmorType(head)))
                 if (GetArmorSoundType(GetArmorType(head)) == "Plate") then 
                     self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
                     return EndMobileEffect(root)
