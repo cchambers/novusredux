@@ -7,26 +7,34 @@ MobileEffectLibrary.Hide =
 		self.IsPlayer = self.ParentObj:IsPlayer()
 
 		if(self.IsPlayer) then
-			for i,slot in pairs(ARMORSLOTS) do
-				local item = self.ParentObj:GetEquippedObject(slot)
-				if ( item ) then
-					armorType = GetArmorType(item)
-					soundType = GetArmorSoundType(item)
-					--armorClass = GetArmorClassFromType(armorType)
-					--DebugMessage(armorType)
-					--DebugMessage(armorClass)
-					--DebugMessage(soundType)
-
-					if (soundType == "Plate") then 
-						self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
-						return EndMobileEffect(root) 
-					end
-				end
-			end
+			local chest = self.ParentObj:GetEquippedObject("Chest");
+            local legs = self.ParentObj:GetEquippedObject("Legs");
+            local head = self.ParentObj:GetEquippedObject("Head");
+    
+			if (chest ~= nil) then
+				DebugMessage("CHEST" .. GetArmorSoundType(GetArmorType(chest)))
+                if (GetArmorSoundType(GetArmorType(chest)) == "Plate") then 
+                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
+                    return EndMobileEffect(root)
+                end
+            end
+    
+			if (legs ~= nil) then
+				DebugMessage("LEGS" .. GetArmorSoundType(GetArmorType(legs)))
+                if (GetArmorSoundType(GetArmorType(legs)) == "Plate") then 
+                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
+                    return EndMobileEffect(root)
+                end
+            end
+    
+			if (head ~= nil) then
+				DebugMessage("HEAD" .. GetArmorSoundType(GetArmorType(head)))
+                if (GetArmorSoundType(GetArmorType(head)) == "Plate") then 
+                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
+                    return EndMobileEffect(root)
+                end
+            end
 		end
-
-		local armorClass = GetArmorClassFromType(hitArmorType)
-		if ( armorClass == "Heavy") then return EndMobileEffect(root) end
 
 		if ( args.Force ~= true ) then
 			if ( IsMobileDisabled(self.ParentObj) ) then
