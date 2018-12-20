@@ -1276,7 +1276,7 @@ RegisterCommand{ Command="setstat", Category = "Dev Power", AccessLevel = Access
 RegisterCommand{ Command="setskill", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetSkill, Usage="<skill_name> <value> [<target_id>]", "[$2494]" }
 RegisterCommand{ Command="setallskills", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetAllSkills, Usage="<value> [<target_id>]", "Set all skills to a level." }
 
-RegisterCommand{ Command="setspeed", AccessLevel = AccessLevel.DemiGod, Func=function(speed) SetMobileMod(this, "MoveSpeedPlus", "GodCommand", tonumber(speed))  end, Desc="Add the number given to your movement speed. If no speed is provided, it will remove the modifer." }
+RegisterCommand{ Command="setspeed", AccessLevel = AccessLevel.DemiGod, Func=function(speed) if (speed > 4) then speed = 4 end; SetMobileMod(this, "MoveSpeedPlus", "GodCommand", tonumber(speed))  end, Desc="Add the number given to your movement speed (0.1-4). If no speed is provided, it will remove the modifer." }
 
 RegisterCommand{ Command="opencontainer", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.OpenContainer, Usage="<name|id> [<equipslot>]", Desc="[$2495]", Aliases={"opencont"}}	
 RegisterCommand{ Command="containerinfo", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ContainerInfo, Usage="<id> [detailed]", Desc="[$2496]"}	
