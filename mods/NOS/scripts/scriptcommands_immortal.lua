@@ -332,6 +332,16 @@ RegisterCommand {
 RegisterCommand {Command = "reveal", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func = function()
 		DoReveal(this)
 	end, Desc = "Reveal yourself in a cool cool way."}
+	
+RegisterCommand {Command = "exit", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func = function()
+	this:PlayEffect("BodyExplosion")
+	CallFunctionDelayed(
+		TimeSpan.FromSeconds(0.1),
+		ImmortalCommandFuncs.Cloak
+	)
+end, Desc = "Exit in a cool cool way."}
+
+
 RegisterCommand {
 	Command = "jump",
 	Category = "God Power",
