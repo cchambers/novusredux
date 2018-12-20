@@ -490,17 +490,17 @@ EquipmentStats = {
 			Head = {
 				AgiBonus = -3,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.01
+				ManaRegenModifier = 0.001
 			},
 			Chest = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.01
+				ManaRegenModifier = 0.001
 			},
 			Legs = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.01
+				ManaRegenModifier = 0.001
 			}
 		}
 	},

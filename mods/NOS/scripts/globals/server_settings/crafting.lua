@@ -28,7 +28,7 @@ ServerSettings.Crafting = {
             }
         },
         Accuracy = {
-            Max = 15, -- max a material bonus can give to + accuracy
+            Max = 30, -- max a material bonus can give to + accuracy
             Weight = { -- different materials are weighted to give better results
                 Iron = 0,
                 Copper = 10,
@@ -43,7 +43,7 @@ ServerSettings.Crafting = {
         },
         -- these are NOT in percents
         Armor = {
-            Max = 3, -- max amount of extra armor rating a material can give (This max is HALFED in final calculation)
+            Max = 20, -- max amount of extra armor rating a material can give (This max is HALFED in final calculation)
             Weight = { -- different materials are weighted to give better results
                 Iron = 1,
                 Copper = 2,
