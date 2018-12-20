@@ -935,7 +935,7 @@ WoodsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Wood",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
 				Ash = 5,
@@ -951,7 +951,7 @@ WoodsmithSkill = {
 			ItemType = "ResourceClass",
 			Category = "Resources",
 			Subcategory = "Wood",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
 				Blightwood = 5,
@@ -1042,13 +1042,13 @@ WoodsmithSkill = {
 			},
 		},
 
-		AshArrow = {
+		AshArrows = {
 			MinLevelToCraft = 25,
 			MaxLevelToGain = 50,
 			DisplayName = "Ash Arrow",
 			CraftingTemplateFile = "arrow_ash",
 			Description = "",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanImprove = false,
 			Category = "Weapons",
 			Subcategory = "Bows",
@@ -1059,13 +1059,13 @@ WoodsmithSkill = {
 			},
 		},
 
-		BlightwoodArrow = {
+		BlightwoodArrows = {
 			MinLevelToCraft = 50,
 			MaxLevelToGain = 75,
 			DisplayName = "Blightwood Arrow",
 			CraftingTemplateFile = "arrow_blightwood",
 			Description = "",
-			NeedRecipe = false,
+			NeedRecipe = true,
 			CanImprove = false,
 			Category = "Weapons",
 			Subcategory = "Bows",
