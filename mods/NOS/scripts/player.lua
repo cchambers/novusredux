@@ -52,7 +52,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 			choice = 2
 		end
 		
-		this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)				
+		-- this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)		
 	end
 
 	return newHealth
