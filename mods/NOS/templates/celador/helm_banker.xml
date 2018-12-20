@@ -8,7 +8,7 @@
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
 		<BoolVariable Name="AI-EnableBank">True</BoolVariable>
-		<BoolVariable Name="AI-EnableTax">True</BoolVariable>
+		<!-- BoolVariable Name="AI-EnableTax">True</BoolVariable -->
 		<BoolVariable Name="AI-EnableBuy">False</BoolVariable>
 		<BoolVariable Name="AI-MerchantEnabled">False</BoolVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>

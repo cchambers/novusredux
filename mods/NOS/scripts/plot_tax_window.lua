@@ -1,3 +1,5 @@
+require 'currency'
+
 
 local controller
 local _FieldAmounts = {}
@@ -19,14 +21,29 @@ function CleanUp()
     this:CloseDynamicWindow("PlotTaxWindow")
 end
 
-function GetTaxRate(cb)
-    if not( cb ) then cb = function(rate) end end
+function GetPlotInfo(cb)
+    if not( cb ) then cb = function(info) end end
     local address = GlobalVarReadKey("Plot."..controller.Id, "Region")
     if ( address == ServerSettings.RegionAddress ) then
-        cb(Plot.CalculateRateController(controller))
+        cb(Plot.GetInfo(controller))
     else
-        RegisterSingleEventHandler(EventType.Message, "PlotRateResponse", cb)
-        MessageRemoteClusterController(address, "PlotRateRequest", this, controller)
+        RegisterSingleEventHandler(EventType.Message, "PlotInfoResponse", cb)
+        if not(MessageRemoteClusterController(address, "PlotInfoRequest", this, controller)) then
+            DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
+        end
+    end
+end
+
+function MakeTaxPayment(amount, cb)
+    if not( cb ) then cb = function(success) end end
+    local address = GlobalVarReadKey("Plot."..controller.Id, "Region")
+    if ( address == ServerSettings.RegionAddress ) then
+        cb(Plot.TaxPayment(controller, this, amount))
+    else
+        RegisterSingleEventHandler(EventType.Message, "TaxPaymentResponse", cb)
+        if not(MessageRemoteClusterController(address, "TaxPaymentRequest", this, controller, amount)) then
+            DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
+        end
     end
 end
 
@@ -54,7 +71,6 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
 
         if ( returnId == "Pay" ) then
             local amount = 0
-
             local denomInfo = Denominations[1]
             local denomAmount = tonumber(fieldData[denomInfo.Name])
             if ( denomAmount ) then
@@ -68,9 +84,9 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
                 return
             end
 
-            GetTaxRate(function(rate)
-                local max = math.floor(rate * ServerSettings.Plot.Tax.MaxBalanceRateModifier)
-                local balance = GlobalVarReadKey("Plot."..controller.Id, "Balance") or 0
+            GetPlotInfo(function(info)
+                local max = math.floor((info.Rate or ServerSettings.Plot.Tax.MinimumPayment) * ServerSettings.Plot.Tax.MaxBalanceRateModifier)
+                local balance = info.Balance or 0
                 
                 if ( balance >= max ) then
                     this:SystemMessage("This plot's tax balance is full.", "info")
@@ -102,7 +118,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
                             end
             
                             -- add the tax
-                            Plot.AddTax(controller, amount, this, function(success)
+                            MakeTaxPayment(amount, function(success)
                                 if ( success ) then
                                     this:SystemMessage(ValueToAmountStr(amount).." added to property tax.", "info")
                                     if ( this:HasModule("plot_control_window") ) then
@@ -115,7 +131,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
                                     -- TODO Re-create their coins here..
                                     DebugMessage("!!COINS LOST!! amount:"..amount.." for playerObj.Id:"..this.Id.." UID:"..uid)
                                 end
-                                this:CloseDynamicWindow("PlotTaxWindow")
+                                CleanUp()
                             end)
 
                         end
