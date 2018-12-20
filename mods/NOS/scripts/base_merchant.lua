@@ -556,9 +556,9 @@ RegisterEventHandler(EventType.ModuleAttached,GetCurrentModule(),function ( ... 
 	if (AI.GetSetting("EnableBank")) then
 		AddUseCase(this,"Bank",false)
 	end
-	if (AI.GetSetting("EnableTax")) then
-		AddUseCase(this,"Tax",false)
-	end
+	-- if (AI.GetSetting("EnableTax")) then
+	-- 	AddUseCase(this,"Tax",false)
+	-- end
 	if (this:GetObjVar("CraftOrderSkill") ~= nil) then
 		CraftingOrderTable = CraftingOrderDefines[this:GetObjVar("CraftOrderSkill")]
 		this:ScheduleTimerDelay(TimeSpan.FromMinutes(60), "ChangeOrder")

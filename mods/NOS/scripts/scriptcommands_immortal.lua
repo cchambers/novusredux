@@ -1,4 +1,5 @@
 require "scriptcommands_UI_goto"
+allRegionPlayers = {}
 
 RegisterEventHandler(
 	EventType.ClientTargetLocResponse,
@@ -52,44 +53,151 @@ RegisterEventHandler(
 
 UserListPage = 1
 
-function ShowUserList(selectedUser)
-	if (selectedUser == nil) then selectedUser = this end
-	local newWindow = DynamicWindow("UserList","Player List",450,530) 
-	local allPlayers = FindPlayersInRegion()
+function pingForUsers()
+	allRegionPlayers = {}
+	this:SystemMessage("Pinging users...", "info")
+	this:SendMessageGlobal("User_Ping", this)
+	CallFunctionDelayed(
+		TimeSpan.FromSeconds(1.5),
+		function(...)
+			ShowAllUserList(this)
+		end
+	)
+end
+
+RegisterEventHandler(
+	EventType.Message,
+	"User_Pong",
+	function(player)
+		table.insert(allRegionPlayers, player)
+	end
+)
+
+function ShowAllUserList(selectedUser)
+	if (selectedUser == nil) then
+		selectedUser = this
+	end
+	local newWindow = DynamicWindow("GlobalUserList", "Global Player List", 450, 530)
 	-- local allPlayers = GlobalVarRead("User.Online")
-	
-	if(#allPlayers == 0) then
-		table.insert(allPlayers,{Name="Center",Loc=Loc(0,0,0)})
+
+	if (#allRegionPlayers == 0) then
+		table.insert(allRegionPlayers, {Name = "Center", Loc = Loc(0, 0, 0)})
 	end
 
-	local scrollWindow = ScrollWindow(20,40,380,375,25)
-	for i,player in pairs(allPlayers) do
-		local name = player:GetName()
-		if ( not keyword or string.lower(name):match(keyword) ) then
-			local scrollElement = ScrollElement()	
+	local scrollWindow = ScrollWindow(20, 40, 380, 375, 25)
+	for i, player in pairs(allRegionPlayers) do
+		local name = player.Name
+		if (not keyword or string.lower(name):match(keyword)) then
+			local scrollElement = ScrollElement()
 
-			if((i-1) % 2 == 1) then
-				scrollElement:AddImage(0,0,"Blank",360,25,"Sliced","1A1C2B")
+			if ((i - 1) % 2 == 1) then
+				scrollElement:AddImage(0, 0, "Blank", 360, 25, "Sliced", "1A1C2B")
 			end
-			local region = player:GetLoc()
-			scrollElement:AddLabel(5, 3, name .. " test " .. region ,0,0,18)
+
+			local location = player.Loc
+
+			scrollElement:AddLabel(5, 3, name, 0, 0, 18)
 
 			local selState = ""
-			if(player.Id == selectedUser.Id) then
+			if (player.Id == selectedUser.Id) then
 				selState = "pressed"
 			end
-			scrollElement:AddButton(340, 3, "select|"..player.Id, "", 0, 18, "", "", false, "Selection",selState)
+			scrollElement:AddButton(340, 3, "select|" .. player.Id, "", 0, 18, "", "", false, "Selection", selState)
 			scrollWindow:Add(scrollElement)
 		end
 	end
 	newWindow:AddScrollWindow(scrollWindow)
 
 	-- Goto
-	newWindow:AddButton(15, 420, "teleport|"..selectedUser.Id, "Tele To", 100, 23, "", "", false,"",buttonState)
-	newWindow:AddButton(115, 420, "teleportToMe|"..selectedUser.Id, "Tele Here", 100, 23, "", "", false,"",buttonState)
-	newWindow:AddButton(215, 420, "heal|"..selectedUser.Id, "Heal", 100, 23, "", "", false,"",buttonState)
-	newWindow:AddButton(315, 420, "resurrect|"..selectedUser.Id, "Resurrect", 100, 23, "", "", false,"",buttonState)
-	
+	newWindow:AddButton(15, 420, "teleport|" .. selectedUser.Id, "Tele To", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(115, 420, "teleportToMe|" .. selectedUser.Id, "Tele Here", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(215, 420, "heal|" .. selectedUser.Id, "Heal", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(315, 420, "resurrect|" .. selectedUser.Id, "Resurrect", 100, 23, "", "", false, "", buttonState)
+
+	this:OpenDynamicWindow(newWindow)
+end
+
+RegisterEventHandler(
+	EventType.DynamicWindowResponse,
+	"GlobalUserList",
+	function(user, returnId)
+		if (returnId ~= nil) then
+			action = StringSplit(returnId, "|")[1]
+			playerId = StringSplit(returnId, "|")[2]
+			--DebugMessage("action is "..tostring(action))
+			--DebugMessage("playerId is "..tostring(playerId))
+			if (playerId ~= nil) then
+				local playerObj = GetPlayerByNameOrId(playerId)
+				if (action == "teleport") then
+					if (playerObj ~= nil) then
+						this:SetWorldPosition(playerObj:GetLoc())
+						this:PlayEffect("TeleportToEffect")
+					end
+				elseif (action == "teleportToMe") then
+					if (playerObj ~= nil) then
+						playerObj:PlayEffect("TeleportFromEffect")
+						playerObj:SetWorldPosition(this:GetLoc())
+						playerObj:PlayEffect("TeleportToEffect")
+					end
+				elseif (action == "select") then
+					local playerObj = GetPlayerByNameOrId(playerId)
+					ShowAllUserList(playerObj)
+				elseif (action == "heal") then
+					local curHealth = math.floor(GetCurHealth(playerObj))
+					local healAmount = GetMaxHealth(playerObj) - curHealth
+					SetCurHealth(playerObj, curHealth + healAmount)
+					playerObj:PlayEffect("HealEffect")
+					this:SystemMessage("Healed " .. playerObj:GetName() .. " for " .. healAmount, "event")
+				elseif (action == "resurrect") then
+					if (playerObj ~= nil) then
+						playerObj:SendMessage("Resurrect", 1.0)
+					end
+				end
+			end
+		end
+	end
+)
+
+function ShowUserList(selectedUser)
+	if (selectedUser == nil) then
+		selectedUser = this
+	end
+	local newWindow = DynamicWindow("UserList", "Player List", 450, 530)
+	local allPlayers = FindPlayersInRegion()
+	-- local allPlayers = GlobalVarRead("User.Online")
+
+	if (#allPlayers == 0) then
+		table.insert(allPlayers, {Name = "Center", Loc = Loc(0, 0, 0)})
+	end
+
+	local scrollWindow = ScrollWindow(20, 40, 380, 375, 25)
+	for i, player in pairs(allPlayers) do
+		local name = player:GetName()
+		if (not keyword or string.lower(name):match(keyword)) then
+			local scrollElement = ScrollElement()
+
+			if ((i - 1) % 2 == 1) then
+				scrollElement:AddImage(0, 0, "Blank", 360, 25, "Sliced", "1A1C2B")
+			end
+			local region = player:GetLoc()
+			scrollElement:AddLabel(5, 3, name, 0, 0, 18)
+
+			local selState = ""
+			if (player.Id == selectedUser.Id) then
+				selState = "pressed"
+			end
+			scrollElement:AddButton(340, 3, "select|" .. player.Id, "", 0, 18, "", "", false, "Selection", selState)
+			scrollWindow:Add(scrollElement)
+		end
+	end
+	newWindow:AddScrollWindow(scrollWindow)
+
+	-- Goto
+	newWindow:AddButton(15, 420, "teleport|" .. selectedUser.Id, "Tele To", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(115, 420, "teleportToMe|" .. selectedUser.Id, "Tele Here", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(215, 420, "heal|" .. selectedUser.Id, "Heal", 100, 23, "", "", false, "", buttonState)
+	newWindow:AddButton(315, 420, "resurrect|" .. selectedUser.Id, "Resurrect", 100, 23, "", "", false, "", buttonState)
+
 	this:OpenDynamicWindow(newWindow)
 end
 
@@ -183,6 +291,9 @@ ImmortalCommandFuncs = {
 	end,
 	WhoDialog = function()
 		ShowUserList(this)
+	end,
+	WhoGDialog = function()
+		pingForUsers()
 	end,
 	Cloak = function(nameOrId)
 		local targetObj = this
@@ -309,18 +420,21 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.Who,
 	Desc = "Lists players on the server"
 }
+
 RegisterCommand {
 	Command = "clock",
 	AccessLevel = AccessLevel.Immortal,
 	Func = ImmortalCommandFuncs.Clock,
 	Desc = "Opens a window that shows the time"
 }
+
 RegisterCommand {
 	Command = "follow",
 	AccessLevel = AccessLevel.Immortal,
 	Func = ImmortalCommandFuncs.Follow,
 	Desc = "Automatically follow a mob."
 }
+
 RegisterCommand {
 	Command = "cloak",
 	Category = "God Power",
@@ -329,9 +443,28 @@ RegisterCommand {
 	Usage = "[<name|id>]",
 	Desc = "[$2476]"
 }
-RegisterCommand {Command = "reveal", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func = function()
+
+RegisterCommand {
+	Command = "reveal",
+	Category = "God Power",
+	AccessLevel = AccessLevel.Immortal,
+	Func = function()
 		DoReveal(this)
-	end, Desc = "Reveal yourself in a cool cool way."}
+	end,
+	Desc = "Reveal yourself in a cool cool way."
+}
+
+RegisterCommand {
+	Command = "exit",
+	Category = "God Power",
+	AccessLevel = AccessLevel.Immortal,
+	Func = function()
+		this:PlayEffect("BodyExplosion")
+		CallFunctionDelayed(TimeSpan.FromSeconds(0.1), ImmortalCommandFuncs.Cloak)
+	end,
+	Desc = "Exit in a cool cool way."
+}
+
 RegisterCommand {
 	Command = "jump",
 	Category = "God Power",
@@ -339,6 +472,7 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.Jump,
 	Desc = "Get a cursor for a location to jump to"
 }
+
 RegisterCommand {
 	Command = "gotolocation",
 	Category = "God Power",
@@ -348,6 +482,7 @@ RegisterCommand {
 	Desc = "[$2477]",
 	Aliases = {"goto"}
 }
+
 RegisterCommand {
 	Command = "teleportto",
 	Category = "God Power",
@@ -357,6 +492,7 @@ RegisterCommand {
 	Desc = "Teleport to a person by name or an object by id",
 	Aliases = {"tpto"}
 }
+
 RegisterCommand {
 	Command = "portal",
 	Category = "God Power",
@@ -365,6 +501,7 @@ RegisterCommand {
 	Usage = "[<x>] [<y>] [<z>]",
 	Desc = "Open a two way portal to a location on the map"
 }
+
 RegisterCommand {
 	Command = "whod",
 	Category = "God Power",
@@ -372,6 +509,15 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.WhoDialog,
 	Desc = "List players on server in a dialog window"
 }
+
+RegisterCommand {
+	Command = "whog",
+	Category = "God Power",
+	AccessLevel = AccessLevel.Immortal,
+	Func = ImmortalCommandFuncs.WhoGDialog,
+	Desc = "List players on server in a dialog window"
+}
+
 RegisterCommand {
 	Command = "joinguild",
 	Category = "God Power",

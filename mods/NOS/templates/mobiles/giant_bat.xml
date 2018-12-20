@@ -58,8 +58,7 @@
 			<Initializer>
 				{
 					MeatCount = 2,
-
-					MeatType = "BatMeat",
+					MeatType = "ToughMeat",
 				}
 			</Initializer>
 		</LuaModule>

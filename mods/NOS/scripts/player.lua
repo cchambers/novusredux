@@ -52,7 +52,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 			choice = 2
 		end
 		
-		this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)				
+		-- this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)		
 	end
 
 	return newHealth
@@ -478,6 +478,19 @@ function OnLoad(isPossessed)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()),"UpdateChatChannels")
 end
 RegisterEventHandler(EventType.Message,"OnLoad",function(...) OnLoad(...) end)
+
+RegisterEventHandler(EventType.Message,"User_Ping", function(from)
+	local location = this:GetLoc()
+	local region = GetRegionalName(location)
+	local me = {
+		Name = this:GetName(),
+		Loc = location,
+		Id = this.Id,
+		Region = region,
+		player = this
+	}
+	from:SendMessage("User_Pong", me)
+end)
 
 RegisterEventHandler(EventType.Message,"OpenBank",
 	function (bankSource)

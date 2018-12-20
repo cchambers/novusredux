@@ -1,11 +1,11 @@
 <ObjectTemplate>
-  <Name>[00FF00]Refresh Scroll[-]</Name>
+  <Name>[00FF00]Spike Path[-]</Name>
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>
-		<StringVariable Name="Spell">Refresh</StringVariable>
-		<StringVariable Name="ResourceType">Refresh</StringVariable>
-	</ObjectVariableComponent>
+	<ObjectVariableComponent>		
+	<StringVariable Name="Spell">Spikepath</StringVariable>
+	<StringVariable Name="ResourceType">Spikepath</StringVariable>
+	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>
 		<LuaModule Name="stackable"/>
