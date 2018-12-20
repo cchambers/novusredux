@@ -890,7 +890,7 @@ function RequestSpellTarget(spellName)
 	if(mAutoTarg == nil) and this:IsPlayer() then
 		local myTargType = GetSpellTargetType(spellName)
 		local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName or spellName
-		DebugMessage("Target Type Set to " .. tostring(myTargType))
+		-- DebugMessage("Target Type Set to " .. tostring(myTargType))
 		if (myTargType == "RequestTarget") and (mQueuedTarget == nil) then
 				this:RequestClientTargetGameObj(this, "QueueSpellTarget")
 			return
