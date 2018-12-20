@@ -479,6 +479,19 @@ function OnLoad(isPossessed)
 end
 RegisterEventHandler(EventType.Message,"OnLoad",function(...) OnLoad(...) end)
 
+RegisterEventHandler(EventType.Message,"User_Ping", function(from)
+	local location = this:GetLoc()
+	local region = GetRegionalName(location)
+	local me = {
+		Name = this:GetName(),
+		Loc = location,
+		Id = this.Id,
+		Region = region,
+		player = this
+	}
+	from:SendMessage("User_Pong", me)
+end)
+
 RegisterEventHandler(EventType.Message,"OpenBank",
 	function (bankSource)
 		local bankObj = this:GetEquippedObject("Bank")
