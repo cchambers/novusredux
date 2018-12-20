@@ -309,18 +309,21 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.Who,
 	Desc = "Lists players on the server"
 }
+
 RegisterCommand {
 	Command = "clock",
 	AccessLevel = AccessLevel.Immortal,
 	Func = ImmortalCommandFuncs.Clock,
 	Desc = "Opens a window that shows the time"
 }
+
 RegisterCommand {
 	Command = "follow",
 	AccessLevel = AccessLevel.Immortal,
 	Func = ImmortalCommandFuncs.Follow,
 	Desc = "Automatically follow a mob."
 }
+
 RegisterCommand {
 	Command = "cloak",
 	Category = "God Power",
@@ -329,6 +332,7 @@ RegisterCommand {
 	Usage = "[<name|id>]",
 	Desc = "[$2476]"
 }
+
 RegisterCommand {Command = "reveal", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func = function()
 		DoReveal(this)
 	end, Desc = "Reveal yourself in a cool cool way."}
@@ -341,7 +345,6 @@ RegisterCommand {Command = "exit", Category = "God Power", AccessLevel = AccessL
 	)
 end, Desc = "Exit in a cool cool way."}
 
-
 RegisterCommand {
 	Command = "jump",
 	Category = "God Power",
@@ -349,6 +352,7 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.Jump,
 	Desc = "Get a cursor for a location to jump to"
 }
+
 RegisterCommand {
 	Command = "gotolocation",
 	Category = "God Power",
@@ -358,6 +362,7 @@ RegisterCommand {
 	Desc = "[$2477]",
 	Aliases = {"goto"}
 }
+
 RegisterCommand {
 	Command = "teleportto",
 	Category = "God Power",
@@ -367,6 +372,7 @@ RegisterCommand {
 	Desc = "Teleport to a person by name or an object by id",
 	Aliases = {"tpto"}
 }
+
 RegisterCommand {
 	Command = "portal",
 	Category = "God Power",
@@ -375,6 +381,7 @@ RegisterCommand {
 	Usage = "[<x>] [<y>] [<z>]",
 	Desc = "Open a two way portal to a location on the map"
 }
+
 RegisterCommand {
 	Command = "whod",
 	Category = "God Power",
@@ -382,6 +389,7 @@ RegisterCommand {
 	Func = ImmortalCommandFuncs.WhoDialog,
 	Desc = "List players on server in a dialog window"
 }
+
 RegisterCommand {
 	Command = "joinguild",
 	Category = "God Power",
