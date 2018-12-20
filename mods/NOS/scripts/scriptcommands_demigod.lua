@@ -535,7 +535,7 @@ RegisterEventHandler(EventType.CreatedObject,"fromfile",
 DemigodCommandFuncs = {
 	SearchDialog =	function(arg)
 		ShowNewSearch(arg)
-	end,
+	end, 
 
 	AddTitle = function(userNameOrId,...)
 		local lineData = table.pack(...)
@@ -1275,6 +1275,9 @@ RegisterCommand{ Command="sethue", Category = "Dev Power", AccessLevel = AccessL
 RegisterCommand{ Command="setstat", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetStat, Usage="<hp|mana|sta|str|agi|int> <value> [<target_id>]", Desc="[$2492]" }
 RegisterCommand{ Command="setskill", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetSkill, Usage="<skill_name> <value> [<target_id>]", "[$2494]" }
 RegisterCommand{ Command="setallskills", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetAllSkills, Usage="<value> [<target_id>]", "Set all skills to a level." }
+
+RegisterCommand{ Command="setspeed", AccessLevel = AccessLevel.DemiGod, Func=function(speed) SetMobileMod(this, "MoveSpeedPlus", "GodCommand", tonumber(speed))  end, Desc="Add the number given to your movement speed. If no speed is provided, it will remove the modifer." }
+
 RegisterCommand{ Command="opencontainer", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.OpenContainer, Usage="<name|id> [<equipslot>]", Desc="[$2495]", Aliases={"opencont"}}	
 RegisterCommand{ Command="containerinfo", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ContainerInfo, Usage="<id> [detailed]", Desc="[$2496]"}	
 RegisterCommand{ Command="createfromfile", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateFromFile, Usage="filenamee", Desc="[$2499]"}	
