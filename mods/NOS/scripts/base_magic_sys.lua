@@ -619,7 +619,7 @@ function GetSpellHealAmount(spellName, spellSource)
 	elseif(spellName == "Greaterheal") then
 		healAmount = (magicSkill * 0.4) + (math.floor(math.random(1, 10) + 0.5))
 	else
-		DebugMessage("Unknown healing spell "..spellName)
+		-- DebugMessage("Unknown healing spell "..spellName)
 		return 0
 	end
 	--round to nearest int
@@ -813,7 +813,6 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 	end
 	mAutoTarg = preDefTarg
 	mAutoTargLoc = targetLoc
-	DebugMessage("Sp Name:" .. tostring(spellName) .. " Targ: " .. mAutoTarg:GetName())
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
 	else 
@@ -879,7 +878,7 @@ function CastSpell(spellName, spellSource, spellTarget)
 	local myTargType = GetSpellTargetType(spellName)
 
 	if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
-		DebugMessage(spellName)
+		-- DebugMessage(spellName)
 		RequestSpellTarget(spellName)
 	end
 end

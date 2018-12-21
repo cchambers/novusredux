@@ -127,17 +127,17 @@ AI.StateMachine.AllStates.CastElectricbolt = {
             end
 
             if ((not CanCast("Electricbolt",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Electricbolt",this)+AI.GetSetting("SpellRangeMod")) then
-                DebugMessage("Can't Cast EBolt in OnEnterState")
+                -- DebugMessage("Can't Cast Lightning in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")
                 return
             end
-            DebugMessage("Attempting Cast EBolt")
+            -- DebugMessage("Attempting Cast Lightning")
             this:StopMoving()            
             this:SendMessage("CastSpellMessage","Electricbolt",this,AI.MainTarget)
         end,
 
         AiPulse = function()
-           DebugMessage("Exiting Cast EBolt")
+        --    DebugMessage("Exiting Cast Lightning")
             DecideCombatState()
         end,
 
@@ -158,11 +158,11 @@ AI.StateMachine.AllStates.CastPoison = {
 
             FaceTarget()
             if ((not CanCast("Poison",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > GetSpellRange("Poison",this)+AI.GetSetting("SpellRangeMod")) then
-                DebugMessage("Can't Cast Fireball in OnEnterState")
+                -- DebugMessage("Can't Cast Fireball in OnEnterState")
                 AI.StateMachine.ChangeState("Chase")                
                 return
             end
-            DebugMessage("Attempting Cast Fireball")
+            -- DebugMessage("Attempting Cast Fireball")
             this:StopMoving()
             this:SendMessage("CastSpellMessage","Poison",this,AI.MainTarget)
         end,
