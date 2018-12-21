@@ -308,7 +308,7 @@ RegisterEventHandler(
 
 function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
 	Verbose("Magic", "PerformMagicalAttack", spellName, spTarget, spellSource, doNotRetarget)
-	--D*ebugMessage(tostring(spellName .. " | " ..tostring(spTarget).." | " .. tostring(spellSource).. "|" .. tostring(doNotRetarget)))
+	-- DebugMessage(tostring(spellName .. " | " ..tostring(spTarget).." | " .. tostring(spellSource).. "|" .. tostring(doNotRetarget)))
 	if (doNotRetarget == nil) then
 		doNotRetarget = false
 	end

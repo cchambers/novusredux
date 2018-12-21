@@ -813,21 +813,19 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 	end
 	mAutoTarg = preDefTarg
 	mAutoTargLoc = targetLoc
-	--DebugMessage("Sp Name:" .. tostring(spellName) .. " Targ: " .. mAutoTarg:GetName())
-	CastSpell(spellName, spellSource)
+	DebugMessage("Sp Name:" .. tostring(spellName) .. " Targ: " .. mAutoTarg:GetName())
+	if (spellSource:IsPlayer()) then
+		CastSpell(spellName, spellSource, preDefTarg)
+	else 
+		PerformMagicalAttack(spellName, preDefTarg, spellSource)
+	end
 end
 
 function CastSpell(spellName, spellSource, spellTarget)
+
 	Verbose("Magic", "CastSpell", spellName, spellSource, spellTarget)
 	if  not( IsSpellEnabled(spellName, spellSource) ) then return end
 	local player = spellSource:IsPlayer()
-	if( mPrimedSpell ~= nil ) then		
-		if( player ) then
-			spellSource:SendClientMessage("ClearPrimed")			
-			spellSource:PlayAnimation("idle")
-		end
-	end
-
 
 	if( spellTarget ~= nil ) then
 		local targetType = GetSpellInformation(spellName,"TargetType")
@@ -881,6 +879,7 @@ function CastSpell(spellName, spellSource, spellTarget)
 	local myTargType = GetSpellTargetType(spellName)
 
 	if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
+		DebugMessage(spellName)
 		RequestSpellTarget(spellName)
 	end
 end

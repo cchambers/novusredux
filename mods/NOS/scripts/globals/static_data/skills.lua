@@ -243,7 +243,7 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_AnimalKen",
 			Abilities = { "Command" },
-			GainFactor = 0.25,
+			GainFactor = 0.5,
 		},
 		BeastmasterySkill = {
 			DisplayName = "Beastmastery",
@@ -251,14 +251,14 @@ SkillData = {
 			Description = "Beastmastery is your ability to effectively command your pets in battle, granting a bonus to their damage.",
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_BeastMastery",
-			GainFactor = 0.25,
+			GainFactor = 0.5,
 		},
 		AnimalLoreSkill = {
 			DisplayName = "Animal Lore",
 			PrimaryStat = "Intelligence",
 			Description = "Your knowledge of animals. Determines your ability to control and adds a bonus to healing your pets.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.25,
+			GainFactor = 0.5,
 		},
 		ArcherySkill = {
 			DisplayName = "Archery",
