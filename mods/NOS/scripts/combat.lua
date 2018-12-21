@@ -843,7 +843,8 @@ function InitiateCombatSequence()
 			local me = this:ToString()
 			local compare = (mine == me)
 			if (compare) then 
-				this:SystemMessage("You almost attacked your pet! Close one.")
+				this:SystemMessage("You almost attacked your pet! Close one.", "info")
+				this:SendMessage("EndCombatMessage")
 				return
 			end
 		end
