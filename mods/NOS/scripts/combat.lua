@@ -308,7 +308,7 @@ RegisterEventHandler(
 
 function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
 	Verbose("Magic", "PerformMagicalAttack", spellName, spTarget, spellSource, doNotRetarget)
-	--D*ebugMessage(tostring(spellName .. " | " ..tostring(spTarget).." | " .. tostring(spellSource).. "|" .. tostring(doNotRetarget)))
+	-- DebugMessage(tostring(spellName .. " | " ..tostring(spTarget).." | " .. tostring(spellSource).. "|" .. tostring(doNotRetarget)))
 	if (doNotRetarget == nil) then
 		doNotRetarget = false
 	end
@@ -843,7 +843,8 @@ function InitiateCombatSequence()
 			local me = this:ToString()
 			local compare = (mine == me)
 			if (compare) then 
-				this:SystemMessage("You almost attacked your pet! Close one.")
+				this:SystemMessage("You almost attacked your pet! Close one.", "info")
+				this:SendMessage("EndCombatMessage")
 				return
 			end
 		end
