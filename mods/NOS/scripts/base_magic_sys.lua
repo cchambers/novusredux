@@ -182,6 +182,7 @@ function PrimeSpell(spellName, spellSource)
 		this:NpcSpeech(SpellData.AllSpells[spellName].PowerWords, "combat")
 	end
 
+	DebugMessage("MADE IT TO HERE BOSS")
 	local castingTime
 	if(myCastTime > 0) then
 	--D*ebugMessage("Cast Time:" .. tostring(myCastTime))
@@ -811,17 +812,15 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 		preDefTarg = nil
 		return
 	end
-	mAutoTarg = preDefTarg
-	mAutoTargLoc = targetLoc
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
-	else 
-		PerformMagicalAttack(spellName, preDefTarg, spellSource)
+	elseif (spellSource:HasLineOfSightToObj(preDefTarg)) then
+		spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
 end
 
 function CastSpell(spellName, spellSource, spellTarget)
-
+	DebugMessage(tostring(spellName .. " ~ "))
 	Verbose("Magic", "CastSpell", spellName, spellSource, spellTarget)
 	if  not( IsSpellEnabled(spellName, spellSource) ) then return end
 	local player = spellSource:IsPlayer()
@@ -885,7 +884,7 @@ end
 
 function RequestSpellTarget(spellName)
 	Verbose("Magic", "RequestSpellTarget", spellName)
-	if(mAutoTarg == nil) and this:IsPlayer() then
+	if (this:IsPlayer()) then
 		local myTargType = GetSpellTargetType(spellName)
 		local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName or spellName
 		-- DebugMessage("Target Type Set to " .. tostring(myTargType))
@@ -913,10 +912,6 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	local _spellTarget;
     if (mQueuedTarget ~= nil) then
         _spellTarget = mQueuedTarget;
-    elseif(mAutoTarg ~= nil) then
-        _spellTarget = mAutoTarg;
-    elseif(mAutoTargLoc ~= nil) then
-        _spellTarget = mAutoTargLoc;
     end
 
     if (mQueuedTargetLoc == nil) then
