@@ -11,17 +11,17 @@
     <SharedStateEntry name="Variation" type="string" value="Default"/>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">60000</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
-		<StringVariable Name= "MobileKind">Undead</StringVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
-		<DoubleVariable Name="Armor">62</DoubleVariable>
-		<DoubleVariable Name="Attack">50</DoubleVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Armor">80</DoubleVariable>
+		<DoubleVariable Name="Attack">100</DoubleVariable>
+		<DoubleVariable Name="Power">30</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="SpinAttackRange">6</DoubleVariable>
 		<DoubleVariable Name="DecayTime">1500</DoubleVariable>
-		<StringVariable Name= "HomeRegion">DeathLair</StringVariable>
+		<StringVariable Name="HomeRegion">DeathLair</StringVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		

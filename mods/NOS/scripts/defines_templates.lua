@@ -338,7 +338,7 @@ TemplateDefines = {
 			},
 		},
 
-		EtherealBones = 
+		BonesEthereal = 
 		{
 			NumItems = 1,		
 
@@ -710,7 +710,6 @@ TemplateDefines = {
 				{ Chance = 2, Template = "prestige_dart", Unique = true },
 				{ Chance = 2, Template = "prestige_evasion", Unique = true },
 				{ Chance = 2, Template = "prestige_spellchamber", Unique = true },
-				{ Chance = 2, Template = "prestige_empower", Unique = true },
 				{ Chance = 2, Template = "prestige_stunstrike", Unique = true },
 				{ Chance = 2, Template = "prestige_hamstring", Unique = true },
 			},
@@ -767,7 +766,6 @@ TemplateDefines = {
 				{ Chance = 2, Template = "prestige_dart", Unique = true },
 				{ Chance = 2, Template = "prestige_evasion", Unique = true },
 				{ Chance = 2, Template = "prestige_spellchamber", Unique = true },
-				{ Chance = 2, Template = "prestige_empower", Unique = true },
 				{ Chance = 2, Template = "prestige_stunstrike", Unique = true },
 				{ Chance = 2, Template = "prestige_hamstring", Unique = true },
 			}

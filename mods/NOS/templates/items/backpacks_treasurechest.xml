@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>36</ClientId>
 	<Name>[0078ff]Chest[-]</Name>
-	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="NumTemplates">1</DoubleVariable>
 		<StringVariable Name="Template1">backpack</StringVariable>

@@ -142,7 +142,7 @@ CharacterCustomization = {
 		{ Skill = "MeleeSkill", Items = { "armor_leather_chest"  } },
 		{ Skill = "HealingSkill", Items = { {"bandage", 50 } } },
 		{ Skill = "PiercingSkill", Items = { "weapon_kryss" }},
-		{ Skill = "SlashingSkill", Items = { "weapon_saber"}},
+		{ Skill = "SlashingSkill", Items = { "weapon_katana"}},
 		{ Skill = "LancingSkill", Items = { "weapon_spear" }},
 		{ Skill = "BashingSkill", Items = { "weapon_mace" }},
 		{ Skill = "BlockingSkill", Items = { "shield_buckler" } },

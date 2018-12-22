@@ -120,11 +120,29 @@ function TransferBackpackContentsToCorpse(corpseContainer, dropFullLoot, backpac
 	if ( backpack == nil ) then backpack = this:GetEquippedObject("Backpack") end
 	-- transfer all their items over to the corpse, skipping blessed
 	if ( backpack ~= nil and dropFullLoot ) then
-		local backpackObjects = backpack:GetContainedObjects()
-		for i=1,#backpackObjects do
-			if not( backpackObjects[i]:HasObjVar("Blessed") ) then
-				backpackObjects[i]:MoveToContainer(corpseContainer, backpackObjects[i]:GetLoc())
+		local corpseItems = {}
+		local blessed = false
+		ForEachItemInContainerRecursive(backpack, function(item)
+			blessed = item:HasObjVar("Blessed")
+			-- item is in top level of backpack
+			if ( item:ContainedBy() == backpack ) then
+				-- and item is not blessed (nothing must be done with blessed items already in top level of backpack)
+				if not( blessed ) then
+					-- move to corpse (eventually)
+					corpseItems[#corpseItems+1] = item
+				end
+			else
+			-- item is not in top level of backpack (sub container)
+				if ( blessed ) then
+					-- move to top level in backpack, item is blessed.
+					item:MoveToContainer(backpack, item:GetLoc())
+				end
 			end
+			return true -- keep going
+		end)
+		-- move top level non-blessed items to the corpse
+		for i=1,#corpseItems do
+			corpseItems[i]:MoveToContainer(corpseContainer, corpseItems[i]:GetLoc())
 		end
 	end
 end

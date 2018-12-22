@@ -41,7 +41,6 @@
 				LootTables = 
 					{ 		
 						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Prestige,	
 						TemplateDefines.LootTable.Potions,		
 						{
 							NumCoins = math.random(123,342),

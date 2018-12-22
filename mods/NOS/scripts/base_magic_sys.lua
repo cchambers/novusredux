@@ -62,6 +62,7 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
+		CancelSpellCast()
 		return false
 	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
 		if not (spellTarget:HasObjVar("Attackable")) then
@@ -69,6 +70,7 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 		end
 	elseif( not LineOfSightCheck(spellName, spellTarget)) then
 		this:SystemMessage("Cannot see that.", "info")
+		CancelSpellCast()
 		return false
 	elseif (not TargetDeadCheck(spellName,spellTarget)) then
 		local mustBeDead = GetSpellInformation(spellName, "TargetMustBeDead") 
@@ -904,6 +906,13 @@ end
 function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	Verbose("Magic", "HandleSuccessfulSpellPrime", spellName, spellSource, free)
 
+
+	if ( SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town" ) then
+		this:SystemMessage("Cannot cast that spell in town.", "info")
+		CancelSpellCast()
+		return
+	end
+
 	mFreeSpell = false
 	if ( free == true ) then
 		mFreeSpell = true
@@ -917,7 +926,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
     if (mQueuedTargetLoc == nil) then
         if (not ValidateSpellCastTarget(spellName,_spellTarget,this)) then        
             CancelSpellCast();
-            DoFizzle(this);
+			return
         end
     end
 	
@@ -1202,6 +1211,7 @@ function CancelSpellCast()
 	mPrimedSpell = nil
 
 	this:PlayAnimation("idle")
+	DoFizzle(this);
 end
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "QueueSpellTarget", 

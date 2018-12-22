@@ -43,7 +43,7 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.Fifteen,
+						TemplateDefines.LootTable.Average,
 					},	
 				ScavengeTables =
 					{

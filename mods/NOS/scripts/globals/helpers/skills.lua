@@ -207,13 +207,12 @@ end
 -- @param difficulty double(optional) will use skillLevel as difficulty if not provided.
 -- @param skipGains boolean(optional) If true, no skill/stat gains will be calculated.
 -- @return true if success
-
 function CheckSkill( mobileObj, skillName, difficulty, skipGains )
 	local skillLevel = GetSkillLevel(mobileObj, skillName, nil, true)
 	if ( difficulty == nil ) then
 		difficulty = skillLevel
 	end
-	
+		
 	if (mobileObj:GetObjVar("NoGains")) then
 		skipGains = true
 	end
@@ -311,7 +310,8 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				realStatLevel < ss.Stats.IndividualPlayerStatCap
 				and
 				-- "arbitrary check to insure that players stats are just scaling to some degree with the age of the character a little bit" - Miphon
-				( i ~= 2 or (realStatLevel*2 <= skillTable.SkillLevel) )
+				-- used to say realStatLevel*2, wtf -- khi
+				( i ~= 2 or (realStatLevel <= skillTable.SkillLevel) )
 			) then
 				-- (increasing difficulty near stat cap)
 				local gainFactor = m.max(0.025, 1 - (realStatLevel / ss.Stats.TotalPlayerStatsCap))
@@ -343,7 +343,7 @@ end
 -- @return decimal based percent double
 function GenerateGainChance(level, chance, gainFactor, gc)
 	-- if you have no chance at success or full chance at success, can no longer gain
-	if ( level >= 10 and (chance <= 0 or chance >= 1) ) then return 0 end
+	if (chance <= 0 or chance >= 1) then return 0 end
 	local ss = ServerSettings.Skills
 
 	gainFactor = gainFactor or 1
@@ -398,7 +398,7 @@ function SkillGainByChance( mobileObj, skillName, skillLevel, chance )
 		-- modify the gain amount depending if certain criteria is satisfied
 		if ( skillLevel < ServerSettings.Skills.LowerLevelGains.UpperThreshold ) then
 			if ( skillLevel < ServerSettings.Skills.LowerLevelGains.LowerThreshold ) then 
-				gainAmount = ServerSettings.Skills.LowerLevelGains.UpperThresholdGainAmount
+				gainAmount = ServerSettings.Skills.LowerLevelGains.LowerThresholdGainAmount
 			else
 				gainAmount = ServerSettings.Skills.LowerLevelGains.UpperThresholdGainAmount
 			end

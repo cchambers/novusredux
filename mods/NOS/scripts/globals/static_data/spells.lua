@@ -1220,7 +1220,7 @@ SpellData = {
 			TargetType = "targetMobile",
 			TargetRequired = true,
 			CanBeInterrupted = true,
-			SpellType = "HealTypeSpell",
+			SpellType = "BuffTypeSpell",
 			SpellFXName = "CloakEffect",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
             SpellPrimeFXArgs = "Bone=Ground",
@@ -1850,6 +1850,7 @@ SpellData = {
 			SpellDisplayName = "Earthquake",
 			PowerWords = "In Vas Por",
 			manaCost = 100,
+			PreventTownCast = true,
 			upkeepCost = 0,
 			--effectDamageType = "Bashing",	If earthquake breaks we know.		
 			effectType = "InstantHitSpell",

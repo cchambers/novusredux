@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>2229</ClientId>
 	<Name>[0078ff]Chest[-]</Name>
-	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>

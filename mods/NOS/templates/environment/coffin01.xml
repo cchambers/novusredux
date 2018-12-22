@@ -2,7 +2,7 @@
 	<ClientId>416</ClientId>
 	<Name>[FF9500]Grey Coffin Round Top[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
-	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
 	<ObjectVariableComponent/>			
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
