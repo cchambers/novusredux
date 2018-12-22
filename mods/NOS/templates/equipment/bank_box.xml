@@ -1,7 +1,7 @@
 <ObjectTemplate>
     <Name>[0078ff]Bank Box[-]</Name>
 	<ClientId>36</ClientId>
-	<SharedStateEntry name="Capacity" type="int" value="40"/>
+	<SharedStateEntry name="Capacity" type="int" value="400"/>
 	<SharedStateEntry name="EquipSlot" type="string" value="Bank" restriction="readonly"/>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
