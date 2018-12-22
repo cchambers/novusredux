@@ -150,12 +150,12 @@ WeaponAbilitiesData.Dismount = {
 WeaponAbilitiesData.Overpower = {
     MobileEffect = "Overpower",
     MobileEffectArgs = {
-        AttackModifier = 1.25,
+        AttackModifier = 0.50,
     },
     Stamina = 25,
     Action = {
         DisplayName = "Overpower",
-        Tooltip = "Increase your attack by 125%.",
+        Tooltip = "Increase your attack by 50%.",
         Icon = "Whirlwind",
         Enabled = true,
     },
@@ -165,18 +165,40 @@ WeaponAbilitiesData.Overpower = {
 WeaponAbilitiesData.Stab = {
     MobileEffect = "Stab",
     MobileEffectArgs = {
-        AttackModifier = 1.25,
-        StealthAttackModifier = 2.25,
+        AttackModifier = 0.25,
+        StealthAttackModifier = 2,
     },
     Stamina = 25,
     Action = {
         DisplayName = "Stab",
-        Tooltip = "Attempt to stab your target 125% attack bonus. Stabbing from stealth rewards 225% attack bonus.",
+        Tooltip = "Attempt to stab your target 25% attack bonus. Stabbing from stealth rewards 200% attack bonus.",
         Icon = "Fatal Strike",
         Enabled = true,
     },
     SkipHitAction = true,
     AllowCloaked = true, -- the "Stab" effect will break cloak.
+}
+
+WeaponAbilitiesData.Sunder = {
+    MobileEffect = "GeneralEffect",
+    MobileEffectArgs = {
+        Duration = TimeSpan.FromSeconds(2),
+        VisualEffects = {
+            "BuffEffect_M"
+        },
+        SoundEffects = {
+            "event:/character/combat_abilities/female_shout"
+        }
+    },
+    TargetMobileEffect = "Sunder",
+    Stamina = 25,
+    Action = {
+        DisplayName = "Sunder",
+        Tooltip = "Sunder target for up to 10 seconds. Next physical attack will ignore all equipped armor and clear the effect.",
+        Icon = "Windshot",
+        Enabled = true,
+    },
+    SkipHitAction = true
 }
 
 WeaponAbilitiesData.MortalStrike = {

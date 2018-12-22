@@ -123,17 +123,23 @@ function PerformWeaponAttack(atTarget, hand)
 
 	LookAt(this, atTarget)
 
-	if (mQueuedWeaponAbility == nil or mQueuedWeaponAbility.AllowCloaked ~= true) then
-		-- reveal them
-		this:SendMessage("BreakInvisEffect", "Swing")
+	local setWasHidden = false
+	if ( mQueuedWeaponAbility ~= nil and mQueuedWeaponAbility.AllowCloaked == true and this:IsCloaked() ) then
+		this:SetObjVar("WasHidden", true)
+		setWasHidden = true
 	end
 
+	-- reveal them
+	this:SendMessage("BreakInvisEffect", "Swing")
+	
 	--- perform the actual swing/shoot/w.e.
 	if (_Weapon[hand].IsRanged) then
 		ExecuteRangedWeaponAttack(atTarget, hand)
 	else
 		ExecuteWeaponAttack(atTarget, hand)
 	end
+
+	if ( setWasHidden ) then this:DelObjVar("WasHidden") end
 end
 
 function ExecuteRangedWeaponAttack(atTarget, hand, hitSuccessOverride, isCritOverride)
@@ -232,12 +238,12 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 end
 
 function ClearQueuedWeaponAbility()
-	Verbose("Combat", "ClearQueuedWeaponAbility")
-	if (mQueuedWeaponAbility and this:IsPlayer()) then
-		-- tell the client to stop 'highlighting' this button
-		this:SendClientMessage("SetActionActivated", {"CombatAbility", mQueuedWeaponAbility.ActionId, false})
-	end
+Verbose("Combat", "ClearQueuedWeaponAbility")
+	local queuedAbility = mQueuedWeaponAbility
 	mQueuedWeaponAbility = nil
+	if ( queuedAbility and this:IsPlayer() ) then
+		this:SendClientMessage("SetActionActivated",{"CombatAbility",queuedAbility.ActionId,false})
+	end
 end
 
 RegisterEventHandler(EventType.Message, "ClearQueuedWeaponAbility", ClearQueuedWeaponAbility)
@@ -586,8 +592,7 @@ function CalculateBlockDefense(victim)
 			if (Success(ServerSettings.Durability.Chance.OnHit)) then
 				AdjustDurability(shield, -1)
 			end
-			return (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) +
-				GetMagicItemArmorBonus(_Weapon.LeftHand.Object)
+			return math.max(0, (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) + GetMagicItemArmorBonus(_Weapon.LeftHand.Object))
 		end
 	end
 	return 0
@@ -611,11 +616,6 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 	if damageInfo.Attacker ~= victim and not (ValidCombatTarget(damageInfo.Attacker, victim)) then
 		return
-	end
-
-	--interupt casting
-	if (damageInfo.Attacker:IsPlayer()) and not (HasMobileEffect(victim, "MageArmor")) then
-		CheckSpellCastInterrupt(victim)
 	end
 
 	local finalDamage = damageInfo.Damage or 0
@@ -663,9 +663,16 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			blockDefense = CalculateBlockDefense(victim)
-			local defense = math.max(victim:GetStatValue("Defense"), 40) + blockDefense
+			local defense = 45
+			if ( HasMobileEffect(victim, "Sunder") ) then
+				-- end sunder, no armor defense reduction this hit
+				victim:SendMessage("EndSunderEffect")
+			else
+				defense = victim:GetStatValue("Defense")
+			end
+			defense = math.max(defense, 45)
 
-			finalDamage = ((damageInfo.Attack * 70) / defense)
+			finalDamage = (( damageInfo.Attack * 70 ) / (defense + blockDefense) )
 
 			--DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
 
@@ -1305,6 +1312,7 @@ RegisterEventHandler(
 			end
 		end
 		if (slot == "RightHand" or slot == "LeftHand") then
+			ClearQueuedWeaponAbility()
 			ClearSwingTimers()
 			mWeaponSwapped = true
 			-- update reference to our weapons
@@ -1421,6 +1429,10 @@ UpdatePreferredArrowType(this:GetObjVar("PreferredArrowType") or "Arrows")
 
 if (mInCombatState) then
 	InitiateCombatSequence()
+end
+
+if ( this:HasObjVar("WasHidden") ) then
+	this:DelObjVar("WasHidden")
 end
 
 RegisterEventHandler(

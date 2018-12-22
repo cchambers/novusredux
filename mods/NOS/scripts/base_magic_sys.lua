@@ -62,6 +62,7 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
+		CancelSpellCast()
 		return false
 	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
 		if not (spellTarget:HasObjVar("Attackable")) then
@@ -69,6 +70,7 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 		end
 	elseif( not LineOfSightCheck(spellName, spellTarget)) then
 		this:SystemMessage("Cannot see that.", "info")
+		CancelSpellCast()
 		return false
 	elseif (not TargetDeadCheck(spellName,spellTarget)) then
 		local mustBeDead = GetSpellInformation(spellName, "TargetMustBeDead") 
@@ -182,6 +184,7 @@ function PrimeSpell(spellName, spellSource)
 		this:NpcSpeech(SpellData.AllSpells[spellName].PowerWords, "combat")
 	end
 
+	DebugMessage("MADE IT TO HERE BOSS")
 	local castingTime
 	if(myCastTime > 0) then
 	--D*ebugMessage("Cast Time:" .. tostring(myCastTime))
@@ -811,17 +814,15 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 		preDefTarg = nil
 		return
 	end
-	mAutoTarg = preDefTarg
-	mAutoTargLoc = targetLoc
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
-	else 
-		PerformMagicalAttack(spellName, preDefTarg, spellSource)
+	elseif (spellSource:HasLineOfSightToObj(preDefTarg)) then
+		spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
 end
 
 function CastSpell(spellName, spellSource, spellTarget)
-
+	DebugMessage(tostring(spellName .. " ~ "))
 	Verbose("Magic", "CastSpell", spellName, spellSource, spellTarget)
 	if  not( IsSpellEnabled(spellName, spellSource) ) then return end
 	local player = spellSource:IsPlayer()
@@ -885,7 +886,7 @@ end
 
 function RequestSpellTarget(spellName)
 	Verbose("Magic", "RequestSpellTarget", spellName)
-	if(mAutoTarg == nil) and this:IsPlayer() then
+	if (this:IsPlayer()) then
 		local myTargType = GetSpellTargetType(spellName)
 		local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName or spellName
 		-- DebugMessage("Target Type Set to " .. tostring(myTargType))
@@ -905,6 +906,13 @@ end
 function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	Verbose("Magic", "HandleSuccessfulSpellPrime", spellName, spellSource, free)
 
+
+	if ( SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town" ) then
+		this:SystemMessage("Cannot cast that spell in town.", "info")
+		CancelSpellCast()
+		return false
+	end
+
 	mFreeSpell = false
 	if ( free == true ) then
 		mFreeSpell = true
@@ -913,16 +921,12 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	local _spellTarget;
     if (mQueuedTarget ~= nil) then
         _spellTarget = mQueuedTarget;
-    elseif(mAutoTarg ~= nil) then
-        _spellTarget = mAutoTarg;
-    elseif(mAutoTargLoc ~= nil) then
-        _spellTarget = mAutoTargLoc;
     end
 
     if (mQueuedTargetLoc == nil) then
         if (not ValidateSpellCastTarget(spellName,_spellTarget,this)) then        
             CancelSpellCast();
-            DoFizzle(this);
+			return false
         end
     end
 	
@@ -965,7 +969,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 				spellSource:SendMessage("ChamberSpell", spellName, spellDisplayName)
 				CancelSpellCast()
-				return
+				return false
 			end
 		end
 
@@ -1122,6 +1126,7 @@ function HandleSpellLocTargeted(success, targetLoc)
 	elseif not(IsLocInSpellRange(mPrimedSpell, targetLoc, mSpellSource)) then
 		this:SystemMessage("Not in range.", "info")
 		this:RequestClientTargetLoc(this, "SelectSpellLoc")
+		CancelSpellCast()
 		--DebugMessageA(this,"not in range")
 		return
 	elseif not(LineOfSightCheck(mPrimedSpell, targetLoc)) then

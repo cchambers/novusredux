@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>311</ClientId>
 	<Name>[0078ff]Dungeon Chest[-]</Name>
-	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<DoubleVariable Name="ChanceToBeTrapped">0</DoubleVariable>

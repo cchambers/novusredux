@@ -1136,7 +1136,7 @@ DemigodCommandFuncs = {
 		if(id == "all") then
 			local containerSizes = {}
 			for i,containerObj in pairs(FindObjects(SearchSharedObjectProperty("Capacity",nil))) do
-				local count = GetItemCountRecursive(containerObj)
+				local count = containerObj:GetItemCount()
 				table.insert(containerSizes,{Obj=containerObj,Count = count})
 			end
 
@@ -1154,7 +1154,7 @@ DemigodCommandFuncs = {
 		else
 			local objRef = GameObj(tonumber(id))
 			if(objRef ~= nil and objRef:IsValid()) then
-				local count = GetItemCountRecursive(objRef)
+				local count = objRef:GetItemCount()
 				this:SystemMessage("Container "..objRef:GetName().." contains "..count.." items.")
 			else
 				this:SystemMessage("Container not found. Must pass id!")

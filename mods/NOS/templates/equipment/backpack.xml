@@ -1,7 +1,7 @@
 <ObjectTemplate>
   <Name>[0078ff]Leather Backpack[-]</Name>
 	<ClientId>34</ClientId>
-	<SharedStateEntry name="Capacity" type="int" value="50"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
 	<SharedStateEntry name="Weight" type="int" value="5"/>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
