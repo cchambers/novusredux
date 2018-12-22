@@ -910,7 +910,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	if ( SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town" ) then
 		this:SystemMessage("Cannot cast that spell in town.", "info")
 		CancelSpellCast()
-		return
+		return false
 	end
 
 	mFreeSpell = false
@@ -926,7 +926,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
     if (mQueuedTargetLoc == nil) then
         if (not ValidateSpellCastTarget(spellName,_spellTarget,this)) then        
             CancelSpellCast();
-			return
+			return false
         end
     end
 	
@@ -969,7 +969,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 				spellSource:SendMessage("ChamberSpell", spellName, spellDisplayName)
 				CancelSpellCast()
-				return
+				return false
 			end
 		end
 
@@ -1126,6 +1126,7 @@ function HandleSpellLocTargeted(success, targetLoc)
 	elseif not(IsLocInSpellRange(mPrimedSpell, targetLoc, mSpellSource)) then
 		this:SystemMessage("Not in range.", "info")
 		this:RequestClientTargetLoc(this, "SelectSpellLoc")
+		CancelSpellCast()
 		--DebugMessageA(this,"not in range")
 		return
 	elseif not(LineOfSightCheck(mPrimedSpell, targetLoc)) then
@@ -1211,7 +1212,6 @@ function CancelSpellCast()
 	mPrimedSpell = nil
 
 	this:PlayAnimation("idle")
-	DoFizzle(this);
 end
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "QueueSpellTarget", 

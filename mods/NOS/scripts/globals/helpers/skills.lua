@@ -310,8 +310,8 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				realStatLevel < ss.Stats.IndividualPlayerStatCap
 				and
 				-- "arbitrary check to insure that players stats are just scaling to some degree with the age of the character a little bit" - Miphon
-				-- used to say realStatLevel*2, wtf -- khi
-				( i ~= 2 or (realStatLevel <= skillTable.SkillLevel) )
+				-- used to say realStatLevel*2, wtf -- khi // how to get 100 secondary stats, remove that
+				( i ~= 2 or (realStatLevel*2 <= skillTable.SkillLevel) )
 			) then
 				-- (increasing difficulty near stat cap)
 				local gainFactor = m.max(0.025, 1 - (realStatLevel / ss.Stats.TotalPlayerStatsCap))
