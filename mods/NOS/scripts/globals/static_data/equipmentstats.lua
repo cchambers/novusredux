@@ -817,4 +817,5 @@ EquipmentStats.BaseWeaponStats.Telecrook = {
     Attack = 7,
     MinSkill = 0,
     PrimaryAbility = "TelecrookMove",
+    SecondaryAbility = "TelecrookRes",
 }

@@ -71,16 +71,12 @@ MobileEffectLibrary.TelecrookRes =
             self.DestroyCrook(self)
         elseif (target) then
             -- We targeted an object, where do we want to move it?
-            target:SendMessage("PlayerResurrect", this, target)
+            target:SendMessage("Resurrect",1.0)
             return
         end
         EndMobileEffect(root)
     end,
-    ResTarget = function(self, target)
-        if (not target) then return end
-        target:SendMessage("PlayerResurrect", this, target)
-    end,
-
+ 
     DestroyCrook = function(self)
         local crook = self.ParentObj:GetEquippedObject("RightHand")
         if (crook and crook:GetObjVar("WeaponType") == "Telecrook") then
