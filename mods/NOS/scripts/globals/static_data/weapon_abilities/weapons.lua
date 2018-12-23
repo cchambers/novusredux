@@ -231,3 +231,19 @@ WeaponAbilitiesData.TelecrookMove = {
         Enabled = true
     },
 }
+
+WeaponAbilitiesData.TelecrookRes = {
+    MobileEffect = "TelecrookRes",
+    Stamina = 0,
+    NoCombat = true,
+    AllowMounted = true,
+    QueueTarget = "Loc",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(0),
+    Action = {
+        DisplayName = "Res",
+        Tooltip = "Force resurrect someone.",
+        Icon = "Regrowth",
+        Enabled = true
+    },
+}

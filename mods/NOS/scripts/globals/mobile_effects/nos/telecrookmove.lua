@@ -60,3 +60,37 @@ MobileEffectLibrary.TelecrookMove =
         UnregisterEventHandler(GetCurrentModule(), EventType.ClientTargetLocResponse, "Telecrook.Move")
     end,
 }
+
+MobileEffectLibrary.TelecrookRes =
+{
+    ShouldStack = false,
+
+    OnEnterState = function(self, root, target, args)
+        if (not IsImmortal(self.ParentObj)) then
+            -- They shouldn't have this.
+            self.DestroyCrook(self)
+        elseif (target) then
+            -- We targeted an object, where do we want to move it?
+            target:SendMessage("PlayerResurrect", this, target)
+            return
+        end
+        EndMobileEffect(root)
+    end,
+    ResTarget = function(self, target)
+        if (not target) then return end
+        target:SendMessage("PlayerResurrect", this, target)
+    end,
+
+    DestroyCrook = function(self)
+        local crook = self.ParentObj:GetEquippedObject("RightHand")
+        if (crook and crook:GetObjVar("WeaponType") == "Telecrook") then
+            self.ParentObj:SystemMessage("You shouldn't have that.", "info")
+            crook:Destroy()
+            EndMobileEffect(root)
+        end
+    end,
+
+    OnExitState = function(self, root)
+        UnregisterEventHandler(GetCurrentModule(), EventType.ClientTargetLocResponse, "Telecrook.Res")
+    end,
+}
