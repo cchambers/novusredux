@@ -283,6 +283,70 @@ namePrefix = {
 		end}
 }
 
+local karmaLevels = { 10000, 5000, 2500, 625, 0, -625, -2500, -5000, -10000 }
+local fameLevels = { 0, 1250, 2500, 5000, 10000 }
+local titleTable = {
+	p10000 = {
+		"Trustworthy",	"Estimable", 	"Great",		"Glorius"
+	},
+	p5000 = {
+		"Honest",		"Commendable",	"Famed", 		"Illustrious"
+	},
+	p2500 = {
+		"Good",			"Honorable",	"Admirable",	"Noble"
+	},
+	p625 = {
+		"Fair",			"Upstanding",	"Reputable",	"Distinguished"
+	},
+	p0 = {
+		"",				"Notable",		"Prominent",	"Renowned"
+	},
+	n625 = {
+		"Rude",			"Disreputable",	"Notorious",	"Infamous"
+	},
+	n1250 = {
+		"Unsavory",		"Dishonorable",	"Ignoble",		"Sinister"
+	},
+	n2500 = {
+		"Scoundrel",	"Malicious",	"Vile",			"Villainous"
+	},
+	n5000 = {
+		"Despicable",	"Dastardly",	"Wicked",		"Evil"
+	},
+	n10000 = {
+		"Outcast",		"Wretched",		"Nefarious",	"Dread"
+	}
+}
+
+function GetTitle(targetObj)
+	local fame = targetObj:GetObjVar("Fame") or 0
+	local karma = targetObj:GetObjVar("Karma") or 0
+	local title = ""
+	local klevel = 1
+	while karma < karmaLevels[klevel] do
+		klevel = klevel + 1
+	end
+
+	klevel = karmaLevels[klevel]
+	if (klevel >= 0) then
+		title = "p"
+	else 
+		title = "n"
+	end
+
+	klevel = tostring(title .. math.abs(klevel))
+	targetObj:SystemMessage("KARMA: " .. klevel)
+	title = titleTable[klevel]
+
+	local flevel = 1
+	while fame > fameLevels[flevel] do
+		flevel = flevel + 1
+	end
+
+	title = title[flevel]
+	return title
+end
+
 function GetNameSuffix(targetObj)
 	local guild = GuildHelpers.Get(this)
 	local suffix = ""
@@ -299,10 +363,9 @@ function GetNamePrefix(targetObj)
 			prefix = prefix .. " " .. prefixEntry.Prefix()
 		end
 	end
-
+	prefix = GetTitle(this) .. prefix
 	return prefix
 end
-
 
 function UpdateName()
 	Verbose("Player", "UpdateName")

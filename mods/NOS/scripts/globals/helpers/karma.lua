@@ -381,54 +381,55 @@ end
 -- @param silent - If true, no user messages will be sent to inform player
 -- @return true or false
 function ShouldKarmaProtect(player, action, target, silent)
-    Verbose("Karma", "ShouldKarmaProtect", player, action, target, silent)
-    if not( player ) then
-        LuaDebugCallStack("[ShouldKarmaProtect] player not provided.")
-        return
-    end
-    if not( action ) then
-        LuaDebugCallStack("[ShouldKarmaProtect] action not provided.")
-        return
-    end
-    if not( target ) then
-        LuaDebugCallStack("[ShouldKarmaProtect] target not provided.")
-        return
-    end
-
-    -- if the action is not negative, no reason to protect
-    if ( action.Adjust >= 0 ) then return false end
-
-    local karmaAlignment = GetKarmaAlignment(player)
-    -- no protection level set or karma level doesn't need to be protected
-    if ( karmaAlignment == nil or karmaAlignment.Protect == nil ) then return false end
-
-    local amount, endInitiate = CalculateKarmaAction(player, action, target)
-    -- attacking also adds the cost of murder for example
-    if ( action.PreventAdditional ) then
-        amount = amount + CalculateKarmaAction(player, KarmaActions.Negative[action.PreventAdditional], target)
-    end
-    -- if they would not lose karma for this action, no protection necessary.
-    if ( amount >= 0 ) then return false end
-
-    if (
-        -- protect losing any karma if karmaAlignment is set to a level above zero
-        karmaAlignment.Amount > 0 and amount < 0
-        or
-        -- protect from losing a karma level if would-be new amount is less than the protectionAmount
-        GetKarma(player) + amount < karmaAlignment.Protect
-    ) then
-        -- then karma protect them.
-        if ( not silent and not player:HasTimer("KarmaWarned")  ) then
-            player:ScheduleTimerDelay(ServerSettings.Karma.MinimumBetweenNegativeWarnings, "KarmaWarned")
-            if ( karmaAlignment.Amount > 0 ) then
-                player:SystemMessage("That action would cause you to lose Karma.", "info")
-            else
-                player:SystemMessage("That action would cause you to drop below your chosen Karma Alignment.", "info")
-            end
-        end
-        return true
-    end
     return false
+    -- Verbose("Karma", "ShouldKarmaProtect", player, action, target, silent)
+    -- if not( player ) then
+    --     LuaDebugCallStack("[ShouldKarmaProtect] player not provided.")
+    --     return
+    -- end
+    -- if not( action ) then
+    --     LuaDebugCallStack("[ShouldKarmaProtect] action not provided.")
+    --     return
+    -- end
+    -- if not( target ) then
+    --     LuaDebugCallStack("[ShouldKarmaProtect] target not provided.")
+    --     return
+    -- end
+
+    -- -- if the action is not negative, no reason to protect
+    -- if ( action.Adjust >= 0 ) then return false end
+
+    -- local karmaAlignment = GetKarmaAlignment(player)
+    -- -- no protection level set or karma level doesn't need to be protected
+    -- if ( karmaAlignment == nil or karmaAlignment.Protect == nil ) then return false end
+
+    -- local amount, endInitiate = CalculateKarmaAction(player, action, target)
+    -- -- attacking also adds the cost of murder for example
+    -- if ( action.PreventAdditional ) then
+    --     amount = amount + CalculateKarmaAction(player, KarmaActions.Negative[action.PreventAdditional], target)
+    -- end
+    -- -- if they would not lose karma for this action, no protection necessary.
+    -- if ( amount >= 0 ) then return false end
+
+    -- if (
+    --     -- protect losing any karma if karmaAlignment is set to a level above zero
+    --     karmaAlignment.Amount > 0 and amount < 0
+    --     or
+    --     -- protect from losing a karma level if would-be new amount is less than the protectionAmount
+    --     GetKarma(player) + amount < karmaAlignment.Protect
+    -- ) then
+    --     -- then karma protect them.
+    --     if ( not silent and not player:HasTimer("KarmaWarned")  ) then
+    --         player:ScheduleTimerDelay(ServerSettings.Karma.MinimumBetweenNegativeWarnings, "KarmaWarned")
+    --         if ( karmaAlignment.Amount > 0 ) then
+    --             player:SystemMessage("That action would cause you to lose Karma.", "info")
+    --         else
+    --             player:SystemMessage("That action would cause you to drop below your chosen Karma Alignment.", "info")
+    --         end
+    --     end
+    --     return true
+    -- end
+    -- return false
 end
 
 --- Prevent a guard protected non-chaotic karma level player from accidently flagging chaotic from attack/aoe on a chaotic karma level
