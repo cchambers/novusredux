@@ -233,11 +233,9 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "container",
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "setname",
 	function(target,user)
 		if not(IsDemiGod(this)) then return end
-
 		if( target == nil ) then
 			return
 		end
-
 		target:SetName(nameToSet)
 		target:SendMessage("UpdateName")
 	end

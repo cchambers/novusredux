@@ -341,6 +341,11 @@ function OnLoad(isPossessed)
 			this:SystemMessage("Your Power Hour has ended.")
 		end
 	end
+	
+	local murders = this:GetObjVar("Murders")
+	if (murders) then
+		this:SendMessage("StartMobileEffect", "Murderer")
+	end
 
 	if not(isPossessed) then
 		if(not(this:HasObjVar("playerInitialized"))) then
