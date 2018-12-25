@@ -287,34 +287,34 @@ local karmaLevels = { 10000, 5000, 2500, 625, 0, -625, -2500, -5000, -10000 }
 local fameLevels = { 0, 1250, 2500, 5000, 10000 }
 local titleTable = {
 	p10000 = {
-		"Trustworthy",	"Estimable", 	"Great",		"Glorius"
+		"Trustworthy",	"Estimable", 	"Great",		"Glorius",		"Glorius"
 	},
 	p5000 = {
-		"Honest",		"Commendable",	"Famed", 		"Illustrious"
+		"Honest",		"Commendable",	"Famed", 		"Illustrious", 	"Illustrious"
 	},
 	p2500 = {
-		"Good",			"Honorable",	"Admirable",	"Noble"
+		"Good",			"Honorable",	"Admirable",	"Noble",		"Noble"
 	},
 	p625 = {
-		"Fair",			"Upstanding",	"Reputable",	"Distinguished"
+		"Fair",			"Upstanding",	"Reputable",	"Distinguished","Distinguished"
 	},
 	p0 = {
-		"",				"Notable",		"Prominent",	"Renowned"
+		"",				"Notable",		"Prominent",	"Renowned",		"Renowned"
 	},
 	n625 = {
-		"Rude",			"Disreputable",	"Notorious",	"Infamous"
+		"Rude",			"Disreputable",	"Notorious",	"Infamous",		"Infamous"
 	},
 	n1250 = {
-		"Unsavory",		"Dishonorable",	"Ignoble",		"Sinister"
+		"Unsavory",		"Dishonorable",	"Ignoble",		"Sinister",		"Sinister"
 	},
 	n2500 = {
-		"Scoundrel",	"Malicious",	"Vile",			"Villainous"
+		"Scoundrel",	"Malicious",	"Vile",			"Villainous",	"Villainous"
 	},
 	n5000 = {
-		"Despicable",	"Dastardly",	"Wicked",		"Evil"
+		"Despicable",	"Dastardly",	"Wicked",		"Evil",			"Evil"
 	},
 	n10000 = {
-		"Outcast",		"Wretched",		"Nefarious",	"Dread"
+		"Outcast",		"Wretched",		"Nefarious",	"Dread",		"Dread"
 	}
 }
 
@@ -335,15 +335,45 @@ function GetTitle(targetObj)
 	end
 
 	klevel = tostring(title .. math.abs(klevel))
-	targetObj:SystemMessage("KARMA: " .. klevel)
 	title = titleTable[klevel]
 
 	local flevel = 1
+	-- HERE
+	while fame > fameLevels[flevel] do
+		flevel = flevel + 1
+	end
+	
+
+	title = title[flevel]
+
+
+	if (flevel >= 5) then
+		if(IsMale(targetObj)) then
+			title = title .. " Lord"
+		else
+			title = title .. " Lady"
+		end
+	end
+	if (title) then title = title .. " " end
+	return title
+end
+
+function GetLord(targetObj)
+	local fame = targetObj:GetObjVar("Fame") or 0
+	local flevel = 1
+	-- HERE
 	while fame > fameLevels[flevel] do
 		flevel = flevel + 1
 	end
 
-	title = title[flevel]
+	if (flevel >= 5) then
+		if(IsMale(targetObj)) then
+			title = "Lord"
+		else
+			title = "Lady"
+		end
+	end
+	if (title) then title = title .. " " end
 	return title
 end
 
@@ -360,10 +390,10 @@ function GetNamePrefix(targetObj)
 	local prefix = ""
 	for i, prefixEntry in pairs(namePrefix) do
 		if (prefixEntry.Condition(targetObj or this)) then
-			prefix = prefix .. " " .. prefixEntry.Prefix()
+			prefix = prefixEntry.Prefix()
 		end
 	end
-	prefix = GetTitle(this) .. prefix
+	prefix = GetLord(this) .. prefix
 	return prefix
 end
 
