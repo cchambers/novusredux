@@ -393,7 +393,8 @@ function GetNamePrefix(targetObj)
 			prefix = prefixEntry.Prefix()
 		end
 	end
-	prefix = GetLord(this) .. prefix
+	local lord = GetLord(this)
+	if (lord) then prefix = lord .. prefix end
 	return prefix
 end
 
