@@ -4,7 +4,7 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">coins</StringVariable>
-		<DoubleVariable Name="UnitWeight">0.0001</DoubleVariable>
+		<DoubleVariable Name="UnitWeight">0.00001</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="coins"/>
