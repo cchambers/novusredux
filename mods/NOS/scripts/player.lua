@@ -340,9 +340,9 @@ function GetTitle(targetObj)
 	local flevel = 1
 	-- HERE
 	if (fame ~= nil) then
-		DebugMessage(tostring("FAME: " .. fame))
 		while fame > fameLevels[flevel] do
 			flevel = flevel + 1
+			if (flevel == 5) then break end
 		end
 	end
 
