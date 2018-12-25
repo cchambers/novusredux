@@ -283,6 +283,100 @@ namePrefix = {
 		end}
 }
 
+local karmaLevels = { 10000, 5000, 2500, 625, 0, -625, -2500, -5000, -10000 }
+local fameLevels = { 0, 1250, 2500, 5000, 10000 }
+local titleTable = {
+	p10000 = {
+		"Trustworthy",	"Estimable", 	"Great",		"Glorius",		"Glorius"
+	},
+	p5000 = {
+		"Honest",		"Commendable",	"Famed", 		"Illustrious", 	"Illustrious"
+	},
+	p2500 = {
+		"Good",			"Honorable",	"Admirable",	"Noble",		"Noble"
+	},
+	p625 = {
+		"Fair",			"Upstanding",	"Reputable",	"Distinguished","Distinguished"
+	},
+	p0 = {
+		"",				"Notable",		"Prominent",	"Renowned",		"Renowned"
+	},
+	n625 = {
+		"Rude",			"Disreputable",	"Notorious",	"Infamous",		"Infamous"
+	},
+	n1250 = {
+		"Unsavory",		"Dishonorable",	"Ignoble",		"Sinister",		"Sinister"
+	},
+	n2500 = {
+		"Scoundrel",	"Malicious",	"Vile",			"Villainous",	"Villainous"
+	},
+	n5000 = {
+		"Despicable",	"Dastardly",	"Wicked",		"Evil",			"Evil"
+	},
+	n10000 = {
+		"Outcast",		"Wretched",		"Nefarious",	"Dread",		"Dread"
+	}
+}
+
+function GetTitle(targetObj)
+	local fame = targetObj:GetObjVar("Fame") or 0
+	local karma = targetObj:GetObjVar("Karma") or 0
+	local title = ""
+	local klevel = 1
+	while karma < karmaLevels[klevel] do
+		klevel = klevel + 1
+	end
+
+	klevel = karmaLevels[klevel]
+	if (klevel >= 0) then
+		title = "p"
+	else 
+		title = "n"
+	end
+
+	klevel = tostring(title .. math.abs(klevel))
+	title = titleTable[klevel]
+
+	local flevel = 1
+	-- HERE
+	while fame > fameLevels[flevel] do
+		flevel = flevel + 1
+	end
+	
+
+	title = title[flevel]
+
+
+	if (flevel >= 5) then
+		if(IsMale(targetObj)) then
+			title = title .. " Lord"
+		else
+			title = title .. " Lady"
+		end
+	end
+	if (title) then title = title .. " " end
+	return title
+end
+
+function GetLord(targetObj)
+	local fame = targetObj:GetObjVar("Fame") or 0
+	local flevel = 1
+	-- HERE
+	while fame > fameLevels[flevel] do
+		flevel = flevel + 1
+	end
+
+	if (flevel >= 5) then
+		if(IsMale(targetObj)) then
+			title = "Lord"
+		else
+			title = "Lady"
+		end
+	end
+	if (title) then title = title .. " " end
+	return title
+end
+
 function GetNameSuffix(targetObj)
 	local guild = GuildHelpers.Get(this)
 	local suffix = ""
@@ -296,13 +390,12 @@ function GetNamePrefix(targetObj)
 	local prefix = ""
 	for i, prefixEntry in pairs(namePrefix) do
 		if (prefixEntry.Condition(targetObj or this)) then
-			prefix = prefix .. " " .. prefixEntry.Prefix()
+			prefix = prefixEntry.Prefix()
 		end
 	end
-
+	prefix = GetLord(this) .. prefix
 	return prefix
 end
-
 
 function UpdateName()
 	Verbose("Player", "UpdateName")
@@ -340,6 +433,11 @@ function OnLoad(isPossessed)
 			this:DelObjVar("PowerHourEnds")
 			this:SystemMessage("Your Power Hour has ended.")
 		end
+	end
+	
+	local murders = this:GetObjVar("Murders")
+	if (murders) then
+		this:SendMessage("StartMobileEffect", "Murderer")
 	end
 
 	if not(isPossessed) then
