@@ -821,7 +821,6 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 end
 
 function CastSpell(spellName, spellSource, spellTarget)
-	DebugMessage(tostring(spellName .. " ~ "))
 	Verbose("Magic", "CastSpell", spellName, spellSource, spellTarget)
 	if  not( IsSpellEnabled(spellName, spellSource) ) then return end
 	local player = spellSource:IsPlayer()

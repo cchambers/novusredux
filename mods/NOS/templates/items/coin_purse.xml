@@ -3,8 +3,8 @@
 	<ClientId>108</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
+		<DoubleVariable Name="UnitWeight">0.0001</DoubleVariable>
 		<StringVariable Name="ResourceType">coins</StringVariable>
-		<DoubleVariable Name="UnitWeight">0</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="coins"/>
