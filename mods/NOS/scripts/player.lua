@@ -339,10 +339,11 @@ function GetTitle(targetObj)
 
 	local flevel = 1
 	-- HERE
-	while fame > fameLevels[flevel] do
-		flevel = flevel + 1
+	if (fame) then
+		while fame > fameLevels[flevel] do
+			flevel = flevel + 1
+		end
 	end
-	
 
 	title = title[flevel]
 
