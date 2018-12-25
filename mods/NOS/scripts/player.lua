@@ -339,7 +339,7 @@ function GetTitle(targetObj)
 
 	local flevel = 1
 	-- HERE
-	if (fame) then
+	if (fame ~= nil) then
 		while fame > fameLevels[flevel] do
 			flevel = flevel + 1
 		end
@@ -363,8 +363,10 @@ function GetLord(targetObj)
 	local fame = targetObj:GetObjVar("Fame") or 0
 	local flevel = 1
 	-- HERE
-	while fame > fameLevels[flevel] do
-		flevel = flevel + 1
+	if (fame ~= nil) then
+		while fame > fameLevels[flevel] do
+			flevel = flevel + 1
+		end
 	end
 
 	if (flevel >= 5) then

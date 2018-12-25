@@ -184,7 +184,6 @@ function PrimeSpell(spellName, spellSource)
 		this:NpcSpeech(SpellData.AllSpells[spellName].PowerWords, "combat")
 	end
 
-	DebugMessage("MADE IT TO HERE BOSS")
 	local castingTime
 	if(myCastTime > 0) then
 	--D*ebugMessage("Cast Time:" .. tostring(myCastTime))
