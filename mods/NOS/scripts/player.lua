@@ -367,6 +367,7 @@ function GetLord(targetObj)
 	if (fame ~= nil) then
 		while fame > fameLevels[flevel] do
 			flevel = flevel + 1
+			if (flevel == 5) then break end
 		end
 	end
 
