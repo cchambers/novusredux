@@ -91,7 +91,7 @@ function UpdateCharacterWindow(targetObj)
 	local rightSubwindow = Subwindow(0,0)
 	rightSubwindow:AddButton(10,10,"","Guild|"..(GuildHelpers.GetName(targetObj) or "No Guild"),160,40,"","guild",false,"ScrollTitleText")
 
-	local karmaStr
+	local karmaStr,karmaVal = GetKarmaTitle(targetObj)
 	if(targetObj == this) then
 		local karmaValStr = tostring(karmaVal)
 		if(karmaVal > 0) then
