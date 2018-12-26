@@ -97,7 +97,7 @@ function UpdateCharacterWindow(targetObj)
 		if(karmaVal > 0) then
 			karmaValStr = "+"..karmaValStr
 		end
-		karmaStr = karmaStr .. " ("..karmaValStr..")"
+		karmaStr = GetTitle(targetObj) .. " ("..karmaValStr..")"
 	end
 	rightSubwindow:AddButton(10,60,"","Karma|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
 	
