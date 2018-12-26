@@ -10,7 +10,7 @@
 		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
-		<StringVariable Name="NaturalArmor">VeryLight</StringVariable>
+		<StringVariable Name="NaturalArmor">Light</StringVariable>
 		<BoolVariable Name="CanBeTamed">true</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
