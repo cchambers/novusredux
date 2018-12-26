@@ -91,15 +91,17 @@ function UpdateCharacterWindow(targetObj)
 	local rightSubwindow = Subwindow(0,0)
 	rightSubwindow:AddButton(10,10,"","Guild|"..(GuildHelpers.GetName(targetObj) or "No Guild"),160,40,"","guild",false,"ScrollTitleText")
 
-	local karmaStr,karmaVal = GetKarmaTitle(targetObj)
+	local karmaStr
 	if(targetObj == this) then
 		local karmaValStr = tostring(karmaVal)
 		if(karmaVal > 0) then
 			karmaValStr = "+"..karmaValStr
 		end
-		karmaStr = GetTitle(targetObj) .. " ("..karmaValStr..")"
+		if (karmaStr ~= nil) then
+			karmaStr = "The " .. GetTitle(targetObj)
+		end
 	end
-	rightSubwindow:AddButton(10,60,"","Karma|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
+	rightSubwindow:AddButton(10,60,"","Reputation|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
 	
 	local title = StripColorFromString(targetObj:GetSharedObjectProperty("Title"))
 	if(title == "") then
