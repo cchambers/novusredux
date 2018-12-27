@@ -15,7 +15,7 @@ MobileEffectLibrary.Murderer = {
 			self.ParentObj:SetObjVar("MurderTick", effectEnds)
 		end
 
-		self.AreTheyRed(murders)
+		if (murders) then self.RedCheck(self.ParentObj,murders) end
 	end,
 
 	OnExitState = function(self,root)
@@ -53,16 +53,21 @@ MobileEffectLibrary.Murderer = {
 				self.ParentObj:SetObjVar("MurderTick", self.Decay)
 			end
 
-			self.AreTheyRed(murders)
+			self.RedCheck(self.ParentObj, murders)
 		else 
 			self.ParentObj:SetObjVar("MurderTick", tick)
 		end
 	end,
 
-	AreTheyRed = function (murders) 
-		if (murders > 4 and not(self.ParentObj:GetObjVar("IsRed"))) then
-			self.ParentObj:SetObjVar("IsRed", true)
-			self.ParentObj:SendMessage("UpdateName")
+	RedCheck = function (who, murders) 
+		if (murders > 4 and not(who:GetObjVar("IsRed"))) then
+			who:SetObjVar("IsRed", true)
+			who:SendMessage("UpdateName")
+		end
+
+		local karma = who:GetObjVar("Karma")
+		if (karma > -5000) then
+			who:SetObjVar("Karma", -5000)
 		end
 	end,
 
