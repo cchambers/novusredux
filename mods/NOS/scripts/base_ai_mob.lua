@@ -8,8 +8,6 @@ function AI.Init()
     local bodSz = GetBodySize(this) or 0 
     local chaseViewRange = math.min(crSet + bodSz,30)
 
-    DebugMessage("init")
-
     AddAIView("chaseRange",SearchMobileInRange(chaseViewRange,this:HasObjVar("SeeInvis")))
     
     --DFB HACK: Remove the trap view 
