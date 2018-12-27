@@ -11,9 +11,9 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">280</DoubleVariable>
 		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
-		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileTeamType">Ork</StringVariable>
 		<StringVariable Name="MobileKind">Ork</StringVariable>
-		<StringVariable Name= "AI-SpeechTable">OrcSpeech</StringVariable>
+		<StringVariable Name="AI-SpeechTable">OrcSpeech</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>

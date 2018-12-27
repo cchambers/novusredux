@@ -8,7 +8,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>			
 		<DoubleVariable Name="BaseHealth">20</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<StringVariable Name="NaturalArmor">Medium</StringVariable>
 		<DoubleVariable Name="AI-ChaseRange">5</DoubleVariable>

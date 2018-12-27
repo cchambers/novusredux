@@ -21,7 +21,7 @@
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>

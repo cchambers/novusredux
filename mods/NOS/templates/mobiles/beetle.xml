@@ -9,8 +9,8 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">20</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Insect</StringVariable>
-		<StringVariable Name= "MobileKind">Insect</StringVariable>
+		<StringVariable Name="MobileTeamType">Insect</StringVariable>
+		<StringVariable Name="MobileKind">Insect</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -21,7 +21,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">-19.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_prey">

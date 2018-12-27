@@ -9,7 +9,7 @@
 	</MobileComponent>			
 	<ObjectVariableComponent>			
 		<BoolVariable Name="noloot">True</BoolVariable>
-    	<StringVariable Name= "MobileTeamType">Pedesii</StringVariable>
+    	<StringVariable Name="MobileTeamType">Pedesii</StringVariable>
 	</ObjectVariableComponent>			
 	<ScriptEngineComponent>
 		<LuaModule Name="guard_protect"/>

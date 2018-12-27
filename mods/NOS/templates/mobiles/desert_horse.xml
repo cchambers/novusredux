@@ -21,7 +21,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">29.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 		<StringVariable Name="MountType">Horse</StringVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>

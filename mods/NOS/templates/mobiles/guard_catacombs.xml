@@ -13,7 +13,7 @@
 		<DoubleVariable Name="Armor">87</DoubleVariable>
 		<DoubleVariable Name="Attack">500</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>		
-    	<StringVariable Name= "MobileTeamType">Wayun</StringVariable>
+    	<StringVariable Name="MobileTeamType">Wayun</StringVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_catacombs_guard">

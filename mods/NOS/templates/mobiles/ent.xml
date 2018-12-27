@@ -9,7 +9,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">1100</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Ent</StringVariable>
+		<StringVariable Name="MobileTeamType">Ent</StringVariable>
 		<StringVariable Name="MobileKind">Ent</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>

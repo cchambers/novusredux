@@ -10,7 +10,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">75</DoubleVariable>
 		<BoolVariable Name="CanFlee">false</BoolVariable>
-		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
 		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<StringVariable Name="NaturalWeaponType">Spikes</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>	

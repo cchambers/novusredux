@@ -9,7 +9,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">220</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Arachnid</StringVariable>
-		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -22,7 +22,7 @@
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">52</DoubleVariable>
-		<DoubleVariable Name="PetSlots">4</DoubleVariable>
+		<DoubleVariable Name="PetSlots">3</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default">

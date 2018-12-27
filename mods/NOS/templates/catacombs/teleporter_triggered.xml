@@ -2,7 +2,7 @@
 	<Name>Teleporter</Name>
 	<ClientId>278</ClientId>
 	<ObjectVariableComponent>		
-		<StringVariable Name= "Type">TriggeredPortal</StringVariable>
+		<StringVariable Name="Type">TriggeredPortal</StringVariable>
 	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="teleporter"/>

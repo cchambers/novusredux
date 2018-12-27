@@ -10,7 +10,7 @@
   <ObjectVariableComponent>
     <BoolVariable Name="ImportantNPC">True</BoolVariable>
      <DoubleVariable Name="BaseHealth">50000</DoubleVariable>
-      <StringVariable Name= "MobileTeamType">Pedesii</StringVariable>
+      <StringVariable Name="MobileTeamType">Pedesii</StringVariable>
       <BoolVariable Name="SlayOnAttack">True</BoolVariable>
       <BoolVariable Name="Invulnerable">True</BoolVariable>
   </ObjectVariableComponent>

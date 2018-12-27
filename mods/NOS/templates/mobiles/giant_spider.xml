@@ -11,7 +11,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">20000</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<StringVariable Name="NaturalWeaponType">LongSword</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Poisonous Fangs</StringVariable>

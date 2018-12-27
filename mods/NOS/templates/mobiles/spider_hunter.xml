@@ -11,7 +11,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Arachnid</StringVariable>
-		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>

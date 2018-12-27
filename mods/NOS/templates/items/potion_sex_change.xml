@@ -3,12 +3,12 @@
   	<Name>[FFFFFF]Sex-Change Potion[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name= "UserScript">potion_sex_change_effect</StringVariable>
-		<StringVariable Name= "ItemUseMessage">You quaff the potion...</StringVariable>
-		<StringVariable Name= "ItemCannotUseMessage">You have already drank a potion.</StringVariable>
+		<StringVariable Name="UserScript">potion_sex_change_effect</StringVariable>
+		<StringVariable Name="ItemUseMessage">You quaff the potion...</StringVariable>
+		<StringVariable Name="ItemCannotUseMessage">You have already drank a potion.</StringVariable>
 		<BoolVariable Name="Confirm">true</BoolVariable>
-		<StringVariable Name= "ConfirmDesc">Are you sure you want to change your gender? This is irreversable without another sex-change potion, and you will lose your hair!</StringVariable>
-		<StringVariable Name= "UseTimer">SexChangePotionTimer</StringVariable>
+		<StringVariable Name="ConfirmDesc">Are you sure you want to change your gender? This is irreversable without another sex-change potion, and you will lose your hair!</StringVariable>
+		<StringVariable Name="UseTimer">SexChangePotionTimer</StringVariable>
 		<BoolVariable Name="DestroyOnUse">true</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

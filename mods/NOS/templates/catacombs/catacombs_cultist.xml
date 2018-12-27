@@ -5,7 +5,7 @@
     <Name>Arueas the Missionary</Name>
   <ObjectVariableComponent>
     <BoolVariable Name="ImportantNPC">True</BoolVariable>
-    <StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+    <StringVariable Name="MobileTeamType">Cultist</StringVariable>
     <BoolVariable Name="noloot">True</BoolVariable>
   </ObjectVariableComponent>
   <ScriptEngineComponent>

@@ -5,7 +5,7 @@
 	<Name>Jebediah the Hermit</Name>
 	<ObjectVariableComponent>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
-    	<StringVariable Name= "MobileTeamType">Rebels</StringVariable>
+    	<StringVariable Name="MobileTeamType">Rebels</StringVariable>
     	<BoolVariable Name="noloot">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

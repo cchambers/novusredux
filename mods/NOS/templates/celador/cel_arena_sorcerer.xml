@@ -10,9 +10,9 @@
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
     	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
-	     <StringVariable Name= "QuestName">FoundersQuest</StringVariable>
-	     <StringVariable Name= "QuestTask">ReturnToRakh</StringVariable>
-	     <StringVariable Name= "QuestRequiredTask">KillLegas</StringVariable>
+	     <StringVariable Name="QuestName">FoundersQuest</StringVariable>
+	     <StringVariable Name="QuestTask">ReturnToRakh</StringVariable>
+	     <StringVariable Name="QuestRequiredTask">KillLegas</StringVariable>
     	<BoolVariable Name="noloot">True</BoolVariable>
     	<DoubleVariable Name="BaseHealth">192</DoubleVariable>
 		<DoubleVariable Name="Armor">62</DoubleVariable>

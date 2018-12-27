@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>				
 	<ObjectVariableComponent>			
-		<StringVariable Name= "MobileTeamType">Karvra</StringVariable>
+		<StringVariable Name="MobileTeamType">Karvra</StringVariable>
 		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
 		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.0</DoubleVariable>

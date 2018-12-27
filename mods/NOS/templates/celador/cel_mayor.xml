@@ -12,9 +12,9 @@
 		<BoolVariable Name="AI-CanConverse">false</BoolVariable>
 		<BoolVariable Name="AI-StationedLeash">true</BoolVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
-		<StringVariable Name= "QuestName">KillMayorQuest</StringVariable>
-		<StringVariable Name= "QuestTask">ReturnForReward</StringVariable>
-		<StringVariable Name= "QuestRequiredTask">SlayMayor</StringVariable>
+		<StringVariable Name="QuestName">KillMayorQuest</StringVariable>
+		<StringVariable Name="QuestTask">ReturnForReward</StringVariable>
+		<StringVariable Name="QuestRequiredTask">SlayMayor</StringVariable>
     	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
     	<BoolVariable Name="noloot">True</BoolVariable>
