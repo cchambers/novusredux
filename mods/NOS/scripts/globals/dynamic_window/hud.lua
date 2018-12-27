@@ -60,7 +60,7 @@ function ShowStatusElement(mobileObj, args)
 						TargetUser = user,
 						DialogId = "PowerHour" .. user.Id,
 						TitleStr = "Start Power Hour",
-						DescStr = string.format("Are you ready to begin your power hour? You will only be able to use it again after 23 hours passes."),
+						DescStr = string.format("Are you ready to begin your power hour? You will only be able to use it again after 22 hours passes."),
 						Button1Str = "Yes",
 						Button2Str = "No",
 						ResponseObj = user,
@@ -71,7 +71,7 @@ function ShowStatusElement(mobileObj, args)
 							end
 							-- Handles the invite command of the dynamic window
 							if (buttonId == 0) then
-								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(23)))
+								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
 								user:SetObjVar("PowerHourEnds", 60)
 								user:SendMessage("StartMobileEffect", "PowerHourBuff")
 								user:PlayAnimation("roar")

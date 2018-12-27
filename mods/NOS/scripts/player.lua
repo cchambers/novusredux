@@ -338,18 +338,18 @@ function GetTitle(targetObj)
 	title = titleTable[klevel]
 
 	local flevel = 1
-	-- HERE
+	
 	if (fame ~= nil) then
 		while fame > fameLevels[flevel] do
 			flevel = flevel + 1
-			if (flevel == 5) then break end
 		end
 	end
 
+	if (flevel >= 5) then flevel = 5 else flevel = flevel - 1 end
+
 	title = title[flevel]
 
-
-	if (flevel >= 5) then
+	if (flevel == 5) then
 		if(IsMale(targetObj)) then
 			title = title .. " Lord"
 		else
@@ -363,15 +363,16 @@ end
 function GetLord(targetObj)
 	local fame = targetObj:GetObjVar("Fame") or 0
 	local flevel = 1
-	-- HERE
+	
 	if (fame ~= nil) then
 		while fame > fameLevels[flevel] do
 			flevel = flevel + 1
-			if (flevel == 5) then break end
 		end
 	end
 
-	if (flevel >= 5) then
+	if (flevel >= 5) then flevel = 5 else flevel = flevel - 1 end
+
+	if (flevel == 5) then
 		if(IsMale(targetObj)) then
 			title = "Lord"
 		else

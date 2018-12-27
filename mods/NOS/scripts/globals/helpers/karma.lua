@@ -657,17 +657,23 @@ end
 -- @return none
 function KarmaPunishAllAggressorsForMurder(victim)
     Verbose("Karma", "KarmaPunishAllAggressorsForMurder", victim)
+    local aggressors = {}
     ForeachAggressor(victim, function(aggressor)
-		if ( victim ~= aggressor and aggressor:IsValid() ) then
+		if ( victim ~= aggressor and aggressor:IsValid() and victim:IsPlayer() ) then
             local murders = aggressor:GetObjVar("Murders") or 0
             murders = murders + 1
             aggressor:SetObjVar("Murders", murders)
             if (not(HasMobileEffect(aggressor, "Murderer"))) then
                 aggressor:SendMessage("StartMobileEffect", "Murderer")
             end
+            table.insert(aggressors, aggressor)
             ExecuteKarmaAction(aggressor, KarmaActions.Negative.Murder, victim)
 		end
-	end)
+    end)
+    CallFunctionDelayed(TimeSpan.FromSeconds(1),
+    function () 
+        victim:SetObjVar("MurdererForgive", aggressors)
+    end)
 end
 
 
