@@ -97,9 +97,11 @@ function UpdateCharacterWindow(targetObj)
 		if(karmaVal > 0) then
 			karmaValStr = "+"..karmaValStr
 		end
-		karmaStr = karmaStr .. " ("..karmaValStr..")"
+		if (karmaStr ~= nil) then
+			karmaStr = "The " .. GetTitle(targetObj)
+		end
 	end
-	rightSubwindow:AddButton(10,60,"","Karma|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
+	rightSubwindow:AddButton(10,60,"","Reputation|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
 	
 	local title = StripColorFromString(targetObj:GetSharedObjectProperty("Title"))
 	if(title == "") then
