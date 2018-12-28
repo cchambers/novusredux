@@ -99,7 +99,7 @@ function UpdateCharacterWindow(targetObj)
 		end
 		local title = GetTitle(targetObj)
 		if (karmaStr ~= nil and title ~= nil) then
-			karmaStr = "The " .. title
+			karmaStr = title
 		end
 	end
 	rightSubwindow:AddButton(10,60,"","Reputation|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")

@@ -287,7 +287,7 @@ local karmaLevels = { 10000, 5000, 2500, 625, 0, -625, -2500, -5000, -10000 }
 local fameLevels = { 0, 1250, 2500, 5000, 10000 }
 local titleTable = {
 	p10000 = {
-		"Trustworthy",	"Estimable", 	"Great",		"Glorius",		"Glorius"
+		"Trustworthy",	"Estimable", 	"Great",		"Glorious",		"Glorious"
 	},
 	p5000 = {
 		"Honest",		"Commendable",	"Famed", 		"Illustrious", 	"Illustrious"
@@ -347,7 +347,7 @@ function GetTitle(targetObj)
 
 	if (flevel >= 5) then flevel = 5 else flevel = flevel - 1 end
 
-	title = title[flevel]
+	title = title[flevel] or ""
 
 	if (flevel == 5) then
 		if(IsMale(targetObj)) then
