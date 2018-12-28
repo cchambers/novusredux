@@ -1,4 +1,4 @@
-require 'base_ai_mob'
+require 'default:base_ai_mob'
 --require 'base_ai_conversation' --Intelligent beings converse
 require 'default:incl_gametime' --Intelligent beings have an internal clock
 require 'base_ai_casting' --intelligent beings can cast spells
