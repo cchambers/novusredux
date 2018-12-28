@@ -284,10 +284,10 @@ namePrefix = {
 }
 
 local karmaLevels = { 10000, 5000, 2500, 625, 0, -625, -2500, -5000, -10000 }
-local fameLevels = { 0, 1250, 2500, 5000, 10000 }
+local fameLevels = { 0, 1250, 2500, 5000, 9999 }
 local titleTable = {
 	p10000 = {
-		"Trustworthy",	"Estimable", 	"Great",		"Glorius",		"Glorius"
+		"Trustworthy",	"Estimable", 	"Great",		"Glorious",		"Glorious"
 	},
 	p5000 = {
 		"Honest",		"Commendable",	"Famed", 		"Illustrious", 	"Illustrious"
@@ -318,8 +318,22 @@ local titleTable = {
 	}
 }
 
+function GetFameLevel(targetObj, from)
+	local fame = targetObj:GetObjVar("Fame")
+	if (fame == nil) then targetObj:SetObjVar("Fame", 0); fame = 0 end
+	local flevel = 1
+	
+	if (fame ~= nil) then
+		while fame > fameLevels[flevel] do
+			flevel = flevel + 1
+			if (flevel == 6) then break end
+		end
+	end
+	flevel = flevel - 1
+	return flevel
+end
+
 function GetTitle(targetObj)
-	local fame = targetObj:GetObjVar("Fame") or 0
 	local karma = targetObj:GetObjVar("Karma") or 0
 	local title = ""
 	local klevel = 1
@@ -336,49 +350,30 @@ function GetTitle(targetObj)
 
 	klevel = tostring(title .. math.abs(klevel))
 	title = titleTable[klevel]
+	
+	flevel = GetFameLevel(targetObj, "GetTitle")
 
-	local flevel = 1
-	-- HERE
-	if (fame ~= nil) then
-		while fame > fameLevels[flevel] do
-			flevel = flevel + 1
-			if (flevel == 5) then break end
-		end
-	end
+	title = title[flevel] or "None"
 
-	title = title[flevel]
-
-
-	if (flevel >= 5) then
+	if (flevel == 5) then
 		if(IsMale(targetObj)) then
 			title = title .. " Lord"
 		else
 			title = title .. " Lady"
 		end
 	end
-	if (title) then title = title .. " " end
 	return title
 end
 
 function GetLord(targetObj)
-	local fame = targetObj:GetObjVar("Fame") or 0
-	local flevel = 1
-	-- HERE
-	if (fame ~= nil) then
-		while fame > fameLevels[flevel] do
-			flevel = flevel + 1
-			if (flevel == 5) then break end
-		end
-	end
-
-	if (flevel >= 5) then
+	local flevel = GetFameLevel(targetObj, "GetLord")
+	if (flevel == 5) then
 		if(IsMale(targetObj)) then
-			title = "Lord"
+			title = "Lord "
 		else
-			title = "Lady"
+			title = "Lady "
 		end
 	end
-	if (title) then title = title .. " " end
 	return title
 end
 

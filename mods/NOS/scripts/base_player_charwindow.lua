@@ -97,9 +97,12 @@ function UpdateCharacterWindow(targetObj)
 		if(karmaVal > 0) then
 			karmaValStr = "+"..karmaValStr
 		end
-		karmaStr = karmaStr .. " ("..karmaValStr..")"
+		local title = GetTitle(targetObj)
+		if (karmaStr ~= nil and title ~= nil) then
+			karmaStr = title
+		end
 	end
-	rightSubwindow:AddButton(10,60,"","Karma|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
+	rightSubwindow:AddButton(10,60,"","Reputation|"..karmaStr,180,40,"","karma",false,"ScrollTitleText")
 	
 	local title = StripColorFromString(targetObj:GetSharedObjectProperty("Title"))
 	if(title == "") then
@@ -136,8 +139,12 @@ function UpdateCharacterWindow(targetObj)
 		dynWindow:AddButton(-70,250,"TogglePrestige","",46,95,"[$3368]","",false,"PrestigeBook")
 		dynWindow:AddButton(62,312,"ToggleKeyRing","",32,32,"[$3369]","",false,"KeyRing")
 	end
+	local title = GetTitle(targetObj)
 
-	local name = StripColorFromString(GetTitle(targetObj) .. "" .. targetObj:GetName())
+
+	local name = StripColorFromString(targetObj:GetName())
+	
+	if (title) then name = tostring(title .. " " .. name) end
 	dynWindow:AddLabel(0,362,name,220,20,22,"center",false,false,"SpectralSC-SemiBold")
 
 	this:OpenDynamicWindow(dynWindow)	

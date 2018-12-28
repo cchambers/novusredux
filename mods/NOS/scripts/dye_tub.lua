@@ -74,6 +74,13 @@ RegisterEventHandler(
 		if (target:HasObjVar("WeaponType") or target:IsMobile()) then
 			dyeable = false
 		end
+
+		if (GetWeight(target) <= 0) then
+			dyeable = false
+		end
+
+		local targetName = target:GetName()
+		user:SystemMessage(targetName)
 		
 		-- if (IsGod(user)) then dyeable = true end
 

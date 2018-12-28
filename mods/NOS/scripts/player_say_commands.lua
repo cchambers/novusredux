@@ -5,7 +5,8 @@ RegisterEventHandler(
 	"say",
 	function(cmd, ...)
 		cmd = string.lower(cmd)
-		if (cmd == "bank" or cmd == "banker") then
+		fullstr = string.lower(tostring( cmd .. " " .. table.concat({...}, " ")))
+		if (string.match(fullstr, "bank")) then
 			if (this:HasTimer("AntiBankSpam") or IsDead(this)) then
 				return
 			end
@@ -22,18 +23,12 @@ RegisterEventHandler(
 			)
 
 			if (banker ~= nil) then
-				OpenBank(this, banker)
+				this:SendMessage("OpenBank",banker)
 			end
-
 			this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiBankSpam")
-			return
 		end
 
-		if (cmd == "balance") then
-			if (this:HasTimer("AntiBankSpam") or IsDead(this)) then
-				return
-			end
-
+		if (string.match(fullstr, "balance")) then
 			-- look for bankers.
 			local banker =
 				FindObject(
@@ -55,9 +50,35 @@ RegisterEventHandler(
 				end
 			end
 			local name = this:GetName();
-			banker:NpcSpeech(name .. ", your net worth is [FFD700]" .. tally .. "[-] gold!")
+			banker:NpcSpeech("Hi " .. name .. "! Your net worth is [FFD700]" .. tally .. "[-] gold.")
 			this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiBankSpam")
-			return
+		end
+
+		if (string.match(fullstr, "consider my sins")) then
+			local murders = this:GetObjVar("Murders")
+			if (murders ~= nil) then
+				this:SystemMessage("You must atone for " .. murders .. " murders.", "info")
+			else 
+				this:SystemMessage("Your conscious is clear.", "info")
+			end
+		end
+
+		if (string.match(fullstr, "i forgive thee")) then
+			-- local murderers = this:GetObjVar("MurdererForgive")
+			-- -- THIS NEEDS WORK
+			-- if (murderers ~= nil) then
+			-- 	for k, v in pairs() do
+			-- 		local m = v:GetObjVar("Murders")
+			-- 		if (m ~= nil) then
+			-- 			m = m - 1
+			-- 			v:SetObjVar("Murders", m)
+			-- 		end
+			-- 	end
+			-- 	this:SystemMessage("You have forgiven your aggressors.", "info")
+			-- 	-- this:DelObjVar("MurdererForgive")
+			-- else 
+				this:SystemMessage("This isn't working quite right yet.", "info")
+			-- end
 		end
 
 		local args = {...}
