@@ -65,20 +65,20 @@ RegisterEventHandler(
 
 		if (string.match(fullstr, "i forgive thee")) then
 			local murderers = this:GetObjVar("MurdererForgive")
-			this:SystemMessage(tostring(#murderers))
-			-- if (murderers ~= nil) then
-			-- 	for k, v in pairs() do
-			-- 		local m = v:GetObjVar("Murders")
-			-- 		if (m ~= nil) then
-			-- 			m = m - 1
-			-- 			v:SetObjVar("Murders", m)
-			-- 		end
-			-- 	end
-			-- 	this:SystemMessage("You have forgiven your aggressors.", "info")
-			-- 	-- this:DelObjVar("MurdererForgive")
-			-- else 
-			-- 	this:SystemMessage("You have no one to forgive.", "info")
-			-- end
+			-- THIS NEEDS WORK
+			if (murderers ~= nil) then
+				for k, v in pairs() do
+					local m = v:GetObjVar("Murders")
+					if (m ~= nil) then
+						m = m - 1
+						v:SetObjVar("Murders", m)
+					end
+				end
+				this:SystemMessage("You have forgiven your aggressors.", "info")
+				-- this:DelObjVar("MurdererForgive")
+			else 
+				this:SystemMessage("You have no one to forgive.", "info")
+			end
 		end
 
 		local args = {...}
