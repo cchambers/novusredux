@@ -69,13 +69,16 @@ MobileEffectLibrary.Murderer = {
 			who:SendMessage("UpdateName")
 		end
 		
-		-- Make sure we don't have any red blues running around...
-		local karma = who:GetObjVar("Karma")
-		if (karma > -1) then
-			who:SetObjVar("Karma", -1)
+		if (who:HasObjVar("IsRed")) then
+			-- Make sure we don't have any red blues running around...
+			local karma = who:GetObjVar("Karma")
+			if (karma > -10000) then
+				who:SetObjVar("Karma", -10000)
+			end
 		end
 	end,
 
 	Duration = TimeSpan.FromMinutes(1),
-	Decay = 8 * 60
+	Decay = 8 * 60,
+	RedLock = -10000
 }
