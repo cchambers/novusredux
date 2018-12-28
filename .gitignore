@@ -1,0 +1,10 @@
+*.pid
+*.*
+backups
+Build
+docs
+logs
+launcher
+launcher_data
+!/mods/NOS/**
+!.gitignore
