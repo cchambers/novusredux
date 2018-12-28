@@ -369,9 +369,9 @@ function GetLord(targetObj)
 	local flevel = GetFameLevel(targetObj, "GetLord")
 	if (flevel == 5) then
 		if(IsMale(targetObj)) then
-			title = "Lord"
+			title = "Lord "
 		else
-			title = "Lady"
+			title = "Lady "
 		end
 	end
 	return title

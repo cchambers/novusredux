@@ -10,6 +10,11 @@ function OnDeathStart()
 		return 
 	end
 
+	local fame = this:GetObjVar("Fame") or 0
+	fame = fame * 0.25
+	this:SetObjVar("Fame", fame)
+
+
 	-- make IsDead() checks pass for this mobile
 	this:SetObjVar("IsDead", true)
 	-- gray out screen
@@ -17,7 +22,7 @@ function OnDeathStart()
 	this:PlayMusic("Death")
 	this:SetCloak(true)
 
-	this:SystemMessage("[D70000]You have died![-]","info")
+	this:SystemMessage("[D70000]You have died and lost a little fame![-]","info")
 	this:SystemMessage("[$1681]")
 	this:SetMobileFrozen(true,true)
 	CallFunctionDelayed(TimeSpan.FromSeconds(2),function ( ... )
