@@ -19,7 +19,8 @@ MobileEffectLibrary.Murderer = {
 	end,
 
 	OnExitState = function(self,root)
-		if ( self.ParentObj:IsPlayer() ) then
+		local murders = self.ParentObj:GetObjVar("Murders")
+		if ( self.ParentObj:IsPlayer() and murders == nil) then
 			RemoveBuffIcon(self.ParentObj, "MurdererEffect")
 			self.ParentObj:SystemMessage("You are no longer [obviously] a [FF0000]murderer[-]!", "info")
 			self.ParentObj:DelObjVar("Murders")
@@ -48,8 +49,11 @@ MobileEffectLibrary.Murderer = {
 			self.ParentObj:SetObjVar("Murders", murders)
 			self.ParentObj:SystemMessage("A [FF0000]murder[-] count has decayed.", "info")
 			if (not(murders) or murders <= 0) then -- all murders have decayed
+				self.ParentObj:DelObjVar("Murders")
 				EndMobileEffect(root)
+				return
 			else 
+				-- reset the timer
 				self.ParentObj:SetObjVar("MurderTick", self.Decay)
 			end
 
