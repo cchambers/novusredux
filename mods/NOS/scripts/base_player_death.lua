@@ -11,7 +11,7 @@ function OnDeathStart()
 	end
 
 	local fame = this:GetObjVar("Fame") or 0
-	fame = fame * 0.25
+	fame = fame - (fame * 0.25)
 	this:SetObjVar("Fame", fame)
 
 
