@@ -347,7 +347,7 @@ function GetTitle(targetObj)
 
 	if (flevel >= 5) then flevel = 5 else flevel = flevel - 1 end
 
-	title = title[flevel] or ""
+	title = title[flevel] or "None"
 
 	if (flevel == 5) then
 		if(IsMale(targetObj)) then
