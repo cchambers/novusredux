@@ -41,7 +41,17 @@ function ShowStatusElement(mobileObj, args)
 
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
 
-		statusWindow:AddButton(10, 60, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+		local next = args.User:GetObjVar("NextPowerHour")
+		local hasNext = next ~= nil
+		local now = DateTime.UtcNow
+		if (hasNext) then
+			canPowerHour = now > next
+		else
+			canPowerHour = true
+		end
+		if(canPowerHour) then
+			statusWindow:AddButton(10, 60, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+		end
 
 		RegisterEventHandler(
 			EventType.DynamicWindowResponse,
@@ -76,6 +86,7 @@ function ShowStatusElement(mobileObj, args)
 								user:SendMessage("StartMobileEffect", "PowerHourBuff")
 								user:PlayAnimation("roar")
 								user:PlayEffect("ImpactWaveEffect", 2)
+								ShowStatusElement(user,{IsSelf=true,ScreenX=10,ScreenY=10})
 								return
 							end
 						end
@@ -83,6 +94,7 @@ function ShowStatusElement(mobileObj, args)
 				else 
 					user:SystemMessage("You cannot power hour quite yet.")
 				end
+				
 				return
 			end
 		)
