@@ -95,7 +95,7 @@ end
 function GetArmorType(object)
 	if(object) then
 		local armorType = object:GetObjVar("ArmorType") or "Natural"
-		DebugMessage(tostring("KHI ".. armorType))
+		--DebugMessage(tostring("KHI ".. armorType))
 		if not(EquipmentStats.BaseArmorStats[armorType]) then
 			LuaDebugCallStack("Invalid armor type: "..tostring(armorType)..", Template: "..object:GetCreationTemplateId())
 		else
@@ -111,7 +111,7 @@ function GetArmorSoundType(armorClass)
 	if ( EquipmentStats.BaseArmorStats[armorClass] ~= nil and EquipmentStats.BaseArmorStats[armorClass].SoundType ~= nil ) then
 		return EquipmentStats.BaseArmorStats[armorClass].SoundType
 	end
-return "Leather"
+    return "Leather"
 end
 
 function GetArmorBaseStat(object,statName)
