@@ -42,6 +42,37 @@ require 'default:base_player_charwindow'
 -- 	subwindow:AddButton(0,curY,"","",170,14,tooltip,"",false,"Invisible")
 -- end
 
+-- function AddStatEntry(subwindow,curY,targetObj,statName,fullStatName,tooltip,statGainStatus)
+-- 	if(statGainStatus) then
+-- 		subwindow:AddButton(174,curY,"Toggle"..fullStatName,"",0,0,"","",false,"UpDownLock",GetStatGainState(statGainStatus,fullStatName))
+-- 	end
+
+-- 	local labelStr
+-- 	if ( targetObj == this ) then
+-- 		local base = GetBaseStatValue(targetObj, statName)
+-- 		local val = targetObj:GetStatValue(statName)
+-- 		DebugMessage(tostring(statName .. " > " .. base .. " x " .. val))
+-- 		local diff = val - base
+-- 		if ( base > 0 and ( diff < 0 or diff > 0 ) ) then
+-- 			if ( diff > 0 ) then
+-- 				labelStr = string.format("(+%d) [STAT:%s]", diff, statName)
+-- 			else
+-- 				labelStr = string.format("(%d) [STAT:%s]", diff, statName)
+-- 			end
+-- 		else
+-- 			labelStr = string.format("[STAT:%s]", statName)
+-- 		end
+-- 	else
+-- 		labelStr = tostring(math.round(targetObj:GetStatValue(statName), 2))
+-- 	end
+-- 	local labelX = 170
+-- 	if not(statGainStatus) then
+-- 		labelX = 180
+-- 	end
+-- 	subwindow:AddLabel(labelX,curY+2,"[412A08]"..labelStr.."[-]",100,0,18,"right",false,false,"PermianSlabSerif_Dynamic_Bold");
+-- 	subwindow:AddButton(0,curY,"","",170,14,tooltip,"",false,"Invisible")
+-- end
+
 function UpdateCharacterWindow(targetObj)
 	targetObj = targetObj or this
 
