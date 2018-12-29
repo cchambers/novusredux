@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">450</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Giant</StringVariable>
 		<StringVariable Name="MobileKind">Giant</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -17,7 +17,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">59</DoubleVariable>
-		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Attack">40</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 50,  
+					Brawling = 60,  
 					},	
 				EquipTable = 
 					{

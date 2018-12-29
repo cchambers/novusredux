@@ -12,12 +12,12 @@
 		<StringVariable Name="MobileTeamType">Wargs</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
-		<DoubleVariable Name="Armor">55</DoubleVariable>
-		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="Armor">80</DoubleVariable>
+		<DoubleVariable Name="Attack">45</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		

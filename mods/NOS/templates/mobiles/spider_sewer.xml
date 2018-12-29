@@ -17,6 +17,8 @@
 		<DoubleVariable Name="BardingDifficulty">11</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">-11.5</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_default">

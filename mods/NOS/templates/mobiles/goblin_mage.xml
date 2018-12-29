@@ -17,12 +17,14 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">48</DoubleVariable>
-		<DoubleVariable Name="Attack">20</DoubleVariable>
-		<DoubleVariable Name="Power">5</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
+		<DoubleVariable Name="Power">10</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">98.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">8</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_orc">
@@ -34,7 +36,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 10,  
+					Brawling = 20,  
 					Magery=100,
 					MagicAffinity=100,
 					},	

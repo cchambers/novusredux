@@ -17,11 +17,13 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">55</DoubleVariable>
-		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="Armor">90</DoubleVariable>
+		<DoubleVariable Name="Attack">55</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">105</DoubleVariable>
+		<DoubleVariable Name="PetSlots">10</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">

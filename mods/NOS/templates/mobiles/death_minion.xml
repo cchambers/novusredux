@@ -20,7 +20,7 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
 		<BoolVariable Name="DoesNotBleed">true</BoolVariable>
 		<DoubleVariable Name="Armor">52</DoubleVariable>
-		<DoubleVariable Name="Attack">25</DoubleVariable>
+		<DoubleVariable Name="Attack">45</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_skeleton">

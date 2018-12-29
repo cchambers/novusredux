@@ -19,7 +19,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">56</DoubleVariable>
 		<DoubleVariable Name="Attack">48</DoubleVariable>
-		<DoubleVariable Name="Power">16</DoubleVariable>
+		<DoubleVariable Name="Power">24</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
@@ -35,7 +35,6 @@
 					},
 				Skills = 
 					{ 
-					Magery=100,
 					Magery=100,
 					MagicAffinity=100,
 					Brawling = 90,  

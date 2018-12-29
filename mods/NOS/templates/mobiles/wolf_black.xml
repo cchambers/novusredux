@@ -9,7 +9,7 @@
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">100</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Wolf</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="HostileLevel">5</DoubleVariable>
@@ -18,8 +18,8 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">45</DoubleVariable>
-		<DoubleVariable Name="Attack">5</DoubleVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">16</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">53.1</DoubleVariable>
@@ -35,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 20,  
+					Brawling = 40,  
 					},	
 				LootTables = 
 					{ 
@@ -51,7 +51,7 @@
 					MeatType = "ToughMeat",
 					AnimalParts =
 					{
-						{ ResourceType="LeatherHide", RarityPct=50, Count=1 },
+						{ ResourceType="LeatherHide", RarityPct=50, Count=2 },
 					},
 				}
 			</Initializer>

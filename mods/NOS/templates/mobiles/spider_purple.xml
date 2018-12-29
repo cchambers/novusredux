@@ -15,6 +15,8 @@
 		<StringVariable Name="NaturalWeaponName">Venomous Fangs</StringVariable>
 		<StringVariable Name="NaturalArmor">Medium</StringVariable>
 		<BoolVariable Name="CanBeTamed">true</BoolVariable>	
+		<DoubleVariable Name="TamingDifficulty">105</DoubleVariable>
+		<DoubleVariable Name="PetSlots">10</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_default_animal">

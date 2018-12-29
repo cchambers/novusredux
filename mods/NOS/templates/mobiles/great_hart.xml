@@ -16,11 +16,11 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">44</DoubleVariable>
-		<DoubleVariable Name="Attack">4</DoubleVariable>
+		<DoubleVariable Name="Attack">16</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">59.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_prey">
@@ -29,7 +29,7 @@
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Brawling = 15,  
+					Brawling = 30,  
 					},	
 				LootTables = 
 					{ 

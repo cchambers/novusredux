@@ -18,7 +18,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">60</DoubleVariable>
-		<DoubleVariable Name="Attack">3</DoubleVariable>
+		<DoubleVariable Name="Attack">9</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 0,  
+					Brawling = 30,  
 					},	
 				EquipTable = 
 					{					
