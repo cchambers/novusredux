@@ -610,3 +610,23 @@ RegisterEventHandler(EventType.Message,"OpenBank",
 				end
 			end)
 	end)
+
+-- This is the player tick, it's performed once per minute. It's the alternative to having multiple systems all updating under their own timers.
+function PerformPlayerTick(notFirst)
+	-- prevent logins and reloads from taking minutes away
+	if ( notFirst ) then
+		-- check initiate
+		CheckInitiate(this)
+	else
+		-- give daily login bonus
+		DailyLogin(this)
+	end
+
+	VitalityCheck(this)
+
+	-- check allegiance titles always
+	CheckAllegianceTitle(this)
+
+	CheckBidRefund()
+	ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+end
