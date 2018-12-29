@@ -1,5 +1,47 @@
 require 'default:base_player_charwindow'
 
+-- Defense is hard-baked in at 45.  This was an attempt at making it display 45 lower than it's supposed to..  it worked.
+--  However...  this would not correct any of the issues with damage calculations, and it would destroy the balance.
+-- function AddDefenseEntry(subwindow,curY,targetObj,statName,fullStatName,tooltip,statGainStatus)
+-- 	if(statGainStatus) then
+-- 		subwindow:AddButton(174,curY,"Toggle"..fullStatName,"",0,0,"","",false,"UpDownLock",GetStatGainState(statGainStatus,fullStatName))
+-- 	end
+
+-- 	local labelStr
+-- 	if ( targetObj == this ) then
+-- 		local base = GetBaseStatValue(targetObj, statName)
+-- 		DebugMessage("Begin")
+-- 		DebugMessage(targetObj)
+-- 		DebugMessage(base)
+-- 		DebugMessage(statName)
+-- 		local val = targetObj:GetStatValue(statName)
+-- 		DebugMessage(val)
+-- 		local diff = val - base - 45
+-- 		DebugMessage(diff)
+-- 		if ( base > 0 and ( diff < 0 or diff > 0 ) ) then
+-- 			if ( diff > 0 ) then
+-- 				labelStr = string.format("(+%d) [STAT:%s]", diff, statName)
+-- 			else
+-- 				labelStr = string.format("(%d) [STAT:%s]", diff, statName)
+-- 			end
+-- 		else
+-- 			labelStr = string.format("[STAT:%s]", diff, statName)
+-- 		end
+-- 	else
+-- 		DebugMessage("2")
+-- 		local defVal = targetObj:GetStatValue(statName) - 45
+-- 		DebugMessage(defVal)
+-- 		labelStr = tostring(math.round(targetObj:GetStatValue(statName) - 45, 2))
+-- 	end
+-- 	local labelX = 170
+-- 	if not(statGainStatus) then
+-- 		labelX = 180
+-- 	end
+-- 	DebugMessage(labelStr)
+-- 	subwindow:AddLabel(labelX,curY+2,"[412A08]"..labelStr.."[-]",100,0,18,"right",false,false,"PermianSlabSerif_Dynamic_Bold");
+-- 	subwindow:AddButton(0,curY,"","",170,14,tooltip,"",false,"Invisible")
+-- end
+
 function UpdateCharacterWindow(targetObj)
 	targetObj = targetObj or this
 
@@ -112,6 +154,19 @@ function UpdateCharacterWindow(targetObj)
 
 	local bio = targetObj:GetObjVar("BioString") or "No Bio"
 	rightSubwindow:AddButton(10,160,"EditBio","Bio|"..bio,186,100,"","",false,"ScrollTitleText")
+	
+	local PowerHourLabel = ""
+	local timestuff = ""
+	local next = targetObj:GetObjVar("NextPowerHour")
+	--local hasNext = next ~= nil
+	if (next ~= nil) then
+		local now = DateTime.UtcNow
+		rightSubwindow:AddLabel(10,220,"[412A08]".."You can Power Hour again in ",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
+		rightSubwindow:AddLabel(10,235,"[7C0A02]"..TimeSpanToWords(next:Subtract(now)),186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
+	else
+		rightSubwindow:AddLabel(10,220,"[412A08]".."Power Hour is ready to be used!",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
+	end
+	
 	
 	--[[
 	local karmaLevel = GetKarmaLevel(GetKarma(targetObj))
