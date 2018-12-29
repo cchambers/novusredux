@@ -20,8 +20,9 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">

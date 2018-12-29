@@ -23,7 +23,9 @@
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-	</ObjectVariableComponent>					
+		<DoubleVariable Name="TamingDifficulty">84.3</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default">
 			<Initializer>

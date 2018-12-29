@@ -23,7 +23,9 @@
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
-	</ObjectVariableComponent>					
+		<DoubleVariable Name="TamingDifficulty">65.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default">
 			<Initializer>

@@ -17,6 +17,8 @@
 		<StringVariable Name="NaturalEnemy">Rats</StringVariable>
 		<StringVariable Name="NaturalArmor">Heavy</StringVariable>
 		<BoolVariable Name="CanBeTamed">true</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">3</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_default_animal">

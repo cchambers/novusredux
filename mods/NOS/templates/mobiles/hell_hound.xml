@@ -25,6 +25,8 @@
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<BoolVariable Name="IsHellHound">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">89.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">7</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_wolf">

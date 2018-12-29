@@ -21,6 +21,7 @@
 		<DoubleVariable Name="PrestigeXP">5</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_prey">

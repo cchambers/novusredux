@@ -21,8 +21,8 @@
 		<DoubleVariable Name="Attack">6</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_prey">
@@ -34,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 0,  
+					Brawling = 60,  
 					},	
 				EquipTable = 
 					{					
