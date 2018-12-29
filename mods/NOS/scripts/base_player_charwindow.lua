@@ -154,19 +154,21 @@ function UpdateCharacterWindow(targetObj)
 
 	local bio = targetObj:GetObjVar("BioString") or "No Bio"
 	rightSubwindow:AddButton(10,160,"EditBio","Bio|"..bio,186,100,"","",false,"ScrollTitleText")
-	
-	local PowerHourLabel = ""
-	local timestuff = ""
+
 	local next = targetObj:GetObjVar("NextPowerHour")
-	--local hasNext = next ~= nil
-	if (next ~= nil) then
-		local now = DateTime.UtcNow
+	local hasNext = next ~= nil
+	local now = DateTime.UtcNow
+	if (hasNext) then
+		canPowerHour = now > next
+	else
+		canPowerHour = true
+	end
+	if (canPowerHour) then
+		rightSubwindow:AddLabel(10,220,"[412A08]".."Power Hour is ready to be used!",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
+	else
 		rightSubwindow:AddLabel(10,220,"[412A08]".."You can Power Hour again in ",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 		rightSubwindow:AddLabel(10,235,"[7C0A02]"..TimeSpanToWords(next:Subtract(now)),186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
-	else
-		rightSubwindow:AddLabel(10,220,"[412A08]".."Power Hour is ready to be used!",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 	end
-	
 	
 	--[[
 	local karmaLevel = GetKarmaLevel(GetKarma(targetObj))
