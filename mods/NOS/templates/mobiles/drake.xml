@@ -1,12 +1,13 @@
 <ObjectTemplate>
-	<ClientId>1142</ClientId>
+	<ClientId>223</ClientId>
 	<Name>Drake</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.4</ScaleModifier>
 	<MobileComponent>			
-		<BaseRunSpeed>.8</BaseRunSpeed>
+		<BaseRunSpeed>.4</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent>		
+	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">2200</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>

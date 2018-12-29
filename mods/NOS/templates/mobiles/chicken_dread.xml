@@ -21,7 +21,7 @@
 		<DoubleVariable Name="Attack">11</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">40</DoubleVariable>
 		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>

@@ -22,7 +22,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">20</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_prey">

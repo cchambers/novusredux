@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<ClientId>1142</ClientId>
+	<ClientId>223</ClientId>
 	<Name>Scaled Drake</Name>
 	<Hue>932</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
