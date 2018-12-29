@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">700</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Ork</StringVariable>
 		<StringVariable Name="MobileKind">Ork</StringVariable>
 		<StringVariable Name="AI-SpeechTable">OrcSpeech</StringVariable>
@@ -20,7 +20,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">50</DoubleVariable>
-		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="Attack">60</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>

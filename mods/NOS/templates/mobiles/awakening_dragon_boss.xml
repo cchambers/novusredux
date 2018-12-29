@@ -13,7 +13,7 @@
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
 		<DoubleVariable Name="Armor">87</DoubleVariable>
-		<DoubleVariable Name="Attack">63</DoubleVariable>
+		<DoubleVariable Name="Attack">83</DoubleVariable>
 		<DoubleVariable Name="Power">20</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>

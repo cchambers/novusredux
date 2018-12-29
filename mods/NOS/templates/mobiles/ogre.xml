@@ -16,7 +16,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">70</DoubleVariable>
-		<DoubleVariable Name="Attack">100</DoubleVariable>
+		<DoubleVariable Name="Attack">120</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>

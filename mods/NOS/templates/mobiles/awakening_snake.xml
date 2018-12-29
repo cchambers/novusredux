@@ -9,7 +9,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-	<DoubleVariable Name="BaseHealth">80</DoubleVariable>
+	<DoubleVariable Name="BaseHealth">120</DoubleVariable>
     <StringVariable Name="MobileTeamType">Awakening</StringVariable>
     <StringVariable Name="MobileKind">Reptile</StringVariable>
     <BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -18,7 +18,7 @@
     <BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
     <BoolVariable Name="AI-CanFlee">True</BoolVariable>
     <DoubleVariable Name="Armor">44</DoubleVariable>
-    <DoubleVariable Name="Attack">1</DoubleVariable>
+    <DoubleVariable Name="Attack">20</DoubleVariable>
     <DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
     <BoolVariable Name="DoNotEquip">True</BoolVariable>
     <DoubleVariable Name="TamingDifficulty">-1.1</DoubleVariable>

@@ -17,7 +17,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">47</DoubleVariable>
-		<DoubleVariable Name="Attack">15</DoubleVariable>
+		<DoubleVariable Name="Attack">28</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>

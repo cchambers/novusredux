@@ -10,7 +10,7 @@
 	</MobileComponent>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>	
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">750</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Giant</StringVariable>
 		<StringVariable Name="MobileKind">Giant</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -18,8 +18,8 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">59</DoubleVariable>
-		<DoubleVariable Name="Attack">38</DoubleVariable>
+		<DoubleVariable Name="Armor">65</DoubleVariable>
+		<DoubleVariable Name="Attack">45</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
@@ -38,7 +38,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 50,  
+					Brawling = 75,  
 					},	
 				EquipTable = 
 					{

@@ -17,7 +17,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">3</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		

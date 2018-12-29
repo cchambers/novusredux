@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">310</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">610</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Pirate</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -19,7 +19,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">53</DoubleVariable>
-		<DoubleVariable Name="Attack">27</DoubleVariable>
+		<DoubleVariable Name="Attack">60</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
