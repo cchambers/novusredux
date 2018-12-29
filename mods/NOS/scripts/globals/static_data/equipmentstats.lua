@@ -522,26 +522,26 @@ EquipmentStats = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 12
+				ArmorRating = 15
 			},
 			Chest = {
-				ArmorRating = 14
+				ArmorRating = 20
 			},
 			Legs = {
-				ArmorRating = 14
+				ArmorRating = 20
 			}
 		},
 		Linen = {
 			ArmorClass = "Cloth",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 14
+				ArmorRating = 18
 			},
 			Chest = {
-				ArmorRating = 18
+				ArmorRating = 23
 			},
 			Legs = {
-				ArmorRating = 18
+				ArmorRating = 23
 			}
 		},
 		MageRobe = {
@@ -551,7 +551,7 @@ EquipmentStats = {
 				ArmorRating = 0
 			},
 			Chest = {
-				ArmorRating = 10
+				ArmorRating = 26
 			},
 			Legs = {
 				ArmorRating = 0
@@ -561,65 +561,65 @@ EquipmentStats = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 16
+				ArmorRating = 22
 			},
 			Chest = {
-				ArmorRating = 22
+				ArmorRating = 27
 			},
 			Legs = {
-				ArmorRating = 22
+				ArmorRating = 27
 			}
 		},
 		Bone = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 20
+				ArmorRating = 26
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 30
 			},
 			Legs = {
-				ArmorRating = 25
+				ArmorRating = 30
 			}
 		},
 		Hardened = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 20
+				ArmorRating = 26
 			},
 			Chest = {
-				ArmorRating = 30
+				ArmorRating = 35
 			},
 			Legs = {
-				ArmorRating = 30
+				ArmorRating = 35
 			}
 		},
 		Assassin = {
 			ArmorClass = "Light",
 			SoundType = "Leather",
 			Head = {
-				ArmorRating = 15
+				ArmorRating = 21
 			},
 			Chest = {
-				ArmorRating = 25
+				ArmorRating = 30
 			},
 			Legs = {
-				ArmorRating = 25
+				ArmorRating = 30
 			}
 		},
 		Chain = {
 			ArmorClass = "Light",
 			SoundType = "Plate",
 			Head = {
-				ArmorRating = 20
+				ArmorRating = 30
 			},
 			Chest = {
-				ArmorRating = 50
+				ArmorRating = 55
 			},
 			Legs = {
-				ArmorRating = 50
+				ArmorRating = 55
 			}
 		},
 		Brigandine = {
