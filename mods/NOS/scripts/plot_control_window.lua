@@ -274,7 +274,12 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
             this:SendMessage("StartMobileEffect", "HouseAddCoOwner", controller)
             return -- don't cleanup
         elseif ( returnId == "OpenBank" ) then
-            this:SendMessage("OpenBank", controller)
+            local distance = controller:GetLoc():Distance(this:GetLoc())
+            if (distance > 11) then
+                this:SystemMessage(tostring("Move a little closer to your sign to access your bank!"))
+            else
+                this:SendMessage("OpenBank", controller)
+            end
             return -- don't cleanup
         end
     else
