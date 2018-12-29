@@ -147,6 +147,7 @@ function CoOwnerTab(dynamicWindow)
     dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,244,"Sliced")
 
     dynamicWindow:AddButton(20,240,"AddCoOwner","Add Co-Owner",290,26,"Co-Owners can Lock/Unlock the door, use secure containers, and lock down/release items. Only in this house.","",false,"List")
+    dynamicWindow:AddButton(20,200,"OpenBank","Open Your Bank",290,26,"Open your bank for free, temporarily.","",false,"List")
     
     local coOwners = controller:GetObjVar("HouseCoOwners") or {}
     local scrollWindow = ScrollWindow(21,44,280,184,23)
@@ -271,6 +272,9 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
             return -- don't cleanup
         elseif ( returnId == "AddCoOwner" ) then
             this:SendMessage("StartMobileEffect", "HouseAddCoOwner", controller)
+            return -- don't cleanup
+        elseif ( returnId == "OpenBank" ) then
+            this:SendMessage("OpenBank", controller)
             return -- don't cleanup
         end
     else
