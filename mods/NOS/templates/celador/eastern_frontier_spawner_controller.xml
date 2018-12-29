@@ -31,6 +31,8 @@
 
 	 				--HelmStable
 						{ Count = 6, TemplateId = "chicken",    Region = "HelmStable"},
+						{ Count = 1, TemplateId = "chicken_dire",	Region = "HelmStable", SpawnDuration=15, DelayMin=10, Chance=15},
+						{ Count = 1, TemplateId = "chicken_dread",	Region = "HelmStable", SpawnDuration=15, DelayMin=15, Chance=5},
 
 					--HelmBlacksmithGuild
 						{ Count = 1, TemplateId = "guildleader_blacksmith",    Region = "HelmBlacksmithGuild"},
