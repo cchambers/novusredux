@@ -1,7 +1,8 @@
 <ObjectTemplate>
 	<Name>[bdbdbd]Spider Silk[-]</Name>
-	<ClientId>242</ClientId>
+	<ClientId>354</ClientId>
 	<ScaleModifier>0.7</ScaleModifier>
+	<Hue>819</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">Spidersilk</StringVariable>
