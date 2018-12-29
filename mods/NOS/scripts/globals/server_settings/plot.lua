@@ -8,7 +8,7 @@ ServerSettings.Plot = {
     MinimumSize = 12,
 
     -- maxiumsize is a required setting so we can look for controllers near 1/2 this range
-    MaximumSize = 30,
+    MaximumSize = 40,
 
     -- multiply the resource cost of building a house by this amount
     HouseResourceCostModifier = 1,
