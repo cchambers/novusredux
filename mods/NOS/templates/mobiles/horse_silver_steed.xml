@@ -1,45 +1,44 @@
 <ObjectTemplate>
-	<ClientId>1142</ClientId>
-	<Name>Wyrmling</Name>
-	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
-	<ScaleModifier>0.4</ScaleModifier>
-	<MobileComponent>			
+	<ClientId>59</ClientId>
+	<Name>Silver Steed</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
+	<SharedStateEntry name="Variation" type="string" value="Desert"/>
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/dragon/dragon"/>
+	<ScaleModifier>1.1</ScaleModifier>
+	<Hue>871</Hue>
+<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1100</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
-		<StringVariable Name="MobileKind">Dragon</StringVariable>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Demon</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">80</DoubleVariable>
-		<DoubleVariable Name="Attack">45</DoubleVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Attack">80</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">75</DoubleVariable>
-		<DoubleVariable Name="PetSlots">4</DoubleVariable>
-	</ObjectVariableComponent>
+		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
+	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_dragon">
+		<LuaModule Name="ai_demon">
 			<Initializer>
 				{ 
-				Type = "lunar",
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				MobTraits =
 					{
 					},
 				Skills = 
 					{ 
-					Brawling=100, 
-					MagicAffinity=100,
-					Magery=100, 
+					Brawling = 80,  
 					},	
 				EquipTable = 
 					{
@@ -50,27 +49,18 @@
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.AncientScrolls,
 						{
-							NumCoins = math.random(1100,1400),
+							NumItems = 1,
+							NumCoins = math.random(400,600),
 						},
 					},		
 				ScavengeTables =
 					{
-					},		
-					AvailableSpells = { "Lightning" },
-				}
-			</Initializer>
-		</LuaModule>
-		<LuaModule Name="animal_parts">
-			<Initializer>
-				{
-					AnimalParts =
-					{
-						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
-					},				
+					},					
+					WeaponAbilities = { primary="Slash" },	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
 			</Initializer>
 		</LuaModule>

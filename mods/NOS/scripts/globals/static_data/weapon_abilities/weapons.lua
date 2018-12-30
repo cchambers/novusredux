@@ -263,3 +263,19 @@ WeaponAbilitiesData.CrookCalm = {
         Enabled = true
     },
 }
+
+WeaponAbilitiesData.CrookProvoke = {
+    MobileEffect = "CrookProvoke",
+    Stamina = 0,
+    NoCombat = true,
+    AllowMounted = true,
+    QueueTarget = "Loc",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(0),
+    Action = {
+        DisplayName = "Provoke",
+        Tooltip = "Attempt to set an aggressive creature on another creature.",
+        Icon = "Deep Cuts",
+        Enabled = true
+    },
+}
