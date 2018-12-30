@@ -9,7 +9,7 @@ MobileEffectLibrary.BeingCalmed =
 		
 		self.Calmer = calmer
 
-		calmer:SystemMessage(tostring("You begin calming the " .. self.ParentObj:GetName()))
+		calmer:SystemMessage(tostring("You begin calming the " .. self.ParentObj:GetName()), "info")
 		
 		self.isAggressive = self.ParentObj:HasModule("combat")
 		
