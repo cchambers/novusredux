@@ -24,10 +24,15 @@ local hueTable = {
 local colorTable = { "FFFFFF","CCCCCC", "888888",  "555555",  "222222" }
 
 -- fire, ice, poison, lunar, 
-
+DebugMessage("Dragon AI")
 if (initializer ~= nil) then
+DebugMessage("Initializer")
+
     if( initializer.Type ~= nil ) then  
+
         local type = initializer.Type  
+DebugMessage("Type " .. type)
+
         local hue = hueTable[math.random(1,#hueTable[type])]
         this:SetHue(hue)
         this:NpcSpeech("I am a " .. type .. " thing.")
