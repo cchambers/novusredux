@@ -6,8 +6,9 @@ MobileEffectLibrary.CrookCalm =
 
         local skillLevel = GetSkillLevel(self.ParentObj, "AnimalLoreSkill")
         if (skillLevel < 80) then
-            self.ParentObj:SystemMessage("You lack the Animal Lore knowledge (80) to do this.")
+            self.ParentObj:SystemMessage("You lack the Animal Lore (80) to do this.")
             EndMobileEffect(root)
+            return false
         end
         if (target) then
             local hp = target:GetStatValue("Health")

@@ -3,11 +3,16 @@ MobileEffectLibrary.CrookProvoke =
     ShouldStack = false,
 
     OnEnterState = function(self, root, target, args)
+        local skillLevel = GetSkillLevel(self.ParentObj, "AnimalLoreSkill")
+        if (skillLevel < 80) then
+            self.ParentObj:SystemMessage("You lack the Animal Lore (90) to do this.")
+            EndMobileEffect(root)
+            return false
+        end
         if (target) then
-            local hp = target:GetStatValue("Health")
-            local maxhp = GetMaxHealth(target)
-            local percent = (hp / maxhp) * 100
-            local formula = (percent < 20)
+            local mobint = target:GetStatValue("Int")
+            local tamerint = self.ParentObj:GetStatValue("Int")
+            local formula = ((tamerint - mobint) > 2)
             if (formula) then
                 self.ParentObj:SystemMessage("It might work!")
                 self.ParentObj:PlayAnimation("fistpump")
@@ -21,7 +26,7 @@ MobileEffectLibrary.CrookProvoke =
     end,
 
     OnExitState = function(self, root)
-        self.ParentObj:SystemMessage("EXITING")
+        return
     end,
 }
  
