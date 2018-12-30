@@ -1,7 +1,7 @@
 <ObjectTemplate>
   <ClientId>219</ClientId>
   <Name>Dread Turkey</Name>
-	<Color>0xFF222222</Color>
+	<Hue>13</Hue>
 	<ScaleModifier>3</ScaleModifier>
   <MobileComponent>     
     <BaseRunSpeed>1</BaseRunSpeed>
