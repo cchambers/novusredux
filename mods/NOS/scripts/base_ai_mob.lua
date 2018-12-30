@@ -1,15 +1,15 @@
 if(this:GetMobileType() == "Animal") then
-    require 'base_mobile'
+    require 'default:base_mobile'
 else
-    require 'base_mobile_advanced'
+    require 'default:base_mobile_advanced'
 end
 
-require 'base_ai_settings'
-require 'base_ai_state_machine'
-require 'incl_combatai'
-require 'incl_regions'
-require 'incl_combat_abilities'
-require 'incl_magic_sys'
+require 'default:base_ai_settings'
+require 'default:base_ai_state_machine'
+require 'default:incl_combatai'
+require 'default:incl_regions'
+require 'default:incl_combat_abilities'
+require 'default:incl_magic_sys'
 
 AI.MainTarget = nil --effectively who I want to attack
 AI.PursueLastTarget = nil --target currently I am pursuing
