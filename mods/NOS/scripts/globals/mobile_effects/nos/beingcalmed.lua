@@ -44,5 +44,5 @@ MobileEffectLibrary.BeingCalmed =
 
 	Target = nil,
 	isAggressive = false,
-	Duration = TimeSpan.FromSeconds(30)
+	Duration = TimeSpan.FromSeconds(10)
 }
