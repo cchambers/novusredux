@@ -2,6 +2,7 @@
 	<ClientId>1142</ClientId>
 	<Name>Wyvern</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>1.2</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>0.8</BaseRunSpeed>
 		<MobileType>Monster</MobileType>

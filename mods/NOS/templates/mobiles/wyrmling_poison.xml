@@ -1,7 +1,8 @@
 <ObjectTemplate>
 	<ClientId>1142</ClientId>
-	<Name>Wyvern</Name>
+	<Name>Wyrmling</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.4</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
