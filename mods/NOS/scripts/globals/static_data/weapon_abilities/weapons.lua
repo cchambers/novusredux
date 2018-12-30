@@ -247,3 +247,19 @@ WeaponAbilitiesData.TelecrookRes = {
         Enabled = true
     },
 }
+
+WeaponAbilitiesData.CrookCalm = {
+    MobileEffect = "CrookCalm",
+    Stamina = 0,
+    NoCombat = true,
+    AllowMounted = true,
+    QueueTarget = "Loc",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(0),
+    Action = {
+        DisplayName = "Calm",
+        Tooltip = "Attempt to calm an aggressive creature.",
+        Icon = "Regrowth",
+        Enabled = true
+    },
+}

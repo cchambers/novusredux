@@ -1,0 +1,77 @@
+<ObjectTemplate>
+	<ClientId>223</ClientId>
+	<Name>Drake</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.4</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>.4</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">2200</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">65</DoubleVariable>
+		<DoubleVariable Name="Attack">85</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_dragon">
+			<Initializer>
+				{ 
+				Type = "fire",
+				Stats = { Str=80, Agi=50, Int=50, Wis=80, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling=100, 
+					MagicAffinity=100,
+					Magery=100, 
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.DecrepidEye,
+						{
+							NumCoins = math.random(800,1000),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+						{ ResourceType="VileLeatherHide", RarityPct=20, Count=2 },
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

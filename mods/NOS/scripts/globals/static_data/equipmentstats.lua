@@ -410,18 +410,12 @@ EquipmentStats = {
 			PrimaryAbility = "HuntingKnife",
 			Speed = 3
 		},
-		AdminCrook = {
-			WeaponClass = "Tool",
-			Attack = 3,
-			MinSkill = 0,
-			PrimaryAbility = "Move",
-			Speed = 3
-		},
 		Crook = {
 			WeaponClass = "Tool",
 			Attack = 3,
 			MinSkill = 0,
 			PrimaryAbility = "Tame",
+			PrimaryAbility = "CrookCalm",
 			Speed = 3
 		},
 		Shovel = {

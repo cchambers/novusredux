@@ -30,12 +30,6 @@
 							MaxDuration = TimeSpan.FromMinutes(30),
 							SystemMessage = "The ground begins to rumble."
 						}, 
-						-- Stage 4 (Barkas)
-						{ 
-							KillCount = 1, 
-							PermanentObjectTag = "Great Tree Stage 5",
-							SystemMessage = "You have awakened Lord Barkas."
-						}, 
 					},
 				}
 			</Initializer>
@@ -46,11 +40,11 @@
 					AwakeningSpawnInfo = {
 						-- Stage 1
 						{
-							{ Count = 60, TemplateId = "dire_chicken",  Region = "ChickenLand", DelayMin=0 }, 
+							{ Count = 200, TemplateId = "dire_chicken",  Region = "ChickenLand", DelayMin=0 }, 
 						},
 						-- Stage 2
 						{
-							{ Count = 30, TemplateId = "dread_chicken",  Region = "ChickenLand", DelayMin=0 }, 
+							{ Count = 1, TemplateId = "dread_chicken",  Region = "ChickenLand", DelayMin=0 }, 
 						}						
 					}
 				}
