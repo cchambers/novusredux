@@ -7,6 +7,6 @@ if (this:HasObjVar("DoEffect")) then
 end
 
 RegisterEventHandler(EventType.Timer,"DoEffect",function ( effect )
-    this:PlayEffect(effect, 2.5)
-    this:ScheduleTimerDelay(TimeSpan.FromSeconds(2.2),"DoEffect", effect)
+    this:PlayEffect(effect, 3)
+    this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"DoEffect", effect)
 end)
