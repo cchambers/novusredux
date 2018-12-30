@@ -1,15 +1,15 @@
 MobileEffectLibrary.BeingCalmed = 
 {
 
-	OnEnterState = function(self,root,calmer)
-		if ( calmer == nil ) then
+	OnEnterState = function(self,root,tamer)
+		if ( tamer == nil ) then
 			EndMobileEffect(root)
 			return false
 		end
 		
-		self.Calmer = calmer
+		self.Tamer = tamer
 
-		calmer:SystemMessage(tostring("You begin calming the " .. self.ParentObj:GetName()), "info")
+		tamer:SystemMessage(tostring("You begin calming the " .. self.ParentObj:GetName()), "info")
 		
 		self.isAggressive = self.ParentObj:HasModule("combat")
 		
@@ -42,7 +42,7 @@ MobileEffectLibrary.BeingCalmed =
 		EndMobileEffect(root)
 	end,
 
-	Target = nil,
+	Tamer = nil,
 	isAggressive = false,
 	Duration = TimeSpan.FromSeconds(10)
 }

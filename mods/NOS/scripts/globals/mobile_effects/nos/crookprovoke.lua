@@ -1,14 +1,8 @@
-MobileEffectLibrary.CrookCalm =
+MobileEffectLibrary.CrookProvoke =
 {
     ShouldStack = false,
 
     OnEnterState = function(self, root, target, args)
-
-        local skillLevel = GetSkillLevel(self.ParentObj, "AnimalLoreSkill")
-        if (skillLevel < 80) then
-            self.ParentObj:SystemMessage("You lack the Animal Lore knowledge (80) to do this.")
-            EndMobileEffect(root)
-        end
         if (target) then
             local hp = target:GetStatValue("Health")
             local maxhp = GetMaxHealth(target)
@@ -17,7 +11,7 @@ MobileEffectLibrary.CrookCalm =
             if (formula) then
                 self.ParentObj:SystemMessage("It might work!")
                 self.ParentObj:PlayAnimation("fistpump")
-                target:SendMessage("StartMobileEffect", "BeingCalmed", self.ParentObj)
+                target:SendMessage("StartMobileEffect", "BeingProvoked", self.ParentObj)
             else
                 self.ParentObj:SystemMessage("It probably won't work!")
                 self.ParentObj:PlayAnimation("sad")
@@ -27,7 +21,7 @@ MobileEffectLibrary.CrookCalm =
     end,
 
     OnExitState = function(self, root)
-        return
+        self.ParentObj:SystemMessage("EXITING")
     end,
 }
  
