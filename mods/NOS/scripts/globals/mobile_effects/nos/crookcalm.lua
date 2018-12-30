@@ -8,7 +8,6 @@ MobileEffectLibrary.CrookCalm =
             local maxhp = GetMaxHealth(target)
             local percent = hp / maxhp
             self.ParentObj:SystemMessage("HP " .. hp .. " .. " .. percent .. "%")
-            return
         end
         EndMobileEffect(root)
     end,
