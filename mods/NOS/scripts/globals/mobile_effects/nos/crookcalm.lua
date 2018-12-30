@@ -7,10 +7,11 @@ MobileEffectLibrary.CrookCalm =
             local hp = target:GetStatValue("Health")
             local maxhp = GetMaxHealth(target)
             local percent = (hp / maxhp) * 100
-            local formula = (percent < 25)
+            local formula = (percent < 20)
             if (formula) then
                 self.ParentObj:SystemMessage("It might work!")
                 self.ParentObj:PlayAnimation("fistpump")
+                target:SendMessage("StartMobileEffect", "BeingCalmed", self.ParentObj)
             else
                 self.ParentObj:SystemMessage("It probably won't work!")
                 self.ParentObj:PlayAnimation("sad")
