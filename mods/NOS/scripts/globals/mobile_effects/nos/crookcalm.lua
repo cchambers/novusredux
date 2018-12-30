@@ -10,8 +10,10 @@ MobileEffectLibrary.CrookCalm =
             local formula = (percent < 25)
             if (formula) then
                 self.ParentObj:SystemMessage("It might work!")
+                self.ParentObj:PlayAnimation("fistpump")
             else
                 self.ParentObj:SystemMessage("It probably won't work!")
+                self.ParentObj:PlayAnimation("sad")
             end
         end
         EndMobileEffect(root)
