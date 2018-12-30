@@ -21,18 +21,13 @@ local hueTable = {
     lunar = {848, 868, 869, 870, 872, 897, 961, 973},
 }
 
-local colorTable = { "FFFFFF","CCCCCC", "888888",  "555555",  "222222" }
-
 -- fire, ice, poison, lunar, 
 if (initializer ~= nil) then
-
     if( initializer.Type ~= nil ) then  
         local type = initializer.Type  
         local typeTable = hueTable[type]
         local hue = typeTable[math.random(1,#typeTable)]
         this:SetHue(hue)
-DebugMessage(tostring("Dragon AI " .. hue))
-
         return
     end
 end

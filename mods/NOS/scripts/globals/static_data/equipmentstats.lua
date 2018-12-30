@@ -415,7 +415,7 @@ EquipmentStats = {
 			Attack = 3,
 			MinSkill = 0,
 			PrimaryAbility = "Tame",
-			PrimaryAbility = "CrookCalm",
+			SecondaryAbility = "CrookCalm",
 			Speed = 3
 		},
 		Shovel = {
