@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>59</ClientId>
 	<Name>Silver Steed</Name>
-	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
+	<SharedStateEntry name="BodyOffset" type="double" value="0"/>
 	<SharedStateEntry name="Variation" type="string" value="Desert"/>
 	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/dragon/dragon"/>
 	<ScaleModifier>1.1</ScaleModifier>
@@ -14,6 +14,8 @@
 		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<StringVariable Name="DoEffect">HolyEffect</StringVariable>
+		<StringVariable Name="EffectDelay">20</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>

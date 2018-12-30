@@ -13,6 +13,7 @@
 		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<StringVariable Name="DoEffect">VoidAuraEffect</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
