@@ -1,9 +1,9 @@
 <ObjectTemplate>
 	<ClientId>205</ClientId>
-	<Color>0xFF908070</Color>
 	<Name>Dread Chicken</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<ScaleModifier>1.75</ScaleModifier>
+	<ScaleModifier>3</ScaleModifier>
+	<Hue>13</Hue>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
@@ -19,13 +19,14 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">70</DoubleVariable>
 		<DoubleVariable Name="Attack">11</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">40</DoubleVariable>
 		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_prey">
+		<LuaModule Name="ai_wolf">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
