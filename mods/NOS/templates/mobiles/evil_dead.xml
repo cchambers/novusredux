@@ -25,6 +25,7 @@
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="NecromancyDifficulty">100</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_skeleton">

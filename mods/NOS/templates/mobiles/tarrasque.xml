@@ -1,7 +1,6 @@
 <ObjectTemplate>
 	<ClientId>1585</ClientId>
-	<Name>Balron</Name>
-	<Color>0xFF80010d</Color>
+	<Name>Tarrasque</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="3"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
@@ -17,7 +16,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="FameXP">250</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">200</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">99.8</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PetSlots">9</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		

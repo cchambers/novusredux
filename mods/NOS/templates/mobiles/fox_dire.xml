@@ -1,13 +1,13 @@
 <ObjectTemplate>
 	<ClientId>136</ClientId>
-	<Name>Fox</Name>
-	<ScaleModifier>1</ScaleModifier>
+	<Name>Dire Fox</Name>
+	<ScaleModifier>1.25</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Fox</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="HostileLevel">2</DoubleVariable>
@@ -18,13 +18,14 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">44</DoubleVariable>
 		<DoubleVariable Name="Attack">8</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">23.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">1</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">42</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_prey">
+		<LuaModule Name="ai_wolf">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
@@ -33,7 +34,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 5,  
+					Brawling = 50,  
 					},	
 				LootTables = 
 					{ 

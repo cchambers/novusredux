@@ -19,14 +19,14 @@
 		<DoubleVariable Name="Armor">55</DoubleVariable>
 		<DoubleVariable Name="Attack">45</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">88</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_default_animal">
+		<LuaModule Name="ai_wolf">
 			<Initializer>
 				{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },

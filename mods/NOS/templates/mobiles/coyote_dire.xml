@@ -3,7 +3,7 @@
 	<Name>Coyote</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value=".75"/>
 	<SharedStateEntry name="Variation" type="string" value="Coyote"/>
-	<ScaleModifier>0.8</ScaleModifier>
+	<ScaleModifier>0.4</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
