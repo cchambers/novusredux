@@ -14,7 +14,7 @@
 		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
-		<StringVariable Name="DoEffect">HolyEffect</StringVariable>
+		<StringVariable Name="DoEffect">StarsEffect</StringVariable>
 		<StringVariable Name="EffectDelay">20</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
