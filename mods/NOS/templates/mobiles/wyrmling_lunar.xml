@@ -1,13 +1,12 @@
 <ObjectTemplate>
-	<ClientId>223</ClientId>
-	<Name>Drake</Name>
+	<ClientId>1142</ClientId>
+	<Name>Wyvern</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
-	<ScaleModifier>0.4</ScaleModifier>
 	<MobileComponent>			
-		<BaseRunSpeed>.4</BaseRunSpeed>
+		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent>
+	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">2200</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
@@ -16,22 +15,22 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">65</DoubleVariable>
-		<DoubleVariable Name="Attack">85</DoubleVariable>
+		<DoubleVariable Name="Armor">80</DoubleVariable>
+		<DoubleVariable Name="Attack">45</DoubleVariable>
 		<DoubleVariable Name="Power">20</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">80</DoubleVariable>
-		<DoubleVariable Name="PetSlots">6</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">75</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_dragon">
 			<Initializer>
 				{ 
-				Type = "poison",
-				Stats = { Str=80, Agi=50, Int=50, Wis=80, Wil=10 },
+				Type = "lunar",
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				MobTraits =
 					{
 					},
@@ -50,17 +49,17 @@
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.DecrepidEye,
+						TemplateDefines.LootTable.AncientScrolls,
 						{
-							NumCoins = math.random(800,1000),
+							NumCoins = math.random(1100,1400),
 						},
-					},	
+					},		
 				ScavengeTables =
 					{
 					},		
-					AvailableSpells = {"Heal", "Greaterheal", "Poison"},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
 				}
 			</Initializer>
 		</LuaModule>
@@ -70,7 +69,6 @@
 					AnimalParts =
 					{
 						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
-						{ ResourceType="VileLeatherHide", RarityPct=20, Count=2 },
 					},				
 				}
 			</Initializer>
