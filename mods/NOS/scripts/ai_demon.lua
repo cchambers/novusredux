@@ -8,5 +8,5 @@ end
 
 RegisterEventHandler(EventType.Timer,"DoEffect",function ( effect )
     this:PlayEffect(effect, 2.5)
-    this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"DoEffect", effect)
+    this:ScheduleTimerDelay(TimeSpan.FromSeconds(2.2),"DoEffect", effect)
 end)
