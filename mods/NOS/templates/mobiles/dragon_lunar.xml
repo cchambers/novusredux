@@ -21,7 +21,7 @@
 		<LuaModule Name="ai_dragon">
 			<Initializer>				
 					{ 
-				Type = "fire",
+				Type = "lunar",
 				Stats = { Str=100, Agi=20, Int=50, Wis=50, Wil=50 },
 				MobTraits =
 					{
