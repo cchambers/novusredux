@@ -9,14 +9,14 @@ MobileEffectLibrary.BeingCalmed =
 		
 		self.Calmer = calmer
 
-		calmer:SystemMessage(tostring("You begin calming the " .. self.ParentObject:GetName()))
+		calmer:SystemMessage(tostring("You begin calming the " .. self.ParentObj:GetName()))
 		
-		self.isAggressive = self.ParentObject:HasModule("combat")
+		self.isAggressive = self.ParentObj:HasModule("combat")
 		
 		if (self.isAggressive) then
-			self.ParentObject:DelModule("combat")
+			self.ParentObj:DelModule("combat")
 		end
-		self.ParentObject:SendMessage("StartMobileEffect", "GodFreeze")
+		self.ParentObj:SendMessage("StartMobileEffect", "GodFreeze")
 		
         RegisterEventHandler(EventType.Message, "DamageInflicted", function(damager, damageAmount)
             if ( damageAmount > 0 ) then
@@ -34,10 +34,10 @@ MobileEffectLibrary.BeingCalmed =
 	end,
 
 	AiPulse = function(self,root)
-		self.ParentObject:SendMessage("EndGodFreezeEffect")
+		self.ParentObj:SendMessage("EndGodFreezeEffect")
 		
 		if (self.isAggressive) then
-			self.ParentObject:AddModule("combat")
+			self.ParentObj:AddModule("combat")
 		end
 		EndMobileEffect(root)
 	end,
