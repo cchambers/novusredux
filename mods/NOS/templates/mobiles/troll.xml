@@ -21,6 +21,8 @@
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">90.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">7</DoubleVariable>
 		<!-- <DoubleVariable Name="PetSlots">5</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">88</DoubleVariable> -->
 	</ObjectVariableComponent>					
@@ -28,6 +30,7 @@
 		<LuaModule Name="ai_default">
 			<Initializer>
 				{ 
+				Type = "lunar",
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				MobTraits =
 					{
