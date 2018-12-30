@@ -26,9 +26,11 @@ local colorTable = { "FFFFFF","CCCCCC", "888888",  "555555",  "222222" }
 -- fire, ice, poison, lunar, 
 
 if (initializer ~= nil) then
-    if( initializer.Type ~= nil ) then    
-        local hue = hueTable[math.random(1,#hueTable[initializer.Type])]
+    if( initializer.Type ~= nil ) then  
+        local type = initializer.Type  
+        local hue = hueTable[math.random(1,#hueTable[type])]
         this:SetHue(hue)
+        this:NpcSpeech("I am a " .. type .. " thing.")
         return
     end
 end
