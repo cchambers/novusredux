@@ -13,9 +13,18 @@ MobileEffectLibrary.CrookProvoke =
             local mobint = target:GetStatValue("Int")
             local tamerint = self.ParentObj:GetStatValue("Int")
             local formula = ((tamerint - mobint) > 2)
-            if (formula) then
+            local crookObj = self.ParentObj:GetEquippedObject("RightHand")
+            local isCrook = crookObj and
+				 (GetWeaponType(crookObj) == "Crook" or
+				 GetWeaponType(crookObj) == "CrookAsh" or
+				 GetWeaponType(crookObj) == "CrookBlight")
+
+            if (formula and crookObj) then
                 self.ParentObj:SystemMessage("It might work!")
                 self.ParentObj:PlayAnimation("fistpump")
+                if ( Success(ServerSettings.Durability.Chance.OnToolUse) ) then
+                    AdjustDurability(crookObj, -1)
+                end
                 target:SendMessage("StartMobileEffect", "BeingProvoked", self.ParentObj)
             else
                 self.ParentObj:SystemMessage("It probably won't work!")
