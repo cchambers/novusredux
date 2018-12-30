@@ -16,6 +16,8 @@ MobileEffectLibrary.BeingCalmed =
 		if (self.isAggressive) then
 			self.ParentObj:DelModule("combat")
 		end
+		
+		self.ParentObj:SendMessage("EndCombatMessage")
 		self.ParentObj:SendMessage("StartMobileEffect", "GodFreeze")
 		
         RegisterEventHandler(EventType.Message, "DamageInflicted", function(damager, damageAmount)
