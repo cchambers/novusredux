@@ -1,15 +1,15 @@
 <ObjectTemplate>
 	<ClientId>205</ClientId>
-	<Name>Dread Chicken</Name>
-	<Color>0xFF000000</Color>
+	<Name>Dire Chicken</Name>
+	<Color>0xFF666666</Color>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<ScaleModifier>3</ScaleModifier>
+	<ScaleModifier>1.5</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -17,13 +17,13 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">70</DoubleVariable>
-		<DoubleVariable Name="Attack">11</DoubleVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">9</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">40</DoubleVariable>
-		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_wolf">
@@ -35,7 +35,7 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 60,  
+					Brawling = 30,  
 					},	
 				EquipTable = 
 					{					
