@@ -21,8 +21,7 @@
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">90.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots"></DoubleVariable>
+		<DoubleVariable Name="PetSlots">8</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">88</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
