@@ -1,6 +1,7 @@
 <ObjectTemplate>
-	<ClientId>59</ClientId>
-	<Name>TEST</Name>
+	<ClientId>205</ClientId>
+	<Name>Dire Chicken</Name>
+	<Color>0xFF666666</Color>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
 	<ScaleModifier>1.5</ScaleModifier>
 	<MobileComponent>			

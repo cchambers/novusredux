@@ -1,50 +1,41 @@
 <ObjectTemplate>
-	<ClientId>205</ClientId>
-	<Name>Dire Chicken</Name>
-	<Color>0xFF666666</Color>
-	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<ScaleModifier>1.5</ScaleModifier>
+	<ClientId>59</ClientId>
+	<Name>Broken Warg</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
+	<ScaleModifier>1.0</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Animal</StringVariable>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Wargs</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
-		<BoolVariable Name="AI-Leash">False</BoolVariable>
-		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
-		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
-		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
-		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">60</DoubleVariable>
-		<DoubleVariable Name="Attack">9</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
+		<DoubleVariable Name="Armor">80</DoubleVariable>
+		<DoubleVariable Name="Attack">45</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="PetSlots">1.5</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
-	</ObjectVariableComponent>					
-	<ScriptEngineComponent>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
+		<StringVariable Name="MountType">Warg</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
 		<LuaModule Name="ai_wolf">
-			<Initializer>
+			<Initializer>				
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
-				MobTraits =
-					{
-					},
-				Skills = 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Skills = 
 					{ 
-					Brawling = 30,  
-					},	
-				EquipTable = 
-					{					
+						Channeling=math.random(60.1,80), 
+						Melee=math.random(65.1,87),						
 					},
-				LootTables = 
-					{ 
-					},	
-				ScavengeTables =
+					EquipTable = 
 					{
+						Backpack = { "backpack" },			
+					},	
+					LootTables = 
+					{ 
 					},	
 				}
 			</Initializer>
@@ -52,13 +43,18 @@
 		<LuaModule Name="animal_parts">
 			<Initializer>
 				{
-					MeatCount = 4,					
-
-					MeatType = "MysteryMeat",
 					AnimalParts =
 					{
-						{ ResourceType="Feather", RarityPct=100, Count=5 },
+						{ ResourceType="LeatherHide", RarityPct=100, Count=3 },
 					},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="ai_mountable">
+			<Initializer>
+				{
+					Type = "lunar",
+					Body = "warg"
 				}
 			</Initializer>
 		</LuaModule>
