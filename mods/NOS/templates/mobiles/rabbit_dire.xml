@@ -1,10 +1,12 @@
 <ObjectTemplate>
 	<ClientId>40</ClientId>
-	<Color>0xFFCCCCCC</Color>
+	<Color>0xFFFFFFFF</Color>
 	<Name>Dire Rabbit</Name>
+	<Hue>871</Hue>
+	<ScaleModifier>1.2</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
 	<MobileComponent>			
-		<BaseRunSpeed>1</BaseRunSpeed>
+		<BaseRunSpeed>1.25</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
