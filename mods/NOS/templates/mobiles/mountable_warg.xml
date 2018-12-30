@@ -53,7 +53,6 @@
 		<LuaModule Name="ai_mountable">
 			<Initializer>
 				{
-					Type = "lunar",
 					Body = "warg"
 				}
 			</Initializer>

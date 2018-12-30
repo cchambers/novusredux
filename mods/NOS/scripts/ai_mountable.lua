@@ -13,7 +13,6 @@ if (initializer ~= nil) then
         local typeTable = hueTable[type]
         local hue = typeTable[math.random(1,#typeTable)]
         this:SetHue(hue)
-        return
     end
     
     if( initializer.Body ~= nil ) then  
