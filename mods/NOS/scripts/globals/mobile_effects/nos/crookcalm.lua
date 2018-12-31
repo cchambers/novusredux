@@ -20,7 +20,7 @@ MobileEffectLibrary.CrookCalm =
 				 GetWeaponType(crookObj) == "CrookAsh" or
 				 GetWeaponType(crookObj) == "CrookBlight")
 
-            if (formula and crookObj) then
+            if (formula and crookObj and not(target:IsPlayer())) then
                 self.ParentObj:SystemMessage("It might work!")
                 self.ParentObj:PlayAnimation("fistpump")
                 if ( Success(ServerSettings.Durability.Chance.OnToolUse) ) then
