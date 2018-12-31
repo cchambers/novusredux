@@ -191,6 +191,8 @@ CustomItemValues = {
 	tool_crook_blight = 500,
 
 	packed_bind_stone = 100000,
+	packed_trashcan = 1000,
+
 	land_deed = 25000,
 	guild_charter = 50000,
 	escape_scroll = 400,
