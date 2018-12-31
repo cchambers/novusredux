@@ -4,7 +4,7 @@
 	<ObjectVariableComponent>	
 	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
-	<DoubleVariable Name="spawnCount">10</DoubleVariable>
+	<DoubleVariable Name="spawnCount">3</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="simple_mob_spawner">
