@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>Fire Dragon Family Spawner</Name>
+	<Name>Poison Dragon Family Spawner</Name>
 	<ObjectVariableComponent>	
 	<DoubleVariable Name="spawnRadius">30</DoubleVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
@@ -11,10 +11,10 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 75, Template = "wyrmling_fire" },
-						{ Weight = 15, Template = "drake_fire" },
-						{ Weight = 9, Template = "wyvern_fire" },
-						{ Weight = 1, Template = "dragon_fire" },
+						{ Weight = 75, Template = "wyrmling_poison" },
+						{ Weight = 15, Template = "drake_poison" },
+						{ Weight = 9, Template = "wyvern_poison" },
+						{ Weight = 1, Template = "dragon_poison" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

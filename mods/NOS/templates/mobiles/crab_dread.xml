@@ -2,7 +2,7 @@
 	<ClientId>1278</ClientId>
 	<Name>Dread Crab</Name>
 	<ScaleModifier>0.4</ScaleModifier>
-	<Hue>10</hue>
+	<Hue>10</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="0.75"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>

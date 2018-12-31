@@ -1,20 +1,20 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>Fire Dragon Family Spawner</Name>
+	<Name>Poison Dragon Family Spawner</Name>
 	<ObjectVariableComponent>	
-	<DoubleVariable Name="spawnRadius">30</DoubleVariable>
+	<DoubleVariable Name="spawnRadius">60</DoubleVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
-	<DoubleVariable Name="spawnCount">5</DoubleVariable>
+	<DoubleVariable Name="spawnCount">2</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="simple_mob_spawner">
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 75, Template = "wyrmling_fire" },
-						{ Weight = 15, Template = "drake_fire" },
-						{ Weight = 9, Template = "wyvern_fire" },
-						{ Weight = 1, Template = "dragon_fire" },
+						{ Weight = 75, Template = "wyrmling_lunar" },
+						{ Weight = 15, Template = "drake_lunar" },
+						{ Weight = 9, Template = "wyvern_lunar" },
+						{ Weight = 1, Template = "dragon_lunar" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

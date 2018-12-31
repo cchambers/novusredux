@@ -7,7 +7,7 @@
 	</MobileComponent>
     <SharedStateEntry name="BodyOffset" type="double" value="6.5"/>
 	<ObjectVariableComponent>
-		<DoubleVariable Name="BaseHealth">15000</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">18000</DoubleVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
 		<DoubleVariable Name="Armor">100</DoubleVariable>
