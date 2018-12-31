@@ -1,6 +1,6 @@
-require 'incl_combatai'
-require 'incl_regions'
-require 'ai_default_animal'
+require 'default:incl_combatai'
+require 'default:incl_regions'
+require 'default:ai_default_animal'
 
 -- Combat AI settings
 AI.Settings.AggroChanceAnimals = 0 --1 out of this number chance to attack other animals
