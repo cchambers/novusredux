@@ -59,7 +59,7 @@ RegisterEventHandler(
 			if (murders ~= nil) then
 				this:SystemMessage("You must atone for " .. murders .. " murders.", "info")
 			else 
-				this:SystemMessage("Your conscious is clear.", "info")
+				this:SystemMessage("Your conscience is clear.", "info")
 			end
 		end
 
