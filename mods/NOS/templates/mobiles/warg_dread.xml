@@ -1,8 +1,8 @@
 <ObjectTemplate>
 	<ClientId>1138</ClientId>
-	<Name>Warg</Name>
+	<Name>Dread Warg</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
-	<ScaleModifier>0.65</ScaleModifier>
+	<ScaleModifier>1.4</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
@@ -11,23 +11,24 @@
 		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Wargs</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
-		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">1300</DoubleVariable>
 		<DoubleVariable Name="Armor">80</DoubleVariable>
 		<DoubleVariable Name="Attack">45</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PetSlots">10</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_wolf">
 			<Initializer>				
 				{ 
-					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Stats = { Str=60, Agi=30, Int=21, Wis=10, Wil=10 },
 					Skills = 
 					{ 
-						Brawling=50,						
+						Brawling=100,						
 					},
 					EquipTable = 
 					{

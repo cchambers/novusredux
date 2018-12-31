@@ -1,0 +1,28 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Warg Family Spawner</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">15</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">4</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 75, Template = "warg" },
+						{ Weight = 15, Template = "warg_dire" },
+						{ Weight = 9.75, Template = "mountable_warg" },
+						{ Weight = 0.25, Template = "warg_dread" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 15,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
