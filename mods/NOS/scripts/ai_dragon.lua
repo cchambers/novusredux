@@ -25,10 +25,19 @@ local hueTable = {
 if (initializer ~= nil) then
     if( initializer.Type ~= nil ) then  
         local type = initializer.Type  
+        
+        if (type == "lunar") then
+            if (IsDayTime()) then
+                this:Destroy()
+            else 
+                this:AddModule("ai_lunar")
+            end
+            return
+        end
+
         local typeTable = hueTable[type]
         local hue = typeTable[math.random(1,#typeTable)]
         this:SetHue(hue)
-        return
     end
 end
 
