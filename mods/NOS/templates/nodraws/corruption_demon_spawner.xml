@@ -3,7 +3,7 @@
 	<Name>Corruption Demon Spawner</Name>
 	<ObjectVariableComponent>	
 	<StringVariable Name="spawnRegion">EndRoom</StringVariable>
-	<DoubleVariable Name="spawnDelay">240</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">200</DoubleVariable>
 	<DoubleVariable Name="spawnCount">10</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
