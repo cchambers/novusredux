@@ -6,19 +6,6 @@ if(IsDemiGod(this)) then
 	require 'default:base_player_mobedit'
 end
 
--- WEIGHT SYSTEM NOT REALLY IMPLEMENTED YET
-maxCarryWeight = 1000000
-maxTotalWeight = 1000000
-
-carriedObjectSource = nil
-carriedObjectSourceLoc = nil
-carriedObjectSourceEquipSlot = nil
-AUTOLOOT_DELAY = 1.0
-
-currentRegionalName = nil
-
--- Overriding the base_mobile apply damage to check for pvp rules
-local BaseHandleApplyDamage = HandleApplyDamage
 function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 
@@ -353,7 +340,7 @@ function GetTitle(targetObj)
 	
 	flevel = GetFameLevel(targetObj, "GetTitle")
 
-	title = title[flevel] or "None"
+	title = title[flevel] or ""
 
 	if (flevel == 5) then
 		if(IsMale(targetObj)) then
