@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<MapDefinition ExtentsX="2048" ExtentsZ="2048" />
+	<RegionDefinition>
+		<RegionName>Arena</RegionName>
+		<RegionBounds>
+			<Rect>[(-400,0.05,-400)(400,0.05,-400)(400,0.05,400)(-400,0.05,400)(-400,-0.05,-400)(400,-0.05,-400)(400,-0.05,400)(-400,-0.05,400)]</Rect>
+			<Center>(0,0,0)</Center>
+			<Size>(800,0.1,800)</Size>
+			<Position>(5,0,5)</Position>
+			<Rotation>(0,0,0)</Rotation>
+			<Scale>(1,1,1)</Scale>
+		</RegionBounds>
+	</RegionDefinition>
+</WorldData>

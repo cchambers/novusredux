@@ -12,6 +12,7 @@
 		<DoubleVariable Name="Karma">10000</DoubleVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
 		<BoolVariable Name="noloot">True</BoolVariable>
+		<BoolVariable Name="Invulnerable">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="guard_protect" />

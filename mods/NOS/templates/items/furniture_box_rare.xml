@@ -8,7 +8,7 @@
     <ScriptEngineComponent>
         <LuaModule Name="set_initializer_variables">
             <Initializer>
-                {   
+                {
                     LootTable = {
                         NumItems = 1,
                         LootItems = {
