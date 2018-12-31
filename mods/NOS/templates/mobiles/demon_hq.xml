@@ -1,6 +1,8 @@
 <ObjectTemplate>
 	<ClientId>1273</ClientId>
-	<Name>Dark Balron</Name>
+	<Name>Ba'al</Name>
+	<ScaleModifier>1.2</ScaleModifier>
+	<Color>0xFF666666</Color>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
 	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<MobileComponent>			
@@ -8,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">340</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">3666</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -16,10 +18,10 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">55</DoubleVariable>
-		<DoubleVariable Name="Attack">35</DoubleVariable>
-		<DoubleVariable Name="Power">14</DoubleVariable>
+		<DoubleVariable Name="Attack">75</DoubleVariable>
+		<DoubleVariable Name="Power">35</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>		
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>		
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -27,7 +29,7 @@
 		<LuaModule Name="ai_demon">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=60, Agi=30, Int=21, Wis=10, Wil=70 },
 				MobTraits =
 					{
 					Armored = 2,
@@ -38,7 +40,7 @@
 					{ 
 					MagicAffinity=100,
 					Magery=100,
-					Brawling = 80,  
+					Brawling = 120,  
 					},	
 				EquipTable = 
 					{
@@ -47,11 +49,13 @@
 				LootTables =
 					{
 						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.SicklyEye,
 						TemplateDefines.LootTable.Prestige,
 						{
-							NumCoins = math.random(350,650),
+							NumCoins = math.random(3000,8000),
 							NumItems = 1,
 					    	LootItems =
 					    	{
