@@ -19,7 +19,7 @@
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
 		<DoubleVariable Name="TamingDifficulty">83.1</DoubleVariable>
-		<DoubleVariable Name="PetSlots">8</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_wolf">
