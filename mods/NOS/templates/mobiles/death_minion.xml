@@ -38,7 +38,10 @@
 	
 				EquipTable = 
 					{
-						Backpack = { "backpack" },						
+						Backpack = { "backpack" },
+						RightHand= {
+							"weapon_greataxe",
+						},				
 					},
 				LootTables = 
 					{ 
@@ -51,16 +54,6 @@
 								{ Weight = 15, Template = "animalparts_bone_cursed", Unique = true },
 								{ Weight = 75, Template = "animalparts_bone", Unique = true },
 							},	
-						},
-
-						-- Right Hand weapon equipment
-						{
-							NumItems = 1,
-							LootItems = 
-							{ 
-								{  Weight = 1, Template = "weapon_greataxe", Unique = true },
-							},
-						
 						},
 					},		
 				}
