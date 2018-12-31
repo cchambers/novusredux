@@ -19,7 +19,7 @@
 						{ Weight = 4.25, Template = "void_horse" },
 						{ Weight = 0.25, Template = "nightmare" },
 						{ Weight = 0.25, Template = "silver_steed" },
-						{ Weight = 0.25, Template = "brazen_brono" },
+						{ Weight = 0.25, Template = "brazen_bronco" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,
