@@ -1,0 +1,10 @@
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\bin\Debug\NosXmlParser.exe.config
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\bin\Debug\NosXmlParser.exe
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\bin\Debug\NosXmlParser.pdb
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.csprojAssemblyReference.cache
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.Form1.resources
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.Properties.Resources.resources
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.csproj.GenerateResource.cache
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.csproj.CoreCompileInputs.cache
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.exe
+C:\Users\berycs_v2\Desktop\Code\NosXmlParser\NosXmlParser\obj\Debug\NosXmlParser.pdb
