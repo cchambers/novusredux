@@ -1,0 +1,33 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Demon Horse Spawner</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">10</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 20, Template = "chestnut_horse" },
+						{ Weight = 20, Template = "desert_horse" },
+						{ Weight = 20, Template = "bay_horse" },
+						{ Weight = 20, Template = "cultist_horse" },
+						{ Weight = 10, Template = "black_horse" },
+						{ Weight = 4.25, Template = "void_horse" },
+						{ Weight = 0.25, Template = "nightmare" },
+						{ Weight = 0.25, Template = "silver_steed" },
+						{ Weight = 0.25, Template = "brazen_steed" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 40,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

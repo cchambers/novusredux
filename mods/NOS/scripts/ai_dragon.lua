@@ -14,11 +14,19 @@ table.insert(AI.CombatStateTable,{StateName = "TailWhip",Type = "melee",Range = 
 table.insert(AI.CombatStateTable,{StateName = "TailStrike",Type = "melee",Range = 5})
 table.insert(AI.CombatStateTable,{StateName = "Fly",Type = "melee",Range = 5})
 
+
 local hueTable = { 
+    ice = {481, 484, 487, 490},
+    fire = {100, 103, 106, 109},
+    poison = {530, 533, 536, 539},
+    lunar = {1, 4, 7, 10},
+}
+
+local rareHueTable = { 
     ice = {819, 820, 821, 822, 823, 824, 839, 900, 913},
     fire = {826, 827, 831, 832, 833, 862, 956, 957},
     poison = {805, 901, 903, 911, 923, 931, 949, 959},
-    lunar = {848, 868, 869, 870, 872, 897, 961, 973},
+    lunar = {848, 868, 872, 897, 961, 973, 869, 870},
 }
 
 -- fire, ice, poison, lunar, 
@@ -35,7 +43,14 @@ if (initializer ~= nil) then
             return
         end
 
-        local typeTable = hueTable[type]
+        local colorTable = math.random(1, 100)
+        if (colorTable < 4) then
+            colorTable = rareHueTable
+        else
+            colorTable = hueTable
+        end
+
+        local typeTable = colorTable[type]
         local hue = typeTable[math.random(1,#typeTable)]
         this:SetHue(hue)
     end

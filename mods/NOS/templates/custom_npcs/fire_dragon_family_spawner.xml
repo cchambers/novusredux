@@ -1,9 +1,9 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>Graveyard Spawner</Name>
+	<Name>Dread Dire Chicken Spawner</Name>
 	<ObjectVariableComponent>	
-	<DoubleVariable Name="spawnRadius">35</DoubleVariable>
-	<DoubleVariable Name="spawnDelay">120</DoubleVariable>
+	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
 	<DoubleVariable Name="spawnCount">20</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
@@ -11,13 +11,13 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 45, Template = "skeleton" },
-						{ Weight = 50, Template = "zombie" },
-						{ Weight = 5, Template = "skeleton_hq" },
+						{ Weight = 94.5, Template = "chicken" },
+						{ Weight = 5, Template = "chicken_dire" },
+						{ Weight = 0.5, Template = "chicken_dread" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,
-						["AI-LeashDistance"] = 35,
+						["AI-LeashDistance"] = 40,
 						["AI-CanWander"] = true,
 					}
 				}
