@@ -40,7 +40,6 @@ if (initializer ~= nil) then
             else 
                 this:AddModule("ai_lunar")
             end
-            return
         end
 
         local colorTable = math.random(1, 100)
