@@ -60,6 +60,7 @@
 					    	LootItems =
 					    	{
 				    			{ Chance = 5, Template = "furniture_box", Unique = true },
+				    			{ Chance = 50, Template = "random_executioner_weapon_30_90", Unique = true },
 				    		}
 						},
 					},	

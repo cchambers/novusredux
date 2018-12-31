@@ -184,6 +184,11 @@ CustomItemValues = {
 	holy_water = 0,
 
 	tool_engraving = 20,
+	tool_hammer = 40,
+	
+	tool_crook = 100,
+	tool_crook_ash = 250,
+	tool_crook_blight = 500,
 
 	packed_bind_stone = 100000,
 	land_deed = 14000,
