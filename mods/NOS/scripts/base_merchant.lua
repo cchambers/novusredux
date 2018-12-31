@@ -86,7 +86,7 @@ function GetModifiedSellValue(itemValue,seller)
 	local sellerPriceMod = seller:GetObjVar("merchantReputation") or 1
 
 	if(sellerPriceMod > 0) then
-		sellerPriceMod =100 - (sellerPriceMod / 4)
+		sellerPriceMod = 100 - (sellerPriceMod / 4)
 	else
 		sellerPriceMod = 100 + (sellerPriceMod * .8)
 	end
@@ -111,8 +111,58 @@ function CanUserSell(item,user)
 	return true
 end
 
-function GetItemSellValue(item,user)	
-	return (GetItemValue(item,Merchant.CurrencyInfo.Resource) * 0.5)	
+function GetItemSellValue(item,user)
+	local value = GetItemValue(item,Merchant.CurrencyInfo.Resource)
+
+	local armorBonus = 0
+	if(item:HasObjVar("ArmorBonus")) then
+		--0-10
+		armorBonus = item:GetObjVar("ArmorBonus")
+	end
+
+	local weaponBonus = 0
+	local attackBonus = 0
+	if(item:HasObjVar("AttackBonus")) then
+		--0-75%
+		attackBonus = item:GetObjVar("AttackBonus")
+		--DebugMessage(attackBonus)
+	end
+
+	local accuracyBonus = 0
+	if(item:HasObjVar("AccuracyBonus")) then
+		--0-30
+		accuracyBonus = item:GetObjVar("AccuracyBonus")
+		--DebugMessage(accuracyBonus)
+	end
+	weaponBonus = attackBonus + accuracyBonus
+	
+	-- local noBonus = value * 0.5
+	-- local hasWeaponBonus = (value + (value * weaponBonus * 0.05)) * 0.5
+	-- DebugMessage(noBonus," :: ",attackBonus," :: ",accuracyBonus," :: ",weaponBonus," :: ",hasWeaponBonus)
+
+	-- local hasArmorBonus = (value + (value * armorBonus * 0.33)) * 0.5
+	-- DebugMessage(value," :: ",armorBonus," :: ",noBonus," :: ",hasArmorBonus)
+	-- local hasArmorBonus1 = (value + (value * 1 * 0.33)) * 0.5
+	-- local hasArmorBonus2 = (value + (value * 2 * 0.33)) * 0.5
+	-- local hasArmorBonus3 = (value + (value * 3 * 0.33)) * 0.5
+	-- local hasArmorBonus4 = (value + (value * 4 * 0.33)) * 0.5
+	-- local hasArmorBonus5 = (value + (value * 5 * 0.33)) * 0.5
+	-- local hasArmorBonus6 = (value + (value * 6 * 0.33)) * 0.5
+	-- local hasArmorBonus7 = (value + (value * 7 * 0.33)) * 0.5
+	-- local hasArmorBonus8 = (value + (value * 8 * 0.33)) * 0.5
+	-- local hasArmorBonus9 = (value + (value * 9 * 0.33)) * 0.5
+	-- local hasArmorBonus10 = (value + (value * 10 * 0.33)) * 0.5
+	-- DebugMessage(hasArmorBonus1," : ",hasArmorBonus2," : ",hasArmorBonus3," : ",hasArmorBonus4," : ",hasArmorBonus5," : ",hasArmorBonus6," : ",hasArmorBonus7," : ",hasArmorBonus8," : ",hasArmorBonus9," : ",hasArmorBonus10)
+
+	if(armorBonus ~= 0) then
+		return (value + (value * armorBonus * 0.33)) * 0.5
+	end
+	if(weaponBonus ~= 0) then
+		return (value + (value * weaponBonus * 0.05)) * 0.5
+	end
+	if(armorBonus == 0 and weaponBonus == 0) then
+		return value * 0.5
+	end
 end
 
 function GetItemPurchaseValue(item,user)
