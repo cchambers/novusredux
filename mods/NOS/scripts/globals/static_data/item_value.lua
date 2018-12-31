@@ -179,7 +179,7 @@ CustomItemValues = {
 	blueprint_terracottahouseestate = 332600,
 	
 
-	fruit_catacombs = 150,
+	fruit_catacombs = 1000,
 
 	holy_water = 0,
 
@@ -196,9 +196,9 @@ CustomItemValues = {
 	escape_scroll = 400,
 	hearthstone = 1000,
 
-	arrow = 1,
-	arrow_ash = 0.6,
-	arrow_blightwood = 0.2,
+	arrow = 2,
+	arrow_ash = 6,
+	arrow_blightwood = 10,
 
 	resource_wood = 20,
 	resource_ash = 60,
