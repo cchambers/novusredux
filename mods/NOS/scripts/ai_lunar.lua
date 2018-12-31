@@ -1,3 +1,5 @@
+require 'incl_gametime'
+
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(60), "StillNightTime")
 
 RegisterEventHandler(EventType.Timer, "StillNightTime", function () 
