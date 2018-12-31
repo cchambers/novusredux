@@ -1,7 +1,7 @@
 <ObjectTemplate>
     <Name>Artifact Crate</Name>
     <ClientId>2262</ClientId>
-    <SharedStateEntry name="Weight" type="int" value="1"/>
+    <SharedStateEntry name="Weight" type="int" value="5"/>
     <ObjectVariableComponent>
         <StringVariable Name="ResourceType">LotteryBox</StringVariable>
     </ObjectVariableComponent>
@@ -31,7 +31,7 @@
                             { Weight = 2, Template = "furniture_bookshelf_wooden_blank", Unique = true, Packed=true },
                             { Weight = 2, Template = "furniture_bookshelf_wooden_empty", Unique = true, Packed=true },
                             { Weight = 2, Template = "bookshelf_ornate_blank", Unique = true, Packed=true },
-                            { Weight = 2, Template = "bookshelf_orante_corner_blank", Unique = true, Packed=true }, <!-- it's spelled wrong because they spelled it wrong -->
+                            { Weight = 2, Template = "bookshelf_orante_corner_blank", Unique = true, Packed=true },
                             { Weight = 2, Template = "furniture_globe", Unique = true, Packed=true },
                             { Weight = 2, Template = "furniture_lantern_street, Unique = true, Packed=true },
                             { Weight = 1, Template = "furniture_lantern_line", Unique = true, Packed=true },

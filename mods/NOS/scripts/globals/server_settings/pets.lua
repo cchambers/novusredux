@@ -18,5 +18,5 @@ ServerSettings.Pets = {
 
     -- if a pet(mount) takes this many, or fewer, pet slots they can be dismissed.
         -- (prevents dismissing powerful mounts that could be brought out for combat instantly.) 
-    MaxSlotsToAllowDismiss = 1,
+    MaxSlotsToAllowDismiss = 2,
 }

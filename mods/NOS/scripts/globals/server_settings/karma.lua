@@ -4,7 +4,7 @@ ServerSettings.Karma = {
     NewPlayerKarma = 1,
 
     -- the karma level for alignment that will be set when a player is initialized.
-    NewPlayerKarmaAlignment = 1,
+    NewPlayerKarmaAlignment = 2,
 
 	-- zones in-game will be disabled from karma.
 	DisableKarmaZones = {
@@ -29,7 +29,6 @@ ServerSettings.Karma = {
     Levels = {
         {
             Amount = 1,
-            Protect = 0,
             Name = "Innocent",
             AlignmentName = "Peaceful",
             NameColor = "82ABFF",
@@ -70,7 +69,6 @@ ServerSettings.Karma = {
         },
         {
             Amount = -1,
-            Protect = -9999,
             Name = "Chaos",
             AlignmentName = "Chaotic",
             NameColor = "C0C0C0",
@@ -91,10 +89,10 @@ ServerSettings.Karma = {
         },
         {
             Amount = -10000,
-            Name = "Dread",
+            Name = "Outcast",
             AlignmentName = "Unlawful",
             NameColor = "FF0000",
-            Title = "The Dreaded",
+            Title = "The Outcast",
             NegativeKarmaAdjustMod = 0.15,
             -- guards will attack this player, don't set guard protect to true when this is true, things might get weird?
             GuardHostilePlayer = true,
@@ -107,7 +105,7 @@ ServerSettings.Karma = {
             --
             DisallowBlueResurrectShrines = true,
             -- prevent this karma level from using factions
-            DisallowAllegiance = true,
+            -- DisallowAllegiance = true,
             BenefitModifier = 1.25,
             PvPMods = {
                 Innocent = 1,

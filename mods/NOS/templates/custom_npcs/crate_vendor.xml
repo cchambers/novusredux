@@ -52,7 +52,7 @@
 						},
 						{
 							Template = "furniture_box_rare",
-							Price = 150000,
+							Price = 100000,
 							Amount = 5,
 							RelativeLoc = "0.89024, 0.9737217, 0.01377",
 							Rotation = "0, 270.0002, 0",

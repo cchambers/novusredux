@@ -188,7 +188,7 @@ CustomItemValues = {
 	
 	tool_crook = 100,
 	tool_crook_ash = 250,
-	tool_crook_blight = 500,
+	tool_crook_blight = 400,
 
 	packed_bind_stone = 100000,
 	packed_trashcan = 1000,
