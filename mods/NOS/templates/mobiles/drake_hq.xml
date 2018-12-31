@@ -3,12 +3,13 @@
 	<Name>Scaled Drake</Name>
 	<Hue>932</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.3</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>.8</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">2800</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">6000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
