@@ -6,3 +6,8 @@ function MaxActivePetSlots(master)
     -- master:SystemMessage(tostring("You can control " .. slots .. " slots worth of pets."))
 	return slots
 end
+
+function MaxStabledPetSlots(master)
+	return 30 -- all pets count as 1
+end
+
