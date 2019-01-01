@@ -72,6 +72,10 @@ RegisterEventHandler(
 			and armorType ~= "MageRobe"
 			and armorType ~= "Linen") then dyeable = false end
 		end
+
+		if (target:HasModule("stackable")) then 
+			dyeable = false
+		end
 		
 		if (target:HasObjVar("LockedDown") or target:HasObjVar("NoReset")) then 
 			dyeable = false
@@ -85,8 +89,9 @@ RegisterEventHandler(
 			dyeable = false
 		end
 
-		local targetName = target:GetName()
-		user:SystemMessage(targetName)
+		if (target:HasObjVar("CanDye")) then
+			dyeable = true
+		end
 		
 		-- if (IsGod(user)) then dyeable = true end
 
@@ -94,6 +99,7 @@ RegisterEventHandler(
 			user:SystemMessage("You cannot dye that.")
 			return
 		end
+		
 		target:SetHue(this:GetHue())
 	end
 )
