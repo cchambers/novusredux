@@ -447,6 +447,18 @@ function OnLoad(isPossessed)
 		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
 	end
 
+	local tameFix = this:HasObjVar("TameFix")
+	local mins = this:GetObjVar("PlayMinutes")
+
+	if (not(tameFix) and mins > 6000) then 
+		local bm = GetSkillLevel(this, "BeastmasterySkill")
+		if (bm < 60) then
+			SetSkillLevel(this, "BeastmasterySkill", 60.0, true)
+			this:SystemMessage("Your account was grandfathered into the new tame system... you now have 60 Beastmastery.")
+		end
+		this:SetObjVar("TameFix", true)
+	end
+
 	this:DelObjVar("BuffIcons")	
 
 	-- POWER HOUR FIXER
