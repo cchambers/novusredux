@@ -49,12 +49,12 @@
 					{
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
-						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.AncientScrolls,
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Poor,
+						TemplateDefines.LootTable.Potions,
+						TemplateDefines.LootTable.FineScrolls,
 						{
-							NumCoins = math.random(1100,1400),
+							NumCoins = math.random(150,500),
 						},
 					},		
 				ScavengeTables =
