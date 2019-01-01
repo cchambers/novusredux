@@ -36,6 +36,18 @@ HueNames = {
 -- 	end
 -- )
 
+-- fire, ice, poison, lunar, 
+if (initializer ~= nil) then
+    if( initializer.Random ~= nil ) then  
+        local typeTable = hueTable[type]
+        local hue = typeTable[math.random(1,#typeTable)]
+		this:SetHue(hue)
+		local name = HueNames["hue"..hue]
+		this:SetName(name .. " Dye Tub")
+    end
+end
+
+
 RegisterEventHandler(
 	EventType.Message,
 	"UseObject",
