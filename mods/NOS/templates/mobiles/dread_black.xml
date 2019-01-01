@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<ClientId>59</ClientId>
-	<Name>Dread</Name>
+	<Name>Nightmare</Name>
 	<Hue>16</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.15"/>
 	<SharedStateEntry name="Variation" type="string" value="Void"/>

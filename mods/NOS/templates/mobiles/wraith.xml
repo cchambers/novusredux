@@ -10,11 +10,11 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>				
 	<ObjectVariableComponent>			
-		<BoolVariable   Name= "VisibleToAll">True</BoolVariable>
+		<BoolVariable   Name="VisibleToAll">True</BoolVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
-		<DoubleVariable Name= "BaseHealth">53</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">53</DoubleVariable>
 		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
 		<BoolVariable Name="CannotBeCaptured">True</BoolVariable>
 		<StringVariable Name="MonsterAR">28</StringVariable>

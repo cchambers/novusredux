@@ -1013,16 +1013,48 @@ WoodsmithSkill = {
 
 		Crook = {
 			MinLevelToCraft = 25,
-			MaxLevelToGain = 50,
+			MaxLevelToGain = 75,
 			DisplayName = "Crook",
 			CraftingTemplateFile = "tool_crook",
-			Description = "",
+			Description = "Used to tame animals.",
 			ItemType = "WeaponClass",
 			NeedRecipe = false,
 			Category = "Tools",
 			Subcategory = "Tools",
 			Resources = {
 				Boards = 1,
+			},
+		},
+
+		AshCrook = {
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 75,
+			DisplayName = "Ashen Crook",
+			CraftingTemplateFile = "tool_crook_ash",
+			Description = "Used to tame and calm animals.",
+			ItemType = "WeaponClass",
+			NeedRecipe = false,
+			Category = "Tools",
+			Subcategory = "Tools",
+			Resources = {
+				AshBoards = 1,
+				Iron = 1
+			},
+		},
+		
+		BlightCrook = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 95,
+			DisplayName = "Blighted Crook",
+			CraftingTemplateFile = "tool_crook_blight",
+			Description = "Used to calm and provoke monsters.",
+			ItemType = "WeaponClass",
+			NeedRecipe = false,
+			Category = "Tools",
+			Subcategory = "Tools",
+			Resources = {
+				BlightwoodBoards = 1,
+				Copper = 1
 			},
 		},
 		

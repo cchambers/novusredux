@@ -13,9 +13,11 @@
 						--valus
 
 						--villagers
-						{ Count = 6, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
-						{ Count = 6, TemplateId = "val_villager_female",    Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
-						{ Count = 8, TemplateId = "chicken",    Region = "SouthernHillsValus"}, 
+						{ Count = 6, TemplateId = "val_villager", Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 6, TemplateId = "val_villager_female", Region = "SouthernHillsValus" , SpawnTime = 4, SpawnDuration = 18}, 
+						{ Count = 8, TemplateId = "chicken", Region = "SouthernHillsValus"}, 
+						{ Count = 1, TemplateId = "chicken_dire", Region = "SouthernHillsValus", SpawnDuration=15, DelayMin=10, Chance=15},
+						{ Count = 1, TemplateId = "chicken_dread", Region = "SouthernHillsValus", SpawnDuration=15, DelayMin=15, Chance=5},
 
 						--villagers at night
 						{ Count = 3, TemplateId = "val_villager",    Region = "SouthernHillsValus" , SpawnTime = 23, SpawnDuration = 5}, 

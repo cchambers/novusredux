@@ -10,15 +10,15 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">260</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">51</DoubleVariable>
-		<DoubleVariable Name="Attack">23</DoubleVariable>
+		<DoubleVariable Name="Attack">43</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>

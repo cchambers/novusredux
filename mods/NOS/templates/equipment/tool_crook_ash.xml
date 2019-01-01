@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Ashen Crook[-]</Name>
+	<ClientId>1248</ClientId>
+	<Hue>866</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">CrookAsh</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+		<StringVariable Name="ToolType">Axe</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

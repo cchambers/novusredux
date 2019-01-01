@@ -8,19 +8,19 @@ TemplateDefines = {
 			NumItemsMin = 0,
 			NumItemsMax = 2,
 	    	LootItems = {
-    			{ Chance = 0.5, Template = "torch", Unique = true },
-    			{ Chance = 0.5, Template = "tool_hunting_knife", Unique = true },
+    			{ Chance = 5, Template = "torch", Unique = true },
+    			{ Chance = 5, Template = "tool_hunting_knife", Unique = true },
     			{ Chance = 2, Template = "item_apple", Unique = true },
     			{ Chance = 2, Template = "item_bread", Unique = true },
     			{ Chance = 1, Template = "item_ale", Unique = true },
-    			{ Chance = 0.5, Template = "potion_lmana", Unique = true },
-    			{ Chance = 0.5, Template = "potion_lstamina", Unique = true },
-    			{ Chance = 0.5, Template = "potion_lheal", Unique = true },
-    			{ Chance = 0.25, Template = "potion_cure", Unique = true },
-    			{ Chance = 0.5, Template = "tool_cookingpot", Unique = true },
-    			{ Chance = 0.5, Template = "tool_hatchet", Unique = true },
-    			{ Chance = 0.5, Template = "tool_mining_pick", Unique = true },
-    			{ Chance = 0.5, Template = "tool_fishing_rod", Unique = true },
+    			{ Chance = 5, Template = "potion_lmana", Unique = true },
+    			{ Chance = 5, Template = "potion_lstamina", Unique = true },
+    			{ Chance = 5, Template = "potion_lheal", Unique = true },
+    			{ Chance = 25, Template = "potion_cure", Unique = true },
+    			{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+    			{ Chance = 5, Template = "tool_hatchet", Unique = true },
+    			{ Chance = 5, Template = "tool_mining_pick", Unique = true },
+    			{ Chance = 5, Template = "tool_fishing_rod", Unique = true },
     		},
 		},
 
@@ -63,12 +63,12 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_topaz_flawed", Unique = true },
+				{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
 			},
 		},
 
@@ -78,21 +78,21 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.25, Template = "random_executioner_weapon_0_60", Unique = true},
+				{ Chance = 25, Template = "random_executioner_weapon_0_60", Unique = true},
 
-				{ Chance = 0.5, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 0.5, Template = "ring_topaz_flawed", Unique = true },
+				{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
 
-    			{ Chance = 0.25, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 0.25, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.25, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 0.25, Template = "ring_topaz_imperfect", Unique = true },
+    			{ Chance = 25, Template = "necklace_ruby_imperfect", Unique = true },
+    			{ Chance = 25, Template = "necklace_sapphire_imperfect", Unique = true },
+    			{ Chance = 25, Template = "necklace_topaz_imperfect", Unique = true },
+    			{ Chance = 25, Template = "ring_sapphire_imperfect", Unique = true },
+    			{ Chance = 25, Template = "ring_ruby_imperfect", Unique = true },
+    			{ Chance = 25, Template = "ring_topaz_imperfect", Unique = true },
 			},
 		},
 
@@ -103,21 +103,21 @@ TemplateDefines = {
 			LootItems = 
 			{ 
 
-				{ Chance = 0.25, Template = "random_executioner_weapon_20_80", Unique = true},
+				{ Chance = 25, Template = "random_executioner_weapon_20_80", Unique = true},
 
-				{ Chance = 0.25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_topaz_flawed", Unique = true },
+				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
+    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
+    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
 
-    			{ Chance = 0.5, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_topaz_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_ruby_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_sapphire_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_topaz_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_sapphire_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_ruby_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_topaz_imperfect", Unique = true },
 			},
 		},
 
@@ -127,28 +127,28 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.25, Template = "random_executioner_weapon_50_100", Unique = true},
+				{ Chance = 25, Template = "random_executioner_weapon_50_100", Unique = true},
 				
-				{ Chance = 0.25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 0.25, Template = "ring_topaz_flawed", Unique = true },
+				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
+    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
+    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
+    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
 
-    			{ Chance = 0.5, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 0.5, Template = "ring_topaz_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_ruby_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_sapphire_imperfect", Unique = true },
+    			{ Chance = 5, Template = "necklace_topaz_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_sapphire_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_ruby_imperfect", Unique = true },
+    			{ Chance = 5, Template = "ring_topaz_imperfect", Unique = true },
 
-    			{ Chance = 0.15, Template = "necklace_ruby_perfect", Unique = true },
-    			{ Chance = 0.15, Template = "necklace_sapphire_perfect", Unique = true },
-    			{ Chance = 0.15, Template = "necklace_topaz_perfect", Unique = true },
-    			{ Chance = 0.15, Template = "ring_sapphire_perfect", Unique = true },
-    			{ Chance = 0.15, Template = "ring_ruby_perfect", Unique = true },
-    			{ Chance = 0.15, Template = "ring_topaz_perfect", Unique = true },
+    			{ Chance = 15, Template = "necklace_ruby_perfect", Unique = true },
+    			{ Chance = 15, Template = "necklace_sapphire_perfect", Unique = true },
+    			{ Chance = 15, Template = "necklace_topaz_perfect", Unique = true },
+    			{ Chance = 15, Template = "ring_sapphire_perfect", Unique = true },
+    			{ Chance = 15, Template = "ring_ruby_perfect", Unique = true },
+    			{ Chance = 15, Template = "ring_topaz_perfect", Unique = true },
 			},
 		},
 
@@ -158,7 +158,7 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
-				{ Weight = 0.25, Template = "random_executioner_weapon_80_100", Unique = true},
+				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
 
 				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
@@ -189,7 +189,7 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
-				{ Weight = 0.5, Template = "random_executioner_weapon_80_100", Unique = true},
+				{ Chance = 100, Template = "random_executioner_weapon_80_100", Unique = true},
 
 				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
@@ -444,13 +444,13 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "lscroll_heal", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_refresh", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_infuse", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_cure", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_poison", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_ruin", Unique = true },
-				{ Chance = 0.5, Template = "lscroll_mana_missile", Unique = true },
+				{ Chance = 5, Template = "lscroll_heal", Unique = true },
+				{ Chance = 5, Template = "lscroll_refresh", Unique = true },
+				{ Chance = 5, Template = "lscroll_infuse", Unique = true },
+				{ Chance = 5, Template = "lscroll_cure", Unique = true },
+				{ Chance = 5, Template = "lscroll_poison", Unique = true },
+				{ Chance = 5, Template = "lscroll_ruin", Unique = true },
+				{ Chance = 5, Template = "lscroll_mana_missile", Unique = true },
 			},
 		},		
 		ScrollsMed = 
@@ -459,18 +459,18 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.15, Template = "lscroll_heal", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_refresh", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_infuse", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_cure", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_poison", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_ruin", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_greater_heal", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_lightning", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_bombardment", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_electricbolt", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_mark", Unique = true },
-				{ Chance = 0.15, Template = "lscroll_frost", Unique = true },
+				{ Chance = 15, Template = "lscroll_heal", Unique = true },
+				{ Chance = 15, Template = "lscroll_refresh", Unique = true },
+				{ Chance = 15, Template = "lscroll_infuse", Unique = true },
+				{ Chance = 15, Template = "lscroll_cure", Unique = true },
+				{ Chance = 15, Template = "lscroll_poison", Unique = true },
+				{ Chance = 15, Template = "lscroll_ruin", Unique = true },
+				{ Chance = 15, Template = "lscroll_greater_heal", Unique = true },
+				{ Chance = 15, Template = "lscroll_lightning", Unique = true },
+				{ Chance = 15, Template = "lscroll_bombardment", Unique = true },
+				{ Chance = 15, Template = "lscroll_electricbolt", Unique = true },
+				{ Chance = 15, Template = "lscroll_mark", Unique = true },
+				{ Chance = 15, Template = "lscroll_frost", Unique = true },
 			},
 		},
 		ScrollsHigh = 
@@ -479,16 +479,16 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 0.1, Template = "lscroll_greater_heal", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_lightning", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_bombardment", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_electricbolt", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_mark", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_frost", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_resurrect", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_earthquake", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_meteor", Unique = true },
-				{ Chance = 0.1, Template = "lscroll_portal", Unique = true },
+				{ Chance = 1, Template = "lscroll_greater_heal", Unique = true },
+				{ Chance = 1, Template = "lscroll_lightning", Unique = true },
+				{ Chance = 1, Template = "lscroll_bombardment", Unique = true },
+				{ Chance = 1, Template = "lscroll_electricbolt", Unique = true },
+				{ Chance = 1, Template = "lscroll_mark", Unique = true },
+				{ Chance = 1, Template = "lscroll_frost", Unique = true },
+				{ Chance = 1, Template = "lscroll_resurrect", Unique = true },
+				{ Chance = 1, Template = "lscroll_earthquake", Unique = true },
+				{ Chance = 1, Template = "lscroll_meteor", Unique = true },
+				{ Chance = 1, Template = "lscroll_portal", Unique = true },
 
 			},
 		},
@@ -517,8 +517,8 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 0.75, Template = "treasure_map"},
-				{ Chance = 0.25, Template = "treasure_map_1"},
+				{ Chance = 75, Template = "treasure_map"},
+				{ Chance = 25, Template = "treasure_map_1"},
 			},
 		},
 
@@ -529,9 +529,9 @@ TemplateDefines = {
 			LootItems = 
 			{
 				{ Chance = 1, Template = "treasure_map"},
-				{ Chance = 0.5, Template = "treasure_map_1"},
-				{ Chance = 0.35, Template = "treasure_map_2"},
-				{ Chance = 0.15, Template = "treasure_map_3"},
+				{ Chance = 5, Template = "treasure_map_1"},
+				{ Chance = 35, Template = "treasure_map_2"},
+				{ Chance = 15, Template = "treasure_map_3"},
 			},
 		},
 
@@ -543,9 +543,9 @@ TemplateDefines = {
 			{
 				{ Chance = 2, Template = "treasure_map"},
 				{ Chance = 1, Template = "treasure_map_1"},
-				{ Chance = 0.5, Template = "treasure_map_2"},
-				{ Chance = 0.35, Template = "treasure_map_3"},
-				{ Chance = 0.15, Template = "treasure_map_4"},
+				{ Chance = 5, Template = "treasure_map_2"},
+				{ Chance = 35, Template = "treasure_map_3"},
+				{ Chance = 15, Template = "treasure_map_4"},
 			},
 		},
 
@@ -670,9 +670,9 @@ TemplateDefines = {
 				{ Chance = 1, Template = "armor_scale_helm", Unique = true },
 				{ Chance = 1, Template = "armor_scale_tunic", Unique = true },
 				{ Chance = 1, Template = "armor_scale_leggings", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_helm", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_tunic", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_leggings", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_helm", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_tunic", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_leggings", Unique = true },
 			},
 		},
 		WarriorRich = 
@@ -682,20 +682,20 @@ TemplateDefines = {
 			LootItems = 
 			{ 
 				{ Chance = 50, Template = "bandage", Unique = true, StackCountMin = 1, StackCountMax = 5,},
-				{ Chance = 0.5, Template = "weapon_dagger", Unique = true },
-				{ Chance = 0.5, Template = "weapon_longsword", Unique = true },
-				{ Chance = 0.5, Template = "weapon_mace", Unique = true },
-				{ Chance = 0.5, Template = "weapon_shortbow", Unique = true },
-				{ Chance = 0.5, Template = "shield_buckler", Unique = true },
-				{ Chance = 0.5, Template = "armor_chain_helm", Unique = true },
-				{ Chance = 0.5, Template = "armor_chain_tunic", Unique = true },
-				{ Chance = 0.5, Template = "armor_chain_leggings", Unique = true },
-				{ Chance = 0.3, Template = "armor_scale_helm", Unique = true },
-				{ Chance = 0.3, Template = "armor_scale_tunic", Unique = true },
-				{ Chance = 0.3, Template = "armor_scale_leggings", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_helm", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_tunic", Unique = true },
-				{ Chance = 0.1, Template = "armor_fullplate_leggings", Unique = true },
+				{ Chance = 5, Template = "weapon_dagger", Unique = true },
+				{ Chance = 5, Template = "weapon_longsword", Unique = true },
+				{ Chance = 5, Template = "weapon_mace", Unique = true },
+				{ Chance = 5, Template = "weapon_shortbow", Unique = true },
+				{ Chance = 5, Template = "shield_buckler", Unique = true },
+				{ Chance = 5, Template = "armor_chain_helm", Unique = true },
+				{ Chance = 5, Template = "armor_chain_tunic", Unique = true },
+				{ Chance = 5, Template = "armor_chain_leggings", Unique = true },
+				{ Chance = 3, Template = "armor_scale_helm", Unique = true },
+				{ Chance = 3, Template = "armor_scale_tunic", Unique = true },
+				{ Chance = 3, Template = "armor_scale_leggings", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_helm", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_tunic", Unique = true },
+				{ Chance = 1, Template = "armor_fullplate_leggings", Unique = true },
 			},
 		},
 		Prestige = 
@@ -749,15 +749,15 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 0.5, Template = "prestige_vanguard", Unique = true },
-				{ Chance = 0.5, Template = "prestige_shieldbash", Unique = true },
-				{ Chance = 0.5, Template = "prestige_stunshot", Unique = true },
-				{ Chance = 0.5, Template = "prestige_adrenaline_rush", Unique = true },
-				{ Chance = 0.5, Template = "prestige_silence", Unique = true },
-				{ Chance = 0.5, Template = "prestige_magearmor", Unique = true },
-				{ Chance = 0.5, Template = "prestige_huntersmark", Unique = true },
-				{ Chance = 0.5, Template = "prestige_vanish", Unique = true },
-				{ Chance = 0.5, Template = "prestige_meditate", Unique = true },
+				{ Chance = 5, Template = "prestige_vanguard", Unique = true },
+				{ Chance = 5, Template = "prestige_shieldbash", Unique = true },
+				{ Chance = 5, Template = "prestige_stunshot", Unique = true },
+				{ Chance = 5, Template = "prestige_adrenaline_rush", Unique = true },
+				{ Chance = 5, Template = "prestige_silence", Unique = true },
+				{ Chance = 5, Template = "prestige_magearmor", Unique = true },
+				{ Chance = 5, Template = "prestige_huntersmark", Unique = true },
+				{ Chance = 5, Template = "prestige_vanish", Unique = true },
+				{ Chance = 5, Template = "prestige_meditate", Unique = true },
 
 				{ Chance = 2, Template = "prestige_stasis", Unique = true },
 				{ Chance = 2, Template = "prestige_empower", Unique = true },

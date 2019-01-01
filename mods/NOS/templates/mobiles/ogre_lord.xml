@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>				
 	<ObjectVariableComponent>	
-		<StringVariable Name= "MobileTeamType">Ogre</StringVariable>
+		<StringVariable Name="MobileTeamType">Ogre</StringVariable>
 		<BoolVariable Name="AI-CanFlee">False</BoolVariable>
 		<DoubleVariable Name="BaseHealth">520</DoubleVariable>
 		<StringVariable Name="MonsterAR">50</StringVariable>

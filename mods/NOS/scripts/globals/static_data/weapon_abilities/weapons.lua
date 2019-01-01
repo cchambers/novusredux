@@ -247,3 +247,35 @@ WeaponAbilitiesData.TelecrookRes = {
         Enabled = true
     },
 }
+
+WeaponAbilitiesData.CrookCalm = {
+    MobileEffect = "CrookCalm",
+    Stamina = 0,
+    NoCombat = true,
+    AllowMounted = true,
+    Instant = true,
+    QueueTarget = "Loc",
+    Cooldown = TimeSpan.FromSeconds(60),
+    Action = {
+        DisplayName = "Calm",
+        Tooltip = "Attempt to calm an aggressive creature.",
+        Icon = "Regrowth",
+        Enabled = true
+    },
+}
+
+WeaponAbilitiesData.CrookProvoke = {
+    MobileEffect = "CrookProvoke",
+    Stamina = 0,
+    NoCombat = true,
+    Instant = true,
+    AllowMounted = true,
+    QueueTarget = "Loc",
+    Cooldown = TimeSpan.FromSeconds(60),
+    Action = {
+        DisplayName = "Provoke",
+        Tooltip = "Attempt to set an aggressive creature on another creature.",
+        Icon = "Deep Cuts",
+        Enabled = true
+    },
+}

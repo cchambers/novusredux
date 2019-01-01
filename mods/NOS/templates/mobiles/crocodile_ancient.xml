@@ -10,8 +10,8 @@
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">400</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Crocodile</StringVariable>
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Crocodile</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="HostileLevel">8</DoubleVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -19,13 +19,13 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">55</DoubleVariable>
-		<DoubleVariable Name="Attack">22</DoubleVariable>
+		<DoubleVariable Name="Armor">65</DoubleVariable>
+		<DoubleVariable Name="Attack">54</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">93.9</DoubleVariable>
-		<DoubleVariable Name="PetSlots">4</DoubleVariable>
+		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">
@@ -37,7 +37,7 @@
 						},
 					Skills = 
 						{ 
-						Brawling = 10,  
+						Brawling = 35,  
 						},	
 					LootTables = 
 						{ 

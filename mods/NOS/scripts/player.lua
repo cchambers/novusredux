@@ -5,20 +5,47 @@ require 'default:player'
 if(IsDemiGod(this)) then
 	require 'default:base_player_mobedit'
 end
-
--- WEIGHT SYSTEM NOT REALLY IMPLEMENTED YET
-maxCarryWeight = 1000000
-maxTotalWeight = 1000000
-
-carriedObjectSource = nil
-carriedObjectSourceLoc = nil
-carriedObjectSourceEquipSlot = nil
-AUTOLOOT_DELAY = 1.0
-
-currentRegionalName = nil
-
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
+function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+
+	-- if we are being attacked by a player
+	if ( IsPlayerCharacter(damager) or IsPet(damager) ) then
+		if ( ServerSettings.PlayerInteractions.PlayerVsPlayerEnabled ~= true and damager ~= this and not IsGod(damager) ) then
+			-- if pvp enabled, not damaging ourselves, and the damager is not a god, stop here (disabled PVP)
+			return true
+		end
+	else
+		-- autodefend against NPCs (auto defending against players could result in guard whack for both attacker and victim)
+		this:SendMessage("ForceCombat", damager)
+	end
+
+	local newHealth = BaseHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
+	if(newHealth and newHealth > 0) then
+		local magnitude = math.clamp(damageAmount/3, 1, 4)		
+		
+		--DebugMessage("Choice = "..tostring(choice))
+		local doNotShakeScreenOnHit = this:GetObjVar("doNotShakeScreenOnHit")
+		
+		if(doNotShakeScreenOnHit) then
+
+		else
+			--this:PlayLocalEffect(this,"ScreenShakeEffect", 0.3,"Magnitude="..magnitude)
+		end
+		
+		local healthRatio = (newHealth/GetMaxHealth(this))
+		local choice = 1
+		if(healthRatio <= 0.2) then
+			choice = 2
+		end
+		
+		this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)				
+	end
+
+	return newHealth
+end
+
 function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 
@@ -353,7 +380,7 @@ function GetTitle(targetObj)
 	
 	flevel = GetFameLevel(targetObj, "GetTitle")
 
-	title = title[flevel] or "None"
+	title = title[flevel] or ""
 
 	if (flevel == 5) then
 		if(IsMale(targetObj)) then

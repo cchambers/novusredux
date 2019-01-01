@@ -9,7 +9,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">230</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -18,7 +18,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">50</DoubleVariable>
 		<DoubleVariable Name="Attack">21</DoubleVariable>
-		<DoubleVariable Name="Power">11</DoubleVariable>
+		<DoubleVariable Name="Power">15</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>

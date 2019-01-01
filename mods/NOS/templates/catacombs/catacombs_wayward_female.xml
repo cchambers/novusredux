@@ -9,7 +9,7 @@
 	<ObjectVariableComponent>	
 		<StringVariable Name="WanderRegion">FollowerHubRegion</StringVariable>
 		<StringVariable Name="MyPath">HubPath</StringVariable>
-    	<StringVariable Name= "MobileTeamType">Wayun</StringVariable>
+    	<StringVariable Name="MobileTeamType">Wayun</StringVariable>
 	</ObjectVariableComponent>			
 	<ScriptEngineComponent>
 		<LuaModule Name="guard_protect"/>

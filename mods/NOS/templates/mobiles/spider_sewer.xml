@@ -10,13 +10,15 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">15</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Arachnid</StringVariable>
-		<StringVariable Name= "MobileKind">Arachnid</StringVariable>
+		<StringVariable Name="MobileKind">Arachnid</StringVariable>
 		<StringVariable Name="MonsterAR">38</StringVariable>
 		<DoubleVariable Name="NaturalMinDamage">3</DoubleVariable>
 		<DoubleVariable Name="NaturalMaxDamage">9</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">11</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">-11.5</DoubleVariable>
+		<DoubleVariable Name="PetSlots">1</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_default">

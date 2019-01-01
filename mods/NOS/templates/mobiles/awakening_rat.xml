@@ -7,8 +7,8 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">40</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Awakening</StringVariable>
+		<DoubleVariable Name="BaseHealth">120</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Awakening</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -16,12 +16,13 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">44</DoubleVariable>
-		<DoubleVariable Name="Attack">4</DoubleVariable>
+		<DoubleVariable Name="Attack">20</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">10</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
 		<DoubleVariable Name="AI-ChaseRange">0</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">4.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default_animal">

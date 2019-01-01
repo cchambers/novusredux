@@ -1,4 +1,4 @@
-require 'base_ai_mob'
+require 'default:base_ai_mob'
 
 --Set to cast
 AI.SetSetting("CanCast", true)
@@ -14,6 +14,9 @@ AI.Spells = {
         Type = "healspell"
     },
     Fireball = {
+        Type = "offensivespell"
+    },
+    Frost = {
         Type = "offensivespell"
     },
     Lightning = {
@@ -86,7 +89,40 @@ AI.StateMachine.AllStates.CastFireball = {
         end,
     }
 
-AI.StateMachine.AllStates.CastRuin = {
+    AI.StateMachine.AllStates.CastFrost = {
+        GetPulseFrequencyMS = function() return GetSpellCastTime("Frost", this)*1000 + math.random(400) end,
+
+        OnEnterState = function()
+            if( not(AI.IsValidTarget(AI.MainTarget)) ) then
+                AI.StateMachine.ChangeState("Idle")
+                return
+            end
+
+            FaceTarget()
+            if ((not CanCast("Frost",AI.MainTarget)) or this:DistanceFrom(AI.MainTarget) > (GetSpellRange("Frost",this) + AI.GetSetting("SpellRangeMod"))) then
+                AI.StateMachine.ChangeState("Chase")                
+                return
+            end
+            this:StopMoving()
+            this:SendMessage("CastSpellMessage","Frost",this,AI.MainTarget)
+        end,
+
+        AiPulse = function()
+            DecideCombatState()
+        end,
+
+        OnExitState = function()
+            this:SendMessage("CancelSpellCast")
+        end,
+    }
+
+
+
+
+
+
+
+    AI.StateMachine.AllStates.CastRuin = {
         GetPulseFrequencyMS = function() return GetSpellCastTime("Ruin", this)*1000 + math.random(400) end,
 
         OnEnterState = function()

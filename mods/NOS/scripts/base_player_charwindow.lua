@@ -195,7 +195,7 @@ function UpdateCharacterWindow(targetObj)
 		canPowerHour = true
 	end
 	if (canPowerHour) then
-		rightSubwindow:AddLabel(10,220,"[412A08]".."Power Hour is ready to be used!",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
+		rightSubwindow:AddLabel(10,220,"[412A08]".."Power Hour is ready!",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 	else
 		rightSubwindow:AddLabel(10,220,"[412A08]".."You can Power Hour again in ",186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")
 		rightSubwindow:AddLabel(10,235,"[7C0A02]"..TimeSpanToWords(next:Subtract(now)),186,15,17,"",false,false,"PermianSlabSerif_Dynamic_Bold")

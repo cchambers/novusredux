@@ -10,13 +10,15 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">75</DoubleVariable>
 		<BoolVariable Name="CanFlee">false</BoolVariable>
-		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
 		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<StringVariable Name="NaturalWeaponType">Spikes</StringVariable>
 		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>	
 		<StringVariable Name="NaturalEnemy">Rats</StringVariable>
 		<StringVariable Name="NaturalArmor">Heavy</StringVariable>
 		<BoolVariable Name="CanBeTamed">true</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">64.1</DoubleVariable>
+		<DoubleVariable Name="PetSlots">3</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_default_animal">

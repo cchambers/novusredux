@@ -8,12 +8,12 @@
 	</MobileComponent>			
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
 		<BoolVariable Name="AI-CanWander">true</BoolVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
-	     <StringVariable Name= "QuestName">FoundersQuest</StringVariable>
-	     <StringVariable Name= "QuestTask">ReturnToGolthan</StringVariable>
-	     <StringVariable Name= "QuestRequiredTask">SlayDiagodas</StringVariable>
+	     <StringVariable Name="QuestName">FoundersQuest</StringVariable>
+	     <StringVariable Name="QuestTask">ReturnToGolthan</StringVariable>
+	     <StringVariable Name="QuestRequiredTask">SlayDiagodas</StringVariable>
 		<BoolVariable Name="noloot">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

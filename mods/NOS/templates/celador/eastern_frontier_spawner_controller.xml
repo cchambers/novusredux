@@ -31,6 +31,7 @@
 
 	 				--HelmStable
 						{ Count = 6, TemplateId = "chicken",    Region = "HelmStable"},
+						{ Count = 1, TemplateId = "chicken_dire",	Region = "HelmStable", SpawnDuration=15, DelayMin=10, Chance=15},
 
 					--HelmBlacksmithGuild
 						{ Count = 1, TemplateId = "guildleader_blacksmith",    Region = "HelmBlacksmithGuild"},
@@ -40,7 +41,9 @@
 						{ Count = 3, TemplateId = "helm_chef",    Region = "HelmInn", SpawnTime = 4, SpawnDuration = 18}, 
 
 					--Beach2
-						{ Count = 8, TemplateId = "crab",    Region = "Beach2" },
+						{ Count = 15, TemplateId = "crab",    Region = "Beach2" },
+						{ Count = 2, TemplateId = "crab_dire",    Region = "Beach2" },
+						{ Count = 1, TemplateId = "crab_dread",	Region = "Beach2", SpawnDuration=60, DelayMin=15, Chance=5},
 
 					--TAMING
 					--39.1+
@@ -62,6 +65,7 @@
 					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears1" },
 					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears2" },
 					{ Count = 1, TemplateId = "dire_bear",    Region = "DireBear", DelayMin=30, Chance=5},
+					{ Count = 1, TemplateId = "chicken_dread",    Region = "DireBear", DelayMin=30, Chance=5},
 					},
 				}
 			</Initializer>	

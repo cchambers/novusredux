@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorldTemplateObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Group Name="Main" Exclude="False">
+		<DynamicObject>
+			<Name>SpawnPosition</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>spawn_position 1.077 0 13.704 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>TestMap Controller</Name>
+			<Id>2</Id>
+			<ObjectCreationParams>testmap_controller 2.077 0 13.704 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>Test Controller</Name>
+			<Id>3</Id>
+			<ObjectCreationParams>test_controller 3.077 0 13.704 0 0 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+	</Group>
+</WorldTemplateObjects>

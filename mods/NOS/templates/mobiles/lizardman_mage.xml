@@ -10,7 +10,7 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">416</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
-		<StringVariable Name= "MobileKind">Reptile</StringVariable>
+		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -18,7 +18,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">50</DoubleVariable>
 		<DoubleVariable Name="Attack">5</DoubleVariable>
-		<DoubleVariable Name="Power">15</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>

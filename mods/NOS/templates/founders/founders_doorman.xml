@@ -9,7 +9,7 @@
 	</MobileComponent>			
 	<ObjectVariableComponent>			
 		<BoolVariable Name="noloot">True</BoolVariable>
-    	<StringVariable Name= "MobileTeamType">Pedesii</StringVariable>
+    	<StringVariable Name="MobileTeamType">Pedesii</StringVariable>
 		<DoubleVariable Name="Armor">87</DoubleVariable>
 		<DoubleVariable Name="Attack">500</DoubleVariable>
 	</ObjectVariableComponent>			

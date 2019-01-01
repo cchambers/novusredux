@@ -26,6 +26,12 @@
 						{ Count = 2, TemplateId =  "chestnut_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
 						{ Count = 2, TemplateId =  "bay_horse", Region = "PlainsUpperHorses5", DelayMin=4 },
 
+						--chickens
+						{ Count = 1, TemplateId = "chicken_dire",	Region = "Market", SpawnTime=4, SpawnDuration=5, DelayMin=10, Chance=15},
+						{ Count = 1, TemplateId = "chicken_dread",	Region = "Market", SpawnTime=4, SpawnDuration=5, DelayMin=15, Chance=5},
+						{ Count = 1, TemplateId = "chicken_dire",	Region = "RefugeeCamp", SpawnTime=4, SpawnDuration=5, DelayMin=10, Chance=15},
+						{ Count = 1, TemplateId = "chicken_dread",	Region = "RefugeeCamp", SpawnTime=4, SpawnDuration=5, DelayMin=15, Chance=5},
+						
 						--villagers
 						{ Count = 7, TemplateId = "cel_villager",    Region = "EldeirVillage" , SpawnTime = 4, SpawnDuration = 18}, 
 						{ Count = 7, TemplateId = "cel_villager_female",    Region = "EldeirVillage" , SpawnTime = 4, SpawnDuration = 18}, 

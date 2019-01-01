@@ -11,7 +11,7 @@
 		<DoubleVariable Name="BaseHealth">170</DoubleVariable>
 		<StringVariable Name="AutoDestroyVersion">0.3.4</StringVariable>
 		<BoolVariable Name="WeakGuard">True</BoolVariable>
-    	<StringVariable Name= "MobileTeamType">Wayun</StringVariable>
+    	<StringVariable Name="MobileTeamType">Wayun</StringVariable>
     	<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.0</DoubleVariable>
 		<BoolVariable Name="IsGuard">true</BoolVariable>
 		<BoolVariable Name="noloot">true</BoolVariable>

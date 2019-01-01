@@ -410,18 +410,28 @@ EquipmentStats = {
 			PrimaryAbility = "HuntingKnife",
 			Speed = 3
 		},
-		AdminCrook = {
-			WeaponClass = "Tool",
-			Attack = 3,
-			MinSkill = 0,
-			PrimaryAbility = "Move",
-			Speed = 3
-		},
 		Crook = {
 			WeaponClass = "Tool",
 			Attack = 3,
 			MinSkill = 0,
 			PrimaryAbility = "Tame",
+			SecondaryAbility = "CrookCalm",
+			Speed = 3
+		},
+		CrookAsh = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "Tame",
+			SecondaryAbility = "CrookCalm",
+			Speed = 3
+		},
+		CrookBlight = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "CrookProvoke",
+			SecondaryAbility = "CrookCalm",
 			Speed = 3
 		},
 		Shovel = {

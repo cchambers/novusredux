@@ -1,0 +1,11 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Blighted Crook[-]</Name>
+	<ClientId>1248</ClientId>
+	<Hue>865</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">CrookBlight</StringVariable>
+		<DoubleVariable Name="MaxDurability">90</DoubleVariable>
+		<StringVariable Name="ToolType">Axe</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

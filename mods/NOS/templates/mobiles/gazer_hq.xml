@@ -10,9 +10,9 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">790</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Gazer</StringVariable>
-		<StringVariable Name= "MobileKind">Beholder</StringVariable>
+		<DoubleVariable Name="BaseHealth">1130</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Gazer</StringVariable>
+		<StringVariable Name="MobileKind">Beholder</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -20,7 +20,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">56</DoubleVariable>
 		<DoubleVariable Name="Attack">48</DoubleVariable>
-		<DoubleVariable Name="Power">16</DoubleVariable>
+		<DoubleVariable Name="Power">35</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
@@ -38,7 +38,6 @@
 					},
 				Skills = 
 					{ 
-					Magery=100,
 					Magery=100,
 					MagicAffinity=100,
 					Brawling = 90,  

@@ -1,0 +1,59 @@
+<ObjectTemplate>
+  <ClientId>219</ClientId>
+  <Name>Dread Turkey</Name>
+	<Hue>13</Hue>
+	<ScaleModifier>3</ScaleModifier>
+  <MobileComponent>     
+    <BaseRunSpeed>1</BaseRunSpeed>
+    <MobileType>Animal</MobileType>
+  </MobileComponent>
+  <ObjectVariableComponent>   
+    <DoubleVariable Name="BaseHealth">150</DoubleVariable>
+    <StringVariable Name="MobileTeamType">Animal</StringVariable>
+    <StringVariable Name="MobileKind">Animal</StringVariable>
+    <BoolVariable Name="AI-Leash">False</BoolVariable>
+    <BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+    <BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+    <BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+    <BoolVariable Name="AI-CanFlee">True</BoolVariable>
+    <DoubleVariable Name="Armor">44</DoubleVariable>
+    <DoubleVariable Name="Attack">8</DoubleVariable>
+    <DoubleVariable Name="Karma">-10000</DoubleVariable>
+    <DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+    <BoolVariable Name="DoNotEquip">True</BoolVariable>
+    <DoubleVariable Name="TamingDifficulty">87</DoubleVariable>
+    <DoubleVariable Name="PetSlots">5</DoubleVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="ai_wolf">
+      <Initializer>
+        { 
+        Stats = { Str=80, Agi=30, Int=21, Wis=10, Wil=10 },
+        MobTraits =
+          {
+          },
+        Skills = 
+          { 
+          Brawling = 100,  
+          },  
+        LootTables = 
+          { 
+          },    
+        }
+      </Initializer>
+    </LuaModule>
+    <LuaModule Name="animal_parts">
+      <Initializer>
+        {
+          MeatCount = 4,          
+
+          MeatType = "MysteryMeat",
+          AnimalParts =
+          {
+            { ResourceType="Feather", RarityPct=100, Count=5 },
+          },
+        }
+      </Initializer>
+    </LuaModule>
+  </ScriptEngineComponent>
+</ObjectTemplate>

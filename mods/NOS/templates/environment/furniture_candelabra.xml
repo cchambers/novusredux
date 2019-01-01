@@ -2,5 +2,4 @@
 	<ClientId>186</ClientId>
 	<Name>[FF9500]Candelabra[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
-	<ScriptEngineComponent/>
 </ObjectTemplate>

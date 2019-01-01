@@ -23,6 +23,8 @@
 					--PyrosStable
 						{ Count = 1, TemplateId = "pyros_stable_master",    Region = "PyrosLandingStable"},
 						{ Count = 6, TemplateId = "chicken",    Region = "PyrosLandingStable"},
+						{ Count = 1, TemplateId = "chicken_dire",	Region = "PyrosLandingStable", SpawnDuration=15, DelayMin=10, Chance=15},
+						{ Count = 1, TemplateId = "chicken_dread",	Region = "PyrosLandingStable", SpawnDuration=15, DelayMin=15, Chance=5},
 
 					--PyrosLandingDocks
 						{ Count = 15, TemplateId = "pyros_villager_docks",    Region = "PyrosLandingVilDocks", SpawnTime = 4, SpawnDuration = 18}, 
