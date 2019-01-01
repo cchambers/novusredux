@@ -26,6 +26,7 @@
 					Skills= {
 						AnimalTaming = 100,
 						AnimalLore = 100,
+						Beastmastery = 100,
 					},
 					EquipTable= {
 						Chest= {
