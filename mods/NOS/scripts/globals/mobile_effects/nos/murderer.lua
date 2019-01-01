@@ -71,7 +71,7 @@ MobileEffectLibrary.Murderer = {
 		
 		-- Make sure we don't have any red blues running around...
 		local karma = who:GetObjVar("Karma")
-		if (karma > -10000) then
+		if (who:HasObjVar("IsRed") and karma > -10000) then
 			who:SetObjVar("Karma", -10000)
 		end
 	end,
