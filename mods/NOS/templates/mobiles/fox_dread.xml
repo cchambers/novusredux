@@ -1,0 +1,60 @@
+<ObjectTemplate>
+	<ClientId>136</ClientId>
+	<Name>Dread Fox</Name>
+	<Color>0xFF222222</Color>
+	<ScaleModifier>1.6</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>1.25</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Fox</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">2</DoubleVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">44</DoubleVariable>
+		<DoubleVariable Name="Attack">8</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">68</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_wolf">
+			<Initializer>
+				{ 
+				Stats = { Str=80, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 100,  
+					},	
+				LootTables = 
+					{ 
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 3,
+
+					MeatType = "ToughMeat",
+					AnimalParts =
+					{
+						{ ResourceType="LeatherHide", RarityPct=100, Count=2 },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

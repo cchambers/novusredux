@@ -1,0 +1,60 @@
+<ObjectTemplate>
+	<ClientId>40</ClientId>
+	<Name>Dire Rabbit</Name>
+	<Hue>871</Hue>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1.25</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">60</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Animal</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">20</DoubleVariable>
+		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="TamingDifficulty">30</DoubleVariable>
+		<DoubleVariable Name="PetSlots">2.5</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_wolf">
+			<Initializer>
+				{ 
+				Stats = { Str=50, Agi=30, Int=21 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 30,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+					},		
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 1,
+
+					MeatType = "MysteryMeat",
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -179,21 +179,28 @@ CustomItemValues = {
 	blueprint_terracottahouseestate = 332600,
 	
 
-	fruit_catacombs = 150,
+	fruit_catacombs = 1000,
 
 	holy_water = 0,
 
 	tool_engraving = 20,
+	tool_hammer = 40,
+	
+	tool_crook = 100,
+	tool_crook_ash = 250,
+	tool_crook_blight = 400,
 
 	packed_bind_stone = 100000,
-	land_deed = 14000,
+	packed_trashcan = 1000,
+
+	land_deed = 25000,
 	guild_charter = 50000,
 	escape_scroll = 400,
 	hearthstone = 1000,
 
-	arrow = 1,
-	arrow_ash = 0.6,
-	arrow_blightwood = 0.2,
+	arrow = 2,
+	arrow_ash = 6,
+	arrow_blightwood = 10,
 
 	resource_wood = 20,
 	resource_ash = 60,

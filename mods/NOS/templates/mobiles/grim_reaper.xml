@@ -10,7 +10,7 @@
     <SharedStateEntry name="IsBoss" type="bool" value="true"/>
     <SharedStateEntry name="Variation" type="string" value="Default"/>
 	<ObjectVariableComponent>
-		<DoubleVariable Name="BaseHealth">60000</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">90000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
@@ -19,7 +19,7 @@
 		<DoubleVariable Name="Power">30</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="SpinAttackRange">6</DoubleVariable>
+		<DoubleVariable Name="SpinAttackRange">8</DoubleVariable>
 		<DoubleVariable Name="DecayTime">1500</DoubleVariable>
 		<StringVariable Name="HomeRegion">DeathLair</StringVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>

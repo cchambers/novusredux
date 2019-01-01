@@ -2,7 +2,7 @@
 	<ClientId>267</ClientId>
 	<Color>0xFFFF0000</Color>
 	<Name>Imp Minion</Name>
-	<ScaleModifier>0.5</ScaleModifier>
+	<ScaleModifier>0.6</ScaleModifier>
 	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="event:/monsters/imp/imp"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1.5</BaseRunSpeed>

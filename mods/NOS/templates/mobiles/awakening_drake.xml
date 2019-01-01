@@ -9,14 +9,14 @@
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">2200</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Awakening</StringVariable>
-		<StringVariable Name= "MobileKind">Dragon</StringVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">65</DoubleVariable>
-		<DoubleVariable Name="Attack">85</DoubleVariable>
+		<DoubleVariable Name="Attack">95</DoubleVariable>
 		<DoubleVariable Name="Power">20</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>

@@ -12,7 +12,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">210</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Bandit</StringVariable>
+		<StringVariable Name="MobileTeamType">Bandit</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -20,7 +20,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">47</DoubleVariable>
-		<DoubleVariable Name="Attack">15</DoubleVariable>
+		<DoubleVariable Name="Attack">35</DoubleVariable>
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>

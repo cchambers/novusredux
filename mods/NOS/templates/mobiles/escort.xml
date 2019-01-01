@@ -11,7 +11,7 @@
 	<ObjectVariableComponent>			
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
-		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<StringVariable Name="AI-SpeechTable">Villagers</StringVariable>
 		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
 		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.2</DoubleVariable>
 		<DoubleVariable Name="Karma">10000</DoubleVariable>

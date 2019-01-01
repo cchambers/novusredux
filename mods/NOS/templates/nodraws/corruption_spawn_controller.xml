@@ -75,9 +75,9 @@
 					    --Room 33
 					    { Count = 2, TemplateId = "glutton", Region = "Room33", DelayMin=4 },
 
-
 					   	--End Room
-					    --{ Count = 3, TemplateId = "demon", Region = "EndRoom", DelayMin=4 }, 
+					    { Count = 10, TemplateId = "demon", Region = "EndRoom", DelayMin=4 }, 
+					    { Count = 2, TemplateId = "demon_hq", Region = "EndRoom", DelayMin=15 }, 
 					},
 				}
 			</Initializer>

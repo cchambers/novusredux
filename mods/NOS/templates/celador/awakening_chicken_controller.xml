@@ -1,0 +1,47 @@
+<ObjectTemplate>
+	<Name>Awakening Chicken Controller</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="AwakeningId">Chicken</StringVariable>		
+		<DoubleVariable Name="SleepDuration">5</DoubleVariable>	
+		<DoubleVariable Name="SpawnSpeedMultiplier">0.25</DoubleVariable>	
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="awakening_controller">
+			<Initializer>
+				{
+					StageInfo = {
+						-- Stage 1 (Dire)
+						{ 
+							KillCount = 100, 
+							SystemMessage = "boc boc boc BOC BOC BAAAWWWk"
+						}, 
+						-- Stage 2 (Dread)
+						{ 
+							KillCount = 2, 
+							PermanentObjectTag = "!", 
+							MaxDuration = TimeSpan.FromMinutes(10),
+							SystemMessage = "BOC BOC BAWK!"
+						}, 
+					},
+				}
+			</Initializer>
+		</LuaModule>		
+		<LuaModule Name="awakening_spawn_controller">
+			<Initializer>
+				{
+					AwakeningSpawnInfo = {
+						-- Stage 1
+						{
+							{ Count = 200, TemplateId = "dire_chicken",  Region = "ChickenLand", DelayMin=0 }, 
+						},
+						-- Stage 2
+						{
+							{ Count = 1, TemplateId = "dread_chicken",  Region = "ChickenLand", DelayMin=0 }, 
+						}						
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

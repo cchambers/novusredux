@@ -12,15 +12,15 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">1320</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Insect</StringVariable>
-		<StringVariable Name= "MobileKind">Insect</StringVariable>
+		<StringVariable Name="MobileTeamType">Insect</StringVariable>
+		<StringVariable Name="MobileKind">Insect</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">60</DoubleVariable>
-		<DoubleVariable Name="Attack">65</DoubleVariable>
+		<DoubleVariable Name="Attack">85</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>

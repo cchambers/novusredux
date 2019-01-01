@@ -10,7 +10,7 @@
 		<DoubleVariable Name="BaseHealth">328</DoubleVariable>
     	<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
-    	<BoolVariable Name= "noloot">true</BoolVariable>
+    	<BoolVariable Name="noloot">true</BoolVariable>
 		<DoubleVariable Name="Armor">87</DoubleVariable>
 		<DoubleVariable Name="Attack">500</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>

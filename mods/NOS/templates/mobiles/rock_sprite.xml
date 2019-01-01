@@ -10,14 +10,14 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Golem</StringVariable>
+		<StringVariable Name="MobileTeamType">Golem</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">55</DoubleVariable>
-		<DoubleVariable Name="Attack">30</DoubleVariable>
+		<DoubleVariable Name="Attack">35</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-500</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>

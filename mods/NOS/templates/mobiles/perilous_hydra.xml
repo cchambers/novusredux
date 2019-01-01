@@ -10,7 +10,7 @@
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">1500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Demon</StringVariable>
-		<StringVariable Name= "MobileKind">Demon</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<StringVariable Name="MonsterAR">20</StringVariable>
 		<DoubleVariable Name="NaturalMinDamage">25</DoubleVariable>
 		<DoubleVariable Name="NaturalMaxDamage">32</DoubleVariable>

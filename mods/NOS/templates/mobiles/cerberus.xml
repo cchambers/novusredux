@@ -9,7 +9,7 @@
     <SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">35000</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
 		<DoubleVariable Name="Armor">70</DoubleVariable>

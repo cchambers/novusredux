@@ -11,9 +11,9 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 49, Template = "skeleton" },
+						{ Weight = 45, Template = "skeleton" },
 						{ Weight = 50, Template = "zombie" },
-						{ Weight = 1, Template = "skeleton_hq" },
+						{ Weight = 5, Template = "skeleton_hq" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

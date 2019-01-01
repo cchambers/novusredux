@@ -9,7 +9,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">180</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Rats</StringVariable>
+		<StringVariable Name="MobileTeamType">Rats</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<StringVariable Name="NaturalEnemy">Snakes</StringVariable>
 		<StringVariable Name="NaturalArmor">Light</StringVariable>

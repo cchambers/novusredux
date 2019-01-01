@@ -68,7 +68,6 @@ MobileEffectLibrary.Murderer = {
 			who:SetObjVar("IsRed", true)
 			who:SendMessage("UpdateName")
 		end
-		
 		if (who:HasObjVar("IsRed")) then
 			-- Make sure we don't have any red blues running around...
 			local karma = who:GetObjVar("Karma")

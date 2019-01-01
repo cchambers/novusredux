@@ -5,9 +5,9 @@
     <Name>Beauregard the Councilman</Name>
   <ObjectVariableComponent>
     <BoolVariable Name="ImportantNPC">True</BoolVariable>
-      <StringVariable Name= "MobileTeamType">Rebels</StringVariable>
-      <StringVariable Name= "QuestName">KillRebelQuest</StringVariable>
-      <StringVariable Name= "QuestTask">ReturnForReward</StringVariable>
+      <StringVariable Name="MobileTeamType">Rebels</StringVariable>
+      <StringVariable Name="QuestName">KillRebelQuest</StringVariable>
+      <StringVariable Name="QuestTask">ReturnForReward</StringVariable>
       <BoolVariable Name="noloot">True</BoolVariable>
   </ObjectVariableComponent>
   <ScriptEngineComponent>

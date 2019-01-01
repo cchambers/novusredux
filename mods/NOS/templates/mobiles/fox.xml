@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>136</ClientId>
 	<Name>Fox</Name>
-	<ScaleModifier>1.2</ScaleModifier>
+	<ScaleModifier>1</ScaleModifier>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Animal</MobileType>
@@ -17,7 +17,7 @@
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">44</DoubleVariable>
-		<DoubleVariable Name="Attack">4</DoubleVariable>
+		<DoubleVariable Name="Attack">8</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">23.1</DoubleVariable>

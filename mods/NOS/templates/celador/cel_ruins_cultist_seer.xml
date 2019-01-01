@@ -8,7 +8,7 @@
 	</MobileComponent>			
 	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
-		<StringVariable Name= "MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
 		<BoolVariable Name="AI-CanWander">true</BoolVariable>
 		<BoolVariable Name="ImportantNPC">True</BoolVariable>
 		<BoolVariable Name="noloot">True</BoolVariable>

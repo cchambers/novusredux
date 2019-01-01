@@ -3,10 +3,10 @@
   	<Name>[FFFFFF]Growing Potion[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name= "UserScript">potion_growing_effect</StringVariable>
-		<StringVariable Name= "ItemUseMessage">You quaff the potion...</StringVariable>
-		<StringVariable Name= "ItemCannotUseMessage">You have already drank a size potion.</StringVariable>
-		<StringVariable Name= "UseTimer">SizePotionTimer</StringVariable>
+		<StringVariable Name="UserScript">potion_growing_effect</StringVariable>
+		<StringVariable Name="ItemUseMessage">You quaff the potion...</StringVariable>
+		<StringVariable Name="ItemCannotUseMessage">You have already drank a size potion.</StringVariable>
+		<StringVariable Name="UseTimer">SizePotionTimer</StringVariable>
 		<BoolVariable Name="DestroyOnUse">true</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

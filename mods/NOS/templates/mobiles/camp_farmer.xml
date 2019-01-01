@@ -12,7 +12,7 @@
 		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
-		<StringVariable Name= "AI-SpeechTable">Villagers</StringVariable>
+		<StringVariable Name="AI-SpeechTable">Villagers</StringVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>

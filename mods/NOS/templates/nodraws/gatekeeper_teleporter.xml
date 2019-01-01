@@ -2,7 +2,7 @@
 	<Name>GatekeeperTeleporter</Name>
 	<ClientId>2</ClientId>
 	<ObjectVariableComponent>
-		<BoolVariable Name= "GatekeeperTeleporter">true</BoolVariable>
+		<BoolVariable Name="GatekeeperTeleporter">true</BoolVariable>
 		<DoubleVariable Name="TeleportRange">3.5</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>
