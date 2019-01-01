@@ -1,4 +1,4 @@
-HueNames = {
+local HueNames = {
 	hue819 = "Snow",
 	hue820 = "Ice",
 	hue821 = "Perrywinkle",
@@ -28,22 +28,16 @@ HueNames = {
 	hue930 = "Peach"
 }
 
--- RegisterSingleEventHandler(
--- 	EventType.ModuleAttached,
--- 	"dye_tub",
--- 	function()
--- 		DebugMessage("dyes loaded")
--- 	end
--- )
-
 -- fire, ice, poison, lunar, 
 if (initializer ~= nil) then
-    if( initializer.Random ~= nil ) then  
-        local typeTable = hueTable[type]
-        local hue = typeTable[math.random(1,#typeTable)]
-		this:SetHue(hue)
-		local name = HueNames["hue"..hue]
-		this:SetName(name .. " Dye Tub")
+	if( initializer.Random ~= nil ) then 
+		local len = 27
+		local rand = math.random(1,1024)
+		this:SetHue(rand)
+		local name = HueNames["hue"..rand]
+		if (name) then 
+			this:SetName(name .. " Dye Tub")
+		end
     end
 end
 
