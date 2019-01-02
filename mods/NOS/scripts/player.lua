@@ -448,7 +448,7 @@ function OnLoad(isPossessed)
 	end
 
 	local tameFix = this:HasObjVar("TameFix")
-	local mins = this:GetObjVar("PlayMinutes")
+	local mins = this:GetObjVar("PlayMinutes") or 0
 
 	if (not(tameFix) and mins > 6000) then 
 		local bm = GetSkillLevel(this, "BeastmasterySkill")
