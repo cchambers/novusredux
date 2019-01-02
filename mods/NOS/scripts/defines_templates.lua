@@ -220,17 +220,17 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
-				{ Weight = 1, Template = "robe_necromancer_tunic", Unique = true},
-				{ Weight = 1, Template = "robe_necromancer_leggings", Unique = true},
-				{ Weight = 1, Template = "robe_necromancer_helm", Unique = true},
-				{ Weight = 1, Template = "weapon_dark_bow", Unique = true},
-				{ Weight = 1, Template = "weapon_shadowblade", Unique = true},
-				{ Weight = 1, Template = "weapon_death_scythe", Unique = true},
-				{ Weight = 1, Template = "weapon_silver_longsword", Unique = true},
-				{ Weight = 1, Template = "weapon_dark_maul", Unique = true},
-				{ Weight = 1, Template = "furniture_throne_reaper", Packed = true, Unique = true},
-				{ Weight = 1, Template = "furniture_teleporter_catacombs", Packed = true,  Unique = true},
-				{ Weight = 1, Template = "item_statue_death", Unique = true},
+				{ Chance = 1, Template = "robe_necromancer_tunic", Unique = true},
+				{ Chance = 1, Template = "robe_necromancer_leggings", Unique = true},
+				{ Chance = 1, Template = "robe_necromancer_helm", Unique = true},
+				{ Chance = 1, Template = "weapon_dark_bow", Unique = true},
+				{ Chance = 1, Template = "weapon_shadowblade", Unique = true},
+				{ Chance = 1, Template = "weapon_death_scythe", Unique = true},
+				{ Chance = 1, Template = "weapon_silver_longsword", Unique = true},
+				{ Chance = 1, Template = "weapon_dark_maul", Unique = true},
+				{ Chance = 1, Template = "furniture_throne_reaper", Packed = true, Unique = true},
+				{ Chance = 1, Template = "furniture_teleporter_catacombs", Packed = true,  Unique = true},
+				{ Chance = 1, Template = "item_statue_death", Unique = true},
 			},
 		},
 
@@ -588,14 +588,14 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 1, StackCountMax = 3,},
-				{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 1, StackCountMax = 3,},
+				{ Chance = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 1, StackCountMax = 3,},
 			},
 		},
 		MageRich = 
@@ -605,14 +605,14 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 2, StackCountMax = 5,},
-				{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 2, StackCountMax = 5,},
+				{ Chance = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 2, StackCountMax = 5,},
 			},
 		},
 		ArcherPoor = 
@@ -632,7 +632,7 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Weight = 50, Template = "arrow", Unique = true, StackCountMin = 10, StackCountMax = 30,},
+				{ Chance = 50, Template = "arrow", Unique = true, StackCountMin = 10, StackCountMax = 30,},
 				{ Chance = 2, Template = "weapon_shortbow", Unique = true },
 				{ Chance = 2, Template = "weapon_longbow", Unique = true },
 			},
@@ -643,14 +643,14 @@ TemplateDefines = {
 
 			LootItems = 
 			{   
-				{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 50, StackCountMax = 100,},
-				{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 50, StackCountMax = 100,},
+				{ Chance = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 50, StackCountMax = 100,},
 			},
 		},
 		WarriorPoor = 
