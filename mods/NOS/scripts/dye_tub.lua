@@ -34,7 +34,7 @@ if (initializer ~= nil) then
 		local len = 27
 		local rand = math.random(1,1024)
 		this:SetHue(rand)
-		local name = HueNames["hue"..rand]
+		local name = HueNames["hue"..rand] or rand
 		if (name) then 
 			this:SetName(name .. " Dye Tub")
 		end
