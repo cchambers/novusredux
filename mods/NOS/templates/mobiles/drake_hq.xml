@@ -5,6 +5,7 @@
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
 	<ScaleModifier>0.3</ScaleModifier>
 	<MobileComponent>			
+		<BaseRunSpeed>0.75</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
