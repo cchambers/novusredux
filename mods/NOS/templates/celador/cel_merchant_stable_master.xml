@@ -19,12 +19,15 @@
 			<Initializer>
 				{
 					Stats= {
-						Str=150,
-						Agi=80,
+						Str=40,
+						Agi=30,
+						Int=21,
+						Wis=10,
 					},
 					Skills= {
 						AnimalTaming = 100,
 						AnimalLore = 100,
+						Beastmastery = 100,
 					},
 					EquipTable= {
 						Chest= {

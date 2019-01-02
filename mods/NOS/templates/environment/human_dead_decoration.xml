@@ -45,7 +45,6 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.Test,
 					},		
 				WeaponAbilities = { primary="Slash" },
 				}

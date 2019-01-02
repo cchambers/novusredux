@@ -41,7 +41,6 @@ CustomItemValues = {
 	--Animal Parts
 	
 	animalparts_human_skull = 10,
-	animalparts_leather_hide = 15,
 
 	animalparts_mystery_meat = 1,
 	animalparts_stringy_meat = 5,

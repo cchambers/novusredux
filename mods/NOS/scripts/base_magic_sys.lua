@@ -454,7 +454,6 @@ function ApplyReleaseEffects(spellName, spTarget, spellSource, targLoc)
 	end
 end
 
-
 function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 	Verbose("Magic", "ApplySpellCompletionEffects", spellName, spTarget, spellSource)
 	local mobileEffect = GetSpellInformation(spellName, "MobileEffect")
@@ -478,6 +477,7 @@ function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 		spTarget:SendMessage("SpellEffect" .. spTargetEffectScript,spellSource,spTarget)
 	end
 end
+
 function ApplySpellEffects(spellName, spTarget, spellSource)
 	Verbose("Magic", "ApplySpellEffects", spellName, spTarget, spellSource)
 	--DebugMessage("ApplySpellEffects")
@@ -768,9 +768,6 @@ function DoUnequip(equipObject,equippedOn,user)
 	end
 end
 
-
-
-
 function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	Verbose("Magic", "HandleSpellCastCommand", spellName, spellTargetObj, spellSourceObj)
 	local spellTarget = nil
@@ -902,8 +899,8 @@ function RequestSpellTarget(spellName)
 end
 
 function HandleSuccessfulSpellPrime(spellName, spellSource, free)
+	DebugMessage(spellName)
 	Verbose("Magic", "HandleSuccessfulSpellPrime", spellName, spellSource, free)
-
 
 	if ( SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town" ) then
 		this:SystemMessage("Cannot cast that spell in town.", "info")
@@ -930,6 +927,17 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	
 	this:PlayAnimation("idle")	
 	this:DelObjVar("LastSpell")
+
+	-- If Resurrect spell, on pet, make sure the PetSlots stuff is gravey.
+	if spellName == "Resurrect" and IsPet(_spellTarget) and TargetDeadCheck(spellName, _spellTarget) then
+		DebugMessage(" Is Pet! ")
+		if(_spellTarget:GetObjVar("PetSlots") > GetRemainingActivePetSlots(this)) then
+			this:NpcSpeechToUser("Your pets ghost returns, but immediately runs away.  You are not skilled enough to control another pet.",this)
+			CancelSpellCast()
+			return false
+		end
+	end
+
 	if (spellName == nil) then spellName = mCurSpell end
 	if (spellName == nil) then LuaDebugCallStack("NIL SPELL") end
 
@@ -1108,7 +1116,6 @@ function HandleSpellTargeted(spellTarget)
 		if(spellTarget ~= this and spellTarget ~= nil) then this:SetFacing(this:GetLoc():YAngleTo(spellTarget:GetLoc())) end
 	end
 end
-				
 
 function HandleSpellLocTargeted(success, targetLoc)
 	Verbose("Magic", "HandleSpellLocTargeted", success, targetLoc)
@@ -1117,7 +1124,7 @@ function HandleSpellLocTargeted(success, targetLoc)
 
 	local spellName = mPrimedSpell
 
-		--DebugMessage("[HandleScriptCommandTargetObject] ".. tostring(spellTarget))
+	--DebugMessage("[HandleScriptCommandTargetObject] ".. tostring(spellTarget))
 	if not(success) then
 		mPrimedSpell = nil
 		--DebugMessageA(this,"target cleared")
@@ -1167,8 +1174,7 @@ function HandleSpellTravelled(spellName, spTarget, spellSource, spellID)
 			--DebugMessage(" Vect2: " .. tostring(mySend[1]) .. " " .. tostring(mySend[2]) .. " " .. tostring(mySend[3]) .. " " .. tostring(mySend[4]))
 	else
 		ApplySpellEffects(spellName, spTarget, spellSource)
-	end 
-	
+	end
 end
 
 function CancelCurrentSpellEffects()
