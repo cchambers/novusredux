@@ -90,7 +90,7 @@ function Dialog.OpenStableDialog(user)
 end
 
 function Dialog.OpenWhoDialog(user)
-    QuickDialogMessage(this,user,"I am a stable master. For only 50 copper your pet will be kept safe until you ask for them back. You can stable a maximum of "..MaxStabledPetSlots(user).." pets.")
+    QuickDialogMessage(this,user,"I am a stable master. For only 50 gold your pet will be kept safe until you ask for them back. You can stable a maximum of "..MaxStabledPetSlots(user).." pets.")
 end
 
 function Dialog.OpenTalkDialog(user)
@@ -162,9 +162,9 @@ RegisterEventHandler(EventType.Message, "ConsumeResourceResponse",
     function (success,transactionId,user,pet)
         if ( pet ~= nil and transactionId == "StablePet" ) then
             if not(success) then
-                user:SystemMessage("Not enough coins to stable your pet.", "info")
+                user:SystemMessage("Not enough gold to stable your pet.", "info")
             else
-                user:SystemMessage("50 copper paid to stable your pet.", "info")
+                user:SystemMessage("50 gold paid to stable your pet.", "info")
 				pet:SendMessage("Stable")
 				this:NpcSpeech("Your pet is safe with me.")
             end
