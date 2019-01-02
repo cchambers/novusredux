@@ -115,10 +115,12 @@ function ShowSelectStabledPetsWindow(user, pets)
             	local pet = GetStabledPetById(user, tonumber(buttonId))
 				if ( pet ~= nil ) then
 					-- make sure they have the room left for this pet before we give it to them.
-					local max = MaxActivePetSlots(this)
-					local remaining = GetRemainingActivePetSlots(this)
+					local max = MaxActivePetSlots(user)
+					local remaining = GetRemainingActivePetSlots(user)
+					local active = max - remaining
 					if ( (pet:GetObjVar("PetSlots") or max) > remaining ) then
 						this:NpcSpeech("Methinks you could not control yet another pet.")
+						user:SystemMessage(tostring("Active: " .. active .. ", Max: " .. max))
 					else
 						pet:SendMessage("Unstable")
 						this:NpcSpeech("Here you go!")
