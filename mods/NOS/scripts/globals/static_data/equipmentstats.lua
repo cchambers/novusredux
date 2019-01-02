@@ -415,7 +415,6 @@ EquipmentStats = {
 			Attack = 3,
 			MinSkill = 0,
 			PrimaryAbility = "Tame",
-			SecondaryAbility = "CrookCalm",
 			Speed = 3
 		},
 		CrookAsh = {

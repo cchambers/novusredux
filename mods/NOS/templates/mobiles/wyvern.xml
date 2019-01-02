@@ -51,7 +51,7 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.AncientScrolls,
+						TemplateDefines.LootTable.FineScrolls,
 						{
 							NumCoins = math.random(1100,1400),
 						},
