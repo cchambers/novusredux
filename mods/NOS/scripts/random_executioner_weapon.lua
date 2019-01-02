@@ -8,7 +8,7 @@ function GetLevelByIntensity()
 	local stepEvery = 100 / levels
 	local level = math.floor(random / stepEvery)
 	if (level < 1) then level = 1 end
-	DebugMessage(tostring("EXECUTIONER DROP -> L: " .. level .. " rand:" .. random))
+	-- DebugMessage(tostring("EXECUTIONER DROP -> L: " .. level .. " rand:" .. random))
 	return level
 end
 
