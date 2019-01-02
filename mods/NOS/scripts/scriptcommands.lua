@@ -22,6 +22,20 @@ RegisterCommand {
 	end,
 	Desc = "Exit in a cool cool way."
 }
+
+RegisterCommand {
+	Command = "pets",
+	Category = "Mortal Power",
+	AccessLevel = AccessLevel.Mortal,
+	Func = function()
+        local remaining = GetRemainingActivePetSlots(this)
+        local max = MaxActivePetSlots(this)
+        this:SystemMessage(tostring("You can control " .. max .. " slots worth of pets."))
+        this:SystemMessage(tostring("You have " .. remaining .. " remaining slots open."))
+	end,
+	Desc = "Check pet slots."
+}
+
 -- RegisterCommand {
 -- 	Command = "pve",
 -- 	Category = "Mortal Power",
