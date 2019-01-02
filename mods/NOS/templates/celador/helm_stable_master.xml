@@ -48,14 +48,14 @@
 						},
 						{
 							Template = "bay_horse",
-							Price = 500,
+							Price = 750,
 							RelativeLoc = "-3.629639, 0, -16.62994",
 							Rotation = "0, 178.7475, 0",
 							UnlimitedStock = false,
 						},
 						{
 							Template = "chestnut_horse",
-							Price = 500,
+							Price = 1000,
 							RelativeLoc = "-5.479736, 0, -12.81",
 							Rotation = "0, 256.8173, 0",
 							UnlimitedStock = false,

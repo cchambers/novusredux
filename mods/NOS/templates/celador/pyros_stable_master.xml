@@ -2,7 +2,7 @@
 <ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ClientId>1</ClientId>
 	<Hue>176</Hue>
-	<Name>Ford</Name>
+	<Name>Ford Vagonner</Name>
 	<SharedStateEntry name="Title" type="string" value="Stable Master"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
@@ -47,14 +47,14 @@
 						},
 						{
 							Template = "bay_horse",
-							Price = 500,
+							Price = 750,
 							RelativeLoc = "1.341064, 1.136002, -13.30005",
 							Rotation = "0, 178.7475, 0",
 							UnlimitedStock = false,
 						},
 						{
-							Template = "chestnut_horse",
-							Price = 500,
+							Template = "desert_horse",
+							Price = 1000,
 							RelativeLoc = "-0.5090332, 1.136002, -9.47998",
 							Rotation = "0, 256.8173, 0",
 							UnlimitedStock = false,
