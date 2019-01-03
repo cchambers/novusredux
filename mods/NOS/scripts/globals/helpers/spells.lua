@@ -73,6 +73,12 @@ function CheckSpellCastSuccess(spell, mobileObj, scrollObj)
 	local circle = SpellData.AllSpells[spell].Circle
 	local castSkillName = SpellData.AllSpells[spell].Skill
 
+	if (self.IsPet and target:GetObjVar("PetSlots") > GetRemainingActivePetSlots(self.ParentObj) ) then
+		self.ParentObj:NpcSpeechToUser("Your pets ghost returns, but immediately runs away.  You are not skilled enough to control another pet.",self.ParentObj)
+		EndMobileEffect(root)
+		return false
+	end
+	
 	-- if no scrollObj was passed
 	if ( scrollObj == nil ) then
 		circle = circle + 2 -- it's two circles easier to cast from scrolls

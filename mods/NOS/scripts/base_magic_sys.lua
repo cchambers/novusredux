@@ -899,7 +899,6 @@ function RequestSpellTarget(spellName)
 end
 
 function HandleSuccessfulSpellPrime(spellName, spellSource, free)
-	DebugMessage(spellName)
 	Verbose("Magic", "HandleSuccessfulSpellPrime", spellName, spellSource, free)
 
 	if ( SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town" ) then
