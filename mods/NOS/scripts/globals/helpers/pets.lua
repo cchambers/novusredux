@@ -11,3 +11,42 @@ function MaxStabledPetSlots(master)
 	return 30 -- all pets count as 1
 end
 
+function CorrectPetStats(localPet)
+    -- DebugMessage(IsPet(localPet))
+    -- DebugMessage(localPet)
+    --DebugMessage(localPet:GetObjVar("TemplateId"))
+    
+    local templateId = localPet:GetCreationTemplateId()
+    -- DebugMessage(templateId)
+    
+    -- DebugMessage(GetTemplateData(templateId).Name)
+    local petPetSlots = GetTemplateObjVar(templateId, "PetSlots")
+    local petBaseHealth = GetTemplateObjVar(templateId, "BaseHealth")
+    local petArmor = GetTemplateObjVar(templateId, "Armor")
+    local petAttack = GetTemplateObjVar(templateId, "Attack")
+    local petPower = GetTemplateObjVar(templateId, "Power")
+
+    -- local petAgi = GetAgi(this)
+    -- local petStr = GetStr(this)
+    -- local petInt = GetInt(this)
+    -- local petCon = GetCon(this)
+    -- local petWis = GetWis(this)
+    -- local petWill = GetWill(this)
+
+    -- DebugMessage(petPetSlots," : ",petBaseHealth," : ",petArmor," : ",petAttack," : ",petPower)
+    -- DebugMessage(petAgi," : ",petStr," : ",petInt," : ",petCon," : ",petWis," : ",petWill)
+
+    if(petPetSlots ~= nil) then localPet:SetObjVar("PetSlots", petPetSlots) end
+    if(petBaseHealth ~= nil) then localPet:SetObjVar("BaseHealth", petBaseHealth) end
+    if(petArmor ~= nil) then localPet:SetObjVar("Armor", petArmor) end
+    if(petAttack ~= nil) then localPet:SetObjVar("Attack", petAttack) end
+    if(petPower ~= nil) then localPet:SetObjVar("Power", petPower) end
+
+    --  Updating stats (agi, str) did not work, and I don't know why.
+    -- if(petAgi ~= nil) then SetAgi(localPet,petAgi) end
+    -- if(petStr ~= nil) then SetStr(localPet,petStr) end
+    -- if(petInt ~= nil) then SetInt(localPet,petInt) end
+    -- if(petCon ~= nil) then SetCon(localPet,petCon) end
+    -- if(petWis ~= nil) then SetWis(localPet,petWis) end
+    -- if(petWil ~= nil) then SetWil(localPet,petWil) end
+end
