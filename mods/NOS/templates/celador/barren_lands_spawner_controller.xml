@@ -83,7 +83,7 @@
 						{ Count = 1, TemplateId = "dragon_lunar", Region = "Drake", DelayMin=4, Chance=1, SpawnTime = 23, SpawnDuration = 5},
 						
 						-- Demon Horse spawns
-						{ Count = 1, TemplateId = "nightmare", Region = "Dread1", 		SpawnTime = 24, DelayMin=4, Chance=2, SpawnDuration = 3}
+						{ Count = 1, TemplateId = "horse_nightmare", Region = "Dread1", SpawnTime = 24, DelayMin=4, Chance=2, SpawnDuration = 3}
 						{ Count = 1, TemplateId = "silver_steed", Region = "Dread1", 	SpawnTime = 8, DelayMin=4, Chance=2, SpawnDuration = 3}
 						{ Count = 1, TemplateId = "brazen_bronco", Region = "Dread1", 	SpawnTime = 16,  DelayMin=4, Chance=2, SpawnDuration = 3}
 					},
