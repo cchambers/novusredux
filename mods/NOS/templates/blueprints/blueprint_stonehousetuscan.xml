@@ -3,7 +3,7 @@
 	<ClientId>638</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="HouseType">stone_house_tuscan</StringVariable>
+		<StringVariable Name="HouseType">terracotta_house_tuscan</StringVariable>
 		<StringVariable Name="ResourceType">HouseBlueprint</StringVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>

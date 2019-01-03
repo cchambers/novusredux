@@ -81,6 +81,13 @@ RegisterEventHandler(
 			-- end
 		end
 
+		if (string.match(fullstr, "I banish thee") or
+			string.match(fullstr, "i banish thee")) then
+			local destLoc = this:GetLoc()
+			local plotController = Plot.GetAtLoc(destLoc)
+			this:SendMessage("StartMobileEffect", "PlotKick", plotController, nil)
+		end
+
 		local args = {...}
 		if (#args > 0) then
 			args[1] = string.lower(args[1])
