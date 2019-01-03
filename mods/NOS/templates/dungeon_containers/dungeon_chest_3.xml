@@ -91,6 +91,14 @@
 
 							},
 						},		
+						--weaps
+						{
+							NumItems = 1,
+							LootItems =
+							{
+								{ Chance = 15, Template = "random_executioner_weapon_10_70", Unique = true },
+							},
+						},
 					}
 				}
 			</Initializer>

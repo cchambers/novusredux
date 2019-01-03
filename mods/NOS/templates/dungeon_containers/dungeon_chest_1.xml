@@ -38,7 +38,7 @@
 								{ Weight = 35,Template = "potion_lheal", Unique = true },
 								{ Weight = 35,Template = "potion_lmana", Unique = true },
 								{ Weight = 35,Template = "potion_lstamina", Unique = true },
-								{ Weight = 35, Template = "bandage", Unique = true },
+								{ Weight = 35, Template = "bandage", StackCountMin = 1, StackCountMax = 10, Unique = true },
 								{ Weight = 25, Template = "arrow", Unique = true, StackCountMin = 0, StackCountMax = 5},
 							}
 						},
@@ -67,6 +67,15 @@
 								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 0, StackCountMax = 5},
 								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 0, StackCountMax = 5},
 							}
+						},
+
+						--weaps
+						{
+							NumItems = 1,
+							LootItems =
+							{
+								{ Chance = 5, Template = "random_executioner_weapon_10_70", Unique = true },
+							},
 						},
 					}
 				}

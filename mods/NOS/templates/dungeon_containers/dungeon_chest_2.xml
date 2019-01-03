@@ -82,8 +82,17 @@
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
 								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
 
+							}
+						},
+						
+						--weaps
+						{
+							NumItems = 1,
+							LootItems =
+							{
+								{ Chance = 10, Template = "random_executioner_weapon_10_70", Unique = true },
 							},
-						},	
+						},							
 					}
 				}
 			</Initializer>
