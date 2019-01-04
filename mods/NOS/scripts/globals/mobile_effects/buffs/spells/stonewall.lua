@@ -67,7 +67,7 @@ MobileEffectLibrary.Stonewall =
 			if (Caster:HasLineOfSightToLoc(Loc(nextLoc))) then
 			--DebugMessage("Fire At :" .. "pt: " .. curProj.. tostring(nextLoc))
 			--need to make this to tell mobs to avoid it
-				CreateTempObj("wall_half_graveyard",nextLoc,"stonewallloc_created")
+				CreateTempObj("stonewall",nextLoc,"stonewallloc_created")
 			end			
 			curProj = curProj + 1
 	
