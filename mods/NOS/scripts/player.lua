@@ -447,6 +447,12 @@ function OnLoad(isPossessed)
 		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
 	end
 
+	if (this:HasObjVar("NameActual")) then
+		this:SetName(this:GetObjVar("NameActual"))
+		this:DelObjVar("NameActual")
+		this:SendMessage("UpdateName")
+	end
+
 	local tameFix = this:HasObjVar("TameFix")
 	local mins = this:GetObjVar("PlayMinutes") or 0
 
