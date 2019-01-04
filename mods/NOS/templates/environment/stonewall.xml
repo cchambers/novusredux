@@ -1,0 +1,9 @@
+<!-- NOTE: This is the campfires used as decorations in the world not the one made by players -->
+<ObjectTemplate>
+	<ClientId>257</ClientId>
+	<Name>[FF9500]Stone Wall[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="sp_stonewall_effect"></LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

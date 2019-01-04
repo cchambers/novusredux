@@ -1,5 +1,7 @@
 require 'default:pet_controller'
 
+-- require 'base_ai_casting'
+
 SetCurVitality(this,GetMaxVitality(this))
 
 function ClearState(skipCombat)
