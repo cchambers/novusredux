@@ -10,4 +10,3 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 		
 
 	end)
-	
