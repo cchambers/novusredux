@@ -613,7 +613,7 @@ SpellData = {
 			},
 			Reagents = {
 				"Sulfurousash",
-				"Nighshade",
+				"Nightshade",
 				"Blackpearl",
 				"Mandrake"
 			}
