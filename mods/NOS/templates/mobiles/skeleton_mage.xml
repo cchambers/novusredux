@@ -37,6 +37,7 @@
 					{ 
 					Magery = 100,
 					Brawling = 45,  
+					MagicResistance=80
 					},	
 				EquipTable = 
 					{

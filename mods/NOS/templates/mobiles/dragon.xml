@@ -34,9 +34,10 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 110, 
-					Magery=110,
-					Channeling=110,
+					Brawling=200, 
+					MagicAffinity=100,
+					Magery=150, 
+					MagicResistance=150
 					},	
 				EquipTable = 
 					{
