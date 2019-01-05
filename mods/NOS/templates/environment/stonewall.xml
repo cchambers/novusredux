@@ -2,6 +2,7 @@
 <ObjectTemplate>
 	<ClientId>257</ClientId>
 	<Name>[FF9500]Stone Wall[-]</Name>
+	<ScaleModifier>0</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sp_stonewall_effect"></LuaModule>
