@@ -32,7 +32,7 @@
 					Brawling=200, 
 					MagicAffinity=100,
 					Magery=150,
-					MagicResistance=150
+					MagicResist=150
 					},	
 				EquipTable = 
 					{
