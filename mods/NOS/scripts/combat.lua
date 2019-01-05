@@ -662,7 +662,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 			if not (isPlayer) then
 				-- mobs take 200% spell damage.
-				finalDamage = finalDamage * 2
+				finalDamage = finalDamage
 			end
 		else
 			if not (damageInfo.Attack) then
