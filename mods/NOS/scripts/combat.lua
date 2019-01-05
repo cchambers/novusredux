@@ -651,9 +651,8 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 			-- Boost spell power based on eval
 			local damageLevel = (math.floor(attackerEval/35))
-			if (damageLevel < 1.1) then damageLevel = 1.1
+			if (damageLevel < 1.1) then damageLevel = 1.1 end
 			finalDamage = finalDamage * damageLevel-- 1-4 based on eval 
-
 			if (shouldResist) then
 				-- successful magic resist, half base damage
 				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)

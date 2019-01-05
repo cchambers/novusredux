@@ -34,14 +34,13 @@
 					{
 					Toughness = 2,
 					Might = 2,
-					MagicResistance = 2,
 					},
 				Skills = 
 					{ 
 					Brawling = 80,  
 					MagicAffinity=100, 
 					Evocation=100, 
-					},	
+					},
 				EquipTable = 
 					{
 						Backpack = { "backpack" },
