@@ -2,7 +2,7 @@ MobileEffectLibrary.Revealed =
 {
 	OnEnterState = function(self,root,target,args)
         self.ParentObj:SendMessage("BreakInvisEffect")
-		self.ParentObj:PlayAnimation("dance_gangamstyle")
+		-- self.ParentObj:PlayAnimation("dance_gangamstyle")
         self.ParentObj:NpcSpeech("*gasp*")
         AddBuffIcon(this,"RevealedSpell","Weaken","Thunder Strike 04", "You have been revealed!")
         -- local skillLevel = GetSkillLevel(self.ParentObj,"MagerySkill")
