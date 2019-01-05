@@ -643,10 +643,21 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			finalDamage = randomGaussian(finalDamage, finalDamage * damageInfo.Variance)
+			local attackerEval = GetSkillLevel(damageInfo.Attacker, "MagicAffinitySkill")
+			local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
+			local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
+			if (resistLevel < 40) then shouldResist = false end
+			-- this:NpcSpeech(tostring(shouldResist))
 
-			if (CheckActiveSpellResist(victim)) then
+			-- Boost spell power based on eval
+			local derp = (math.floor(attackerEval/35))
+			finalDamage = finalDamage * derp-- 1-4 based on eval 
+			-- this:SystemMessage(tostring("Derp: " .. derp .. " Before resist:" .. finalDamage))
+
+			if (shouldResist) then
 				-- successful magic resist, half base damage
-				finalDamage = finalDamage * 0.5
+				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
+				-- this:SystemMessage(tostring("Total damage:" .. finalDamage))
 			end
 
 			if not (isPlayer) then

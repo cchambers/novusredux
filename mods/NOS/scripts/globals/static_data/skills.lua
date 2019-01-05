@@ -110,11 +110,10 @@ SkillData = {
 		},
 		MagicResistSkill = {
 			DisplayName = "Magic Resistance",
-			PrimaryStat = "Intelligence",
+			PrimaryStat = "Wisdom",
 			Description = "Magic Resistance determines your chance resist offensive magical spells.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.8,
-			Skip = true
+			GainFactor = 0.8
 		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
