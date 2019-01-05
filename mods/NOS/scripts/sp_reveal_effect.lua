@@ -20,11 +20,8 @@ RegisterEventHandler(
 		for i, v in pairs(mobiles) do
 			if (not IsDead(v)) then
 				if (HasMobileEffect(v, "Hide")) then
-					v:NpcSpeech("OH SHIT... HI.")
-				else
-					v:NpcSpeech("But I'm not hidden.")
+					v:SendMessage("StartMobileEffect", "Revealed")
 				end
-				v:SendMessage("StartMobileEffect", "Revealed")
 			end
 		end
 
