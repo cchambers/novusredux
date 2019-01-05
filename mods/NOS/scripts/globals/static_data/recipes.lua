@@ -2841,8 +2841,22 @@ InscriptionSkill = {
 			MaxLevelToGain = 96.4,
 			DisplayName = "Energy Bolt Scroll",
 			NeedRecipe = false,
-			Description = "An energy bolt scroll. ",
+			Description = "An energy bolt scroll.",
 			CraftingTemplateFile = "lscroll_electricbolt",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+		RevealScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Reveal Scroll",
+			NeedRecipe = false,
+			Description = "An reveal scroll.",
+			CraftingTemplateFile = "scroll_reveal",
 			Category = "Scrolls",
 			Subcategory = "Scrolls",
 			Resources = {
