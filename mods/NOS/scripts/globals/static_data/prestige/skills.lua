@@ -36,6 +36,23 @@ PrestigeData.Skills = {
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(1)
 		},
+		Reveal = {
+			Action = {
+				DisplayName = "Reveal",
+				Icon = "track",	
+				Enabled = true
+			},
+
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			
+			Tooltip = "Attempt to reveal hidden things.",
+
+			MobileEffect = "Reveal",
+			--MobileEffectArgs = {},
+			Cooldown = TimeSpan.FromSeconds(30)
+		},
 		Focus = {
 			Action = {
 				DisplayName = "Focus",

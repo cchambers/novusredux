@@ -2,7 +2,7 @@ MobileEffectLibrary.Revealed =
 {
 	OnEnterState = function(self,root,target,args)
         self.ParentObj:SendMessage("BreakInvisEffect")
-        self.ParentObj:NpcSpeech("Oh, uh... hi!")
+        self.ParentObj:PlayEffect("StarsEffect", 10)
         -- local skillLevel = GetSkillLevel(self.ParentObj,"MagerySkill")
 	end,
 

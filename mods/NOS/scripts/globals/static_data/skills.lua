@@ -266,6 +266,15 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
 		},
+		DetectHiddenSkill = {
+			DisplayName = "Detect Hidden",
+			SkillIcon = "Skill_Rogue",
+			PrimaryStat = "Wisdom",
+			Description = "Look around.",
+			SkillType = "CombatTypeSkill",
+			Abilities = { "Reveal" },
+			GainFactor = 0.7,
+		},
 		HidingSkill = {
 			DisplayName = "Hiding",
 			SkillIcon = "Skill_Rogue",
