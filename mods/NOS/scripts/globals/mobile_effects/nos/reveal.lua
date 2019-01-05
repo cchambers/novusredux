@@ -15,7 +15,7 @@ MobileEffectLibrary.Reveal =
 	end,
 
 	AiPulse = function(self,root)
-        EndMobileEffect(root)
+        	EndMobileEffect(root)
 	end,
 	
 	Duration = TimeSpan.FromSeconds(2),

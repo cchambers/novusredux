@@ -1,7 +1,6 @@
 mLoc = nil
 
 function DoRevealStuff()
-	this:NpcSpeech("TEST")
 	if (mLoc == nil) then
 		mLoc = this:GetLoc()
 	end
@@ -19,9 +18,12 @@ function DoRevealStuff()
 		if (not IsDead(v)) then
 			if (HasMobileEffect(v, "Hide")) then
 				v:SendMessage("StartMobileEffect", "Revealed")
+				CheckSkillChance(this, "DetectHiddenSkill")
 			end
 		end
 	end
+	
+	CheckSkillChance(this, "DetectHiddenSkill")
 
 	CallFunctionDelayed(
 		TimeSpan.FromSeconds(10),
