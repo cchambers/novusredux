@@ -1,7 +1,12 @@
+mLoc = nil
+
 RegisterEventHandler(
 	EventType.Message,
 	"CompletionEffectsp_reveal_effect",
 	function()
+		if(mLoc == nil) then 
+			mLoc = this:GetLoc()
+		end
 		local mobiles =
 			FindObjects(
 			SearchMulti(
