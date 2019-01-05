@@ -647,7 +647,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
 			local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
 			if (resistLevel < 40) then shouldResist = false end
-			-- this:NpcSpeech(tostring(shouldResist))
+			this:NpcSpeech(tostring("Should resist? -> " .. shouldResist))
 
 			-- Boost spell power based on eval
 			local damageLevel = (math.floor(attackerEval/35))
