@@ -19,19 +19,20 @@ function ValidateWall(targetLoc)
 	return true
 end
 
-function InitiatePoisonField()
+function InitiatePoisonField(caster)
+	if (mCaster == nil) then mCaster = caster end
 	local startPoint = Loc(mLoc[0])
 	local projAngle = startPoint:YAngleTo(mEndLoc)
 	local mana = GetCurMana(this)
 	local curProj = 1
-	PlayEffectAtLoc("PoisonSpellEffect", startPoint, 5)
+	PlayEffectAtLoc("PoisonSpellEffect", startPoint, 10)
 	local dist = startPoint:Distance(mEndLoc)
 	while (curProj < dist) do
 		local nextLoc = startPoint:Project(projAngle, curProj)
 		if (this:HasLineOfSightToLoc(Loc(nextLoc))) then
 			if (mana > (COST_PER_UNIT * curProj)) then
 				mLoc[curProj] = nextLoc
-				PlayEffectAtLoc("PoisonSpellEffect", nextLoc, 5)
+				PlayEffectAtLoc("PoisonSpellEffect", nextLoc, 10)
 				AdjustCurMana(this, -1 * COST_PER_UNIT)
 				mTotalProjs = curProj
 			else
@@ -98,11 +99,18 @@ function HandlePoisonFieldTick()
 				),
 				GameObj(0)
 			)
-			
+			local magery = GetSkillLevel(mCaster, "MagerySkill")
+		local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
+
+		
 			for i, v in pairs(mobiles) do
-				v:NpcSpeech("YUCK")
-				if (ValidCombatTarget(this, v, true)) then
-					v:SendMessage("StartMobileEffect", "Poison")
+				if (ValidCombatTarget(this, v, true) and not(HasMobileEffect(v, "Poison"))) then
+					-- v:SendMessage("StartMobileEffect", "Poison", nil, mCaster)
+					StartMobileEffect(v, "Poison", mCaster, {
+						MinDamage = math.max(1, 3 * percent),
+						MaxDamage = math.max(1, 8 * percent),
+						PulseMax = math.max(1, 6),
+					})
 				end
 			end
 		end
@@ -155,15 +163,15 @@ RegisterEventHandler(
 		if not (success) then
 			this:SystemMessage("[$2605]", "info")
 			this:RequestClientTargetLoc(this, "SelectPoisonFieldEndPoint")
-			mCaster = this
 			return
 		end
 		--DebugMessage("endLoc" ..tostring(endLoc))
 		if (ValidateWall(endLoc)) then
+			mCaster = this
 			mEndLoc = endLoc
 			--DebugMessage("InitWall")
 			mTickCount = 0
-			InitiatePoisonField()
+			InitiatePoisonField(mCaster)
 		end
 	end
 )
