@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]Poison Field[-]</Name>
+	<ClientId>1109</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Spell">Poisonfield</StringVariable>
+		<StringVariable Name="ResourceType">Poisonfield</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spell_scroll"/>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

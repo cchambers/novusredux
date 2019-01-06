@@ -2808,6 +2808,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		PoisonFieldScroll = {
+			MinLevelToCraft = 17.8,
+			MaxLevelToGain = 67.8,
+			DisplayName = "Poison Field Scroll",
+			NeedRecipe = false,
+			Description = "A Poison Field scroll. ",
+			CraftingTemplateFile = "scroll_poisonfield",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 2,
+				FineScroll = 1,
+			},
+		},
 		StoneWallScroll = {
 			MinLevelToCraft = 17.8,
 			MaxLevelToGain = 67.8,
