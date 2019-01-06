@@ -48,7 +48,7 @@ function CorrectPetStats(localPet)
         -- local petWill = GetWill(this)
 
 
-        DebugMessage(ass(petPetSlots).." : "..ass(petBaseHealth).." : "..ass(petArmor).." : "..ass(petAttack).." : "..ass(petPower).." : "..ass(petSpeed).." : ")
+        -- DebugMessage(ass(petPetSlots).." : "..ass(petBaseHealth).." : "..ass(petArmor).." : "..ass(petAttack).." : "..ass(petPower).." : "..ass(petSpeed).." : ")
         -- DebugMessage(petAgi," : ",petStr," : ",petInt," : ",petCon," : ",petWis," : ",petWill)
 
         if(petPetSlots ~= nil) then localPet:SetObjVar("PetSlots", petPetSlots) end

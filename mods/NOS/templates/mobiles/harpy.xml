@@ -7,7 +7,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">260</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">380</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Harpy</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>

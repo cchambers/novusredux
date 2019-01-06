@@ -17,6 +17,7 @@ ServerSettings.Skills = {
 	-- these are bonuses to skill gain, given the threshold criteria is met, GainAmount will be increased, respectively.
 	LowerLevelGains = {
 		-- under this level, UpperThresholdGainAmount will be applied.
+		GuaranteedGainThreshold = 10,
 		UpperThreshold = 20,
 		UpperThresholdGainAmount = 0.2,
 		-- under this level, LowerThresholdGainAmount will be applied.

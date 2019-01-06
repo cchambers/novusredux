@@ -698,20 +698,27 @@ TemplateDefines = {
 				{ Chance = 1, Template = "armor_fullplate_leggings", Unique = true },
 			},
 		},
+		PrestigeLow = 
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 1, Template = "prestige_dart", Unique = true },
+				{ Chance = 1, Template = "prestige_spellchamber", Unique = true },
+				{ Chance = 1, Template = "prestige_empower", Unique = true },
+				{ Chance = 1, Template = "prestige_stunstrike", Unique = true },
+				{ Chance = 1, Template = "prestige_hamstring", Unique = true },
+			},
+		},
 		Prestige = 
 		{
 			NumItems = 1,	
 			LootItems = 
 			{ 
 				{ Chance = 2, Template = "prestige_stasis", Unique = true },
-				{ Chance = 2, Template = "prestige_empower", Unique = true },
 				{ Chance = 2, Template = "prestige_charge", Unique = true },
 				{ Chance = 2, Template = "prestige_wound", Unique = true },
-				{ Chance = 2, Template = "prestige_dart", Unique = true },
 				{ Chance = 2, Template = "prestige_evasion", Unique = true },
-				{ Chance = 2, Template = "prestige_spellchamber", Unique = true },
-				{ Chance = 2, Template = "prestige_stunstrike", Unique = true },
-				{ Chance = 2, Template = "prestige_hamstring", Unique = true },
 			},
 		},
 		Poor = 

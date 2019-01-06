@@ -4,5 +4,6 @@
 	<SharedStateEntry name="Weight" type="int" value="6"/>
 	<ObjectVariableComponent>			
 		<StringVariable Name="WeaponType">Longbow</StringVariable>
+		<DoubleVariable Name="MaxDurability">50</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>

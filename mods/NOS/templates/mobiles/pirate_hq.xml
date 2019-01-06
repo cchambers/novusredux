@@ -87,10 +87,14 @@
 						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(120,300),
-							{
-				    			{ Weight = 49, Template = "clothing_pirate_helm", Unique = true },
-				    			{ Weight = 50, Template = "clothing_pirate_legs", Unique = true },
-				    			{ Weight = 1, Template = "clothing_pirate_peg_legs", Unique = true },
+							NumItems = 1,
+					    	LootItems =
+					    	{
+				    			{ Weight = 25, Template = "clothing_pirate_helm", Unique = true },
+				    			{ Weight = 25, Template = "clothing_pirate_legs", Unique = true },
+				    			{ Weight = 25, Template = "clothing_pirate_peg_legs", Unique = true },
+				    			{ Weight = 20, Template = "furniture_box", Unique = true },
+				    			{ Weight = 5, Template = "furniture_box_rare", Unique = true },
 				    		}
 						},
 					},	

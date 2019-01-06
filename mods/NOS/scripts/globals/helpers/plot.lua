@@ -1,4 +1,10 @@
-
+local PointsToString = {
+    "South",
+    "East",
+    "North",
+    "West",
+    "Center",
+}
 
 Plot = {}
 
@@ -1734,6 +1740,7 @@ Plot.Lockdown = function(playerObj, controller, object)
 
         if ( house and isContainer ) then
             SetTooltipEntry(object,"locked_down","Secure",98)
+            AddUseCase(object, "Secure: Friends", false, "HasHouseControl")
             Plot.AlterContainerCountBy(house, 1)
             object:SetObjVar("SecureContainer", true)
             object:SetObjVar("locked", true)
@@ -1867,6 +1874,13 @@ Plot.Release = function(playerObj, controller, object)
                     object:DelObjVar("SecureContainer")
                     object:DelObjVar("locked")
                     RemoveTooltipEntry(object,"lock")
+                    if ( object:HasObjVar("FriendContainer") ) then
+                        RemoveUseCase(object,"Secure: Owners")
+                        RemoveTooltipEntry(object,"friend_container")
+                        object:DelObjVar("FriendContainer")
+                    else
+                        RemoveUseCase(object,"Secure: Friends")
+                    end
                 end
             else
                 Plot.AlterLockCountBy(controller, -1)
@@ -1997,8 +2011,8 @@ Plot.Unpack = function(playerObj, packedObj, loc, cb)
                 objRef:SetObjVar("LockedDown", true)
                 objRef:SetObjVar("NoReset", true)
                 objRef:SetObjVar("PlotController", controller)
-                if(isExteriorDecoration) then
-                    objRef:SetObjVar("ExteriorDecoration",true)
+                if ( packedObj:HasObjVar("ExteriorDecoration") ) then
+                    objRef:SetObjVar("ExteriorDecoration", true)
                 end
 
                 if ( house ) then
@@ -2017,6 +2031,7 @@ Plot.Unpack = function(playerObj, packedObj, loc, cb)
 
                 if ( house and isContainer ) then
                     SetTooltipEntry(objRef,"locked_down","Secure",98)
+                    AddUseCase(objRef, "Secure: Friends", false, "HasHouseControl")
                     objRef:SetObjVar("SecureContainer", true)
                     objRef:SetObjVar("locked", true)
                     Plot.AlterContainerCountBy(house, 1)
@@ -2671,6 +2686,11 @@ Plot.AddHouseCoOwner = function(playerObj, newCoOwner, house)
         return false
     end
 
+    if ( playerObj == newCoOwner ) then
+        playerObj:SystemMessage("Cannot add yourself as House Co-Owner.", "info")
+        return false
+    end
+
     if not( IsPlayerCharacter(newCoOwner) ) then
         playerObj:SystemMessage("That is not a player!", "info")
         return false
@@ -2678,12 +2698,7 @@ Plot.AddHouseCoOwner = function(playerObj, newCoOwner, house)
 
     local coOwners = house:GetObjVar("HouseCoOwners") or {}
     if ( coOwners[newCoOwner] == true ) then
-        playerObj:SystemMessage("They are alread a co-owner of that house.", "info")
-        return false
-    end
-
-    -- needs to be the last return false check
-    if not( IsPlayerCharacter(newCoOwner) ) then
+        playerObj:SystemMessage("They are already a co-owner of this house.", "info")
         return false
     end
     
@@ -2693,6 +2708,98 @@ Plot.AddHouseCoOwner = function(playerObj, newCoOwner, house)
     coOwners[newCoOwner] = true
 
     house:SetObjVar("HouseCoOwners", coOwners)
+
+    Plot.UpdateUI(playerObj)
+
+    return true
+end
+
+Plot.ToggleHouseFriendContainer = function(playerObj, container)
+    if not( playerObj ) then
+        LuaDebugCallStack("[Plot.ToggleHouseFriendContainer] playerObj not provided.")
+        return false
+    end
+    if not( container ) then
+        LuaDebugCallStack("[Plot.ToggleHouseFriendContainer] container not provided.")
+        return false
+    end
+
+    if not( container:HasObjVar("SecureContainer") ) then
+        playerObj:SystemMessage("That is not a secure container.", "info")
+        return false
+    end
+
+    local house = container:GetObjVar("PlotHouse")
+    if not( house ) then
+        playerObj:SystemMessage("That is not in a house.", "info")
+        return false
+    end
+
+    if not( Plot.HasHouseControl(playerObj, house:GetObjVar("PlotController"), house) ) then
+        playerObj:SystemMessage("That is not yours.", "info")
+        return false
+    end
+
+    if ( container:HasObjVar("FriendContainer") ) then
+        container:DelObjVar("FriendContainer")
+        RemoveTooltipEntry(container, "friend_container")
+        RemoveUseCase(container, "Secure: Owners")
+        AddUseCase(container, "Secure: Friends", false, "HasHouseControl")
+        playerObj:SystemMessage("Container secure to owners only.", "info")
+    else
+        container:SetObjVar("FriendContainer", true)
+        SetTooltipEntry(container, "friend_container", "Friends")
+        RemoveUseCase(container, "Secure: Friends")
+        AddUseCase(container, "Secure: Owners", false, "HasHouseControl")
+        playerObj:SystemMessage("Friends can now add/remove items from this container.", "info")
+    end
+end
+
+--- Add a player as a friend to a house via player action
+-- @param playerObj - Player adding
+-- @param newFriend - Player being added
+-- @param house - The house object to add as friend to
+-- @return true/false
+Plot.AddHouseFriend = function(playerObj, newFriend, house)
+    if not( playerObj ) then
+        LuaDebugCallStack("[Plot.AddHouseFriend] playerObj not provided.")
+        return false
+    end
+    if not( newFriend ) then
+        LuaDebugCallStack("[Plot.AddHouseFriend] newFriend not provided.")
+        return false
+    end
+    if not( house ) then
+        LuaDebugCallStack("[Plot.AddHouseFriend] house not provided.")
+        return false
+    end
+    if not( Plot.HasHouseControl(playerObj, house:GetObjVar("PlotController"), house) ) then
+        playerObj:SystemMessage("Only plot owners/house co-owners can add house friends.", "info")
+        return false
+    end
+
+    if ( playerObj == newFriend ) then
+        playerObj:SystemMessage("Cannot add yourself as House Friend.", "info")
+        return false
+    end
+
+    if not( IsPlayerCharacter(newFriend) ) then
+        playerObj:SystemMessage("That is not a player!", "info")
+        return false
+    end
+
+    local friends = house:GetObjVar("HouseFriends") or {}
+    if ( friends[newFriend] == true ) then
+        playerObj:SystemMessage("They are already a friend of this house.", "info")
+        return false
+    end
+
+    playerObj:SystemMessage(newFriend:GetName() .. " Added as a House Friend.", "event")
+    newFriend:SystemMessage(playerObj:GetName() .. " Has Added You as a House Friend.", "event")
+
+    friends[newFriend] = true
+
+    house:SetObjVar("HouseFriends", friends)
 
     Plot.UpdateUI(playerObj)
 
@@ -2721,6 +2828,35 @@ Plot.RemoveHouseCoOwner = function(playerObj, oldCoOwner, house)
     if ( coOwners[oldCoOwner] == true ) then
         coOwners[oldCoOwner] = nil
         house:SetObjVar("HouseCoOwners", coOwners)
+    end
+
+    return true
+
+end
+
+Plot.RemoveHouseFriend = function(playerObj, oldFriend, house)
+    if not( playerObj ) then
+        LuaDebugCallStack("[Plot.RemoveHouseFriend] playerObj not provided.")
+        return false
+    end
+    if not( oldFriend ) then
+        LuaDebugCallStack("[Plot.RemoveHouseFriend] oldFriend not provided.")
+        return false
+    end
+    if not( house ) then
+        LuaDebugCallStack("[Plot.RemoveHouseFriend] house not provided.")
+        return false
+    end
+
+    if not( Plot.HasHouseControl(playerObj, house:GetObjVar("PlotController"), house) ) then
+        playerObj:SystemMessage("Only owners/co-owners can remove house friends.", "info")
+        return false
+    end
+
+    local friends = house:GetObjVar("HouseFriends") or {}
+    if ( friends[oldFriend] == true ) then
+        friends[oldFriend] = nil
+        house:SetObjVar("HouseFriends", friends)
     end
 
     return true
