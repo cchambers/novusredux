@@ -117,6 +117,8 @@ MobileEffectLibrary.Bandage =
 		if ( IsPoisoned(self.Target) ) then
 			if ( self.Healing >= 60 ) then
 				self.Target:SendMessage("EndPoisonEffect")
+				self.ParentObj:NpcSpeechToUser("You cure yourself!",self.ParentObj)
+				EndMobileEffect(root)
 			else
 				self.ParentObj:NpcSpeechToUser("You lack the skill to cure poison.",self.ParentObj)
 			end
