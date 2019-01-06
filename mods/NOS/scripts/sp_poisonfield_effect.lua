@@ -1,6 +1,7 @@
 mTotalProjs = 0
 mTickCount = 0
 mEndLoc = nil
+mCaster = nil
 mLoc = {}
 COST_PER_UNIT = 5
 function ValidateWall(targetLoc)
@@ -98,17 +99,10 @@ function HandlePoisonFieldTick()
 				GameObj(0)
 			)
 			
-			local magery = GetSkillLevel(this, "MagerySkill")
-			local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
-			
 			for i, v in pairs(mobiles) do
-				--v:NpcSpeech("Burning Burning burning")
+				v:NpcSpeech("YUCK")
 				if (ValidCombatTarget(this, v, true)) then
-					StartMobileEffect(v, "Poison", this, {
-						MinDamage = math.max(1, 3 * percent),
-						MaxDamage = math.max(1, 8 * percent),
-						PulseMax = math.max(1, 6),
-					})
+					v:SendMessage("StartMobileEffect", "Poison")
 				end
 			end
 		end
@@ -161,6 +155,7 @@ RegisterEventHandler(
 		if not (success) then
 			this:SystemMessage("[$2605]", "info")
 			this:RequestClientTargetLoc(this, "SelectPoisonFieldEndPoint")
+			mCaster = this
 			return
 		end
 		--DebugMessage("endLoc" ..tostring(endLoc))

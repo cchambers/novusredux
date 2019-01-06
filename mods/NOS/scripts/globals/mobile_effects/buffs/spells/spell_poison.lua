@@ -4,8 +4,8 @@ MobileEffectLibrary.SpellPoison =
 		-- TARGET REPRESENTS THE PERSON THAT APPLIED THE POISON
 		self.Target = target
 
-		local evocation = GetSkillLevel(self.Target, "MagerySkill")
-		local percent = evocation / ServerSettings.Skills.PlayerSkillCap.Single
+		local magery = GetSkillLevel(self.Target, "MagerySkill")
+		local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
 
 		StartMobileEffect(self.ParentObj, "Poison", self.Target, {
 			MinDamage = math.max(1, 3 * percent),
