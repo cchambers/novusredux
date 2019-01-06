@@ -100,7 +100,7 @@ function HandlePoisonFieldTick()
 			for i, v in pairs(mobiles) do
 				--v:NpcSpeech("Burning Burning burning")
 				if (ValidCombatTarget(this, v, true)) then
-					StartMobileEffect(self.ParentObj, "Poison", self.Target, {
+					StartMobileEffect(v, "Poison", this, {
 						MinDamage = math.max(1, 3 * percent),
 						MaxDamage = math.max(1, 8 * percent),
 						PulseMax = math.max(1, 6),
