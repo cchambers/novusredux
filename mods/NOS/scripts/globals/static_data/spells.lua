@@ -1842,6 +1842,7 @@ SpellData = {
 		Poisonfield = {
 			SpellDisplayName = "Poison Field",
 			PowerWords = "In Nox Grav",
+			Icon = "Poison Cloud",
 			Circle = 4,
 			manaCost = 11,
 			effectDamageType = "Poison",
