@@ -2808,6 +2808,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		StoneWallScroll = {
+			MinLevelToCraft = 17.8,
+			MaxLevelToGain = 67.8,
+			DisplayName = "Stone Wall Scroll",
+			NeedRecipe = false,
+			Description = "A Stone Wall scroll. ",
+			CraftingTemplateFile = "scroll_stonewall",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 2,
+				FineScroll = 1,
+			},
+		},
 		CloakScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
@@ -2871,6 +2885,20 @@ InscriptionSkill = {
 			NeedRecipe = false,
 			Description = "An explosion scroll. ",
 			CraftingTemplateFile = "scroll_explosion",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+		MindBlastScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Mind Blast Scroll",
+			NeedRecipe = false,
+			Description = "A mind blast scroll. ",
+			CraftingTemplateFile = "scroll_mindblast",
 			Category = "Scrolls",
 			Subcategory = "Scrolls",
 			Resources = {

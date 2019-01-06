@@ -980,7 +980,7 @@ SpellData = {
 			SpellTooltipString = "Sacrifices up to 20% of casters max mana in exchange for 25%-75% of that amount in stamina.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
-			Skill = "ManifestationSkill",
+			Skill = "MagerySkill",
 			BeneficialSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
