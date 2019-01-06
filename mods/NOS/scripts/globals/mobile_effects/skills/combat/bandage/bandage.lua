@@ -112,18 +112,16 @@ MobileEffectLibrary.Bandage =
 			end
 		end
 
-		self.Target:SendMessage("HealRequest", self._HealAmount * self._HealMultiplier , self.ParentObj)
-
 		if ( IsPoisoned(self.Target) ) then
 			if ( self.Healing >= 60 ) then
 				self.Target:SendMessage("EndPoisonEffect")
 				self.ParentObj:NpcSpeechToUser("You cured your target of poison!",self.ParentObj)
-				EndMobileEffect(root)
-				return false
 			else
 				self.ParentObj:NpcSpeechToUser("You lack the skill to cure poison.",self.ParentObj)
 			end
-		end
+		else
+			self.Target:SendMessage("HealRequest", self._HealAmount * self._HealMultiplier , self.ParentObj)
+		end	
 
 		-- apply no bandage to person that did the bandaging
 		StartMobileEffect(self.ParentObj, "NoBandage")

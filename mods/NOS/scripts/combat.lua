@@ -137,7 +137,7 @@ function PerformWeaponAttack(atTarget, hand)
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
 			local formula = tonumber((GetSkillLevel(this, "MarksmanshipSkill") / 3) * 0.01)
-			local chanceOverride = CheckSkill(this,"MarksmanshipSkill", formula)
+			local chanceOverride = CheckSkill(this, "MarksmanshipSkill", formula)
 			this:NpcSpeech(tostring(formula))
 			this:NpcSpeech(tostring(chanceOverride))
 			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
