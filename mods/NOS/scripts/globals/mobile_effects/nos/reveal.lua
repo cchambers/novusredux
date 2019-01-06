@@ -1,7 +1,9 @@
 MobileEffectLibrary.Reveal = 
 {
 	OnEnterState = function(self,root,target,args)
-		self.ParentObj:AddModule("sp_reveal_effect")
+		local skill = GetSkillLevel(self.ParentObj, "DetectHiddenSkill")
+		self.ParentObj:AddModule("sp_reveal_effect",{Skill=skill})
+		CheckSkillChance(self.ParentObj, "DetectHiddenSkill")
 		self.ParentObj:PlayAnimation("roar")
 	end,
 

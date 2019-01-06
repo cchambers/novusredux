@@ -1,14 +1,24 @@
 mLoc = nil
+mDist = 15
+
+if (initializer ~= nil) then
+	if (initializer.Skill ~= nil) then
+		local skill = initializer.Skill
+		mDist = mDist + (skill/10)
+		-- add one meter for every 10 skill points
+	end
+end
 
 function DoRevealStuff()
 	if (mLoc == nil) then
 		mLoc = this:GetLoc()
 	end
+
 	local mobiles =
 		FindObjects(
 		SearchMulti(
 			{
-				SearchRange(mLoc, 20),
+				SearchRange(mLoc, mDist),
 				SearchMobile()
 			}
 		),
@@ -18,12 +28,9 @@ function DoRevealStuff()
 		if (not IsDead(v)) then
 			if (HasMobileEffect(v, "Hide")) then
 				v:SendMessage("StartMobileEffect", "Revealed")
-				CheckSkillChance(this, "DetectHiddenSkill")
 			end
 		end
 	end
-	
-	CheckSkillChance(this, "DetectHiddenSkill")
 
 	CallFunctionDelayed(
 		TimeSpan.FromSeconds(10),

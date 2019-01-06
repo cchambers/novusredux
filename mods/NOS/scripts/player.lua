@@ -431,7 +431,7 @@ end
 
 function OnLoad(isPossessed)
 
-
+	-- Logged out Incognito
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
