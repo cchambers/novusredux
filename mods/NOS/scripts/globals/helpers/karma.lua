@@ -661,6 +661,7 @@ function KarmaPunishAllAggressorsForMurder(victim)
                 local murders = aggressor:GetObjVar("Murders") or 0
                 murders = murders + 1
                 aggressor:SetObjVar("Murders", murders)
+                aggressor:SendMessage("StartMobileEffect", "Chaotic")
                 if (not(HasMobileEffect(aggressor, "Murderer"))) then
                     aggressor:SendMessage("StartMobileEffect", "Murderer")
                 end
