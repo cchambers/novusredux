@@ -52,6 +52,7 @@
 					{	
 					TemplateDefines.LootTable.MageBoss,
 					TemplateDefines.LootTable.Boss,
+					TemplateDefines.LootTable.DeathBoss,
 					TemplateDefines.LootTable.AncientScrolls,
 					    -- Gold
 					    {

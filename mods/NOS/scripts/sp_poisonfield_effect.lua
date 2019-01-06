@@ -81,14 +81,10 @@ function HandlePoisonFieldTick()
 		return
 	end
 	for indy, fLocs in pairs(mLoc) do
-		--DebugMessage("CHECK 1 WOF: ",this:HasLineOfSightToLoc(Loc(fLocs)))
 		if (this:HasLineOfSightToLoc(Loc(fLocs))) then
 			if (mTickCount == 0) then
-				--DebugMessage("Playing")
-				--CreateTempObj("spell_aoe",Loc(fLocs),"aoe_created_short")
 				PlayEffectAtLoc("PoisonSpellEffect", Loc(fLocs), 10)
 			end
-			----DebugMessage("PULSE!!")
 			local mobiles =
 				FindObjects(
 				SearchMulti(
@@ -103,7 +99,6 @@ function HandlePoisonFieldTick()
 			local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
 			for i, v in pairs(mobiles) do
 				if (ValidCombatTarget(this, v, true)) then
-					-- v:SendMessage("StartMobileEffect", "Poison", nil, mCaster)
 					if not( HasMobileEffect(v, "Poison") ) then
 						v:SendMessage("StartMobileEffect", "Poison", this, {
 							MinDamage = 1,
