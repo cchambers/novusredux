@@ -135,7 +135,15 @@ function PerformWeaponAttack(atTarget, hand)
 
 	--- perform the actual swing/shoot/w.e.
 	if ( _Weapon[hand].IsRanged ) then
-		ExecuteRangedWeaponAttack(atTarget, hand)
+		if (mIsMoving) then
+			local formula = tonumber((GetSkillLevel(this, "MarksmanshipSkill") / 3) * 0.01)
+			local chanceOverride = CheckSkill(this,"MarksmanshipSkill", formula)
+			this:NpcSpeech(tostring(formula))
+			this:NpcSpeech(tostring(chanceOverride))
+			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
+		else 
+			ExecuteRangedWeaponAttack(atTarget, hand)
+		end
 	else
 		ExecuteWeaponAttack(atTarget, hand)
 	end
