@@ -31,7 +31,7 @@
 			<Initializer>
 				{ 
 				Type = "lunar",
-				Stats = { Str=80, Agi=50, Int=50, Wis=80, Wil=10 },
+				Stats = { Str=80, Agi=50, Int=50, Wis=80, Will=10 },
 				MobTraits =
 					{
 					},
