@@ -24,7 +24,7 @@ function SetKarma(mobile, amount)
         return
     end
     -- prevent players from ever having 0 karma (so they are never neutral since it's reserved for NPCs)
-    if ( amount == 0 and IsPlayerObject(mobile) ) then amount = 1 end
+    if ( amount == 0 and IsPlayerCharacter(mobile) ) then amount = 1 end
     mobile:SetObjVar("Karma", amount)
 end
 
@@ -199,7 +199,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
         -- explicitly stop all karma actions on pets/followers.
         local owner = mobileB:HasObjVar("controller") and mobileB:GetObjVar("controller") or mobileB:GetObjectOwner()
         if ( mobileA == owner ) then return 0 end
-        isPlayerB, karmaB = IsPlayerObject(mobileB), GetKarma(mobileB)
+        isPlayerB, karmaB = IsPlayerCharacter(mobileB), GetKarma(mobileB)
     end
 
     -- if range condition, ensure it's met
@@ -451,7 +451,7 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
         return false
     end
     -- doesn't matter against NPCs
-    if ( not IsPlayerCharacter(player) or not IsPlayerObject(target) ) then return false end
+    if ( not IsPlayerCharacter(player) or not IsPlayerCharacter(target) ) then return false end
 
     -- not chaotic protected from defending against aggressors
     if ( IsAggressorTo(target, player) ) then return false end
@@ -593,7 +593,7 @@ function CheckKarmaLoot(player, container)
     -- can't get in trouble doing stuff to your pets
     if ( player == container:GetObjVar("controller") ) then return end
 
-    if ( IsPlayerObject(container) ) then
+    if ( IsPlayerCharacter(container) ) then
         -- can't get in trouble looting your own corpse
         if ( player == container:GetObjVar("BackpackOwner") ) then return end
         if ( 
