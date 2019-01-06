@@ -27,7 +27,7 @@ function InitStoneWall(caster, skill)
 		FindObjects(
 		SearchMulti(
 			{
-				SearchRange(mLoc, 3),
+				SearchRange(mLoc, 2.75),
 				SearchMobile()
 			}
 		),
