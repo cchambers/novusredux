@@ -161,6 +161,7 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Accuracy with projectile weapons",
 			SkillType = "CombatTypeSkill",
+			GainFactor = 0.85,
 		},
 		NecromancySkill = {
 			DisplayName = "Necromancy",
