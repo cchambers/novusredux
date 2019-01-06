@@ -99,18 +99,19 @@ function HandlePoisonFieldTick()
 				),
 				GameObj(0)
 			)
-			local magery = GetSkillLevel(mCaster, "MagerySkill")
-		local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
-
-		
+			local magery = GetSkillLevel(this, "MagerySkill")
+			local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
 			for i, v in pairs(mobiles) do
-				if (ValidCombatTarget(this, v, true) and not(HasMobileEffect(v, "Poison"))) then
+				if (ValidCombatTarget(this, v, true)) then
 					-- v:SendMessage("StartMobileEffect", "Poison", nil, mCaster)
-					StartMobileEffect(v, "Poison", mCaster, {
-						MinDamage = math.max(1, 3 * percent),
-						MaxDamage = math.max(1, 8 * percent),
-						PulseMax = math.max(1, 6),
-					})
+					if not( HasMobileEffect(v, "Poison") ) then
+						v:SendMessage("StartMobileEffect", "Poison", this, {
+							MinDamage = 1,
+							MaxDamage = 4,
+							PulseMax = 5,
+							PulseFrequency = TimeSpan.FromSeconds(1)
+						})
+					end
 				end
 			end
 		end
