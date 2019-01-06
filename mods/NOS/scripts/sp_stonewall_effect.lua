@@ -13,36 +13,38 @@ mTimer = 0.3
 
 
 function InitStoneWall(caster, skill)
-	AddView("StoneWallAoe", SearchMobileInRange(.5))
+	-- AddView("StoneWallAoe", SearchMobileInRange(.5))
 	mCaster = caster
 	mTickCount = math.floor(skill/2)
 	mSkill = skill
 	mFirstTick = mTickCount
+	
+	this:SetCollisionBoundsFromTemplate("wall_graveyard")
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(mTimer), "StoneWallTickTimer")
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(.005), "StoneWallGrowTimer")
 end
 
 
-RegisterEventHandler(EventType.EnterView, "StoneWallAoe", 
-	function(objEntering)
-		if(mTickCount == mFirstTick) then
-			mDeleting = true
-		--	DebugMessage("Deleting")
-			DelView("StoneWallAoe")
-			CallFunctionDelayed(TimeSpan.FromSeconds(.5), 
-			function()
-				this:FireTimer("EndStoneWallTimer")
-			end)
-			return
-		end
-		if(objEntering ~= mCaster) then 
-			mTargets[#mTargets + 1] = objEntering
-			mCaster:SendMessage("RequestMagicalAttack", "Energywall", objEntering, mCaster, true)
-			mLastHit[objEntering] = ServerTimeMs()
-		end
+-- RegisterEventHandler(EventType.EnterView, "StoneWallAoe", 
+-- 	function(objEntering)
+-- 		if(mTickCount == mFirstTick) then
+-- 			mDeleting = true
+-- 		--	DebugMessage("Deleting")
+-- 			DelView("StoneWallAoe")
+-- 			CallFunctionDelayed(TimeSpan.FromSeconds(.5), 
+-- 			function()
+-- 				this:FireTimer("EndStoneWallTimer")
+-- 			end)
+-- 			return
+-- 		end
+-- 		if(objEntering ~= mCaster) then 
+-- 			mTargets[#mTargets + 1] = objEntering
+-- 			mCaster:SendMessage("RequestMagicalAttack", "Energywall", objEntering, mCaster, true)
+-- 			mLastHit[objEntering] = ServerTimeMs()
+-- 		end
 
-	end)
-RegisterEventHandler(EventType.LeaveView, "StoneWallAoe", 
+-- 	end)
+-- RegisterEventHandler(EventType.LeaveView, "StoneWallAoe", 
 	function(objLeaving)
 		local cTargs = {}
 		for i=1, #mTargets do

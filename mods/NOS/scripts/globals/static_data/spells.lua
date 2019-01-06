@@ -734,7 +734,7 @@ SpellData = {
 		},
 
 		Defense = {
-			SpellDisplayName = "Defense Up",
+			SpellDisplayName = "Fortify",
 			Circle = 5,
 			PowerWords = "Vas Def",
 			Icon = "Deflect",
