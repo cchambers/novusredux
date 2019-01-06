@@ -28,6 +28,7 @@ function DoRevealStuff()
 		if (not IsDead(v)) then
 			if (HasMobileEffect(v, "Hide")) then
 				v:SendMessage("StartMobileEffect", "Revealed")
+				CheckSkillChance(this, "DetectHiddenSkill")
 			end
 		end
 	end
