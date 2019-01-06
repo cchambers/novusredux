@@ -958,7 +958,7 @@ SpellData = {
 		},
 
 		Refresh = {
-			PowerWords = "Refresh",
+			PowerWords = "Uus Grav",
 			Icon = "Ball Lightning 02",
 			manaCost = 0,
 			effectType = "InstantHitSpell",

@@ -1,6 +1,4 @@
-
 require 'default:player'
-
 
 if(IsDemiGod(this)) then
 	require 'default:base_player_mobedit'
