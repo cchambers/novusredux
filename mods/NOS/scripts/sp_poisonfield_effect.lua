@@ -97,6 +97,10 @@ function HandlePoisonFieldTick()
 				),
 				GameObj(0)
 			)
+			
+			local magery = GetSkillLevel(this, "MagerySkill")
+			local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
+			
 			for i, v in pairs(mobiles) do
 				--v:NpcSpeech("Burning Burning burning")
 				if (ValidCombatTarget(this, v, true)) then
