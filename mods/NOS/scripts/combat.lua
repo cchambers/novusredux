@@ -103,9 +103,9 @@ function PerformWeaponAttack(atTarget, hand)
 	-- handle moving bow men
 	if (_Weapon[hand].IsRanged) then
 		-- dont let archers shoot when they are moving.
-		if (mIsMoving) then
-			return
-		end
+		-- if (mIsMoving) then
+		-- 	return
+		-- end
 	end
 
 	if not (WithinCombatRange(this, atTarget, _Weapon[hand].Range)) then
