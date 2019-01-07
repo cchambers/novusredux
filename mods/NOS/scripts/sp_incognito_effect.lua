@@ -8,7 +8,7 @@ mBuffed = false
 function HandleLoaded(caster)
 	local skillLevel = GetSkillLevel(caster,"MagerySkill")
 
-	if( this:HasTimer("IncognitoTimer") ) then
+	if( this:HasTimer("IncognitoTimer") or IsImmortal(this) ) then
 		return
 	end
 
