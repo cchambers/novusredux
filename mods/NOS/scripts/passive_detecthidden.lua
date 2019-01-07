@@ -1,16 +1,11 @@
-mLoc = nil
-mDist = 4
-
 function DoRevealStuff()
-	if (mLoc == nil) then
-		mLoc = this:GetLoc()
-	end
+	mLoc = this:GetLoc()
 
 	local mobiles =
 		FindObjects(
 		SearchMulti(
 			{
-				SearchRange(mLoc, mDist),
+				SearchRange(mLoc, 4),
 				SearchMobile()
 			}
 		),
