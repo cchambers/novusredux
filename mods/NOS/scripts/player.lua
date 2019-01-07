@@ -453,7 +453,8 @@ function OnLoad(isPossessed)
 
 	-- GM Detect Hidden Passive
 	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
-	if (detectSkill >= 100) then this:AddModule("passive_detecthidden") end
+	local hasPassiveDetect = this:HasModule("passive_detecthidden")
+	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")
