@@ -20,5 +20,7 @@ RegisterEventHandler(
 			}
 		end
 		SetSkillDictionary(myTarg, skillDictionary)
+
+		user:SystemMessage("Boom, max stats.")
 	end
 )
