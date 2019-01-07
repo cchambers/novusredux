@@ -116,7 +116,7 @@
 					"Y`reif Eci",
 					"Zoray"
 				},
-				Stats = { Str=60, Agi=30, Int=21, Wis=10, Wil=70 },
+				Stats = { Str=60, Agi=30, Int=21, Wis=10, Will=70 },
 				MobTraits =
 					{
 					Armored = 2,

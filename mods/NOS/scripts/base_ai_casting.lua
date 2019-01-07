@@ -1,4 +1,4 @@
-require 'default:base_ai_mob'
+require 'base_ai_mob'
 
 --Set to cast
 AI.SetSetting("CanCast", true)

@@ -7,7 +7,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">260</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">380</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Harpy</StringVariable>
 		<StringVariable Name="MobileKind">Demon</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_default">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					},

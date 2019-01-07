@@ -110,11 +110,10 @@ SkillData = {
 		},
 		MagicResistSkill = {
 			DisplayName = "Magic Resistance",
-			PrimaryStat = "Intelligence",
+			PrimaryStat = "Wisdom",
 			Description = "Magic Resistance determines your chance resist offensive magical spells.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.8,
-			Skip = true
+			GainFactor = 0.8
 		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
@@ -162,7 +161,7 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Accuracy with projectile weapons",
 			SkillType = "CombatTypeSkill",
-			Skip = true,
+			GainFactor = 0.35,
 		},
 		NecromancySkill = {
 			DisplayName = "Necromancy",
@@ -266,6 +265,15 @@ SkillData = {
 			Description = "Archery determines your effectiveness with a bow and arrow.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
+		},
+		DetectHiddenSkill = {
+			DisplayName = "Detect Hidden",
+			SkillIcon = "Skill_Rogue",
+			PrimaryStat = "Wisdom",
+			Description = "Look around.",
+			SkillType = "CombatTypeSkill",
+			Abilities = { "Reveal" },
+			GainFactor = 0.7,
 		},
 		HidingSkill = {
 			DisplayName = "Hiding",

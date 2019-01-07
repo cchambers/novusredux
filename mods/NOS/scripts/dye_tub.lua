@@ -70,6 +70,7 @@ RegisterEventHandler(
 			local armorType = target:GetObjVar("ArmorType")
 			if (armorType ~= "Cloth"
 			and armorType ~= "MageRobe"
+			and armorType ~= "Padded"
 			and armorType ~= "Linen") then dyeable = false end
 		end
 

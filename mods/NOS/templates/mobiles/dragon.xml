@@ -23,7 +23,7 @@
 		<LuaModule Name="ai_dragon">
 			<Initializer>				
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=50, Wil=50 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=50, Will=50 },
 				MobTraits =
 					{
 					Might=3,
@@ -34,9 +34,10 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 110, 
-					Magery=110,
-					Channeling=110,
+					Brawling=200, 
+					MagicAffinity=100,
+					Magery=150, 
+					MagicResist=150
 					},	
 				EquipTable = 
 					{

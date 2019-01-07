@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
-				Stats = { Str=10, Agi=8, Int=21, Wis=5, Wil=5 },
+				Stats = { Str=10, Agi=8, Int=21, Wis=5, Will=5 },
 				MobTraits =
 					{
 					},

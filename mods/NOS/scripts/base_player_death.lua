@@ -79,6 +79,13 @@ RegisterEventHandler(EventType.CreatedObject, "created_corpse", function (succes
 			if ( allegiance ~= nil ) then
 				objRef:SetObjVar("Allegiance", allegiance)
 			end
+			if ( this:HasObjVar("IsChaotic") ) then
+				objRef:SetObjVar("IsChaotic", true)
+			end
+			local groupKarma = this:GetObjVar("GroupKarma")
+			if ( groupKarma ) then
+				objRef:SetObjVar("GroupKarma", groupKarma)
+			end
 			-- freeze the current conflict table on the corpse
 			FreezeConflictTable(this, objRef)
 			-- clear the conflict table

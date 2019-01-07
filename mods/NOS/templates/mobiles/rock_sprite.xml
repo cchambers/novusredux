@@ -16,10 +16,10 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
 		<DoubleVariable Name="Attack">35</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">-500</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
@@ -27,7 +27,7 @@
 		<LuaModule Name="ai_skeleton_mage">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 						BowResistance = 2

@@ -1,0 +1,93 @@
+<ObjectTemplate>
+	<ClientId>2229</ClientId>
+	<Name>[ff0000]Dragon's Hoard[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="ChanceToBeTrapped">0</DoubleVariable>
+		<BoolVariable Name="locked">true</BoolVariable>
+		<DoubleVariable Name="LockpickingDifficulty">115</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="name_replacer"/>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(10000,25000),
+				    	},
+				    	--rares
+				    	{
+					    	NumItems = 1,
+					    	LootItems =
+					    	{
+				    			{ Chance = 25,Template = "random_executioner_weapon_20_80", Unique = true },
+				    		}
+			    		},
+
+						--Jewelery
+						{
+							NumItemsMin = 3,
+							NumItemsMax = 5,
+					    	LootItems = {
+
+				    			{ Weight = 15, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Weight = 15, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Weight = 15, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Weight = 15, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Weight = 15, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Weight = 15, Template = "ring_topaz_perfect", Unique = true },
+				    		}
+						},
+
+						--Gems
+						{
+							NumItemsMin = 3,
+							NumItemsMax = 4,
+							LootItems = 
+							{									
+								{ Weight = 25, Template = "diamond_gem", Unique = true},
+								{ Weight = 25, Template = "emerald_gem", Unique = true},
+								{ Weight = 25, Template = "ruby_gem", Unique = true},
+								{ Weight = 25, Template = "topaz_gem", Unique = true},
+							}
+						},
+
+						--Scrolls
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 2,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "scroll_flamestrike", Unique = true },
+								{ Weight = 5, Template = "scroll_hailstorm", Unique = true },
+								{ Weight = 5, Template = "scroll_flamewave", Unique = true },
+								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
+								{ Weight = 5, Template = "lscroll_recall", Unique = true },
+
+							}
+						},
+
+						--Resources
+						{
+							NumItems = 1,
+
+							LootItems =
+							{
+								{ Weight = 33, Template = "resource_iron", Unique = true, StackCountMin = 50, StackCountMax = 100},
+								{ Weight = 33, Template = "resource_boards", Unique = true, StackCountMin = 50, StackCountMax = 100},
+								{ Weight = 33, Template = "resource_brick", Unique = true, StackCountMin = 50, StackCountMax = 100},
+                            },
+						},
+	
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

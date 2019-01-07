@@ -58,13 +58,10 @@ RegisterEventHandler(EventType.Message, "CombatDebug", function()
 	end
 end)
 ]]
-RegisterEventHandler(
-	EventType.Message,
-	"CombatMod",
-	function(modName, modId, modValue)
+
+RegisterEventHandler(EventType.Message, "CombatMod", function(modName, modId, modValue)
 		ApplyCombatMod(modName, modId, modValue)
-	end
-)
+	end)
 
 function ApplyCombatMod(modName, modId, modValue)
 	if (CombatMod[modName] ~= nil) then
@@ -76,24 +73,28 @@ end
 -- @param atTarget mobile
 -- @param hand string - LeftHand or RightHand
 function PerformWeaponAttack(atTarget, hand)
-	Verbose("Combat", "PerformWeaponAttack", atTarget, hand)
-	if not (hand) then
-		hand = "RightHand"
-	end
+    Verbose("Combat", "PerformWeaponAttack", atTarget, hand)
+	if not( hand ) then hand = "RightHand" end
 
-	if
-		(not mInCombatState or mWeaponSwapped or -- waiting for the dirty stats to recalc
-			atTarget == nil or
-			atTarget == this or
-			not mSwingReady[hand] or
-			IsDead(this) or
-			IsMobileDisabled(this) or
-			this:HasTimer("SpellPrimeTimer"))
-	 then
-		return
-	end
+	if (
+		not mInCombatState
+		or
+		mWeaponSwapped -- waiting for the dirty stats to recalc
+		or
+		atTarget == nil
+		or
+		atTarget == this
+		or
+		not mSwingReady[hand]
+		or
+		IsDead(this)
+		or
+		IsMobileDisabled(this)
+		or
+		this:HasTimer("SpellPrimeTimer")
+	) then return end
 
-	if not (ValidCombatTarget(this, atTarget)) then
+	if not( ValidCombatTarget(this, atTarget) )  then
 		ClearTarget()
 		ResetSwingTimer(0, hand)
 		return
@@ -102,9 +103,9 @@ function PerformWeaponAttack(atTarget, hand)
 	-- handle moving bow men
 	if (_Weapon[hand].IsRanged) then
 		-- dont let archers shoot when they are moving.
-		if (mIsMoving) then
-			return
-		end
+		-- if (mIsMoving) then
+		-- 	return
+		-- end
 	end
 
 	if not (WithinCombatRange(this, atTarget, _Weapon[hand].Range)) then
@@ -128,13 +129,18 @@ function PerformWeaponAttack(atTarget, hand)
 		this:SetObjVar("WasHidden", true)
 		setWasHidden = true
 	end
-
 	-- reveal them
 	this:SendMessage("BreakInvisEffect", "Swing")
-	
+	atTarget:SendMessage("BreakInvisEffect", "SwungAt")
+
 	--- perform the actual swing/shoot/w.e.
-	if (_Weapon[hand].IsRanged) then
-		ExecuteRangedWeaponAttack(atTarget, hand)
+	if ( _Weapon[hand].IsRanged ) then
+		if (mIsMoving) then
+			local chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
+		else 
+			ExecuteRangedWeaponAttack(atTarget, hand)
+		end
 	else
 		ExecuteWeaponAttack(atTarget, hand)
 	end
@@ -145,14 +151,14 @@ end
 function ExecuteRangedWeaponAttack(atTarget, hand, hitSuccessOverride, isCritOverride)
 	Verbose("Combat", "ExecuteRangedWeaponAttack", atTarget, hand, hitSuccessOverride, isCritOverride)
 	-- if they were out of arrows before, prevent them dropping arrows in their back and fire off a shot without first pulling
-	if (mOutOfArrows) then
+	if ( mOutOfArrows ) then
 		mOutOfArrows = false
 		ResetSwingTimer(0, hand)
 		return
 	end
-	if (IsPlayerCharacter(this)) then
+	if ( IsPlayerCharacter(this) ) then
 		-- consume the arrow before any further calculations.
-		if (ConsumeResourceBackpack(this, mArrowType, 1)) then
+		if ( ConsumeResourceBackpack(this, mArrowType, 1) ) then
 			mOutOfArrows = false
 			ExecuteWeaponAttack(atTarget, hand, true, hitSuccessOverride, isCritOverride)
 		else
@@ -233,7 +239,10 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 		if (mQueuedWeaponAbility.SpellInterrupt == true) then
 			CheckSpellCastInterrupt(atTarget)
 		end
-		ClearQueuedWeaponAbility()
+		if ( hitSuccess ) then
+			-- ability was used and we hit, let's clear it.
+			ClearQueuedWeaponAbility()
+		end
 	end
 end
 
@@ -248,35 +257,27 @@ end
 
 RegisterEventHandler(EventType.Message, "ClearQueuedWeaponAbility", ClearQueuedWeaponAbility)
 
-RegisterEventHandler(
-	EventType.Message,
-	"RegisterAbilitySelectTarget",
-	function(primary, weaponAbility)
-		if (weaponAbility.QueueTarget == "Any") then
-			RegisterSingleEventHandler(
-				EventType.ClientTargetAnyObjResponse,
-				"AbilitySelectTarget",
-				function(target, user)
-					Verbose("Combat", "AbilitySelectTarget", target, user)
+RegisterEventHandler(EventType.Message,"RegisterAbilitySelectTarget",function (primary,weaponAbility)
+		if(weaponAbility.QueueTarget == "Any") then
+			RegisterSingleEventHandler(EventType.ClientTargetAnyObjResponse,"AbilitySelectTarget",
+				function (target,user)
+					Verbose("Combat", "AbilitySelectTarget",target,user)
 					weaponAbility.NoTarget = true
 					weaponAbility.QueueTarget = nil
 					weaponAbility.Target = target
-					QueueWeaponAbility(this, primary, weaponAbility)
-				end
-			)
-		elseif (weaponAbility.QueueTarget == "Loc") then
-			RegisterSingleEventHandler(
-				EventType.ClientTargetLocResponse,
-				"AbilitySelectTarget",
-				function(success, targetLoc, targetObj, user)
-					Verbose("Combat", "AbilitySelectTarget", success, targetLoc, targetObj, user)
+					QueueWeaponAbility(this,primary,weaponAbility)
+				end)
+		elseif(weaponAbility.QueueTarget == "Loc") then
+			RegisterSingleEventHandler(EventType.ClientTargetLocResponse,"AbilitySelectTarget",
+				function (success,targetLoc,targetObj,user)
+					Verbose("Combat", "AbilitySelectTarget",success,targetLoc,targetObj,user)
 					weaponAbility.NoTarget = true
 					weaponAbility.QueueTarget = nil
 					weaponAbility.Target = targetObj
 					-- if a target location is set, we need to pass it through the MobileEffectArgs
-					if (targetLoc) then
-						if (weaponAbility.MobileEffect) then
-							if (weaponAbility.MobileEffectArgs) then
+					if ( targetLoc ) then
+						if ( weaponAbility.MobileEffect ) then
+							if ( weaponAbility.MobileEffectArgs ) then
 								weaponAbility.MobileEffectArgs.TargetLoc = targetLoc
 							else
 								weaponAbility.MobileEffectArgs = {
@@ -284,8 +285,8 @@ RegisterEventHandler(
 								}
 							end
 						end
-						if (weaponAbility.TargetMobileEffect) then
-							if (weaponAbility.TargetMobileEffectArgs) then
+						if ( weaponAbility.TargetMobileEffect ) then
+							if ( weaponAbility.TargetMobileEffectArgs ) then
 								weaponAbility.TargetMobileEffectArgs.TargetLoc = targetLoc
 							else
 								weaponAbility.TargetMobileEffectArgs = {
@@ -294,14 +295,11 @@ RegisterEventHandler(
 							end
 						end
 					end
-					QueueWeaponAbility(this, primary, weaponAbility)
-				end
-			)
+					QueueWeaponAbility(this,primary,weaponAbility)
+				end)
 		else
-			RegisterSingleEventHandler(
-				EventType.ClientTargetGameObjResponse,
-				"AbilitySelectTarget",
-				function(target, user)
+			RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse,"AbilitySelectTarget",
+				function (target,user)
 					weaponAbility.NoTarget = true
 					weaponAbility.QueueTarget = nil
 					weaponAbility.Target = target
@@ -376,9 +374,7 @@ end
 -- @param delay (optional) TimeSpan - The amount of time to delay next swing. If not provided, swing will execute immediately if swing timer does not exist.
 -- @param hand (optional) string - The hand to delay, or All. Defaults to All
 function DelaySwingTimer(delay, hand)
-	if not (mInCombatState) then
-		return
-	end
+	if not( mInCombatState ) then return end
 	Verbose("Combat", "DelaySwingTimer", delay, hand)
 
 	local hands = {hand}
@@ -576,20 +572,14 @@ RegisterEventHandler(EventType.Message, "ExecuteHitAction", ExecuteHitAction)
 function CalculateBlockDefense(victim)
 	Verbose("Combat", "CalculateBlockDefense", victim)
 	local shield = victim:GetEquippedObject("LeftHand")
-	if not (shield) then
-		return 0
-	end
+	if not( shield ) then return 0 end
 	local shieldType = GetShieldType(shield)
-	if (shieldType and EquipmentStats.BaseShieldStats[shieldType]) then
+	if ( shieldType and EquipmentStats.BaseShieldStats[shieldType] ) then
 		-- skill gain dependant on the attacker's weapon skill level
-		CheckSkill(
-			victim,
-			"BlockingSkill",
-			GetSkillLevel(this, EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill)
-		)
-		if (Success(GetSkillLevel(victim, "BlockingSkill") / 335)) then
+		CheckSkill(victim, "BlockingSkill", GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill))
+		if ( Success(GetSkillLevel(victim,"BlockingSkill")/335) ) then
 			victim:PlayAnimation("block")
-			if (Success(ServerSettings.Durability.Chance.OnHit)) then
+			if ( Success(ServerSettings.Durability.Chance.OnHit) ) then
 				AdjustDurability(shield, -1)
 			end
 			return math.max(0, (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) + GetMagicItemArmorBonus(_Weapon.LeftHand.Object))
@@ -600,9 +590,7 @@ end
 
 function ApplyDamageToTarget(victim, damageInfo)
 	Verbose("Combat", "ApplyDamageToTarget", victim, damageInfo)
-	if damageInfo == nil then
-		return
-	end
+	if damageInfo == nil then return end
 
 	damageInfo.Attacker = damageInfo.Attacker or this
 
@@ -643,15 +631,24 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			finalDamage = randomGaussian(finalDamage, finalDamage * damageInfo.Variance)
+			local attackerEval = GetSkillLevel(damageInfo.Attacker, "MagicAffinitySkill")
+			local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
+			local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
+			if (resistLevel < 40) then shouldResist = false end
+			-- this:NpcSpeech(tostring(shouldResist))
 
-			if (CheckActiveSpellResist(victim)) then
+			-- Boost spell power based on eval
+			local damageLevel = (math.floor(attackerEval/35))
+			if (damageLevel < 1.01) then damageLevel = 1.01 end
+			finalDamage = finalDamage * damageLevel
+			if (shouldResist) then
 				-- successful magic resist, half base damage
-				finalDamage = finalDamage * 0.5
+				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
 			end
 
 			if not (isPlayer) then
-				-- mobs take 200% spell damage.
-				finalDamage = finalDamage * 2
+				-- is mob.
+				finalDamage = finalDamage
 			end
 		else
 			if not (damageInfo.Attack) then
@@ -668,9 +665,9 @@ function ApplyDamageToTarget(victim, damageInfo)
 				-- end sunder, no armor defense reduction this hit
 				victim:SendMessage("EndSunderEffect")
 			else
-				defense = victim:GetStatValue("Defense")
+				defense = math.max(victim:GetStatValue("Defense") or 0, defense)
 			end
-			defense = math.max(defense, 45)
+			-- defense = math.max(defense, 45)
 
 			finalDamage = (( damageInfo.Attack * 70 ) / (defense + blockDefense) )
 

@@ -140,11 +140,7 @@ function SendMobileDataToDebugMessage(localMobile)
             DebugMessage(test3)
         end
 
-        -- Was using this one to attempt to find anything about the MobileComponent or BaseRunSpeed
-        -- local test4 = GetTemplateObjectMobile(templateId2)
-        -- if(test4 ~= nil) then DebugMessage(test4) end
-
-        DebugMessage(" --- localMobile:GetAllObjVars:")
+    DebugMessage(" --- localMobile:GetAllObjVars:")
         if(localMobile ~= nil) then
             for i, v in pairs(localMobile:GetAllObjVars()) do
                 DebugMessage(i.." : "..tostring(v))

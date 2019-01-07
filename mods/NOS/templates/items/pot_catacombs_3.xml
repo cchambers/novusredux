@@ -2,5 +2,5 @@
 	<ClientId>651</ClientId>
 	<Name>[FF9500]Small Clay Pot[-]</Name>
 	<ScriptEngineComponent/>		
-	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
 </ObjectTemplate>

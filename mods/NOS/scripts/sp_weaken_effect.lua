@@ -1,7 +1,7 @@
 
 mDecreaseAmount = 0
 
-mDurationMinutes = 2
+mDurationMinutes = 10
 
 mBuffed = false
 

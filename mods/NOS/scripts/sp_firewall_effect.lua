@@ -7,7 +7,7 @@ function ValidateWall(targetLoc)
 	----DebugMessage("--Debuggery Deh Yah")
 	if( not(IsPassable(targetLoc)) ) then
 		this:SystemMessage("[$2603]","info")
-		return falses
+		return false
 	end
 
 	if not(this:HasLineOfSightToLoc(targetLoc,ServerSettings.Combat.LOSEyeLevel)) then

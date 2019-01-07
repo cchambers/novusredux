@@ -29,19 +29,18 @@
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					Toughness = 2,
 					Might = 2,
-					MagicResistance = 2,
 					},
 				Skills = 
 					{ 
 					Brawling = 80,  
 					MagicAffinity=100, 
 					Evocation=100, 
-					},	
+					},
 				EquipTable = 
 					{
 						Backpack = { "backpack" },

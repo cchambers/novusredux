@@ -73,14 +73,13 @@ function AdjustKarma(mobile, amount)
         -- Karma was changed, update the name and whatever else, maybe a message?
         if ( newKarmaLevel.DisallowAllegiance ) then AllegianceRemovePlayer(mobile) end
         mobile:SystemMessage("Your alignment is now "..newKarmaLevel.Name, "event")
-        -- update all pets
-        local activePets = GetActivePets(mobile, nil, true)
-        for i=1,#activePets do
-            activePets[i]:SetObjVar("Karma", karma)
-            activePets[i]:SendMessage("UpdateName")
-        end
         -- update the name
         mobile:SendMessage("UpdateName")
+        -- update all pets
+        ForeachActivePet(mobile, function(pet)
+            pet:SetObjVar("Karma", karma)
+            pet:SendMessage("UpdateName")
+        end)
 
         --Taking opposite achievement type for karma check for title
         local oppositeAchievementType = nil
@@ -208,8 +207,13 @@ function CalculateKarmaAction(mobileA, action, mobileB)
         return 0
     end
 
-    -- players in opposing factions (and sometimes groups) never effect each other's karma
-    if ( isPlayerB and (ShareKarmaGroup(mobileA, mobileB) or InOpposingAllegiance(mobileA, mobileB)) ) then return 0 end
+    if ( isPlayerB ) then
+        -- non beneficial actions cannot affect karma when both players have consented.
+        if ( not action.Beneficial and ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+
+        -- players in opposing factions cannot affect each other's karma
+        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
+    end
     
     local pvpMod = 1
     local negativeAdjustMod = 1
@@ -224,7 +228,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
 
             -- check conflict
             if ( not action.Beneficial ) then
-                if ( ConflictEquals(GetConflictRelation(mobileB, mobileA), ConflictRelations.Aggressor) ) then
+                if ( IsAggressorTo(mobileB, mobileA) ) then
                     --victim/defender karma action against aggressor, this is free.
                     return 0
                 end
@@ -449,6 +453,9 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
     -- doesn't matter against NPCs
     if ( not IsPlayerCharacter(player) or not IsPlayerCharacter(target) ) then return false end
 
+    -- not chaotic protected from defending against aggressors
+    if ( IsAggressorTo(target, player) ) then return false end
+
     -- players already temp chaotic don't need to be protected.
     if ( player:HasObjVar("IsChaotic") ) then return false end
 
@@ -583,40 +590,30 @@ function CheckKarmaLoot(player, container)
     if ( player == container ) then return end
     -- only mobiles supported right now
     if not( container:IsMobile() ) then return end
+    -- can't get in trouble doing stuff to your pets
+    if ( player == container:GetObjVar("controller") ) then return end
 
-    local containerOwner = nil
-    local containerOwnerCorpse = nil
-    -- re-assign the container to the owner if applicable.
-    if ( container:GetCreationTemplateId() == "player_corpse" ) then
-        containerOwner = container:GetObjVar("BackpackOwner")
-        containerOwnerCorpse = container
-    else
-        containerOwner = container:GetObjVar("controller") or container
-    end
-
-    -- can't get in trouble doing stuff to yourself or your pets
-    if ( containerOwner == nil or player == containerOwner ) then return end
-
-    if ( IsPlayerCharacter(containerOwner) ) then
+    if ( IsPlayerCharacter(container) ) then
+        -- can't get in trouble looting your own corpse
+        if ( player == container:GetObjVar("BackpackOwner") ) then return end
         if ( 
             -- disallow looting in protected areas.
-            --Check using the corpse first, and if corpse is not available, use the player character
-            ((containerOwnerCorpse ~= nil and IsGuaranteedProtected(containerOwnerCorpse, player)) or (containerOwnerCorpse == nil and IsGuaranteedProtected(containerOwner, player)))
+            IsGuaranteedProtected(container, player)
             or
             -- prevent accidental flagging chaotic (order)
-            ShouldChaoticProtect(player, containerOwner)
+            ShouldChaoticProtect(player, container)
             or
             -- prevent losing karma if set to and would
-            ShouldKarmaProtect(player, KarmaActions.Negative.LootPlayerContainer, containerOwner) 
+            ShouldKarmaProtect(player, KarmaActions.Negative.LootPlayerContainer, container) 
         ) then return false end
         -- if looting a player owned container that's not theirs, execute negative action
-        ExecuteKarmaAction(player, KarmaActions.Negative.LootPlayerContainer, containerOwner)
+        ExecuteKarmaAction(player, KarmaActions.Negative.LootPlayerContainer, container)
         return
     else
         -- the container is not tagged by the player, therefor the player doesn't have the right to loot.
-        if ( IsMobTaggedBy(containerOwner, player) == false ) then
+        if ( IsMobTaggedBy(container, player) == false ) then
 
-            local tag = containerOwner:GetObjVar("Tag") -- the player(s) to lose karma against (the winners)
+            local tag = container:GetObjVar("Tag") -- the player(s) to lose karma against (the winners)
             local wronged, wrongedAmount = nil, 0
             -- loop all winners, stopping on first one we'd lose karma against
             for winner,bool in pairs(tag) do
@@ -664,6 +661,7 @@ function KarmaPunishAllAggressorsForMurder(victim)
                 local murders = aggressor:GetObjVar("Murders") or 0
                 murders = murders + 1
                 aggressor:SetObjVar("Murders", murders)
+                aggressor:SendMessage("StartMobileEffect", "Chaotic")
                 if (not(HasMobileEffect(aggressor, "Murderer"))) then
                     aggressor:SendMessage("StartMobileEffect", "Murderer")
                 end

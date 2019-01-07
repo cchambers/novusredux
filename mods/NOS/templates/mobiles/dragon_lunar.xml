@@ -23,7 +23,7 @@
 			<Initializer>				
 					{ 
 				Type = "lunar",
-				Stats = { Str=100, Agi=20, Int=50, Wis=50, Wil=50 },
+				Stats = { Str=100, Agi=20, Int=50, Wis=50, Will=50 },
 				MobTraits =
 					{
 					},
@@ -32,6 +32,7 @@
 					Brawling=200, 
 					MagicAffinity=100,
 					Magery=150, 
+					MagicResist=150
 					},	
 				EquipTable = 
 					{
