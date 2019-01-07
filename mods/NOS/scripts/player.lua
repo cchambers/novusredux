@@ -438,18 +438,13 @@ function OnLoad(isPossessed)
 		this:SendMessage("UpdateName")
 	end
 
-	-- local tameFix = this:HasObjVar("TameFix")
-	-- local mins = this:GetObjVar("PlayMinutes") or 0
-	-- if (not(tameFix) and mins > 6000) then 
-	-- 	local bm = GetSkillLevel(this, "BeastmasterySkill")
-	-- 	if (bm < 60) then
-	-- 		SetSkillLevel(this, "BeastmasterySkill", 60.0, true)
-	-- 		this:SystemMessage("Your account was grandfathered into the new tame system... you now have 60 Beastmastery.")
-	-- 	end
-	-- 	this:SetObjVar("TameFix", true)
-	-- end
-
 	this:DelObjVar("BuffIcons")	
+
+	local hasStats = this:HasModule("hud_tracker")
+	if (not(hasStats)) then
+		this:AddModule("hud_tracker")
+	end
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"Hud.UpdateStats")
 
 	-- GM Detect Hidden Passive
 	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
