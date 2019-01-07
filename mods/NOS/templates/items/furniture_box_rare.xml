@@ -33,8 +33,8 @@
                             { Weight = 2, Template = "bookshelf_ornate_blank", Unique = true, Packed=true },
                             { Weight = 2, Template = "bookshelf_orante_corner_blank", Unique = true, Packed=true },
                             { Weight = 2, Template = "furniture_globe", Unique = true, Packed=true },
-                            { Weight = 2, Template = "furniture_lantern_street", Unique = true, Packed=true },
-                            { Weight = 1, Template = "furniture_lantern_line", Unique = true, Packed=true },
+                            { Weight = 2, Template = "lantern_street", Unique = true, Packed=true },
+                            { Weight = 1, Template = "lantern_line", Unique = true, Packed=true },
                         },
                     },
                 }
