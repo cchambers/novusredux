@@ -18,60 +18,177 @@ function CorrectPetStats(localPet)
         --DebugMessage(localPet:GetObjVar("TemplateId"))
         
         local templateId = localPet:GetCreationTemplateId()
-        -- DebugMessage(templateId)
-        
-        -- DebugMessage(GetTemplateData(templateId).Name)
         local petPetSlots = GetTemplateObjVar(templateId, "PetSlots")
-        local petBaseHealth = GetTemplateObjVar(templateId, "BaseHealth")
-        local petArmor = GetTemplateObjVar(templateId, "Armor")
-        local petAttack = GetTemplateObjVar(templateId, "Attack")
-        local petPower = GetTemplateObjVar(templateId, "Power")
-        
-        -- TODO Correct BaseRunSpeed and ScaleModifier.  I can't figure out how to access them.
-        -- local petSpeed = GetTemplateObjVar(templateId, "BaseRunSpeed")
-        -- local petScale = GetTemplateObjVar(templateId, "ScaleModifier")
-
-        -- TODO Redo this method with these things..  I didn't figure out how to get it to access properly.
-         --local templateData = GetTemplateData(templateId)	
-         --DebugMessage(ass(templateData.BaseHealth).." : "..ass(templateData.Armor).." : "..ass(templateData.Attack).." : "..ass(templateData.Power).." : "..ass(templatedata.ScaleModifier).." : "..ass(templateData.BaseRunSpeed))
-         --local statTable = GetStatTableFromTemplate(template,templateData)
-        
-        -- petSpeed = templateData.BaseRunSpeed 
-        -- petScale = templateData.ScaleModifier
-
-        -- TODO Correct Stats (str, agi, con, etc.)  I didn't figure out how to access them properly.
-        -- local petAgi = GetAgi(this)
-        -- local petStr = GetStr(this)
-        -- local petInt = GetInt(this)
-        -- local petCon = GetCon(this)
-        -- local petWis = GetWis(this)
-        -- local petWill = GetWill(this)
-
-
-        DebugMessage(ass(petPetSlots).." : "..ass(petBaseHealth).." : "..ass(petArmor).." : "..ass(petAttack).." : "..ass(petPower).." : "..ass(petSpeed).." : ")
-        -- DebugMessage(petAgi," : ",petStr," : ",petInt," : ",petCon," : ",petWis," : ",petWill)
-
         if(petPetSlots ~= nil) then localPet:SetObjVar("PetSlots", petPetSlots) end
+        
+        local petBaseHealth = GetTemplateObjVar(templateId, "BaseHealth")
         if(petBaseHealth ~= nil) then localPet:SetObjVar("BaseHealth", petBaseHealth) end
+        
+        local petArmor = GetTemplateObjVar(templateId, "Armor")
         if(petArmor ~= nil) then localPet:SetObjVar("Armor", petArmor) end
-        if(petAttack ~= nil) then localPet:SetObjVar("Attack", petAttack) end
-        if(petPower ~= nil) then localPet:SetObjVar("Power", petPower) end
-        --if(petSpeed ~= nil) then localPet:SetObjVar("BaseRunSpeed", petSpeed) end
-        --if(petScale ~= nil) then localPet:SetObjVar("ScaleModifier", templateData.ScaleModifier) end
 
-        --  Updating stats (agi, str) did not work, and I don't know why.
-        -- if(petAgi ~= nil) then SetAgi(localPet,petAgi) end
-        -- if(petStr ~= nil) then SetStr(localPet,petStr) end
-        -- if(petInt ~= nil) then SetInt(localPet,petInt) end
-        -- if(petCon ~= nil) then SetCon(localPet,petCon) end
-        -- if(petWis ~= nil) then SetWis(localPet,petWis) end
-        -- if(petWil ~= nil) then SetWil(localPet,petWil) end
+        local petAttack = GetTemplateObjVar(templateId, "Attack")
+        if(petAttack ~= nil) then localPet:SetObjVar("Attack", petAttack) end
+        
+        local petPower = GetTemplateObjVar(templateId, "Power")
+        if(petPower ~= nil) then localPet:SetObjVar("Power", petPower) end
+        
+        local templateData = GetTemplateData(templateId)
+        -- DebugMessage(" --- templateData:")
+        -- if(templateData ~= nil) then
+        --     for i, v in pairs(templateData) do
+        --         DebugMessage(i.." : "..tostring(v))
+        --     end
+        -- end
+
+        -- Disabled updating Name because of choice.
+        --local petName = templateData.Name
+        --if(petName ~= nil) then localPet:SetObjVar("Name", petName) end
+        
+        local petSpeed = templateData.BaseSpeed
+        if(petSpeed ~= nil) then localPet:SetBaseMoveSpeed(petSpeed) end
+        
+        -- Disabled updating Scale because of choice.
+        --local petScale = GetTemplateObjectScale(templateId)
+        --if(petScale ~= nil) then localPet:SetScale(petScale) end
+        
+        --DebugMessage(" --- LuaModules:")
+        if(templateData.LuaModules ~= nil) then
+            for i, v in pairs(templateData.LuaModules) do
+                --DebugMessage(i.." : "..tostring(v))
+                if(string.find(i, "ai_")) then
+                    --DebugMessage("    AI MODULE FOUND:")
+                    
+                    --DebugMessage("    Stats:")
+                    for statName, statValue in pairs(v.Stats) do
+                        if(statValue ~= nil and statName ~= nil) then 
+                            --DebugMessage(statName.." : "..tostring(statValue))
+                            SetStatByName(localPet, statName, statValue)	
+                        end
+                    end
+                    
+                    -- DebugMessage("    Skills:")
+                    -- for ii, vv in pairs(v.Skills) do
+                    --     DebugMessage(ii.." : "..tostring(vv))
+                    -- end
+                end
+            end
+        end
+        
+        --SendMobileDataToDebugMessage(localPet)
+
+        -- We might be able to use the below to correctly update Character Info screen data..  But there is a scope issue it may not be accessible.
+        -- dirtyTable = {
+        --     Strength = true,
+        --     Agility = true,
+        --     Intelligence = true,
+        --     Constitution = true,
+        --     Wisdom = true,
+        --     Will = true,
+        --     Accuracy = true,
+        --     Evasion = true,
+        --     Attack = true,
+        --     Power = true,
+        --     Force = true,
+        --     Defense = true,
+        --     AttackSpeed = true,
+        --     CritChance = true,
+        --     CritChanceReduction = true,
+        --     MoveSpeed = true,
+        --     MountMoveSpeed = true,
+        -- }
+        -- MarkStatsDirty(dirtyTable)
     end
 end
 
-function ass(value)
-    if(value ~= nil) then
-        return value
+function SendMobileDataToDebugMessage(localMobile)
+    -- This method is used to pump a lot of gameobject and template data into the console.
+
+    if(localMobile == nil) then
+        DebugMessage("The mobile provided is nil, not possible to get any data off of it.")
+    else
+        DebugMessage(" ========================================= ")
+        DebugMessage(" === Start SendMobilDataToDebugMessage === ")
+        local templateId2 = localMobile:GetCreationTemplateId()
+        if(templateId2 ~= nil) then 
+            DebugMessage(" --- templateId2: ")
+            DebugMessage(templateId2)
+        end
+        local test = localMobile:GetObjVar("TemplateName")
+        if(test ~= nil) then
+            DebugMessage(" --- test: ")
+            DebugMessage(test)
+        end
+        local test2 = GetTemplateObjectName(templateId2)
+        if(test2 ~= nil) then
+            DebugMessage(" --- test2: ")
+            DebugMessage(test2)
+        end
+        local petScale = GetTemplateObjectScale(templateId2)
+        if(petScale ~= nil) then 
+            DebugMessage(" --- Template Scale:")
+            DebugMessage(petScale) 
+        end
+        local petScale2 = localMobile:GetScale()
+        if(petScale2 ~= nil) then 
+            DebugMessage(" --- GameObject Scale:")
+            DebugMessage(petScale2) 
+        end
+        local test3 = GetUserdataType(localMobile)
+        if(test3 ~= nil) then
+            DebugMessage(" --- test3: ")
+            DebugMessage(test3)
+        end
+
+        -- Was using this one to attempt to find anything about the MobileComponent or BaseRunSpeed
+        -- local test4 = GetTemplateObjectMobile(templateId2)
+        -- if(test4 ~= nil) then DebugMessage(test4) end
+
+        DebugMessage(" --- localMobile:GetAllObjVars:")
+        if(localMobile ~= nil) then
+            for i, v in pairs(localMobile:GetAllObjVars()) do
+                DebugMessage(i.." : "..tostring(v))
+            end
+        end
+
+        -- DebugMessage(" --- localMobile:GetObjectTags:")
+        -- if(localMobile ~= nil) then
+        --     for i, v in pairs(localMobile:GetObjectTags()) do
+        --         DebugMessage(i.." : "..tostring(v))
+        --     end
+        -- end
+
+        -- DebugMessage(" --- localMobile:GetAllSharedObjectProperties:")
+        -- if(localMobile ~= nil) then
+        --     for i, v in pairs(localMobile:GetAllSharedObjectProperties()) do
+        --         DebugMessage(i.." : "..tostring(v))
+        --     end
+        -- end
+
+        -- DebugMessage(" --- localMobile:GetAllEquippedObjects:")
+        -- if(localMobile ~= nil) then
+        --     for i, v in pairs(localMobile:GetAllEquippedObjects()) do
+        --         DebugMessage(i.." : "..tostring(v))
+        --     end
+        -- end
+
+        -- DebugMessage(" --- localMobile:GetAllStats:")
+        -- if(localMobile ~= nil) then
+        --     for i, v in pairs(localMobile:GetAllStats()) do
+        --         DebugMessage(i.." : "..tostring(v))
+        --     end
+        -- end
+
+        -- Used to get the Initializer table from the template file for the provided module_name.
+        -- GetInitializerFromTemplate(templateId2, module_name)
+
+        --DebugMessage(ass(templateData.BaseHealth).." : "..ass(templateData.Armor).." : "..ass(templateData.Attack).." : "..ass(templateData.Power).." : "..ass(templatedata.ScaleModifier).." : "..ass(templateData.BaseRunSpeed))
+        --local statTable = GetStatTableFromTemplate(template,templateData)
+
+        -- petSpeed = templateData.BaseRunSpeed 
+        -- petScale = templateData.ScaleModifier
+
+        DebugMessage(" ==== End SendMobilDataToDebugMessage ==== ")
+        DebugMessage(" ========================================= ")
     end
-    return ""
 end
