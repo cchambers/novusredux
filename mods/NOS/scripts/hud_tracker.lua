@@ -10,7 +10,7 @@ function UpdateStatsWindow()
 
 	if (total < 2) then total = 2 end
 
-	NOSCNX:AddLabel(15, 0, tostring(total .. " players connected. JOIN US at nos.gg/discord!"), 600, 20, 16, "left", false, true, "SpectralSC-SemiBold")
+	NOSCNX:AddLabel(15, 0, tostring(total .. " players connected! Join us at nos.gg/discord"), 600, 20, 16, "left", false, true, "SpectralSC-SemiBold")
 	this:OpenDynamicWindow(NOSCNX)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"Hud.UpdateStats")
 end
