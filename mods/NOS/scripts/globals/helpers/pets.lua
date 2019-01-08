@@ -46,7 +46,7 @@ function CorrectPetStats(localPet)
         --if(petName ~= nil) then localPet:SetObjVar("Name", petName) end
         
         local petSpeed = templateData.BaseSpeed
-        if(petSpeed ~= nil) then localPet:SetBaseMoveSpeed(petSpeed) end
+        -- if(petSpeed ~= nil) then localPet:SetBaseMoveSpeed(petSpeed) end
         
         -- Disabled updating Scale because of choice.
         --local petScale = GetTemplateObjectScale(templateId)
