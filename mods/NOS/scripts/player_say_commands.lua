@@ -5,7 +5,7 @@ RegisterEventHandler(
 	"say",
 	function(cmd, ...)
 		cmd = string.lower(cmd)
-		fullstr = string.lower(tostring( cmd .. " " .. table.concat({...}, " ")))
+		fullstr = string.lower(tostring(cmd .. " " .. table.concat({...}, " ")))
 		if (string.match(fullstr, "bank")) then
 			if (this:HasTimer("AntiBankSpam") or IsDead(this)) then
 				return
@@ -23,7 +23,7 @@ RegisterEventHandler(
 			)
 
 			if (banker ~= nil) then
-				this:SendMessage("OpenBank",banker)
+				this:SendMessage("OpenBank", banker)
 			end
 			this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiBankSpam")
 		end
@@ -41,7 +41,7 @@ RegisterEventHandler(
 			)
 
 			local bankObj = this:GetEquippedObject("Bank")
-			local tally = CountResourcesInContainer(bankObj,"coins")
+			local tally = CountResourcesInContainer(bankObj, "coins")
 
 			while true do
 				tally, k = string.gsub(tally, "^(-?%d+)(%d%d%d)", "%1,%2")
@@ -49,7 +49,7 @@ RegisterEventHandler(
 					break
 				end
 			end
-			local name = this:GetName();
+			local name = this:GetName()
 			banker:NpcSpeech("Hi " .. name .. "! Your net worth is [FFD700]" .. tally .. "[-] gold.")
 			this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiBankSpam")
 		end
@@ -58,7 +58,7 @@ RegisterEventHandler(
 			local murders = this:GetObjVar("Murders")
 			if (murders ~= nil) then
 				this:SystemMessage("You must atone for " .. murders .. " murders.", "info")
-			else 
+			else
 				this:SystemMessage("Your conscience is clear.", "info")
 			end
 		end
@@ -76,9 +76,9 @@ RegisterEventHandler(
 			-- 	end
 			-- 	this:SystemMessage("You have forgiven your aggressors.", "info")
 			-- 	-- this:DelObjVar("MurdererForgive")
-			-- else 
-				this:SystemMessage("This isn't working quite right yet.", "info")
-			-- end
+			-- else
+			this:SystemMessage("This isn't working quite right yet.", "info")
+		-- end
 		end
 
 		if (string.match(fullstr, "banish thee")) then
@@ -91,22 +91,27 @@ RegisterEventHandler(
 			if (this:HasTimer("AntiGuardSpam") or IsDead(this)) then
 				return
 			end
-			
+
 			local destLoc = this:GetLoc()
-			local mobiles =
-				FindObjects(
-				SearchMulti(
-					{
-						SearchRange(destLoc, 20),
-						SearchHasObjVar("IsCriminal")
-					}
-				),
-				GameObj(0)
-			)
-			
-			for i, v in pairs(mobiles) do
-				if (not(IsDead(v)) and IsProtected(this, v)) then
-					GuardInstaKill(v)
+
+			local protected = GetGuardProtectionForLoc(destLoc)
+
+			if (protected == "Town" or protected == "Protection") then
+				local mobiles =
+					FindObjects(
+					SearchMulti(
+						{
+							SearchRange(destLoc, 20),
+							SearchHasObjVar("IsCriminal")
+						}
+					),
+					GameObj(0)
+				)
+
+				for i, v in pairs(mobiles) do
+					if (not (IsDead(v))) then
+						GuardInstaKill(v)
+					end
 				end
 			end
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiGuardSpam")
