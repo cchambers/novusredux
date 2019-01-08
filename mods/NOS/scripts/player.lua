@@ -410,7 +410,7 @@ function GetNameSuffix()
 	end
 
 	if (this:HasObjVar("IsCriminal")) then
-		suffix = suffix .. "\n[FF8C00]- criminal -[-]"
+		suffix = suffix .. "\n[FF8C00][i]criminal[-]"
 	end
 	return suffix
 end
@@ -472,6 +472,10 @@ function OnLoad(isPossessed)
 	local murders = this:GetObjVar("Murders")
 	if (murders) then
 		this:SendMessage("StartMobileEffect", "Murderer")
+	end
+
+	if(this:HasObjVar("IsCriminal")) then
+		this:SendMessage("StartMobileEffect", "Criminal")
 	end
 
 	if not(isPossessed) then

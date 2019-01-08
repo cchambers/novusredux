@@ -39,6 +39,7 @@ MobileEffectLibrary.Criminal =
 				mobile:DelObjVar("IsCriminal")
 			end
 		end)
+		self.ParentObj:SendMessage("UpdateName")
 	end,
 
 	GetPulseFrequency = function(self,root)

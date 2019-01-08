@@ -668,9 +668,7 @@ function KarmaPunishAllAggressorsForMurder(victim)
                 if (not(HasMobileEffect(aggressor, "Murderer"))) then
                     aggressor:SendMessage("StartMobileEffect", "Murderer")
                 end
-                if (not(HasMobileEffect(aggressor, "Criminal"))) then
-                    aggressor:SendMessage("StartMobileEffect", "Criminal")
-                end
+                aggressor:SendMessage("StartMobileEffect", "Criminal")
                 table.insert(aggressors, aggressor)
                 ExecuteKarmaAction(aggressor, KarmaActions.Negative.Murder, victim)
             end
