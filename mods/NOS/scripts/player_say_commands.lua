@@ -95,7 +95,7 @@ RegisterEventHandler(
 				FindObjects(
 				SearchMulti(
 					{
-						SearchRange(fLocs, 20),
+						SearchRange(this:GetLoc(), 20),
 						SearchMobile()
 					}
 				),
