@@ -46,6 +46,7 @@ function CorrectPetStats(localPet)
         --if(petName ~= nil) then localPet:SetObjVar("Name", petName) end
         
         local petSpeed = templateData.BaseSpeed
+        -- BRYCE, CHECK THIS
         -- if(petSpeed ~= nil) then localPet:SetBaseMoveSpeed(petSpeed) end
         
         -- Disabled updating Scale because of choice.
@@ -58,14 +59,15 @@ function CorrectPetStats(localPet)
                 --DebugMessage(i.." : "..tostring(v))
                 if(string.find(i, "ai_")) then
                     --DebugMessage("    AI MODULE FOUND:")
-                    
+                    if (v.Stats) then
                     --DebugMessage("    Stats:")
-                    for statName, statValue in pairs(v.Stats) do
-                        if(statValue ~= nil and statName ~= nil) then 
-                            --DebugMessage(statName.." : "..tostring(statValue))
-                            SetStatByName(localPet, statName, statValue)	
+                        for statName, statValue in pairs(v.Stats) do
+                            if(statValue ~= nil and statName ~= nil) then 
+                                --DebugMessage(statName.." : "..tostring(statValue))
+                                SetStatByName(localPet, statName, statValue)	
+                            end
                         end
-                    end
+                    else
                     
                     -- DebugMessage("    Skills:")
                     -- for ii, vv in pairs(v.Skills) do
