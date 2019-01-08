@@ -25,8 +25,8 @@ MobileEffectLibrary.Criminal =
 		-- flag them temp chaotic
 		self.ParentObj:SetObjVar("IsCriminal", true)
 
-		local debuffStr = "Criminal!"
-		AddBuffIcon(self.ParentObj, "CriminalDebuff", "Order", "Force Push 02", debuffStr, true)
+		local debuffStr = "You are a Criminal!"
+		AddBuffIcon(self.ParentObj, "CriminalDebuff", "Criminal", "Imbue Unholy", debuffStr, true)
 		self.ParentObj:SystemMessage(debuffStr, "event")
 	end,
 
