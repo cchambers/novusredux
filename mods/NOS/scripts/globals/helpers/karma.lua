@@ -339,7 +339,9 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
-    if (action.MakeCriminal == true and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
+    if (action.MakeCriminal == true
+    and IsPlayerObject(mobileB)
+    and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
         mobileA:SendMessage("StartMobileEffect", "Criminal")
     end
 
