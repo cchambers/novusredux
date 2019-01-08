@@ -235,6 +235,7 @@ function ShowSpellBookDialog(from)
 end
 
 function ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
+	this:SystemMessage(tostring("se "..spellEntry))
 	dynamicWindow:AddLabel(
 		xOffset + 236,
 		44,
