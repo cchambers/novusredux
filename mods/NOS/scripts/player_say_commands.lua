@@ -106,7 +106,7 @@ RegisterEventHandler(
 			
 			for i, v in pairs(mobiles) do
 				if (v:HasObjVar("IsCriminal") and not(IsDead(v))) then
-					GuardInstaKill(v)
+					SpawnSuperGuardsOn(v, math.random(1,2))
 				end
 			end
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiGuardSpam")
