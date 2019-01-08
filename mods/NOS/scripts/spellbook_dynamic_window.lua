@@ -239,7 +239,7 @@ function ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
 	dynamicWindow:AddLabel(
 		xOffset + 236,
 		44,
-		"[412A08]" .. (spellEntry.Data.SpellDisplayName or spellEntry.Name) .. "[-]",
+		"[412A08]" .. spellEntry.Data.SpellDisplayName .. "[-]",
 		0,
 		0,
 		46,
