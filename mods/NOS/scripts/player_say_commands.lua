@@ -81,11 +81,33 @@ RegisterEventHandler(
 			-- end
 		end
 
-		if (string.match(fullstr, "I banish thee") or
-			string.match(fullstr, "i banish thee")) then
+		if (string.match(fullstr, "banish thee")) then
 			local destLoc = this:GetLoc()
 			local plotController = Plot.GetAtLoc(destLoc)
 			this:SendMessage("StartMobileEffect", "PlotKick", plotController, nil)
+		end
+
+		if (string.match(fullstr, "guards")) then
+			if (this:HasTimer("AntiGuardSpam") or IsDead(this)) then
+				return
+			end
+			local mobiles =
+				FindObjects(
+				SearchMulti(
+					{
+						SearchRange(fLocs, 20),
+						SearchMobile()
+					}
+				),
+				GameObj(0)
+			)
+			
+			for i, v in pairs(mobiles) do
+				if (v:HasObjVar("IsCriminal") and not(IsDead(v))) then
+					GuardInstaKill(v)
+				end
+			end
+			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiBankSpam")
 		end
 
 		local args = {...}
