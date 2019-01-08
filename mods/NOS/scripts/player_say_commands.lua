@@ -93,9 +93,7 @@ RegisterEventHandler(
 			end
 
 			local destLoc = this:GetLoc()
-
 			local protected = GetGuardProtectionForLoc(destLoc)
-
 			if (protected == "Town" or protected == "Protection") then
 				local mobiles =
 					FindObjects(
@@ -115,6 +113,21 @@ RegisterEventHandler(
 				end
 			end
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiGuardSpam")
+		end
+
+		
+		if (string.match(fullstr, "westy sent me")) then
+			if (this:HasTimer("AntiWestySpam") or IsDead(this)) then
+				return
+			end
+			FindObjects(SearchPlayerInRange(15))
+			this:PlayAnimation("salute")
+			for i, v in pairs(mobiles) do
+				if (not (IsDead(v))) then
+					v:PlayAnimation("salute")
+				end
+			end
+			this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "AntiWestySpam")
 		end
 
 		local args = {...}
