@@ -276,7 +276,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
         elseif ( returnId == "OpenBank" ) then
             local distance = controller:GetLoc():Distance(this:GetLoc())
             if (distance > 6) then
-                this:SystemMessage(tostring("Move a little closer to your sign to access your bank!"))
+                this:SystemMessage(tostring("Move a little closer to the center of your house to access your bank!"))
             else
                 this:SendMessage("OpenBank", controller)
             end

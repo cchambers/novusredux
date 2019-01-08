@@ -27,7 +27,7 @@
 		<LuaModule Name="ai_skeleton_mage">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 						BowResistance = 2,
@@ -46,11 +46,11 @@
 					{ 
 						{
 							NumItems = 2,
-							NumCoins = math.random(1100,1400),
+							NumCoins = math.random(400,700),
 							LootItems = 
 							{ 
-								{ Chance = 100, Template = "resource_obsidian", Unique = true, StackCount = math.random(5,20), Unique = true },
-								{ Chance = 10, Template = "furniture_box", Unique = true },
+								{ Chance = 95, Template = "resource_obsidian", Unique = true, StackCount = math.random(5,20), Unique = true },
+								{ Chance = 5, Template = "furniture_box", Unique = true },
 							},
 						},
 					},							

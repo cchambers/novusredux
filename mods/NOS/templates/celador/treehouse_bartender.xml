@@ -18,7 +18,7 @@
 		<LuaModule Name="ai_npc_bartender">
 			<Initializer>
 				{ 		
-					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 					Skills = { Cooking = 100, },
 					MobTraits =
 					{

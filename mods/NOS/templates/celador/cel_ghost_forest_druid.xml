@@ -20,7 +20,7 @@
 		<LuaModule Name="npc_ghost_druid">
 			<Initializer>
 				{
-					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 					Skills = 
 					{ 
 					Brawling = 50, 

@@ -4,7 +4,7 @@ foods = {
 	"You look like I need a drink!"
 }
 
-mDurationMinutes = 2
+mDurationMinutes = 10
 
 mBuffed = false
 

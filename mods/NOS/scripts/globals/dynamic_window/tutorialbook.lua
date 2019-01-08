@@ -54,7 +54,6 @@ TutBGFuncs = {
 		OpenTutItemWindow(playerObj)
 		OpenTutActionWindow(playerObj)
 		OpenTutAbilityWindow(playerObj)
-
 		return {"TutItem","TutAction","TutAbility"}
 	end
 }

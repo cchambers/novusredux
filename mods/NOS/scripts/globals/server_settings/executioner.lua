@@ -15,11 +15,11 @@ ServerSettings.Executioner = {
 
 	-- This will be put on the tooltip of the weapon and %s will be replaced with the MobileKind of the weapon.
 	LevelString = {
-		"Ruin (+1)",
-		"Might (+3)",
-		"Force (+5)",
-		"Power (+7)",
-		"Vanquishing (+9)",
+		"Ruin",
+		"Might",
+		"Force",
+		"Power",
+		"Vanquishing",
 	},
 
 	-- The default intensity an executioner weapon when created randomly

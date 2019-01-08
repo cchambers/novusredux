@@ -62,21 +62,21 @@ ServerSettings.Crafting = {
         },
         -- non-weighted, this is just added to the created item.
         Durability = {
-            Iron = 0,
+            Iron = 25,
             Copper = 50,
             Gold = 100,
             Cobalt = 150,
             Obsidian = 200,
 
-            Cloth = 0,
+            Cloth = 25,
             QuiltedCloth = 50,
             SilkCloth = 100,
 
-            Leather = 0,
+            Leather = 25,
             BeastLeather = 75,
             VileLeather = 150,
 
-            Boards = 0,
+            Boards = 25,
             AshBoards = 100,
             BlightwoodBoards = 200,
         }

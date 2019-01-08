@@ -1,6 +1,4 @@
-
 require 'default:player'
-
 
 if(IsDemiGod(this)) then
 	require 'default:base_player_mobedit'
@@ -404,11 +402,15 @@ function GetLord(targetObj)
 	return title
 end
 
-function GetNameSuffix(targetObj)
+function GetNameSuffix()
 	local guild = GuildHelpers.Get(this)
 	local suffix = ""
 	if (guild) then 
 		suffix = suffix .. " [" .. guild.Tag .. "]"
+	end
+
+	if (this:HasObjVar("IsCriminal")) then
+		suffix = suffix .. "\n[FF8C00][i]criminal[-]"
 	end
 	return suffix
 end
@@ -433,39 +435,25 @@ end
 
 function OnLoad(isPossessed)
 
-	-- BYPASS EVOC/MANIF
-	local magery = GetSkillLevel(this, "MagerySkill")
-	if (magery == 0) then
-		local evoc = GetSkillLevel(this, "EvocationSkill")
-		local mani = GetSkillLevel(this, "ManifestationSkill")
-		local newMagerySkill = 0.1;
-		if (evoc > mani) then 
-			newMagerySkill = evoc
-		else
-			newMagerySkill = mani
-		end	
-		SetSkillLevel(this, "MagerySkill", newMagerySkill, true)
-	end
-
+	-- Logged out Incognito
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
 		this:SendMessage("UpdateName")
 	end
 
-	local tameFix = this:HasObjVar("TameFix")
-	local mins = this:GetObjVar("PlayMinutes") or 0
-
-	if (not(tameFix) and mins > 6000) then 
-		local bm = GetSkillLevel(this, "BeastmasterySkill")
-		if (bm < 60) then
-			SetSkillLevel(this, "BeastmasterySkill", 60.0, true)
-			this:SystemMessage("Your account was grandfathered into the new tame system... you now have 60 Beastmastery.")
-		end
-		this:SetObjVar("TameFix", true)
-	end
-
 	this:DelObjVar("BuffIcons")	
+
+	local hasStats = this:HasModule("hud_tracker")
+	if (not(hasStats)) then
+		this:AddModule("hud_tracker")
+	end
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"Hud.UpdateStats")
+
+	-- GM Detect Hidden Passive
+	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
+	local hasPassiveDetect = this:HasModule("passive_detecthidden")
+	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")
@@ -484,6 +472,10 @@ function OnLoad(isPossessed)
 	local murders = this:GetObjVar("Murders")
 	if (murders) then
 		this:SendMessage("StartMobileEffect", "Murderer")
+	end
+
+	if(this:HasObjVar("IsCriminal")) then
+		this:SendMessage("StartMobileEffect", "Criminal")
 	end
 
 	if not(isPossessed) then

@@ -3,6 +3,10 @@ MobileEffectLibrary.Hide =
 
 	OnEnterState = function(self,root,target,args)
 		if ( IsDead(self.ParentObj) ) then return EndMobileEffect(root) end
+		if ( HasMobileEffect(self.ParentObj, "Revealed") ) then  
+			self.ParentObj:SystemMessage("Cannot hide right now.", "info")
+			return EndMobileEffect(root)
+		end
 		-- cpu is more valuable than memory, so let's cache this here.
 		self.IsPlayer = self.ParentObj:IsPlayer()
 

@@ -64,12 +64,18 @@ RegisterEventHandler(
 	function(target, user)
 		local dyeable = true;
 
+		if not( IsInBackpack(target, user) ) then
+			user:SystemMessage("That must be in your backpack to dye.","info")
+			return false
+		end
+
 		if (target == nil) then return end
 
 		if (target:HasObjVar("ArmorType")) then
 			local armorType = target:GetObjVar("ArmorType")
 			if (armorType ~= "Cloth"
 			and armorType ~= "MageRobe"
+			and armorType ~= "Padded"
 			and armorType ~= "Linen") then dyeable = false end
 		end
 

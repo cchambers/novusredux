@@ -88,6 +88,13 @@ AllAchievements = {
 			{"Grandmaster Chef"		,100	,"Given to those who know everything there is about cooking."	,{Title = "Grandmaster Chef"}},
 		},
 
+		DetectHiddenSkill = {
+			{"Scout"					,30		,"Given to those who pay attention."						,{Title = "Apprentice Scout"	}},
+			{"Journeyman Scout"		,50		,"Given to those who look closely."								,{Title = "Journeyman Scout"	}},
+			{"Master Scout"			,80		,"Given to those who are aware."								,{Title = "Master Scout"	}},
+			{"Grandmaster Scout"		,100	,"Given to those who keep their head on a swivel."			,{Title = "Grandmaster Scout"}},
+		},
+
 		MagerySkill = {
 			{"Mage"				,30		,"Given to those who can cast damaging spells."							,{Title = "Apprentice Mage"			}},
 			{"Journeyman Mage"	,50		,"Given to those who are good at casting damaging spells."				,{Title = "Journeyman Mage"	}},
@@ -165,12 +172,19 @@ AllAchievements = {
 			{"Grandmaster Medium"		,100	,"Given to those who have become one with the magic of the world."				,{Title = "Grandmaster Medium"	}},
 		},
 
-		--[[MarksmanshipSkill = {
+		MagicResistSkill = {
+			{"Wizard"					,30		,"Given to those who can resist the magic in the world."							,{Title = "Apprentice Wizard"				}},
+			{"Journeyman Wizard"		,50		,"Given to those who are good at resisting magic in the world."						,{Title = "Journeyman Wizard"	}},
+			{"Master Wizard"			,80		,"Given to those who have mastered the ability to resist the magic in the world."	,{Title = "Master Wizard"		}},
+			{"Grandmaster Wizard"		,100	,"Given to those who can reject the magic of the world."				,{Title = "Grandmaster Wizard"	}},
+		},
+
+		MarksmanshipSkill = {
 			{"Marksman"					,30		,"Given to those who have learned the art of marksmanship."	,{Title = "Apprentice Marksman"			}},
 			{"Journeyman Marksman"		,50		,"Given to those who are good at the art of marksmanship."	,{Title = "Journeyman Marksman"	}},
 			{"Master Marksman"			,80		,"Given to those who have mastered the art of marsmanship."	,{Title = "Master Marksman"		}},
 			{"Grandmaster Marksman"		,100	,"Given to those who are among the most profound marksman."	,{Title = "Grandmaster Marksman"}},
-		},]]
+		},
 
 		MeleeSkill = {
 			{"Fighter"					,30		,"Given to those who have learned how to fight."							,{Title = "Apprentice Fighter"				}},

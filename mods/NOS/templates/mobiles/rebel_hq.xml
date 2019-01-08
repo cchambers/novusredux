@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_rebel">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					Toughness = 2,
@@ -56,7 +56,6 @@
 						TemplateDefines.LootTable.PotionsLow,
 						TemplateDefines.LootTable.MapsLow,
 						TemplateDefines.LootTable.Poor,
-						TemplateDefines.LootTable.Prestige,
 						{
 							NumCoins = math.random(50,100),
 							{

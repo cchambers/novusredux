@@ -12,7 +12,7 @@
     <LuaModule Name="ai_npc_catacombs_cultist">
       <Initializer>
 				{ 
-					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
           Skills = { Melee = 80, Slashing = 60, Brawling = 100, Piercing = 100, Blocking = 40, Magery = 100, Channeling = 100, MagicAffinity = 90  },
           AvailableSpells = {"Fireball","Lightning","Icelance", "Heal", "Teleport","Bombardment","Pillaroffire","Resurrect","Spikepath","Auraoffire"},
 					EquipTable = {

@@ -4,6 +4,6 @@
 	<SharedStateEntry name="Weight" type="int" value="16"/>
 	<ObjectVariableComponent>			
 		<StringVariable Name="WeaponType">Warbow</StringVariable>
-		<DoubleVariable Name="AttackBonus">50</DoubleVariable>
+		<DoubleVariable Name="AttackBonus">100</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>
