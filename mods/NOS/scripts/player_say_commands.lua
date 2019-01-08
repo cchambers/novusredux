@@ -120,12 +120,11 @@ RegisterEventHandler(
 			if (this:HasTimer("AntiWestySpam") or IsDead(this)) then
 				return
 			end
-			local destLoc = this:GetLoc()
 			local mobiles =
 				FindObjects(
 				SearchMulti(
 					{
-						SearchRange(destLoc, 15),
+						SearchRange(this:GetLoc(), 15),
 						SearchMobile()
 					}
 				),
@@ -134,6 +133,7 @@ RegisterEventHandler(
 			this:PlayAnimation("salute")
 			for i, v in pairs(mobiles) do
 				if (not (IsDead(v))) then
+					FaceObject(v,this)
 					v:PlayAnimation("salute")
 				end
 			end
