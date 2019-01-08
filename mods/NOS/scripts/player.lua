@@ -410,7 +410,7 @@ function GetNameSuffix()
 	end
 
 	if (this:HasObjVar("IsCriminal")) then
-		suffix = suffix .. "\n[FF8C00](Criminal)[-]"
+		suffix = suffix .. "\n[FF8C00]- criminal -[-]"
 	end
 	return suffix
 end
