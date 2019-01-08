@@ -105,7 +105,7 @@ RegisterEventHandler(
 			)
 			
 			for i, v in pairs(mobiles) do
-				if (not(IsDead(v))) then
+				if (not(IsDead(v)) and IsProtected(this, v)) then
 					GuardInstaKill(v)
 				end
 			end
