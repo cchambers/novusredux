@@ -74,6 +74,6 @@ MobileEffectLibrary.Criminal =
 		EndMobileEffect(root)
 	end,
 
-	Duration = TimeSpan.FromMinutes(5),
+	Duration = TimeSpan.FromMinutes(2),
 	_Applied = false,
 }
