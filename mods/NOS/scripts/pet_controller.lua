@@ -5,7 +5,7 @@ require 'default:pet_controller'
 SetCurVitality(this,GetMaxVitality(this))
 
 function ClearState(skipCombat)
-    CorrectPetStats(this)
+    -- CorrectPetStats(this)
 
 	if ( _IsFollowing ) then
 		_WasFollowing = _IsFollowing
@@ -20,7 +20,7 @@ function ClearState(skipCombat)
 end
 
 function StableSelf()
-    CorrectPetStats(this)
+    -- CorrectPetStats(this)
 
 	Verbose("PetController", "StableSelf")
 	if ( CheckOwner() ) then
@@ -33,7 +33,7 @@ function StableSelf()
 end
 
 function UnStableSelf()
-    CorrectPetStats(this)
+    -- CorrectPetStats(this)
 
 	-- should be in backpack.
 	local topMost = this:TopmostContainer()

@@ -58,16 +58,16 @@ function CorrectPetStats(localPet)
             for i, v in pairs(templateData.LuaModules) do
                 --DebugMessage(i.." : "..tostring(v))
                 if(string.find(i, "ai_")) then
+                    -- BRYCE, CHECK THIS
                     --DebugMessage("    AI MODULE FOUND:")
-                    if (v.Stats) then
+                    if (v.Stats == nil) then return end
                     --DebugMessage("    Stats:")
-                        for statName, statValue in pairs(v.Stats) do
-                            if(statValue ~= nil and statName ~= nil) then 
-                                --DebugMessage(statName.." : "..tostring(statValue))
-                                SetStatByName(localPet, statName, statValue)	
-                            end
+                    for statName, statValue in pairs(v.Stats) do
+                        if(statValue ~= nil and statName ~= nil) then 
+                            --DebugMessage(statName.." : "..tostring(statValue))
+                            SetStatByName(localPet, statName, statValue)	
                         end
-                    else
+                    end
                     
                     -- DebugMessage("    Skills:")
                     -- for ii, vv in pairs(v.Skills) do
