@@ -91,11 +91,13 @@ RegisterEventHandler(
 			if (this:HasTimer("AntiGuardSpam") or IsDead(this)) then
 				return
 			end
+			
+			local destLoc = this:GetLoc()
 			local mobiles =
 				FindObjects(
 				SearchMulti(
 					{
-						SearchRange(this:GetLoc(), 20),
+						SearchRange(destLoc, 20),
 						SearchMobile()
 					}
 				),
@@ -107,7 +109,7 @@ RegisterEventHandler(
 					GuardInstaKill(v)
 				end
 			end
-			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiBankSpam")
+			this:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "AntiGuardSpam")
 		end
 
 		local args = {...}
