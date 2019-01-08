@@ -408,6 +408,10 @@ function GetNameSuffix(targetObj)
 	if (guild) then 
 		suffix = suffix .. " [" .. guild.Tag .. "]"
 	end
+
+	if (targetObj:HasObjVar("IsCriminal")) then
+		suffix = suffix .. "\n[FF8C00](Criminal)[-]"
+	end
 	return suffix
 end
 
