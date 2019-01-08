@@ -385,7 +385,6 @@ end
 -- @param silent - If true, no user messages will be sent to inform player
 -- @return true or false
 function ShouldKarmaProtect(player, action, target, silent)
-    return false
     -- Verbose("Karma", "ShouldKarmaProtect", player, action, target, silent)
     -- if not( player ) then
     --     LuaDebugCallStack("[ShouldKarmaProtect] player not provided.")
@@ -433,7 +432,7 @@ function ShouldKarmaProtect(player, action, target, silent)
     --     end
     --     return true
     -- end
-    -- return false
+    return false
 end
 
 --- Prevent a guard protected non-chaotic karma level player from accidently flagging chaotic from attack/aoe on a chaotic karma level
@@ -657,7 +656,7 @@ function KarmaPunishAllAggressorsForMurder(victim)
     local aggressors = victim:GetObjVar("MurdererForgive") or {}
     ForeachAggressor(victim, function(aggressor)
         if ( victim ~= aggressor and aggressor:IsValid()) then
-            if (victim:IsPlayer()) then
+            if (victim:IsPlayer() and not(victim:HasObjVar("IsCriminal") or victim:HasObjVar("IsRed"))) then
                 local murders = aggressor:GetObjVar("Murders") or 0
                 murders = murders + 1
                 aggressor:SetObjVar("Murders", murders)
@@ -665,9 +664,12 @@ function KarmaPunishAllAggressorsForMurder(victim)
                 if (not(HasMobileEffect(aggressor, "Murderer"))) then
                     aggressor:SendMessage("StartMobileEffect", "Murderer")
                 end
+                if (not(HasMobileEffect(aggressor, "Criminal"))) then
+                    aggressor:SendMessage("StartMobileEffect", "Criminal")
+                end
                 table.insert(aggressors, aggressor)
+                ExecuteKarmaAction(aggressor, KarmaActions.Negative.Murder, victim)
             end
-            ExecuteKarmaAction(aggressor, KarmaActions.Negative.Murder, victim)
 		end
     end)
     CallFunctionDelayed(TimeSpan.FromSeconds(1),function ( ... )
@@ -696,7 +698,7 @@ function ColorizeMobileName(mobile, newName)
         color = GetKarmaLevel(GetKarma(mobile)).NameColor
     end
 
-    if (mobile:HasObjVar("Criminal")) then color = "C0C0C0" end
+    if (mobile:HasObjVar("IsCriminal")) then color = "C0C0C0" end
     if (mobile:HasObjVar("IsRed")) then color = "FF0000" end
     
     mobile:SystemMessage("What even..." .. color)
@@ -728,7 +730,7 @@ function ColorizePlayerName(player, newName)
         color = GetKarmaLevel(karma).NameColor
     end
 
-    if (player:HasObjVar("Criminal")) then color = "C0C0C0" end
+    if (player:HasObjVar("IsCriminal")) then color = "C0C0C0" end
     if (player:HasObjVar("IsRed")) then color = "FF0000" end
 
 	return string.format("[%s]%s[-]", color, newName)
