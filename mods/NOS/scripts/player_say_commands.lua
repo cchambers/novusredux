@@ -130,13 +130,20 @@ RegisterEventHandler(
 				),
 				GameObj(0)
 			)
-			this:PlayAnimation("salute")
+			local count = 0
+			local first = nil
 			for i, v in pairs(mobiles) do
+				if (i == 1) then first = v end
 				if (not (IsDead(v))) then
 					FaceObject(v,this)
 					v:PlayAnimation("salute")
+					count = count + 1
 				end
 			end
+			if (first) then
+				FaceObject(this,first)
+			end
+			this:PlayAnimation("salute")
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "AntiWestySpam")
 		end
 
