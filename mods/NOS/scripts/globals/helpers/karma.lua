@@ -339,6 +339,10 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
+    if (action.MakeCriminal == true) then 
+        mobileA:SendMessage("StartMobileEffect", "Criminal")
+    end
+
     if ( adjust and adjust ~= 0 ) then
         -- finally apply all the calculated karma
         AdjustKarma(mobileA, adjust)
@@ -557,8 +561,8 @@ end
 function GetKarmaAlignmentName(player)    
     local karmaAlignment = GetKarmaAlignment(player)
     if ( karmaAlignment == nil ) then return nil end -- alignment not set
-    if (player:HasObjVar("Murders")) then
-        local murders = player:GetObjVar("Murders")
+    if (player:HasObjVar("IsRed")) then
+        return "Murderer"
     end
     return karmaAlignment.AlignmentName or ""
 end

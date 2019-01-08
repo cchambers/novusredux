@@ -4,8 +4,10 @@ function UpdateStatsWindow()
 	local NOSCNX = DynamicWindow("NOSCNX" .. this.Id, "Server Stats", 300, 60, 0, -14, "Transparent", "BottomLeft")
 	local online = GlobalVarRead("User.Online")
 	local total = 0
-	for user,y in pairs(online) do
-		total = total + 1
+	if (online ~= nil) then
+		for user,y in pairs(online) do
+			total = total + 1
+		end
 	end
 
 	if (total < 2) then total = 2 end
