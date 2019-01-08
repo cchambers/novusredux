@@ -633,6 +633,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			finalDamage = randomGaussian(finalDamage, finalDamage * damageInfo.Variance)
 			local attackerEval = GetSkillLevel(damageInfo.Attacker, "MagicAffinitySkill")
 			local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
+			local resistGainChance = CheckSkill(victim, "MagicResistSkill")
 			local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
 			if (resistLevel < 40) then shouldResist = false end
 			-- this:NpcSpeech(tostring(shouldResist))
@@ -642,7 +643,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			if (damageLevel < 1.01) then damageLevel = 1.01 end
 			finalDamage = finalDamage * damageLevel
 			if (shouldResist) then
-				-- successful magic resist, half base damage
+				-- successful magic resist, reduce damage by up to 40%
 				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
 			end
 
