@@ -2,8 +2,9 @@ MobileEffectLibrary.SpiritSpeak =
 {
 	OnEnterState = function(self,root,target,args)
 		local skill = GetSkillLevel(self.ParentObj, "SpiritSpeak")
-		CheckSkillChance(self.ParentObj, "SpiritSpeak")
-		self.ParentObj:PlayAnimation("roar")
+		local gain = CheckSkillChance(self.ParentObj, "SpiritSpeak")
+		self.ParentObj:SystemMessage("You may now temporarily speak with the dead.")
+		self.Duration = TimeSpan.FromSeconds((skill / 10) * 60)
 	end,
 
 	OnExitState = function(self,root)

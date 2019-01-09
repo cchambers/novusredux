@@ -56,7 +56,7 @@ PrestigeData.Skills = {
 		SpeakWithDead = {
 			Action = {
 				DisplayName = "Seance",
-				Icon = "track",	
+				Icon = "Phantom",	
 				Enabled = true
 			},
 
