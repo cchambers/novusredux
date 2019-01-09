@@ -517,8 +517,9 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 0.75, Template = "treasure_map"},
-				{ Chance = 0.25, Template = "treasure_map_1"},
+				{ Chance = 7.5, Template = "treasure_map"},
+				{ Chance = 2.5, Template = "treasure_map_1"},
+				{ Chance = 0.5, Template = "treasure_map_2"},
 			},
 		},
 
@@ -528,10 +529,10 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 1, Template = "treasure_map"},
-				{ Chance = 0.5, Template = "treasure_map_1"},
-				{ Chance = 0.35, Template = "treasure_map_2"},
-				{ Chance = 0.15, Template = "treasure_map_3"},
+				{ Chance = 10, Template = "treasure_map"},
+				{ Chance = 5, Template = "treasure_map_1"},
+				{ Chance = 3.5, Template = "treasure_map_2"},
+				{ Chance = 1.5, Template = "treasure_map_3"},
 			},
 		},
 
