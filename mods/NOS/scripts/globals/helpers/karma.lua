@@ -335,25 +335,18 @@ end
 -- @return none
 function ExecuteKarmaAction(mobileA, action, mobileB)
 
+    local owner = mobileB:GetObjVar("controller")
+    if ( owner and (owner == mobileA) ) then return 0 end
+    if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+    
     if (action.What) then
         mobileA:SystemMessage(tostring("Punished for " .. action.What))
     else 
         mobileA:SystemMessage("No what")
     end
 
-    if (mobileB == nil) then
-        this:SystemMessage("NO MOBILE B")
-        DebugMessage("NO MOBILE B")
-        return 0
-    end
-
     Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)
-
-    local owner = mobileB:GetObjVar("controller")
-    if ( owner and (owner == mobileA) ) then return 0 end
-    if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
-
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
