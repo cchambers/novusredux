@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">210</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">360</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Bandit</StringVariable>
 		<StringVariable Name="MobileKind">Humanoid</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -32,7 +32,9 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 30,  
+					Brawling = 30,
+					Slashing = 50,
+					MagicResist = 50,
 					},	
 				EquipTable = 
 					{

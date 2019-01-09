@@ -334,8 +334,13 @@ end
 -- @param mobileB(mobileObj)(optional) The mobile that the karma action is being performed on(if any)
 -- @return none
 function ExecuteKarmaAction(mobileA, action, mobileB)
-    mobileA:SendMessage(tostring("Punished for " .. action.What))
-    
+
+    if (action.What) then
+        mobileA:SendMessage(tostring("Punished for " .. action.What))
+    else 
+        mobileA:SendMessage("No what")
+    end
+
     if (mobileB == nil) then
         this:SystemMessage("NO MOBILE B")
         DebugMessage("NO MOBILE B")
@@ -717,8 +722,6 @@ function ColorizeMobileName(mobile, newName)
 
     if (mobile:HasObjVar("IsCriminal")) then color = "C0C0C0" end
     if (mobile:HasObjVar("IsRed")) then color = "FF0000" end
-    
-    mobile:SystemMessage("What even..." .. color)
 
 	return string.format("[%s]%s[-]", color, newName)
 end
