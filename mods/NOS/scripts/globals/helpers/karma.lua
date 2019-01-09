@@ -336,9 +336,9 @@ end
 function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if (action.What) then
-        mobileA:SendMessage(tostring("Punished for " .. action.What))
+        mobileA:SystemMessage(tostring("Punished for " .. action.What))
     else 
-        mobileA:SendMessage("No what")
+        mobileA:SystemMessage("No what")
     end
 
     if (mobileB == nil) then
