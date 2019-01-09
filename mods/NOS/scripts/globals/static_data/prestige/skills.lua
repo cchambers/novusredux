@@ -67,8 +67,7 @@ PrestigeData.Skills = {
 			Tooltip = "Attempt to speak with the dead.",
 
 			MobileEffect = "SpiritSpeak",
-			--MobileEffectArgs = {},
-			Cooldown = TimeSpan.FromSeconds(10)
+			Cooldown = TimeSpan.FromSeconds(60)
 		},
 		Focus = {
 			Action = {
