@@ -2,6 +2,7 @@
   <Name>Weathered Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
+  <DoubleVariable Name="Difficulty">50</DoubleVariable>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">
