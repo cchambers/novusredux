@@ -1,12 +1,12 @@
 foods = {
 	"item_bread",
 	"item_cheese_slice",
-	"item_cheese_plate",
-	"item_cheese_wheel",
+	-- "item_cheese_plate",
+	-- "item_cheese_wheel",
 	"item_mead",
-	"item_meat_slices",
-	"item_meat_leg_bone_grilled",
-	"item_meat_bone_grilled_plate"
+	-- "item_meat_slices",
+	-- "item_meat_leg_bone_grilled",
+	-- "item_meat_bone_grilled_plate"
 }
 
 function doCreateFood(target)

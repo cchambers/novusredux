@@ -6,9 +6,11 @@
 
 KarmaActions.Negative = {
     Nothing = {
+        What = "nada",
         Adjust = 0,
     },
     Attack = {
+        What = "attacking",
         Adjust = -5,
         UpTo = -9999,
         NpcModifier = 0.5,
@@ -25,6 +27,7 @@ KarmaActions.Negative = {
     },
     -- This applies to looting players bodies as well, containers players own (like pets too)
     LootPlayerContainer = {
+        What = "loot player container",
         Adjust = -100,
         UpTo = -5000,
         NpcModifier = 0.25,
@@ -38,6 +41,7 @@ KarmaActions.Negative = {
         }
     },
     LootUnownedKill = {
+        What = "loot unowned kill",
         Adjust = -50,
         UpTo = -2500,
         NpcModifier = 1, -- set to 1 to negate the effects of this modifer for this action since this only applies to npcs (corpses n such)
@@ -51,6 +55,7 @@ KarmaActions.Negative = {
         Range = 50,
     },
     Murder = {
+        What = "murda",
         Adjust = -2000,
         UpTo = -50000,
         NpcModifier = 0.1,
@@ -67,6 +72,7 @@ KarmaActions.Negative = {
     },
     -- applies when a player performs a benefical act on a karma level set to punish beneficial acts
     PunishForBeneficial = {
+        What = "being nice",
         Adjust = -75,
         UpTo = -7500,
         NpcModifier = 0.1,

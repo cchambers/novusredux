@@ -455,6 +455,13 @@ function OnLoad(isPossessed)
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
 	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
+	for i,moduleName in pairs(this:GetAllModules()) do
+		if(string.match(moduleName,"sp_")) then
+			this:DelModule(moduleName)
+		end
+	end
+	
+
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")
 

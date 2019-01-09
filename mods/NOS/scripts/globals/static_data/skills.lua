@@ -113,7 +113,7 @@ SkillData = {
 			PrimaryStat = "Wisdom",
 			Description = "Magic Resistance determines your chance resist offensive magical spells.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.8
+			GainFactor = 0.35
 		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
