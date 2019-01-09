@@ -334,6 +334,11 @@ end
 -- @param mobileB(mobileObj)(optional) The mobile that the karma action is being performed on(if any)
 -- @return none
 function ExecuteKarmaAction(mobileA, action, mobileB)
+    if (mobileB == nil) then
+        this:SystemMessage("NO MOBILE B")
+        DebugMessage("NO MOBILE B")
+        return 0
+    end
     Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)
 
