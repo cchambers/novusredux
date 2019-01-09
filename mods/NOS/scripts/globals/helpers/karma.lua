@@ -334,18 +334,23 @@ end
 -- @param mobileB(mobileObj)(optional) The mobile that the karma action is being performed on(if any)
 -- @return none
 function ExecuteKarmaAction(mobileA, action, mobileB)
-
+    Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
     local owner = mobileB:GetObjVar("controller")
     if ( owner and (owner == mobileA) ) then return 0 end
     if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
     
-    if (action.What) then
-        mobileA:SystemMessage(tostring("Punished for " .. action.What))
-    else 
-        mobileA:SystemMessage("No what")
+    if (action == KarmaActions.Negative.Murder) then
+        local aggressor = mobileA
+        local victim = mobileB
+        local murders = aggressor:GetObjVar("Murders") or 0
+        murders = murders + 1
+        aggressor:SetObjVar("Murders", murders)
+        aggressor:SendMessage("StartMobileEffect", "Chaotic")
+        if (not(HasMobileEffect(aggressor, "Murderer"))) then
+            aggressor:SendMessage("StartMobileEffect", "Murderer")
+        end
     end
 
-    Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
@@ -674,14 +679,6 @@ function KarmaPunishAllAggressorsForMurder(victim)
     ForeachAggressor(victim, function(aggressor)
         if ( victim ~= aggressor and aggressor:IsValid()) then
             if (victim:IsPlayer() and not(victim:HasObjVar("IsCriminal") or victim:HasObjVar("IsRed"))) then
-                local murders = aggressor:GetObjVar("Murders") or 0
-                murders = murders + 1
-                aggressor:SetObjVar("Murders", murders)
-                aggressor:SendMessage("StartMobileEffect", "Chaotic")
-                if (not(HasMobileEffect(aggressor, "Murderer"))) then
-                    aggressor:SendMessage("StartMobileEffect", "Murderer")
-                end
-                aggressor:SendMessage("StartMobileEffect", "Criminal")
                 table.insert(aggressors, aggressor)
                 ExecuteKarmaAction(aggressor, KarmaActions.Negative.Murder, victim)
             end
