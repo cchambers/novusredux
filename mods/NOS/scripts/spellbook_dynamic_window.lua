@@ -61,7 +61,7 @@ function ShowSpellBookDialog(from)
 			end
 		)
 
-		-- DebugMessage("Total Spells: " .. tostring(#spellsSorted))
+	-- DebugMessage("Total Spells: " .. tostring(#spellsSorted))
 	end
 
 	local dynamicWindow =
@@ -179,26 +179,28 @@ function ShowSpellBookDialog(from)
 
 	-- IS DETAIL PAGE
 	if (mPageType == detailPageStr) then
-		local pageActual = 1
+		-- local pageActual = 1
+		local pageActual = mPageNumber
 
-		if ((mPageNumber % 2) == 0) then
-			pageActual = mPageNumber - 1
-		else
-			pageActual = mPageNumber
-		end
+		-- if ((mPageNumber % 2) == 0) then
+		-- 	pageActual = mPageNumber - 1
+		-- else
+		-- end
 		local xOffset = 0
-		local spellStart = pageActual
-		local spellEnd = pageActual + 1
+		local spellStart = mPageNumber
+		local spellEnd = mPageNumber + 1
 
-		ShowSpellDetail(dynamicWindow, allSpellsIndexed[spellStart], 0)
-		ShowSpellDetail(dynamicWindow, allSpellsIndexed[spellEnd], 320)
+		if (allSpellsIndexed[mPageNumber] ~= nil) then
+			ShowSpellDetail(dynamicWindow, allSpellsIndexed[mPageNumber], 0)
+		end
+		-- if (allSpellsIndexed[spellEnd] ~= nil) then ShowSpellDetail(dynamicWindow, allSpellsIndexed[spellEnd], 320) end
 
 		-- dog ears
-		local isFirstPage = (pageActual == 1)
-		local isLastPage = (pageActual >= #spellsSorted)
+		-- local isFirstPage = (mPageNumber == 1)
+		-- local isLastPage = ((allSpellsIndexed[mPageNumber + 1] == nil))
 
 		-- if not (isFirstPage) then
-		-- 	local pageStr = tostring(mPageNumber - 2)
+		-- 	local pageStr = tostring(mPageNumber - 1)
 		-- 	dynamicWindow:AddButton(
 		-- 		60,
 		-- 		24,
@@ -214,7 +216,7 @@ function ShowSpellBookDialog(from)
 		-- end
 
 		-- if not (isLastPage) then
-		-- 	local pageStr = tostring(pageActual + 2)
+		-- 	local pageStr = tostring(mPageNumber + 1)
 		-- 	dynamicWindow:AddButton(
 		-- 		574,
 		-- 		24,
@@ -235,7 +237,6 @@ function ShowSpellBookDialog(from)
 end
 
 function ShowSpellDetail(dynamicWindow, spellEntry, xOffset)
-	this:SystemMessage(tostring("se "..spellEntry.Name))
 	dynamicWindow:AddLabel(
 		xOffset + 236,
 		44,

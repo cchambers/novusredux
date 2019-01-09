@@ -28,7 +28,7 @@ SpellData = {
 		CreateFood = {
             SpellDisplayName = "Create Food",
 			PowerWords = "In Mani Ylem",
-			Icon = "food_peace",
+			Icon = "food",
             Circle = 1,
             manaCost = 4,
             effectDamageType = "Bashing",
@@ -64,6 +64,7 @@ SpellData = {
                 "Mandrake"
             },
 		},
+
 		Heal = {
 			SpellDisplayName = "Heal",
 			PowerWords = "In Mani",
@@ -106,6 +107,7 @@ SpellData = {
 				"Spidersilk"
 			},
 		},
+
 		ManaMissile = {
 			SpellDisplayName = "Magic Arrow",
 			PowerWords = "In Por Ylem",
@@ -165,6 +167,7 @@ SpellData = {
 				"Sulfurousash",
 			},
 		},
+
 		Reflectivearmor = {
 			SpellDisplayName = "Reactive Armor",
 			PowerWords = "Flam Sanct",
@@ -205,6 +208,7 @@ SpellData = {
 				"Spidersilk"
 			},
 		},
+
 		Weaken = {
 			SpellDisplayName = "Weaken",
 			PowerWords = "Des Mani",
@@ -241,6 +245,7 @@ SpellData = {
 				"Nightshade"
 			},
 		},
+
 		Clumsy = {
 			SpellDisplayName = "Clumsy",
 			PowerWords = "Uus Jux",
@@ -353,8 +358,6 @@ SpellData = {
 		},
 
 		-- CIRCLE TWO --
-		
-
 		Cure = {
 			SpellDisplayName = "Cure",
 			PowerWords = "An Nox",
@@ -446,7 +449,7 @@ SpellData = {
 				"Spidersilk"
 			},
 		},
-
+		
 		Intellect = {
 			SpellDisplayName = "Infuse",
 			PowerWords = "Mo Mani",
@@ -485,8 +488,7 @@ SpellData = {
 			},
 			PlayEffect = HealEffect,
 		},
-	
-		
+
 		Agile = {
 			SpellDisplayName = "Agility",
 			PowerWords = "Ex Uus",
@@ -636,7 +638,6 @@ SpellData = {
 		},
 
 		-- CIRCLE 3 --
-		
 		Bless = {
 			SpellDisplayName = "Bless",
 			PowerWords = "Rel Sanct",
@@ -732,6 +733,7 @@ SpellData = {
 				"Blackpearl",
 			},
 		},
+
 		Poison = {
 			SpellDisplayName = "Poison",
 			PowerWords = "In Nox",
@@ -1122,8 +1124,6 @@ SpellData = {
             SpellPrimedFX2Args = "Bone=L_Hand",
 		},
 
-		
-
 		Iceblade = {
 			SpellDisplayName = "Ice Blade",
 			PowerWords = "Oof Chil",
@@ -1164,6 +1164,7 @@ SpellData = {
 				"Blackpearl"
 			},
 		},
+
 		-- CIRCLE FIVE --
 		Attack = {
 			SpellDisplayName = "Power Up",
@@ -1699,7 +1700,6 @@ SpellData = {
 		},
 
 		-- CIRCLE SEVEN --
-		
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
 			PowerWords = "Vas In Flam",
@@ -2130,7 +2130,6 @@ SpellData = {
 			},
 		},
 				
-		
 		Auraofheal = {
 			SpellDisplayName = "Healing Aura",
 			PowerWords = "Por Vas Mani",
@@ -2182,7 +2181,6 @@ SpellData = {
 			},
 		},
 	
-
 		Spikepath = {
 			SpellDisplayName = "Spike Path",
 			PowerWords = "Ow My Toe",
@@ -2235,7 +2233,6 @@ SpellData = {
 			},
 		},	
 
-
 		Earthquake = {
 			SpellDisplayName = "Earthquake",
 			PowerWords = "In Vas Por",
@@ -2286,7 +2283,6 @@ SpellData = {
 		},
 
 		-- CIRCLE 10 --
-
 		Energyvortex = {
 			SpellDisplayName = "Summon Energy Vortex",
 			PowerWords = "Vas Corp Por",
