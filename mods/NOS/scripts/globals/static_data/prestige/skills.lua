@@ -53,6 +53,23 @@ PrestigeData.Skills = {
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(30)
 		},
+		SpeakWithDead = {
+			Action = {
+				DisplayName = "Seance",
+				Icon = "track",	
+				Enabled = true
+			},
+
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			
+			Tooltip = "Attempt to speak with the dead.",
+
+			MobileEffect = "SpiritSpeak",
+			--MobileEffectArgs = {},
+			Cooldown = TimeSpan.FromSeconds(10)
+		},
 		Focus = {
 			Action = {
 				DisplayName = "Focus",

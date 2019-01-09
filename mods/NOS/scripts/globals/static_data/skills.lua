@@ -115,6 +115,14 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.35
 		},
+		SpiritSpeak = {
+			DisplayName = "Spirit Speak",
+			PrimaryStat = "Wisdom",
+			Description = "Gives you the ability to speak with the dead.",
+			SkillType = "TradeTypeSkill",
+			Abilities = { "SpeakWithDead" },
+			GainFactor = 0.5
+		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
 			DisplayName = "Blocking",
