@@ -528,7 +528,7 @@ SpellData = {
 		
 		Protection = {
 			SpellDisplayName = "Protection",
-			PowerWords = "Ex Uus",
+			PowerWords = "Uus Sanct",
 			Circle = 2,
 			Icon = "Thunder Strike 04",
 			manaCost = 4,
