@@ -337,7 +337,10 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
     Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)
 
-    if (ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+    local owner = mobileB:GetObjVar("controller")
+    if ( owner and (owner == mobileA) ) then return 0 end
+    if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
