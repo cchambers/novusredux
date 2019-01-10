@@ -38,66 +38,7 @@ function ShowStatusElement(mobileObj, args)
 
 	if (args.IsSelf) then
 		statusWindow:AddStatBar(17, 33, 129, 4, "Mana", "3388ff", mobileObj)
-
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
-
-		local next = args.User:GetObjVar("NextPowerHour")
-		local hasNext = next ~= nil
-		local now = DateTime.UtcNow
-		if (hasNext) then
-			canPowerHour = now > next
-		else
-			canPowerHour = true
-		end
-		if(canPowerHour) then
-			statusWindow:AddButton(-5, 250, "ConfirmPowerHour", "Power Hour", 90, 20, "", "", false, "Default", "default")
-		end
-
-		RegisterEventHandler(
-			EventType.DynamicWindowResponse,
-			args.DialogId,
-			function(user, buttonId)
-				local next = user:GetObjVar("NextPowerHour")
-				local hasNext = next ~= nil
-				local now = DateTime.UtcNow
-				if (hasNext) then
-					canPowerHour = now > next
-				else
-					canPowerHour = true
-				end
-				if (canPowerHour) then
-					ClientDialog.Show {
-						TargetUser = user,
-						DialogId = "PowerHour" .. user.Id,
-						TitleStr = "Start Power Hour",
-						DescStr = string.format("Are you ready to begin your power hour? You will only be able to use it again after 22 hours passes."),
-						Button1Str = "Yes",
-						Button2Str = "No",
-						ResponseObj = user,
-						ResponseFunc = function(user, buttonId)
-							local buttonId = tonumber(buttonId)
-							if (user == nil or buttonId == nil) then
-								return
-							end
-							-- Handles the invite command of the dynamic window
-							if (buttonId == 0) then
-								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
-								user:SetObjVar("PowerHourEnds", 60)
-								user:SendMessage("StartMobileEffect", "PowerHourBuff")
-								user:PlayAnimation("roar")
-								user:PlayEffect("ImpactWaveEffect", 2)
-								ShowStatusElement(user,{IsSelf=true,ScreenX=10,ScreenY=10})
-								return
-							end
-						end
-					}
-				else 
-					user:SystemMessage("You cannot power hour quite yet.")
-				end
-				
-				return
-			end
-		)
 	end
 
 	args.User:OpenDynamicWindow(statusWindow)
