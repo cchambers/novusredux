@@ -44,7 +44,6 @@ function rem(amount)
 end
 
 function DoCount() 
-
 	local petSlots = MaxActivePetSlots(this)
 	local remainingSlots = GetRemainingActivePetSlots(this)
 	local petSlotsTaken = petSlots - remainingSlots
@@ -145,7 +144,7 @@ function UpdateStatsWindow()
 	total = tostring(total)
 	NOSCNX:AddLabel(18, 0, tostring("[bada55]" .. total .. "[-] players connected // join global chat at: [bada55]nos.gg/discord[-]"), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
 	this:OpenDynamicWindow(NOSCNX)
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"Hud.UpdateStats")
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"Hud.UpdateStats")
 end
 
 RegisterEventHandler(EventType.Timer, "Hud.UpdateStats", function() 
