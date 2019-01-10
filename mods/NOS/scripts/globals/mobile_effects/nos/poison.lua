@@ -58,6 +58,6 @@ MobileEffectLibrary.Poison =
 	PulseFrequency = TimeSpan.FromSeconds(6),
 	PulseMax = 8,
 	CurrentPulse = 0,
-	MinDamage = 2,
-	MaxDamage = 6
+	MinDamage = 1,
+	MaxDamage = 3
 }

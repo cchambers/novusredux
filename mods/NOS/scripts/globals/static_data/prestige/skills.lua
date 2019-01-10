@@ -53,6 +53,20 @@ PrestigeData.Skills = {
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(30)
 		},
+		ApplyPoison = {
+			Action = {
+				DisplayName = "Apply Poison",
+				Icon = "track",	
+				Enabled = true
+			},
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			Tooltip = "Attempt to poison an item of food or edged weapon.",
+			MobileEffect = "ApplyPoison",
+			--MobileEffectArgs = {},
+			Cooldown = TimeSpan.FromSeconds(30)
+		},
 		SpeakWithDead = {
 			Action = {
 				DisplayName = "Seance",

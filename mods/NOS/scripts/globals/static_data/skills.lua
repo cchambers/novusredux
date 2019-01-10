@@ -283,6 +283,16 @@ SkillData = {
 			Abilities = { "Reveal" },
 			GainFactor = 0.7,
 		},
+		PoisoningSkill = {
+			DisplayName = "Poisoning",
+			SkillIcon = "Poison",
+			PrimaryStat = "Intelligence",
+			Description = "Poison food or a weapon.",
+			SkillType = "TradeTypeSkill",
+			Abilities = { "ApplyPoison" },
+			GainFactor = 0.7,
+			Skip = true,
+		},
 		HidingSkill = {
 			DisplayName = "Hiding",
 			SkillIcon = "Skill_Rogue",
