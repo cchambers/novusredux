@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Sulfurous Ash[-]</Name>
+	<ClientId>579</ClientId>
+	<Color>FFF700</Color>
+	<Hue>30</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Sulfurousash</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate> 

@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Blood Moss[-]</Name>
+	<ClientId>579</ClientId>
+	<Color>0xFFff0000</Color>
+	<Hue>30</Hue>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Bloodmoss</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate> 
