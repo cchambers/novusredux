@@ -79,7 +79,7 @@ end
 
 
 function UpdateConsumableWindow()
-	mCONSUME = DynamicWindow("CONSUMABLETRACKER123" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
+	mCONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
 	if (not(IsDead(this))) then
 		local fontname = "PermianSlabSerif_Dynamic_Bold"
 
