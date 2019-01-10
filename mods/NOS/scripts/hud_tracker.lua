@@ -81,7 +81,7 @@ end
 function UpdateConsumableWindow()
 	DoCount()
 
-	local CONSUME = DynamicWindow("CONSUMABLETRACKERx" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
+	local CONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
 
 	local fontname = "PermianSlabSerif_Dynamic_Bold"
 
