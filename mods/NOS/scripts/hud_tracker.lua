@@ -81,7 +81,7 @@ end
 function UpdateConsumableWindow()
 	DoCount()
 
-	local CONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
+	local CONSUME = DynamicWindow("CONSUMABLETRACKERx" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
 
 	local fontname = "PermianSlabSerif_Dynamic_Bold"
 
@@ -103,7 +103,7 @@ function UpdateConsumableWindow()
 	local labelfontsize = rem(1.6)
 	local datafontsize = rem(1.4)
 
-	CONSUME:AddLabel(rem(1.5), rem(3.5), "ARR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+	CONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 	CONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 	
 	local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight)
