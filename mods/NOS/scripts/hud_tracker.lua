@@ -51,8 +51,8 @@ function DoCount()
 
 	mTracked = {
 		followers = {
-			pets = tostring(petSlotsTaken.."/"..petSlots),
-			minions = tostring("0/3")
+			pets = tostring(petSlotsTaken.." / "..petSlots),
+			minions = tostring("0 / 3")
 		},
 		aid = {
 			bandages = CountResourcesInContainer(mBackpackObj,"Bandage"),
