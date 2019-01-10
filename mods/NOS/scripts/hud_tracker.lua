@@ -99,6 +99,7 @@ function UpdateConsumableWindow()
 		local labelheight = rem(2)
 		local labelfontsize = rem(1.6)
 		local datafontsize = rem(1.4)
+		local valuewidth = rem(8)
 
 		CONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 		CONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
@@ -106,14 +107,14 @@ function UpdateConsumableWindow()
 		local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight)
 		local bandicount = tostring(mTracked.aid.bandages .. " : [FBAED2]" .. mTracked.aid.bloodybandages .. "[-]")
 		
-		CONSUME:AddLabel(rem(1.5), rem(5), arrowcount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(5), bandicount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(1.5), rem(5), arrowcount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
 		CONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 		CONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
-		CONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 	end
 	this:OpenDynamicWindow(CONSUME)
 end
