@@ -50,7 +50,7 @@ function ShowStatusElement(mobileObj, args)
 			canPowerHour = true
 		end
 		if(canPowerHour) then
-			statusWindow:AddButton(10, 60, "ConfirmPowerHour", "Power Hour", 120, 40, "", "", false, "Default", "default")
+			statusWindow:AddButton(-5, 250, "ConfirmPowerHour", "Power Hour", 90, 20, "", "", false, "Default", "default")
 		end
 
 		RegisterEventHandler(

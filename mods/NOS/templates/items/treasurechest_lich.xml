@@ -23,16 +23,16 @@
 					    	NumItems = 1,
 					    	LootItems =
 					    	{
-				    			{ Chance = 5, Template = "coffin01", Unique = true },
-				    			{ Chance = 5, Template = "coffin02", Unique = true },
-				    			{ Chance = 5, Template = "coffin03", Unique = true },
-				    			{ Chance = 5, Template = "coffin04", Unique = true },
-				    			{ Chance = 5, Template = "coffin05", Unique = true },
-				    			{ Chance = 5, Template = "coffin06", Unique = true },
-				    			{ Chance = 5, Template = "coffin07", Unique = true },
-				    			{ Chance = 5, Template = "coffin08", Unique = true },
-				    			{ Chance = 5, Template = "coffin09", Unique = true },
-				    			{ Chance = 1, Template = "coffin_ornate", Unique = true },
+				    			{ Chance = 5, Template = "coffin01", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin02", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin03", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin04", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin05", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin06", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin07", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin08", Packed = true, Unique = true },
+				    			{ Chance = 5, Template = "coffin09", Packed = true, Unique = true },
+				    			{ Chance = 1, Template = "coffin_ornate", Packed = true, Unique = true },
 				    		}
 			    		},
 				    	--stuff

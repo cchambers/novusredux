@@ -32,6 +32,7 @@
 					Blocking = 100,  
 					HeavyArmor = 100,
 					Melee = 100,
+					Lancing = 100, 
 					},		
 				EquipTable = 
 					{

@@ -8,8 +8,8 @@ MobileEffectLibrary.SpellPoison =
 		local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
 
 		StartMobileEffect(self.ParentObj, "Poison", self.Target, {
-			MinDamage = math.max(1, 3 * percent),
-			MaxDamage = math.max(1, 8 * percent),
+			MinDamage = math.max(1, 1 * percent),
+			MaxDamage = math.max(1, 3 * percent),
 			PulseMax = math.max(1, 6),
 		})
 

@@ -70,9 +70,7 @@ MobileEffectLibrary.TelecrookRes =
             -- They shouldn't have this.
             self.DestroyCrook(self)
         elseif (target) then
-            -- We targeted an object, where do we want to move it?
             target:SendMessage("Resurrect",1.0,nil,true)
-            return
         end
         EndMobileEffect(root)
     end,

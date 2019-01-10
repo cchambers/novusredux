@@ -118,6 +118,8 @@ MobileEffectLibrary.Bandage =
 				self.ParentObj:NpcSpeechToUser("You cured your target of poison!",self.ParentObj)
 			else
 				self.ParentObj:NpcSpeechToUser("You lack the skill to cure poison.",self.ParentObj)
+				self._HealMultiplier = self._HealMultiplier / 2
+				self.Target:SendMessage("HealRequest", self._HealAmount * self._HealMultiplier , self.ParentObj)
 			end
 		else
 			self.Target:SendMessage("HealRequest", self._HealAmount * self._HealMultiplier , self.ParentObj)

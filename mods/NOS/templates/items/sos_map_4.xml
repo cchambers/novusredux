@@ -2,6 +2,7 @@
   <Name>Shell Encrusted Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
+    <DoubleVariable Name="Difficulty">90</DoubleVariable>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">

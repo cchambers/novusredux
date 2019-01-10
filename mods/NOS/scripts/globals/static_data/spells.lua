@@ -528,7 +528,7 @@ SpellData = {
 		
 		Protection = {
 			SpellDisplayName = "Protection",
-			PowerWords = "Ex Uus",
+			PowerWords = "Uus Sanct",
 			Circle = 2,
 			Icon = "Thunder Strike 04",
 			manaCost = 4,
@@ -741,7 +741,7 @@ SpellData = {
 			Icon = "Poison Splash",
 			manaCost = 9,
 			effectType = "InstantHitSpell",
-			SpellPower = 5,
+			SpellPower = 2,
 			critChance = 0,
 			SpellRange = 12,
 			TargetType = "targetMobile",

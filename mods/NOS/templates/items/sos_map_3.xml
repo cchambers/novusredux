@@ -2,6 +2,7 @@
   <Name>Rum-stained Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
+  <DoubleVariable Name="Difficulty">70</DoubleVariable>
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">

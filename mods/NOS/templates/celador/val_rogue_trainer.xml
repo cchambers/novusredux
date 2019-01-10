@@ -27,6 +27,7 @@
 					Hiding = 100, 
 					Piercing = 100, 
 					Stealth = 100, 
+					Lancing = 100, 
 					},	
 					MobTraits =
 					{

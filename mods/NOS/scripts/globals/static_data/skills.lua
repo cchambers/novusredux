@@ -115,6 +115,14 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.35
 		},
+		SpiritSpeak = {
+			DisplayName = "Spirit Speak",
+			PrimaryStat = "Wisdom",
+			Description = "Gives you the ability to speak with the dead.",
+			SkillType = "TradeTypeSkill",
+			Abilities = { "SpeakWithDead" },
+			GainFactor = 0.5
+		},
 		-- END MAGIC SKILLS
 		BlockingSkill = {
 			DisplayName = "Blocking",
@@ -274,6 +282,16 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			Abilities = { "Reveal" },
 			GainFactor = 0.7,
+		},
+		PoisoningSkill = {
+			DisplayName = "Poisoning",
+			SkillIcon = "Poison",
+			PrimaryStat = "Intelligence",
+			Description = "Poison food or a weapon.",
+			SkillType = "TradeTypeSkill",
+			Abilities = { "ApplyPoison" },
+			GainFactor = 0.7,
+			Skip = true,
 		},
 		HidingSkill = {
 			DisplayName = "Hiding",
