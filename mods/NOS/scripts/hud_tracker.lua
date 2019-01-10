@@ -74,49 +74,47 @@ function DoCount()
 			ginseng = CountResourcesInContainer(mBackpackObj,"Ginseng")
 		}
 	}
-	return
+	UpdateConsumableWindow()
 end
 
 function UpdateConsumableWindow()
-	DoCount()
-
 	local CONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
+	if (not(IsDead(this))) then
+		local fontname = "PermianSlabSerif_Dynamic_Bold"
 
-	local fontname = "PermianSlabSerif_Dynamic_Bold"
+		local rsw = rem(4)
+		local rsh = rem(2)
+		local fontsize = rem(1.6)
+		
+		CONSUME:AddLabel(rem(0), 0, tostring(ColorizeAmount("MR", mTracked.regs.mandrake)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(3), 0, tostring(ColorizeAmount("SS", mTracked.regs.spidersilk)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(6), 0, tostring(ColorizeAmount("GS", mTracked.regs.ginseng)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(9), 0, tostring(ColorizeAmount("SA", mTracked.regs.sulfurousash)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(0), rem(1.5), tostring(ColorizeAmount("BM", mTracked.regs.bloodmoss)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(3), rem(1.5), tostring(ColorizeAmount("GL", mTracked.regs.garlic)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(6), rem(1.5), tostring(ColorizeAmount("BP", mTracked.regs.blackpearl)), rsw, rsh, fontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(9), rem(1.5), tostring(ColorizeAmount("NS", mTracked.regs.nightshade)), rsw, rsh, fontsize, "center", false, true, fontname)
+		
+		local labelwidth = rem(6)
+		local labelheight = rem(2)
+		local labelfontsize = rem(1.6)
+		local datafontsize = rem(1.4)
 
-	local rsw = rem(4)
-	local rsh = rem(2)
-	local fontsize = rem(1.6)
-	
-	CONSUME:AddLabel(rem(0), 0, tostring(ColorizeAmount("MR", mTracked.regs.mandrake)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(3), 0, tostring(ColorizeAmount("SS", mTracked.regs.spidersilk)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(6), 0, tostring(ColorizeAmount("GS", mTracked.regs.ginseng)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(9), 0, tostring(ColorizeAmount("SA", mTracked.regs.sulfurousash)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(0), rem(1.5), tostring(ColorizeAmount("BM", mTracked.regs.bloodmoss)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(3), rem(1.5), tostring(ColorizeAmount("GL", mTracked.regs.garlic)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(6), rem(1.5), tostring(ColorizeAmount("BP", mTracked.regs.blackpearl)), rsw, rsh, fontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(9), rem(1.5), tostring(ColorizeAmount("NS", mTracked.regs.nightshade)), rsw, rsh, fontsize, "center", false, true, fontname)
-	
-	local labelwidth = rem(6)
-	local labelheight = rem(2)
-	local labelfontsize = rem(1.6)
-	local datafontsize = rem(1.4)
+		CONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		
+		local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight)
+		local bandicount = tostring(mTracked.aid.bandages .. " : [FBAED2]" .. mTracked.aid.bloodybandages .. "[-]")
+		
+		CONSUME:AddLabel(rem(1.5), rem(5), arrowcount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(5), bandicount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+		
+		CONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
-	CONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-	
-	local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight)
-	local bandicount = tostring(mTracked.aid.bandages .. " : [FBAED2]" .. mTracked.aid.bloodybandages .. "[-]")
-	
-	CONSUME:AddLabel(rem(1.5), rem(5), arrowcount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(7.5), rem(5), bandicount, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-	
-	CONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-
-	CONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-	CONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
-
+		CONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+		CONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, labelwidth, labelheight, datafontsize, "center", false, true, fontname)
+	end
 	this:OpenDynamicWindow(CONSUME)
 end
 
@@ -149,7 +147,7 @@ end
 
 RegisterEventHandler(EventType.Timer, "Hud.UpdateStats", function() 
 	UpdateStatsWindow()
-	UpdateConsumableWindow()
+	DoCount()
 end)
 RegisterSingleEventHandler(EventType.ModuleAttached, "hud_tracker", UpdateStatsWindow)
 
