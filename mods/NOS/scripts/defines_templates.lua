@@ -811,7 +811,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				{ Count = 10, TemplateId = "plant_bloodmoss"},
-				{ Count = 10, TemplateId = "plant_blackpearl"},
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				--{ Count = 10, TemplateId = "plant_nightshade"},
@@ -839,7 +838,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				{ Count = 10, TemplateId = "plant_blackpearl"},
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
@@ -873,7 +871,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				--{ Count = 10, TemplateId = "plant_blackpearl"},
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
@@ -899,7 +896,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				{ Count = 10, TemplateId = "plant_bloodmoss"},
-				{ Count = 10, TemplateId = "plant_blackpearl"},
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				--{ Count = 10, TemplateId = "plant_nightshade"},
@@ -928,7 +924,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				{ Count = 10, TemplateId = "plant_blackpearl"},
 				{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
@@ -959,7 +954,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				--{ Count = 10, TemplateId = "plant_blackpearl"},
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
