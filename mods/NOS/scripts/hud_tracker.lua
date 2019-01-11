@@ -127,7 +127,7 @@ function UpdateConsumableWindow()
 		canPowerHour = true
 	end
 	if(canPowerHour) then
-		mCONSUME:AddButton(0, 105, "ConfirmPowerHour", "[c0c0c0]Power Hour![-]", 90, 24, "", "", false, "Default", "default")
+		mCONSUME:AddButton(0, 105, "ConfirmPowerHour", "Power Hour!", 90, 24, "", "", false, "Default", "default")
 	end
 	StatBar()
 	this:OpenDynamicWindow(mCONSUME)

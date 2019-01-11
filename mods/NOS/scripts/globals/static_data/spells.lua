@@ -1422,6 +1422,44 @@ SpellData = {
 				"Sulfurousash"
 			},
 		},	
+
+		MagicReflection = {
+			SpellDisplayName = "Magic Reflection",
+			PowerWords = "In Jux Sanct",
+			Circle = 5,
+			Icon = "star",
+			manaCost = 25,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
+			SpellTooltipString = "Reflect the next magical attack that hits you.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			BeneficialSpellType = true,
+			AttackSpellType = false,
+			SpellEnabled = true,
+			SpellFireAnim = "BuffEffect_C",
+			TargetMobileEffect = "SpellMagicReflection",
+			Reagents = {
+				"Garlic",
+				"Spidersilk",
+				"Mandrake"
+			},
+		},
 		
 		-- CIRCLE SIX -- 
 		Electricbolt = {
