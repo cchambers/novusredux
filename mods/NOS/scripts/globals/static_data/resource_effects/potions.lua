@@ -13,7 +13,7 @@ ResourceEffectData.PotionSuperiorHealth = {
 ResourceEffectData.PotionGreaterHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
-        Percentage = 70,
+        Percentage = 60,
     },
     SelfOnly = true,
     Tooltip = {
@@ -59,7 +59,7 @@ ResourceEffectData.PotionSuperiorMana = {
 ResourceEffectData.PotionGreaterMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Percentage = 70,
+        Percentage = 60,
     },
     SelfOnly = true,
     Tooltip = {
@@ -105,7 +105,7 @@ ResourceEffectData.PotionSuperiorStamina = {
 ResourceEffectData.PotionGreaterStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
-        Percentage = 70,
+        Percentage = 60,
     },
     SelfOnly = true,
     Tooltip = {

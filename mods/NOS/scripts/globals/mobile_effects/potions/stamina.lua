@@ -1,6 +1,5 @@
 MobileEffectLibrary.PotionNOSStamina = 
 {
-
 	OnEnterState = function(self,root,target,args)
 		self.Percentage = args.Percentage or self.Percentage
 
