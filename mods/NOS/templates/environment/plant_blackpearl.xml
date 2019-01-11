@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Black Pearl[-]</Name>
+	<ClientId>605</ClientId>
+	<Color>0xFFC100FF</Color>
+	<Hue>15</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Blackpearl</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate> 
