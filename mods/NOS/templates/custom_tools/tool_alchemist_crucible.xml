@@ -1,0 +1,13 @@
+﻿<ObjectTemplate>
+  <Name>[00FF00]Alchemist's Crucible[-]</Name>
+	<ClientId>2010</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolType">AlchemyTable</StringVariable>
+		<StringVariable Name="ToolSkill">AlchemySkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">alchemy</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/alchemy/alchemy</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent> 
+		<LuaModule Name="crafting_alchemy"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
