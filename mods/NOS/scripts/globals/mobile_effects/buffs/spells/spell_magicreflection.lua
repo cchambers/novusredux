@@ -3,9 +3,14 @@ MobileEffectLibrary.SpellMagicReflection =
 	OnEnterState = function(self,root,target,args)
 		self.ParentObj:SetObjVar("MagicReflection", true)
 		
-		local debuffStr = "You will reflect incoming magical attacks."
-		AddBuffIcon(self.ParentObj, "MagicReflectionBuff", "Magic Reflection", "Spell Shield", debuffStr, true)
-
+		AddBuffIcon(
+            self.ParentObj,
+            "MagicReflectionBuff",
+            "Magic Reflection",
+            "Spell Shield",
+            "You will reflect an incoming magical attack.",
+            false
+        )
 		RegisterSingleEventHandler(EventType.Message, "StopReflecting",
 		function()	
 			EndMobileEffect(root)
