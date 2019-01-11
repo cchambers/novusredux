@@ -2,6 +2,7 @@
   <Name>[00FF00]Superior Mana Potion[-]</Name>
 	<ClientId>35</ClientId>
 	<Color>0xFF3388FF</Color>
+	<ScaleModifier>0.75</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">PotionSuperiorMana</StringVariable>
