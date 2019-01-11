@@ -3,11 +3,11 @@
 	<Name>Ogre</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<MobileComponent>			
-		<BaseRunSpeed>.5</BaseRunSpeed>
+		<BaseRunSpeed>.6</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">2000</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2200</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Giant</StringVariable>
 		<StringVariable Name="MobileKind">Giant</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -23,10 +23,10 @@
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_default_animal">
+		<LuaModule Name="ai_ogre">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=80, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					BowResistance = 2,
@@ -41,10 +41,10 @@
 					},
 				LootTables =
 					{
+						TemplateDefines.LootTable.Average,
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.FilthyRich,
 						{
 							NumCoins = math.random(550,700),
 						},

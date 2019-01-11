@@ -11,8 +11,9 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 99.5, Template = "lich_lord" },
-						{ Weight = 0.5, Template = "lich_lord_hq" },
+						{ Weight = 91, Template = "lich_lord" },
+						{ Weight = 7.5, Template = "ruin_lich_lord" },
+						{ Weight = 1.5, Template = "lich_lord_hq" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

@@ -28,7 +28,53 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_demon">
 			<Initializer>
-				{ 
+			{
+				Stats = { Str=60, Agi=30, Int=21, Wis=10, Will=70 },
+				MobTraits =
+					{
+					Armored = 2,
+					Toughness = 2,
+					Might = 2,
+					},
+				Skills = 
+					{ 
+					MagicAffinity=100,
+					Magery=100,
+					Brawling = 120,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.SicklyEye,
+						TemplateDefines.LootTable.Prestige,
+						{
+							NumCoins = math.random(3000,8000),
+							NumItems = 1,
+					    	LootItems =
+					    	{
+				    			{ Chance = 5, Template = "furniture_box", Unique = true },
+				    			{ Chance = 50, Template = "random_executioner_weapon_30_90", Unique = true },
+				    		}
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+					WeaponAbilities = { primary="Overpower", secondary="Stun" },	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="random_name">
+			<Initializer>
+			{ 
 				Names = {
 					"Aamon",
 					"Agalierept",
@@ -115,48 +161,8 @@
 					"Yog-Sothoth",
 					"Y`reif Eci",
 					"Zoray"
-				},
-				Stats = { Str=60, Agi=30, Int=21, Wis=10, Will=70 },
-				MobTraits =
-					{
-					Armored = 2,
-					Toughness = 2,
-					Might = 2,
-					},
-				Skills = 
-					{ 
-					MagicAffinity=100,
-					Magery=100,
-					Brawling = 120,  
-					},	
-				EquipTable = 
-					{
-						Backpack = { "backpack" },					
-					},
-				LootTables =
-					{
-						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.SicklyEye,
-						TemplateDefines.LootTable.Prestige,
-						{
-							NumCoins = math.random(3000,8000),
-							NumItems = 1,
-					    	LootItems =
-					    	{
-				    			{ Chance = 5, Template = "furniture_box", Unique = true },
-				    			{ Chance = 50, Template = "random_executioner_weapon_30_90", Unique = true },
-				    		}
-						},
-					},	
-				ScavengeTables =
-					{
-					},	
-					WeaponAbilities = { primary="Overpower", secondary="Stun" },	
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

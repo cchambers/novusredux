@@ -1,14 +1,14 @@
 <ObjectTemplate>
 	<ClientId>1584</ClientId>
-	<Name>Lich Lord</Name>
-	<ScaleModifier>1</ScaleModifier>
+	<Name>Lost Lich Lord</Name>
+	<ScaleModifier>1.25</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
 	<MobileComponent>			
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1500</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -16,7 +16,7 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">75</DoubleVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
 		<DoubleVariable Name="Attack">120</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=30, Agi=45, Int=40, Wis=45, Will=45 },
 				Skills = 
 					{ 
 					Brawling = 80,  
@@ -41,23 +41,23 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.RuinMob,
-						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
-						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.BonesEthereal,
 						TemplateDefines.LootTable.AncientScrolls,
+						TemplateDefines.LootTable.BonesEthereal,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.RuinMobLow,
+						TemplateDefines.LootTable.ScrollsHigh,
 						{
-							NumCoins = math.random(500,650),
+							NumCoins = math.random(650,800),
 						},
 					},
 
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Greaterheal", "Poison", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
 				}
 			</Initializer>
 		</LuaModule>

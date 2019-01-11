@@ -733,7 +733,15 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 50, Template = "contempt_skull", Unique = true },
+				{ Chance = 40, Template = "contempt_skull", Unique = true },
+			}
+		},
+		ContemptMobLow =
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 15, Template = "contempt_skull", Unique = true },
 			}
 		},
 		RuinMob =
@@ -741,7 +749,15 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 50, Template = "ruin_skull", Unique = true },
+				{ Chance = 40, Template = "ruin_skull", Unique = true },
+			}
+		},
+		RuinMobLow =
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 15, Template = "ruin_skull", Unique = true },
 			}
 		},
 		DeceptionMob =
@@ -749,7 +765,15 @@ TemplateDefines = {
 			NumItems = 1,	
 			LootItems = 
 			{ 
-				{ Chance = 50, Template = "deception_skull", Unique = true },
+				{ Chance = 40, Template = "deception_skull", Unique = true },
+			}
+		},
+		DeceptionMobLow =
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 15, Template = "deception_skull", Unique = true },
 			}
 		},
 		AwakeningDragon =
