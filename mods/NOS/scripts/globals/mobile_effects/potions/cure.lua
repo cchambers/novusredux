@@ -1,7 +1,9 @@
 MobileEffectLibrary.PotionNOSCure = 
 {
 	OnEnterState = function(self,root,target,args)
-	
+		
+		self.PoisonReductionLevel = args.PoisonLevelReduction or self.PoisonReductionLevel
+
 		if ( self.ParentObj:HasTimer("RecentPotion") ) then
 			self.ParentObj:SystemMessage("Cannot use again yet.", "info")
 			EndMobileEffect(root)
@@ -17,11 +19,12 @@ MobileEffectLibrary.PotionNOSCure =
 
 		self.ParentObj:PlayEffect("HealEffect")
 
-		self.ParentObj:SendMessage("EndPoisonEffect")
+		self.ParentObj:SendMessage("ReducePoisonEffect", args.PoisonLevelReduction)
 
-		self.ParentObj:SystemMessage("You have been cured.", "info")
+		self.ParentObj:SystemMessage("Some toxins have been removed from your system.", "info")
 
 		EndMobileEffect(root)
 	end,
 
+	PoisonReductionLevel = 1
 }
