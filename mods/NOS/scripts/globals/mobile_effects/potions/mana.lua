@@ -1,4 +1,4 @@
-MobileEffectLibrary.PotionMana = 
+MobileEffectLibrary.PotionNOSMana = 
 {
 
 	OnEnterState = function(self,root,target,args)

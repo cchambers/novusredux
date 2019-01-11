@@ -75,9 +75,11 @@ RecipeCategories = {
 			Name = "Potions",
 			Subcategories = {
 				{"LesserPotions" ,"Lesser Potions","HealingPotions"},
-				{"Potions" ,"Potions","HealingPotions"},
+				{"RegularPotions" ,"Regular Potions","HealingPotions"},
 				{"GreaterPotions" ,"Greater Potions","HealingPotions"},
+				{"SuperiorPotions" ,"Superior Potions","HealingPotions"},
 				{"Remedies" ,"Remedies","Storage"},
+
 			},
 		},
 	},
@@ -2116,74 +2118,86 @@ FabricationSkill = {
 	},
 
 AlchemySkill = {
-		LesserHealPotion = {
+		-- HEALTH --
+		LesserHealthPotion = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
 			DisplayName = "Lesser Heal Potion",
 			NeedRecipe = false,
-			Description = "A potion that restores a small amount of life. ",
-			CraftingTemplateFile = "potion_lheal",
+			Description = "A potion that restores a small amount of life.",
+			CraftingTemplateFile = "lesser_health_potion",
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
-				Ginseng = 1,
-				Blood = 1,
+				Ginseng = 1
 			},
 		},
-		HealPotion = {
+		RegularHealthPotion = {
 			MinLevelToCraft = 25,
 			MaxLevelToGain = 50,
 			DisplayName = "Heal Potion",
 			NeedRecipe = false,
-			Description = "A potion that restores a life. ",
-			CraftingTemplateFile = "potion_heal",
+			Description = "A potion that restores a life.",
+			CraftingTemplateFile = "regular_health_potion",
 			Category = "Potions",
-			Subcategory = "Potions",
+			Subcategory = "RegularPotions",
 			Resources = {
-				Ginseng = 3,
-				BeastBlood = 1,
+				Ginseng = 3
 			},
 		},
-		GreaterHealPotion = {
+		GreaterHealthPotion = {
 			MinLevelToCraft = 50,
 			MaxLevelToGain = 75,
 			DisplayName = "Greater Heal Potion",
 			NeedRecipe = false,
-			Description = "A potion that restores a large amount of life. ",
-			CraftingTemplateFile = "potion_gheal",
+			Description = "A potion that restores a large amount of life.",
+			CraftingTemplateFile = "greater_health_potion",
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
-				Ginseng = 7,
-				VileBlood = 1,
+				Ginseng = 7
 			},
 		},
+		SuperiorHealthPotion = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 85,
+			DisplayName = "Superior Heal Potion",
+			NeedRecipe = false,
+			Description = "A potion that restores a huge amount of life.",
+			CraftingTemplateFile = "superior_health_potion",
+			Category = "Potions",
+			Subcategory = "SuperiorPotions",
+			Resources = {
+				Ginseng = 12
+			},
+		},
+
+
+		-- STAMINA --
 		LesserStaminaPotion = {
 			MinLevelToCraft = 8,
 			MaxLevelToGain = 33,
 			DisplayName = "Lesser Stamina Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores a small amount of stamina. ",
-			CraftingTemplateFile = "potion_lstamina",
+			CraftingTemplateFile = "lesser_stamina_potion",
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
-				Mushrooms = 1,
-				Eye = 1,
+				Blackpearl = 1
 			},
 		},
-		StaminaPotion = {
+		RegularStaminaPotion = {
 			MinLevelToCraft = 33,
 			MaxLevelToGain = 58,
 			DisplayName = "Stamina Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores stamina. ",
-			CraftingTemplateFile = "potion_stamina",
+			CraftingTemplateFile = "regular_stamina_potion",
 			Category = "Potions",
-			Subcategory = "Potions",
+			Subcategory = "RegularPotions",
 			Resources = {
-				Mushrooms = 3,
-				SicklyEye = 1,
+				Blackpearl = 3
 			},
 		},
 		GreaterStaminaPotion = {
@@ -2192,40 +2206,53 @@ AlchemySkill = {
 			DisplayName = "Greater Stamina Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores a large amount of stamina. ",
-			CraftingTemplateFile = "potion_gstamina",
+			CraftingTemplateFile = "greater_stamina_potion",
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
-				Mushrooms = 7,
-				DecrepidEye = 1,
+				Blackpearl = 7
 			},
 		},
+		SuperiorStaminaPotion = {
+			MinLevelToCraft = 58,
+			MaxLevelToGain = 83,
+			DisplayName = "Superior Stamina Potion",
+			NeedRecipe = false,
+			Description = "A potion that restores a huge amount of stamina. ",
+			CraftingTemplateFile = "superior_stamina_potion",
+			Category = "Potions",
+			Subcategory = "SuperiorPotions",
+			Resources = {
+				Blackpearl = 12
+			},
+		},
+		
+
+		-- MANA --
 		LesserManaPotion = {
 			MinLevelToCraft = 4,
 			MaxLevelToGain = 29,
 			DisplayName = "Lesser Mana Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores a small amount of mana. ",
-			CraftingTemplateFile = "potion_lmana",
+			CraftingTemplateFile = "lesser_mana_potion",
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
-				LemonGrass = 1,
-				Bones = 1,
+				Mandrake = 1
 			},
 		},
-		ManaPotion = {
+		RegularManaPotion = {
 			MinLevelToCraft = 29,
 			MaxLevelToGain = 54,
 			DisplayName = "Mana Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores mana. ",
-			CraftingTemplateFile = "potion_mana",
+			CraftingTemplateFile = "regular_mana_potion",
 			Category = "Potions",
-			Subcategory = "Potions",
+			Subcategory = "RegularPotions",
 			Resources = {
-				LemonGrass = 3,
-				CursedBones = 1,
+				Mandrake = 3
 			},
 		},
 		GreaterManaPotion = {
@@ -2234,28 +2261,83 @@ AlchemySkill = {
 			DisplayName = "Greater Mana Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores a large amount of mana. ",
-			CraftingTemplateFile = "potion_gmana",
+			CraftingTemplateFile = "greater_mana_potion",
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
-				LemonGrass = 7,
-				EtherealBones = 1,
+				Mandrake = 7
 			},
 		},
-		CurePotion = {
-			MinLevelToCraft = 75,
-			MaxLevelToGain = 100,
+		SuperiorManaPotion = {
+			MinLevelToCraft = 78,
+			MaxLevelToGain = 92,
+			DisplayName = "Superior Mana Potion",
+			NeedRecipe = false,
+			Description = "A potion that restores a huge amount of mana. ",
+			CraftingTemplateFile = "superior_mana_potion",
+			Category = "Potions",
+			Subcategory = "SuperiorPotions",
+			Resources = {
+				Mandrake = 12
+			},
+		},
+
+		-- CURE --
+		LesserCurePotion = {
+			MinLevelToCraft = 4,
+			MaxLevelToGain = 29,
+			DisplayName = "Lesser Cure Potion",
+			NeedRecipe = false,
+			Description = "An antidote.",
+			CraftingTemplateFile = "lesser_cure_potion",
+			Category = "Potions",
+			Subcategory = "LesserPotions",
+			Resources = {
+				Garlic = 1
+			},
+		},
+		RegularCurePotion = {
+			MinLevelToCraft = 29,
+			MaxLevelToGain = 54,
 			DisplayName = "Cure Potion",
 			NeedRecipe = false,
-			Description = "A potion that cures poison. ",
-			CraftingTemplateFile = "potion_cure",
+			Description = "An antidote.",
+			CraftingTemplateFile = "regular_cure_potion",
 			Category = "Potions",
-			Subcategory = "Remedies",
+			Subcategory = "RegularPotions",
 			Resources = {
-				Ginseng = 3,
-				Cactus = 3,
+				Garlic = 3
 			},
 		},
+		GreaterCurePotion = {
+			MinLevelToCraft = 54,
+			MaxLevelToGain = 79,
+			DisplayName = "Greater Cure Potion",
+			NeedRecipe = false,
+			Description = "An antidote.",
+			CraftingTemplateFile = "greater_cure_potion",
+			Category = "Potions",
+			Subcategory = "GreaterPotions",
+			Resources = {
+				Garlic = 7
+			},
+		},
+		SuperiorCurePotion = {
+			MinLevelToCraft = 78,
+			MaxLevelToGain = 92,
+			DisplayName = "Superior Cure Potion",
+			NeedRecipe = false,
+			Description = "An antidote.",
+			CraftingTemplateFile = "superior_cure_potion",
+			Category = "Potions",
+			Subcategory = "SuperiorPotions",
+			Resources = {
+				Garlic = 12
+			},
+		},
+
+
+		-- DYES--
 		--[[DyeYellow = {
 			MinLevelToCraft = -25,
 			MaxLevelToGain = 25,
@@ -2416,20 +2498,20 @@ InscriptionSkill = {
 				BlankScroll = 1,
 			},
 		},
-		-- RefreshScroll = {
-		-- 	MinLevelToCraft = -25,
-		-- 	MaxLevelToGain = 25,
-		-- 	DisplayName = "Refresh Scroll",
-		-- 	NeedRecipe = false,
-		-- 	Description = "A refresh scroll. ",
-		-- 	CraftingTemplateFile = "lscroll_refresh",
-		-- 	Category = "Scrolls",
-		-- 	Subcategory = "Scrolls",
-		-- 	Resources = {
-		-- 		Ginseng = 1,
-		-- 		FrayedScroll = 1,
-		-- 	},
-		-- },
+		RefreshScroll = {
+			MinLevelToCraft = -25,
+			MaxLevelToGain = 25,
+			DisplayName = "Refresh Scroll",
+			NeedRecipe = false,
+			Description = "A refresh scroll. ",
+			CraftingTemplateFile = "lscroll_refresh",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 1,
+				FrayedScroll = 1,
+			},
+		},
 		InfuseScroll = {
 			MinLevelToCraft = -25,
 			MaxLevelToGain = 25,

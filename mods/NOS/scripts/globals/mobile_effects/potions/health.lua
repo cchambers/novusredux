@@ -1,4 +1,4 @@
-MobileEffectLibrary.PotionHealth = 
+MobileEffectLibrary.PotionNOSHealth = 
 {
 
 	OnEnterState = function(self,root,target,args)

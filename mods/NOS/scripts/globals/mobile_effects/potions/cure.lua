@@ -1,6 +1,5 @@
-MobileEffectLibrary.PotionCure = 
+MobileEffectLibrary.PotionNOSCure = 
 {
-
 	OnEnterState = function(self,root,target,args)
 	
 		if ( self.ParentObj:HasTimer("RecentPotion") ) then

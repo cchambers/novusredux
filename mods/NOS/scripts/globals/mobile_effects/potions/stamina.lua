@@ -1,4 +1,4 @@
-MobileEffectLibrary.PotionStamina = 
+MobileEffectLibrary.PotionNOSStamina = 
 {
 
 	OnEnterState = function(self,root,target,args)

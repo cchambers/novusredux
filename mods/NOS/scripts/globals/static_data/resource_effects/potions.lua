@@ -1,5 +1,6 @@
+-- HEALTH -- 
 ResourceEffectData.PotionSuperiorHealth = {
-    MobileEffect = "PotionHealth",
+    MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 90,
     },
@@ -10,7 +11,7 @@ ResourceEffectData.PotionSuperiorHealth = {
 }
 
 ResourceEffectData.PotionGreaterHealth = {
-    MobileEffect = "PotionHealth",
+    MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 70,
     },
@@ -20,8 +21,8 @@ ResourceEffectData.PotionGreaterHealth = {
     }
 }
 
-ResourceEffectData.PotionHealth = {
-    MobileEffect = "PotionHealth",
+ResourceEffectData.PotionRegularHealth = {
+    MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 30,
     },
@@ -32,7 +33,7 @@ ResourceEffectData.PotionHealth = {
 }
 
 ResourceEffectData.PotionLesserHealth = {
-    MobileEffect = "PotionHealth",
+    MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 15,
     },
@@ -42,76 +43,139 @@ ResourceEffectData.PotionLesserHealth = {
     }
 }
 
-ResourceEffectData.PotionGreaterStamina = {
-    MobileEffect = "PotionStamina",
-    MobileEffectArgs = {
-        Amount = 60,
-    },
-    SelfOnly = true,
-    Tooltip = {
-        "Instantly restores 60 stamina.",
-    }
-}
 
-ResourceEffectData.PotionStamina = {
-    MobileEffect = "PotionStamina",
+-- MANA
+ResourceEffectData.PotionSuperiorMana = {
+    MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Amount = 40,
+        Percentage = 90,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 40 stamina.",
-    }
-}
-
-ResourceEffectData.PotionLesserStamina = {
-    MobileEffect = "PotionStamina",
-    MobileEffectArgs = {
-        Amount = 20,
-    },
-    SelfOnly = true,
-    Tooltip = {
-        "Instantly restores 20 stamina.",
+        "Instantly restores 90% of your mana.",
     }
 }
 
 ResourceEffectData.PotionGreaterMana = {
-    MobileEffect = "PotionMana",
+    MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Amount = 80,
+        Percentage = 70,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 60 mana.",
+        "Instantly restores 70% of your mana.",
     }
 }
 
-ResourceEffectData.PotionMana = {
-    MobileEffect = "PotionMana",
+ResourceEffectData.PotionRegularMana = {
+    MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Amount = 40,
+        Percentage = 30,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 40 mana.",
+        "Instantly restores 30% of your mana.",
     }
 }
 
 ResourceEffectData.PotionLesserMana = {
-    MobileEffect = "PotionMana",
+    MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Amount = 25,
+        Percentage = 15,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 20 mana.",
+        "Instantly restores 15% of your mana.",
     }
 }
 
-ResourceEffectData.PotionCure = {
-    MobileEffect = "PotionCure",
+
+-- STAMINA --
+ResourceEffectData.PotionSuperiorStamina = {
+    MobileEffect = "PotionNOSStamina",
+    MobileEffectArgs = {
+        Percentage = 90,
+    },
     SelfOnly = true,
     Tooltip = {
-        "Instantly cure yourself of poison.",
+        "Instantly restores 90% of your stamina.",
+    }
+}
+
+ResourceEffectData.PotionGreaterStamina = {
+    MobileEffect = "PotionNOSStamina",
+    MobileEffectArgs = {
+        Percentage = 70,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "Instantly restores 70% of your stamina.",
+    }
+}
+
+ResourceEffectData.PotionRegularStamina = {
+    MobileEffect = "PotionNOSStamina",
+    MobileEffectArgs = {
+        Percentage = 30,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "Instantly restores 30% of your stamina.",
+    }
+}
+
+ResourceEffectData.PotionLesserStamina = {
+    MobileEffect = "PotionNOSStamina",
+    MobileEffectArgs = {
+        Percentage = 15,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "Instantly restores 15% of your stamina.",
+    }
+}
+
+-- CURE --
+ResourceEffectData.PotionSuperiorCure = {
+    MobileEffect = "PotionNOSCure",
+    MobileEffectArgs = {
+        PoisonLevelReduction = 4,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "A level four Poison antidote.",
+    }
+}
+
+ResourceEffectData.PotionGreaterCure = {
+    MobileEffect = "PotionNOSCure",
+    MobileEffectArgs = {
+        PoisonLevelReduction = 3,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "A level three Poison antidote.",
+    }
+}
+
+ResourceEffectData.PotionRegularCure = {
+    MobileEffect = "PotionNOSCure",
+    MobileEffectArgs = {
+        PoisonLevelReduction = 2,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "A level two Poison antidote.",
+    }
+}
+
+ResourceEffectData.PotionLesserCure = {
+    MobileEffect = "PotionNOSCure",
+    MobileEffectArgs = {
+        PoisonLevelReduction = 1,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "A level one Poison antidote.",
     }
 }
