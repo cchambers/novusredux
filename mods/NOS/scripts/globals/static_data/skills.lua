@@ -291,7 +291,6 @@ SkillData = {
 			SkillType = "TradeTypeSkill",
 			Abilities = { "ApplyPoison" },
 			GainFactor = 0.7,
-			Skip = true,
 		},
 		HidingSkill = {
 			DisplayName = "Hiding",

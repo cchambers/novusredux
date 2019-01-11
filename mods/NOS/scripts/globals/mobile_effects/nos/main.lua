@@ -1,4 +1,5 @@
 
+require 'globals.mobile_effects.nos.applypoison'
 require 'globals.mobile_effects.nos.beingcalmed'
 require 'globals.mobile_effects.nos.beingprovoked'
 require 'globals.mobile_effects.nos.crookcalm'
