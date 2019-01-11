@@ -2,7 +2,9 @@ MobileEffectLibrary.PotionNOSMana =
 {
 
 	OnEnterState = function(self,root,target,args)
-		self.Amount = args.Amount or self.Amount
+		self.Percentage = args.Percentage or self.Percentage
+
+		self.Amount = GetMaxMana(self.ParentObj) * (self.Percentage * 0.01)
 		if ( self.ParentObj:HasTimer("RecentPotion") ) then
 			self.ParentObj:SystemMessage("Cannot use again yet.", "info")
 			EndMobileEffect(root)
@@ -23,5 +25,6 @@ MobileEffectLibrary.PotionNOSMana =
 		EndMobileEffect(root)
 	end,
 
-	Amount = 1,
+	Percentage = 1,
+	Amount = 1
 }
