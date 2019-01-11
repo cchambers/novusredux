@@ -13,7 +13,8 @@ ServerSettings.Karma = {
 	},
 	-- Regions with this address will be disabled
 	DisableKarmaRegionAddresses = {
-		"TwoTowers"
+		"TwoTowers",
+        "TestMap"
 	},
 
     -- the minimum time between daily login bonus
