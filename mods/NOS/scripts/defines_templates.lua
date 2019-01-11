@@ -813,8 +813,7 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_bloodmoss"},
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
-				--{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_sulfurousash"},
+				{ Count = 10, TemplateId = "plant_nightshade"},
 
 				{ Count = 20, TemplateId = "rat_giant"},
 			},
@@ -837,11 +836,9 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_giant_mushrooms"},
 				{ Count = 20, TemplateId = "plant_kindling"},
 
-				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				--{ Count = 10, TemplateId = "plant_garlic"},
+				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "bandit"},
 				{ Count = 5, TemplateId = "bandit_female"},
@@ -870,11 +867,9 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_giant_mushrooms"},
 				{ Count = 20, TemplateId = "plant_kindling"},
 
-				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				--{ Count = 10, TemplateId = "plant_garlic"},
-				--{ Count = 10, TemplateId = "plant_mandrake"},
+				{ Count = 10, TemplateId = "plant_garlic"},
+				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 10, TemplateId = "plant_sulfurousash"},
 			},
 		},
 		SouthernHills = {
@@ -895,11 +890,9 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_giant_mushrooms"},
 				{ Count = 20, TemplateId = "plant_kindling"},
 
-				{ Count = 10, TemplateId = "plant_bloodmoss"},
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
-				--{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_sulfurousash"},
+				{ Count = 10, TemplateId = "plant_nightshade"},
 
 				{ Count = 20, TemplateId = "rat_giant"},
 
@@ -923,11 +916,9 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_giant_mushrooms"},
 				{ Count = 20, TemplateId = "plant_kindling"},
 
-				--{ Count = 10, TemplateId = "plant_bloodmoss"},
 				{ Count = 10, TemplateId = "plant_garlic"},
-				--{ Count = 10, TemplateId = "plant_mandrake"},
+				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "bandit"},
 				{ Count = 5, TemplateId = "bandit_female"},
@@ -953,11 +944,9 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_giant_mushrooms"},
 				{ Count = 20, TemplateId = "plant_kindling"},
 
-				--{ Count = 10, TemplateId = "plant_bloodmoss"},
-				--{ Count = 10, TemplateId = "plant_garlic"},
-				--{ Count = 10, TemplateId = "plant_mandrake"},
+				{ Count = 10, TemplateId = "plant_garlic"},
+				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 15, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "troll"},
 				{ Count = 10, TemplateId = "spider_large"},
@@ -993,7 +982,7 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				{ Count = 30, TemplateId = "plant_nightshade"},
-				{ Count = 20, TemplateId = "plant_sulfurousash"},
+				{ Count = 20, TemplateId = "plant_bloodmoss"},
 
 				{ Count = 10, TemplateId = "spider_large"},
 				{ Count = 10, TemplateId = "ent"},
