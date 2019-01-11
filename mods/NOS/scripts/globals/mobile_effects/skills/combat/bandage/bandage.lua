@@ -133,7 +133,7 @@ MobileEffectLibrary.Bandage =
 		-- gain check
 		CheckSkillChance(self.ParentObj, "HealingSkill", self.Healing)
 		CheckSkillChance(self.ParentObj, self.SupplimentalSkill, self.Supplimental)
-		CreateObjInBackpackOrAtLocation(self.ParentObj, "bandage_bloody")
+		CreateStackInBackpackOrAtLocation(self.ParentObj, "bandage_bloody")
 		
 		EndMobileEffect(root)
 	end,
@@ -171,27 +171,25 @@ MobileEffectLibrary.WashBandage =
 
 	OnEnterState = function(self,root,target,args)
 		self.Target = target
-
-		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "Bandage.Wash",
-		function (success, targetLoc, targetObj, user)
-			if (success) then
-				local location = targetLoc
-				if (targetObj) then
-					local container = targetObj:TopmostContainer()
-					if (container) then
-						location = container:GetLoc()
-					else
-						location = targetObj:GetLoc()
-					end
-				end
-				if (location) then
-					self.TeleportTarget(self, target, location)
-				end
+		local isWater = false
+		-- check if target is water, if it is convert stack to clean bandages
+		-- if (IsLocInRegion(target,"Water")) then
+		-- 	isWater = true
+		-- end
+		
+		if (target:GetObjVar("State") == "Full") then
+				isWater = true
+			else
+				self.ParentObj:SystemMessage("That is empty.")
+				EndMobileEffect(root)
 			end
-			EndMobileEffect(root)
-		end)
-	self.ParentObj:SystemMessage("Where do you want to move that?", "info")
-	self.ParentObj:RequestClientTargetLoc(self.ParentObj, "Bandage.Wash")
+
+		if (isWater == true) then
+			CreateStackInBackpack(self.ParentObj, "bandage", 1)
+		else
+			-- target:NpcSpeech("NOT WATER")
+		end
+	
 		EndMobileEffect(root)
 	end,
 
