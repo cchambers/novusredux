@@ -1,7 +1,7 @@
 <ObjectTemplate>
   <Name>[00FF00]Lesser Health Potion[-]</Name>
-	<ClientId>1053</ClientId>
-  	<ScaleModifier>0.5</ScaleModifier>
+	<ClientId>2006</ClientId>
+  	<ScaleModifier>0.3</ScaleModifier>
 	<Color>0xFFFF0000</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
