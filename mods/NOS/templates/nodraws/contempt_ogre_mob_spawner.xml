@@ -11,8 +11,9 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 99.5, Template = "ogre" },
-						{ Weight = 0.5, Template = "ogre_hq" },
+						{ Weight = 91, Template = "ogre" },
+						{ Weight = 7.5, Template = "contempt_ogre" },
+						{ Weight = 1.5, Template = "ogre_hq" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=30, Agi=40, Int=30, Wis=40, Will=40 },
 				Skills = 
 					{ 
 					Brawling = 80,  
@@ -41,13 +41,13 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.AncientScrolls,
+						TemplateDefines.LootTable.Average,
+						TemplateDefines.LootTable.BonesEthereal,
 						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.BonesEthereal,
-						TemplateDefines.LootTable.AncientScrolls,
+						TemplateDefines.LootTable.ScrollsHigh,
 						{
 							NumCoins = math.random(500,650),
 						},
@@ -56,7 +56,7 @@
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Greaterheal", "Poison", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
 				}
 			</Initializer>
 		</LuaModule>
