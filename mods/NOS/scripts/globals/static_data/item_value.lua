@@ -89,13 +89,13 @@ CustomItemValues = {
 	ingredient_potato = 4,
 	ingredient_tomato = 4,
 
-	ingredient_mandrakeroot = 4,
-	ingredient_spidersilk = 4,
-	ingredient_sufurousash = 4,
-	ingredient_bloodmoss = 4,
 	ingredient_blackpearl = 4,
-	ingredient_nightshade = 4,
+	ingredient_bloodmoss = 4,
 	ingredient_garlic = 4,
+	ingredient_mandrakeroot = 4,
+	ingredient_nightshade = 4,
+	ingredient_spidersilk = 4,
+	ingredient_sulfurousash = 4,
 
 	--Items
 	candle = 10,
