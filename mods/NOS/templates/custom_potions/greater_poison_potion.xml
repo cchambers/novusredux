@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[00FF00]Greater Poison Potion[-]</Name>
+	<ClientId>114</ClientId>
+	<Color>0xFF00FF00</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="ResourceType">PotionGreaterPoison</StringVariable>
+		<StringVariable Name="PluralName">Greater Poison Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
+	</ObjectVariableComponent>				
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

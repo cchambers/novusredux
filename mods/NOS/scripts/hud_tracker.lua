@@ -77,8 +77,9 @@ function DoCount()
 	UpdateConsumableWindow()
 end
 
+
 function UpdateConsumableWindow()
-	local CONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 45, 70, "Transparent", "TopLeft")
+	mCONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
 	if (not(IsDead(this))) then
 		local fontname = "PermianSlabSerif_Dynamic_Bold"
 
@@ -86,14 +87,14 @@ function UpdateConsumableWindow()
 		local rsh = rem(2)
 		local fontsize = rem(1.6)
 		
-		CONSUME:AddLabel(rem(0), 0, tostring(ColorizeAmount("MR", mTracked.regs.mandrake)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(3), 0, tostring(ColorizeAmount("SS", mTracked.regs.spidersilk)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(6), 0, tostring(ColorizeAmount("GS", mTracked.regs.ginseng)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(9), 0, tostring(ColorizeAmount("SA", mTracked.regs.sulfurousash)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(0), rem(1.5), tostring(ColorizeAmount("BM", mTracked.regs.bloodmoss)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(3), rem(1.5), tostring(ColorizeAmount("GL", mTracked.regs.garlic)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(6), rem(1.5), tostring(ColorizeAmount("BP", mTracked.regs.blackpearl)), rsw, rsh, fontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(9), rem(1.5), tostring(ColorizeAmount("NS", mTracked.regs.nightshade)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(0), 0, tostring(ColorizeAmount("MR", mTracked.regs.mandrake)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(3), 0, tostring(ColorizeAmount("SS", mTracked.regs.spidersilk)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(6), 0, tostring(ColorizeAmount("GS", mTracked.regs.ginseng)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(9), 0, tostring(ColorizeAmount("SA", mTracked.regs.sulfurousash)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(0), rem(1.5), tostring(ColorizeAmount("BM", mTracked.regs.bloodmoss)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(3), rem(1.5), tostring(ColorizeAmount("GL", mTracked.regs.garlic)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(6), rem(1.5), tostring(ColorizeAmount("BP", mTracked.regs.blackpearl)), rsw, rsh, fontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(9), rem(1.5), tostring(ColorizeAmount("NS", mTracked.regs.nightshade)), rsw, rsh, fontsize, "center", false, true, fontname)
 		
 		local labelwidth = rem(6)
 		local labelheight = rem(2)
@@ -101,22 +102,35 @@ function UpdateConsumableWindow()
 		local datafontsize = rem(1.4)
 		local valuewidth = rem(8)
 
-		CONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 		
 		local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight)
 		local bandicount = tostring(mTracked.aid.bandages .. " : [FBAED2]" .. mTracked.aid.bloodybandages .. "[-]")
 		
-		CONSUME:AddLabel(rem(1.5), rem(5), arrowcount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(1.5), rem(5), arrowcount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
-		CONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
-		CONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		CONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 	end
-	this:OpenDynamicWindow(CONSUME)
+
+	local next = this:GetObjVar("NextPowerHour")
+	local hasNext = next ~= nil
+	local now = DateTime.UtcNow
+	if (hasNext) then
+		canPowerHour = now > next
+	else
+		canPowerHour = true
+	end
+	if(canPowerHour) then
+		mCONSUME:AddButton(0, 105, "ConfirmPowerHour", "Power Hour!", 90, 24, "", "", false, "Default", "default")
+	end
+	StatBar()
+	this:OpenDynamicWindow(mCONSUME)
 end
 
 function ColorizeAmount(what, amount)
@@ -129,7 +143,7 @@ function ColorizeAmount(what, amount)
 	return "["..mLevelColors[level].."]"..what.."[-]"
 end
 
-function UpdateStatsWindow()
+function UpdateConsumables()
 	local NOSCNX = DynamicWindow("NOSCNX" .. this.Id, "Server Stats", 600, 60, 0, -14, "Transparent", "BottomLeft")
 	local online = GlobalVarRead("User.Online")
 	local total = 0
@@ -146,13 +160,65 @@ function UpdateStatsWindow()
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"Hud.UpdateStats")
 end
 
+function StatBar() 
+	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", "FF0000", this)
+	mCONSUME:AddStatBar(-20, -27, 129, 7, "Mana", "3388ff", this)
+	mCONSUME:AddStatBar(-20, -19, 129, 7, "Stamina", "fffd52", this)
+end
+
 RegisterEventHandler(EventType.Timer, "Hud.UpdateStats", function() 
-	UpdateStatsWindow()
+	UpdateConsumables()
 	DoCount()
 end)
-RegisterSingleEventHandler(EventType.ModuleAttached, "hud_tracker", UpdateStatsWindow)
 
 
+RegisterSingleEventHandler(EventType.ModuleAttached, "hud_tracker", UpdateConsumables)
+
+RegisterEventHandler(
+			EventType.DynamicWindowResponse,
+			"CONSUMABLETRACKER" .. this.Id,
+			function(user, buttonId)
+				local next = user:GetObjVar("NextPowerHour")
+				local hasNext = next ~= nil
+				local now = DateTime.UtcNow
+				if (hasNext) then
+					canPowerHour = now > next
+				else
+					canPowerHour = true
+				end
+				if (canPowerHour) then
+					ClientDialog.Show {
+						TargetUser = user,
+						DialogId = "PowerHour" .. user.Id,
+						TitleStr = "Start Power Hour",
+						DescStr = string.format("Are you ready to begin your power hour? You will only be able to use it again after 22 hours passes."),
+						Button1Str = "Yes",
+						Button2Str = "No",
+						ResponseObj = user,
+						ResponseFunc = function(user, buttonId)
+							local buttonId = tonumber(buttonId)
+							if (user == nil or buttonId == nil) then
+								return
+							end
+							-- Handles the invite command of the dynamic window
+							if (buttonId == 0) then
+								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
+								user:SetObjVar("PowerHourEnds", 60)
+								user:SendMessage("StartMobileEffect", "PowerHourBuff")
+								user:PlayAnimation("roar")
+								user:PlayEffect("ImpactWaveEffect", 2)
+								ShowStatusElement(user,{IsSelf=true,ScreenX=10,ScreenY=10})
+								return
+							end
+						end
+					}
+				else 
+					user:SystemMessage("You cannot power hour quite yet.")
+				end
+				
+				return
+			end
+		)
 
 --[[
 

@@ -1,15 +1,15 @@
 <ObjectTemplate>
 	<ClientId>1143</ClientId>
-	<Name>Ogre Brute</Name>
+	<Name>2 Ogre Brute</Name>
 	<Hue>932</Hue>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
 	<!-- Champion Mob-->
 	<MobileComponent>			
-		<BaseRunSpeed>.5</BaseRunSpeed>
+		<BaseRunSpeed>.85</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">3500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Giant</StringVariable>
 		<StringVariable Name="MobileKind">Giant</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -27,8 +27,8 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_ogre">
 			<Initializer>
-				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				{
+				Stats = { Str=90, Agi=40, Int=30, Wis=25, Will=25 },
 				MobTraits =
 					{
 					Toughness = 2,
@@ -45,12 +45,12 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.FilthyRich,
-						TemplateDefines.LootTable.Prestige,
 						TemplateDefines.LootTable.ContemptMob,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.PrestigeLow,
 						{
 							NumCoins = math.random(550,700),
 							NumItems = 1,
@@ -70,8 +70,48 @@
 					AnimalParts =
 					{
 						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+						{ ResourceType="VileLeatherHide", RarityPct=15, Count=7 },
 					},
 				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="random_name">
+			<Initializer>
+			{ 
+				Names = {
+					"Akashii",
+					"Blossthus",
+					"Ekta",
+					"Gall",
+					"Goro",
+					"Gorp",
+					"Graytusk",
+					"Grrargh",
+					"Grugg",
+					"Grumus",
+					"Gug",
+					"Gurunk",
+					"Gunza",
+					"Hiroki",
+					"Hrrlak",
+					"Horg Toothsnap",
+					"Hydera",
+					"Khleg",
+					"Kog",
+					"Korga",
+					"Martha",
+					"Omak",
+					"Rach",
+					"Swamplouse",
+					"Thok-Ak",
+					"Tk'Hera",
+					"Toerag",
+					"Torpek",
+					"Tragym",
+					"Uggluk",
+					"Vekoslav"
+				},
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

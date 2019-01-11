@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>[00FF00]Lesser Stamina Potion[-]</Name>
+	<ClientId>2006</ClientId>
+  	<ScaleModifier>0.3</ScaleModifier>
+	<Color>0xFFfffd52</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">PotionLesserStamina</StringVariable>
+		<StringVariable Name="PluralName">Lesser Stamina Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

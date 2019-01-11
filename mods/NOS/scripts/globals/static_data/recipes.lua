@@ -2808,6 +2808,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		MagicReflectionScroll = {
+			MinLevelToCraft = 17.8,
+			MaxLevelToGain = 67.8,
+			DisplayName = "MagicReflection Scroll",
+			NeedRecipe = false,
+			Description = "A Magic Reflection scroll. ",
+			CraftingTemplateFile = "scroll_magicreflection",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Ginseng = 2,
+				FineScroll = 1,
+			},
+		},
 		PoisonFieldScroll = {
 			MinLevelToCraft = 17.8,
 			MaxLevelToGain = 67.8,

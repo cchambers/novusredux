@@ -13,3 +13,5 @@ require 'globals.mobile_effects.nos.spiritspeak'
 require 'globals.mobile_effects.nos.telecrookmove'
 
 require 'globals.mobile_effects.buffs.spells.stonewall'
+require 'globals.mobile_effects.buffs.spells.spellpoison'
+require 'globals.mobile_effects.buffs.spells.spellmagicreflection'

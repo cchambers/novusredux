@@ -136,7 +136,10 @@ function PerformWeaponAttack(atTarget, hand)
 	--- perform the actual swing/shoot/w.e.
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
-			local chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+			local chanceOverride = 100
+			if not (this:HasTimer("OutOfArrows")) then
+				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+			end
 			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
@@ -333,7 +336,13 @@ function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
 		LookAt(this, spTarget)
 	end
 
-	ExecuteSpellHitActions(spTarget, spellName, spellSource)
+	if (HasMobileEffect(spTarget, "SpellMagicReflection")) then
+		spTarget:PlayEffect("ForceField", 1)
+		spTarget:SendMessage("StopReflecting")
+		ExecuteSpellHitActions(spellSource, spellName, spellSource)
+	else
+		ExecuteSpellHitActions(spTarget, spellName, spellSource)
+	end
 
 	return "AttackHit"
 end

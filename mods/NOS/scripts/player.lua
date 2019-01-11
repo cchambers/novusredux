@@ -450,6 +450,7 @@ function OnLoad(isPossessed)
 	end
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"Hud.UpdateStats")
 
+
 	-- GM Detect Hidden Passive
 	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
@@ -475,7 +476,12 @@ function OnLoad(isPossessed)
 			this:SystemMessage("Your Power Hour has ended.")
 		end
 	end
-	
+
+	-- MAGIC REFLECT -- 
+	if (this:HasObjVar("MagicReflection")) then
+		this:SendMessage("StartMobileEffect", "SpellMagicReflection")
+	end
+
 	local murders = this:GetObjVar("Murders")
 	if (murders) then
 		this:SendMessage("StartMobileEffect", "Murderer")

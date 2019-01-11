@@ -1,9 +1,10 @@
 <ObjectTemplate>
 	<ClientId>1213</ClientId>
-	<Name>Ogre</Name>
+	<Name>Dark Ogre</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<ScaleModifier>1.25</ScaleModifier>
 	<MobileComponent>			
-		<BaseRunSpeed>.5</BaseRunSpeed>
+		<BaseRunSpeed>.7</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
@@ -15,18 +16,18 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
-		<DoubleVariable Name="Armor">59</DoubleVariable>
-		<DoubleVariable Name="Attack">100</DoubleVariable>
+		<DoubleVariable Name="Armor">80</DoubleVariable>
+		<DoubleVariable Name="Attack">130</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_default_animal">
+		<LuaModule Name="ai_ogre">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=85, Agi=35, Int=25, Wis=20, Will=20 },
 				MobTraits =
 					{
 					BowResistance = 2,
@@ -37,12 +38,12 @@
 					},	
 				EquipTable = 
 					{
-						Backpack = { "backpack" },					
+						Backpack = { "backpack" },
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.FilthyRich,	
-						TemplateDefines.LootTable.ContemptMob,						
+						TemplateDefines.LootTable.Rich,	
+						TemplateDefines.LootTable.ContemptMobLow,
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
