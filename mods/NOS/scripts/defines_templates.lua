@@ -815,7 +815,6 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				--{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_spidersilk"},
 				--{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 20, TemplateId = "rat_giant"},
@@ -844,7 +843,6 @@ TemplateDefines = {
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_spidersilk"},
 				{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "bandit"},
@@ -879,7 +877,6 @@ TemplateDefines = {
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 10, TemplateId = "plant_spidersilk"},
 				{ Count = 10, TemplateId = "plant_sulfurousash"},
 			},
 		},
@@ -906,7 +903,6 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_garlic"},
 				{ Count = 10, TemplateId = "plant_mandrake"},
 				--{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_spidersilk"},
 				--{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 20, TemplateId = "rat_giant"},
@@ -936,7 +932,6 @@ TemplateDefines = {
 				{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				--{ Count = 10, TemplateId = "plant_spidersilk"},
 				{ Count = 10, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "bandit"},
@@ -968,7 +963,6 @@ TemplateDefines = {
 				--{ Count = 10, TemplateId = "plant_garlic"},
 				--{ Count = 10, TemplateId = "plant_mandrake"},
 				{ Count = 10, TemplateId = "plant_nightshade"},
-				{ Count = 10, TemplateId = "plant_spidersilk"},
 				{ Count = 15, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "troll"},
@@ -1005,7 +999,6 @@ TemplateDefines = {
 				{ Count = 20, TemplateId = "plant_kindling"},
 
 				{ Count = 30, TemplateId = "plant_nightshade"},
-				{ Count = 40, TemplateId = "plant_spidersilk"},
 				{ Count = 20, TemplateId = "plant_sulfurousash"},
 
 				{ Count = 10, TemplateId = "spider_large"},
