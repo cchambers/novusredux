@@ -135,8 +135,11 @@ function PerformWeaponAttack(atTarget, hand)
 
 	--- perform the actual swing/shoot/w.e.
 	if ( _Weapon[hand].IsRanged ) then
-		if (mIsMoving and not(mOutOfArrows)) then
-			local chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+		if (mIsMoving) then
+			local chanceOverride = 100
+			if (mobile:HasTimer("OutOfArrows")) then
+				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+			end
 			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
