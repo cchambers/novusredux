@@ -69,27 +69,26 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
     end)
 
 function CollectResource(user) 
-    local backpackObj = user:GetEquippedObject("Backpack")  
-    local resourceType = "Spidersilk"
-    if( backpackObj ~= nil ) then		
-		-- DAB TODO: If we want to add a skill back in here we need to grab the code from one of the other tools
-		local stackAmount = 2
+    local blackpearlChance = math.random(0,10)
+    if(blackpearlChance > 6) then
+        local backpackObj = user:GetEquippedObject("Backpack")  
+        local resourceType = "Spidersilk"
+        if( backpackObj ~= nil ) then		
+            -- DAB TODO: If we want to add a skill back in here we need to grab the code from one of the other tools
+            local stackAmount = math.random(1,3)
 
-		-- see if the user gets an upgraded version
-		--resourceType = GetHarvestResourceType(user,resourceType)
-		if (resourceType == nil) then return end
-			--DebugMessage("ResType:" .. resourceType)
-    		--DebugTable(ResourceData.ResourceInfo[resourceType])
-		-- try to add to the stack in the players pack		
-    	if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
-    		-- no stack in players pack so create an object in the pack    	
-        	local templateId = ResourceData.ResourceInfo[resourceType].Template
-    		CreateObjInBackpackOrAtLocation(user, templateId, "create_foraging_harvest", stackAmount)
-    	end
+            if (resourceType == nil) then return end
 
-        --local displayName = GetResourceDisplayName(resourceType)
-	    user:SystemMessage("You harvest some "..resourceType..".","info")
-		mUser = user
-	    user:NpcSpeech("[F4FA58]+1 "..resourceType.."[-]","combat")
-	end	
+            -- try to add to the stack in the players pack		
+            if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
+                -- no stack in players pack so create an object in the pack    	
+                local templateId = ResourceData.ResourceInfo[resourceType].Template
+                CreateObjInBackpackOrAtLocation(user, templateId, "create_foraging_harvest", stackAmount)
+            end
+
+            user:SystemMessage("You harvest some "..resourceType..".","info")
+            mUser = user
+            user:NpcSpeech("[F4FA58]+1 "..resourceType.."[-]","combat")
+        end	
+    end
 end
