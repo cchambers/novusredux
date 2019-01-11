@@ -1,6 +1,6 @@
 <ObjectTemplate>
   <Name>[00FF00]Superior Cure Potion[-]</Name>
-	<ClientId>234</ClientId>
+	<ClientId>35</ClientId>
 	<Color>0xFFFFA31A</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
