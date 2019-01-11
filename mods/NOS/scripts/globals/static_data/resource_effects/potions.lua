@@ -17,7 +17,7 @@ ResourceEffectData.PotionGreaterHealth = {
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 70% of your health.",
+        "Instantly restores 60% of your health.",
     }
 }
 
@@ -63,7 +63,7 @@ ResourceEffectData.PotionGreaterMana = {
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 70% of your mana.",
+        "Instantly restores 60% of your mana.",
     }
 }
 
@@ -109,7 +109,7 @@ ResourceEffectData.PotionGreaterStamina = {
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 70% of your stamina.",
+        "Instantly restores 60% of your stamina.",
     }
 }
 
