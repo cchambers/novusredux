@@ -1,8 +1,6 @@
 MobileEffectLibrary.ApplyPoison = 
 {
 	OnEnterState = function(self,root,target,args)
-		-- ask for target, 
-		
 		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Poison.Apply",
 		function (target)
 			if (target) then

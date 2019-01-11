@@ -133,7 +133,8 @@ MobileEffectLibrary.Bandage =
 		-- gain check
 		CheckSkillChance(self.ParentObj, "HealingSkill", self.Healing)
 		CheckSkillChance(self.ParentObj, self.SupplimentalSkill, self.Supplimental)
-
+		CreateObjInBackpackOrAtLocation(self.ParentObj, "bandage_bloody")
+		
 		EndMobileEffect(root)
 	end,
 
