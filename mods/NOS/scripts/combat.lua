@@ -333,7 +333,7 @@ function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
 		LookAt(this, spTarget)
 	end
 
-	if (spTarget:HasMobileEffect("SpellMagicReflection")) then
+	if (HasMobileEffect(spTarget, "SpellMagicReflection")) then
 		spTarget:PlayEffect("ForceField", 1)
 		spTarget:SendMessage("StopReflecting")
 		ExecuteSpellHitActions(spellSource, spellName, spellSource)
