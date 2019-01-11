@@ -1,4 +1,4 @@
-MobileEffectLibrary.PotionHeal = 
+MobileEffectLibrary.PotionHealth = 
 {
 
 	OnEnterState = function(self,root,target,args)

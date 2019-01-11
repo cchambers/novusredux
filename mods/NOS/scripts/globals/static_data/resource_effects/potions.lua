@@ -1,33 +1,44 @@
-ResourceEffectData.PotionGreaterHeal = {
-    MobileEffect = "PotionHeal",
+ResourceEffectData.PotionSuperiorHealth = {
+    MobileEffect = "PotionHealth",
     MobileEffectArgs = {
-        Amount = 200,
+        Percentage = 90,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 200 health.",
+        "Instantly restores 90% of your health.",
     }
 }
 
-ResourceEffectData.PotionHeal = {
-    MobileEffect = "PotionHeal",
+ResourceEffectData.PotionGreaterHealth = {
+    MobileEffect = "PotionHealth",
     MobileEffectArgs = {
-        Amount = 100,
+        Percentage = 70,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 100 health.",
+        "Instantly restores 70% of your health.",
     }
 }
 
-ResourceEffectData.PotionLesserHeal = {
-    MobileEffect = "PotionHeal",
+ResourceEffectData.PotionHealth = {
+    MobileEffect = "PotionHealth",
     MobileEffectArgs = {
-        Amount = 50,
+        Percentage = 30,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 50 health.",
+        "Instantly restores 30% of your health.",
+    }
+}
+
+ResourceEffectData.PotionLesserHealth = {
+    MobileEffect = "PotionHealth",
+    MobileEffectArgs = {
+        Percentage = 15,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "Instantly restores 15% of your health.",
     }
 }
 
