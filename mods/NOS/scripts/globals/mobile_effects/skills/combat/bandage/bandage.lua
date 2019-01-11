@@ -163,3 +163,37 @@ MobileEffectLibrary.Bandage =
 	_HealAmount = 0,
 	_MaxHealth = 0
 }
+
+
+
+MobileEffectLibrary.WashBandage = 
+{
+
+	OnEnterState = function(self,root,target,args)
+		self.Target = target
+
+		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "Bandage.Wash",
+		function (success, targetLoc, targetObj, user)
+			if (success) then
+				local location = targetLoc
+				if (targetObj) then
+					local container = targetObj:TopmostContainer()
+					if (container) then
+						location = container:GetLoc()
+					else
+						location = targetObj:GetLoc()
+					end
+				end
+				if (location) then
+					self.TeleportTarget(self, target, location)
+				end
+			end
+			EndMobileEffect(root)
+		end)
+	self.ParentObj:SystemMessage("Where do you want to move that?", "info")
+	self.ParentObj:RequestClientTargetLoc(self.ParentObj, "Bandage.Wash")
+		EndMobileEffect(root)
+	end,
+
+
+}

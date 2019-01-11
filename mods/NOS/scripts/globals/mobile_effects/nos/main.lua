@@ -17,9 +17,7 @@ require 'globals.mobile_effects.buffs.spells.stonewall'
 require 'globals.mobile_effects.buffs.spells.spellpoison'
 require 'globals.mobile_effects.buffs.spells.spellmagicreflection'
 
-
 require 'globals.mobile_effects.potions.cure'
 require 'globals.mobile_effects.potions.heal'
 require 'globals.mobile_effects.potions.stamina'
 require 'globals.mobile_effects.potions.mana'
-require 'globals.mobile_effects.potions.cure'
