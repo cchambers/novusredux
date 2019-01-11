@@ -10,6 +10,11 @@ function OnDeathStart()
 		return 
 	end
 
+	
+	if(this:HasObjVar("MagicReflection")) then
+		this:DelObjVar("MagicReflection")
+	end
+
 	local fame = this:GetObjVar("Fame") or 0
 	fame = fame - (fame * 0.25)
 	this:SetObjVar("Fame", fame)
