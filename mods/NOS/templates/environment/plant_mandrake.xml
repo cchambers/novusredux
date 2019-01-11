@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Mandrake Root[-]</Name>
+	<ClientId>42</ClientId>
+	<Color>0xFF663300</Color>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Mandrake</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate> 
