@@ -3,19 +3,17 @@ MobileEffectLibrary.ApplyPoison =
 	OnEnterState = function(self,root,target,args)
 		-- ask for target, 
 		
-		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "Poison.Apply",
-		function (success, targetLoc, targetObj, user)
-			if (success) then
-				if (targetObj) then
-				-- on target, check EDGED, FOOD, or DRINK...
-				-- apply poison at poison level
-				-- consume poison
-				end
+		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Poison.Apply",
+		function (target)
+			if (target) then
+			-- on target, check EDGED, FOOD, or DRINK...
+			-- target:SetObjVar("PoisonLevel", self.PoisonLevel)
+			-- target:SetObjVar("PoisonCharges", self.PoisonCharges)
+			-- consume poison
 			end
-			EndMobileEffect(root)
 		end)
 	self.ParentObj:SystemMessage("What do you wish to poison?", "info")
-	self.ParentObj:RequestClientTargetLoc(self.ParentObj, "Poison.Apply")
+	self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "Poison.Apply")
 		EndMobileEffect(root)
 	end,
 
