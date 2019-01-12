@@ -121,6 +121,7 @@
 						{ "lich", "lich", "lich"},
 						{ "scorpion", "scorpion", "scorpion"},
 						{ "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage" },
+						{ "bandit", "bandit", "bandit_female", "bandit_archer", "bandit_archer_female" },
 					}
 				}
 			</Initializer>

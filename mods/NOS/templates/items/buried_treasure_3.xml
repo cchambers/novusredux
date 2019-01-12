@@ -156,7 +156,7 @@
 				{
 					MobTables = {
 						{ "gazer", "gazer", "gazer", "gazer" },
-						{ "rock_golem", "rock_sprite" },
+						{ "rock_golem", "rock_sprite", "rock_sprite" },
 					}
 				}
 			</Initializer>
