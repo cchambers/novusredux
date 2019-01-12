@@ -43,14 +43,14 @@
 					{ 
 						{
 							NumItems = 2,
-							NumCoins = math.random(550,700),
+							NumCoins = math.random(350,600),
 							LootItems = 
 							{ 
-								{  Chance = 100, Template = "resource_iron", Unique = true, StackCount = math.random(2,5), Unique = true  },
-								{  Chance = 20, Template = "resource_gold", Unique = true, StackCount = math.random(1,2), Unique = true  },
-								{  Chance = 5, Template = "resource_copper", Unique = true, StackCount = math.random(1,2), Unique = true  },
-								{  Chance = 2, Template = "resource_cobalt", Unique = true, StackCount = math.random(1,2), Unique = true  },
-								{  Chance = 1, Template = "resource_obsidian", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 100, Template = "resource_iron_ore", Unique = true, StackCount = math.random(2,5), Unique = true  },
+								{  Chance = 20, Template = "resource_gold_ore", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 5, Template = "resource_copper_ore", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 2, Template = "resource_cobalt_ore", Unique = true, StackCount = math.random(1,2), Unique = true  },
+								{  Chance = 1, Template = "resource_obsidian_ore", Unique = true, StackCount = math.random(1,2), Unique = true  },
 							},
 						},
 					},							
