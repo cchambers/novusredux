@@ -5,11 +5,11 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
-		<DoubleVariable Name="LockpickingDifficulty">55</DoubleVariable>
+		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
-		<LuaModule Name="decay"/>
+		<LuaModule Name="decay"/>		
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
 				{
@@ -17,18 +17,21 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(600,800),
+					    	NumCoins = math.random(2000,3000),
+							NumCoins = math.random(2000,3000),
+							NumCoins = math.random(2000,3000),
+							NumCoins = math.random(2000,3000),
 				    	},
 
 						--rare
 						{
-							NumItems = 1,
+							NumItems = math.random(0,1),
 							LootItems = 
 							{	
-								{ Chance = 10,Template = "idol_animal", Unique = true },
-								{ Chance = 5,Template = "idol_hunger", Unique = true },
-								{ Chance = 1,Template = "idol_demon", Unique = true },
-								{ Chance = 1,Template = "ancient_idol", Unique = true },
+								{ Chance = 50,Template = "idol_animal", Unique = true },
+								{ Chance = 20,Template = "idol_hunger", Unique = true },
+								{ Chance = 10,Template = "idol_demon", Unique = true },
+								{ Chance = 10,Template = "ancient_idol", Unique = true },
 							}
 						},
 
@@ -40,12 +43,14 @@
 							{									
 								{ Weight = 35,Template = "potion_lheal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "topaz_gem", Unique = true },
+								{ Weight = 5, Template = "sapphire_gem", Unique = true },
+								{ Weight = 5, Template = "ruby_gem", Unique = true },
+								{ Weight = 5, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
 								{ Weight = 4, Template = "treasure_map_1", Unique = true },
 								{ Weight = 3, Template = "treasure_map_2", Unique = true },
+								{ Weight = 2, Template = "treasure_map_3", Unique = true },
+								{ Weight = 1, Template = "treasure_map_4", Unique = true },
 							}
 						},
 
@@ -53,19 +58,26 @@
 						{
 							NumItems = 1,
 					    	LootItems = {
-					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+				    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
 
-				    			{ Chance = 1, Template = "necklace_ruby_imperfect", Unique = true },
-				    			{ Chance = 1, Template = "necklace_sapphire_imperfect", Unique = true },
-				    			{ Chance = 1, Template = "necklace_topaz_imperfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_sapphire_imperfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_ruby_imperfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_topaz_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
+				    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
+
+				    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
 				    		}
 						},
 
@@ -91,8 +103,8 @@
 
 						--ScrollsLow
 						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,
+							NumItemsMin = 2,
+							NumItemsMax = 3,	
 
 							LootItems = 
 							{ 
@@ -103,20 +115,7 @@
 								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
 
 							},
-						},
-
-						-- Arrows
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,
-
-							LootItems =
-							{ 
-								{ Weight = 35, Template = "arrow", Unique = true, StackCountMin = 5, StackCountMax = 22 },
-								{ Weight = 3, Template = "arrow_ash", Unique = true, StackCountMin = 4, StackCountMax = 17 },
-								{ Weight = 0.5,  Template = "arrow_blightwood", Unique = true, StackCountMin = 1, StackCountMax = 6 },
-							},
-						},
+						},	
 					}
 				}
 			</Initializer>
@@ -125,8 +124,7 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "doom", "doom", "gargoyle", "gargoyle" },
-						{ "pirate_knight", "pirate_knight", "pirate_dagger", "pirate_dagger" }
+						{ "drake", "drake", "gorgon", "gorgon" },
 					}
 				}
 			</Initializer>

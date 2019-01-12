@@ -17,6 +17,9 @@
 					    -- Gold
 					    {
 					    	NumCoins = math.random(150,250),
+							NumCoins = math.random(150,250),
+							NumCoins = math.random(150,250),
+							NumCoins = math.random(150,250),
 				    	},
 
 						--rare
@@ -24,8 +27,8 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 0.5, Template = "idol_animal", Unique = true },
-								{ Chance = 0.5, Template = "idol_hunger", Unique = true },
+								{ Chance = 0.5,Template = "idol_animal", Unique = true },
+								{ Chance = 0.5,Template = "idol_hunger", Unique = true },
 							}
 						},
 
@@ -35,7 +38,7 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35, Template = "potion_lheal", Unique = true },
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
@@ -84,8 +87,8 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "goblin", "goblin", "goblin_mage" },
-						{ "wolf", "wolf", "wolf", "wolf_black" },
+						{ "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage", "goblin_mage" },
+						{ "bandit", "bandit", "bandit", "bandit", "bandit_female", "bandit_female", "bandit_female", "bandit_female", "bandit_archer", "bandit_archer", "bandit_archer_female", "bandit_archer_female" },
 					}
 				}
 			</Initializer>

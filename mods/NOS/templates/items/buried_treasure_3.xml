@@ -77,10 +77,17 @@
 							NumItemsMax = 3,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
 
@@ -117,16 +124,29 @@
 						--ScrollsHigh
 						{
 							NumItemsMin = 0,
-							NumItemsMax = 1,	
+							NumItemsMax = 1,
 
-							LootItems = 
+							LootItems =
 							{ 
-								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
-								{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
-								{ Weight = 5, Template = "lscroll_meteor", Unique = true },
-								{ Weight = 5, Template = "lscroll_portal", Unique = true },
+								{ Weight = 2, Template = "lscroll_resurrect", Unique = true },
+								{ Weight = 2, Template = "lscroll_earthquake", Unique = true },
+								{ Weight = 2, Template = "lscroll_meteor", Unique = true },
+								{ Weight = 2, Template = "lscroll_portal", Unique = true },
 							},
-						},	
+						},
+
+						-- Arrows
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,
+
+							LootItems =
+							{ 
+								{ Weight = 35, Template = "arrow", Unique = true, StackCountMin = 15, StackCountMax = 59 },
+								{ Weight = 28, Template = "arrow_ash", Unique = true, StackCountMin = 15, StackCountMax = 42 },
+								{ Weight = 3,  Template = "arrow_blightwood", Unique = true, StackCountMin = 15, StackCountMax = 36 },
+							},
+						},
 					}
 				}
 			</Initializer>
@@ -136,6 +156,7 @@
 				{
 					MobTables = {
 						{ "gazer", "gazer", "gazer", "gazer" },
+						{ "rock_golem", "rock_sprite" },
 					}
 				}
 			</Initializer>

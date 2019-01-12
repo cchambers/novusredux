@@ -5,10 +5,11 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
-		<DoubleVariable Name="LockpickingDifficulty">15</DoubleVariable>
+		<DoubleVariable Name="LockpickingDifficulty">35</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
 				{
@@ -16,7 +17,10 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(150,250),
+					    	NumCoins = math.random(400,600),
+							NumCoins = math.random(400,600),
+							NumCoins = math.random(400,600),
+							NumCoins = math.random(400,600),
 				    	},
 
 						--rare
@@ -24,23 +28,26 @@
 							NumItems = 1,
 							LootItems = 
 							{	
-								{ Chance = 0.5, Template = "idol_animal", Unique = true },
-								{ Chance = 0.5, Template = "idol_hunger", Unique = true },
+								{ Chance = 5,Template = "idol_animal", Unique = true },
+								{ Chance = 2,Template = "idol_hunger", Unique = true },
+								{ Chance = 0.5,Template = "idol_demon", Unique = true },
+								{ Chance = 0.5,Template = "ancient_idol", Unique = true },
 							}
 						},
 
-				    	--ingredients
+						--ingredients
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35, Template = "potion_lheal", Unique = true },
+								{ Weight = 35,Template = "potion_lheal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
 								{ Weight = 1, Template = "topaz_gem", Unique = true },
 								{ Weight = 5, Template = "treasure_map", Unique = true },
+								{ Weight = 5, Template = "treasure_map_1", Unique = true },
 							}
 						},
 
@@ -76,6 +83,36 @@
 								{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 2,
+							NumItemsMax = 4,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_cure", Unique = true },
+								{ Weight = 5, Template = "lscroll_poison", Unique = true },
+								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
+							},
+						},	
+
+						--ScrollsMed
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,	
+
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+							},
+						},	
 					}
 				}
 			</Initializer>
@@ -84,8 +121,8 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "goblin", "goblin", "goblin_mage" },
-						{ "wolf", "wolf", "wolf", "wolf_black" },
+						{ "lich", "lich", "lich"},
+						{ "scorpion", "scorpion", "scorpion"},
 					}
 				}
 			</Initializer>
