@@ -5,6 +5,7 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">240</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">75</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

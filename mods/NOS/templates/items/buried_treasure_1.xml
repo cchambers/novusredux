@@ -6,6 +6,7 @@
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
 		<DoubleVariable Name="LockpickingDifficulty">35</DoubleVariable>
+		<DoubleVariable Name="DecayTime">180</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
