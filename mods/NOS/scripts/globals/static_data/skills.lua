@@ -342,6 +342,13 @@ SkillData = {
 			SkillIcon = "Skill_Inscription",
 			GainFactor = 0.5,
 		},
+		HarvestingSkill = {
+			DisplayName = "Harvesting",
+			PrimaryStat = "Wisdom",
+			Description = "Your experience improves your abilities when harvesting.",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.4,
+		},
 		--[[StealingSkill = {
 			DisplayName = "Stealing",
 			PrimaryStat = "Agility",
