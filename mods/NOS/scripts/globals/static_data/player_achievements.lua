@@ -220,6 +220,13 @@ AllAchievements = {
 			{"Master Necromancer"		,80		,"Given to those who have mastered the art of necromancy."		,{Title = "Master Necromancer"		}},
 			{"Grandmaster Necromancer"	,100	,"Given to those who are among the most profound necromancers."	,{Title = "Grandmaster Necromancer"	}},
 		},]]
+		
+		PoisoningSkill = {
+			{"Toxicologist"					,30		,"Given to those who have worked a little with poisons."					,{Title = "Apprentice Toxicologist"			}},
+			{"Journeyman Toxicologist"		,50		,"Given to those who have worked some with poisons."					,{Title = "Journeyman Toxicologist"	}},
+			{"Master Toxicologist"			,80		,"Given to those who work a lot with poisons."	,{Title = "Master Toxicologist"		}},
+			{"Grandmaster Toxicologist"		,100	,"Given to those who work extensively with poisons."							,{Title = "Grandmaster Toxicologist"}},
+		},
 
 		PiercingSkill = {
 			{"Assassin"					,30		,"Given to those who have learned how to use shortswords."					,{Title = "Apprentice Assassin"			}},
