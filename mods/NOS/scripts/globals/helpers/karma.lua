@@ -341,6 +341,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
     if (action == KarmaActions.Negative.Murder) then
         local aggressor = mobileA
