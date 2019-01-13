@@ -14,6 +14,7 @@ MobileEffectLibrary.Poison =
 		self.PulseMax = args.PulseMax or self.PulseMax
 		self.MinDamage = args.MinDamage or self.MinDamage
 		self.MaxDamage = args.MaxDamage or self.MaxDamage
+		self.PoisonLevel = args.PoisonLevel or 1
 
 		local resistance = GetSkillLevel(target, "PoisoningSkill")
 		resistance = (100 - (resistance * 0.2)) * 0.01
@@ -35,6 +36,17 @@ MobileEffectLibrary.Poison =
 			self.ParentObj:PlayAnimation("impale")
 		end
 
+
+		-- self.ParentObj:SendMessage("ReducePoisonEffect", args.PoisonLevelReduction)
+
+		RegisterEventHandler(EventType.Message, "ReducePoisonEffect", 
+			function (amount)
+				self.PoisonLevel = self.PoisonLevel - amount
+				if (self.PoisonLevel <= 0) then
+					self.ParentObj:SendMessage("EndPoisonEffect")
+				end
+		end)	
+		
 		AdvanceConflictRelation(target, self.ParentObj)
 	end,
 

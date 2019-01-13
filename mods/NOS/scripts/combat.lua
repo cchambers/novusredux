@@ -733,7 +733,8 @@ function ApplyDamageToTarget(victim, damageInfo)
 								MinDamage = 1,
 								MaxDamage = 2 * poisonLevel,
 								PulseMax = 8,
-								PulseFrequency = TimeSpan.FromSeconds(1.5 * poisonLevel)
+								PulseFrequency = TimeSpan.FromSeconds(1.5 * poisonLevel),
+								PoisonLevel = poisonLevel
 							})
 							victim:NpcSpeech("[00ff00]*poisoned*[-]")
 						end
