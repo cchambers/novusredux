@@ -19,7 +19,7 @@ MobileEffectLibrary.Poison =
 		-- CONFIGURE FREQUENCY -- 
 		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
 			self.PusleFrequency = TimeSpan.FromSeconds(poisonLevel + 1)
-		else if (self.PoisonLevel > 5) then
+		elseif (self.PoisonLevel > 5) then
 			self.PusleFrequency = TimeSpan.FromSeconds(poisonLevel - 1)
 		end
 
@@ -30,8 +30,8 @@ MobileEffectLibrary.Poison =
 		end
 
 		-- POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
-
 		
+
 		local resistance = GetSkillLevel(target, "PoisoningSkill")
 		resistance = (100 - (resistance * 0.2)) * 0.01
 		self.MaxDamage = self.MaxDamage * resistance
