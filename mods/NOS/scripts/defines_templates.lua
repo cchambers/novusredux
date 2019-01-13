@@ -517,9 +517,11 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 7.5, Template = "treasure_map"},
-				{ Chance = 2.5, Template = "treasure_map_1"},
-				{ Chance = 0.5, Template = "treasure_map_2"},
+				{ Chance = 7.5, Template = "treasure_map" },
+				{ Chance = 2.5, Template = "treasure_map_1" },
+				{ Chance = 0.5, Template = "treasure_map_2" },
+				{ Chance = 0.5, Template = "treasure_map_group" },
+				{ Chance = 0.1, Template = "treasure_map_group_1" },
 			},
 		},
 
@@ -529,10 +531,13 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 10, Template = "treasure_map"},
-				{ Chance = 5, Template = "treasure_map_1"},
-				{ Chance = 3.5, Template = "treasure_map_2"},
-				{ Chance = 1.5, Template = "treasure_map_3"},
+				{ Chance = 10, Template = "treasure_map" },
+				{ Chance = 5, Template = "treasure_map_1" },
+				{ Chance = 3.5, Template = "treasure_map_2" },
+				{ Chance = 1.5, Template = "treasure_map_3" },
+				{ Chance = 3.5, Template = "treasure_map_group" },
+				{ Chance = 1.0, Template = "treasure_map_group_1" },
+				{ Chance = 0.1, Template = "treasure_map_group_2" },
 			},
 		},
 
@@ -542,11 +547,15 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 2, Template = "treasure_map"},
-				{ Chance = 1, Template = "treasure_map_1"},
-				{ Chance = 0.5, Template = "treasure_map_2"},
-				{ Chance = 0.35, Template = "treasure_map_3"},
-				{ Chance = 0.15, Template = "treasure_map_4"},
+				{ Chance = 5, Template = "treasure_map" },
+				{ Chance = 6, Template = "treasure_map_1" },
+				{ Chance = 7, Template = "treasure_map_2" },
+				{ Chance = 5, Template = "treasure_map_3" },
+				{ Chance = 2.5, Template = "treasure_map_4" },
+				{ Chance = 2.5, Template = "treasure_map_group" },
+				{ Chance = 3.5, Template = "treasure_map_group_1" },
+				{ Chance = 1.0, Template = "treasure_map_group_2" },
+				{ Chance = 0.1, Template = "treasure_map_group_3" },
 			},
 		},
 
@@ -556,11 +565,16 @@ TemplateDefines = {
 
 			LootItems = 
 			{
-				{ Chance = 10, Template = "treasure_map"},
-				{ Chance = 10, Template = "treasure_map_1"},
-				{ Chance = 20, Template = "treasure_map_2"},
-				{ Chance = 20, Template = "treasure_map_3"},
-				{ Chance = 40, Template = "treasure_map_4"},
+				{ Chance = 10, Template = "treasure_map" },
+				{ Chance = 10, Template = "treasure_map_1" },
+				{ Chance = 20, Template = "treasure_map_2" },
+				{ Chance = 20, Template = "treasure_map_3" },
+				{ Chance = 40, Template = "treasure_map_4" },
+				{ Chance = 5, Template = "treasure_map_group" },
+				{ Chance = 5, Template = "treasure_map_group_1" },
+				{ Chance = 7.5, Template = "treasure_map_group_2" },
+				{ Chance = 10, Template = "treasure_map_group_3" },
+				{ Chance = 7.5, Template = "treasure_map_group_4" },
 			},
 		},
 
