@@ -40,15 +40,15 @@
 					},
 					ItemInventory= {
 						{
-							Template = "ingredient_moss",
-							Price = 0,
+							Template = "tool_alchemist_crucible",
+							Price = 500,
 							Amount = 999,
 							RelativeLoc = "1.40802, 0.8844185, 0.4379883",
 							Rotation = "0, 270.0002, 0",
 							UnlimitedStock = false,
 						},
 						{
-							Template = "ingredient_ginsengroot",
+							Template = "ingredient_garlic",
 							Price = 0,
 							Amount = 999,
 							RelativeLoc = "1.414001, 0.9132729, -1.959961",
@@ -56,7 +56,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "ingredient_mushroom",
+							Template = "ingredient_ginsengroot",
 							Price = 0,
 							Amount = 999,
 							RelativeLoc = "1.395996, 0.9132729, -0.3609619",
@@ -64,7 +64,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "ingredient_lemongrass",
+							Template = "ingredient_mandrake",
 							Price = 0,
 							Amount = 999,
 							RelativeLoc = "1.404968, 0.9132729, -1.167969",
