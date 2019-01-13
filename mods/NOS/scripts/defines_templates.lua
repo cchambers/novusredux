@@ -179,7 +179,9 @@ TemplateDefines = {
     			{ Chance = 25, Template = "necklace_topaz_perfect", Unique = true },
     			{ Chance = 25, Template = "ring_sapphire_perfect", Unique = true },
     			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
+				{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
+				
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -211,6 +213,8 @@ TemplateDefines = {
     			{ Chance = 25, Template = "ring_sapphire_perfect", Unique = true },
     			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
     			{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
+				
+    			{ Chance = 15, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
