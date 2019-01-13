@@ -111,11 +111,11 @@ ResourceEffectData.PotionCure = {
 ResourceEffectData.PotionNOSSuperiorHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
-        Percentage = 90,
+        Percentage = 80,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 90% of your health.",
+        "Instantly restores 80% of your health.",
     }
 }
 
@@ -157,11 +157,11 @@ ResourceEffectData.PotionNOSLesserHealth = {
 ResourceEffectData.PotionNOSSuperiorMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
-        Percentage = 90,
+        Percentage = 80,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 90% of your mana.",
+        "Instantly restores 80% of your mana.",
     }
 }
 
@@ -203,11 +203,11 @@ ResourceEffectData.PotionNOSLesserMana = {
 ResourceEffectData.PotionNOSSuperiorStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
-        Percentage = 90,
+        Percentage = 80,
     },
     SelfOnly = true,
     Tooltip = {
-        "Instantly restores 90% of your stamina.",
+        "Instantly restores 80% of your stamina.",
     }
 }
 

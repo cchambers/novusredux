@@ -473,6 +473,7 @@ function ApplyReleaseEffects(spellName, spTarget, spellSource, targLoc)
 	end
 end
 
+
 function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 	Verbose("Magic", "ApplySpellCompletionEffects", spellName, spTarget, spellSource)
 	local mobileEffect = GetSpellInformation(spellName, "MobileEffect")
@@ -803,11 +804,18 @@ function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	if(spellTargetObj ~= nil) then
 		spellTarget = GameObj(tonumber(spellTargetObj))
 	end
-
-	mAutoTarg = nil
+	
+	-- --If this has autotarget enabled, change auto target if this is not set to be a target
+	-- if (this:HasObjVar("AutotargetEnabled")) then
+	-- 	--If this is a target, do nothing
+	-- 	if (this ~= mCurrentTarget) then
+	-- 		mAutoTarg = mCurrentTarget
+	-- 	end
+	-- else
+	-- 	mAutoTarg = nil
+	-- end
 
 	mScrollObj = nil
-
 	CastSpell(spellName, spellSource, spellTarget)
 end
 

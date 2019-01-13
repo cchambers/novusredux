@@ -10,7 +10,7 @@ ResourceEffectData.Bandage = {
 ResourceEffectData.BloodyBandage = {
     MobileEffect = "WashBandage",
     RequireSkill = {
-        HealingSkill = 40,
+        HealingSkill = 30,
     },
     Tooltip = {
         "Wash with water.",
