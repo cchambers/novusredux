@@ -28,10 +28,10 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 2, Template = "potion_lmana", Unique = true },
-    			{ Chance = 2, Template = "potion_lstamina", Unique = true },
-    			{ Chance = 2, Template = "potion_lheal", Unique = true },
-    			{ Chance = 2, Template = "potion_cure", Unique = true },
+    			{ Chance = 2, Template = "lesser_heal_potion", Unique = true },
+    			{ Chance = 2, Template = "lesser_stamina_potion", Unique = true },
+    			{ Chance = 2, Template = "lesser_mana_potion", Unique = true },
+    			{ Chance = 2, Template = "lesser_cure_potion", Unique = true },
     		},
 		},
 
@@ -39,10 +39,10 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 2, Template = "potion_mana", Unique = true },
-    			{ Chance = 2, Template = "potion_stamina", Unique = true },
-    			{ Chance = 2, Template = "potion_heal", Unique = true },
-    			{ Chance = 2, Template = "potion_cure", Unique = true },
+    			{ Chance = 2, Template = "regular_mana_potion", Unique = true },
+    			{ Chance = 2, Template = "regular_stamina_potion", Unique = true },
+    			{ Chance = 2, Template = "regular_heal_potion", Unique = true },
+    			{ Chance = 2, Template = "regular_cure_potion", Unique = true },
     		},
 		},
 
@@ -50,10 +50,10 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 3, Template = "potion_mana", Unique = true },
-    			{ Chance = 3, Template = "potion_stamina", Unique = true },
-    			{ Chance = 3, Template = "potion_heal", Unique = true },
-    			{ Chance = 3, Template = "potion_cure", Unique = true },
+    			{ Chance = 3, Template = "greater_mana_potion", Unique = true },
+    			{ Chance = 3, Template = "greater_stamina_potion", Unique = true },
+    			{ Chance = 3, Template = "greater_heal_potion", Unique = true },
+    			{ Chance = 3, Template = "greater_cure_potion", Unique = true },
     		},
 		},
 
@@ -181,7 +181,7 @@ TemplateDefines = {
     			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
 				{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
 				
-    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -214,7 +214,7 @@ TemplateDefines = {
     			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
     			{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
 				
-    			{ Chance = 15, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -455,6 +455,18 @@ TemplateDefines = {
 				{ Chance = 5, Template = "lscroll_poison", Unique = true },
 				{ Chance = 5, Template = "lscroll_ruin", Unique = true },
 				{ Chance = 5, Template = "lscroll_mana_missile", Unique = true },
+				
+				{ Chance = 5, Template = "scroll_agile", Unique = true },
+				{ Chance = 5, Template = "scroll_attack", Unique = true },
+				{ Chance = 5, Template = "scroll_bless", Unique = true },
+				{ Chance = 5, Template = "scroll_curse", Unique = true },
+				{ Chance = 5, Template = "scroll_defense", Unique = true },
+				{ Chance = 5, Template = "scroll_feeblemind", Unique = true },
+				{ Chance = 5, Template = "scroll_strength", Unique = true },
+				{ Chance = 5, Template = "scroll_weaken", Unique = true },
+				{ Chance = 5, Template = "scroll_clumsy", Unique = true },
+				{ Chance = 5, Template = "scroll_create_food", Unique = true },
+				{ Chance = 5, Template = "scroll_cunning", Unique = true },
 			},
 		},		
 		ScrollsMed = 
@@ -475,6 +487,18 @@ TemplateDefines = {
 				{ Chance = 15, Template = "lscroll_electricbolt", Unique = true },
 				{ Chance = 15, Template = "lscroll_mark", Unique = true },
 				{ Chance = 15, Template = "lscroll_frost", Unique = true },
+				
+				{ Chance = 15, Template = "scroll_flamewave", Unique = true },
+				{ Chance = 15, Template = "scroll_hailstorm", Unique = true },
+				{ Chance = 15, Template = "scroll_iceblade", Unique = true },
+				{ Chance = 15, Template = "scroll_incognito", Unique = true },
+				{ Chance = 15, Template = "scroll_magicreflection", Unique = true },
+				{ Chance = 15, Template = "scroll_mindblast", Unique = true },
+				{ Chance = 15, Template = "scroll_poisonfield", Unique = true },
+				{ Chance = 15, Template = "scroll_protection", Unique = true },
+				{ Chance = 15, Template = "scroll_reveal", Unique = true },
+				{ Chance = 15, Template = "scroll_spikepath", Unique = true },
+				{ Chance = 15, Template = "scroll_stonewall", Unique = true },
 			},
 		},
 		ScrollsHigh = 
@@ -483,16 +507,20 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 1, Template = "lscroll_greater_heal", Unique = true },
-				{ Chance = 1, Template = "lscroll_lightning", Unique = true },
-				{ Chance = 1, Template = "lscroll_bombardment", Unique = true },
-				{ Chance = 1, Template = "lscroll_electricbolt", Unique = true },
-				{ Chance = 1, Template = "lscroll_mark", Unique = true },
-				{ Chance = 1, Template = "lscroll_frost", Unique = true },
-				{ Chance = 1, Template = "lscroll_resurrect", Unique = true },
-				{ Chance = 1, Template = "lscroll_earthquake", Unique = true },
-				{ Chance = 1, Template = "lscroll_meteor", Unique = true },
-				{ Chance = 1, Template = "lscroll_portal", Unique = true },
+				{ Chance = 5, Template = "lscroll_greater_heal", Unique = true },
+				{ Chance = 5, Template = "lscroll_lightning", Unique = true },
+				{ Chance = 5, Template = "lscroll_bombardment", Unique = true },
+				{ Chance = 5, Template = "lscroll_electricbolt", Unique = true },
+				{ Chance = 5, Template = "lscroll_mark", Unique = true },
+				{ Chance = 5, Template = "lscroll_frost", Unique = true },
+				{ Chance = 5, Template = "lscroll_resurrect", Unique = true },
+				{ Chance = 5, Template = "lscroll_earthquake", Unique = true },
+				{ Chance = 5, Template = "lscroll_meteor", Unique = true },
+				{ Chance = 5, Template = "lscroll_portal", Unique = true },
+				{ Chance = 5, Template = "scroll_energywall", Unique = true },
+				{ Chance = 5, Template = "scroll_explosion", Unique = true },
+				{ Chance = 5, Template = "scroll_flameaura", Unique = true },
+				{ Chance = 5, Template = "scroll_flamestrike", Unique = true },
 
 			},
 		},
