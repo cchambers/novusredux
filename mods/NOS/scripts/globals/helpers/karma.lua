@@ -358,12 +358,13 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
-    if (action.MakeCriminal == true
-    and IsPlayerObject(mobileB)
-    and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
-        mobileA:SendMessage("StartMobileEffect", "Criminal")
+    if (IsPlayerCharacter(mobileA)) then
+        if (action.MakeCriminal == true
+        and IsPlayerObject(mobileB)
+        and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
+            mobileA:SendMessage("StartMobileEffect", "Criminal")
+        end
     end
-
     if ( adjust and adjust ~= 0 ) then
         -- finally apply all the calculated karma
         AdjustKarma(mobileA, adjust)

@@ -104,6 +104,12 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	return true
 end
 
+-- function UpdateSpellTarget(newTarget)
+-- 	if (this:GetObjVar("AutotargetEnabled") and this:IsPlayer() and this ~= newTarget) then
+-- 		mAutoTarg = newTarget
+-- 	end
+-- end
+
 function PrimeSpell(spellName, spellSource)
 	Verbose("Magic", "PrimeSpell", spellName, spellSource)
 	if(spellSource == nil) then spellSource = this end
@@ -170,7 +176,12 @@ function PrimeSpell(spellName, spellSource)
 	end
 	
 	local myTargType = GetSpellTargetType(spellName)
-
+	-- if ( myTargType == "RequestTarget" and ShouldAutoTarget(spellName) ) then
+	-- 	if(not ValidateSpellCastTarget(spellName,mAutoTarg,spellSource)) then
+	-- 		return false
+	-- 	end
+	-- 	--FaceObject(this,mAutoTarg)
+	-- end
 
 	local myCastTime = GetSpellCastTime(spellName, spellSource)
 	if (myCastTime == nil) then 
@@ -225,6 +236,10 @@ function PrimeSpell(spellName, spellSource)
 			mCastingDisplayName = tostring(spellDisplayName)
 			this:SetObjVar("LastSpell",spellDisplayName)
 
+			-- if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
+			-- 	RequestSpellTarget(spellName)
+			-- end
+			
 			ProgressBar.Show(
 			{
 				TargetUser = spellSource,
@@ -404,6 +419,10 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		spellSource }
 	--DebugMessage(" Vect5: " .. tostring(myArgs[1]) .. " " .. tostring(myArgs[2]) .. " " .. tostring(myArgs[3]) .. " " .. tostring(myArgs[4]))
 
+	-- if(this:HasObjVar("AutotargetEnabled")) then
+	-- 	SetCurrentTarget(spTarget)
+	-- end
+	
 	local myKey = tostring(spellName) .. tostring(myTime)
 	myDict[myKey] = myArgs
 	mySpellsFlyingDict = myDict
@@ -813,7 +832,8 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
 	elseif (spellSource:HasLineOfSightToObj(preDefTarg)) then
-		spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
+		CastSpell(spellName, spellSource, preDefTarg)
+		-- spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
 end
 
@@ -874,12 +894,13 @@ function CastSpell(spellName, spellSource, spellTarget)
 	local myTargType = GetSpellTargetType(spellName)
 
 	if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
-		-- DebugMessage(spellName)
 		RequestSpellTarget(spellName)
 	end
 end
 
 function RequestSpellTarget(spellName)
+	DebugMessage(spellName)
+
 	Verbose("Magic", "RequestSpellTarget", spellName)
 	if (this:IsPlayer()) then
 		local myTargType = GetSpellTargetType(spellName)
