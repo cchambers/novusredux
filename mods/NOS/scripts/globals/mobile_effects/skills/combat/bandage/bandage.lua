@@ -119,7 +119,7 @@ MobileEffectLibrary.Bandage =
 				if ( self.Healing >= 90 ) then poisonLevel = 3 end
 				if ( self.Healing >= 100 ) then	poisonLevel = 4 end
 				self.Target:SendMessage("ReducePoisonEffect", poisonLevel)
-				self.ParentObj:NpcSpeechToUser("You cured your target of poison!",self.ParentObj)
+				self.ParentObj:NpcSpeechToUser("You cure some of the poison!",self.ParentObj)
 			else
 				self.ParentObj:NpcSpeechToUser("You lack the skill to cure poison.",self.ParentObj)
 				self._HealMultiplier = self._HealMultiplier / 2

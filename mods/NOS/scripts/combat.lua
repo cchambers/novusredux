@@ -722,7 +722,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 						damageInfo.Source:DelObjVar("PoisonLevel")
 						damageInfo.Source:DelObjVar("PoisonCharges")
 						RemoveTooltipEntry(damageInfo.Source,"poisoned")
-						damageInfo.Attacker:SystemMessage("Your weapon is no longer poisoned.")
+						damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
 					else
 						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
 						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel)
@@ -732,6 +732,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
 									PoisonLevel = poisonLevel
 							})
+							AdjustDurability(damageInfo.Source, -2)
 							victim:NpcSpeech("[00ff00]*poisoned*[-]")
 						end
 					end

@@ -88,7 +88,7 @@ MobileEffectLibrary.Poison =
 	AiPulse = function(self,root)
 		self.MinDamage = 1 * self.PoisonLevel
 		self.MaxDamage = 3 * self.PoisonLevel
-		self.ParentObj:NpcSpeech(tostring(self.PoisonLevel))
+		-- self.ParentObj:NpcSpeech(tostring(self.PoisonLevel))
 		self.CurrentPulse = self.CurrentPulse + 1
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
