@@ -840,8 +840,8 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
 	elseif (spellSource:HasLineOfSightToObj(preDefTarg)) then
-		CastSpell(spellName, spellSource, preDefTarg)
-		-- spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
+		-- CastSpell(spellName, spellSource, preDefTarg)
+		spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
 end
 
