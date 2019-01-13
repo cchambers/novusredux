@@ -83,7 +83,7 @@
 							Rotation = "0, 359, 0",
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							Price = 0,
 							RelativeLoc = "2.018005, 1.325, 1.283005",
 						},

@@ -44,7 +44,7 @@
 					},
 					ItemInventory= {
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							RelativeLoc = "-0.7350006, 1.189999, 2.587",
 						},
 					},

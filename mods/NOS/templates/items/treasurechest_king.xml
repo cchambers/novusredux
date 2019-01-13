@@ -46,8 +46,8 @@
 					    	LootItems =
 					    	{
 				    			{ Weight = 5, Template = "potion_mana", Unique = true },
-				    			{ Weight = 5, Template = "potion_stamina", Unique = true },
-				    			{ Weight = 5, Template = "potion_heal", Unique = true },
+				    			{ Weight = 5, Template = "regular_stamina_potion", Unique = true },
+				    			{ Weight = 5, Template = "regular_health_potion", Unique = true },
 				    			{ Weight = 5, Template = "potion_cure", Unique = true },
 				    		}
 			    		},

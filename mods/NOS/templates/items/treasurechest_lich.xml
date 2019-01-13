@@ -45,9 +45,9 @@
 				    			{ Weight = 25, Template = "item_apple", Unique = true },
 				    			{ Weight = 25, Template = "item_bread", Unique = true },
 				    			{ Weight = 25, Template = "item_ale", Unique = true },
-				    			{ Weight = 5, Template = "potion_lmana", Unique = true },
-				    			{ Weight = 5, Template = "potion_lstamina", Unique = true },
-				    			{ Weight = 5, Template = "potion_lheal", Unique = true },
+				    			{ Weight = 5, Template = "lesser_mana_potion", Unique = true },
+				    			{ Weight = 5, Template = "lesser_stamina_potion", Unique = true },
+				    			{ Weight = 5, Template = "lesser_health_potion", Unique = true },
 				    			{ Weight = 5, Template = "potion_cure", Unique = true },
 				    			{ Weight = 10, Template = "clothing_bandana_helm", Unique = true },
 				    			{ Weight = 10, Template = "clothing_tattered_legs", Unique = true },
@@ -63,9 +63,9 @@
 					    	NumItems = 2,
 					    	LootItems =
 					    	{
-				    			{ Weight = 5, Template = "potion_lmana", Unique = true },
-				    			{ Weight = 5, Template = "potion_lstamina", Unique = true },
-				    			{ Weight = 5, Template = "potion_lheal", Unique = true },
+				    			{ Weight = 5, Template = "lesser_mana_potion", Unique = true },
+				    			{ Weight = 5, Template = "lesser_stamina_potion", Unique = true },
+				    			{ Weight = 5, Template = "lesser_health_potion", Unique = true },
 				    			{ Weight = 5, Template = "potion_cure", Unique = true },
 				    		}
 			    		},

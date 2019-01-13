@@ -69,7 +69,7 @@
 							NumItems = math.random(0,2),
 							LootItems = 
 							{									
-								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "lesser_health_potion", Unique = true },
 								{ Chance = 15,Template = "potion_mana", Unique = true },
 								{ Chance = 7, Template = "potion_refresh", Unique = true },
 								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },

@@ -15,7 +15,7 @@ TemplateDefines = {
     			{ Chance = 1, Template = "item_ale", Unique = true },
     			{ Chance = 5, Template = "regular_mana_potion", Unique = true },
     			{ Chance = 5, Template = "regular_stam_potion", Unique = true },
-    			{ Chance = 5, Template = "regular_heal_potion", Unique = true },
+    			{ Chance = 5, Template = "regular_health_potion", Unique = true },
     			{ Chance = 5, Template = "regular_cure_potion", Unique = true },
     			{ Chance = 5, Template = "tool_cookingpot", Unique = true },
     			{ Chance = 5, Template = "tool_hatchet", Unique = true },
@@ -28,7 +28,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 2, Template = "lesser_heal_potion", Unique = true },
+    			{ Chance = 2, Template = "lesser_health_potion", Unique = true },
     			{ Chance = 2, Template = "lesser_stamina_potion", Unique = true },
     			{ Chance = 2, Template = "lesser_mana_potion", Unique = true },
     			{ Chance = 2, Template = "lesser_cure_potion", Unique = true },
@@ -41,7 +41,7 @@ TemplateDefines = {
 	    	LootItems = {
     			{ Chance = 2, Template = "regular_mana_potion", Unique = true },
     			{ Chance = 2, Template = "regular_stamina_potion", Unique = true },
-    			{ Chance = 2, Template = "regular_heal_potion", Unique = true },
+    			{ Chance = 2, Template = "regular_health_potion", Unique = true },
     			{ Chance = 2, Template = "regular_cure_potion", Unique = true },
     		},
 		},
@@ -52,7 +52,7 @@ TemplateDefines = {
 	    	LootItems = {
     			{ Chance = 3, Template = "greater_mana_potion", Unique = true },
     			{ Chance = 3, Template = "greater_stamina_potion", Unique = true },
-    			{ Chance = 3, Template = "greater_heal_potion", Unique = true },
+    			{ Chance = 3, Template = "greater_health_potion", Unique = true },
     			{ Chance = 3, Template = "greater_cure_potion", Unique = true },
     		},
 		},
