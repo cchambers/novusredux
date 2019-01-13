@@ -5,10 +5,12 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">240</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">15</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
 				{
@@ -16,13 +18,12 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(150,250),
-							NumCoins = math.random(150,250),
-							NumCoins = math.random(150,250),
-							NumCoins = math.random(150,250),
+					    	NumCoins = math.random(1500,2500),
+							NumCoins = math.random(1500,2500),
+							NumCoins = math.random(1500,2500),
 				    	},
 
-						--rare
+						-- Rares
 						{
 							NumItems = 1,
 							LootItems = 
@@ -32,7 +33,25 @@
 							}
 						},
 
-				    	--ingredients
+						-- Maps
+						{
+							NumItems = math.random(0,2),
+							LootItems = 
+							{
+								{ Chance = 20, Template = "treasure_map", Unique = true },
+								{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 10, Template = "treasure_map_group", Unique = true },
+								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
+
+				    	-- Ingredients
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 5,
@@ -47,7 +66,7 @@
 							}
 						},
 
-						--Jewelery
+						-- Jewelery
 						{
 							NumItems = 1,
 					    	LootItems = {
@@ -89,6 +108,7 @@
 					MobTables = {
 						{ "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage", "goblin_mage" },
 						{ "bandit", "bandit", "bandit", "bandit", "bandit_female", "bandit_female", "bandit_female", "bandit_female", "bandit_archer", "bandit_archer", "bandit_archer_female", "bandit_archer_female" },
+						{ "wolf", "wolf", "wolf", "wolf_black", "dire_wolf" },
 					}
 				}
 			</Initializer>

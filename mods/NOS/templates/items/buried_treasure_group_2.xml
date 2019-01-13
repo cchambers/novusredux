@@ -5,6 +5,7 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">260</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">55</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
@@ -17,13 +18,12 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(600,800),
-							NumCoins = math.random(600,800),
-							NumCoins = math.random(600,800),
-							NumCoins = math.random(600,800),
+					    	NumCoins = math.random(4000,6000),
+							NumCoins = math.random(4000,6000),
+							NumCoins = math.random(4000,6000),
 				    	},
 
-						--rare
+						-- Rare
 						{
 							NumItems = 1,
 							LootItems = 
@@ -35,7 +35,25 @@
 							}
 						},
 
-						--ingredients
+						-- Maps
+						{
+							NumItems = math.random(0,2),
+							LootItems = 
+							{
+								{ Chance = 20, Template = "treasure_map", Unique = true },
+								{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 10, Template = "treasure_map_group", Unique = true },
+								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
+
+						-- Ingredients
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 5,
@@ -46,13 +64,10 @@
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
 								{ Weight = 1, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
-								{ Weight = 4, Template = "treasure_map_1", Unique = true },
-								{ Weight = 3, Template = "treasure_map_2", Unique = true },
 							}
 						},
 
-						--Jewelery
+						-- Jewelery
 						{
 							NumItems = 1,
 					    	LootItems = {
@@ -72,7 +87,7 @@
 				    		}
 						},
 
-						--regs
+						-- Regs
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 4,
@@ -92,11 +107,10 @@
 							}
 						},
 
-						--ScrollsLow
+						-- ScrollsLow
 						{
 							NumItemsMin = 0,
-							NumItemsMax = 1,	
-
+							NumItemsMax = 1,
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_heal", Unique = true },
@@ -104,9 +118,20 @@
 								{ Weight = 5, Template = "lscroll_poison", Unique = true },
 								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
 								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
-
 							},
-						},	
+						},
+
+						-- Arrows
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,
+							LootItems =
+							{ 
+								{ Weight = 35, Template = "arrow", Unique = true, StackCountMin = 5, StackCountMax = 22 },
+								{ Weight = 3, Template = "arrow_ash", Unique = true, StackCountMin = 4, StackCountMax = 17 },
+								{ Weight = 0.5,  Template = "arrow_blightwood", Unique = true, StackCountMin = 1, StackCountMax = 6 },
+							},
+						},
 					}
 				}
 			</Initializer>
@@ -115,8 +140,8 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "doom", "doom", "gargoyle", "gargoyle" },
-						{ "pirate_knight", "pirate_knight", "pirate_dagger", "pirate_dagger" }
+						{ "doom", "doom", "doom", "doom", "gargoyle", "gargoyle", "gargoyle", "gargoyle" },
+						{ "pirate_knight", "pirate_knight", "pirate_knight", "pirate_knight", "pirate_dagger", "pirate_dagger", "pirate_dagger", "pirate_dagger" }
 					}
 				}
 			</Initializer>

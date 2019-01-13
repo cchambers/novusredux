@@ -5,6 +5,7 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">260</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">35</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
@@ -17,13 +18,12 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(400,600),
-							NumCoins = math.random(400,600),
-							NumCoins = math.random(400,600),
-							NumCoins = math.random(400,600),
+					    	NumCoins = math.random(2500,4000),
+							NumCoins = math.random(2500,4000),
+							NumCoins = math.random(2500,4000),
 				    	},
 
-						--rare
+						-- Rares
 						{
 							NumItems = 1,
 							LootItems = 
@@ -35,7 +35,25 @@
 							}
 						},
 
-						--ingredients
+						-- Maps
+						{
+							NumItems = math.random(0,2),
+							LootItems = 
+							{
+								{ Chance = 20, Template = "treasure_map", Unique = true },
+								{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 10, Template = "treasure_map_group", Unique = true },
+								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
+
+						-- Ingredients
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 5,
@@ -46,12 +64,10 @@
 								{ Weight = 1, Template = "sapphire_gem", Unique = true },
 								{ Weight = 1, Template = "ruby_gem", Unique = true },
 								{ Weight = 1, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
-								{ Weight = 5, Template = "treasure_map_1", Unique = true },
 							}
 						},
 
-						--Jewelery
+						-- Jewelery
 						{
 							NumItems = 1,
 					    	LootItems = {
@@ -64,7 +80,7 @@
 				    		}
 						},
 
-						--regs
+						-- Regs
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 4,
@@ -88,7 +104,6 @@
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 4,	
-
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_heal", Unique = true },
@@ -104,7 +119,6 @@
 						{
 							NumItemsMin = 0,
 							NumItemsMax = 1,	
-
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
@@ -121,8 +135,10 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "lich", "lich", "lich"},
-						{ "scorpion", "scorpion", "scorpion"},
+						{ "lich", "lich", "lich", "lich", "lich", "lich", "lich" },
+						{ "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion" },
+						{ "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage", "goblin_mage" },
+						{ "bandit", "bandit", "bandit_female", "bandit_female", "bandit_hq", "bandit_hq", "bandit_archer", "bandit_archer", "bandit_archer_female", "bandit_archer_female" },
 					}
 				}
 			</Initializer>

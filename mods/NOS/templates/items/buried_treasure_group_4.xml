@@ -5,6 +5,7 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">320</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
@@ -17,17 +18,16 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(2000,3000),
-							NumCoins = math.random(2000,3000),
-							NumCoins = math.random(2000,3000),
-							NumCoins = math.random(2000,3000),
+					    	NumCoins = math.random(8000,10000),
+							NumCoins = math.random(8000,10000),
+							NumCoins = math.random(8000,10000),
 				    	},
 
-						--rare
+						-- Rare
 						{
 							NumItems = math.random(0,1),
 							LootItems = 
-							{	
+							{
 								{ Chance = 50,Template = "idol_animal", Unique = true },
 								{ Chance = 20,Template = "idol_hunger", Unique = true },
 								{ Chance = 10,Template = "idol_demon", Unique = true },
@@ -35,29 +35,56 @@
 							}
 						},
 
-						--ingredients
+						-- Maps
 						{
-							NumItemsMin = 2,
-							NumItemsMax = 5,
+							NumItems = math.random(0,2),
+							LootItems =
+							{
+								{ Chance = 20, Template = "treasure_map", Unique = true },
+								{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 10, Template = "treasure_map_group", Unique = true },
+								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
+
+						-- Furniture
+						{
+							NumItems = math.random(0,1),
 							LootItems = 
-							{									
+							{
+								{ Chance = 10, Template = "die", Unique = true },
+								{ Chance = 10, Template = "dice", Unique = true },
+								{ Chance = 10, Template = "dice_cup", Unique = true },
+								{ Chance = 10, Template = "dice_pair_and_cup", Unique = true },
+								{ Chance = 2, Template = "item_cup_of_dice", Unique = true },
+							}
+						},
+
+						-- Ingredients
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 3,
+							LootItems = 
+							{
 								{ Weight = 35,Template = "potion_lheal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 5, Template = "sapphire_gem", Unique = true },
 								{ Weight = 5, Template = "ruby_gem", Unique = true },
 								{ Weight = 5, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
-								{ Weight = 4, Template = "treasure_map_1", Unique = true },
-								{ Weight = 3, Template = "treasure_map_2", Unique = true },
-								{ Weight = 2, Template = "treasure_map_3", Unique = true },
-								{ Weight = 1, Template = "treasure_map_4", Unique = true },
 							}
 						},
 
-						--Jewelery
+						-- Jewelery
 						{
-							NumItems = 1,
-					    	LootItems = {
+							NumItems = 2,
+					    	LootItems = 
+							{
 					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
 				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
 				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
@@ -81,12 +108,12 @@
 				    		}
 						},
 
-						--regs
+						-- Regs
 						{
 							NumItemsMin = 2,
-							NumItemsMax = 4,
+							NumItemsMax = 5,
 							LootItems = 
-							{									
+							{
 								{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
 								{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
 								{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
@@ -101,11 +128,11 @@
 							}
 						},
 
-						--ScrollsLow
+						
+						-- ScrollsLow
 						{
 							NumItemsMin = 2,
-							NumItemsMax = 3,	
-
+							NumItemsMax = 3,
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_heal", Unique = true },
@@ -115,7 +142,45 @@
 								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
 
 							},
-						},	
+						},
+
+						-- ScrollsMed
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 2,
+							LootItems =
+							{
+								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+							},
+						},
+
+						-- ScrollsHigh
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 2,
+							LootItems = 
+							{ 
+								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
+								{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
+								{ Weight = 5, Template = "lscroll_meteor", Unique = true },
+								{ Weight = 5, Template = "lscroll_portal", Unique = true },
+							},
+						},
+
+						-- Arrows
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 2,
+							LootItems =
+							{ 
+								{ Weight = 10, Template = "arrow", Unique = true, StackCountMin = 25, StackCountMax = 75 },
+								{ Weight = 30, Template = "arrow_ash", Unique = true, StackCountMin = 25, StackCountMax = 63 },
+								{ Weight = 25,  Template = "arrow_blightwood", Unique = true, StackCountMin = 25, StackCountMax = 48 },
+							},
+						},
 					}
 				}
 			</Initializer>
@@ -124,7 +189,7 @@
 			<Initializer>
 				{
 					MobTables = {
-						{ "drake", "drake", "gorgon", "gorgon" },
+						{ "drake", "drake", "drake", "drake", "gorgon", "gorgon", "gorgon", "gorgon", "gorgon" },
 					}
 				}
 			</Initializer>

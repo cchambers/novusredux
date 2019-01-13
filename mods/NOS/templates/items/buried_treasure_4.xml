@@ -5,6 +5,7 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">260</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">95</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
@@ -20,23 +21,41 @@
 					    	NumCoins = math.random(2000,3000),
 				    	},
 
-						--rare
+						-- Rare
 						{
 							NumItems = math.random(0,1),
-							LootItems = 
-							{	
+							LootItems =
+							{
 								{ Chance = 50, Template = "idol_animal", Unique = true },
 								{ Chance = 20, Template = "idol_hunger", Unique = true },
 								{ Chance = 10, Template = "idol_demon", Unique = true },
 								{ Chance = 10, Template = "ancient_idol", Unique = true },
 							}
 						},
+						
+						-- Maps
+						{
+							NumItems = math.random(0,2),
+							LootItems = 
+							{
+								{ Chance = 20, Template = "treasure_map", Unique = true },
+								{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 10, Template = "treasure_map_group", Unique = true },
+								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
 
-						-- furniture
+						-- Furniture
 						{
 							NumItems = math.random(0,1),
 							LootItems = 
-							{	
+							{
 								{ Chance = 10, Template = "die", Unique = true },
 								{ Chance = 10, Template = "dice", Unique = true },
 								{ Chance = 10, Template = "dice_cup", Unique = true },
@@ -45,26 +64,21 @@
 							}
 						}
 
-						--ingredients
+						-- Ingredients
 						{
-							NumItemsMin = 2,
-							NumItemsMax = 5,
+							NumItemsMin = 1,
+							NumItemsMax = 3,
 							LootItems = 
-							{									
+							{
 								{ Weight = 35, Template = "potion_lheal", Unique = true },
 								{ Weight = 25, Template = "bandage", Unique = true },
 								{ Weight = 5, Template = "sapphire_gem", Unique = true },
 								{ Weight = 5, Template = "ruby_gem", Unique = true },
 								{ Weight = 5, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
-								{ Weight = 4, Template = "treasure_map_1", Unique = true },
-								{ Weight = 3, Template = "treasure_map_2", Unique = true },
-								{ Weight = 2, Template = "treasure_map_3", Unique = true },
-								{ Weight = 1, Template = "treasure_map_4", Unique = true },
 							}
 						},
 
-						--Jewelery
+						-- Jewelery
 						{
 							NumItems = 1,
 					    	LootItems = {
@@ -91,12 +105,12 @@
 				    		}
 						},
 
-						--regs
+						-- Regs
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 4,
 							LootItems = 
-							{									
+							{
 								{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
 								{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
 								{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
@@ -111,11 +125,10 @@
 							}
 						},
 
-						--ScrollsLow
+						-- ScrollsLow
 						{
 							NumItemsMin = 2,
-							NumItemsMax = 3,	
-
+							NumItemsMax = 3,
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_heal", Unique = true },
@@ -127,13 +140,12 @@
 							},
 						},
 
-						--ScrollsMed
+						-- ScrollsMed
 						{
 							NumItemsMin = 0,
-							NumItemsMax = 1,	
-
-							LootItems = 
-							{ 
+							NumItemsMax = 1,
+							LootItems =
+							{
 								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
 								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
 								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
@@ -141,11 +153,10 @@
 							},
 						},
 
-						--ScrollsHigh
+						-- ScrollsHigh
 						{
 							NumItemsMin = 0,
-							NumItemsMax = 1,	
-
+							NumItemsMax = 1,
 							LootItems = 
 							{ 
 								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
@@ -159,7 +170,6 @@
 						{
 							NumItemsMin = 0,
 							NumItemsMax = 1,
-
 							LootItems =
 							{ 
 								{ Weight = 10, Template = "arrow", Unique = true, StackCountMin = 25, StackCountMax = 75 },

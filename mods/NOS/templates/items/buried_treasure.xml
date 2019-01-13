@@ -5,10 +5,12 @@
 	<ObjectVariableComponent>
 		<BoolVariable Name="Reward">True</BoolVariable>
 		<BoolVariable Name="locked">True</BoolVariable>
+		<DoubleVariable Name="DecayTime">180</DoubleVariable>
 		<DoubleVariable Name="LockpickingDifficulty">15</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
+		<LuaModule Name="decay"/>
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
 				{
@@ -19,7 +21,7 @@
 					    	NumCoins = math.random(150,250),
 				    	},
 
-						--rare
+						-- Rares
 						{
 							NumItems = 1,
 							LootItems = 
@@ -29,7 +31,25 @@
 							}
 						},
 
-				    	--ingredients
+						-- Maps
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{
+								--{ Chance = 20, Template = "treasure_map", Unique = true },
+								--{ Chance = 15, Template = "treasure_map_1", Unique = true },
+								--{ Chance = 10, Template = "treasure_map_2", Unique = true },
+								--{ Chance = 3, Template = "treasure_map_3", Unique = true },
+								--{ Chance = 1, Template = "treasure_map_4", Unique = true },
+								{ Chance = 1, Template = "treasure_map_group", Unique = true },
+								{ Chance = 0.5, Template = "treasure_map_group_1", Unique = true },
+								{ Chance = 0.25, Template = "treasure_map_group_2", Unique = true },
+								{ Chance = 0.1, Template = "treasure_map_group_3", Unique = true },
+								{ Chance = 0.05, Template = "treasure_map_group_4", Unique = true },
+							}
+						},
+
+				    	-- Ingredients
 						{
 							NumItemsMin = 2,
 							NumItemsMax = 5,
