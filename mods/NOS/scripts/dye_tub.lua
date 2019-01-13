@@ -79,6 +79,15 @@ RegisterEventHandler(
 			and armorType ~= "Linen") then dyeable = false end
 		end
 
+		if (target:HasObjVar("WeaponType")) then
+			local weaponType = target:GetObjVar("ArmorType")
+			if (weaponType ~= "Spellbook") then dyeable = false end
+		end
+
+		if (target:HasObjVar("ResourceType")) then
+			dyeable = false
+		end
+
 		if (target:HasModule("stackable")) then 
 			dyeable = false
 		end

@@ -1,27 +1,21 @@
 MobileEffectLibrary.ApplyPoison = 
 {
-	--PersistSession = true, TODO: integrate persistence for pulse effects
-
-	Debuff = true,
-
-	-- Can this be resisted by Willpower?
-	Resistable = true,
-
 	OnEnterState = function(self,root,target,args)
+		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Poison.Apply",
+		function (target)
+			if (target) then
+			-- on target, check EDGED, FOOD, or DRINK...
+			-- target:SetObjVar("PoisonLevel", self.PoisonLevel)
+			-- target:SetObjVar("PoisonCharges", self.PoisonCharges)
+			-- consume poison
+			end
+		end)
+	self.ParentObj:SystemMessage("What do you wish to poison?", "info")
+	self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "Poison.Apply")
 		EndMobileEffect(root)
 	end,
 
 	OnExitState = function(self,root)
-	end,
 
-	GetPulseFrequency = function(self,root)
-		return self.PulseFrequency
 	end,
-
-	AiPulse = function(self,root)
-	
-	end,
-
-	PulseFrequency = TimeSpan.FromSeconds(6),
-	PulseMax = 8,
 }

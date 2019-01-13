@@ -713,6 +713,24 @@ function ApplyDamageToTarget(victim, damageInfo)
 						finalDamage *
 						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
 				end
+
+				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
+				if (poisoned ~= nil) then
+					local charges = damageInfo.Source:GetObjVar("PoisonCharges")
+					charges = charges - 1
+					if (charges < 0) then
+						damageInfo.Source:DelObjVar("PoisonLevel")
+						damageInfo.Source:DelObjVar("PoisonCharges")
+						damageInfo.Attacker:SystemMessage("Your weapon is no longer poisoned.")
+					else
+						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
+						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel)
+						if (chanceToPoison) then
+							damageInfo.Source:SetObjVar("PoisonCharges", charges)
+							-- KHI TODO: START POISON EFFECT
+						end
+					end
+				end
 			end
 		end
 

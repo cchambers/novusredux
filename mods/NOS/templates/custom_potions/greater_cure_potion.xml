@@ -2,9 +2,10 @@
   <Name>[00FF00]Greater Cure Potion[-]</Name>
 	<ClientId>114</ClientId>
 	<Color>0xFFFFA31A</Color>
+	<ScaleModifier>1.2</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="ResourceType">PotionGreaterCure</StringVariable>
+		<StringVariable Name="ResourceType">PotionNOSGreaterCure</StringVariable>
 		<StringVariable Name="PluralName">Greater Cure Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>				

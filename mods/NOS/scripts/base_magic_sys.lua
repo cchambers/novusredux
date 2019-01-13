@@ -104,6 +104,12 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	return true
 end
 
+-- function UpdateSpellTarget(newTarget)
+-- 	if (this:GetObjVar("AutotargetEnabled") and this:IsPlayer() and this ~= newTarget) then
+-- 		mAutoTarg = newTarget
+-- 	end
+-- end
+
 function PrimeSpell(spellName, spellSource)
 	Verbose("Magic", "PrimeSpell", spellName, spellSource)
 	if(spellSource == nil) then spellSource = this end
@@ -170,7 +176,12 @@ function PrimeSpell(spellName, spellSource)
 	end
 	
 	local myTargType = GetSpellTargetType(spellName)
-
+	-- if ( myTargType == "RequestTarget" and ShouldAutoTarget(spellName) ) then
+	-- 	if(not ValidateSpellCastTarget(spellName,mAutoTarg,spellSource)) then
+	-- 		return false
+	-- 	end
+	-- 	--FaceObject(this,mAutoTarg)
+	-- end
 
 	local myCastTime = GetSpellCastTime(spellName, spellSource)
 	if (myCastTime == nil) then 
@@ -225,6 +236,10 @@ function PrimeSpell(spellName, spellSource)
 			mCastingDisplayName = tostring(spellDisplayName)
 			this:SetObjVar("LastSpell",spellDisplayName)
 
+			-- if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
+			-- 	RequestSpellTarget(spellName)
+			-- end
+			
 			ProgressBar.Show(
 			{
 				TargetUser = spellSource,
@@ -404,6 +419,10 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 		spellSource }
 	--DebugMessage(" Vect5: " .. tostring(myArgs[1]) .. " " .. tostring(myArgs[2]) .. " " .. tostring(myArgs[3]) .. " " .. tostring(myArgs[4]))
 
+	-- if(this:HasObjVar("AutotargetEnabled")) then
+	-- 	SetCurrentTarget(spTarget)
+	-- end
+	
 	local myKey = tostring(spellName) .. tostring(myTime)
 	myDict[myKey] = myArgs
 	mySpellsFlyingDict = myDict
@@ -453,6 +472,7 @@ function ApplyReleaseEffects(spellName, spTarget, spellSource, targLoc)
 		this:SendMessage("StartMobileEffect", userReleseMobileEffect, this, { Target = spTarget, SpellLoc = targLoc})
 	end
 end
+
 
 function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 	Verbose("Magic", "ApplySpellCompletionEffects", spellName, spTarget, spellSource)
@@ -784,11 +804,18 @@ function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	if(spellTargetObj ~= nil) then
 		spellTarget = GameObj(tonumber(spellTargetObj))
 	end
-
-	mAutoTarg = nil
+	
+	-- --If this has autotarget enabled, change auto target if this is not set to be a target
+	-- if (this:HasObjVar("AutotargetEnabled")) then
+	-- 	--If this is a target, do nothing
+	-- 	if (this ~= mCurrentTarget) then
+	-- 		mAutoTarg = mCurrentTarget
+	-- 	end
+	-- else
+	-- 	mAutoTarg = nil
+	-- end
 
 	mScrollObj = nil
-
 	CastSpell(spellName, spellSource, spellTarget)
 end
 
@@ -813,6 +840,7 @@ function HandleSpellCastRequest(spellName,spellSource,preDefTarg,targetLoc)
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
 	elseif (spellSource:HasLineOfSightToObj(preDefTarg)) then
+		-- CastSpell(spellName, spellSource, preDefTarg)
 		spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
 end
@@ -874,12 +902,13 @@ function CastSpell(spellName, spellSource, spellTarget)
 	local myTargType = GetSpellTargetType(spellName)
 
 	if(myTargType == "RequestTarget") or (myTargType == "RequestLocation") then
-		-- DebugMessage(spellName)
 		RequestSpellTarget(spellName)
 	end
 end
 
 function RequestSpellTarget(spellName)
+	DebugMessage(spellName)
+
 	Verbose("Magic", "RequestSpellTarget", spellName)
 	if (this:IsPlayer()) then
 		local myTargType = GetSpellTargetType(spellName)

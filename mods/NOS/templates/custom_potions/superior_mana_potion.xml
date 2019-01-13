@@ -5,7 +5,7 @@
 	<ScaleModifier>0.75</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ResourceType">PotionSuperiorMana</StringVariable>
+		<StringVariable Name="ResourceType">PotionNOSSuperiorMana</StringVariable>
 		<StringVariable Name="PluralName">Superior Mana Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>

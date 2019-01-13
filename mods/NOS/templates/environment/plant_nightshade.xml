@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Nightshade[-]</Name>
+	<ClientId>605</ClientId>
+	<Color>0xFFF51A8B</Color>
+	<Hue>10</Hue>
+	<ScaleModifier>0.8</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceSourceId">Nightshade</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate> 
