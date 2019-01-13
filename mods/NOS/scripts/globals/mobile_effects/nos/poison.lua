@@ -16,13 +16,6 @@ MobileEffectLibrary.Poison =
 		self.MaxDamage = args.MaxDamage or self.MaxDamage
 		self.PoisonLevel = args.PoisonLevel or 1
 
-		-- CONFIGURE FREQUENCY -- 
-		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
-			self.PusleFrequency = TimeSpan.FromSeconds(self.PoisonLevel + 1)
-		elseif (self.PoisonLevel > 5) then
-			self.PusleFrequency = TimeSpan.FromSeconds(self.PoisonLevel - 1)
-		end
-
 		-- CONFIGURE DAMAGE --
 		if (self.PoisonLevel > 1) then
 			self.MinDamage = self.MinDamage * self.PoisonLevel
@@ -79,10 +72,19 @@ MobileEffectLibrary.Poison =
 	end,
 
 	GetPulseFrequency = function(self,root)
+		-- CONFIGURE FREQUENCY -- 
+		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
+			self.PulseFrequency = TimeSpan.FromSeconds(self.PoisonLevel + 1)
+		elseif (self.PoisonLevel > 5) then
+			self.PulseFrequency = TimeSpan.FromSeconds(self.PoisonLevel - 1)
+		end
 		return self.PulseFrequency
 	end,
 
 	AiPulse = function(self,root)
+		self.MinDamage = 1 * self.PoisonLevel
+		self.MaxDamage = 3 * self.PoisonLevel
+
 		self.CurrentPulse = self.CurrentPulse + 1
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
