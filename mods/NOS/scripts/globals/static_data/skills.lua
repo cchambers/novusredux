@@ -287,9 +287,8 @@ SkillData = {
 			DisplayName = "Poisoning",
 			SkillIcon = "Poison",
 			PrimaryStat = "Intelligence",
-			Description = "Poison food or a weapon.",
+			Description = "Poison a bladed weapon.",
 			SkillType = "TradeTypeSkill",
-			Abilities = { "ApplyPoison" },
 			GainFactor = 0.7
 		},
 		HidingSkill = {
