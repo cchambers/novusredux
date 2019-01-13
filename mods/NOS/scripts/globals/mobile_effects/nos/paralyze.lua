@@ -1,14 +1,19 @@
 MobileEffectLibrary.Paralyze = 
 {
-	Debuff = true,
-	Resistable = true,
 	OnEnterState = function(self,root,target,args)
-		-- freeze
-		-- add 'damage taken' single event to exit
+		-- disable movement, casting, actions, etc.
+		self.ParentObj:SystemMessage("You have been paralyzed!")
+		self.ParentObj:NpcSpeech("*paralyzed*")
+		SetMobileMod(self.ParentObj, "Disable", "Paralyze", true)
+		ProgressBar.Show{
+            Label="Paralyzed",
+            Duration=self.Duration,
+            TargetUser=self.ParentObj
+        }
 	end,
 
 	OnExitState = function(self,root)
-		-- release paralyzation
+		SetMobileMod(self.ParentObj, "Disable", "Paralyze", nil)
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -19,6 +24,5 @@ MobileEffectLibrary.Paralyze =
 		EndMobileEffect(root)
 	end,
 
-	Duration = TimeSpan.FromSeconds(6),
-
+	Duration = TimeSpan.FromSeconds(5),
 }
