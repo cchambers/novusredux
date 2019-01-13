@@ -14,6 +14,11 @@ MobileEffectLibrary.Poison =
 		self.PulseMax = args.PulseMax or self.PulseMax
 		self.MinDamage = args.MinDamage or self.MinDamage
 		self.MaxDamage = args.MaxDamage or self.MaxDamage
+
+		local resistance = GetSkillLevel(target, "PoisoningSkill")
+		resistance = (100 - (resistance * 0.2)) * 0.01
+		self.MaxDamage = self.MaxDamage * resistance
+
 		SetMobileMod(self.ParentObj, "HealingReceivedTimes", "Poison", -0.50)
 		if ( self.ParentObj:IsPlayer() ) then
 			AddBuffIcon(self.ParentObj, "PoisonDebuff", "Poisoned", "Poison Cloud", self.MinDamage.."-"..self.MaxDamage.." damage every "..self.PulseFrequency.Seconds.." seconds." .. "\nReduced healing received.", true)
