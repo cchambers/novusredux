@@ -18,15 +18,15 @@ MobileEffectLibrary.Poison =
 
 		-- CONFIGURE FREQUENCY -- 
 		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
-			self.PusleFrequency = TimeSpan.FromSeconds(poisonLevel + 1)
+			self.PusleFrequency = TimeSpan.FromSeconds(self.PoisonLevel + 1)
 		elseif (self.PoisonLevel > 5) then
-			self.PusleFrequency = TimeSpan.FromSeconds(poisonLevel - 1)
+			self.PusleFrequency = TimeSpan.FromSeconds(self.PoisonLevel - 1)
 		end
 
 		-- CONFIGURE DAMAGE --
 		if (self.PoisonLevel > 1) then
-			self.MinDamage = self.MinDamage * poisonLevel
-			self.MaxDamage = self.MaxDamage * poisonLevel
+			self.MinDamage = self.MinDamage * self.PoisonLevel
+			self.MaxDamage = self.MaxDamage * self.PoisonLevel
 		end
 
 		-- POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
