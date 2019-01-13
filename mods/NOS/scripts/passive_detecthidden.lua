@@ -12,7 +12,7 @@ function DoRevealStuff()
 		GameObj(0)
 	)
 	for i, v in pairs(mobiles) do
-		if (not IsDead(v)) then
+		if (not IsDead(v) and (v ~= this)) then
 			if (HasMobileEffect(v, "Hide")) then
 				v:SendMessage("StartMobileEffect", "Revealed")
 			end

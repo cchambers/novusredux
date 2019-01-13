@@ -341,6 +341,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
     if (action == KarmaActions.Negative.Murder) then
         local aggressor = mobileA
@@ -358,12 +359,13 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
-    if (action.MakeCriminal == true
-    and IsPlayerObject(mobileB)
-    and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
-        mobileA:SendMessage("StartMobileEffect", "Criminal")
+    if (IsPlayerCharacter(mobileA)) then
+        if (action.MakeCriminal == true
+        and IsPlayerObject(mobileB)
+        and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
+            mobileA:SendMessage("StartMobileEffect", "Criminal")
+        end
     end
-
     if ( adjust and adjust ~= 0 ) then
         -- finally apply all the calculated karma
         AdjustKarma(mobileA, adjust)

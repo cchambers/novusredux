@@ -261,32 +261,33 @@ EquipmentStats = {
 			TwoHandedWeapon = true
 		},
 		-- Bows
+	
 		Shortbow = {
 			WeaponClass = "Bow",
 			Variance = 0.05,
-			Attack = 15,
+			Attack = 14,
 			MinSkill = 0,
-			Speed = 2.5,
+			Speed = 4,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
-			TwoHandedWeapon = true
+			TwoHandedWeapon = true,
 		},
 		Longbow = {
 			WeaponClass = "Bow",
 			Variance = 0.05,
 			Attack = 20,
 			MinSkill = 0,
-			Speed = 3.5,
+			Speed = 5,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "Bleed",
-			TwoHandedWeapon = true
+			TwoHandedWeapon = true,
 		},
 		Warbow = {
 			WeaponClass = "Bow",
 			Variance = 0.1,
 			Attack = 26,
 			MinSkill = 0,
-			Speed = 4.5,
+			Speed = 6,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "MortalStrike",
 			TwoHandedWeapon = true
@@ -296,7 +297,7 @@ EquipmentStats = {
 			Variance = 0.1,
 			Attack = 26,
 			MinSkill = 0,
-			Speed = 4.5,
+			Speed = 6,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
 			TwoHandedWeapon = true
@@ -306,7 +307,7 @@ EquipmentStats = {
 			Variance = 0.1,
 			Attack = 26,
 			MinSkill = 0,
-			Speed = 4.5,
+			Speed = 6,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
 			TwoHandedWeapon = true
