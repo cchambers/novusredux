@@ -44,6 +44,7 @@ MobileEffectLibrary.Poison =
 				self.PoisonLevel = self.PoisonLevel - amount
 				if (self.PoisonLevel <= 0) then
 					self.ParentObj:SendMessage("EndPoisonEffect")
+					self.ParentObj:SystemMessage("You are cured!", "info")
 				end
 		end)	
 		
@@ -55,6 +56,8 @@ MobileEffectLibrary.Poison =
 		if ( self.ParentObj:IsPlayer() ) then
 			RemoveBuffIcon(self.ParentObj, "PoisonDebuff")
 		end
+		
+		UnregisterEventHandler("", EventType.Message, "ReducePoisonEffect")
 		self.ParentObj:StopEffect("PoisonSpellEffect")
 		self.ParentObj:StopEffect("StatusEffectPoison")
 	end,
