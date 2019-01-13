@@ -6,6 +6,7 @@ MobileEffectLibrary.ApplyPoison =
 			local canPoison = {
 				Dagger = true,
 				Poniard = true,
+				Kryss = true,
 				BoneDagger = true,
 				Warfork = true,
 				Voulge = true,
@@ -27,7 +28,7 @@ MobileEffectLibrary.ApplyPoison =
 				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill", skillLevel / args.PoisonLevel)
 				if (success) then
 					target:SetObjVar("PoisonLevel", args.PoisonLevel)
-					target:SetObjVar("PoisonCharges", math.random(3, math.ceil(skillLevel / 10, 5)))
+					target:SetObjVar("PoisonCharges", math.random(3, math.max(skillLevel / 10, 5)))
 					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
 					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!")
 				else 
