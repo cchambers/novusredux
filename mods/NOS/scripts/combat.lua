@@ -730,11 +730,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 							damageInfo.Source:SetObjVar("PoisonCharges", charges)
 							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
 							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
-								MinDamage = 1,
-								MaxDamage = 2 * poisonLevel,
-								PulseMax = 8,
-								PulseFrequency = TimeSpan.FromSeconds(1.5 * poisonLevel),
-								PoisonLevel = poisonLevel
+									PoisonLevel = poisonLevel
 							})
 							victim:NpcSpeech("[00ff00]*poisoned*[-]")
 						end
