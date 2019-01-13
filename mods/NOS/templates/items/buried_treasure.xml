@@ -10,6 +10,7 @@
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container"/>
+		<LuaModule Name="decay">
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
 				{
