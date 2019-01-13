@@ -69,15 +69,24 @@ RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
     end)
 
 function CollectResource(user) 
-    local blackpearlChance = math.random(0,10)
-    if(blackpearlChance > 6) then
+    local spidersilkChance = math.random(0,10)
+
+    -- approx 50% chance to get spidersilk from 1 to 8.
+    if(spidersilkChance > 5) then
         local backpackObj = user:GetEquippedObject("Backpack")  
         local resourceType = "Spidersilk"
         if( backpackObj ~= nil ) then		
-            -- DAB TODO: If we want to add a skill back in here we need to grab the code from one of the other tools
-            local stackAmount = math.random(1,3)
+            -- TODO - VERLORENS - Add in difficulty to harvesting checks, requires adding difficulty to each plant.. necessary?
+            --if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
+            local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
 
-            if (resourceType == nil) then return end
+            -- Max number of goods per harvesting skill:
+            -- Skill:   0   20  40  60  80  100
+            -- # Goods: 1   2   3   5   6   8
+            local maxAmount = math.floor((harvestingSkill / 14) + 1)
+            local stackAmount = math.random(1, maxAmount)
+
+            CheckSkillChance(user,"HarvestingSkill")
 
             -- try to add to the stack in the players pack		
             if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
