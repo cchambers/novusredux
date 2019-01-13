@@ -45,7 +45,6 @@ MobileEffectLibrary.Poison =
 			self.ParentObj:PlayAnimation("impale")
 		end
 
-
 		-- self.ParentObj:SendMessage("ReducePoisonEffect", args.PoisonLevelReduction)
 
 		RegisterEventHandler(EventType.Message, "ReducePoisonEffect", 
@@ -72,6 +71,11 @@ MobileEffectLibrary.Poison =
 	end,
 
 	GetPulseFrequency = function(self,root)
+		
+		local resistance = GetSkillLevel(target, "PoisoningSkill")
+		resistance = (100 - (resistance * 0.2)) * 0.01
+		self.MaxDamage = self.MaxDamage * resistance
+
 		-- CONFIGURE FREQUENCY -- 
 		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
 			self.PulseFrequency = TimeSpan.FromSeconds(self.PoisonLevel + 1)
@@ -84,7 +88,7 @@ MobileEffectLibrary.Poison =
 	AiPulse = function(self,root)
 		self.MinDamage = 1 * self.PoisonLevel
 		self.MaxDamage = 3 * self.PoisonLevel
-
+		self.ParentObj:NpcSpeech(tostring(self.PoisonLevel))
 		self.CurrentPulse = self.CurrentPulse + 1
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
