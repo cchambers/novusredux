@@ -70,7 +70,14 @@ MobileEffectLibrary.TelecrookRes =
             -- They shouldn't have this.
             self.DestroyCrook(self)
         elseif (target) then
-            target:SendMessage("Resurrect",1.0,nil,true)
+            if (IsDead) then
+                target:SendMessage("Resurrect",1.0,nil,true)
+            else
+                target:SystemMessage("You have been restored.")
+                target:SetStatValue("Health", GetMaxHealth(this))
+                target:SetStatValue("Mana", 250)
+                target:SetStatValue("Stamina", 250)
+            end
         end
         EndMobileEffect(root)
     end,
