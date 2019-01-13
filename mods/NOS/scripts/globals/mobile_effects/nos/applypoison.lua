@@ -9,14 +9,27 @@ MobileEffectLibrary.ApplyPoison =
 				Kryss = true,
 			}
 
-			local type = target:GetObjVar("WeaponType")
-
-			if (canPoison[type] == true) then
-				target:SetObjVar("PoisonLevel", args.PoisonLevel)
-				target:SetObjVar("PoisonCharges", 10)
-				self.ParentObj:SystemMessage("Poisoned!")
+			local weaponType = target:GetObjVar("WeaponType")
+			local isPoisoned = target:GetObjVar("PoisonCharges")
+			DebugMessage(isPoisoned)
+			if (canPoison[weaponType] == true and isPoisoned == nil) then
+				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill")
+				if (success) then
+					target:SetObjVar("PoisonLevel", args.PoisonLevel)
+					target:SetObjVar("PoisonCharges", 10)
+					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]")
+					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!")
+				else 
+					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.")
+				end
 			else 
+				if (isPoisoned ~= nil) then
+					self.ParentObj:SystemMessage("That is already poisoned.")
+					EndMobileEffect(root)
+					return false
+				end
 				self.ParentObj:SystemMessage("That cannot be poisoned.")
+				EndMobileEffect(root)
 				return false
 			end
 
