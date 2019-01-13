@@ -17,7 +17,7 @@ MobileEffectLibrary.ApplyPoison =
 				if (success) then
 					target:SetObjVar("PoisonLevel", args.PoisonLevel)
 					target:SetObjVar("PoisonCharges", 10)
-					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]")
+					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
 					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!")
 				else 
 					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.")

@@ -133,7 +133,20 @@ MobileEffectLibrary.Bandage =
 		-- gain check
 		CheckSkillChance(self.ParentObj, "HealingSkill", self.Healing)
 		CheckSkillChance(self.ParentObj, self.SupplimentalSkill, self.Supplimental)
-		CreateStackInBackpackOrAtLocation(self.ParentObj, "bandage_bloody")
+		local backpackObj = self.ParentObj:GetEquippedObject("Backpack")
+		local bloodies = FindResourceInContainer(backpackObj, "bandage_bloody")
+		local bAmount = 1
+
+		local lootObjects = backpackObj:GetContainedObjects()
+		for index, lootObj in pairs(lootObjects) do	    		
+			if(lootObj:GetCreationTemplateId() == "bandage_bloody" ) then
+				break
+			end
+		end
+
+		if( not( TryAddToStack("BloodyBandage",backpackObj,bAmount))) then
+			CreateObjInBackpack(self.ParentObj, "bandage_bloody")
+		end
 		
 		EndMobileEffect(root)
 	end,
@@ -198,15 +211,16 @@ MobileEffectLibrary.WashBandage =
 					break
 				end
 			end
-			DebugMessage(bAmount)
 
-			if( not( TryAddToStack("Bandage",backpackObj,bAmount))) then
+			-- if( not( TryAddToStack("Bandage",backpackObj,bAmount))) then
 				CreateStackInBackpack(self.ParentObj, "bandage", bAmount)
-			end
+			-- end
 			bloodies:Destroy() 
 
 			if (bAmount > 50) then
+				-- check if target is waterskin
 				UpdateWaterContainerState(target, "Empty")
+				self.ParentObj:NpcSpeech("The container has been emptied.")
 			end
 		else
 			self.ParentObj:NpcSpeech("That doesn't seem to be water.")
