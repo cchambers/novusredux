@@ -73,7 +73,7 @@ MobileEffectLibrary.TelecrookRes =
             if (IsDead(target)) then
                 target:SendMessage("Resurrect",1.0,nil,true)
             else
-                target:NpcSpeechgit("*restored*")
+                target:NpcSpeech("*restored*")
                 target:SetStatValue("Health", GetMaxHealth(target))
                 target:SetStatValue("Mana", 250)
                 target:SetStatValue("Stamina", 250)
