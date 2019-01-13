@@ -727,7 +727,14 @@ function ApplyDamageToTarget(victim, damageInfo)
 						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel)
 						if (chanceToPoison) then
 							damageInfo.Source:SetObjVar("PoisonCharges", charges)
-							-- KHI TODO: START POISON EFFECT
+							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
+							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
+								MinDamage = 1,
+								MaxDamage = 2 * poisonLevel,
+								PulseMax = 8,
+								PulseFrequency = TimeSpan.FromSeconds(1.5 * poisonLevel)
+							})
+							victim:NpcSpeech("[00ff00]*poisoned*[-]")
 						end
 					end
 				end

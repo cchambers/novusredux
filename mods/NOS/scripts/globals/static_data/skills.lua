@@ -290,8 +290,7 @@ SkillData = {
 			Description = "Poison food or a weapon.",
 			SkillType = "TradeTypeSkill",
 			Abilities = { "ApplyPoison" },
-			GainFactor = 0.7,
-			Skip = true
+			GainFactor = 0.7
 		},
 		HidingSkill = {
 			DisplayName = "Hiding",

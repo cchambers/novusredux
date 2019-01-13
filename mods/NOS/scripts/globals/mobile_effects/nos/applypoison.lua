@@ -1,19 +1,27 @@
 MobileEffectLibrary.ApplyPoison = 
 {
 	OnEnterState = function(self,root,target,args)
-		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Poison.Apply",
-		function (target)
-			if (target) then
-			-- on target, check EDGED, FOOD, or DRINK...
-			-- target:SetObjVar("PoisonLevel", self.PoisonLevel)
-			-- target:SetObjVar("PoisonCharges", self.PoisonCharges)
-			-- consume poison
+		-- on target, check EDGED, FOOD, or DRINK...
+			
+			local canPoison = {
+				Broadsword = true,
+				Longsword = true,
+				Kryss = true,
+			}
+
+			local type = target:GetObjVar("WeaponType")
+
+			if (canPoison[type] == true) then
+				target:SetObjVar("PoisonLevel", args.PoisonLevel)
+				target:SetObjVar("PoisonCharges", 10)
+				self.ParentObj:SystemMessage("Poisoned!")
+			else 
+				self.ParentObj:SystemMessage("That cannot be poisoned.")
+				return false
 			end
-		end)
-	self.ParentObj:SystemMessage("What do you wish to poison?", "info")
-	self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "Poison.Apply")
-		EndMobileEffect(root)
-	end,
+
+			EndMobileEffect(root)
+		end,
 
 	OnExitState = function(self,root)
 
