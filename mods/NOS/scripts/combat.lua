@@ -721,7 +721,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 					if (charges < 0) then
 						damageInfo.Source:DelObjVar("PoisonLevel")
 						damageInfo.Source:DelObjVar("PoisonCharges")
-						SetTooltipEntry(damageInfo.Source,"poisoned")
+						RemoveTooltipEntry(damageInfo.Source,"poisoned")
 						damageInfo.Attacker:SystemMessage("Your weapon is no longer poisoned.")
 					else
 						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
