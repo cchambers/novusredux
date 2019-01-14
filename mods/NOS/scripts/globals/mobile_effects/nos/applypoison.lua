@@ -35,17 +35,17 @@ MobileEffectLibrary.ApplyPoison =
 					target:SetObjVar("PoisonLevel", args.PoisonLevel)
 					target:SetObjVar("PoisonCharges", math.random(3, math.max(skillLevel / 10, 5)))
 					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
-					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!")
+					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!", "info")
 				else 
-					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.")
+					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.", "info")
 				end
 			else 
 				if (isPoisoned ~= nil) then
-					self.ParentObj:SystemMessage("That is already poisoned.")
+					self.ParentObj:SystemMessage("That is already poisoned.", "info")
 					EndMobileEffect(root)
 					return false
 				end
-				self.ParentObj:SystemMessage("That cannot be poisoned.")
+				self.ParentObj:SystemMessage("That cannot be poisoned.", "info")
 				EndMobileEffect(root)
 				return false
 			end
