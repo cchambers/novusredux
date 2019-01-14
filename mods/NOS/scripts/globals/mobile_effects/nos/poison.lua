@@ -23,7 +23,7 @@ MobileEffectLibrary.Poison =
 		end
 
 		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
-		self.ParentObj:NpcSpeech(tostring("[c0c0c0]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
+		self.ParentObj:NpcSpeech(tostring("[00FF00]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
 
 		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 		
