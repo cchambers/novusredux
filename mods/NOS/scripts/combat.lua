@@ -725,7 +725,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 						damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
 					else
 						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
-						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel)
+						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel, true)
 						if (chanceToPoison) then
 							damageInfo.Source:SetObjVar("PoisonCharges", charges)
 							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
