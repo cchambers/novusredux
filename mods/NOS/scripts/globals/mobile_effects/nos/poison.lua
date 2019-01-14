@@ -22,6 +22,9 @@ MobileEffectLibrary.Poison =
 			self.MaxDamage = self.MaxDamage * self.PoisonLevel
 		end
 
+		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
+		self.ParentObj:NpcSpeech(string.format(self.PoisonMessageAll[self.PoisonLevel], self.ParentObj:GetName()))
+
 		-- POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 		
 
@@ -96,6 +99,22 @@ MobileEffectLibrary.Poison =
 			self.ParentObj:SendMessage("ProcessMagicDamage", self.Target, math.random(self.MinDamage, self.MaxDamage))
 		end
 	end,
+
+	PoisonMessageVictim = {
+		"You feel a bit nauseous...",
+		"You feel disoriented and nauseous...",
+		"You begin to feel pain throughout your body...",
+		"You feel extremely weak and are in severe pain...",
+		"Your are in extreme pain, and require immediate aid",
+	},
+
+	PoisonMessageAll = {
+		"%s looks ill.",
+		"%s looks extremely ill.",
+		"%s stumbles around in pain and confusion.",
+		"%s is wracked with extreme pain.",
+		"%s begins to spasm uncontrollably.",
+	},
 
 	PulseFrequency = TimeSpan.FromSeconds(2),
 	PulseMax = 8,
