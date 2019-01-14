@@ -27,9 +27,9 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		-- Max number of goods per harvesting skill:
 		-- Skill:   0   20  40  60  80  100
 		-- # Goods: 1   1   2   2   3   4
-		local maxAmount = math.floor((harvestingSkill / 33) + 1)
+		local maxAmount = math.floor((HarvestingSkill / 33) + 1)
 		local stackAmount = math.random(1, maxAmount)
-		DebugMessage('maxAmount: '..tostring(maxAmount)..', stackAmount:'..tostring(stackAmount))
+		-- DebugMessage('maxAmount: '..tostring(maxAmount)..', stackAmount:'..tostring(stackAmount))
 
 		-- Remove the ability to level from the continuously spawning cotton farms.
 		-- This isn't the end goal I want, but a shortstop.  I want to remove existing npc farms from giving skill gain.
