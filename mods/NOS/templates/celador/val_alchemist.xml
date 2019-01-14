@@ -64,7 +64,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "ingredient_mandrake",
+							Template = "ingredient_mandrakeroot",
 							Price = 0,
 							Amount = 999,
 							RelativeLoc = "1.404968, 0.9132729, -1.167969",
