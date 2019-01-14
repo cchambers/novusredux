@@ -72,7 +72,7 @@ MobileEffectLibrary.Poison =
 
 	GetPulseFrequency = function(self,root)
 		
-		local resistance = GetSkillLevel(target, "PoisoningSkill")
+		local resistance = GetSkillLevel(self.Target, "PoisoningSkill")
 		resistance = (100 - (resistance * 0.2)) * 0.01
 		self.MaxDamage = self.MaxDamage * resistance
 
