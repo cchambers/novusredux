@@ -296,6 +296,9 @@ ResourceEffectData.PotionNOSSuperiorPoison = {
     MobileEffectArgs = {
         PoisonLevel = 4,
     },
+    RequireSkill = {
+        PoisoningSkill = 100,
+    },
     NoCombat = true,
     QueueTarget = "Loc", 
     Tooltip = {
@@ -305,6 +308,9 @@ ResourceEffectData.PotionNOSSuperiorPoison = {
 
 ResourceEffectData.PotionNOSGreaterPoison = {
     MobileEffect = "ApplyPoison",
+    RequireSkill = {
+        PoisoningSkill = 90,
+    },
     MobileEffectArgs = {
         PoisonLevel = 3,
     },
@@ -317,6 +323,9 @@ ResourceEffectData.PotionNOSGreaterPoison = {
 
 ResourceEffectData.PotionNOSRegularPoison = {
     MobileEffect = "ApplyPoison",
+    RequireSkill = {
+        PoisoningSkill = 65,
+    },
     MobileEffectArgs = {
         PoisonLevel = 2,
     },

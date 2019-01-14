@@ -25,7 +25,7 @@ MobileEffectLibrary.ApplyPoison =
 			local isPoisoned = target:GetObjVar("PoisonCharges")
 			local skillLevel = GetSkillLevel(self.ParentObj, "PoisoningSkill")
 			if (canPoison[weaponType] == true and isPoisoned == nil) then
-				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill", (skillLevel * 2) / args.PoisonLevel)
+				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill", skillLevel / args.PoisonLevel)
 				if (success) then
 					target:SetObjVar("PoisonLevel", args.PoisonLevel)
 					target:SetObjVar("PoisonCharges", math.random(3, math.max(skillLevel / 10, 5)))

@@ -21,11 +21,8 @@ MobileEffectLibrary.Poison =
 			self.MinDamage = self.MinDamage * self.PoisonLevel
 			self.MaxDamage = self.MaxDamage * self.PoisonLevel
 		end
-
-		self.DoMessages(self, root)
-
-		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 		
+		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 
 		local resistance = GetSkillLevel(target, "PoisoningSkill")
 		resistance = (100 - (resistance * 0.2)) * 0.01
