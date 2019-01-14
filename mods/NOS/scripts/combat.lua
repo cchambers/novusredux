@@ -138,7 +138,8 @@ function PerformWeaponAttack(atTarget, hand)
 		if (mIsMoving) then
 			local chanceOverride = 100
 			if not (this:HasTimer("OutOfArrows")) then
-				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+				local chance = GetSkillLevel(this,"MarksmanshipSkill") / 3
+				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill", nil, chance)
 			end
 			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
 		else 
