@@ -730,7 +730,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 							damageInfo.Source:SetObjVar("PoisonCharges", charges)
 							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
 							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
-									PoisonLevel = poisonLevel
+								PoisonLevel = poisonLevel
 							})
 						end
 					end
