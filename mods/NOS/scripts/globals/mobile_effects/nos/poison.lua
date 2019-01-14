@@ -109,11 +109,11 @@ MobileEffectLibrary.Poison =
 	end,
 
 	PoisonMessageVictim = {
-		"You feel a bit nauseous...",
-		"You feel disoriented and nauseous...",
-		"You begin to feel pain throughout your body...",
-		"You feel extremely weak and are in severe pain...",
-		"Your are in extreme pain, and require immediate aid",
+		"You feel a bit nauseous.",
+		"You feel disoriented and nauseous.",
+		"You begin to feel pain throughout your body.",
+		"You feel extremely weak and are in severe pain.",
+		"You are in extreme pain, and require immediate aid.",
 	},
 
 	PoisonMessageAll = {
