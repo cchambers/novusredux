@@ -2365,7 +2365,7 @@ AlchemySkill = {
 		},
 		GreaterPoisonPotion = {
 			MinLevelToCraft = 89,
-			MaxLevelToGain = 94,
+			MaxLevelToGain = 98,
 			DisplayName = "Greater Poison Potion",
 			NeedRecipe = false,
 			Description = "Poison!",
@@ -2377,7 +2377,7 @@ AlchemySkill = {
 			},
 		},
 		SuperiorPoisonPotion = {
-			MinLevelToCraft = 98,
+			MinLevelToCraft = 97,
 			MaxLevelToGain = 100,
 			DisplayName = "Superior Poison Potion",
 			NeedRecipe = false,
