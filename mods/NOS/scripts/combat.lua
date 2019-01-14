@@ -732,7 +732,6 @@ function ApplyDamageToTarget(victim, damageInfo)
 							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
 									PoisonLevel = poisonLevel
 							})
-							AdjustDurability(damageInfo.Source, -2)
 							victim:NpcSpeech("[00ff00]*poisoned*[-]")
 						end
 					end
