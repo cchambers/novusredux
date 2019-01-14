@@ -22,8 +22,7 @@ MobileEffectLibrary.Poison =
 			self.MaxDamage = self.MaxDamage * self.PoisonLevel
 		end
 
-		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
-		self.ParentObj:NpcSpeech(tostring("[00FF00]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
+		self.DoMessages(self, root)
 
 		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 		
@@ -91,6 +90,10 @@ MobileEffectLibrary.Poison =
 	AiPulse = function(self,root)
 		self.MinDamage = 1 * self.PoisonLevel
 		self.MaxDamage = 3 * self.PoisonLevel
+		if (self.LastPoisonLevel ~= self.PoisonLevel) then
+			self.DoMessages(self, root)
+			self.LastPoisonLevel = self.PoisonLevel
+		end
 		-- self.ParentObj:NpcSpeech(tostring(self.PoisonLevel))
 		self.CurrentPulse = self.CurrentPulse + 1
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
@@ -98,6 +101,11 @@ MobileEffectLibrary.Poison =
 		else
 			self.ParentObj:SendMessage("ProcessMagicDamage", self.Target, math.random(self.MinDamage, self.MaxDamage))
 		end
+	end,
+
+	DoMessages = function (self, root) 
+		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
+		self.ParentObj:NpcSpeech(tostring("[00FF00]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
 	end,
 
 	PoisonMessageVictim = {
@@ -121,5 +129,6 @@ MobileEffectLibrary.Poison =
 	CurrentPulse = 0,
 	MinDamage = 1,
 	MaxDamage = 3,
-	PoisonLevel = 1
+	PoisonLevel = 1,
+	LastPoisonLevel = 0
 }
