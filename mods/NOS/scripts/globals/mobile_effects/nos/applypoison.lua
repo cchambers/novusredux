@@ -2,7 +2,12 @@ MobileEffectLibrary.ApplyPoison =
 {
 	OnEnterState = function(self,root,target,args)
 		-- on target, check EDGED, FOOD, or DRINK...
-			
+		if not( IsInBackpack(target, self.ParentObj) ) then
+			self.ParentObj:SystemMessage("That must be in your backpack to poison.","info")
+			EndMobileEffect(root)
+			return false
+		end
+
 			local canPoison = {
 				Dagger = true,
 				Poniard = true,
