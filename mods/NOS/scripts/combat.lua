@@ -137,11 +137,12 @@ function PerformWeaponAttack(atTarget, hand)
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
 			local chanceOverride = 100
+			local chance = 0
 			if not (this:HasTimer("OutOfArrows")) then
-				local chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 3) * 0.01)
-				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill", nil, chance)
+				chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 2) * 0.01)
+				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
 			end
-			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
+			ExecuteRangedWeaponAttack(atTarget, hand, chance)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
 		end
