@@ -78,7 +78,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							Price = 0,
 							Amount = 20,
 							RelativeLoc = "1.041016, -0.02499962, -2.738037",
@@ -86,7 +86,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "potion_lstamina",
+							Template = "lesser_stamina_potion",
 							Price = 0,
 							Amount = 20,
 							RelativeLoc = "1.693848, -0.02499962, -2.251038",
@@ -94,7 +94,7 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "potion_lmana",
+							Template = "lesser_mana_potion",
 							Price = 0,
 							Amount = 20,
 							RelativeLoc = "2.36084, -0.01799965, -1.762024",

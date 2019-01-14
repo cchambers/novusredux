@@ -8,6 +8,7 @@
 		<StringVariable Name="ResourceType">PotionNOSLesserCure</StringVariable>
 		<StringVariable Name="PluralName">Lesser Cure Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
+		<DoubleVariable Name="CureLevel">1</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

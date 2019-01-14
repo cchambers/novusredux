@@ -272,7 +272,7 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Archery determines your effectiveness with a bow and arrow.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.3,
+			GainFactor = 0.8,
 		},
 		DetectHiddenSkill = {
 			DisplayName = "Detect Hidden",
@@ -287,11 +287,9 @@ SkillData = {
 			DisplayName = "Poisoning",
 			SkillIcon = "Poison",
 			PrimaryStat = "Intelligence",
-			Description = "Poison food or a weapon.",
+			Description = "Poison a bladed weapon.",
 			SkillType = "TradeTypeSkill",
-			Abilities = { "ApplyPoison" },
-			GainFactor = 0.7,
-			Skip = true
+			GainFactor = 0.7
 		},
 		HidingSkill = {
 			DisplayName = "Hiding",
@@ -341,6 +339,13 @@ SkillData = {
 			SkillType = "TradeTypeSkill",
 			SkillIcon = "Skill_Inscription",
 			GainFactor = 0.5,
+		},
+		HarvestingSkill = {
+			DisplayName = "Harvesting",
+			PrimaryStat = "Wisdom",
+			Description = "Your experience improves your abilities when harvesting.",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.4,
 		},
 		--[[StealingSkill = {
 			DisplayName = "Stealing",

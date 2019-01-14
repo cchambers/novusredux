@@ -137,10 +137,12 @@ function PerformWeaponAttack(atTarget, hand)
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
 			local chanceOverride = 100
+			local chance = 0
 			if not (this:HasTimer("OutOfArrows")) then
+				chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 2) * 0.01)
 				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
 			end
-			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
+			ExecuteRangedWeaponAttack(atTarget, hand, chance)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
 		end
@@ -653,6 +655,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			finalDamage = finalDamage * damageLevel
 			if (shouldResist) then
 				-- successful magic resist, reduce damage by up to 40%
+				victim:NpcSpeech("[1CB1DC]*resist*[-]")
 				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
 			end
 
@@ -721,13 +724,17 @@ function ApplyDamageToTarget(victim, damageInfo)
 					if (charges < 0) then
 						damageInfo.Source:DelObjVar("PoisonLevel")
 						damageInfo.Source:DelObjVar("PoisonCharges")
-						damageInfo.Attacker:SystemMessage("Your weapon is no longer poisoned.")
+						RemoveTooltipEntry(damageInfo.Source,"poisoned")
+						damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
 					else
 						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
-						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel)
+						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel, true)
 						if (chanceToPoison) then
 							damageInfo.Source:SetObjVar("PoisonCharges", charges)
-							-- KHI TODO: START POISON EFFECT
+							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
+							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
+								PoisonLevel = poisonLevel
+							})
 						end
 					end
 				end

@@ -198,18 +198,27 @@ MobileEffectLibrary.HuntingKnife =
 
     CreateBlackpearl = function(self,root)
         local blackpearlChance = math.random(0,10)
-        if(blackpearlChance > 6) then
+
+        -- approx 50% chance to get blackpearls from 1 to 3.
+        if(blackpearlChance > 5) then
             local backpackObj = self.Backpack
             local resourceType = "Blackpearl"
             if( backpackObj ~= nil ) then		
-                -- DAB TODO: If we want to add a skill back in here we need to grab the code from one of the other tools
-                local stackAmount = math.random(1,3)
+                -- TODO - VERLORENS Add in difficulty to harvestinging checks, requires adding difficulty to each plant.. necessary?
+                --if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
+                local harvestingSkill = GetSkillLevel(self.ParentObj, "HarvestingSkill")
+                
+                -- Max number of goods per harvesting skill:
+                -- Skill:   0   20  40  60  80  100
+                -- # Goods: 1   1   2   2   3   3
+                local maxAmount = math.floor((harvestingSkill / 40) + 1)
+                local stackAmount = math.random(1, maxAmount)
         
-                if (resourceType == nil) then return end
+                CheckSkillChance(self.ParentObj,"HarvestingSkill")
 
                 -- try to add to the stack in the players pack		
                 if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
-                    -- no stack in players pack so create an object in the pack    	
+                    -- no stack in players pack so create an object in the pack
                     local templateId = ResourceData.ResourceInfo[resourceType].Template
                     CreateObjInBackpackOrAtLocation(self.ParentObj, templateId, "create_foraging_harvest", stackAmount)
                 end

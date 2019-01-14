@@ -2336,6 +2336,60 @@ AlchemySkill = {
 			},
 		},
 
+		-- CURE --
+		LesserPoisonPotion = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 84,
+			DisplayName = "Lesser Poison Potion",
+			NeedRecipe = false,
+			Description = "Poison!",
+			CraftingTemplateFile = "lesser_poison_potion",
+			Category = "Potions",
+			Subcategory = "LesserPotions",
+			Resources = {
+				Nightshade = 1
+			},
+		},
+		RegularPoisonPotion = {
+			MinLevelToCraft = 82,
+			MaxLevelToGain = 90,
+			DisplayName = "Poison Potion",
+			NeedRecipe = false,
+			Description = "Poison!",
+			CraftingTemplateFile = "regular_poison_potion",
+			Category = "Potions",
+			Subcategory = "RegularPotions",
+			Resources = {
+				Nightshade = 3
+			},
+		},
+		GreaterPoisonPotion = {
+			MinLevelToCraft = 89,
+			MaxLevelToGain = 94,
+			DisplayName = "Greater Poison Potion",
+			NeedRecipe = false,
+			Description = "Poison!",
+			CraftingTemplateFile = "greater_poison_potion",
+			Category = "Potions",
+			Subcategory = "GreaterPotions",
+			Resources = {
+				Nightshade = 7
+			},
+		},
+		SuperiorPoisonPotion = {
+			MinLevelToCraft = 98,
+			MaxLevelToGain = 100,
+			DisplayName = "Superior Poison Potion",
+			NeedRecipe = false,
+			Description = "Poison!",
+			CraftingTemplateFile = "superior_poison_potion",
+			Category = "Potions",
+			Subcategory = "SuperiorPotions",
+			Resources = {
+				Nightshade = 12
+			},
+		},
+
 
 		-- DYES--
 		--[[DyeYellow = {

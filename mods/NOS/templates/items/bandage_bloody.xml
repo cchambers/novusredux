@@ -4,7 +4,6 @@
 	<Hue>860</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<!-- Stackable objvars -->
 		<StringVariable Name="ResourceType">BloodyBandage</StringVariable>
 		<StringVariable Name="PluralName">Bloody Bandages</StringVariable>
 		<DoubleVariable Name="UnitWeight">0.15</DoubleVariable>

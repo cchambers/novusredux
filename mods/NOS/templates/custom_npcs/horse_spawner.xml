@@ -17,9 +17,9 @@
 						{ Weight = 20, Template = "cultist_horse" },
 						{ Weight = 10, Template = "black_horse" },
 						{ Weight = 4, Template = "void_horse" },
-						{ Weight = 0.5, Template = "horse_nightmare" },
-						{ Weight = 0.5, Template = "silver_steed" },
-						{ Weight = 0.5, Template = "brazen_bronco" },
+						{ Weight = 0.33, Template = "horse_nightmare" },
+						{ Weight = 0.33, Template = "horse_silver_steed" },
+						{ Weight = 0.33, Template = "horse_brazen_bronco" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

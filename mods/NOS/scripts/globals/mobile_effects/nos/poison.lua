@@ -14,6 +14,20 @@ MobileEffectLibrary.Poison =
 		self.PulseMax = args.PulseMax or self.PulseMax
 		self.MinDamage = args.MinDamage or self.MinDamage
 		self.MaxDamage = args.MaxDamage or self.MaxDamage
+		self.PoisonLevel = args.PoisonLevel or 1
+
+		-- CONFIGURE DAMAGE --
+		if (self.PoisonLevel > 1) then
+			self.MinDamage = self.MinDamage * self.PoisonLevel
+			self.MaxDamage = self.MaxDamage * self.PoisonLevel
+		end
+		
+		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
+
+		local resistance = GetSkillLevel(target, "PoisoningSkill")
+		resistance = (100 - (resistance * 0.2)) * 0.01
+		self.MaxDamage = self.MaxDamage * resistance
+
 		SetMobileMod(self.ParentObj, "HealingReceivedTimes", "Poison", -0.50)
 		if ( self.ParentObj:IsPlayer() ) then
 			AddBuffIcon(self.ParentObj, "PoisonDebuff", "Poisoned", "Poison Cloud", self.MinDamage.."-"..self.MaxDamage.." damage every "..self.PulseFrequency.Seconds.." seconds." .. "\nReduced healing received.", true)
@@ -30,6 +44,17 @@ MobileEffectLibrary.Poison =
 			self.ParentObj:PlayAnimation("impale")
 		end
 
+		-- self.ParentObj:SendMessage("ReducePoisonEffect", args.PoisonLevelReduction)
+
+		RegisterEventHandler(EventType.Message, "ReducePoisonEffect", 
+			function (amount)
+				self.PoisonLevel = self.PoisonLevel - amount
+				if (self.PoisonLevel <= 0) then
+					self.ParentObj:SendMessage("EndPoisonEffect")
+					self.ParentObj:SystemMessage("You are cured!", "info")
+				end
+		end)	
+		
 		AdvanceConflictRelation(target, self.ParentObj)
 	end,
 
@@ -38,15 +63,35 @@ MobileEffectLibrary.Poison =
 		if ( self.ParentObj:IsPlayer() ) then
 			RemoveBuffIcon(self.ParentObj, "PoisonDebuff")
 		end
+		
+		UnregisterEventHandler("", EventType.Message, "ReducePoisonEffect")
 		self.ParentObj:StopEffect("PoisonSpellEffect")
 		self.ParentObj:StopEffect("StatusEffectPoison")
 	end,
 
 	GetPulseFrequency = function(self,root)
+		
+		local resistance = GetSkillLevel(self.Target, "PoisoningSkill")
+		resistance = (100 - (resistance * 0.2)) * 0.01
+		self.MaxDamage = self.MaxDamage * resistance
+
+		-- CONFIGURE FREQUENCY -- 
+		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
+			self.PulseFrequency = TimeSpan.FromSeconds(self.PoisonLevel + 1)
+		elseif (self.PoisonLevel > 5) then
+			self.PulseFrequency = TimeSpan.FromSeconds(self.PoisonLevel - 1)
+		end
 		return self.PulseFrequency
 	end,
 
 	AiPulse = function(self,root)
+		self.MinDamage = 1 * self.PoisonLevel
+		self.MaxDamage = 3 * self.PoisonLevel
+		if (self.LastPoisonLevel ~= self.PoisonLevel) then
+			self.DoMessages(self, root)
+			self.LastPoisonLevel = self.PoisonLevel
+		end
+		-- self.ParentObj:NpcSpeech(tostring(self.PoisonLevel))
 		self.CurrentPulse = self.CurrentPulse + 1
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
@@ -55,9 +100,32 @@ MobileEffectLibrary.Poison =
 		end
 	end,
 
-	PulseFrequency = TimeSpan.FromSeconds(6),
+	DoMessages = function (self, root) 
+		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
+		self.ParentObj:NpcSpeech(tostring("[00FF00]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
+	end,
+
+	PoisonMessageVictim = {
+		"You feel a bit nauseous.",
+		"You feel disoriented and nauseous.",
+		"You begin to feel pain throughout your body.",
+		"You feel extremely weak and are in severe pain.",
+		"You are in extreme pain, and require immediate aid.",
+	},
+
+	PoisonMessageAll = {
+		"*looks ill*",
+		"*looks extremely ill*",
+		"*stumbles around in pain and confusion*",
+		"*is wracked with extreme pain*",
+		"*begins to spasm uncontrollably*",
+	},
+
+	PulseFrequency = TimeSpan.FromSeconds(2),
 	PulseMax = 8,
 	CurrentPulse = 0,
 	MinDamage = 1,
-	MaxDamage = 3
+	MaxDamage = 3,
+	PoisonLevel = 1,
+	LastPoisonLevel = 0
 }

@@ -1,19 +1,52 @@
 MobileEffectLibrary.ApplyPoison = 
 {
 	OnEnterState = function(self,root,target,args)
-		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Poison.Apply",
-		function (target)
-			if (target) then
-			-- on target, check EDGED, FOOD, or DRINK...
-			-- target:SetObjVar("PoisonLevel", self.PoisonLevel)
-			-- target:SetObjVar("PoisonCharges", self.PoisonCharges)
-			-- consume poison
+		-- on target, check EDGED, FOOD, or DRINK...
+			
+			local canPoison = {
+				Dagger = true,
+				Poniard = true,
+				Kryss = true,
+				BoneDagger = true,
+				Warfork = true,
+				Voulge = true,
+				Spear = true,
+				Halberd = true,
+				Scythe = true,
+				Broadsword = true,
+				Longsword = true,
+				Saber = true,
+				Katana = true,
+				LargeAxe = true,
+				GreatAxe = true
+			}
+
+			local weaponType = target:GetObjVar("WeaponType")
+			local isPoisoned = target:GetObjVar("PoisonCharges")
+			local skillLevel = GetSkillLevel(self.ParentObj, "PoisoningSkill")
+			if (canPoison[weaponType] == true and isPoisoned == nil) then
+				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill", skillLevel / args.PoisonLevel)
+				if (success) then
+					target:SetObjVar("PoisonLevel", args.PoisonLevel)
+					target:SetObjVar("PoisonCharges", math.random(3, math.max(skillLevel / 10, 5)))
+					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
+					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!")
+				else 
+					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.")
+				end
+			else 
+				if (isPoisoned ~= nil) then
+					self.ParentObj:SystemMessage("That is already poisoned.")
+					EndMobileEffect(root)
+					return false
+				end
+				self.ParentObj:SystemMessage("That cannot be poisoned.")
+				EndMobileEffect(root)
+				return false
 			end
-		end)
-	self.ParentObj:SystemMessage("What do you wish to poison?", "info")
-	self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "Poison.Apply")
-		EndMobileEffect(root)
-	end,
+
+			EndMobileEffect(root)
+		end,
 
 	OnExitState = function(self,root)
 

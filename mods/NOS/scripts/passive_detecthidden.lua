@@ -12,7 +12,8 @@ function DoRevealStuff()
 		GameObj(0)
 	)
 	for i, v in pairs(mobiles) do
-		if (not IsDead(v) and (v ~= this)) then
+		if (not IsDead(v) and (v ~= this) and not(ShareKarmaGroup(v, this))) then
+			-- IF NOT IN GROUP
 			if (HasMobileEffect(v, "Hide")) then
 				v:SendMessage("StartMobileEffect", "Revealed")
 			end

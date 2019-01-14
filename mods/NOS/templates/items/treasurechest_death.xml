@@ -62,9 +62,9 @@
 					    	NumItems = 10,
 					    	LootItems =
 					    	{
-				    			{ Weight = 5, Template = "potion_gmana", Unique = true },
-				    			{ Weight = 5, Template = "potion_gstamina", Unique = true },
-				    			{ Weight = 5, Template = "potion_gheal", Unique = true },
+				    			{ Weight = 5, Template = "greater_mana_potion", Unique = true },
+				    			{ Weight = 5, Template = "greater_stamina_potion", Unique = true },
+				    			{ Weight = 5, Template = "greater_health_potion", Unique = true },
 				    			{ Weight = 5, Template = "potion_cure", Unique = true },
 				    		}
 			    		},

@@ -288,3 +288,62 @@ ResourceEffectData.PotionNOSLesserCure = {
         "A level one Poison antidote.",
     }
 }
+
+
+-- POISON --
+ResourceEffectData.PotionNOSSuperiorPoison = {
+    MobileEffect = "ApplyPoison",
+    MobileEffectArgs = {
+        PoisonLevel = 4,
+    },
+    RequireSkill = {
+        PoisoningSkill = 100,
+    },
+    NoCombat = true,
+    QueueTarget = "Loc", 
+    Tooltip = {
+        "A level four Poison.",
+    }
+}
+
+ResourceEffectData.PotionNOSGreaterPoison = {
+    MobileEffect = "ApplyPoison",
+    RequireSkill = {
+        PoisoningSkill = 90,
+    },
+    MobileEffectArgs = {
+        PoisonLevel = 3,
+    },
+    NoCombat = true,
+    QueueTarget = "Loc", 
+    Tooltip = {
+        "A level three Poison.",
+    }
+}
+
+ResourceEffectData.PotionNOSRegularPoison = {
+    MobileEffect = "ApplyPoison",
+    RequireSkill = {
+        PoisoningSkill = 65,
+    },
+    MobileEffectArgs = {
+        PoisonLevel = 2,
+    },
+    NoCombat = true,
+    QueueTarget = "Loc", 
+    Tooltip = {
+        "A level two Poison.",
+    }
+}
+
+ResourceEffectData.PotionNOSLesserPoison = {
+    MobileEffect = "ApplyPoison",
+    MobileEffectArgs = {
+        PoisonLevel = 1,
+    },
+    NoCombat = true,
+    QueueTarget = "Loc", 
+    Tooltip = {
+        "A level one Poison.",
+    }
+}
