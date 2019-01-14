@@ -272,7 +272,7 @@ SkillData = {
 			PrimaryStat = "Strength",
 			Description = "Archery determines your effectiveness with a bow and arrow.",
 			SkillType = "CombatTypeSkill",
-			GainFactor = 0.3,
+			GainFactor = 0.8,
 		},
 		DetectHiddenSkill = {
 			DisplayName = "Detect Hidden",
