@@ -23,9 +23,9 @@ MobileEffectLibrary.Poison =
 		end
 
 		self.ParentObj:SystemMessage(self.PoisonMessageVictim[self.PoisonLevel])
-		self.ParentObj:NpcSpeech(string.format(self.PoisonMessageAll[self.PoisonLevel], self.ParentObj:GetName()))
+		self.ParentObj:NpcSpeech(tostring("[c0c0c0]" .. self.PoisonMessageAll[self.PoisonLevel] .. "[-]"))
 
-		-- POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
+		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 		
 
 		local resistance = GetSkillLevel(target, "PoisoningSkill")
@@ -109,11 +109,11 @@ MobileEffectLibrary.Poison =
 	},
 
 	PoisonMessageAll = {
-		"%s looks ill.",
-		"%s looks extremely ill.",
-		"%s stumbles around in pain and confusion.",
-		"%s is wracked with extreme pain.",
-		"%s begins to spasm uncontrollably.",
+		"*looks ill*",
+		"*looks extremely ill*",
+		"*stumbles around in pain and confusion*",
+		"*is wracked with extreme pain*",
+		"*begins to spasm uncontrollably*",
 	},
 
 	PulseFrequency = TimeSpan.FromSeconds(2),
