@@ -44,7 +44,7 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 			SearchObjVar("spawnTemplate","plant_cotton"),
 		}))
 		if( not nearbyFarmCotton ) then
-			CheckSkilChance(user, "HarvestingSkill", HarvestingSkill, 0.5)
+			CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.5)
 		-- else
 		-- 	DebugMessage("ResourceSourceId: "..tostring(nearbyFarmCotton:GetObjVar("ResourceSourceId")))
 		-- 	DebugMessage("spawnTemplate: "..tostring(nearbyFarmCotton:GetObjVar("spawnTemplate")))
