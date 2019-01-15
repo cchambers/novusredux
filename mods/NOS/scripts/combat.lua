@@ -655,7 +655,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			finalDamage = finalDamage * damageLevel
 			if (shouldResist) then
 				-- successful magic resist, reduce damage by up to 40%
-				victim:NpcSpeech("[1CB1DC]*resist*[-]")
+				victim:NpcSpeechToUser("[1CB1DC]*resist*[-]", damageInfo.Attacker)
 				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
 			end
 

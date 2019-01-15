@@ -2214,8 +2214,8 @@ AlchemySkill = {
 			},
 		},
 		SuperiorStaminaPotion = {
-			MinLevelToCraft = 58,
-			MaxLevelToGain = 83,
+			MinLevelToCraft = 72,
+			MaxLevelToGain = 92,
 			DisplayName = "Superior Stamina Potion",
 			NeedRecipe = false,
 			Description = "A potion that restores a huge amount of stamina. ",

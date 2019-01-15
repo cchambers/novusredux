@@ -25,7 +25,7 @@ function OnDeathStart()
 	-- gray out screen
 	this:PlayLocalEffect(this,"GrayScreenEffect")
 	this:PlayMusic("Death")
-	this:SetCloak(true)
+	this:SendMessage("AddInvisEffect", "player_death")
 
 	this:SystemMessage("[D70000]You have died and lost a little fame![-]","info")
 	this:SystemMessage("[$1681]")
@@ -317,11 +317,9 @@ function TurnPlayerIntoGhost(shouldHueEquipment)
 		if (state) then 
 			this:SystemMessage("You can be seen by the living.")
 			this:SendMessage("BreakInvisEffect", "player_death")
-			this:SetCloak(false)
 		else 
 			this:SystemMessage("You are invisible to the living world. Toggle combat mode to be seen.")
 			this:SendMessage("AddInvisEffect", "player_death")
-			this:SetCloak(true)
 		end
 	end)
 	
