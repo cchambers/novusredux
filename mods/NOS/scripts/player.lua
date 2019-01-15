@@ -433,15 +433,8 @@ function UpdateName()
 	this:SetSharedObjectProperty("DisplayName", charName)
 end
 
--- local http = LoadExternalModule("http")
-
 function OnLoad(isPossessed)
-	-- local id = this.Id
-	-- local name = this:GetName()
-	-- local url = tostring("http://localhost:1337/api/player/update/"..id.."/"..name.."")
-	-- DebugMessage(url)
-	-- local test = http.request(url)
-
+	Totem(this, "update")
 	-- Logged out Incognito
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
