@@ -31,15 +31,24 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		local stackAmount = math.random(1, maxAmount)
 		-- DebugMessage('maxAmount: '..tostring(maxAmount)..', stackAmount:'..tostring(stackAmount))
 
-		-- Remove the ability to level from the continuously spawning cotton farms.
-		-- This isn't the end goal I want, but a shortstop.  I want to remove existing npc farms from giving skill gain.
 		local spawnerObj = this:GetObjVar("Spawner")
+
 		if(spawnerObj) then
 			spawnerObj:SendMessage("MobHasDied",this)
 		end		
-		
-		if(resourceType ~= "Cotton") then
-			CheckSkillChance(user,"HarvestingSkill")
+
+		-- Remove the ability to level from the continuously spawning cotton farms.
+		local nearbyFarmCotton = FindObject(SearchMulti(
+		{
+			SearchRange(user:GetLoc(), 4),
+			SearchObjVar("spawnTemplate","plant_cotton"),
+		}))
+		if( not nearbyFarmCotton ) then
+			CheckSkilChance(user, "HarvestingSkill", HarvestingSkill, 0.5)
+		-- else
+		-- 	DebugMessage("ResourceSourceId: "..tostring(nearbyFarmCotton:GetObjVar("ResourceSourceId")))
+		-- 	DebugMessage("spawnTemplate: "..tostring(nearbyFarmCotton:GetObjVar("spawnTemplate")))
+		-- 	DebugMessage("spawnDelay: "..tostring(nearbyFarmCotton:GetObjVar("spawnDelay")))
 		end
 
 		-- see if the user gets an upgraded version
@@ -47,9 +56,9 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		if (resourceType == nil) then return end
 			--DebugMessage("ResType:" .. resourceType)
     		--DebugTable(ResourceData.ResourceInfo[resourceType])
-		-- try to add to the stack in the players pack		
+			-- try to add to the stack in the players pack
     	if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
-    		-- no stack in players pack so create an object in the pack    	
+    		-- no stack in players pack so create an object in the pack
         	local templateId = ResourceData.ResourceInfo[resourceType].Template
     		CreateObjInBackpackOrAtLocation(user, templateId, "create_foraging_harvest", stackAmount)
     	end
