@@ -179,21 +179,33 @@ MobileEffectLibrary.HuntingKnife =
     end,
 
     CreateFillet = function(self,root,amount)
-        local added, addtostackreason = TryAddToStack(self.TemplateData.ObjectVariables.ResourceType or "FishFillet", self.Backpack, amount)
+        local localAmount = self.CheckFilletAmount(self.ParentObj, amount)
+        local added, addtostackreason = TryAddToStack(self.TemplateData.ObjectVariables.ResourceType or "FishFillet", self.Backpack, localAmount)
         if ( added ) then
-            self.OnSuccess(self, amount)
+            self.OnSuccess(self, localAmount)
         else
             if ( addtostackreason == "Weight" ) then
                 self.ParentObj:SystemMessage("Backpack cannot hold anymore.", "info")
-                Create.Stack.AtLoc(self.CutToFillet, amount, self.ParentObj:GetLoc(), function(obj)
-                    if ( obj ) then self.OnSuccess(self, amount) end
+                Create.Stack.AtLoc(self.CutToFillet, localAmount, self.ParentObj:GetLoc(), function(obj)
+                    if ( obj ) then self.OnSuccess(self, localAmount) end
                 end)
             else
-                Create.Stack.InBackpack(self.CutToFillet, self.ParentObj, amount, nil, function(obj)
-                    if ( obj ) then self.OnSuccess(self, amount) end
+                Create.Stack.InBackpack(self.CutToFillet, self.ParentObj, localAmount, nil, function(obj)
+                    if ( obj ) then self.OnSuccess(self, localAmount) end
                 end)
             end
         end
+    end,
+
+    CheckFilletAmount = function(user, amount)
+        -- Chance to get 1 extra fillet out of fish level 75 and above.
+        local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
+        if ( harvestingSkill > 75 ) then
+            local maxBonus = math.floor((harvestingSkill / 75) * amount)
+            local additional = math.random(0, maxBonus)
+            return amount + additional
+        end
+        return amount
     end,
 
     CreateBlackpearl = function(self,root)
