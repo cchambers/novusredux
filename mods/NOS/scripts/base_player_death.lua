@@ -145,7 +145,6 @@ function TurnNearbyMossIntoBloodMoss()
 			SearchObjVar("ResourceSourceId","Moss"),
 		}))
 	for i,j in pairs(nearbyMoss) do
-		DebugMessage(j)
 		CreateObj("plant_bloodmoss",j:GetLoc())
 		j:Destroy()
 	end
