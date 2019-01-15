@@ -433,7 +433,7 @@ function UpdateName()
 	this:SetSharedObjectProperty("DisplayName", charName)
 end
 
-local http = LoadExternalModule("http")
+-- local http = LoadExternalModule("http")
 
 function OnLoad(isPossessed)
 	-- local id = this.Id
