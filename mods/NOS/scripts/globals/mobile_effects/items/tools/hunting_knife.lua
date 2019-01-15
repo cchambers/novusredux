@@ -213,8 +213,12 @@ MobileEffectLibrary.HuntingKnife =
                 -- # Goods: 1   1   2   2   3   3
                 local maxAmount = math.floor((harvestingSkill / 40) + 1)
                 local stackAmount = math.random(1, maxAmount)
-        
-                CheckSkillChance(self.ParentObj,"HarvestingSkill")
+                
+                -- Yes still doing this the rough way, but it's nice to have that extra number.
+                -- No I'm not being vindictive here >.>
+                if(blackpearlChance >= 8) then
+                    CheckSkillChance(self.ParentObj,"HarvestingSkill")
+                end
 
                 -- try to add to the stack in the players pack		
                 if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
