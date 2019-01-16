@@ -130,8 +130,25 @@ RegisterEventHandler(EventType.CreatedObject, "created_corpse", function (succes
 
 			-- move all items from our backpack to the corpse.
 			TransferBackpackContentsToCorpse(objRef, dropFullLoot, backpack)
+			TurnNearbyMossIntoBloodMoss()
 		end		
 	end)
+
+function TurnNearbyMossIntoBloodMoss()
+	-- TODO - Verlorens - Globalize this call, so it's not in base_player_death.lua AND base_ai_mob.lua
+	-- TODO - Verlorens - Make it a more elegant way in which moss turns into bloodmoss.  
+	-- Right now it's set so if something dies close enough to it, it turns into bloodmoss.
+	-- Right now it's set so if ANY NPC dies.
+	local nearbyMoss = FindObjects(SearchMulti(
+		{
+			SearchRange(this:GetLoc(), 8),
+			SearchObjVar("ResourceSourceId","Moss"),
+		}))
+	for i,j in pairs(nearbyMoss) do
+		CreateObj("plant_bloodmoss",j:GetLoc())
+		j:Destroy()
+	end
+end
 
 function TransferBackpackContentsToCorpse(corpseContainer, dropFullLoot, backpack)
 	if ( backpack == nil ) then backpack = this:GetEquippedObject("Backpack") end
