@@ -350,6 +350,8 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         murders = murders + 1
         aggressor:SetObjVar("Murders", murders)
         aggressor:SendMessage("StartMobileEffect", "Chaotic")
+        -- KHI TOTEM
+        -- Totem(aggressor, "murder")
         if (not(HasMobileEffect(aggressor, "Murderer"))) then
             aggressor:SendMessage("StartMobileEffect", "Murderer")
         end

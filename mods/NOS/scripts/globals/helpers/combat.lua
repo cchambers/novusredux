@@ -15,20 +15,28 @@ ltn12 = LoadExternalModule("ltn12")
 function Totem(mobile, task)
     local id = mobile.Id
     local account = tostring(mobile:GetAttachedUserId())
+    local ip = tostring(mobile:GetIPAddress())
     local name = mobile:GetName()
     local api = tostring("http://localhost:1337/api/player/"..task)
     local payload = ""
 
-    if (task == "murders") then
+    if (task == "murder") then
         payload = [[ {"worldid": "]]..id..[["} ]]
     else
         -- default just updates player
         local skill = GetSkillTotal(mobile)
+        local playMinutes = mobile:GetObjVar("PlayMinutes")
+        local fame = mobile:GetObjVar("Fame")
+        local karma = mobile:GetObjVar("Karma")
         payload = [[ {
             "account": "]]..account..[[",
+            "ip": "]]..ip..[[",
             "worldid": "]]..id..[[",
             "name": "]]..name..[[",
             "skillTotal": ]]..skill..[[,
+            "playMinutes": ]]..playMinutes..[[,
+            "fame": ]]..fame..[[,
+            "karma": ]]..karma..[[,
             "murders": 0
         } ]]
     end
