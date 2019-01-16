@@ -434,7 +434,7 @@ function UpdateName()
 end
 
 function OnLoad(isPossessed)
-	Totem(this, "update")
+	if(Totem ~= nil) then Totem(this, "update") end
 	-- Logged out Incognito
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
