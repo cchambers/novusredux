@@ -5,7 +5,7 @@ function DoRevealStuff()
 		FindObjects(
 		SearchMulti(
 			{
-				SearchRange(mLoc, 4),
+				SearchRange(mLoc, 3),
 				SearchMobile()
 			}
 		),
@@ -23,4 +23,4 @@ function DoRevealStuff()
 end
 
 RegisterEventHandler(EventType.Timer, "GMDetectHidden", DoRevealStuff)
-this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"GMDetectHidden")
+this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"GMDetectHidden")
