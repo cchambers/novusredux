@@ -39,7 +39,7 @@ function Totem(mobile, task)
             "playMinutes": ]]..playMinutes..[[,
             "fame": ]]..fame..[[,
             "karma": ]]..karma..[[,
-            "staff": ]]..staff..[[
+            "staff": ]]..tostring(staff)..[[
         } ]]
     end
 
