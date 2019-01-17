@@ -37,7 +37,8 @@ function Totem(mobile, task)
             "skillTotal": ]]..skill..[[,
             "playMinutes": ]]..playMinutes..[[,
             "fame": ]]..fame..[[,
-            "karma": ]]..karma..[[
+            "karma": ]]..karma..[[,
+            "murders": 0
         } ]]
     end
 
