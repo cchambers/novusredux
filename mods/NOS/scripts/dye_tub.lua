@@ -80,7 +80,7 @@ RegisterEventHandler(
 		end
 
 		if (target:HasObjVar("WeaponType")) then
-			local weaponType = target:GetObjVar("ArmorType")
+			local weaponType = target:GetObjVar("WeaponType")
 			if (weaponType ~= "Spellbook") then dyeable = false end
 		end
 
