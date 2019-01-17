@@ -249,7 +249,6 @@ function PrimeSpell(spellName, spellSource)
 
 		if (IsPlayerCharacter(this)) then
 			local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName
-
 			this:SendClientMessage("StartCasting", myCastTime)
 			mCastingDisplayName = tostring(spellDisplayName)
 			this:SetObjVar("LastSpell", spellDisplayName)
@@ -902,6 +901,7 @@ end
 
 function CastSpell(spellName, spellSource, spellTarget)
 	Verbose("Magic", "CastSpell", spellName, spellSource, spellTarget)
+	RegisterSingleEventHandler(EventType.Message, "CombatToggled", CancelSpellCast)
 	if not (IsSpellEnabled(spellName, spellSource)) then
 		return
 	end
@@ -1050,6 +1050,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	local myTargType = GetSpellTargetType(spellName)
 	--DebugMessage("Target Type Set to " .. tostring(myTargType))
 
+	UnregisterEventHandler("", EventType.Message, "CombatToggled")
 	if (myTargType == "RequestTarget") then
 		-- disallow 'utility' spells
 		if (SpellData.AllSpells[spellName].SpellType ~= "BuffTypeSpell") then
@@ -1166,9 +1167,9 @@ end
 function DoFizzle(mobileObj)
 	mobileObj:NpcSpeech("*fizzle*", "combat")
 	mobileObj:PlayObjectSound("event:/animals/worm/worm_pain", false)
-	if (mobileObj:IsPlayer()) then
-		mobileObj:SystemMessage("Cast failed.", "info")
-	end
+	-- if (mobileObj:IsPlayer()) then
+	-- 	mobileObj:SystemMessage("Cast failed.", "info")
+	-- end
 end
 
 function HandleSpellTargeted(spellTarget)
@@ -1316,6 +1317,7 @@ function CancelSpellCast()
 	end
 	if (IsPlayerCharacter(this)) then
 		this:SendClientMessage("CancelSpellCast")
+		DoFizzle(this)
 		if (this:HasObjVar("LastSpell")) then
 			ProgressBar.Cancel("Casting " .. this:GetObjVar("LastSpell"), this)
 		end
@@ -1354,7 +1356,6 @@ RegisterEventHandler(
 )
 
 RegisterEventHandler(EventType.Message, "ScrollCastSpell", HandleScrollCastRequest)
-RegisterEventHandler(EventType.ClientUserCommand, "cancelspellcast", CancelSpellCast)
 RegisterEventHandler(EventType.Message, "CastSpellMessage", HandleSpellCastRequest)
 RegisterEventHandler(EventType.ClientUserCommand, "sp", HandleSpellCastCommand)
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "SelectSpellTarget", HandleSpellTargeted)

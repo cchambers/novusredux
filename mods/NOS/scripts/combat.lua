@@ -955,6 +955,7 @@ end
 --Actors
 mCombatMusicPlaying = false
 function SetInCombat(inCombat, force)
+	if (inCombat == false) then this:SendMessage("CombatToggled") end
 	
 	if (this:HasObjVar("NoGains")) then return end
 
