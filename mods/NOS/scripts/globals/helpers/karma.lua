@@ -343,7 +343,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
         if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
-    if (action == KarmaActions.Negative.Murder) then
+    if (action == KarmaActions.Negative.Murder and IsPlayerCharacter(aggressor)) then
         local aggressor = mobileA
         local victim = mobileB
         local murders = aggressor:GetObjVar("Murders") or 0
@@ -351,7 +351,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         aggressor:SetObjVar("Murders", murders)
         aggressor:SendMessage("StartMobileEffect", "Chaotic")
         -- KHI TOTEM
-        -- Totem(aggressor, "murder")
+        Totem(aggressor, "murder")
         if (not(HasMobileEffect(aggressor, "Murderer"))) then
             aggressor:SendMessage("StartMobileEffect", "Murderer")
         end
