@@ -7,6 +7,21 @@
 --          RarityPct - percent chance to get item with average skill
 --          Count (default 1) - number of resource available to be harvested
 
+local function CheckAmount(harvestingSkill, amount)
+	-- Quick handling of edge case of bosses dropping 7 vile leather on harvest.
+	if ( amount <= 5) then
+		if ( harvestingSkill > 90 ) then
+			local maxBonus = math.floor((harvestingSkill / 200) * amount)
+			--DebugMessage("CheckAmount:    amount: "..tostring(amount)..", harvestingSkill: "..tostring(harvestingSkill)..", maxBonus: "..tostring(maxBonus))
+			-- For some reason amount can come in at a negative value.. safety check on it.
+			if ( maxBonus < 0 ) then return amount end
+			local additional = math.random(0, maxBonus)
+			return amount + additional
+		end
+	end
+	return amount
+end
+
 function CleanupModule()
 	this:DelObjVar("ResourceSourceId")
 	this:DelObjVar("HarvestToolType")
@@ -28,6 +43,7 @@ function HarvestParts(user)
 	local resourcesToCreate = {}
 	local animalPartsDict = this:GetObjVar("AnimalParts")
 	local backpackObj = this:GetEquippedObject("Backpack")
+	local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
 	if(backpackObj) then
 		local partCount = 0
 		if(animalPartsDict) then
@@ -38,25 +54,28 @@ function HarvestParts(user)
 					local dropPos = GetRandomDropPosition(backpackObj)
 					
 					-- Used to see if any extra's are given thanks to the harvesting skill.
-					local amount = CheckAmount(user, count)
+					local amount = CheckAmount(harvestingSkill, count)
 			    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", amount)
-			    	partCount = partCount + count
+					partCount = partCount + count
+					--DebugMessage("templateId: "..tostring(templateId)..", amount: "..tostring(amount)..", partCount: "..tostring(partCount)..", resourceType: "..tostring(partInfo.ResourceType))
 				end
 			end
 		end
 
 		local meatCount = this:GetObjVar("MeatCount") or 0
-		if(meatCount > partCount) then
+		local meatAmount = CheckAmount(harvestingSkill, meatCount)
+		--DebugMessage("Meat:   partCount: "..tostring(partCount)..", meatCount: "..tostring(meatCount)..", meatAmount: "..tostring(meatAmount))
+		if(meatAmount > partCount) then
 			local meatType = this:GetObjVar("MeatType") or "MysteryMeat"
 			local templateId = ResourceData.ResourceInfo[meatType].Template
 			local dropPos = GetRandomDropPosition(backpackObj)
 
 			-- Used to see if any extra's are given thanks to the harvesting skill.
-			local amount = CheckAmount(user, partCount - meatCount)
-	    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", amount)
+			--local amount = CheckAmount(user, partCount - meatAmount)
+	    	CreateObjInContainer(templateId, backpackObj, dropPos, "create_part", meatAmount)
 		end
 		
-		if(partCount > 0 or meatCount > 0) then
+		if(partCount > 0 or meatAmount > 0) then
 			user:SystemMessage("You harvest some materials from the corpse.","info")
 			backpackObj:SendOpenContainer(user)
 			this:SetObjVar("lootable",true) 
@@ -73,19 +92,6 @@ function HarvestParts(user)
 	CallFunctionDelayed(TimeSpan.FromSeconds(3),function ( ... )
 		this:DelModule("animal_parts")
 	end)	
-end
-
-function CheckAmount(user, amount)
-	local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
-	-- Quick handling of edge case of bosses dropping 7 vile leather on harvest.
-	if ( amount <= 5) then
-		if ( harvestingSkill > 90 ) then
-			local maxBonus = math.floor((harvestingSkill / 200) * amount)
-			local additional = math.random(0, maxBonus)
-			return amount + additional
-		end
-	end
-	return amount
 end
 
 RegisterEventHandler(EventType.CreatedObject,"create_part",
