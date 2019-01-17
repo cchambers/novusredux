@@ -1,6 +1,7 @@
 
 require 'default:base_ai_mob'
 --handles when died
+UnregisterEventHandler("", EventType.Message,"HasDiedMessage")
 RegisterEventHandler(EventType.Message,"HasDiedMessage",
     function ()
         SetAITarget(nil)
