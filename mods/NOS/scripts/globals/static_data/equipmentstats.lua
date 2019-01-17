@@ -479,6 +479,7 @@ EquipmentStats = {
 				ManaRegenModifier = 1
 			}
 		},
+		
 		Light = {
 			Head = {
 				AgiBonus = -1,
@@ -496,6 +497,7 @@ EquipmentStats = {
 				ManaRegenModifier = 0.5
 			}
 		},
+
 		Heavy = {
 			Head = {
 				AgiBonus = -3,
