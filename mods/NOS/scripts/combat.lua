@@ -884,7 +884,7 @@ function InitiateCombatSequence()
 			if (compare) then 
 				this:SystemMessage("You almost attacked your pet! Close one.", "info")
 				this:SendMessage("EndCombatMessage")
-				return
+				return false
 			end
 		end
 	end
