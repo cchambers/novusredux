@@ -28,6 +28,7 @@ function Totem(mobile, task)
         local playMinutes = mobile:GetObjVar("PlayMinutes")
         local fame = mobile:GetObjVar("Fame")
         local karma = mobile:GetObjVar("Karma")
+
         payload = [[ {
             "account": "]]..account..[[",
             "ip": "]]..ip..[[",
@@ -36,8 +37,7 @@ function Totem(mobile, task)
             "skillTotal": ]]..skill..[[,
             "playMinutes": ]]..playMinutes..[[,
             "fame": ]]..fame..[[,
-            "karma": ]]..karma..[[,
-            "murders": 0
+            "karma": ]]..karma..[[
         } ]]
     end
 

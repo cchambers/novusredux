@@ -17,6 +17,7 @@ function OnDeathStart()
 
 	local fame = this:GetObjVar("Fame") or 0
 	fame = fame - (fame * 0.25)
+	fame = math.round(fame, 0)
 	this:SetObjVar("Fame", fame)
 
 
