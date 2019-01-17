@@ -81,6 +81,10 @@ function HarvestParts(user)
 			this:SetObjVar("lootable",true) 
 			CheckSkillChance(user,"HarvestingSkill", GetSkillLevel(user), 0.10)
 			SetDefaultInteraction(this,"Open Pack")
+			
+			SetMobileMod(user,"Busy","BusyHarvesting")
+			user:DelObjVar("HarvestingTool")
+			user:DelObjVar("IsHarvesting")
 		else
 			user:SystemMessage("You were not able to harvest anything","info")
 			SetDefaultInteraction(this,"Use")
