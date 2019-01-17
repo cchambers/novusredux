@@ -27,6 +27,7 @@ function HandleLoaded(caster)
 		this:SystemMessage("Your agility has increased by " .. mAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end 
 
 function CleanUp()

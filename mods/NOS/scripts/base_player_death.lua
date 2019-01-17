@@ -15,6 +15,8 @@ function OnDeathStart()
 		this:DelObjVar("MagicReflection")
 	end
 
+	this:SendMessage("NOSDebuff")
+
 	local fame = this:GetObjVar("Fame") or 0
 	fame = fame - (fame * 0.25)
 	fame = math.round(fame, 0)

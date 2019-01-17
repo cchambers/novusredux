@@ -29,6 +29,7 @@ function HandleLoaded(caster)
 		this:SystemMessage("Cursed! Your stats have decresed by " .. mAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end 
 
 function CleanUp()
