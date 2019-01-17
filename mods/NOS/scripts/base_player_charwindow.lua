@@ -139,7 +139,8 @@ function UpdateCharacterWindow(targetObj)
 		curY = curY + 20
 		AddStatEntry(leftSubwindow,curY,targetObj,"Con","Constitution","[$3363]",statGainStatus)
 		curY = curY + 20
-		AddStatEntry(leftSubwindow,curY,targetObj,"Wis","Wisdom","[$3364]",statGainStatus)
+		--AddStatEntry(leftSubwindow,curY,targetObj,"Wis","Wisdom","[$3364]",statGainStatus)
+		AddStatEntry(leftSubwindow,curY,targetObj,"Wis","Wisdom","Determines your wisdom of the world.",statGainStatus)
 		curY = curY + 20
 		AddStatEntry(leftSubwindow,curY,targetObj,"Will","Will","[$3365]",statGainStatus)
 

@@ -3,92 +3,92 @@
 	<Color>0xFF00FF00</Color>
 	<Name>Map Spawn Controller</Name>
 	<Tag>MapSpawnController</Tag>
-	<ObjectVariableComponent/>			
+	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
 		<LuaModule Name="spawn_controller">
 			<Initializer>
 				{
 					SpawnInfo = {
-						--Dry Lake	
-						{ Count = 16, TemplateId =  "scorpion", Region = "BarrensDryLake" },  
-						{ Count = 9, TemplateId =  "scorpion_skull", Region = "BarrensDryLake" }, 
+						--Dry Lake
+						{ Count = 16, 	TemplateId =  "scorpion", 						Region = "BarrensDryLake" 	},
+						{ Count = 9, 	TemplateId =  "scorpion_skull", 				Region = "BarrensDryLake" 	},
 
 						--Barrens Mesa
-						--{ Count = 8, TemplateId = "beetle_titan",  Region = "BarrensMesa1" },
-						{ Count = 20, TemplateId = "beetle_giant",  Region = "BarrensMesa1" },
+						{ Count = 2, 	TemplateId = "beetle_titan",  					Region = "BarrensMesa1", 	DelayMin=10, 	Chance=10, 						SpawnDuration = 18 },
+						{ Count = 20, 	TemplateId = "beetle_giant",  					Region = "BarrensMesa1" 	},
 
 						--Gazer Island
-						{ Count = 3, TemplateId =  "half_gazer", Region = "GazerIsland1" },  
-						{ Count = 3, TemplateId =  "half_gazer", Region = "GazerIsland2" },
-						{ Count = 3, TemplateId =  "half_gazer", Region = "GazerIsland3" },
-						{ Count = 3, TemplateId =  "gazer", Region = "GazerIsland4" },
-						{ Count = 1, TemplateId = "gazer_hq",    Region = "GazerIsland4", DelayMin=4, Chance=3},
+						{ Count = 3, 	TemplateId = "half_gazer", 						Region = "GazerIsland1" 	},
+						{ Count = 3, 	TemplateId = "half_gazer", 						Region = "GazerIsland2" 	},
+						{ Count = 3, 	TemplateId = "half_gazer", 						Region = "GazerIsland3" 	},
+						{ Count = 3, 	TemplateId = "gazer", 							Region = "GazerIsland4" 	},
+						{ Count = 1, 	TemplateId = "gazer_hq", 						Region = "GazerIsland4", 	DelayMin=4, 	Chance=3 	},
 
 						--Oasis Graveyard
-						{ Count = 4, TemplateId =  "skeleton", Region = "OasisGraveyard" },  
-						{ Count = 4, TemplateId =  "zombie", Region = "OasisGraveyard" },
-						{ Count = 1, TemplateId = "skeleton_hq",    Region = "OasisGraveyard", DelayMin=4, Chance=10},
+						{ Count = 4, 	TemplateId = "skeleton", 						Region = "OasisGraveyard" 	},  
+						{ Count = 4, 	TemplateId = "zombie", 							Region = "OasisGraveyard" 	},
+						{ Count = 1, 	TemplateId = "skeleton_hq",    					Region = "OasisGraveyard", 	DelayMin=4, 	Chance=10 	},
 
 						--Cultist Throne
-						--{ Count = 4, TemplateId = "cultist_honor_guard",  Region = "CultistRuins1", DelayMin=4 },
+						{ Count = 4, 	TemplateId = "cultist_honor_guard",  			Region = "CultistRuins1", 	DelayMin=4 },
 
 						--Cultist Upper
-						{ Count = 1, TemplateId = "cultist_lord",  Region = "CultistRuins1", DelayMin=4 },
-						{ Count = 2, TemplateId = "cultist_lord",  Region = "CultistRuins2", DelayMin=4 },
-						{ Count = 2, TemplateId = "cultist_mage_apprentice",  Region = "CultistRuins3", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_mage_apprentice",  Region = "CultistRuins3", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_lord",  Region = "CultistRuins4", DelayMin=4 },
-						{ Count = 2, TemplateId = "cultist_warrior_rookie",  Region = "CultistRuins5", DelayMin=4 },
-						{ Count = 2, TemplateId = "cultist_mage_apprentice",  Region = "CultistRuins6", DelayMin=4 },
-						{ Count = 2, TemplateId = "cultist_lord",  Region = "CultistRuins8", DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_lord",  					Region = "CultistRuins1", 	DelayMin=4 },
+						{ Count = 2, 	TemplateId = "cultist_lord",  					Region = "CultistRuins2", 	DelayMin=4 },
+						{ Count = 2, 	TemplateId = "cultist_mage_apprentice",  		Region = "CultistRuins3", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_mage_apprentice",  		Region = "CultistRuins3", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_lord",  					Region = "CultistRuins4", 	DelayMin=4 },
+						{ Count = 2, 	TemplateId = "cultist_warrior_rookie",  		Region = "CultistRuins5", 	DelayMin=4 },
+						{ Count = 2, 	TemplateId = "cultist_mage_apprentice",  		Region = "CultistRuins6", 	DelayMin=4 },
+						{ Count = 2, 	TemplateId = "cultist_lord",  					Region = "CultistRuins8", 	DelayMin=4 },
 
 						--Cultist Lower
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins1", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins2", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins2", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins3", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins3", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins4", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins5", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins5", DelayMin=4 }, 
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins6", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_mage_apprentice",  Region = "UpperRuins6", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins7", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_mage_apprentice",  Region = "UpperRuins7", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins8", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins9", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins9", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins10", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_mage_apprentice",  Region = "UpperRuins10", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins11", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie",  Region = "UpperRuins12", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_mage_apprentice",  Region = "UpperRuins13", DelayMin=4 },
-						{ Count = 1, TemplateId = "cultist_warrior_rookie_archer",  Region = "UpperRuins14", DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins1", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins2", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins2", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins3", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins3", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins4", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins5", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins5", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins6", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_mage_apprentice",  		Region = "UpperRuins6", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins7", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_mage_apprentice",  		Region = "UpperRuins7", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins8", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins9", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins9", 	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins10",	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_mage_apprentice",  		Region = "UpperRuins10",	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",  	Region = "UpperRuins11",	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie",  		Region = "UpperRuins12",	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_mage_apprentice",  		Region = "UpperRuins13",	DelayMin=4 },
+						{ Count = 1, 	TemplateId = "cultist_warrior_rookie_archer",	Region = "UpperRuins14",	DelayMin=4 },
 
 						--65.1+
-						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf1", DelayMin=4 }, 
-						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf2", DelayMin=4 },
-						{ Count = 8, TemplateId = "coyote",    Region = "DesertWolf3", DelayMin=4 },
-						
+						{ Count = 8, 	TemplateId = "coyote",    						Region = "DesertWolf1", 	DelayMin=4 		},
+						{ Count = 8, 	TemplateId = "coyote",    						Region = "DesertWolf2", 	DelayMin=4 		},
+						{ Count = 8, 	TemplateId = "coyote",    						Region = "DesertWolf3", 	DelayMin=4 		},
+
 						-- Daytime spawns
-						{ Count = 5, TemplateId = "wyrmling_fire", Region = "Drake", DelayMin=4, Chance=50, SpawnTime = 4, SpawnDuration = 18},
-						{ Count = 2, TemplateId = "drake_fire", Region = "Drake", DelayMin=4, Chance=20, SpawnTime = 4, SpawnDuration = 18},
-						{ Count = 1, TemplateId = "wyvern_fire", Region = "Drake", DelayMin=4, Chance=10, SpawnTime = 4, SpawnDuration = 18},
-						{ Count = 1, TemplateId = "dragon_fire", Region = "Drake", DelayMin=4, Chance=2, SpawnTime = 4, SpawnDuration = 18},
+						{ Count = 5, 	TemplateId = "wyrmling_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=50, 	SpawnTime = 4, 		SpawnDuration = 18 	},
+						{ Count = 2, 	TemplateId = "drake_fire", 						Region = "Drake", 			DelayMin=4, 	Chance=20, 	SpawnTime = 4, 		SpawnDuration = 18 	},
+						{ Count = 1, 	TemplateId = "wyvern_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=10, 	SpawnTime = 4, 		SpawnDuration = 18 	},
+						{ Count = 1, 	TemplateId = "dragon_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=2, 	SpawnTime = 4, 		SpawnDuration = 18 	},
 
 						-- Nighttime spawns
-						{ Count = 5, TemplateId = "wyrmling_lunar", Region = "Drake", DelayMin=4, Chance=25, SpawnTime = 23, SpawnDuration = 5},
-						{ Count = 2, TemplateId = "drake_lunar", Region = "Drake", DelayMin=4, Chance=10, SpawnTime = 23, SpawnDuration = 5},
-						{ Count = 1, TemplateId = "wyvern_lunar", Region = "Drake", DelayMin=4, Chance=5, SpawnTime = 23, SpawnDuration = 5},
-						{ Count = 1, TemplateId = "dragon_lunar", Region = "Drake", DelayMin=4, Chance=1, SpawnTime = 23, SpawnDuration = 5},
+						{ Count = 5, 	TemplateId = "wyrmling_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=25, 	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 2, 	TemplateId = "drake_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=10, 	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 1, 	TemplateId = "wyvern_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=5, 	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 1, 	TemplateId = "dragon_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=1, 	SpawnTime = 23, 	SpawnDuration = 5 	},
 						
 						-- Demon Horse spawns
-						{ Count = 1, TemplateId = "horse_nightmare", Region = "Dread1", SpawnTime = 24, DelayMin=4, Chance=2, SpawnDuration = 3}
-						{ Count = 1, TemplateId = "silver_steed", Region = "Dread1", 	SpawnTime = 8, DelayMin=4, Chance=2, SpawnDuration = 3}
-						{ Count = 1, TemplateId = "brazen_bronco", Region = "Dread1", 	SpawnTime = 16,  DelayMin=4, Chance=2, SpawnDuration = 3}
+						{ Count = 1, 	TemplateId = "horse_nightmare", 				Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 24, 	SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "silver_steed", 					Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 8, 		SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "brazen_bronco", 					Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 16, 	SpawnDuration = 3 	},
 					},
 				}
-			</Initializer>	
-		</LuaModule>			
+			</Initializer>
+		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
