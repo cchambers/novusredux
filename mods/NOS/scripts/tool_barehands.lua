@@ -20,7 +20,7 @@ mUser = nil
 ResourceHarvester.CollectResource = function(user,resourceType)
 	local backpackObj = user:GetEquippedObject("Backpack")  
 	if( backpackObj ~= nil ) then		
-		-- VERLORENS TODO: Add in difficulty to harvesting checks, requires adding difficulty to each plant.. necessary?
+		-- TODO - Verlorens - Add in difficulty to harvesting checks, requires adding difficulty to each plant.. necessary?
 		--if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
 		local HarvestingSkill = GetSkillLevel(this, "HarvestingSkill")
 		

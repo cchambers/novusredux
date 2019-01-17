@@ -641,25 +641,33 @@ RegisterEventHandler(EventType.Message,"User_Ping", function(from)
 	from:SendMessage("User_Pong", me)
 end)
 
-RegisterEventHandler(EventType.Message,"OpenBank",
-	function (bankSource)
-		local bankObj = this:GetEquippedObject("Bank")
-		this:SetObjVar("BankSource",bankSource)
-		if( bankObj ~= nil ) then
-			bankObj:SendOpenContainer(this)					
-		end
+RegisterEventHandler(EventType.Message,"OpenBank", function (bankSource)
+	local bankObj = this:GetEquippedObject("Bank")
+	this:SetObjVar("BankSource",bankSource)
+	if( bankObj ~= nil ) then
+		bankObj:SendOpenContainer(this)					
+	end
 
-		local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(12))
-		AddView("BankCloseCheck",searchDistanceFromBank,1.0)
-		RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck",
-			function()
-				local bankObj = this:GetEquippedObject("Bank")
-				if( bankObj ~= nil ) then
-					CloseContainerRecursive(this,bankObj)
-					CloseMap()
-				end
-			end)
+	local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(12))
+	AddView("BankCloseCheck",searchDistanceFromBank,1.0)
+	RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck", function()
+		local bankObj = this:GetEquippedObject("Bank")
+		if( bankObj ~= nil ) then
+			CloseContainerRecursive(this,bankObj)
+			CloseMap()
+		end
 	end)
+end)
+
+RegisterEventHandler(EventType.StartMoving,"",function (success)
+	if (this:HasObjVar("IsHarvesting")) then
+		local harvestingTool = this:GetObjVar("HarvestingTool")
+		harvestingTool:SendMessage("CancelHarvesting",this)
+	end
+	if (this:HasObjVar("IsBuryingRune")) then
+		this:SendMessage("CancelBury", this)
+	end
+end)
 
 -- This is the player tick, it's performed once per minute. It's the alternative to having multiple systems all updating under their own timers.
 function PerformPlayerTick(notFirst)
