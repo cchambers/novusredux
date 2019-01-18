@@ -17,12 +17,11 @@ function StartPointChosen(success, target)
 		RegisterEventHandler(EventType.ClientTargetLocResponse, "SelectTileEndPoint",
 		function(success, wallLoc)
 			if(wallLoc == nil) then
-				EndMobileEffect(root)
 				return
 			end
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "TileTargetTimeout")
 			mWallEnd = wallLoc
-			CreateWall(root)
+			CreateWall()
 		end)
 end
 
@@ -30,11 +29,12 @@ function CreateWall()
 	local projAngle = mWallStart:YAngleTo(mWallEnd)
 	Facing = math.fmod(projAngle + 85, 360)
 	local dist = mWallStart:Distance(mWallEnd)
+	this:NpcSpeech(tostring(dist))
 	local curProj = 0
 
 	while(curProj <= dist) do
 		local nextLoc = mWallStart:Project(projAngle,curProj)
-		CreateTempObj("pit_wall",nextLoc,"pit_wallloc_created")
+		CreateObj("pit_wall",nextLoc,"pit_wallloc_created")
 		curProj = curProj + 1
 	end
 	mWallInstances = curProj

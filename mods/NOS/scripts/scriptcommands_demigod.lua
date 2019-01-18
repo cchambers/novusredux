@@ -141,12 +141,6 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "form",
 		target:SendMessage("ChangeMobileToTemplate",bodyTemplateId,{LoadLoot=false})
 	end)
 
-	
-RegisterEventHandler(EventType.ClientTargetLocResponse, "tileBegin",
-function(target,user)
-	this:AddModule("gm_tile")
-end
-)
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "resTarget",
 	function(target,user)
@@ -542,7 +536,7 @@ DemigodCommandFuncs = {
 
 	Tile = function(arg)
 		mTileTemplate = arg or nil
-		this:RequestClientTargetLoc(this, "tileBegin")
+		this:AddModule("gm_tile")
 	end,
 	SearchDialog =	function(arg)
 		ShowNewSearch(arg)
