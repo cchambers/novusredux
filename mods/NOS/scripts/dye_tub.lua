@@ -80,7 +80,8 @@ RegisterEventHandler(
 		end
 
 		if (target:HasObjVar("ResourceType")) then
-			dyeable = false
+			local resourceType = target:GetObjVar("ResourceType")
+			if (resourceType ~= "Rune") then dyeable = false end
 		end
 
 		if (target:HasModule("stackable")) then 

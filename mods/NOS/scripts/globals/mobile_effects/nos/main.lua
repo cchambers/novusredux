@@ -17,6 +17,7 @@ require 'globals.mobile_effects.nos.telecrookmove'
 
 require 'globals.mobile_effects.buffs.spells.stonewall'
 require 'globals.mobile_effects.buffs.spells.spellpoison'
+require 'globals.mobile_effects.buffs.spells.spellcure'
 require 'globals.mobile_effects.buffs.spells.spellmagicreflection'
 
 require 'globals.mobile_effects.potions.cure'
