@@ -393,7 +393,7 @@ SpellData = {
 			spellSkillLevel = 30,
 			AttackSpellType = false,
 			SpellEnabled = true,
-			spellHitEffectTargetScript = "sp_cure_effect",
+			TargetMobileEffect = "SpellNOSCure",
 			ReagentsRequired = true,
 			Reagents = {
 				"Garlic",
@@ -741,7 +741,7 @@ SpellData = {
 			Icon = "Poison Splash",
 			manaCost = 9,
 			effectType = "InstantHitSpell",
-			SpellPower = 2,
+			SpellPower = 0,
 			critChance = 0,
 			SpellRange = 12,
 			TargetType = "targetMobile",
