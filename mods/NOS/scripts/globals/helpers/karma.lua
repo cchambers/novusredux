@@ -508,39 +508,42 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
             return false -- then end here
         end
     end
+    
+    player:SendMessage("StartMobileEffect", "Chaotic")
+    return false
 
-    -- inform and give action to bypass
-    if ( not silent and not player:HasTimer("ChaoticWarning") ) then
-        if ( player:HasObjVar("ForceOrderOptIn") ) then
-            -- automatically flag them
-            player:SendMessage("StartMobileEffect", "Chaotic")
-            return false
-        else
-            player:ScheduleTimerDelay(ServerSettings.Karma.ChaoticWarningTimespan, "ChaoticWarning")
+    -- -- inform and give action to bypass
+    -- if ( not silent and not player:HasTimer("ChaoticWarning") ) then
+    --     if ( player:HasObjVar("ForceOrderOptIn") ) then
+    --         -- automatically flag them
+    --         player:SendMessage("StartMobileEffect", "Chaotic")
+    --         return false
+    --     else
+    --         player:ScheduleTimerDelay(ServerSettings.Karma.ChaoticWarningTimespan, "ChaoticWarning")
 
-            local dynWindow = DynamicWindow(
-                "OrderOptIn", --(string) Window ID used to uniquely identify the window. It is returned in the DynamicWindowResponse event.
-                "", --(string) Title of the window for the client UI
-                263, --(number) Width of the window
-                332, --(number) Height of the window
-                -131, --startX, --(number) Starting X position of the window (chosen by client if not specified)
-                60, --startY, --(number) Starting Y position of the window (chosen by client if not specified)
-                "Transparent",--windowType, --(string) Window type (optional)
-                "Top" --windowAnchor --(string) Window anchor (default "TopLeft")
-            )
+    --         local dynWindow = DynamicWindow(
+    --             "OrderOptIn", --(string) Window ID used to uniquely identify the window. It is returned in the DynamicWindowResponse event.
+    --             "", --(string) Title of the window for the client UI
+    --             263, --(number) Width of the window
+    --             332, --(number) Height of the window
+    --             -131, --startX, --(number) Starting X position of the window (chosen by client if not specified)
+    --             60, --startY, --(number) Starting Y position of the window (chosen by client if not specified)
+    --             "Transparent",--windowType, --(string) Window type (optional)
+    --             "Top" --windowAnchor --(string) Window anchor (default "TopLeft")
+    --         )
 
-            dynWindow:AddImage(0,0,"ShieldBackground")
-            dynWindow:AddLabel(131,100,"Fight for Order?",140,80,28,"center",false,true)
-            dynWindow:AddLabel(131,152,GetTimerLabelString(ServerSettings.Karma.ChaoticWarningTimespan,true),0,0,18,"center")
-            dynWindow:AddButton(20,200,"","Continue",100,32,"","orderoptin")
-            dynWindow:AddButton(142,200,"","Cancel",100,32)
-            dynWindow:AddButton(119,240,"","",0,0,"Attacking a chaotic player makes you attackable to ALL chaotic players with no karma penalty for 5 minutes.","",false,"Help")
+    --         dynWindow:AddImage(0,0,"ShieldBackground")
+    --         dynWindow:AddLabel(131,100,"Fight for Order?",140,80,28,"center",false,true)
+    --         dynWindow:AddLabel(131,152,GetTimerLabelString(ServerSettings.Karma.ChaoticWarningTimespan,true),0,0,18,"center")
+    --         dynWindow:AddButton(20,200,"","Continue",100,32,"","orderoptin")
+    --         dynWindow:AddButton(142,200,"","Cancel",100,32)
+    --         dynWindow:AddButton(119,240,"","",0,0,"Attacking a chaotic player makes you attackable to ALL chaotic players with no karma penalty for 5 minutes.","",false,"Help")
 
-            player:OpenDynamicWindow(dynWindow)
-        end
-    end
+    --         player:OpenDynamicWindow(dynWindow)
+    --     end
+    -- end
 
-    return true -- protect them from aggressive
+    -- return true -- protect them from aggressive
 end
 
 --- Set the player's karma alignment to a karma level, allowing them to do bad deeds up to a point and no further

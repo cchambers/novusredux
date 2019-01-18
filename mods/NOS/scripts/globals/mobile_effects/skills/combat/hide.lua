@@ -34,7 +34,11 @@ MobileEffectLibrary.Hide =
                     self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
                     return EndMobileEffect(root)
                 end
-            end
+			end
+
+			if (HasMobileEffect(self.ParentObj, "HeavyArmorDebuff")) then 
+				return EndMobileEffect(root)
+			end
 		end
 
 		if ( args.Force ~= true ) then
