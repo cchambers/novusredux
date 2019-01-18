@@ -1,0 +1,10 @@
+<!-- NOTE: This is the campfires used as decorations in the world not the one made by players -->
+<ObjectTemplate>
+  <Name>Energy Wall</Name>
+	<ClientId>2290</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+	</ScriptEngineComponent>
+</ObjectTemplate>

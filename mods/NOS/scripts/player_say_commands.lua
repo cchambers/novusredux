@@ -147,6 +147,37 @@ RegisterEventHandler(
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "AntiWestySpam")
 		end
 
+		if (string.match(fullstr, "dance battle")) then
+			if (this:HasTimer("AntiDanceSpam") or IsDead(this)) then
+				return
+			end
+			local mobiles =
+				FindObjects(
+				SearchMulti(
+					{
+						SearchRange(this:GetLoc(), 5),
+						SearchMobile()
+					}
+				),
+				GameObj(0)
+			)
+			local count = 0
+			local first = nil
+			for i, v in pairs(mobiles) do
+				if (i == 1) then first = v end
+				if (not (IsDead(v))) then
+					FaceObject(v,this)
+					v:PlayAnimation("dance_runningman")
+					count = count + 1
+				end
+			end
+			if (first) then
+				FaceObject(this,first)
+			end
+			this:PlayAnimation("dance_runningman")
+			this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "AntiDanceSpam")
+		end
+
 		local args = {...}
 		if (#args > 0) then
 			args[1] = string.lower(args[1])
