@@ -8,7 +8,7 @@
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1200</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -34,7 +34,7 @@
 					{ 
 					Brawling = 100,
 					Magery = 100,
-					MagicResist = 80,
+					MagicResist = 50,
 					Channeling = 100
 					},	
 				EquipTable = 
@@ -43,6 +43,11 @@
 					},
 				LootTables = 
 					{ 
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.Boss,
 					},		
 					WeaponAbilities = { primary="VoidTeleport", secondary="DeathWave" },
 					AvailableSpells = { "Teleport","Deathwave"},
