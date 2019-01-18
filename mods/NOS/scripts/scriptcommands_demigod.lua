@@ -13,6 +13,7 @@ bodyTemplateId = nil
 mMobToCopy = nil
 nameToSet = nil
 prefabCreate = nil
+mTileTemplate = nil
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "possess",
 	function(target,user)
@@ -139,6 +140,13 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "form",
 
 		target:SendMessage("ChangeMobileToTemplate",bodyTemplateId,{LoadLoot=false})
 	end)
+
+	
+RegisterEventHandler(EventType.ClientTargetLocResponse, "tileBegin",
+function(target,user)
+	this:AddModule("gm_tile")
+end
+)
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "resTarget",
 	function(target,user)
@@ -531,6 +539,11 @@ RegisterEventHandler(EventType.CreatedObject,"fromfile",
 
 
 DemigodCommandFuncs = {
+
+	Tile = function(arg)
+		mTileTemplate = arg or nil
+		this:RequestClientTargetLoc(this, "tileBegin")
+	end,
 	SearchDialog =	function(arg)
 		ShowNewSearch(arg)
 	end, 
@@ -1225,7 +1238,7 @@ DemigodCommandFuncs = {
 		OpenCreateCustomWindow()
 	end,
 }
-
+RegisterCommand{ Command="tile", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Tile, Usage="[<target_id|self>]", Desc="Toggle invulnerability" }
 RegisterCommand{ Command="invuln", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ToggleInvuln, Usage="[<target_id|self>]", Desc="Toggle invulnerability", Aliases={"inv"} }
 RegisterCommand{ Command="create", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Create, Usage="[<template>]", Desc="[$2478]" }
 RegisterCommand{ Command="createequippedobject", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateEquippedObject, Usage="<template> [<targetid]", Desc="Created the object as an equipped object on the target." }
