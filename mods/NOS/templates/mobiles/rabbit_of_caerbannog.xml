@@ -51,8 +51,8 @@
 						TemplateDefines.LootTable.MageBoss,
 						TemplateDefines.LootTable.Boss,
 							{
-							NumCoins = math.random(1000,1400),
-							NumItems = 1,
+								NumCoins = math.random(1000,1400),
+								NumItems = 1,
 							{
 				    			{ Weight = 90, Template = "furniture_box", Unique = true },
 				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },
