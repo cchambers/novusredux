@@ -20,6 +20,7 @@ function HandleLoaded()
 		this:SystemMessage("Your Defense has increased by "..mIncreaseAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end
 
 function CleanUp()

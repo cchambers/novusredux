@@ -79,11 +79,6 @@ RegisterEventHandler(
 			and armorType ~= "Linen") then dyeable = false end
 		end
 
-		if (target:HasObjVar("WeaponType")) then
-			local weaponType = target:GetObjVar("ArmorType")
-			if (weaponType ~= "Spellbook") then dyeable = false end
-		end
-
 		if (target:HasObjVar("ResourceType")) then
 			dyeable = false
 		end
@@ -97,7 +92,8 @@ RegisterEventHandler(
 		end
 		
 		if (target:HasObjVar("WeaponType") or target:IsMobile()) then
-			dyeable = false
+			local weaponType = target:GetObjVar("WeaponType")
+			if (weaponType ~= "Spellbook") then dyeable = false end
 		end
 
 		if (GetWeight(target) <= 0) then

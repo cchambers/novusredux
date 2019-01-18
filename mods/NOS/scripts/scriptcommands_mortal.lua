@@ -9,6 +9,10 @@ require "base_bug_report"
 MortalCommandFuncs = {
 	-- Mortal Commands
 
+	Page = function()
+		this:AddModule("page_gm")
+	end,
+
 	Help = function(commandName)
 		if (commandName ~= nil) then
 			if (commandName == "actions") then
@@ -315,13 +319,13 @@ RegisterCommand {
 RegisterCommand {
 	Command = "bugreport",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.BugReport,
+	Func = MortalCommandFuncs.Page,
 	Desc = "Send a bug report"
 }
 RegisterCommand {
 	Command = "helpreport",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.HelpReport,
+	Func = MortalCommandFuncs.Page,
 	Desc = "Send a help report"
 }
 RegisterCommand {
@@ -442,4 +446,10 @@ RegisterCommand {
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.ResetWindowPos,
 	Desc = "Resets the saved window positions on the client. Used if one of your windows gets stuck off screen."
+}
+RegisterCommand {
+	Command = "page",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Page,
+	Desc = "Page the staff."
 }

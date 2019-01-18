@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1800</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -41,7 +41,8 @@
 					MagicAffinity=100,
 					Magery=100, 
 					MagicResist=100, 
-					Brawling = 70,  
+					Inscription=100,
+					Brawling = 70
 					},	
 				EquipTable = 
 					{
@@ -63,7 +64,7 @@
 				ScavengeTables =
 					{
 					},
-				AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},		
+				AvailableSpells = {"Frost", "Poison", "Cure", "Fireball", "Lightning", "Electricbolt", "Bombardment"},		
 				}
 			</Initializer>
 		</LuaModule>

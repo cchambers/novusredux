@@ -27,6 +27,7 @@ function HandleLoaded()
 		this:SystemMessage("Your strength has increased by " .. mAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end 
 
 function CleanUp()

@@ -876,16 +876,11 @@ function InitiateCombatSequence()
 	end
 
 	if (mCurrentTarget ~= nil) then -- dead already
-		local table = mCurrentTarget:GetObjVar("PreviousOwners")
-		if (table) then 
-			local mine = "GameObj #" .. table[#table] 
-			local me = this:ToString()
-			local compare = (mine == me)
-			if (compare) then 
-				this:SystemMessage("You almost attacked your pet! Close one.", "info")
-				this:SendMessage("EndCombatMessage")
-				return
-			end
+		local owner = mCurrentTarget:GetObjectOwner()
+		if (owner and owner == this) then 
+			this:SystemMessage("You almost attacked your pet! Close one.", "info")
+			this:SendMessage("EndCombatMessage")
+			return false
 		end
 	end
 
@@ -960,6 +955,7 @@ end
 --Actors
 mCombatMusicPlaying = false
 function SetInCombat(inCombat, force)
+	if (inCombat == false) then this:SendMessage("CombatToggled") end
 	
 	if (this:HasObjVar("NoGains")) then return end
 

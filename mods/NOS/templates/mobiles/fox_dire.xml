@@ -18,7 +18,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">44</DoubleVariable>
 		<DoubleVariable Name="Attack">8</DoubleVariable>
-		<DoubleVariable Name="Karma">-5000</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">42</DoubleVariable>

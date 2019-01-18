@@ -12,7 +12,7 @@ end
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")
 
-function Totem(mobile, task)
+function Totem(mobile, task, args)
     local id = mobile.Id
     local account = tostring(mobile:GetAttachedUserId())
     local ip = tostring(mobile:GetIPAddress())
@@ -22,12 +22,21 @@ function Totem(mobile, task)
 
     if (task == "murder") then
         payload = [[ {"worldid": "]]..id..[["} ]]
+    elseif (task == "page") then
+		local when = tostring(os.date())
+		local where = tostring(mobile:GetLoc())
+        payload = [[ {
+            "who": "]]..id..[[",
+            "what": "]]..args..[[",
+            "when": "]]..when..[[",
+            "where": "]]..where..[["
+        } ]]
     else
         -- default just updates player
-        local skill = GetSkillTotal(mobile)
-        local playMinutes = mobile:GetObjVar("PlayMinutes")
-        local fame = mobile:GetObjVar("Fame")
-        local karma = mobile:GetObjVar("Karma")
+        local skill = GetSkillTotal(mobile) or 0
+        local playMinutes = mobile:GetObjVar("PlayMinutes") or 0
+        local fame = mobile:GetObjVar("Fame") or 0
+        local karma = mobile:GetObjVar("Karma") or 0
         local staff = IsImmortal(mobile)
 
         payload = [[ {
