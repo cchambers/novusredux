@@ -29,13 +29,15 @@
 				Stats = { Str=100, Agi=100, Int=100, Wis=100, Will=100 },
 				MobTraits =
 					{
+						Toughness = 2,
+						Might = 2,
 					},
 				Skills = 
 					{ 
-					Brawling = 100,
-					Magery = 100,
-					MagicResist = 50,
-					Channeling = 100
+						Brawling = 100,
+						Magery = 100,
+						MagicResist = 50,
+						Channeling = 100
 					},	
 				EquipTable = 
 					{
@@ -48,6 +50,14 @@
 						TemplateDefines.LootTable.MageBoss,
 						TemplateDefines.LootTable.MageBoss,
 						TemplateDefines.LootTable.Boss,
+							{
+							NumCoins = math.random(1000,1400),
+							NumItems = 1,
+							{
+				    			{ Weight = 90, Template = "furniture_box", Unique = true },
+				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },
+				    		}
+						},
 					},		
 					WeaponAbilities = { primary="VoidTeleport", secondary="DeathWave" },
 					AvailableSpells = { "Teleport","Deathwave"},
