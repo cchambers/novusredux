@@ -84,6 +84,7 @@ MortalCommandFuncs = {
 			for i, v in pairs(nearbyPlayers) do
 				if (HasMobileEffect(v, "SpiritSpeak")) then
 					this:NpcSpeechToUser(spiritSpoken, v, "info")
+					CheckSkillChance(v, "SpiritSpeak")
 				end
 			end
 		else
