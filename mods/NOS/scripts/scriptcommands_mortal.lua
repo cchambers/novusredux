@@ -325,7 +325,7 @@ RegisterCommand {
 RegisterCommand {
 	Command = "helpreport",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.HelpReport,
+	Func = MortalCommandFuncs.Page,
 	Desc = "Send a help report"
 }
 RegisterCommand {
