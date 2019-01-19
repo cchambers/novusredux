@@ -63,7 +63,7 @@
 				{				
 					AnimalParts =
 					{
-						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=4 },
 					},
 				}
 			</Initializer>

@@ -79,12 +79,19 @@ MortalCommandFuncs = {
 					return oos[math.random(1, #oos)]
 				end
 			)
-			this:PlayerSpeech(ghostTalk, 30)
-			local nearbyPlayers = FindObjects(SearchPlayerInRange(25))
+			-- this:PlayerSpeech(ghostTalk, 30)
+			local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
 			for i, v in pairs(nearbyPlayers) do
 				if (HasMobileEffect(v, "SpiritSpeak")) then
-					this:NpcSpeechToUser(spiritSpoken, v, "info")
-					CheckSkillChance(v, "SpiritSpeak")
+					this:NpcSpeechToUser(spiritSpoken, v)
+					local times = v:GetObjVar("SpiritSpoken") or 0
+					if (times < 10) then
+						CheckSkillChance(v, "SpiritSpeak")
+					end
+					times = times + 1
+					v:SetObjVar("SpiritSpoken", times)
+				else 
+					this:NpcSpeechToUser(ghostTalk, v)
 				end
 			end
 		else

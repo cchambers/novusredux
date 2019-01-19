@@ -45,6 +45,7 @@ function CreateWall()
 		mWallInstances = mWallInstances - 1
 		if(mWallInstances < 1) then
 			UnregisterEventHandler("",EventType.CreatedObject,"pit_wallloc_created")
+			this:DelModule("gm_tile")
 		end
 	end)
 end
