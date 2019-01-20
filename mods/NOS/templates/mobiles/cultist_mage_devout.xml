@@ -35,7 +35,7 @@
 				Skills = 
 					{ 
 					Magery=100,
-					Magery=100,
+					MagicResist=100,
 					Brawling = 70,  
 					MagicAffinity=100,
 					},	
@@ -61,7 +61,7 @@
 							NumCoins = math.random(260,350),
 						},	
 					},		
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Exhaust", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
 			</Initializer>
 		</LuaModule>

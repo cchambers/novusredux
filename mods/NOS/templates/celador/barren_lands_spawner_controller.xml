@@ -71,21 +71,21 @@
 						{ Count = 8, 	TemplateId = "coyote",    						Region = "DesertWolf3", 	DelayMin=4 		},
 
 						-- Daytime spawns
-						{ Count = 5, 	TemplateId = "wyrmling_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=50, 	SpawnTime = 4, 		SpawnDuration = 18 	},
-						{ Count = 2, 	TemplateId = "drake_fire", 						Region = "Drake", 			DelayMin=4, 	Chance=20, 	SpawnTime = 4, 		SpawnDuration = 18 	},
-						{ Count = 1, 	TemplateId = "wyvern_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=10, 	SpawnTime = 4, 		SpawnDuration = 18 	},
-						{ Count = 1, 	TemplateId = "dragon_fire", 					Region = "Drake", 			DelayMin=4, 	Chance=2, 	SpawnTime = 4, 		SpawnDuration = 18 	},
+						{ Count = 5, 	TemplateId = "wyrmling_fire", 					Region = "Drake",	SpawnTime = 4,		SpawnDuration = 18 	},
+						{ Count = 4, 	TemplateId = "drake_fire", 						Region = "Drake",	SpawnTime = 4,		SpawnDuration = 18 	},
+						{ Count = 2, 	TemplateId = "wyvern_fire", 					Region = "Drake",	SpawnTime = 4,		SpawnDuration = 18 	},
+						{ Count = 1, 	TemplateId = "dragon_fire", 					Region = "Drake", 	 SpawnTime = 4,		SpawnDuration = 18 	},
 
 						-- Nighttime spawns
-						{ Count = 5, 	TemplateId = "wyrmling_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=25, 	SpawnTime = 23, 	SpawnDuration = 5 	},
-						{ Count = 2, 	TemplateId = "drake_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=10, 	SpawnTime = 23, 	SpawnDuration = 5 	},
-						{ Count = 1, 	TemplateId = "wyvern_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=5, 	SpawnTime = 23, 	SpawnDuration = 5 	},
-						{ Count = 1, 	TemplateId = "dragon_lunar", 					Region = "Drake", 			DelayMin=4, 	Chance=1, 	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 5, 	TemplateId = "wyrmling_lunar", 					Region = "Drake",	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 3, 	TemplateId = "drake_lunar", 					Region = "Drake",	SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 2, 	TemplateId = "wyvern_lunar", 					Region = "Drake", 	 SpawnTime = 23, 	SpawnDuration = 5 	},
+						{ Count = 1, 	TemplateId = "dragon_lunar", 					Region = "Drake", 	 SpawnTime = 23, 	SpawnDuration = 5 	},
 						
 						-- Demon Horse spawns
-						{ Count = 1, 	TemplateId = "horse_nightmare", 				Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 24, 	SpawnDuration = 3 	},
-						{ Count = 1, 	TemplateId = "silver_steed", 					Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 8, 		SpawnDuration = 3 	},
-						{ Count = 1, 	TemplateId = "brazen_bronco", 					Region = "Dread1", 			DelayMin=4, 	Chance=2, 	SpawnTime = 16, 	SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "horse_nightmare", 				Region = "Dread1",	SpawnTime = 24, 	SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "silver_steed", 					Region = "Dread1",	SpawnTime = 8,		SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "brazen_bronco", 					Region = "Dread1",	SpawnTime = 16, 	SpawnDuration = 3 	},
 					},
 				}
 			</Initializer>

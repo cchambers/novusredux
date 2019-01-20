@@ -1527,6 +1527,45 @@ WoodsmithSkill = {
 				Boards = 1,
 			},
 		},
+		WallLantern = {
+			MinLevelToCraft = 40,
+			MaxLevelToGain = 65,
+			DisplayName = "Wall Lantern",
+			Description = "",
+			NeedRecipe = true,
+			CraftingTemplateFile = "furniture_lantern_wall",
+			Category = "Furnishings",
+			Subcategory = "Lighting",
+			Resources = {
+				Boards = 2,
+			},
+		},
+		HangingLantern = {
+			MinLevelToCraft = 55,
+			MaxLevelToGain = 80,
+			DisplayName = "Hanging Lantern",
+			Description = "",
+			NeedRecipe = true,
+			CraftingTemplateFile = "furniture_lantern_hanging",
+			Category = "Furnishings",
+			Subcategory = "Lighting",
+			Resources = {
+				Boards = 3,
+			},
+		},
+		StandingTorch = {
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
+			DisplayName = "Standing Torch",
+			Description = "",
+			NeedRecipe = true,
+			CraftingTemplateFile = "furniture_standingtorch",
+			Category = "Furnishings",
+			Subcategory = "Lighting",
+			Resources = {
+				Boards = 2,
+			},
+		},
 		FishingRod = {
 			MinLevelToCraft = 15,
 			MaxLevelToGain = 40,
@@ -1783,6 +1822,22 @@ FabricationSkill = {
 			Subcategory = "Legs",
 			Resources = {	
 				Cloth = 5,
+			},
+		},
+		
+		Cloak = {
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
+			DisplayName = "Cloak",
+			Description = "A basic cloak that offers no armor protection. A must for adventurers.",
+			NeedRecipe = true,
+			CanImprove = false,
+			CraftingTemplateFile = "clothing_chest_cloak_basic",
+			ItemType = "ArmorClass",
+			Category = "Clothing",
+			Subcategory = "Torso",
+			Resources = {	
+				Cloth = 7,
 			},
 		},
 

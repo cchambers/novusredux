@@ -1231,6 +1231,23 @@ DemigodCommandFuncs = {
 	CreateCustom = function()
 		OpenCreateCustomWindow()
 	end,
+	
+	GmMessage = function()
+		if not(this:HasModule("gm_message_window")) then
+            this:AddModule("gm_message_window")        
+        end
+	end,
+
+	AllegianceRemove = function(id)
+		if not( id ) then
+			Usage("removeallegiance")
+			return
+		end
+		local targetObj = GameObj(tonumber(id))
+		if ( targetObj and targetObj:IsValid() ) then
+			AllegianceRemovePlayer(targetObj)
+		end
+	end,
 }
 RegisterCommand{ Command="tile", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Tile, Usage="[<target_id|self>]", Desc="Toggle invulnerability" }
 RegisterCommand{ Command="invuln", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ToggleInvuln, Usage="[<target_id|self>]", Desc="Toggle invulnerability", Aliases={"inv"} }
@@ -1287,4 +1304,6 @@ RegisterCommand{ Command="opencontainer", Category = "Dev Power", AccessLevel = 
 RegisterCommand{ Command="containerinfo", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ContainerInfo, Usage="<id> [detailed]", Desc="[$2496]"}	
 RegisterCommand{ Command="createfromfile", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateFromFile, Usage="filenamee", Desc="[$2499]"}	
 RegisterCommand{ Command="nearby", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Nearby, Desc="[$2503]" }
-RegisterCommand{ Command="createcustom", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateCustom, Desc="[DEBUG COMMAND] Create a custom object by it's art asset ID (Note: this should not be use to create game items since the game relies on the template name)" }
+RegisterCommand{ Command="removeallegiance", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.AllegianceRemove, Usage="<id>", Desc="Remove a player by id from their allegiance, if they are in one." }
+RegisterCommand{ Command="createcustom", Category = "Dev Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateCustom, Desc="[DEBUG COMMAND] Create a custom object by it's art asset ID (Note: this should not be use to create game items since the game relies on the template name)" }
+RegisterCommand{ Command="msg", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.GmMessage, Desc="Send GM message to user"}

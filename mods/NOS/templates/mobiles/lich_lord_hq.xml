@@ -55,12 +55,13 @@
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.PrestigeLow,
+						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.ExecutionerTubs,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.SkeletonRich,
 						TemplateDefines.LootTable.RuinMob,
 						{
-							NumCoins = math.random(1000,1400),
+							NumCoins = math.random(2000,4000),
 							NumItems = 1,
 							{
 				    			{ Weight = 90, Template = "furniture_box", Unique = true },
@@ -72,7 +73,7 @@
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Greaterheal", "Poison", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
 				}
 			</Initializer>
 		</LuaModule>

@@ -37,7 +37,7 @@
 				Skills = 
 					{ 
 					Magery=100,
-					Magery=100,
+					MagicResist=100,
 					MagicAffinity=100,
 					Brawling = 60,  
 					},	

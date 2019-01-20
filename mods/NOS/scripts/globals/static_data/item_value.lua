@@ -32,15 +32,16 @@ CustomItemValues = {
 	resource_sand = 0.20,
 	resource_blankscroll = 10,
 
-	resource_frayed_scroll = 15,
-	resource_fine_scroll = 30,
-	resource_ancient_scroll = 60,
+	ingredient_frayed_scroll = 15,
+	ingredient_fine_scroll = 30,
+	ingredient_ancient_scroll = 60,
 
 	rune_blank = 200,
 
 	--Animal Parts
 	
 	animalparts_human_skull = 10,
+	animalparts_leather_hide = 15,
 
 	animalparts_mystery_meat = 1,
 	animalparts_stringy_meat = 5,

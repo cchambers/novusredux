@@ -35,7 +35,7 @@
 				Skills = 
 					{ 
 					Magery=100,
-					Magery=100,
+					MagicResist=100,
 					Brawling = 60, 
 					MagicAffinity=100, 
 					},	
@@ -54,7 +54,7 @@
 				ScavengeTables =
 					{
 					},	
-					AvailableSpells = {"Heal", "Poison", "Cure", "Ruin", "Fireball"},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
 			</Initializer>
 		</LuaModule>

@@ -61,7 +61,7 @@
 				ScavengeTables =
 					{
 					},		
-					AvailableSpells = {"Heal", "Greaterheal","Ruin", "Lightning", "Electricbolt"},
+					AvailableSpells = {"Heal", "Greaterheal","Frost", "Lightning", "Electricbolt"},
 				}
 			</Initializer>
 		</LuaModule>

@@ -137,7 +137,7 @@ function ManageTab(dynamicWindow)
         dynamicWindow:AddButton(20,92,"Destroy","Destroy",290,26,"Destroy this house.","",false,"List")
     else
         dynamicWindow:AddButton(20,92,"Resize","Resize Plot",290,26,"Expand or Shrink your plot, altering the required tax payment.","",false,"List")
-        dynamicWindow:AddButton(20,118,"Transfer","Transfer Ownership",290,26,"Opens a secure trade transaction containing the deed to the plot.","",false,"List")
+        dynamicWindow:AddButton(20,118,"Transfer","Transfer Ownership",290,26,"Opens a secure trade transaction containing the deed to the plot. Cannot transfer with active merchants on land. Target must be standing near mailbox.","",false,"List")
         dynamicWindow:AddButton(20,144,"Destroy","Relinquish Control",290,26,"Relinquish control of the land. Plot cannot have any houses or locked down items. Will refund a land deed.","",false,"List")
     end
 end

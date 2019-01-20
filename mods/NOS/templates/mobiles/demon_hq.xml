@@ -54,8 +54,9 @@
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.SicklyEye,
 						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.ExecutionerTubs,
 						{
-							NumCoins = math.random(3000,8000),
+							NumCoins = math.random(3000,5000),
 							NumItems = 1,
 					    	LootItems =
 					    	{
@@ -68,7 +69,7 @@
 					{
 					},	
 					WeaponAbilities = { primary="Overpower", secondary="Stun" },	
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
 			</Initializer>
 		</LuaModule>

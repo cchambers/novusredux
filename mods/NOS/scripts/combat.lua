@@ -571,7 +571,7 @@ function ExecuteHitAction(atTarget, hand)
 	}
 
 	-- damage the weapon that's being swung.
-	if (_Weapon[hand].Object and Success(ServerSettings.Durability.Chance.OnSwing) and IsPlayerCharacter(this)) then
+	if ( _Weapon[hand].Object and Success(ServerSettings.Durability.Chance.OnWeaponSwing) and IsPlayerCharacter(this) ) then
 		AdjustDurability(_Weapon[hand].Object, -1)
 	end
 
@@ -590,7 +590,7 @@ function CalculateBlockDefense(victim)
 		CheckSkill(victim, "BlockingSkill", GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill))
 		if ( Success(GetSkillLevel(victim,"BlockingSkill")/335) ) then
 			victim:PlayAnimation("block")
-			if ( Success(ServerSettings.Durability.Chance.OnHit) ) then
+			if ( Success(ServerSettings.Durability.Chance.OnEquipmentHit) ) then
 				AdjustDurability(shield, -1)
 			end
 			return math.max(0, (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) + GetMagicItemArmorBonus(_Weapon.LeftHand.Object))
@@ -741,6 +741,13 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 		end
 
+		if ( Success(ServerSettings.Durability.Chance.OnJewelryHit) ) then
+			local item = victim:GetEquippedObject(JEWELRYSLOTS[math.random(1,#JEWELRYSLOTS)])
+			if ( item ) then
+				AdjustDurability(item, -1)
+			end
+		end
+
 		-- all but true damage/poison will also hurt the equipment.
 		damageInfo.Slot = damageInfo.Slot or GetHitLocation()
 		local hitItem = victim:GetEquippedObject(damageInfo.Slot)
@@ -751,7 +758,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 			if (isPlayer) then
 				-- damage equipment that was hit
-				if (Success(ServerSettings.Durability.Chance.OnHit)) then
+				if (Success(ServerSettings.Durability.Chance.OnEquipmentHit)) then
 					AdjustDurability(hitItem, -1)
 				end
 
