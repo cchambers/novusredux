@@ -123,7 +123,7 @@ AI.StateMachine.AllStates.CastFireball = {
 
 
     AI.StateMachine.AllStates.CastRuin = {
-        GetPulseFrequencyMS = function() return GetSpellCastTime("Frost", this)*1000 + math.random(400) end,
+        GetPulseFrequencyMS = function() return GetSpellCastTime("Ruin", this)*1000 + math.random(400) end,
 
         OnEnterState = function()
             if( not(AI.IsValidTarget(AI.MainTarget)) ) then
