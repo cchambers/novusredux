@@ -27,47 +27,49 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_rebel">
 			<Initializer>
-				{ 
+			{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
-					{
+				{
 					Toughness = 2,
 					Might = 2,
-					},
+				},
 				Skills = 
-					{ 
+				{ 
 					Brawling = 60,  
-					},	
+				},	
 				EquipTable = 
-					{
-						Backpack = { "backpack" },
-						Chest = { "armor_brigandine_tunic" },
-						Legs = { "armor_brigandine_leggings" },	
-						RightHand = {"weapon_shortbow"},	
-						BodyPartHead = TemplateDefines.MaleHeads,
-						BodyPartHair = TemplateDefines.MaleHairVillage,
-						BodyPartFacialHair= TemplateDefines.MaleFacialHair,
-						Head= {	"robe_padded_helm" },		
-					},
+				{
+					Backpack = { "backpack" },
+					Chest = { "armor_brigandine_tunic" },
+					Legs = { "armor_brigandine_leggings" },	
+					RightHand = {"weapon_shortbow"},	
+					BodyPartHead = TemplateDefines.MaleHeads,
+					BodyPartHair = TemplateDefines.MaleHairVillage,
+					BodyPartFacialHair= TemplateDefines.MaleFacialHair,
+					Head= {	"robe_padded_helm" },		
+				},
 				LootTables =
+				{
+					TemplateDefines.LootTable.ArcherPoor,
+					TemplateDefines.LootTable.Humanoid,
+					TemplateDefines.LootTable.PotionsLow,
+					TemplateDefines.LootTable.MapsLow,
+					TemplateDefines.LootTable.Poor,
 					{
-						TemplateDefines.LootTable.ArcherPoor,
-						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.PotionsLow,
-						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Poor,
+						NumCoins = math.random(50,100),
+						NumItems = 1,
+						LootItems = 
 						{
-							NumCoins = math.random(50,100),
-							{
-				    			{ Weight = 95, Template = "weapon_rebel", Unique = true },
-				    			{ Weight = 5, Template = "furniture_box", Unique = true },
-				    		}
-						},
-					},	
+							{ Weight = 95, Template = "weapon_rebel", Unique = true },
+							{ Weight = 5, Template = "furniture_box", Unique = true },
+						}
+					},
+				},	
 				ScavengeTables =
-					{
-					},				
-				}
+				{
+				},				
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

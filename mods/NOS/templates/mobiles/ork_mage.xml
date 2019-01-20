@@ -30,59 +30,60 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_orc">
 			<Initializer>
-				{ 
+			{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
-				OrkNames = {
-						"Xuk Ra",
-						"Surghed Ra",
-						"Yambagorn Ra",
-						"Nofhug Ra",
-						"Ghamonk Ra",
-						"Adgulg Ra",
-						"Umurn Ra",
-						"Xujarek Ra",
-						"Neghed Ra",
-						"Dur Ra",
-						"Unrugagh Ra",
-						"Xurek Ra",
-						"Vrothu Ra",
-						"Gnorth Ra",
-						"Piggu Ra",
-						"Wraog Ra",
-						"Carguk Ra",
-						"Pitgurat Ra",
-						"Digdug Ra",
-						"Jregh Ra",
-					},
+				OrkNames = 
+				{
+					"Xuk Ra",
+					"Surghed Ra",
+					"Yambagorn Ra",
+					"Nofhug Ra",
+					"Ghamonk Ra",
+					"Adgulg Ra",
+					"Umurn Ra",
+					"Xujarek Ra",
+					"Neghed Ra",
+					"Dur Ra",
+					"Unrugagh Ra",
+					"Xurek Ra",
+					"Vrothu Ra",
+					"Gnorth Ra",
+					"Piggu Ra",
+					"Wraog Ra",
+					"Carguk Ra",
+					"Pitgurat Ra",
+					"Digdug Ra",
+					"Jregh Ra",
+				},
 				MobTraits =
-					{
-					},
+				{
+				},
 				Skills = 
-					{ 
+				{ 
 					Brawling = 50,  
 					Magery=100,
 					MagicAffinity=100,
-					},	
+				},	
 				EquipTable = 
+				{
+					Backpack = { "backpack" },					
+				},
+				LootTables =
+				{
+					TemplateDefines.LootTable.Humanoid,
+					TemplateDefines.LootTable.MagePoor,
+					TemplateDefines.LootTable.ScrollsLow,
+					TemplateDefines.LootTable.MapsLow,
+					TemplateDefines.LootTable.Average,
+					TemplateDefines.LootTable.FineScrolls,
 					{
-						Backpack = { "backpack" },					
+						NumCoins = math.random(60,150),
 					},
-					LootTables =
-					{
-						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.MagePoor,
-						TemplateDefines.LootTable.ScrollsLow,
-						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Average,
-						TemplateDefines.LootTable.FineScrolls,
-						{
-							NumCoins = math.random(60,150),
-						},
-					},	
+				},	
 				ScavengeTables =
-					{
-					},		
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
+				{
+				},		
+				AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor" },
 				}
 			</Initializer>
 		</LuaModule>

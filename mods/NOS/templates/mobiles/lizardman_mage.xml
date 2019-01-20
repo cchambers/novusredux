@@ -27,39 +27,39 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_lizardmen">
 			<Initializer>
-				{ 
+			{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
-					{
-					},
+				{
+				},
 				Skills = 
-					{ 
+				{ 
 					Brawling = 60,  
 					Magery=100,
 					MagicAffinity=100,
-					},	
+				},	
 				EquipTable = 
-					{
-						Backpack = { "backpack" },			
-					},
+				{
+					Backpack = { "backpack" },			
+				},
 				LootTables = 
-					{ 
-						TemplateDefines.LootTable.MageRich,			
-						TemplateDefines.LootTable.Maps,
-						TemplateDefines.LootTable.Average,	
-						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.Potions,	
-						TemplateDefines.LootTable.ScrollsRich,	
-						TemplateDefines.LootTable.FineScrolls,
-						{
-							NumCoins = math.random(260,350),
-						},
-					},	
-				ScavengeTables =
+				{ 
+					TemplateDefines.LootTable.MageRich,			
+					TemplateDefines.LootTable.Maps,
+					TemplateDefines.LootTable.Average,	
+					TemplateDefines.LootTable.Humanoid,
+					TemplateDefines.LootTable.Potions,	
+					TemplateDefines.LootTable.ScrollsRich,	
+					TemplateDefines.LootTable.FineScrolls,
 					{
-					},		
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
-				}
+						NumCoins = math.random(260,350),
+					},
+				},	
+				ScavengeTables =
+				{
+				},		
+				AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor" },
+			}
 			</Initializer>
 		</LuaModule>
 		<LuaModule Name="animal_parts">
