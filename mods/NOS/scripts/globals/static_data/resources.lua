@@ -11,7 +11,7 @@ ResourceData = {
 			RareResources = {
 				Ash = {					
 					VisualState = "HighQuality",
-					MinSkill = 35,
+					MinSkill = 50,
 				},
 				Blightwood = {					
 					VisualState = "HighQuality",
@@ -30,7 +30,7 @@ ResourceData = {
 			RareResources = {
 				Ash = {					
 					VisualState = "HighQuality",
-					MinSkill = 35,
+					MinSkill = 50,
 				},
 				Blightwood = {					
 					VisualState = "HighQuality",
@@ -1084,9 +1084,25 @@ ResourceData = {
 			Template = "recipe_apron",
 			DisplayName = "Recipe: Apron",
 		},
+		RecipeCloak = {
+			Template = "recipe_cloak",
+			DisplayName = "Recipe: Cloak",
+		},
 		RecipeBlacksmith = {
 			Template = "recipe_blacksmith",
 			DisplayName = "Recipe: Blacksmith",
+		},
+		RecipeStandingTorch = {
+			Template = "recipe_standingtorch",
+			DisplayName = "Recipe: Standing Torch",
+		},
+		RecipeWallLantern = {
+			Template = "recipe_walllantern",
+			DisplayName = "Recipe: Wall Lantern",
+		},
+		RecipeHangingLantern = {
+			Template = "recipe_hanginglantern",
+			DisplayName = "Recipe: Hanging Lantern",
 		},
 		RecipeBandana = {
 			Template = "recipe_bandana",

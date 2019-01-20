@@ -39,7 +39,6 @@ function UnStableSelf()
 	if ( topMost == nil ) then return end -- can't unstable, already in the world!
 
 	this:SetWorldPosition(topMost:GetLoc())
-	this:SetObjectOwner(topMost)
 
 	if ( CheckOwner() ) then
 		UserPetCommand("follow", _MyOwner)
