@@ -79,7 +79,7 @@ function AdjustKarma(mobile, amount)
         ForeachActivePet(mobile, function(pet)
             pet:SetObjVar("Karma", karma)
             pet:SendMessage("UpdateName")
-        end)
+        end, true)
 
         --Taking opposite achievement type for karma check for title
         local oppositeAchievementType = nil
@@ -192,19 +192,21 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     end
 
     local isPlayerB = false
+    local isPetB = false
     local karmaB = 0
 
     -- setup mobileB if supplied
     if ( mobileB ~= nil ) then
-        -- explicitly stop all karma actions on pets/followers.
+        -- if range condition, ensure it's met
+        if ( action.Range and mobileA:DistanceFrom(mobileB) > action.Range ) then
+            return 0
+        end
+        -- explicitly stop all karma actions on your own pets/followers.
         local owner = mobileB:HasObjVar("controller") and mobileB:GetObjVar("controller") or mobileB:GetObjectOwner()
         if ( mobileA == owner ) then return 0 end
-        isPlayerB, karmaB = IsPlayerCharacter(mobileB), GetKarma(mobileB)
-    end
-
-    -- if range condition, ensure it's met
-    if ( action.Range and mobileA:DistanceFrom(mobileB) > action.Range ) then
-        return 0
+        isPlayerB, isPetB = IsPlayerObject(mobileB)
+        if ( owner and owner:IsValid() ) then mobileB = owner end
+        karmaB = GetKarma(mobileB)
     end
 
     if ( isPlayerB ) then
@@ -218,6 +220,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     local pvpMod = 1
     local negativeAdjustMod = 1
     local npcMod = 1
+    local petMod = isPetB and action.PetModifier or 1
 
     local endInitiate = false
     -- handle negative karma actions
@@ -297,7 +300,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     DebugMessage("npcMod: "..npcMod)
     ]]
 
-    local adjust = action.Adjust * pvpMod * negativeAdjustMod * npcMod
+    local adjust = action.Adjust * pvpMod * negativeAdjustMod * npcMod * petMod
 
     -- prevent positive actions from going negative
     if ( action.Adjust > 0 and adjust < 0 ) then return 0 end
@@ -478,14 +481,24 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
         LuaDebugCallStack("[ShouldChaoticProtect] target not provided.")
         return false
     end
-    -- doesn't matter against NPCs
-    if ( not IsPlayerCharacter(player) or not IsPlayerCharacter(target) ) then return false end
-
-    -- not chaotic protected from defending against aggressors
-    if ( IsAggressorTo(target, player) ) then return false end
-
-    -- players already temp chaotic don't need to be protected.
-    if ( player:HasObjVar("IsChaotic") ) then return false end
+    if ( 
+        -- players already temp chaotic don't need to be protected.
+        player:HasObjVar("IsChaotic")
+        or
+        -- doesn't matter against NPCs
+        not IsPlayerCharacter(player)
+        or
+        not IsPlayerObject(target)
+        or
+        -- allegiances do not affect order.
+        InOpposingAllegiance(player, target)
+        or
+        -- sharing karma groups ignores order flag
+        ShareKarmaGroup(player, target)
+        or
+        -- not protected from defending against aggressors
+        ( not beneficial and IsAggressorTo(target, player) )
+    ) then return false end
 
     local playerKarmaLevel = GetKarmaLevel(GetKarma(player))
     if (
@@ -559,12 +572,20 @@ function SetKarmaAlignment(player, level)
         -- clear it
         player:SetObjVar("Karma", -1)
         player:SendMessage("UpdateName")
+        ForeachActivePet(player, function(pet)
+            pet:SetObjVar("Karma", -1)
+            pet:SendMessage("UpdateName")
+        end, true)
     else
         player:SetObjVar("KarmaAlignment", level)
         if ( (ServerSettings.Karma.Levels[level].Amount or 0) < 0 and GetKarma(player) > 0 ) then
             -- clear it
             player:SetObjVar("Karma", -1)
             player:SendMessage("UpdateName")
+            ForeachActivePet(player, function(pet)
+                pet:SetObjVar("Karma", -1)
+                pet:SendMessage("UpdateName")
+            end, true)
             player:SendMessage("EndChaoticEffect") -- end the temp chaotic, they are real chaotic now.
         end
     end
