@@ -18,7 +18,6 @@ ServerSettings.Durability = {
         -- OnWeaponSwing = 0.01,
         -- OnEquipmentHit = 0.05,
 
-
         OnToolUse = 0.005,
         OnMapDecipher = 0.25,
     },
