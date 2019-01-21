@@ -696,7 +696,7 @@ function PerformPlayerTick(notFirst)
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
 end
 
-UnregisterEventHandler("", EventType.UserLogin)
+UnregisterEventHandler("", EventType.UserLogin, "")
 RegisterEventHandler(EventType.UserLogin,"",
 	function(loginType)
 		if not( IsPossessed(this) ) then
