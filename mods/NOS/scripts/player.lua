@@ -696,6 +696,10 @@ function PerformPlayerTick(notFirst)
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
 end
 
+function DailyTaxWarn()
+	return
+end
+
 UnregisterEventHandler("", EventType.UserLogin, "")
 RegisterEventHandler(EventType.UserLogin,"",
 	function(loginType)
