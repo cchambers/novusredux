@@ -1,11 +1,25 @@
-<ObjectTemplate>
+<!-- <ObjectTemplate>
   <Name>[00FF00]Greater Mana Potion[-]</Name>
 	<ClientId>109</ClientId>
 	<Color>0xFF0383F9</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>		
-		<!-- Stackable objvars -->
+	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">PotionGreaterMana</StringVariable>
+		<StringVariable Name="PluralName">Greater Mana Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
+	</ObjectVariableComponent>				
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate> -->
+<ObjectTemplate>
+  <Name>[00FF00]Greater Mana Potion[-]</Name>
+	<ClientId>114</ClientId>
+	<Color>0xFF3388FF</Color>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="ResourceType">PotionNOSGreaterMana</StringVariable>
 		<StringVariable Name="PluralName">Greater Mana Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>				

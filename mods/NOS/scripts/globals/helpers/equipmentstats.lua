@@ -274,3 +274,14 @@ function GetModifierString(desc,baseValue,bonusValue, reverseStat)
 	if(reverseStat == true) then bonusValue = -bonusValue end
 	return ColorizeStatString(modStr,bonusValue) .. "\n"
 end
+
+function GetArmorAgiBonus(slot,item)
+	armorType = GetArmorType(item)	
+
+	if(EquipmentStats.BaseArmorStats[armorType][slot].AgiBonus) then
+		return EquipmentStats.BaseArmorStats[armorType][slot].AgiBonus
+	else
+		armorClass = GetArmorClassFromType(armorType)
+		return ( EquipmentStats.BaseArmorClass[armorClass][slot].AgiBonus or 0 )
+	end
+end 

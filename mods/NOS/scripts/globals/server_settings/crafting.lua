@@ -14,7 +14,7 @@ ServerSettings.Crafting = {
     MaterialBonus = {
         -- these are in percents
         Attack = {
-            Max = 50, -- max a material bonus can give to + attack %
+            Max = 75, -- max a material bonus can give to + attack %
             Weight = { -- different materials are weighted to give better results
                 Iron = 0,
                 Copper = 10,
@@ -28,7 +28,7 @@ ServerSettings.Crafting = {
             }
         },
         Accuracy = {
-            Max = 30, -- max a material bonus can give to + accuracy
+            Max = 35, -- max a material bonus can give to + accuracy
             Weight = { -- different materials are weighted to give better results
                 Iron = 0,
                 Copper = 10,
@@ -38,7 +38,7 @@ ServerSettings.Crafting = {
 
                 Boards = 0,
                 AshBoards = 20,
-                BlightwoodBoards = 40,
+                BlightwoodBoards = 60,
             }
         },
         -- these are NOT in percents
@@ -87,7 +87,7 @@ ServerSettings.Crafting = {
             Max = 25,
         },
         Accuracy = {
-            Max = 10,
+            Max = 5,
         },
         Armor = {
             Max = 1, -- (This max is HALFED in final calculation)

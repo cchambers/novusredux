@@ -1,6 +1,5 @@
 
-
-SpecialEffects.RevealKade = {
+SpecialEffects.RevealKhi = {
     {
         Iterations = 18,
         --- Cache is overwritten as you add more effects

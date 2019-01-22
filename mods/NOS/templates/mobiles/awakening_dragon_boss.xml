@@ -61,7 +61,8 @@
 					{
 					},		
 					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+					-- Removed per 1/18 CS Update
+					--AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
 				}
 			</Initializer>
 		</LuaModule>

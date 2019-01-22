@@ -1,11 +1,10 @@
 <ObjectTemplate>
   <Name>[00FF00]Stamina Potion[-]</Name>
-	<ClientId>114</ClientId>
-	<Color>0xFFFDFF00</Color>
+	<ClientId>109</ClientId>
+	<Color>0xFFfffd52</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<!-- Stackable objvars -->
-		<StringVariable Name="ResourceType">PotionStamina</StringVariable>
+		<StringVariable Name="ResourceType">PotionNOSStamina</StringVariable>
 		<StringVariable Name="PluralName">Stamina Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>				

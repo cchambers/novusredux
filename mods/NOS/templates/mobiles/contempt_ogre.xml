@@ -47,6 +47,7 @@
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.DecrepidEye,
 						{
 							NumCoins = math.random(550,700),
 						},

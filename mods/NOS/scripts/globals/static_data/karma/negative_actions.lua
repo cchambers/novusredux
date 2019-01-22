@@ -69,6 +69,7 @@ KarmaActions.Negative = {
         },
         Range = 60,
         ClearConflicts = true,
+        PetModifier = 0.5
     },
     -- applies when a player performs a benefical act on a karma level set to punish beneficial acts
     PunishForBeneficial = {

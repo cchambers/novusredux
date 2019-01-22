@@ -123,7 +123,7 @@ TemplateDefines = {
 
 		FilthyRich = 
 		{
-			NumItems = 1,
+			NumItems = 3,
 
 			LootItems = 
 			{ 
@@ -149,6 +149,7 @@ TemplateDefines = {
     			{ Chance = 15, Template = "ring_sapphire_perfect", Unique = true },
     			{ Chance = 15, Template = "ring_ruby_perfect", Unique = true },
     			{ Chance = 15, Template = "ring_topaz_perfect", Unique = true },
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -181,13 +182,13 @@ TemplateDefines = {
     			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
 				{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
 				
-    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
 		DeathBoss = 
 		{
-			NumItems = 3,
+			NumItems = 6,
 					
 			LootItems = 
 			{ 
@@ -224,19 +225,31 @@ TemplateDefines = {
 					
 			LootItems = 
 			{ 
-				{ Chance = 50, Template = "robe_necromancer_tunic", Unique = true},
-				{ Chance = 50, Template = "robe_necromancer_leggings", Unique = true},
-				{ Chance = 50, Template = "robe_necromancer_helm", Unique = true},
-				{ Chance = 50, Template = "weapon_dark_bow", Unique = true},
-				{ Chance = 50, Template = "weapon_shadowblade", Unique = true},
-				{ Chance = 50, Template = "weapon_death_scythe", Unique = true},
-				{ Chance = 50, Template = "weapon_silver_longsword", Unique = true},
-				{ Chance = 50, Template = "weapon_dark_maul", Unique = true},
-				{ Chance = 50, Template = "furniture_throne_reaper", Packed = true, Unique = true},
-				{ Chance = 50, Template = "furniture_teleporter_catacombs", Packed = true,  Unique = true},
-				{ Chance = 50, Template = "item_statue_death", Unique = true},
+				{ Chance = 5, Template = "robe_necromancer_tunic", Unique = true},
+				{ Chance = 5, Template = "robe_necromancer_leggings", Unique = true},
+				{ Chance = 5, Template = "robe_necromancer_helm", Unique = true},
+				{ Chance = 2, Template = "weapon_dark_bow", Unique = true},
+				{ Chance = 2, Template = "weapon_shadowblade", Unique = true},
+				{ Chance = 2, Template = "weapon_death_scythe", Unique = true},
+				{ Chance = 2, Template = "weapon_silver_longsword", Unique = true},
+				{ Chance = 1, Template = "weapon_dark_maul", Unique = true},
+				{ Chance = 1, Template = "furniture_throne_reaper", Packed = true, Unique = true},
+				{ Chance = 1, Template = "furniture_teleporter_catacombs", Packed = true,  Unique = true},
+				{ Chance = 0.5, Template = "item_statue_death", Unique = true},
 			},
 		},
+
+		ExecutionerTubs = 
+		{
+			NumItems = 1,
+
+			LootItems = 
+			{ 
+				{ Chance = 5, Template = "random_executioner_weapon_50_100", Unique = true},
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+			},
+		},
+
 
 		SpiderPoor = 
 		{
@@ -731,18 +744,6 @@ TemplateDefines = {
 				{ Chance = 1, Template = "armor_fullplate_leggings", Unique = true },
 			},
 		},
-		PrestigeLow = 
-		{
-			NumItems = 1,	
-			LootItems = 
-			{ 
-				{ Chance = 1, Template = "prestige_dart", Unique = true },
-				{ Chance = 1, Template = "prestige_spellchamber", Unique = true },
-				{ Chance = 1, Template = "prestige_empower", Unique = true },
-				{ Chance = 1, Template = "prestige_stunstrike", Unique = true },
-				{ Chance = 1, Template = "prestige_hamstring", Unique = true },
-			},
-		},
 		Prestige = 
 		{
 			NumItems = 1,	
@@ -752,6 +753,11 @@ TemplateDefines = {
 				{ Chance = 2, Template = "prestige_charge", Unique = true },
 				{ Chance = 2, Template = "prestige_wound", Unique = true },
 				{ Chance = 2, Template = "prestige_evasion", Unique = true },
+				{ Chance = 1, Template = "prestige_dart", Unique = true },
+				{ Chance = 1, Template = "prestige_spellchamber", Unique = true },
+				{ Chance = 1, Template = "prestige_empower", Unique = true },
+				{ Chance = 1, Template = "prestige_stunstrike", Unique = true },
+				{ Chance = 1, Template = "prestige_hamstring", Unique = true },
 			},
 		},
 		Poor = 

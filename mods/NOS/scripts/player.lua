@@ -609,10 +609,6 @@ function OnLoad(isPossessed)
 			UpdateItemBar(this)
 			ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 
-			if this:HasObjVar("AchievementWaiting") then
-				this:SendClientMessage("SetAchievementNotification",true)
-			end
-
 			InitializeClientConflicts(this)
 
 			if not(IsPossessed(this)) then
@@ -623,6 +619,13 @@ function OnLoad(isPossessed)
 				end			
 			end
 		end)
+
+	CallFunctionDelayed(TimeSpan.FromSeconds(10.0),
+	function()		
+		if this:HasObjVar("AchievementWaiting") then
+			this:SendClientMessage("SetAchievementNotification",true)
+		end
+	end)
 
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()),"UpdateChatChannels")
 end
@@ -686,5 +689,41 @@ function PerformPlayerTick(notFirst)
 	CheckAllegianceTitle(this)
 
 	CheckBidRefund()
-	ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+	
+	HandleGmResponseWindow()
+	
+	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
 end
+
+function DailyTaxWarn()
+	return
+end
+
+UnregisterEventHandler("", EventType.UserLogin, "")
+RegisterEventHandler(EventType.UserLogin,"",
+	function(loginType)
+		if not( IsPossessed(this) ) then
+			local clusterController = GetClusterController()
+			if ( clusterController ) then
+				clusterController:SendMessage("UserLogin",this,loginType)			
+			end
+			if ( loginType == "Connect" ) then
+				Guild.Initialize()
+				-- warn about their plot taxes
+			end
+		end
+
+		if(loginType == "ChangeWorld") then
+			if (ServerSettings.WorldName == "Catacombs") then
+				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
+			end
+			return
+		end
+		if(ServerSettings.WorldName == "Catacombs") then
+			local sendto = GetRegionAddressesForName("SouthernHills")
+			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
+				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
+			end			
+		end
+	end)

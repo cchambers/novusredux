@@ -28,52 +28,53 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
-				{ 
+			{
 				Stats = { Str=30, Agi=50, Int=100, Wis=100, Will=50 },
 				MobTraits =
-					{
+				{
 					Toughness = 2,
 					Might = 2,
-					},
+				},
 				Skills = 
-					{ 
+				{ 
 					Brawling = 80,  
 					MagicAffinity=100, 
 					MagicResist=100,
 					Inscription=100,
 					Magery=100, 
-					},
+				},
 				EquipTable = 
-					{
-						Backpack = { "backpack" },
-					},
+				{
+					Backpack = { "backpack" },
+				},
 				LootTables =
+				{
+					TemplateDefines.LootTable.AncientScrolls,
+					TemplateDefines.LootTable.BonesEthereal,
+					TemplateDefines.LootTable.FilthyRich,
+					TemplateDefines.LootTable.MageRich,
+					TemplateDefines.LootTable.MapsHigh,
+					TemplateDefines.LootTable.PotionsHigh,
+					TemplateDefines.LootTable.Prestige,
+					TemplateDefines.LootTable.ExecutionerTubs,
+					TemplateDefines.LootTable.ScrollsHigh,
+					TemplateDefines.LootTable.SkeletonRich,
+					TemplateDefines.LootTable.RuinMob,
 					{
-						TemplateDefines.LootTable.AncientScrolls,
-						TemplateDefines.LootTable.BonesEthereal,
-						TemplateDefines.LootTable.FilthyRich,
-						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.PrestigeLow,
-						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.SkeletonRich,
-						TemplateDefines.LootTable.RuinMob,
+						NumCoins = math.random(2000,4000),
+						NumItems = 1,
+						LootItems = 
 						{
-							NumCoins = math.random(1000,1400),
-							NumItems = 1,
-							{
-				    			{ Weight = 90, Template = "furniture_box", Unique = true },
-				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },
-				    		}
-						},
+							{ Weight = 90, Template = "furniture_box", Unique = true },
+							{ Weight = 10, Template = "furniture_box_rare", Unique = true },
+						}
 					},
-
+				},
 				ScavengeTables =
-					{
-					},
-					AvailableSpells = {"Greaterheal", "Poison", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
-				}
+				{
+				},
+				AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+			}
 			</Initializer>
 		</LuaModule>
 		<LuaModule Name="random_name">

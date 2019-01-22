@@ -1,4 +1,4 @@
-<ObjectTemplate>
+<!-- <ObjectTemplate>
   <Name>[00FF00]Heal Potion[-]</Name>
 	<ClientId>1057</ClientId>
 	<Color>0xFFF90303</Color>
@@ -9,6 +9,21 @@
 		<StringVariable Name="PluralName">Heal Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate> -->
+
+<ObjectTemplate>
+  <Name>[00FF00]Health Potion[-]</Name>
+	<ClientId>109</ClientId>
+	<Color>0xFFFF0000</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="ResourceType">PotionNOSRegularHealth</StringVariable>
+		<StringVariable Name="PluralName">Health Potions</StringVariable>
+		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
+	</ObjectVariableComponent>				
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>
 	</ScriptEngineComponent>

@@ -4,6 +4,7 @@ MobileEffectLibrary.SpiritSpeak =
 		local skill = GetSkillLevel(self.ParentObj, "SpiritSpeak")
 		self.Duration = TimeSpan.FromSeconds((skill / 10) * 60)
 		self.ParentObj:SystemMessage("You may now temporarily speak with the dead.")
+		self.ParentObj:SetObjVar("SpiritSpoke", 0)
 	end,
 
 	OnExitState = function(self,root)

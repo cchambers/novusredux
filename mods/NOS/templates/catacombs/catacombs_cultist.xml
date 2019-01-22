@@ -27,7 +27,7 @@
               LootItems = 
               { 
                 { Weight = 4, Template = "treasure_map", Unique = true },
-                { Weight = 40, Template = "potion_mana"},
+                { Weight = 40, Template = "regular_mana_potion"},
                 { Weight = 5, Template  = "cultist_note_a" },
                 { Weight = 5, Template  = "cultist_note_b" },
                 { Weight = 5, Template  = "cultist_note_c" },
