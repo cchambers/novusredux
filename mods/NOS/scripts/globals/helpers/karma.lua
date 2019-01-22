@@ -346,7 +346,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
         if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
-    if (action == KarmaActions.Negative.Murder and IsPlayerCharacter(aggressor)) then
+    if (action == KarmaActions.Negative.Murder) then -- and IsPlayerCharacter(aggressor)?
         local aggressor = mobileA
         local victim = mobileB
         local murders = aggressor:GetObjVar("Murders") or 0
