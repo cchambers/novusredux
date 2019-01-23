@@ -21,6 +21,7 @@ local HueNames = {
 	hue899 = "Pure",
 	hue901 = "Musk",
 	hue904 = "Ruby",
+	hue906 = "Moo",
 	hue915 = "Adamantium",
 	hue921 = "Lime",
 	hue922 = "Sherbet",

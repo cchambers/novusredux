@@ -15,7 +15,7 @@
                             { Weight = 30, Template = "item_bowl", Unique = true },
                             { Weight = 30, Template = "item_wine_goblet", Unique = true },
                             { Weight = 30, Template = "item_candle", Unique = true },
-                            { Weight = 25, Template = "item_candleabra_short", Unique = true },
+                            { Weight = 25, Template = "item_candelabra_short", Unique = true },
                             { Weight = 25, Template = "furniture_chair_fancy", Unique = true, Packed=true },
                             { Weight = 20, Template = "item_potted_plant_longleaf", Unique = true, },
                             { Weight = 15, Template = "item_potted_plant_round_bush", Unique = true },

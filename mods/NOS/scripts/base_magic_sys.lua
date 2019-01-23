@@ -1281,6 +1281,7 @@ function HandleSpellTravelled(spellName, spTarget, spellSource, spellID)
 		if (overrideTarg == nil) then
 			overrideTarg = false
 		end
+		this:SendMessage("BreakInvisEffect")
 		this:SendMessage("RequestMagicalAttack", spellName, spTarget, spellSource, overrideTarg, true)
 	else
 		ApplySpellEffects(spellName, spTarget, spellSource)
