@@ -483,7 +483,7 @@ function OnLoad(isPossessed)
 	end
 
 	local murders = this:GetObjVar("Murders")
-	if (murders) then
+	if (murders ~= nil) then
 		this:SendMessage("StartMobileEffect", "Murderer")
 	end
 
