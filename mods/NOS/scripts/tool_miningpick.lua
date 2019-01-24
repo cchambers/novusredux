@@ -38,9 +38,9 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		local harvestingBonus = 0
 		if(math.random(0, maxHarvestingChance) > 5) then
 			harvestingBonus = 1
-			if ( math.random(0, 10) > 6 ) then
-				CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.05)
-			end
+		end
+		if ( math.random(0, 100) > 96 ) then
+			CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.05)
 		end
 		mHarvestedStackCount = mHarvestedStackCount + harvestingBonus
 
