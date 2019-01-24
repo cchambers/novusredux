@@ -6,8 +6,11 @@ function HandleConsumeCoins(amount,transactionId,responseObj,...)
 	local success = false
 
 	local bankObj = this:GetEquippedObject("Bank")
+	local tally = CountResourcesInContainer(bankObj, "coins")
+	DebugMessage(tostring("HERE - " .. tally))
 
-	if( bankObj ~= nil and CountResourcesInContainer(bankObj,"coins") >= amount ) then
+	if( bankObj ~= nil and tally >= amount ) then
+
 		local resourceObjs = GetResourcesInContainer(bankObj,"coins")
 		-- sort stackable objects from smallest to largest
 		table.sort(resourceObjs,function(a,b) return GetStackCount(a)<GetStackCount(b) end)
