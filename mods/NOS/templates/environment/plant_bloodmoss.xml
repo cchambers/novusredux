@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Blood Moss[-]</Name>
+	<Name>Blood Moss</Name>
 	<ClientId>579</ClientId>
 	<Color>0xFFff0000</Color>
 	<Hue>30</Hue>
