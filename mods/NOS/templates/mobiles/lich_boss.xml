@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1800</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -29,42 +29,43 @@
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_lich_boss">
 			<Initializer>
-				{ 
+			{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
-					{
+				{
 					Toughness = 2,
 					Might = 2,
-					},
+				},
 				Skills = 
-					{  
-					MagicAffinity=100,
-					Magery=100, 
-					MagicResist=100, 
-					Brawling = 70,  
-					},	
+				{
+					MagicAffinity = 100,
+					Magery = 100,
+					MagicResist = 100,
+					Inscription = 100,
+					Brawling = 70,
+				},
 				EquipTable = 
+				{
+					Backpack = { "backpack" },
+				},
+				LootTables =
+				{
+					TemplateDefines.LootTable.MagePoor,
+					TemplateDefines.LootTable.ScrollsLow,
+					TemplateDefines.LootTable.AncientScrolls,
 					{
-						Backpack = { "backpack" },					
-					},
-					LootTables =
-					{
-						TemplateDefines.LootTable.MagePoor,
-						TemplateDefines.LootTable.ScrollsLow,
-						TemplateDefines.LootTable.AncientScrolls,
+						NumCoins = math.random(90,225),
 						{
-							NumCoins = math.random(90,225),
-							{
-				    			{ Weight = 95, Template = "furniture_box", Unique = true },
-				    			{ Weight = 5, Template = "furniture_box_rare", Unique = true },
-				    		}
-			    		}
-					},	
+							{ Weight = 95, Template = "furniture_box", Unique = true },
+							{ Weight = 5, Template = "furniture_box_rare", Unique = true },
+						}
+					}
+				},
 				ScavengeTables =
-					{
-					},
-				AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment"},		
-				}
+				{
+				},
+				AvailableSpells = { "Frost", "Poison", "Cure", "Fireball", "Lightning", "Electricbolt", "Bombardment" },
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

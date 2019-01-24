@@ -21,6 +21,7 @@ function HandleLoaded(caster)
 		this:SystemMessage("Your confidence has decreased slightly.")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end
 
 function CleanUp()

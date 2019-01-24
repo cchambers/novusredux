@@ -261,32 +261,33 @@ EquipmentStats = {
 			TwoHandedWeapon = true
 		},
 		-- Bows
+	
 		Shortbow = {
 			WeaponClass = "Bow",
 			Variance = 0.05,
-			Attack = 15,
+			Attack = 14,
 			MinSkill = 0,
-			Speed = 2.5,
+			Speed = 3.5,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
-			TwoHandedWeapon = true
+			TwoHandedWeapon = true,
 		},
 		Longbow = {
 			WeaponClass = "Bow",
 			Variance = 0.05,
 			Attack = 20,
-			MinSkill = 0,
-			Speed = 3.5,
+			MinSkill = 65,
+			Speed = 4,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "Bleed",
-			TwoHandedWeapon = true
+			TwoHandedWeapon = true,
 		},
 		Warbow = {
 			WeaponClass = "Bow",
 			Variance = 0.1,
 			Attack = 26,
-			MinSkill = 0,
-			Speed = 4.5,
+			MinSkill = 90,
+			Speed = 4,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "MortalStrike",
 			TwoHandedWeapon = true
@@ -295,8 +296,8 @@ EquipmentStats = {
 			WeaponClass = "Bow",
 			Variance = 0.1,
 			Attack = 26,
-			MinSkill = 0,
-			Speed = 4.5,
+			MinSkill = 90,
+			Speed = 4,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
 			TwoHandedWeapon = true
@@ -305,8 +306,8 @@ EquipmentStats = {
 			WeaponClass = "Bow",
 			Variance = 0.1,
 			Attack = 26,
-			MinSkill = 0,
-			Speed = 4.5,
+			MinSkill = 90,
+			Speed = 4,
 			PrimaryAbility = "Power",
 			SecondaryAbility = "DoubleShot",
 			TwoHandedWeapon = true
@@ -478,6 +479,7 @@ EquipmentStats = {
 				ManaRegenModifier = 1
 			}
 		},
+		
 		Light = {
 			Head = {
 				AgiBonus = -1,
@@ -495,21 +497,22 @@ EquipmentStats = {
 				ManaRegenModifier = 0.5
 			}
 		},
+
 		Heavy = {
 			Head = {
 				AgiBonus = -3,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.001
+				ManaRegenModifier = -0.50
 			},
 			Chest = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.001
+				ManaRegenModifier = -0.25
 			},
 			Legs = {
 				AgiBonus = -6,
 				StaRegenModifier = 0,
-				ManaRegenModifier = 0.001
+				ManaRegenModifier = -0.25
 			}
 		}
 	},

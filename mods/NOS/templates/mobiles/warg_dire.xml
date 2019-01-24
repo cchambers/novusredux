@@ -18,6 +18,7 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<StringVariable Name="MountType">Warg</StringVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">83.1</DoubleVariable>
 		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 	</ObjectVariableComponent>

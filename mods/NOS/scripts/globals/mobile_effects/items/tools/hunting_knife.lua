@@ -179,37 +179,62 @@ MobileEffectLibrary.HuntingKnife =
     end,
 
     CreateFillet = function(self,root,amount)
-        local added, addtostackreason = TryAddToStack(self.TemplateData.ObjectVariables.ResourceType or "FishFillet", self.Backpack, amount)
+        local localAmount = self.CheckFilletAmount(self.ParentObj, amount)
+        local added, addtostackreason = TryAddToStack(self.TemplateData.ObjectVariables.ResourceType or "FishFillet", self.Backpack, localAmount)
         if ( added ) then
-            self.OnSuccess(self, amount)
+            self.OnSuccess(self, localAmount)
         else
             if ( addtostackreason == "Weight" ) then
                 self.ParentObj:SystemMessage("Backpack cannot hold anymore.", "info")
-                Create.Stack.AtLoc(self.CutToFillet, amount, self.ParentObj:GetLoc(), function(obj)
-                    if ( obj ) then self.OnSuccess(self, amount) end
+                Create.Stack.AtLoc(self.CutToFillet, localAmount, self.ParentObj:GetLoc(), function(obj)
+                    if ( obj ) then self.OnSuccess(self, localAmount) end
                 end)
             else
-                Create.Stack.InBackpack(self.CutToFillet, self.ParentObj, amount, nil, function(obj)
-                    if ( obj ) then self.OnSuccess(self, amount) end
+                Create.Stack.InBackpack(self.CutToFillet, self.ParentObj, localAmount, nil, function(obj)
+                    if ( obj ) then self.OnSuccess(self, localAmount) end
                 end)
             end
         end
     end,
 
+    CheckFilletAmount = function(user, amount)
+        -- Chance to get 1 extra fillet out of fish level 75 and above.
+        local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
+        if ( harvestingSkill > 75 ) then
+            local maxBonus = math.floor((harvestingSkill / 75) * amount)
+            local additional = math.random(0, maxBonus)
+            return amount + additional
+        end
+        return amount
+    end,
+
     CreateBlackpearl = function(self,root)
         local blackpearlChance = math.random(0,10)
-        if(blackpearlChance > 6) then
+
+        -- approx 50% chance to get blackpearls from 1 to 3.
+        if(blackpearlChance > 5) then
             local backpackObj = self.Backpack
             local resourceType = "Blackpearl"
             if( backpackObj ~= nil ) then		
-                -- DAB TODO: If we want to add a skill back in here we need to grab the code from one of the other tools
-                local stackAmount = math.random(1,3)
-        
-                if (resourceType == nil) then return end
+                -- TODO - VERLORENS Add in difficulty to harvestinging checks, requires adding difficulty to each plant.. necessary?
+                --if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
+                local harvestingSkill = GetSkillLevel(self.ParentObj, "HarvestingSkill")
+                
+                -- Max number of goods per harvesting skill:
+                -- Skill:   0   20  40  60  80  100
+                -- # Goods: 1   1   2   2   3   3
+                local maxAmount = math.floor((harvestingSkill / 40) + 1)
+                local stackAmount = math.random(1, maxAmount)
+                
+                -- Yes still doing this the rough way, but it's nice to have that extra number.
+                -- No I'm not being vindictive here >.>
+                if(blackpearlChance >= 8) then
+                    CheckSkillChance(self.ParentObj,"HarvestingSkill")
+                end
 
                 -- try to add to the stack in the players pack		
                 if( not( TryAddToStack(resourceType,backpackObj,stackAmount)) and ResourceData.ResourceInfo[resourceType] ~= nil ) then
-                    -- no stack in players pack so create an object in the pack    	
+                    -- no stack in players pack so create an object in the pack
                     local templateId = ResourceData.ResourceInfo[resourceType].Template
                     CreateObjInBackpackOrAtLocation(self.ParentObj, templateId, "create_foraging_harvest", stackAmount)
                 end

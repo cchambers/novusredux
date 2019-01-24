@@ -29,6 +29,7 @@ function HandleLoaded(caster)
 		this:SystemMessage("Bless! Your stats have increased by " .. mAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end 
 
 function CleanUp()

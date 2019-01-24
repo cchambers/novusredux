@@ -21,18 +21,18 @@ function CleanUp()
     this:CloseDynamicWindow("PlotTaxWindow")
 end
 
-function GetPlotInfo(cb)
-    if not( cb ) then cb = function(info) end end
-    local address = GlobalVarReadKey("Plot."..controller.Id, "Region")
-    if ( address == ServerSettings.RegionAddress ) then
-        cb(Plot.GetInfo(controller))
-    else
-        RegisterSingleEventHandler(EventType.Message, "PlotInfoResponse", cb)
-        if not(MessageRemoteClusterController(address, "PlotInfoRequest", this, controller)) then
-            DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
-        end
-    end
-end
+-- function GetPlotInfo(cb)
+--     if not( cb ) then cb = function(info) end end
+--     local address = GlobalVarReadKey("Plot."..controller.Id, "Region")
+--     if ( address == ServerSettings.RegionAddress ) then
+--         cb(Plot.GetInfo(controller))
+--     else
+--         RegisterSingleEventHandler(EventType.Message, "PlotInfoResponse", cb)
+--         if not(MessageRemoteClusterController(address, "PlotInfoRequest", this, controller)) then
+--             DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
+--         end
+--     end
+-- end
 
 function MakeTaxPayment(amount, cb)
     if not( cb ) then cb = function(success) end end
@@ -42,7 +42,7 @@ function MakeTaxPayment(amount, cb)
     else
         RegisterSingleEventHandler(EventType.Message, "TaxPaymentResponse", cb)
         if not(MessageRemoteClusterController(address, "TaxPaymentRequest", this, controller, amount)) then
-            DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
+            DebugMessage("[MakeTaxPayment] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
         end
     end
 end
@@ -84,7 +84,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
                 return
             end
 
-            GetPlotInfo(function(info)
+            Plot.GetInfoRemote(this, controller, function(info)
                 local max = math.floor((info.Rate or ServerSettings.Plot.Tax.MinimumPayment) * ServerSettings.Plot.Tax.MaxBalanceRateModifier)
                 local balance = info.Balance or 0
                 
@@ -137,7 +137,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotTaxWindow", function(
                         end
                     end,
                 }
-            end)
+            end, "PayInfo")
             return -- don't cleanup
         end
     end

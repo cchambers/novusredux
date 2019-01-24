@@ -150,8 +150,12 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "TargetStableAnimal"
 					if ( stabledSlots + 1 >= MaxStabledPetSlots(user) ) then
 						this:NpcSpeech("I cannot take anymore of your pets.")
 					else
-						-- consume 50 coins
-						RequestConsumeResource(user, "coins", 50, "StablePet", this, pet)
+						local backpack = target:GetEquippedObject("Backpack")
+						if ( backpack and #backpack:GetContainedObjects() > 0 ) then
+							this:NpcSpeech("That pet is carrying stuff, I'm not a bank!")
+						else
+							RequestConsumeResource(user, "coins", 50, "StablePet", this, pet)
+						end
 					end
 				end
 			end

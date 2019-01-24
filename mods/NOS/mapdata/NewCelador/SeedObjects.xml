@@ -2205,15 +2205,6 @@
 			<Id>1</Id>
 			<ObjectCreationParams>misty_cavern_golem_spawner 169 0 -644 0 0 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
-		<DynamicObject>
-			<Name>AwakeningBossSpawner</Name>
-			<Id>2</Id>
-			<ObjectCreationParams>awakening_mob_spawner -2704 0 -779 0 53 0 1 1 1</ObjectCreationParams>
-			<ObjVarOverrides>
-				<StringVariable Name="AwakeningId">Dragon</StringVariable>
-				<StringVariable Name="Stage4Template">awakening_dragon_boss</StringVariable>
-			</ObjVarOverrides>
-		</DynamicObject>
 	</Group>
 	<Group Name="UpperPlains-RebelCamp" Exclude="False">
 		<DynamicObject>
@@ -20831,7 +20822,22 @@
 		<DynamicObject>
 			<Name>GhoulSpawner</Name>
 			<Id>1</Id>
-			<ObjectCreationParams>ghoul_mob_spawner 211.65 0 -1357.88 0 30 0 1 1 1</ObjectCreationParams>
+		<ObjectCreationParams>ghoul_mob_spawner_1 211.65 0 -1357.88 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>GhoulSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>ghoul_mob_spawner_2 211.65 0 -1357.88 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>GhoulSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>ghoul_mob_spawner_3 211.65 0 -1357.88 0 30 0 1 1 1</ObjectCreationParams>
+		</DynamicObject>
+		<DynamicObject>
+			<Name>GhoulSpawner</Name>
+			<Id>1</Id>
+			<ObjectCreationParams>ghoul_mob_spawner_4 211.65 0 -1357.88 0 30 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>LichSpawner</Name>

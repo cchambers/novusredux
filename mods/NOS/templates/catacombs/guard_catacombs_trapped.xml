@@ -36,7 +36,7 @@
 							NumCoins = math.random(10,20),
 							LootItems = 
 							{ 
-								{ Weight = 50, Template = "potion_lheal" },
+								{ Weight = 50, Template = "lesser_health_potion" },
 								{ Weight = 10, Template = "tool_hunting_knife", Unique = true },
 								{ Weight = 10, Template = "potion_refresh" },
 							},

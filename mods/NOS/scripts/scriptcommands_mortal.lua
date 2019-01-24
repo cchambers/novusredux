@@ -9,6 +9,10 @@ require "base_bug_report"
 MortalCommandFuncs = {
 	-- Mortal Commands
 
+	Page = function()
+		this:AddModule("page_gm")
+	end,
+
 	Help = function(commandName)
 		if (commandName ~= nil) then
 			if (commandName == "actions") then
@@ -75,11 +79,19 @@ MortalCommandFuncs = {
 					return oos[math.random(1, #oos)]
 				end
 			)
-			this:PlayerSpeech(ghostTalk, 30)
-			local nearbyPlayers = FindObjects(SearchPlayerInRange(25))
+			-- this:PlayerSpeech(ghostTalk, 30)
+			local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
 			for i, v in pairs(nearbyPlayers) do
 				if (HasMobileEffect(v, "SpiritSpeak")) then
-					this:NpcSpeechToUser(spiritSpoken, v, "info")
+					this:NpcSpeechToUser(spiritSpoken, v)
+					local times = v:GetObjVar("SpiritSpoken") or 0
+					if (times < 10) then
+						CheckSkillChance(v, "SpiritSpeak")
+					end
+					times = times + 1
+					v:SetObjVar("SpiritSpoken", times)
+				else 
+					this:NpcSpeechToUser(ghostTalk, v)
 				end
 			end
 		else
@@ -315,13 +327,13 @@ RegisterCommand {
 RegisterCommand {
 	Command = "bugreport",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.BugReport,
+	Func = MortalCommandFuncs.Page,
 	Desc = "Send a bug report"
 }
 RegisterCommand {
 	Command = "helpreport",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.HelpReport,
+	Func = MortalCommandFuncs.Page,
 	Desc = "Send a help report"
 }
 RegisterCommand {
@@ -442,4 +454,10 @@ RegisterCommand {
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.ResetWindowPos,
 	Desc = "Resets the saved window positions on the client. Used if one of your windows gets stuck off screen."
+}
+RegisterCommand {
+	Command = "page",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Page,
+	Desc = "Page the staff."
 }

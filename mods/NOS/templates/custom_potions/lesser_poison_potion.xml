@@ -5,7 +5,7 @@
 	<Color>0xFF00FF00</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ResourceType">PotionLesserPoison</StringVariable>
+		<StringVariable Name="ResourceType">PotionNOSLesserPoison</StringVariable>
 		<StringVariable Name="PluralName">Lesser Poison Potions</StringVariable>
 		<StringVariable Name="ResourceUseSFX">event:/objects/consumables/potion/potion_use</StringVariable>
 	</ObjectVariableComponent>

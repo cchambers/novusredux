@@ -246,6 +246,12 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		local skillTable = skillDictionary[skillName] or {}
 		skillTable.SkillLevel = skillTable.SkillLevel or 0
 
+		-- TODO - VERLORENS - Look into if this impacts anything else in the future.
+		if(skillTable.SkillLevel == 0) then
+			SetSkillLevel(mobileObj, skillName, 0.3, true)
+			return true
+		end
+
 		-- only continue if there is room to gain
 		if ( 
 			skillTable.SkillLevel >= (skillTable.SkillCap or ss.Skills.PlayerSkillCap.Single)

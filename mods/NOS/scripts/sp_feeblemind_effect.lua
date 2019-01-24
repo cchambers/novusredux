@@ -27,6 +27,7 @@ function HandleLoaded(caster)
 		this:SystemMessage("Your intelligence has decreased by " .. mDecreaseAmount, "event")
 	end
 	mBuffed = true
+	RegisterSingleEventHandler(EventType.Message, "NOSDebuff", CleanUp)
 end
 
 function CleanUp()

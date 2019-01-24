@@ -88,6 +88,7 @@ Plot.New = function(playerObj, center, cb)
             if ( allSuccess ) then
                 Plot.SetOwner(controller, userId, function(success)
                     if (success) then
+                        Plot.TaxWarn(playerObj)
                         -- pass the controller
                         cb(controller)
                     else
@@ -568,15 +569,30 @@ Plot.ValidateBound = function(playerObj, bound, size, ignoreLoc)
 		end
     end]]
     
-    -- -- if any of the four corners are not passable then fail
-    -- local pointsToCheck = bound.Points
-	-- table.insert(pointsToCheck,bound.Center)
-	-- for i=1,#pointsToCheck do
-	-- 	if not( IsPassable(Loc(pointsToCheck[i])) ) then 
-	-- 		playerObj:SystemMessage("Something is blocking one of the four corners.", "info")
-	-- 		return false
-	-- 	end
-	-- end
+    -- KHI TODO: maybe comment this? It used to be but... is it necessary?
+    -- if any of the four corners are not passable then fail
+    local pointsToCheck = bound.Points
+    pointsToCheck[#pointsToCheck+1] = bound.Center
+    local loc, collisionInfo, any
+    for i=1,#pointsToCheck do
+        loc = Loc(pointsToCheck[i])
+        if not( IsPassable(loc) ) then
+            collisionInfo = GetCollisionInfoAtLoc(loc) or {}
+            for ii=1,#collisionInfo do
+                any = (type(collisionInfo[ii]) == "userdata") -- static collision
+                if not( any ) then
+                    local obj = GameObj(tonumber(StringSplit(collisionInfo[ii], " ")[3]))
+                    if ( obj and obj:IsValid() ) then
+                        any = not( obj:HasObjVar("IsPlotObject") or obj:HasObjVar("LockedDown") )
+                    end
+                end
+                if ( any ) then
+                    playerObj:SystemMessage("Something is blocking the "..PointsToString[i].." point.", "info")
+                    return false
+                end
+            end
+        end
+	end
 
 	local noHousingRegion = GetRegion("NoHousing")
 	if ( noHousingRegion ~= nil and noHousingRegion:Intersects(bound) ) then
@@ -643,7 +659,7 @@ Plot.GetNearby = function(loc)
     return controllers
 end
 
---- Get the cross region info for a plot (used in paying taxes)
+--- Get the tax balance/rate info for a region local plot
 -- @param controller
 -- @return table
 Plot.GetInfo = function(controller)
@@ -652,13 +668,33 @@ Plot.GetInfo = function(controller)
         return {
             Rate = 0,
             Balance = 0,
+            Name = nil
         }
     end
 
     return {
         Rate = Plot.CalculateRateController(controller),
         Balance = Plot.GetBalance(controller),
+        Name = controller:GetObjVar("PlotName")
     }
+end
+
+--- Get the cross region info for a plot (used in paying taxes/warning tax balance/etc)
+-- @param playerObj - (used as the response object)
+-- @param controller
+-- @return table
+Plot.GetInfoRemote = function(playerObj, controller, cb, id)
+    if not( cb ) then cb = function(info) end end
+    local address = GlobalVarReadKey("Plot."..controller.Id, "Region")
+    if ( address == nil or address == ServerSettings.RegionAddress ) then
+        cb(Plot.GetInfo(controller))
+    else
+        if not( id ) then id = "" end
+        RegisterSingleEventHandler(EventType.Message, "PlotInfoResponse"..id, cb)
+        if not(MessageRemoteClusterController(address, "PlotInfoRequest", playerObj, controller, id)) then
+            DebugMessage("[GetPlotInfo] ERROR: Failed to message remote cluster controller Address:"..tostring(address).." CurAddress: "..tostring(ServerSettings.RegionAddress).." PlotId: "..tostring(controller.Id))
+        end
+    end
 end
 
 --- Safely get the tax balance of a plot controller (must be called on same region containing the plot)
@@ -670,20 +706,24 @@ Plot.GetBalance = function(controller)
         return 0
     end
     if not( controller:IsValid() ) then
-        LuaDebugCallStack("[Plot.GetBalance] attempting to get the plot balance of In-Valid Object:", controller)
+        LuaDebugCallStack("[Plot.GetBalance] attempting to get the plot balance of invalid Object:" .. tostring(controller))
         return 0
     end
     return controller:GetObjVar("PlotTaxBalance") or 0
 end
 
---- Make a tax payment onto a plot_controller, updating the Tax Balance and the Tax Ledger by amount.
+--- Make a tax payment onto a plot_controller, updating the Tax Balance and the Tax Ledger by amount. Does not enforce limits.
+-- @param controller - Plot Controller
+-- @param playerObj - (optional) the player that made the payment.
+-- @param amount - the amount of payment.
+-- @return true/false
 Plot.TaxPayment = function(controller, playerObj, amount)
     if not( controller ) then
         LuaDebugCallStack("[Plot.TaxPayment] controller not provided.")
         return false
     end
     if not( controller:IsValid() ) then
-        LuaDebugCallStack("[Plot.TaxPayment] attempting to make a tax payment on an invalid controller:", controller)
+        LuaDebugCallStack("[Plot.TaxPayment] attempting to make a tax payment on an invalid controller:" .. tostring(controller))
         return false
     end
     amount = math.floor(amount or 0)
@@ -1036,7 +1076,7 @@ Plot.CalculateTrueLockCount = function(controller)
                 end
             end
         end
-    end)
+    end, true) -- strict
 
     if ( plotLockdowns < 0 ) then
         controller:DelObjVar("LockCount")
@@ -1217,33 +1257,42 @@ Plot.TryAdjust = function(playerObj, controller, amount, i)
     local newBound = Plot.CalculateBound({newLoc,newSize})
     if not( Plot.ValidateBound(playerObj, newBound, newSize, loc) ) then return false end
 
-    -- deny if there are any locked down items on the area we are giving up (if we are giving up land)
-    if ( newSize.X * newSize.Z < size.X * size.Z ) then
-        -- prevent if all objects are not in new size
-        local o = nil
-        Plot.ForeachLockdown(controller, function(object)
-            if not( newBound:Contains(object:GetLoc()) ) then
-                o = object
-                return true -- break loop
-            end
-        end)
-        if ( o ) then
-            playerObj:SystemMessage("Cannot release land containing locked down objects.", "info")
-            return false
+    -- prevent if all objects are not in new size
+    local o = nil
+    Plot.ForeachLockdown(controller, function(object)
+        if not( newBound:Contains(object:GetLoc()) ) then
+            o = object
+            return true -- break loop
         end
+    end)
+    if ( o ) then
+        playerObj:SystemMessage("Cannot release land containing locked down objects.", "info")
+        return false
+    end
 
-        local h = nil
-        -- make sure all houses are still inside bounds as well
-        Plot.ForeachHouseBound(controller, function(house, houseBounds, index)
-            if ( not newBound:Contains(houseBounds[index]) ) then
-                h = house
-                return true -- break loop
-            end
-        end)
-        if ( h ) then
-            playerObj:SystemMessage("Cannot release land a house is on.", "info")
-            return false
+    local m = nil
+    Plot.ForeachMerchant(controller, function(merchant)
+        if not( newBound:Contains(merchant:GetLoc()) ) then
+            m = merchant
+            return true -- break loop
         end
+    end)
+    if ( m ) then
+        playerObj:SystemMessage("Cannot release land with merchants.", "info")
+        return false
+    end
+
+    local h = nil
+    -- make sure all houses are still inside bounds as well
+    Plot.ForeachHouseBound(controller, function(house, houseBounds, index)
+        if ( not newBound:Contains(houseBounds[index]) ) then
+            h = house
+            return true -- break loop
+        end
+    end)
+    if ( h ) then
+        playerObj:SystemMessage("Cannot release land a house is on.", "info")
+        return false
     end
 
     return true, newBound, newLoc, newSize
@@ -1253,6 +1302,11 @@ end
 Plot.IsOwnerForLoc = function(playerObj, loc)
     local controller = Plot.GetAtLoc(loc)
     return ( controller and Plot.IsOwner(playerObj, controller) ), controller
+end
+
+Plot.IsOwnerForLocUserId = function(userId, loc)
+    local controller = Plot.GetAtLoc(loc)
+    return ( controller and (Plot.GetOwner(controller) == userId) ), controller
 end
 
 Plot.IsObjectInside = function(controller, object)
@@ -1509,13 +1563,8 @@ Plot.KickMobile = function(controller, mobileObj)
         return
     end
 
-    local markers = Plot.GetMarkers(controller)
-    if ( markers[2] ) then
-        local loc = markers[2]:GetLoc()
-        loc.X = loc.X + 1.5
-        loc.Z = loc.Z - 1.5
-        mobileObj:SetWorldPosition(loc)
-    end 
+    local bound = controller:GetObjVar("PlotBounds")[1]
+    MoveMobile(mobileObj, Plot.Bound2Box(bound))
 end
 
 Plot.TryTransferOwnership = function(playerObj, controller, newOwner)
@@ -1543,6 +1592,13 @@ Plot.TryTransferOwnership = function(playerObj, controller, newOwner)
         return false, "AlreadyOwner"
     end
 
+    -- cannot transfer with active merchants on plot.
+    local any = false
+    Plot.ForeachMerchant(controller, function() any = true return true end)
+    if ( any ) then
+        return false, "Merchants"
+    end
+
     return true, oldUserId, newUserId
 end
 
@@ -1556,6 +1612,11 @@ Plot.TransferOwnership = function(playerObj, controller, newOwner, cb)
                 -- set the new owner
                 Plot.SetOwner(controller, newUserId, function(success)
                     if ( success ) then
+                        -- remove old assigned co-owners/friends
+                        Plot.ForeachHouse(controller, function(house)
+                            house:DelObjVar("HouseCoOwners")
+                            house:DelObjVar("HouseFriends")
+                        end)
                         playerObj:SystemMessage("Plot Transfered to "..newOwner:GetName(), "event")
                         newOwner:SystemMessage(playerObj:GetName() .. " has transferred ownership of this plot to you.", "event")
                         controller:SetObjVar("PlotName", Plot.DefaultName(newOwner))
@@ -1582,6 +1643,8 @@ Plot.TransferOwnership = function(playerObj, controller, newOwner, cb)
         elseif ( oldUserId == "AlreadyOwner" ) then
             playerObj:SystemMessage("That person cannot own another plot.", "info")
             --newOwner:SystemMessage("You cannot own another plot.","info")
+        elseif ( oldUserId == "Merchants" ) then
+            playerObj:SystemMessage("There are active merchants, remove them to transfer.", "info")
         end
         cb(false)
     end
@@ -2004,7 +2067,6 @@ Plot.Unpack = function(playerObj, packedObj, loc, cb)
     if ( success ) then
         playerObj:PlayAnimation("kneel")
 
-        local isExteriorDecoration = packedObj:GetObjVar("ExteriorDecoration")
         RegisterSingleEventHandler(EventType.CreatedObject, "UnpackCreate", function(success, objRef)
             if ( success ) then
                 objRef:SetObjVar("IsPackedObject", true)
@@ -2185,6 +2247,14 @@ Plot.TryPlaceHouse = function(playerObj, loc, houseData)
         LuaDebugCallStack("[Plot.TryPlaceHouse] houseData not provided.")
         return false
     end
+
+    -- round to nearest half (.5)
+    --[[
+    local X,Z = loc.X,loc.Z
+    X,Z = X*2,Z*2
+    X,Z = math.round(X),math.round(Z)
+    X,Z = X*0.5,Z*0.5
+    loc.X,loc.Z = X,Z]]
 
     local controller, bounds = Plot.GetAtLoc(loc)
     if ( controller == nil ) then
@@ -2533,21 +2603,60 @@ end
 --- Foreach locked down item on a plot, execute a callback
 -- @param controller
 -- @param cb
+-- @param strict (boolean) if true will only count what is plot controlled
 -- @return none
-Plot.ForeachLockdown = function(controller, cb)
+Plot.ForeachLockdown = function(controller, cb, strict)
     local plotBounds = controller:GetObjVar("PlotBounds")
-    local lockdowns = FindObjects(SearchMulti({
-        -- will need to loop each bound when L shape are supported..
-        SearchRange(plotBounds[1][1], ServerSettings.Plot.MaximumSize + 5),
-        SearchObjVar("PlotController", controller),
-        SearchObjVar("LockedDown", true),
-    }), controller)
+    
+    local lockdowns
+    if ( strict ) then
+        -- only find locked down objects that are PlotControlled
+        lockdowns = FindObjects(SearchMulti({
+            -- will need to loop each bound when L shape are supported..
+            SearchRect(Plot.Bound2Box(plotBounds[1])),
+            SearchObjVar("PlotController", controller),
+            SearchObjVar("LockedDown", true),
+        }))
+    else
+        -- this includes everything, from lock downs to sale items.
+        lockdowns = FindObjects(SearchMulti({
+            -- will need to loop each bound when L shape are supported..
+            SearchRect(Plot.Bound2Box(plotBounds[1])),
+            SearchObjVar("LockedDown", true),
+        }))
+    end
+    local lockdown
     for i=1,#lockdowns do
-        local lockdown = lockdowns[i]
+        lockdown = lockdowns[i]
         if ( lockdown and lockdown:IsValid() ) then
             if ( cb(lockdown, i) ) then return end -- allow early exists
         end
     end
+end
+
+Plot.ForeachMerchant = function(controller, cb)
+    local merchants = FindObjects(SearchMulti({
+        SearchModule("ai_hireling_merchant"),
+        SearchObjVar("PlotController", controller)
+    }), controller)
+    
+    local merchant
+    for i=1,#merchants do
+        merchant = merchants[i]
+        if ( merchant and merchant:IsValid() ) then
+            if ( cb(merchant, i) ) then return end -- allow early exists
+        end
+    end
+end
+
+Plot.Bound2Box = function(bound)
+    local loc, size = bound[1], bound[2]
+    return Box2(
+        Loc2(loc.X, loc.Z),
+        Loc2(loc.X+size.X, loc.Z),
+        Loc2(loc.X, loc.Z+size.Z),
+        Loc2(loc.X+size.X, loc.Z+size.Z)
+    )
 end
 
 --- Foreach plot maker execute a callback
@@ -2782,7 +2891,7 @@ Plot.AddHouseFriend = function(playerObj, newFriend, house)
         playerObj:SystemMessage("Cannot add yourself as House Friend.", "info")
         return false
     end
-
+    
     if not( IsPlayerCharacter(newFriend) ) then
         playerObj:SystemMessage("That is not a player!", "info")
         return false
@@ -2793,7 +2902,7 @@ Plot.AddHouseFriend = function(playerObj, newFriend, house)
         playerObj:SystemMessage("They are already a friend of this house.", "info")
         return false
     end
-
+    
     playerObj:SystemMessage(newFriend:GetName() .. " Added as a House Friend.", "event")
     newFriend:SystemMessage(playerObj:GetName() .. " Has Added You as a House Friend.", "event")
 
@@ -2819,6 +2928,7 @@ Plot.RemoveHouseCoOwner = function(playerObj, oldCoOwner, house)
         LuaDebugCallStack("[Plot.RemoveHouseCoOwner] house not provided.")
         return false
     end
+
     if not( Plot.IsOwner(playerObj, house:GetObjVar("PlotController")) ) then
         playerObj:SystemMessage("Only plot owners can remove house co-owners.", "info")
         return false
@@ -2847,7 +2957,7 @@ Plot.RemoveHouseFriend = function(playerObj, oldFriend, house)
         LuaDebugCallStack("[Plot.RemoveHouseFriend] house not provided.")
         return false
     end
-
+    
     if not( Plot.HasHouseControl(playerObj, house:GetObjVar("PlotController"), house) ) then
         playerObj:SystemMessage("Only owners/co-owners can remove house friends.", "info")
         return false
@@ -2903,6 +3013,49 @@ Plot.IsInHouse = function (playerObj,needsControl)
     end
 
     return true
+end
+
+--- Called on login, to check once daily for a plot balance that will not be enough to keep the plot.
+Plot.DailyTaxWarn = function(playerObj)
+    local lastWarned = playerObj:GetObjVar("LastDailyTaxWarnOK")
+    local now = DateTime.UtcNow
+    if ( lastWarned == nil or lastWarned + ServerSettings.Plot.DailyTaxWarnInterval < now ) then
+        Plot.TaxWarn(playerObj, true)
+        -- last time they were shown this window.
+        playerObj:SetObjVar("LastDailyTaxWarn", now)
+    end
+end
+
+--- Will warn a player for each plot they currently own that will not make it through next tax season.
+-- @param playerObj
+Plot.TaxWarn = function(playerObj, save)
+    if not( playerObj ) then
+        LuaDebugCallStack("[Plot.TaxWarn] playerObj not provided.")
+        return
+    end
+    if not( ServerSettings.Plot.Tax.Enabled ) then return end
+    local userPlots = Plot.GetUserPlots(playerObj:GetAttachedUserId())
+    for i=1,#userPlots do
+        Plot.GetInfoRemote(playerObj, userPlots[i], function(info)
+            local diff = (info.Balance or 0) - (info.Rate or 0)
+            if ( diff < 0 ) then
+                info.Name = info.Name or Plot.DefaultName(playerObj)
+                ClientDialog.Show{
+                    TargetUser = playerObj,
+                    DialogId = "TaxWarningDialog"..i,
+                    TitleStr = "Tax Balance Low",
+                    DescStr = string.format("Warning, in %s your plot '%s' will be placed up for Auction.\n\nA Minimum of %s is required for the plot to remain in your posession.",Plot.GetTaxDueString(),info.Name,ValueToAmountStr(-diff)),
+                    Button1Str = "Ok",
+                    ResponseFunc = function(user,buttonId)
+                        -- last time they click OK
+                        if ( save and buttonId ~= nil ) then
+                            playerObj:SetObjVar("LastDailyTaxWarnOK", DateTime.UtcNow)
+                        end
+                    end,
+                }
+            end
+        end, "Check"..i)
+    end
 end
 
 -- calculate out the minimum plot size for a house

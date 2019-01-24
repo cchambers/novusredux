@@ -1,13 +1,12 @@
 <ObjectTemplate>
-  <Name>[00FF00]Bloody Bandage[-]</Name>
+  <Name>[FF0000]Bloody Bandage[-]</Name>
 	<ClientId>107</ClientId>
-	<Hue>856</Hue>
+	<Hue>860</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<!-- Stackable objvars -->
 		<StringVariable Name="ResourceType">BloodyBandage</StringVariable>
 		<StringVariable Name="PluralName">Bloody Bandages</StringVariable>
-		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+		<DoubleVariable Name="UnitWeight">0.15</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="stackable"/>

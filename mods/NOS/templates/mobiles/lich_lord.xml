@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">1750</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -28,12 +28,14 @@
 		<LuaModule Name="ai_skeleton">
 			<Initializer>
 				{ 
-				Stats = { Str=30, Agi=40, Int=30, Wis=40, Will=40 },
+				Stats = { Str=30, Agi=40, Int=100, Wis=100, Will=40 },
 				Skills = 
 					{ 
 					Brawling = 80,  
 					MagicAffinity=100, 
-					Magery=100, 
+					MagicResist=100,
+					Magery=130,
+					Inscription=100,
 					},	
 				EquipTable = 
 					{
@@ -56,7 +58,7 @@
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Greaterheal", "Poison", "Ruin", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
 				}
 			</Initializer>
 		</LuaModule>

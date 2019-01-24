@@ -79,7 +79,7 @@ function AdjustKarma(mobile, amount)
         ForeachActivePet(mobile, function(pet)
             pet:SetObjVar("Karma", karma)
             pet:SendMessage("UpdateName")
-        end)
+        end, true)
 
         --Taking opposite achievement type for karma check for title
         local oppositeAchievementType = nil
@@ -192,19 +192,21 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     end
 
     local isPlayerB = false
+    local isPetB = false
     local karmaB = 0
 
     -- setup mobileB if supplied
     if ( mobileB ~= nil ) then
-        -- explicitly stop all karma actions on pets/followers.
+        -- if range condition, ensure it's met
+        if ( action.Range and mobileA:DistanceFrom(mobileB) > action.Range ) then
+            return 0
+        end
+        -- explicitly stop all karma actions on your own pets/followers.
         local owner = mobileB:HasObjVar("controller") and mobileB:GetObjVar("controller") or mobileB:GetObjectOwner()
         if ( mobileA == owner ) then return 0 end
-        isPlayerB, karmaB = IsPlayerCharacter(mobileB), GetKarma(mobileB)
-    end
-
-    -- if range condition, ensure it's met
-    if ( action.Range and mobileA:DistanceFrom(mobileB) > action.Range ) then
-        return 0
+        isPlayerB, isPetB = IsPlayerObject(mobileB)
+        if ( owner and owner:IsValid() ) then mobileB = owner end
+        karmaB = GetKarma(mobileB)
     end
 
     if ( isPlayerB ) then
@@ -218,6 +220,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     local pvpMod = 1
     local negativeAdjustMod = 1
     local npcMod = 1
+    local petMod = isPetB and action.PetModifier or 1
 
     local endInitiate = false
     -- handle negative karma actions
@@ -297,7 +300,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
     DebugMessage("npcMod: "..npcMod)
     ]]
 
-    local adjust = action.Adjust * pvpMod * negativeAdjustMod * npcMod
+    local adjust = action.Adjust * pvpMod * negativeAdjustMod * npcMod * petMod
 
     -- prevent positive actions from going negative
     if ( action.Adjust > 0 and adjust < 0 ) then return 0 end
@@ -341,8 +344,9 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
+        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
-    if (action == KarmaActions.Negative.Murder) then
+    if (action == KarmaActions.Negative.Murder) then -- and IsPlayerCharacter(aggressor)?
         local aggressor = mobileA
         local victim = mobileB
         local murders = aggressor:GetObjVar("Murders") or 0
@@ -352,18 +356,21 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         if (not(HasMobileEffect(aggressor, "Murderer"))) then
             aggressor:SendMessage("StartMobileEffect", "Murderer")
         end
+        -- KHI TOTEM
+        Totem(aggressor, "murder")
     end
 
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)
 
     if ( endInitiate ) then EndInitiate(mobileA) end
 
-    if (action.MakeCriminal == true
-    and IsPlayerObject(mobileB)
-    and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
-        mobileA:SendMessage("StartMobileEffect", "Criminal")
+    if (IsPlayerCharacter(mobileA)) then
+        if (action.MakeCriminal == true
+        and IsPlayerObject(mobileB)
+        and not(mobileB:HasObjVar("IsRed") or mobileB:HasObjVar("IsCriminal"))) then 
+            mobileA:SendMessage("StartMobileEffect", "Criminal")
+        end
     end
-
     if ( adjust and adjust ~= 0 ) then
         -- finally apply all the calculated karma
         AdjustKarma(mobileA, adjust)
@@ -474,14 +481,24 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
         LuaDebugCallStack("[ShouldChaoticProtect] target not provided.")
         return false
     end
-    -- doesn't matter against NPCs
-    if ( not IsPlayerCharacter(player) or not IsPlayerCharacter(target) ) then return false end
-
-    -- not chaotic protected from defending against aggressors
-    if ( IsAggressorTo(target, player) ) then return false end
-
-    -- players already temp chaotic don't need to be protected.
-    if ( player:HasObjVar("IsChaotic") ) then return false end
+    if ( 
+        -- players already temp chaotic don't need to be protected.
+        player:HasObjVar("IsChaotic")
+        or
+        -- doesn't matter against NPCs
+        not IsPlayerCharacter(player)
+        or
+        not IsPlayerObject(target)
+        or
+        -- allegiances do not affect order.
+        InOpposingAllegiance(player, target)
+        or
+        -- sharing karma groups ignores order flag
+        ShareKarmaGroup(player, target)
+        or
+        -- not protected from defending against aggressors
+        ( not beneficial and IsAggressorTo(target, player) )
+    ) then return false end
 
     local playerKarmaLevel = GetKarmaLevel(GetKarma(player))
     if (
@@ -504,39 +521,42 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
             return false -- then end here
         end
     end
+    
+    player:SendMessage("StartMobileEffect", "Chaotic")
+    return false
 
-    -- inform and give action to bypass
-    if ( not silent and not player:HasTimer("ChaoticWarning") ) then
-        if ( player:HasObjVar("ForceOrderOptIn") ) then
-            -- automatically flag them
-            player:SendMessage("StartMobileEffect", "Chaotic")
-            return false
-        else
-            player:ScheduleTimerDelay(ServerSettings.Karma.ChaoticWarningTimespan, "ChaoticWarning")
+    -- -- inform and give action to bypass
+    -- if ( not silent and not player:HasTimer("ChaoticWarning") ) then
+    --     if ( player:HasObjVar("ForceOrderOptIn") ) then
+    --         -- automatically flag them
+    --         player:SendMessage("StartMobileEffect", "Chaotic")
+    --         return false
+    --     else
+    --         player:ScheduleTimerDelay(ServerSettings.Karma.ChaoticWarningTimespan, "ChaoticWarning")
 
-            local dynWindow = DynamicWindow(
-                "OrderOptIn", --(string) Window ID used to uniquely identify the window. It is returned in the DynamicWindowResponse event.
-                "", --(string) Title of the window for the client UI
-                263, --(number) Width of the window
-                332, --(number) Height of the window
-                -131, --startX, --(number) Starting X position of the window (chosen by client if not specified)
-                60, --startY, --(number) Starting Y position of the window (chosen by client if not specified)
-                "Transparent",--windowType, --(string) Window type (optional)
-                "Top" --windowAnchor --(string) Window anchor (default "TopLeft")
-            )
+    --         local dynWindow = DynamicWindow(
+    --             "OrderOptIn", --(string) Window ID used to uniquely identify the window. It is returned in the DynamicWindowResponse event.
+    --             "", --(string) Title of the window for the client UI
+    --             263, --(number) Width of the window
+    --             332, --(number) Height of the window
+    --             -131, --startX, --(number) Starting X position of the window (chosen by client if not specified)
+    --             60, --startY, --(number) Starting Y position of the window (chosen by client if not specified)
+    --             "Transparent",--windowType, --(string) Window type (optional)
+    --             "Top" --windowAnchor --(string) Window anchor (default "TopLeft")
+    --         )
 
-            dynWindow:AddImage(0,0,"ShieldBackground")
-            dynWindow:AddLabel(131,100,"Fight for Order?",140,80,28,"center",false,true)
-            dynWindow:AddLabel(131,152,GetTimerLabelString(ServerSettings.Karma.ChaoticWarningTimespan,true),0,0,18,"center")
-            dynWindow:AddButton(20,200,"","Continue",100,32,"","orderoptin")
-            dynWindow:AddButton(142,200,"","Cancel",100,32)
-            dynWindow:AddButton(119,240,"","",0,0,"Attacking a chaotic player makes you attackable to ALL chaotic players with no karma penalty for 5 minutes.","",false,"Help")
+    --         dynWindow:AddImage(0,0,"ShieldBackground")
+    --         dynWindow:AddLabel(131,100,"Fight for Order?",140,80,28,"center",false,true)
+    --         dynWindow:AddLabel(131,152,GetTimerLabelString(ServerSettings.Karma.ChaoticWarningTimespan,true),0,0,18,"center")
+    --         dynWindow:AddButton(20,200,"","Continue",100,32,"","orderoptin")
+    --         dynWindow:AddButton(142,200,"","Cancel",100,32)
+    --         dynWindow:AddButton(119,240,"","",0,0,"Attacking a chaotic player makes you attackable to ALL chaotic players with no karma penalty for 5 minutes.","",false,"Help")
 
-            player:OpenDynamicWindow(dynWindow)
-        end
-    end
+    --         player:OpenDynamicWindow(dynWindow)
+    --     end
+    -- end
 
-    return true -- protect them from aggressive
+    -- return true -- protect them from aggressive
 end
 
 --- Set the player's karma alignment to a karma level, allowing them to do bad deeds up to a point and no further
@@ -552,12 +572,20 @@ function SetKarmaAlignment(player, level)
         -- clear it
         player:SetObjVar("Karma", -1)
         player:SendMessage("UpdateName")
+        ForeachActivePet(player, function(pet)
+            pet:SetObjVar("Karma", -1)
+            pet:SendMessage("UpdateName")
+        end, true)
     else
         player:SetObjVar("KarmaAlignment", level)
         if ( (ServerSettings.Karma.Levels[level].Amount or 0) < 0 and GetKarma(player) > 0 ) then
             -- clear it
             player:SetObjVar("Karma", -1)
             player:SendMessage("UpdateName")
+            ForeachActivePet(player, function(pet)
+                pet:SetObjVar("Karma", -1)
+                pet:SendMessage("UpdateName")
+            end, true)
             player:SendMessage("EndChaoticEffect") -- end the temp chaotic, they are real chaotic now.
         end
     end

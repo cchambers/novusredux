@@ -8,8 +8,7 @@ function HandleLoaded()
 		EndEffect()
 		return
 	end
-	local cureSkill = GetSkillLevel(myCureSource,"ChannelingSkill")
-	this:SendMessage("EndPoisonEffect")
+	this:SendMessage("ReducePoisonEffect", 1)
 	EndEffect()
 end
 

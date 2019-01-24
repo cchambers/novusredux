@@ -4,13 +4,13 @@
 	<ScaleModifier>0.1</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="0.75"/>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
-	<MobileComponent>			
+	<MobileComponent>
 		<BaseRunSpeed>1</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
-	<ObjectVariableComponent>		
+	<ObjectVariableComponent>
 		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Test</StringVariable>
+		<StringVariable Name="MobileTeamType">Shellfish</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
@@ -22,35 +22,63 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">84.3</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">70</DoubleVariable>
 		<DoubleVariable Name="PetSlots">3</DoubleVariable>
-	</ObjectVariableComponent>					
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
-		<LuaModule Name="ai_default_animal">
+		<LuaModule Name="ai_wolf">
 			<Initializer>
-				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+			{ 
+				Stats = { Str=60, Agi=50, Int=21, Wis=40, Will=40 },
 				Skills = 
-					{ 
-					Brawling = 50,  
-					},	
+				{ 
+					Brawling = 50,
+				},	
 				EquipTable = 
-					{
-						Backpack = { "backpack" },					
-					},
+				{
+					Backpack = { "backpack" },
+				},
 				LootTables =
+				{
+					-- Maps
 					{
-					},		
+						NumItems = 1,
+						{
+							{ Chance = 10, Template = "sos_map" },
+							{ Chance = 5, Template = "sos_map_1" },
+							{ Chance = 2.5, Template = "sos_map_2" },
+							{ Chance = 1.25, Template = "sos_map_3" },
+							{ Chance = 0.75, Template = "sos_map_4" },
+						},
+					},
+
+					-- Jewels
+					{
+						NumItems = 1,
+						{
+							{ Chance = 1, Template = "ruby_gem", Unique = true },
+							{ Chance = 1, Template = "diamond_gem", Unique = true },
+							{ Chance = 1, Template = "emerald_gem", Unique = true },
+							{ Chance = 1, Template = "topaz_gem", Unique = true },
+						},
+					},
+					
+					TemplateDefines.LootTable.JeweleryPoor,
+					TemplateDefines.LootTable.Eye,
+					{
+						NumCoins = math.random(20,180),
+					},
+				},	
 				ScavengeTables =
-					{
-					},		
-				}
+				{
+				},
+			}
 			</Initializer>
 		</LuaModule>
 		<LuaModule Name="animal_parts">
 			<Initializer>
-				{
-				}
+			{
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

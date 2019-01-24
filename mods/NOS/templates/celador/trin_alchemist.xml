@@ -73,13 +73,13 @@
 							Rotation = "0, 66.2849, 0",
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							Price = 0,
 							Amount = 50,
 							RelativeLoc = "-5.19, 1.9449, -2.164",
 						},
 						{
-							Template = "potion_lmana",
+							Template = "lesser_mana_potion",
 							RelativeLoc = "-4.813, 1.9449, -1.38",
 						},
 						{

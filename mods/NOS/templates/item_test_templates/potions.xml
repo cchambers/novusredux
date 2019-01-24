@@ -19,9 +19,9 @@
 							LootItems = 
 							{ 	
 								{ Chance = 100, Template = "potion_cure", Unique = true, StackCount = 20, },
-								{ Chance = 100, Template = "potion_gheal", Unique = true, StackCount = 20, },
-								{ Chance = 100, Template = "potion_gstamina", Unique = true, StackCount = 20, },
-								{ Chance = 100, Template = "potion_gmana", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "greater_health_potion", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "greater_stamina_potion", Unique = true, StackCount = 20, },
+								{ Chance = 100, Template = "greater_mana_potion", Unique = true, StackCount = 20, },
 							} 
 						},	
 					}

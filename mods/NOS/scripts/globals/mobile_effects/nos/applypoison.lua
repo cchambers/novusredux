@@ -1,27 +1,59 @@
 MobileEffectLibrary.ApplyPoison = 
 {
-	--PersistSession = true, TODO: integrate persistence for pulse effects
-
-	Debuff = true,
-
-	-- Can this be resisted by Willpower?
-	Resistable = true,
-
 	OnEnterState = function(self,root,target,args)
-		EndMobileEffect(root)
-	end,
+		-- on target, check EDGED, FOOD, or DRINK...
+		if not( IsInBackpack(target, self.ParentObj) ) then
+			self.ParentObj:SystemMessage("That must be in your backpack to poison.","info")
+			EndMobileEffect(root)
+			return false
+		end
+
+			local canPoison = {
+				Dagger = true,
+				Poniard = true,
+				Kryss = true,
+				BoneDagger = true,
+				Warfork = true,
+				Voulge = true,
+				Spear = true,
+				Halberd = true,
+				Scythe = true,
+				Broadsword = true,
+				Longsword = true,
+				Saber = true,
+				Katana = true,
+				LargeAxe = true,
+				GreatAxe = true
+			}
+
+			local weaponType = target:GetObjVar("WeaponType")
+			local isPoisoned = target:GetObjVar("PoisonCharges")
+			local skillLevel = GetSkillLevel(self.ParentObj, "PoisoningSkill")
+			if (canPoison[weaponType] == true and isPoisoned == nil) then
+				local success = CheckSkillChance(self.ParentObj, "PoisoningSkill", skillLevel / args.PoisonLevel)
+				if (success) then
+					target:SetObjVar("PoisonLevel", args.PoisonLevel)
+					target:SetObjVar("PoisonCharges", math.random(3, math.max(skillLevel / 10, 5)))
+					SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
+					self.ParentObj:SystemMessage("You have successfully poisoned the weapon!", "info")
+				else 
+					self.ParentObj:SystemMessage("You fail to poison the object. The poison was wasted.", "info")
+				end
+			else 
+				if (isPoisoned ~= nil) then
+					self.ParentObj:SystemMessage("That is already poisoned.", "info")
+					EndMobileEffect(root)
+					return false
+				end
+				self.ParentObj:SystemMessage("That cannot be poisoned.", "info")
+				EndMobileEffect(root)
+				return false
+			end
+
+			EndMobileEffect(root)
+		end,
 
 	OnExitState = function(self,root)
-	end,
 
-	GetPulseFrequency = function(self,root)
-		return self.PulseFrequency
 	end,
-
-	AiPulse = function(self,root)
-	
-	end,
-
-	PulseFrequency = TimeSpan.FromSeconds(6),
-	PulseMax = 8,
 }

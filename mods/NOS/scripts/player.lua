@@ -434,7 +434,7 @@ function UpdateName()
 end
 
 function OnLoad(isPossessed)
-
+	if(Totem ~= nil) then Totem(this, "update") end
 	-- Logged out Incognito
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
@@ -483,7 +483,7 @@ function OnLoad(isPossessed)
 	end
 
 	local murders = this:GetObjVar("Murders")
-	if (murders) then
+	if (murders ~= nil) then
 		this:SendMessage("StartMobileEffect", "Murderer")
 	end
 
@@ -609,10 +609,6 @@ function OnLoad(isPossessed)
 			UpdateItemBar(this)
 			ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 
-			if this:HasObjVar("AchievementWaiting") then
-				this:SendClientMessage("SetAchievementNotification",true)
-			end
-
 			InitializeClientConflicts(this)
 
 			if not(IsPossessed(this)) then
@@ -623,6 +619,13 @@ function OnLoad(isPossessed)
 				end			
 			end
 		end)
+
+	CallFunctionDelayed(TimeSpan.FromSeconds(10.0),
+	function()		
+		if this:HasObjVar("AchievementWaiting") then
+			this:SendClientMessage("SetAchievementNotification",true)
+		end
+	end)
 
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()),"UpdateChatChannels")
 end
@@ -641,25 +644,33 @@ RegisterEventHandler(EventType.Message,"User_Ping", function(from)
 	from:SendMessage("User_Pong", me)
 end)
 
-RegisterEventHandler(EventType.Message,"OpenBank",
-	function (bankSource)
-		local bankObj = this:GetEquippedObject("Bank")
-		this:SetObjVar("BankSource",bankSource)
-		if( bankObj ~= nil ) then
-			bankObj:SendOpenContainer(this)					
-		end
+RegisterEventHandler(EventType.Message,"OpenBank", function (bankSource)
+	local bankObj = this:GetEquippedObject("Bank")
+	this:SetObjVar("BankSource",bankSource)
+	if( bankObj ~= nil ) then
+		bankObj:SendOpenContainer(this)					
+	end
 
-		local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(12))
-		AddView("BankCloseCheck",searchDistanceFromBank,1.0)
-		RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck",
-			function()
-				local bankObj = this:GetEquippedObject("Bank")
-				if( bankObj ~= nil ) then
-					CloseContainerRecursive(this,bankObj)
-					CloseMap()
-				end
-			end)
+	local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(12))
+	AddView("BankCloseCheck",searchDistanceFromBank,1.0)
+	RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck", function()
+		local bankObj = this:GetEquippedObject("Bank")
+		if( bankObj ~= nil ) then
+			CloseContainerRecursive(this,bankObj)
+			CloseMap()
+		end
 	end)
+end)
+
+RegisterEventHandler(EventType.StartMoving,"",function (success)
+	if (this:HasObjVar("IsHarvesting")) then
+		local harvestingTool = this:GetObjVar("HarvestingTool")
+		harvestingTool:SendMessage("CancelHarvesting",this)
+	end
+	if (this:HasObjVar("IsBuryingRune")) then
+		this:SendMessage("CancelBury", this)
+	end
+end)
 
 -- This is the player tick, it's performed once per minute. It's the alternative to having multiple systems all updating under their own timers.
 function PerformPlayerTick(notFirst)
@@ -678,5 +689,41 @@ function PerformPlayerTick(notFirst)
 	CheckAllegianceTitle(this)
 
 	CheckBidRefund()
-	ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+	
+	HandleGmResponseWindow()
+	
+	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
 end
+
+function DailyTaxWarn()
+	return
+end
+
+UnregisterEventHandler("", EventType.UserLogin, "")
+RegisterEventHandler(EventType.UserLogin,"",
+	function(loginType)
+		if not( IsPossessed(this) ) then
+			local clusterController = GetClusterController()
+			if ( clusterController ) then
+				clusterController:SendMessage("UserLogin",this,loginType)			
+			end
+			if ( loginType == "Connect" ) then
+				Guild.Initialize()
+				-- warn about their plot taxes
+			end
+		end
+
+		if(loginType == "ChangeWorld") then
+			if (ServerSettings.WorldName == "Catacombs") then
+				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
+			end
+			return
+		end
+		if(ServerSettings.WorldName == "Catacombs") then
+			local sendto = GetRegionAddressesForName("SouthernHills")
+			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
+				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
+			end			
+		end
+	end)

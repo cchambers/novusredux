@@ -1,8 +1,9 @@
-MobileEffectLibrary.PotionStamina = 
+MobileEffectLibrary.PotionNOSStamina = 
 {
-
 	OnEnterState = function(self,root,target,args)
-		self.Amount = args.Amount or self.Amount
+		self.Percentage = args.Percentage or self.Percentage
+
+		self.Amount = GetMaxStamina(self.ParentObj) * (self.Percentage * 0.01)
 		if ( self.ParentObj:HasTimer("RecentPotion") ) then
 			self.ParentObj:SystemMessage("Cannot use again yet.", "info")
 			EndMobileEffect(root)
@@ -10,18 +11,19 @@ MobileEffectLibrary.PotionStamina =
 		end
 		
 		if ( GetCurStamina(self.ParentObj) >= GetMaxStamina(self.ParentObj) ) then
-			self.ParentObj:SystemMessage("You seem rested.", "info")
+			self.ParentObj:SystemMessage("You seem fine.", "info")
 			EndMobileEffect(root)
 			return false
 		end
 		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromMinutes(1), "RecentPotion")
 
-		self.ParentObj:PlayEffect("HeadFlareEffect")
+		self.ParentObj:PlayEffect("HeadFlareEffect")--TODO: Change effect.
 
 		AdjustCurStamina(self.ParentObj, self.Amount)
 
 		EndMobileEffect(root)
 	end,
 
-	Amount = 1,
+	Percentage = 1,
+	Amount = 1
 }

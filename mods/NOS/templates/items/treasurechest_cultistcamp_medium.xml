@@ -141,7 +141,7 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "potion_lheal", Unique = true },
+								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
 								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
 								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
 								{ Weight = 10, Template = "tool_mining_pick", Unique = true },

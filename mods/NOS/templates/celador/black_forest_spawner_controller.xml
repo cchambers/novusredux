@@ -37,7 +37,7 @@
 						--Spiders
 						{ Count = 8, TemplateId = "spider_hunter",    Region = "BlackForrestSpiders" }, 
 						{ Count = 6, TemplateId = "spider_vile",    Region = "BlackForrestSpiders" }, 
-						{ Count = 2, TemplateId = "spider_huntress",    Region = "BlackForrestSpiders", DelayMin=4, Chance=7 }, 
+						{ Count = 2, TemplateId = "spider_huntress",    Region = "BlackForrestSpiders" }, 
 						{ Count = 1, TemplateId = "spider_vile_boss",    Region = "BlackForrestSpiders", DelayMin=4, Chance=3},
 
 						--Dread

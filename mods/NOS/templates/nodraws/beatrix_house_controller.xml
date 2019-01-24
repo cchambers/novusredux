@@ -30,7 +30,7 @@
 							Rotation = "0, 180, 0",
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							RelativeLoc = "-3.887039, 0.7979996, 3.460014",
 							Rotation = "0, 180, 0",
 						},
@@ -40,7 +40,7 @@
 							Rotation = "0, 180, 0",
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							RelativeLoc = "-3.994034, 2.18, 3.64901",
 							Rotation = "0, 180, 0",
 						},

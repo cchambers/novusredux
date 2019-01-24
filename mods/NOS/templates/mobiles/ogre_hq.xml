@@ -50,9 +50,10 @@
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.PrestigeLow,
+						TemplateDefines.LootTable.Prestige,
+						TemplateDefines.LootTable.ExecutionerTubs,
 						{
-							NumCoins = math.random(550,700),
+							NumCoins = math.random(2000,5000),
 							NumItems = 1,
 					    	LootItems =
 					    	{

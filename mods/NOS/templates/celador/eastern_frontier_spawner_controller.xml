@@ -62,8 +62,8 @@
 					{ Count = 3, TemplateId = "whitetail",    Region = "Eastern52", DelayMin=4 }, 
 					{ Count = 4, TemplateId = "whitetail",    Region = "Eastern53", DelayMin=4 }, 
 
-					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears1" },
-					{ Count = 1, TemplateId = "rabid_bear",    Region = "RabidBears2" },
+					{ Count = 1, TemplateId = "dire_bear",    Region = "RabidBears1", DelayMin=4 },
+					{ Count = 1, TemplateId = "dire_bear",    Region = "RabidBears2", DelayMin=4 },
 					{ Count = 1, TemplateId = "dire_bear",    Region = "DireBear", DelayMin=30, Chance=5},
 					{ Count = 1, TemplateId = "chicken_dread",    Region = "DireBear", DelayMin=30, Chance=5},
 					},

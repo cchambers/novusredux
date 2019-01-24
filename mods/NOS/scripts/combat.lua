@@ -137,10 +137,12 @@ function PerformWeaponAttack(atTarget, hand)
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
 			local chanceOverride = 100
+			local chance = 0
 			if not (this:HasTimer("OutOfArrows")) then
+				chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 2) * 0.01)
 				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
 			end
-			ExecuteRangedWeaponAttack(atTarget, hand, chanceOverride)
+			ExecuteRangedWeaponAttack(atTarget, hand, chance)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
 		end
@@ -569,7 +571,7 @@ function ExecuteHitAction(atTarget, hand)
 	}
 
 	-- damage the weapon that's being swung.
-	if (_Weapon[hand].Object and Success(ServerSettings.Durability.Chance.OnSwing) and IsPlayerCharacter(this)) then
+	if ( _Weapon[hand].Object and Success(ServerSettings.Durability.Chance.OnWeaponSwing) and IsPlayerCharacter(this) ) then
 		AdjustDurability(_Weapon[hand].Object, -1)
 	end
 
@@ -588,7 +590,7 @@ function CalculateBlockDefense(victim)
 		CheckSkill(victim, "BlockingSkill", GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill))
 		if ( Success(GetSkillLevel(victim,"BlockingSkill")/335) ) then
 			victim:PlayAnimation("block")
-			if ( Success(ServerSettings.Durability.Chance.OnHit) ) then
+			if ( Success(ServerSettings.Durability.Chance.OnEquipmentHit) ) then
 				AdjustDurability(shield, -1)
 			end
 			return math.max(0, (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) + GetMagicItemArmorBonus(_Weapon.LeftHand.Object))
@@ -653,6 +655,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			finalDamage = finalDamage * damageLevel
 			if (shouldResist) then
 				-- successful magic resist, reduce damage by up to 40%
+				victim:NpcSpeechToUser("[1CB1DC]*resist*[-]", damageInfo.Attacker)
 				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
 			end
 
@@ -713,6 +716,35 @@ function ApplyDamageToTarget(victim, damageInfo)
 						finalDamage *
 						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
 				end
+
+				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
+				if (poisoned ~= nil) then
+					local charges = damageInfo.Source:GetObjVar("PoisonCharges")
+					charges = charges - 1
+					if (charges < 0) then
+						damageInfo.Source:DelObjVar("PoisonLevel")
+						damageInfo.Source:DelObjVar("PoisonCharges")
+						RemoveTooltipEntry(damageInfo.Source,"poisoned")
+						damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
+					else
+						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
+						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel, true)
+						if (chanceToPoison) then
+							damageInfo.Source:SetObjVar("PoisonCharges", charges)
+							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
+							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
+								PoisonLevel = poisonLevel
+							})
+						end
+					end
+				end
+			end
+		end
+
+		if ( Success(ServerSettings.Durability.Chance.OnJewelryHit) ) then
+			local item = victim:GetEquippedObject(JEWELRYSLOTS[math.random(1,#JEWELRYSLOTS)])
+			if ( item ) then
+				AdjustDurability(item, -1)
 			end
 		end
 
@@ -726,7 +758,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 			if (isPlayer) then
 				-- damage equipment that was hit
-				if (Success(ServerSettings.Durability.Chance.OnHit)) then
+				if (Success(ServerSettings.Durability.Chance.OnEquipmentHit)) then
 					AdjustDurability(hitItem, -1)
 				end
 
@@ -851,16 +883,11 @@ function InitiateCombatSequence()
 	end
 
 	if (mCurrentTarget ~= nil) then -- dead already
-		local table = mCurrentTarget:GetObjVar("PreviousOwners")
-		if (table) then 
-			local mine = "GameObj #" .. table[#table] 
-			local me = this:ToString()
-			local compare = (mine == me)
-			if (compare) then 
-				this:SystemMessage("You almost attacked your pet! Close one.", "info")
-				this:SendMessage("EndCombatMessage")
-				return
-			end
+		local owner = mCurrentTarget:GetObjectOwner()
+		if (owner and owner == this) then 
+			this:SystemMessage("You almost attacked your pet! Close one.", "info")
+			this:SendMessage("EndCombatMessage")
+			return false
 		end
 	end
 
@@ -935,6 +962,7 @@ end
 --Actors
 mCombatMusicPlaying = false
 function SetInCombat(inCombat, force)
+	if (inCombat == false) then this:SendMessage("CombatToggled") end
 	
 	if (this:HasObjVar("NoGains")) then return end
 

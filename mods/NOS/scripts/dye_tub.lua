@@ -21,6 +21,7 @@ local HueNames = {
 	hue899 = "Pure",
 	hue901 = "Musk",
 	hue904 = "Ruby",
+	hue906 = "Moo",
 	hue915 = "Adamantium",
 	hue921 = "Lime",
 	hue922 = "Sherbet",
@@ -79,6 +80,11 @@ RegisterEventHandler(
 			and armorType ~= "Linen") then dyeable = false end
 		end
 
+		if (target:HasObjVar("ResourceType")) then
+			local resourceType = target:GetObjVar("ResourceType")
+			if (resourceType ~= "Rune") then dyeable = false end
+		end
+
 		if (target:HasModule("stackable")) then 
 			dyeable = false
 		end
@@ -88,7 +94,8 @@ RegisterEventHandler(
 		end
 		
 		if (target:HasObjVar("WeaponType") or target:IsMobile()) then
-			dyeable = false
+			local weaponType = target:GetObjVar("WeaponType")
+			if (weaponType ~= "Spellbook") then dyeable = false end
 		end
 
 		if (GetWeight(target) <= 0) then

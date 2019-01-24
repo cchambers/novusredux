@@ -27,113 +27,115 @@
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_grim_reaper">
 			<Initializer>				
-				{ 
+			{ 
 				Stats = { Str=40, Agi=30, Int=21, Wis=50, Will=50 },
 				MobTraits =
-					{
+				{
 					Might=3,
-					},
+				},
 				MobileEffects =
-					{
-						{ "NoStun", {Permanent=true}} 
-					},
+				{
+					{ "NoStun", {Permanent=true} } 
+				},
 				Skills = 
-					{ 
+				{ 
 					Brawling = 110, 
 					Magery=110,
 					Channeling=110,
-					},	
+				},	
 				EquipTable = 
-					{
-						Backpack = { "backpack" },	
-						RightHand = { "weapon_death_scythe" },				
-					},
+				{
+					Backpack = { "backpack" },	
+					RightHand = { "weapon_death_scythe" },				
+				},
 				LootTables =
-					{	
+				{	
 					TemplateDefines.LootTable.MageBoss,
 					TemplateDefines.LootTable.Boss,
 					TemplateDefines.LootTable.DeathBoss,
 					TemplateDefines.LootTable.AncientScrolls,
-					    -- Gold
-					    {
-					    	NumCoins = math.random(5000,10000),
-				    	},
-				    	--stuff
-				    	{
-					    	NumItems = 5,
-					    	LootItems =
-					    	{
-				    			{ Weight = 25, Template = "torch", Unique = true },
-				    			{ Weight = 25, Template = "tool_hunting_knife", Unique = true },
-				    			{ Weight = 25, Template = "item_apple", Unique = true },
-				    			{ Weight = 25, Template = "item_bread", Unique = true },
-				    			{ Weight = 25, Template = "item_ale", Unique = true },
-				    			{ Weight = 10, Template = "clothing_bandana_helm", Unique = true },
-				    			{ Weight = 10, Template = "clothing_tattered_legs", Unique = true },
-				    			{ Weight = 10, Template = "clothing_tattered_shirt_chest", Unique = true },
-				    			{ Weight = 10, Template = "tool_cookingpot", Unique = true },
-				    			{ Weight = 10, Template = "tool_hatchet", Unique = true },
-				    			{ Weight = 10, Template = "tool_mining_pick", Unique = true },
-				    			{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-				    		}
-			    		},
-			    		--potions
-				    	{
-					    	NumItems = 10,
-					    	LootItems =
-					    	{
-				    			{ Weight = 5, Template = "potion_gmana" },
-				    			{ Weight = 5, Template = "potion_gstamina" },
-				    			{ Weight = 5, Template = "potion_gheal" },
-				    			{ Weight = 5, Template = "potion_cure" },
-				    		}
-			    		},
-			    		--maps
-						{
-							NumItems = 5,	
+					TemplateDefines.LootTable.DeathBoss,
 
-							LootItems = 
-							{ 
-								{ Weight = 10, Template = "treasure_map"},
-								{ Weight = 10, Template = "treasure_map_1"},
-								{ Weight = 25, Template = "treasure_map_2"},
-								{ Weight = 30, Template = "treasure_map_3"},
-								{ Weight = 25, Template = "treasure_map_4"},
-							},
-						},
-						--spells
-						{
-							NumItems = 10,	
-
-							LootItems = 
-							{ 
-
-								{ Weight = 1, Template = "lscroll_heal" },
-								{ Weight = 1, Template = "lscroll_cure" },
-								{ Weight = 1, Template = "lscroll_poison" },
-								{ Weight = 1, Template = "lscroll_ruin" },
-
-								{ Weight = 2, Template = "lscroll_greater_heal" },
-								{ Weight = 2, Template = "lscroll_lightning" },
-								{ Weight = 2, Template = "lscroll_bombardment" },
-								{ Weight = 2, Template = "lscroll_electricbolt" },
-								{ Weight = 2, Template = "lscroll_mark" },
-
-
-								{ Weight = 2, Template = "lscroll_resurrect" },
-								{ Weight = 2, Template = "lscroll_earthquake" },
-								{ Weight = 2, Template = "lscroll_meteor" },
-								{ Weight = 2, Template = "lscroll_portal" },
-							},
-						},	
+					-- Gold
+					{
+						NumCoins = math.random(5000,10000),
 					},
+					--stuff
+					{
+						NumItems = 5,
+						LootItems =
+						{
+							{ Weight = 25, Template = "torch", Unique = true },
+							{ Weight = 25, Template = "tool_hunting_knife", Unique = true },
+							{ Weight = 25, Template = "item_apple", Unique = true },
+							{ Weight = 25, Template = "item_bread", Unique = true },
+							{ Weight = 25, Template = "item_ale", Unique = true },
+							{ Weight = 10, Template = "clothing_bandana_helm", Unique = true },
+							{ Weight = 10, Template = "clothing_tattered_legs", Unique = true },
+							{ Weight = 10, Template = "clothing_tattered_shirt_chest", Unique = true },
+							{ Weight = 10, Template = "tool_cookingpot", Unique = true },
+							{ Weight = 10, Template = "tool_hatchet", Unique = true },
+							{ Weight = 10, Template = "tool_mining_pick", Unique = true },
+							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
+						}
+					},
+					--potions
+					{
+						NumItems = 10,
+						LootItems =
+						{
+							{ Weight = 5, Template = "potion_gmana" },
+							{ Weight = 5, Template = "potion_gstamina" },
+							{ Weight = 5, Template = "potion_gheal" },
+							{ Weight = 5, Template = "potion_cure" },
+						}
+					},
+					--maps
+					{
+						NumItems = 5,	
+
+						LootItems = 
+						{ 
+							{ Weight = 10, Template = "treasure_map" },
+							{ Weight = 10, Template = "treasure_map_1" },
+							{ Weight = 25, Template = "treasure_map_2" },
+							{ Weight = 30, Template = "treasure_map_3" },
+							{ Weight = 25, Template = "treasure_map_4" },
+						},
+					},
+					--spells
+					{
+						NumItems = 10,	
+
+						LootItems = 
+						{ 
+
+							{ Weight = 1, Template = "lscroll_heal" },
+							{ Weight = 1, Template = "lscroll_cure" },
+							{ Weight = 1, Template = "lscroll_poison" },
+							{ Weight = 1, Template = "lscroll_ruin" },
+
+							{ Weight = 2, Template = "lscroll_greater_heal" },
+							{ Weight = 2, Template = "lscroll_lightning" },
+							{ Weight = 2, Template = "lscroll_bombardment" },
+							{ Weight = 2, Template = "lscroll_electricbolt" },
+							{ Weight = 2, Template = "lscroll_mark" },
+
+
+							{ Weight = 2, Template = "lscroll_resurrect" },
+							{ Weight = 2, Template = "lscroll_earthquake" },
+							{ Weight = 2, Template = "lscroll_meteor" },
+							{ Weight = 2, Template = "lscroll_portal" },
+						},
+					},	
+				},
 				
 				ScavengeTables =
-					{
-					},		
+				{
+				},		
 				WeaponAbilities = { primary="VoidTeleport", secondary="DeathWave" },
-				AvailableSpells = {"Blackhole","Flamewave",},
-				}
+				AvailableSpells = { "Blackhole", "Flamewave", },
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

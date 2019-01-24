@@ -15,7 +15,7 @@
                             { Weight = 25, Template = "item_painting_petra", Unique = true },
                             { Weight = 25, Template = "item_painting_austin", Unique = true },
                             { Weight = 25, Template = "item_painting_tiffany", Unique = true },
-                            { Weight = 25, Template = "furniture_bone_candleabra", Unique = true, Packed=true },
+                            { Weight = 25, Template = "furniture_bone_candelabra", Unique = true, Packed=true },
                             { Weight = 25, Template = "furniture_lantern_floor", Unique = true, Packed=true },
                             { Weight = 20, Template = "item_potted_plant_hedge", Unique = true },
                             { Weight = 15, Template = "item_potted_plant_berry", Unique = true },

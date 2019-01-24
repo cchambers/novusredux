@@ -60,7 +60,7 @@
 					{
 					},					
 					WeaponAbilities = { primary="Slash" },	
-					AvailableSpells = { "Poison", "Ruin", "Fireball" },
+					AvailableSpells = { "Poison", "Frost", "Fireball" },
 				}
 			</Initializer>
 		</LuaModule>

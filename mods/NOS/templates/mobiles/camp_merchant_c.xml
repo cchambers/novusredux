@@ -73,13 +73,13 @@
 							RelativeLoc = "1.641006, 1.319, 0.6220093",
 						},
 						{
-							Template = "potion_lmana",
+							Template = "lesser_mana_potion",
 							Price = 0,
 							Amount = 20,
 							RelativeLoc = "2.098007, 1.337, 1.807007",
 						},
 						{
-							Template = "potion_lheal",
+							Template = "lesser_health_potion",
 							Price = 0,
 							Amount = 20,
 							RelativeLoc = "2.018005, 1.325, 1.283005",
