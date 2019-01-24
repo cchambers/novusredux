@@ -6,31 +6,31 @@
 	<ObjectVariableComponent/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">
-				<Initializer>
-				{
+            <Initializer>
+            {
 				RegionalNames = 
-                    {
-                        {"Area-Ysel Lake","Ysel Lake"},
-                        {"Area-Serpent's Pass","Serpent's Pass"},
+                {
+                    {"Area-Ysel Lake","Ysel Lake"},
+                    {"Area-Serpent's Pass","Serpent's Pass"},
 
-                        {"Area-West Valusia","West Valusia"},
-                        {"Area-East Valusia","East Valusia"},
+                    {"Area-West Valusia","West Valusia"},
+                    {"Area-East Valusia","East Valusia"},
 
-                        {"Area-Vilewood","Vilewood"},
-                        {"Area-Spiritwood","Spiritwood"},
-                        {"Area-The Brushwoods","The Brushwoods"},
-                        {"WaterUpperNorthPond","Lake Petra"},
-                        {"WaterUpperNorthEastPond","The Hole"},
+                    {"Area-Vilewood","Vilewood"},
+                    {"Area-Spiritwood","Spiritwood"},
+                    {"Area-The Brushwoods","The Brushwoods"},
+                    {"WaterUpperNorthPond","Lake Petra"},
+                    {"WaterUpperNorthEastPond","The Hole"},
 
-                        {"Area-Denir","Denir"},
-                        {"Area-Lake Denir","Lake Denir"},
-                    },
-                    Rewards =
-                    {
-                        "sunken_treasure_4"
-                    }
-				}
-				</Initializer>
+                    {"Area-Denir","Denir"},
+                    {"Area-Lake Denir","Lake Denir"},
+                },
+                Rewards =
+                {
+                    "sunken_treasure_4"
+                }
+            }
+            </Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>

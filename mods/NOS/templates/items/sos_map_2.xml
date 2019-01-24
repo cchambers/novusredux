@@ -1,41 +1,41 @@
 <ObjectTemplate>
-  <Name>Weathered Map</Name>
-	<ClientId>113</ClientId>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
-  <DoubleVariable Name="Difficulty">50</DoubleVariable>
-	<ObjectVariableComponent/>
-	<ScriptEngineComponent>
-		<LuaModule Name="sos_map">
-				<Initializer>
-				{
-				RegionalNames = 
-                    {
-                        {"Area-Misty Basin","Misty Basin"},
-                        {"Area-Ysel Lake","Ysel Lake"},
-                        {"Area-Serpent's Pass","Serpent's Pass"},
+    <Name>Weathered Map</Name>
+    <ClientId>113</ClientId>
+    <SharedStateEntry name="Weight" type="int" value="1"/>
+    <DoubleVariable Name="Difficulty">50</DoubleVariable>
+    <ObjectVariableComponent/>
+    <ScriptEngineComponent>
+        <LuaModule Name="sos_map">
+            <Initializer>
+            {
+                RegionalNames = 
+                {
+                    {"Area-Misty Basin","Misty Basin"},
+                    {"Area-Ysel Lake","Ysel Lake"},
+                    {"Area-Serpent's Pass","Serpent's Pass"},
 
-                        {"Area-West Valusia","West Valusia"},
-                        {"Area-Yoln's Bluff","Yoln's Bluff"},
-                        {"Area-The Brooks","The Brooks"},
-                        {"Area-East Valusia","East Valusia"},
-                        {"Area-Bel Lake","Bel Lake"},
-                        {"Area-Belhaven","Belhaven"},
+                    {"Area-West Valusia","West Valusia"},
+                    {"Area-Yoln's Bluff","Yoln's Bluff"},
+                    {"Area-The Brooks","The Brooks"},
+                    {"Area-East Valusia","East Valusia"},
+                    {"Area-Bel Lake","Bel Lake"},
+                    {"Area-Belhaven","Belhaven"},
 
-                        {"Area-Vilewood","Vilewood"},
-                        {"Area-Spiritwood","Spiritwood"},
-                        {"Area-The Brushwoods","The Brushwoods"},
+                    {"Area-Vilewood","Vilewood"},
+                    {"Area-Spiritwood","Spiritwood"},
+                    {"Area-The Brushwoods","The Brushwoods"},
 
-                        {"Area-Denir","Denir"},
-                        {"Area-Lake Denir","Lake Denir"},
-                        {"WaterUpperNorthPond","Lake Petra"},
+                    {"Area-Denir","Denir"},
+                    {"Area-Lake Denir","Lake Denir"},
+                    {"WaterUpperNorthPond","Lake Petra"},
 
-                    },
-                    Rewards =
-                    {
-                    	"sunken_treasure_2"
-                    }
-				}
-				</Initializer>
-		</LuaModule>
-	</ScriptEngineComponent>
+                },
+                Rewards =
+                {
+                  "sunken_treasure_2"
+                }
+            }
+            </Initializer>
+        </LuaModule>
+    </ScriptEngineComponent>
 </ObjectTemplate>
