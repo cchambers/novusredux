@@ -84,10 +84,11 @@
 						NumItems = 10,
 						LootItems =
 						{
-							{ Weight = 5, Template = "potion_gmana" },
-							{ Weight = 5, Template = "potion_gstamina" },
-							{ Weight = 5, Template = "potion_gheal" },
-							{ Weight = 5, Template = "potion_cure" },
+							{ Weight = 5, Template = "greater_mana_potion" },
+							{ Weight = 5, Template = "greater_stamina_potion" },
+							{ Weight = 5, Template = "greater_health_potion" },
+							{ Weight = 5, Template = "greater_cure_potion" },
+							{ Weight = 5, Template = "greater_cure_posion" },
 						}
 					},
 					--maps
@@ -101,6 +102,11 @@
 							{ Weight = 25, Template = "treasure_map_2" },
 							{ Weight = 30, Template = "treasure_map_3" },
 							{ Weight = 25, Template = "treasure_map_4" },
+							--{ Chance = 5, Template = "treasure_map_group" },
+							--{ Chance = 5, Template = "treasure_map_group_1" },
+							--{ Chance = 7.5, Template = "treasure_map_group_2" },
+							--{ Chance = 10, Template = "treasure_map_group_3" },
+							--{ Chance = 7.5, Template = "treasure_map_group_4" },
 						},
 					},
 					--spells

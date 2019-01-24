@@ -13,134 +13,136 @@
 		<LuaModule Name="decay"/>
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
-				{
-					LootTables =
-					{	
-					    -- Gold
-					    {
-					    	NumCoins = math.random(2500,4000),
-							NumCoins = math.random(2500,4000),
-							NumCoins = math.random(2500,4000),
-				    	},
+			{
+				LootTables =
+				{	
+					-- Gold
+					{
+						NumCoins = math.random(2500,4000),
+						NumCoins = math.random(2500,4000),
+						NumCoins = math.random(2500,4000),
+					},
 
-						-- Rares
+					-- Rares
+					{
+						NumItems = 1,
+						LootItems = 
+						{	
+							{ Chance = 5,Template = "idol_animal", Unique = true },
+							{ Chance = 2,Template = "idol_hunger", Unique = true },
+							{ Chance = 0.5,Template = "idol_demon", Unique = true },
+							{ Chance = 0.5,Template = "ancient_idol", Unique = true },
+						}
+					},
+
+					-- Maps
+					{
+						NumItems = math.random(0,2),
+						LootItems = 
 						{
-							NumItems = 1,
-							LootItems = 
-							{	
-								{ Chance = 5,Template = "idol_animal", Unique = true },
-								{ Chance = 2,Template = "idol_hunger", Unique = true },
-								{ Chance = 0.5,Template = "idol_demon", Unique = true },
-								{ Chance = 0.5,Template = "ancient_idol", Unique = true },
-							}
+							{ Chance = 20, Template = "treasure_map", Unique = true },
+							{ Chance = 15, Template = "treasure_map_1", Unique = true },
+							{ Chance = 10, Template = "treasure_map_2", Unique = true },
+							{ Chance = 3, Template = "treasure_map_3", Unique = true },
+							{ Chance = 1, Template = "treasure_map_4", Unique = true },
+							{ Chance = 10, Template = "treasure_map_group", Unique = true },
+							{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+							{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+							{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+							{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+						}
+					},
+
+					-- Ingredients
+					{
+						NumItemsMin = 2,
+						NumItemsMax = 5,
+						LootItems = 
+						{									
+							{ Weight = 35, Template = "lesser_health_potion", Unique = true },
+							{ Weight = 10, Template = "regular_health_potion", Unique = true },
+							{ Weight = 25, Template = "bandage", Unique = true },
+							{ Weight = 1, Template = "sapphire_gem", Unique = true },
+							{ Weight = 1, Template = "ruby_gem", Unique = true },
+							{ Weight = 1, Template = "topaz_gem", Unique = true },
+						}
+					},
+
+					-- Jewelery
+					{
+						NumItems = 1,
+						LootItems = {
+							{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
+							{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
+							{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
+							{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
+							{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
+							{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+						}
+					},
+
+					-- Regs
+					{
+						NumItemsMin = 2,
+						NumItemsMax = 4,
+						LootItems = 
+						{									
+							{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+						}
+					},
+
+					--ScrollsLow
+					{
+						NumItemsMin = 2,
+						NumItemsMax = 4,	
+						LootItems = 
+						{ 
+							{ Weight = 5, Template = "lscroll_heal", Unique = true },
+							{ Weight = 5, Template = "lscroll_cure", Unique = true },
+							{ Weight = 5, Template = "lscroll_poison", Unique = true },
+							{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+							{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
 						},
+					},	
 
-						-- Maps
-						{
-							NumItems = math.random(0,2),
-							LootItems = 
-							{
-								{ Chance = 20, Template = "treasure_map", Unique = true },
-								{ Chance = 15, Template = "treasure_map_1", Unique = true },
-								{ Chance = 10, Template = "treasure_map_2", Unique = true },
-								{ Chance = 3, Template = "treasure_map_3", Unique = true },
-								{ Chance = 1, Template = "treasure_map_4", Unique = true },
-								{ Chance = 10, Template = "treasure_map_group", Unique = true },
-								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
-								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
-								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
-								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
-							}
+					--ScrollsMed
+					{
+						NumItemsMin = 0,
+						NumItemsMax = 1,	
+						LootItems = 
+						{ 
+							{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+							{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+							{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+							{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
 						},
-
-						-- Ingredients
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 5,
-							LootItems = 
-							{									
-								{ Weight = 35,Template = "potion_lheal", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "topaz_gem", Unique = true },
-							}
-						},
-
-						-- Jewelery
-						{
-							NumItems = 1,
-					    	LootItems = {
-					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
-				    		}
-						},
-
-						-- Regs
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,
-							LootItems = 
-							{									
-								{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35},
-							}
-						},
-
-						--ScrollsLow
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,	
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_cure", Unique = true },
-								{ Weight = 5, Template = "lscroll_poison", Unique = true },
-								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
-
-							},
-						},	
-
-						--ScrollsMed
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,	
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
-								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
-								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
-							},
-						},	
-					}
+					},	
 				}
+			}
 			</Initializer>
 		</LuaModule>
 		<LuaModule Name="buried_treasure_lock">
 			<Initializer>
+			{
+				MobTables = 
 				{
-					MobTables = {
-						{ "lich", "lich", "lich", "lich", "lich", "lich", "lich" },
-						{ "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion" },
-						{ "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage", "goblin_mage" },
-						{ "bandit", "bandit", "bandit_female", "bandit_female", "bandit_hq", "bandit_hq", "bandit_archer", "bandit_archer", "bandit_archer_female", "bandit_archer_female" },
-					}
+					{ "lich", "lich", "lich", "lich", "lich", "lich", "lich" },
+					{ "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion", "scorpion" },
+					{ "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin", "goblin_mage", "goblin_mage", "goblin_mage" },
+					{ "bandit", "bandit", "bandit_female", "bandit_female", "bandit_hq", "bandit_hq", "bandit_archer", "bandit_archer", "bandit_archer_female", "bandit_archer_female" },
 				}
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>

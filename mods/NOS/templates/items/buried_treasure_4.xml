@@ -13,182 +13,184 @@
 		<LuaModule Name="decay"/>		
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
-				{
-					LootTables =
-					{	
-					    -- Gold
-					    {
-					    	NumCoins = math.random(2000,3000),
-				    	},
+			{
+				LootTables =
+				{	
+					-- Gold
+					{
+						NumCoins = math.random(2000,3000),
+					},
 
-						-- Rare
+					-- Rare
+					{
+						NumItems = math.random(0,1),
+						LootItems =
 						{
-							NumItems = math.random(0,1),
-							LootItems =
-							{
-								{ Chance = 50, Template = "idol_animal", Unique = true },
-								{ Chance = 20, Template = "idol_hunger", Unique = true },
-								{ Chance = 10, Template = "idol_demon", Unique = true },
-								{ Chance = 10, Template = "ancient_idol", Unique = true },
-							}
-						},
-						
-						-- Maps
-						{
-							NumItems = math.random(0,2),
-							LootItems = 
-							{
-								{ Chance = 20, Template = "treasure_map", Unique = true },
-								{ Chance = 15, Template = "treasure_map_1", Unique = true },
-								{ Chance = 10, Template = "treasure_map_2", Unique = true },
-								{ Chance = 3, Template = "treasure_map_3", Unique = true },
-								{ Chance = 1, Template = "treasure_map_4", Unique = true },
-								{ Chance = 10, Template = "treasure_map_group", Unique = true },
-								{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
-								{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
-								{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
-								{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
-							}
-						},
-
-						-- Furniture
-						{
-							NumItems = math.random(0,1),
-							LootItems = 
-							{
-								{ Chance = 10, Template = "die", Unique = true },
-								{ Chance = 10, Template = "dice", Unique = true },
-								{ Chance = 10, Template = "dice_cup", Unique = true },
-								{ Chance = 10, Template = "dice_pair_and_cup", Unique = true },
-								{ Chance = 2, Template = "item_cup_of_dice", Unique = true },
-							}
+							{ Chance = 50, Template = "idol_animal", Unique = true },
+							{ Chance = 20, Template = "idol_hunger", Unique = true },
+							{ Chance = 10, Template = "idol_demon", Unique = true },
+							{ Chance = 10, Template = "ancient_idol", Unique = true },
 						}
-
-						-- Ingredients
+					},
+					
+					-- Maps
+					{
+						NumItems = math.random(0,2),
+						LootItems = 
 						{
-							NumItemsMin = 1,
-							NumItemsMax = 3,
-							LootItems = 
-							{
-								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 5, Template = "sapphire_gem", Unique = true },
-								{ Weight = 5, Template = "ruby_gem", Unique = true },
-								{ Weight = 5, Template = "topaz_gem", Unique = true },
-							}
-						},
+							{ Chance = 20, Template = "treasure_map", Unique = true },
+							{ Chance = 15, Template = "treasure_map_1", Unique = true },
+							{ Chance = 10, Template = "treasure_map_2", Unique = true },
+							{ Chance = 3, Template = "treasure_map_3", Unique = true },
+							{ Chance = 1, Template = "treasure_map_4", Unique = true },
+							{ Chance = 10, Template = "treasure_map_group", Unique = true },
+							{ Chance = 5, Template = "treasure_map_group_1", Unique = true },
+							{ Chance = 2.5, Template = "treasure_map_group_2", Unique = true },
+							{ Chance = 1.25, Template = "treasure_map_group_3", Unique = true },
+							{ Chance = 0.75, Template = "treasure_map_group_4", Unique = true },
+						}
+					},
 
-						-- Jewelery
+					-- Furniture
+					{
+						NumItems = math.random(0,1),
+						LootItems = 
 						{
-							NumItems = 1,
-					    	LootItems = {
-					    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
-				    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
-				    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
-				    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
-				    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
-				    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
-
-				    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
-				    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
-				    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
-				    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
-				    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
-				    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
-
-				    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
-				    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
-				    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
-				    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
-				    		}
-						},
-
-						-- Regs
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 4,
-							LootItems = 
-							{
-								{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35},
-							}
-						},
-
-						-- ScrollsLow
-						{
-							NumItemsMin = 2,
-							NumItemsMax = 3,
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_cure", Unique = true },
-								{ Weight = 5, Template = "lscroll_poison", Unique = true },
-								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
-
-							},
-						},
-
-						-- ScrollsMed
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,
-							LootItems =
-							{
-								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
-								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
-								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
-							},
-						},
-
-						-- ScrollsHigh
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,
-							LootItems = 
-							{ 
-								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
-								{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
-								{ Weight = 5, Template = "lscroll_meteor", Unique = true },
-								{ Weight = 5, Template = "lscroll_portal", Unique = true },
-							},
-						},
-
-						-- Arrows
-						{
-							NumItemsMin = 0,
-							NumItemsMax = 1,
-							LootItems =
-							{ 
-								{ Weight = 10, Template = "arrow", Unique = true, StackCountMin = 25, StackCountMax = 75 },
-								{ Weight = 30, Template = "arrow_ash", Unique = true, StackCountMin = 25, StackCountMax = 63 },
-								{ Weight = 25,  Template = "arrow_blightwood", Unique = true, StackCountMin = 25, StackCountMax = 48 },
-							},
-						},
+							{ Chance = 10, Template = "die", Unique = true },
+							{ Chance = 10, Template = "dice", Unique = true },
+							{ Chance = 10, Template = "dice_cup", Unique = true },
+							{ Chance = 10, Template = "dice_pair_and_cup", Unique = true },
+							{ Chance = 2, Template = "item_cup_of_dice", Unique = true },
+						}
 					}
+
+					-- Ingredients
+					{
+						NumItemsMin = 1,
+						NumItemsMax = 3,
+						LootItems = 
+						{
+							{ Weight = 10, Template = "lesser_health_potion", Unique = true },
+							{ Weight = 15, Template = "regular_health_potion", Unique = true },
+							{ Weight = 20, Template = "greater_health_potion", Unique = true },
+							{ Weight = 25, Template = "bandage", Unique = true },
+							{ Weight = 5, Template = "sapphire_gem", Unique = true },
+							{ Weight = 5, Template = "ruby_gem", Unique = true },
+							{ Weight = 5, Template = "topaz_gem", Unique = true },
+						}
+					},
+
+					-- Jewelery
+					{
+						NumItems = 1,
+						LootItems = {
+							{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
+							{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
+							{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
+							{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
+							{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
+							{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
+
+							{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
+							{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
+							{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
+							{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
+							{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
+							{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
+
+							{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
+							{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
+							{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
+							{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
+							{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
+							{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
+						}
+					},
+
+					-- Regs
+					{
+						NumItemsMin = 2,
+						NumItemsMax = 4,
+						LootItems = 
+						{
+							{ Weight = 10, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+							{ Weight = 9, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 35 },
+						}
+					},
+
+					-- ScrollsLow
+					{
+						NumItemsMin = 2,
+						NumItemsMax = 3,
+						LootItems = 
+						{ 
+							{ Weight = 5, Template = "lscroll_heal", Unique = true },
+							{ Weight = 5, Template = "lscroll_cure", Unique = true },
+							{ Weight = 5, Template = "lscroll_poison", Unique = true },
+							{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+							{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+
+						},
+					},
+
+					-- ScrollsMed
+					{
+						NumItemsMin = 0,
+						NumItemsMax = 1,
+						LootItems =
+						{
+							{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
+							{ Weight = 5, Template = "lscroll_lightning", Unique = true },
+							{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
+							{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+						},
+					},
+
+					-- ScrollsHigh
+					{
+						NumItemsMin = 0,
+						NumItemsMax = 1,
+						LootItems = 
+						{ 
+							{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
+							{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
+							{ Weight = 5, Template = "lscroll_meteor", Unique = true },
+							{ Weight = 5, Template = "lscroll_portal", Unique = true },
+						},
+					},
+
+					-- Arrows
+					{
+						NumItemsMin = 0,
+						NumItemsMax = 1,
+						LootItems =
+						{ 
+							{ Weight = 10, Template = "arrow", Unique = true, StackCountMin = 25, StackCountMax = 75 },
+							{ Weight = 30, Template = "arrow_ash", Unique = true, StackCountMin = 25, StackCountMax = 63 },
+							{ Weight = 25,  Template = "arrow_blightwood", Unique = true, StackCountMin = 25, StackCountMax = 48 },
+						},
+					},
 				}
+			}
 			</Initializer>
 		</LuaModule>
 		<LuaModule Name="buried_treasure_lock">
 			<Initializer>
-				{
-					MobTables = {
-						{ "drake", "gorgon", "gorgon" },
-						{ "wyrmling", "wyrmling", "wyvern" },
-					}
+			{
+				MobTables = {
+					{ "drake", "gorgon", "gorgon" },
+					{ "wyrmling", "wyrmling", "wyvern" },
 				}
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
