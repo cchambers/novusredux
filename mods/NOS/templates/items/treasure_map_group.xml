@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>Dangerous Tattered Map</Name>
+  <Name>[FF0000]Dangerous Tattered Map[-]</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>	
@@ -8,30 +8,30 @@
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="treasure_map">
-				<Initializer>
-				{
+			<Initializer>
+			{
 				RegionalNames = 
-                    {
-                        {"Area-Valus","Valus"},
-                        {"Area-Lake Tethys","Lake Tethys"},
-                        {"Area-Black Grove","Black Grove"},
+				{
+					{"Area-Valus","Valus"},
+					{"Area-Lake Tethys","Lake Tethys"},
+					{"Area-Black Grove","Black Grove"},
 
-                        {"Area-Cast Lake","Cast Lake"},
-                        {"Area-Cape Worth","Cape Worth"},
-                        {"Area-Ceyr Pond","Ceyr Pond"},
+					{"Area-Cast Lake","Cast Lake"},
+					{"Area-Cape Worth","Cape Worth"},
+					{"Area-Ceyr Pond","Ceyr Pond"},
 
-                        {"Area-Lume Coast","Lume Coast"},
+					{"Area-Lume Coast","Lume Coast"},
 
-                        {"Area-Mer Beach","Mer Beach"},
-                        {"Area-The Caravan Path","The Caravan Path"},
-                        {"Area-Sacred Isle","Sacred Isle"},
-                    },
+					{"Area-Mer Beach","Mer Beach"},
+					{"Area-The Caravan Path","The Caravan Path"},
+					{"Area-Sacred Isle","Sacred Isle"},
+				},
 				Rewards = 
-					{
-						"buried_treasure_group",
-					},
-				}
-				</Initializer>
+				{
+					"buried_treasure_group",
+				},
+			}
+			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>

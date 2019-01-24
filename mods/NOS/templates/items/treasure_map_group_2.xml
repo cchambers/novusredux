@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>Dangerous Fancy Map</Name>
+  <Name>[FF0000]Dangerous Fancy Map[-]</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
@@ -7,61 +7,61 @@
     </ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="treasure_map">
-				<Initializer>
-				{
+            <Initializer>
+            {
 				RegionalNames = 
-                    {
-                        {"Area-Denir","Denir"},
-                        {"Area-Eastern Range Peninsula","Eastern Range Peninsula"},
-                        {"Area-Lake Denir","Lake Denir"},
-                        {"Area-Mount Aris","Mount Aris"},
-                        {"Area-Dagger Isle","Dagger Isle"},
-                        {"Area-Ysel Lake","Ysel Lake"},
-                        {"Area-West Peninsula","West Peninsula"},
-                        {"Area-Old Fool's Road","Old Fool's Road"},
-                        {"Area-CrossRoads","CrossRoads"},
-                        {"Area-Serpent's Pass","Serpent's Pass"},
-                        {"Area-Howling Cape","Howling Cape"},
-                        {"Area-Misty Basin","Misty Basin"},
-                        {"Area-East Valusia","East Valusia"},
-                        {"Area-The Brooks","The Brooks"},
-                        {"Area-West Valusia","West Valusia"},
-                        {"Area-Yoln's Bluff","Yoln's Bluff"},
-                        {"Area-Steel Coast","Steel Coast"},
-                        {"Area-Hunter's Brae","Hunter's Brae"},
-                        {"Area-Bel Lake","Bel Lake"},
-                        {"Area-Caester Run","Caester Run"},
-                        {"Area-Black Forest","Black Forest"},
-                        {"Area-Radiant Woodlands","Radiant Woodlands"},
-                        {"Area-Treacher Path","Treacher Path"},
-                        {"Area-Spider Nest","Spider Nest"},
-                        {"Area-Spiritwood","Spiritwood"},
-                        {"Area-The Brushwoods","The Brushwoods"},
-                        {"Area-Vilewood","Vilewood"},
-                        {"Area-Nosca Grove","Nosca Grove"},
-                        {"Area-Spirit Isle","Spirit Isle"},
-                        {"Area-Isle of Spears","Isle of Spears"},
-                        {"Area-Treacher Path","Treacher Path"},
-                        {"Area-Yir Copse","Yir Copse"},
-                        {"Area-Spider Nest","Spider Nest"},
-                        {"Area-Ruin of the Artificers","Ruin of the Artificers"},
-                        {"Area-Gazer Isle","Gazer Isle"},
-                        {"Area-Arid Lake","Arid Lake"},
-                        {"Area-Flat Wilds","Flat Wilds"},
-                        {"Area-Gold Coast","Gold Coast"},
-                        {"Area-Jhalir","Jhalir"},
-                        {"Area-Scorched Print","Scorched Print"},
-                        {"Area-Scaled Path","Scaled Path"},
-                        {"Area-The Dunes","The Dunes"},
-                        {"Area-Withering Sands","Withering Sands"},
-                        {"Area-Soldier's Rest","Soldier's Rest"},
-                    },
+                {
+                    {"Area-Denir","Denir"},
+                    {"Area-Eastern Range Peninsula","Eastern Range Peninsula"},
+                    {"Area-Lake Denir","Lake Denir"},
+                    {"Area-Mount Aris","Mount Aris"},
+                    {"Area-Dagger Isle","Dagger Isle"},
+                    {"Area-Ysel Lake","Ysel Lake"},
+                    {"Area-West Peninsula","West Peninsula"},
+                    {"Area-Old Fool's Road","Old Fool's Road"},
+                    {"Area-CrossRoads","CrossRoads"},
+                    {"Area-Serpent's Pass","Serpent's Pass"},
+                    {"Area-Howling Cape","Howling Cape"},
+                    {"Area-Misty Basin","Misty Basin"},
+                    {"Area-East Valusia","East Valusia"},
+                    {"Area-The Brooks","The Brooks"},
+                    {"Area-West Valusia","West Valusia"},
+                    {"Area-Yoln's Bluff","Yoln's Bluff"},
+                    {"Area-Steel Coast","Steel Coast"},
+                    {"Area-Hunter's Brae","Hunter's Brae"},
+                    {"Area-Bel Lake","Bel Lake"},
+                    {"Area-Caester Run","Caester Run"},
+                    {"Area-Black Forest","Black Forest"},
+                    {"Area-Radiant Woodlands","Radiant Woodlands"},
+                    {"Area-Treacher Path","Treacher Path"},
+                    {"Area-Spider Nest","Spider Nest"},
+                    {"Area-Spiritwood","Spiritwood"},
+                    {"Area-The Brushwoods","The Brushwoods"},
+                    {"Area-Vilewood","Vilewood"},
+                    {"Area-Nosca Grove","Nosca Grove"},
+                    {"Area-Spirit Isle","Spirit Isle"},
+                    {"Area-Isle of Spears","Isle of Spears"},
+                    {"Area-Treacher Path","Treacher Path"},
+                    {"Area-Yir Copse","Yir Copse"},
+                    {"Area-Spider Nest","Spider Nest"},
+                    {"Area-Ruin of the Artificers","Ruin of the Artificers"},
+                    {"Area-Gazer Isle","Gazer Isle"},
+                    {"Area-Arid Lake","Arid Lake"},
+                    {"Area-Flat Wilds","Flat Wilds"},
+                    {"Area-Gold Coast","Gold Coast"},
+                    {"Area-Jhalir","Jhalir"},
+                    {"Area-Scorched Print","Scorched Print"},
+                    {"Area-Scaled Path","Scaled Path"},
+                    {"Area-The Dunes","The Dunes"},
+                    {"Area-Withering Sands","Withering Sands"},
+                    {"Area-Soldier's Rest","Soldier's Rest"},
+                },
 				Rewards = 
-					{
-						"buried_treasure_group_2",
-					},
-				}
-				</Initializer>
+                {
+                    "buried_treasure_group_2",
+                },
+            }
+            </Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
