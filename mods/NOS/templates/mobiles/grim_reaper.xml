@@ -1,4 +1,4 @@
-<ObjectTemplate>
+ <ObjectTemplate>
 	<ClientId>918</ClientId>
 	<Name>Death</Name>
 	<Hue>0</Hue>
@@ -53,9 +53,7 @@
 					TemplateDefines.LootTable.MageBoss,
 					TemplateDefines.LootTable.Boss,
 					TemplateDefines.LootTable.DeathBoss,
-					TemplateDefines.LootTable.AncientScrolls,
-					TemplateDefines.LootTable.DeathBoss,
-
+					TemplateDefines.LootTable.AncientScrolls
 					-- Gold
 					{
 						NumCoins = math.random(5000,10000),

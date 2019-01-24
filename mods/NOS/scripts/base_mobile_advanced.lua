@@ -1,5 +1,6 @@
 require 'default:base_mobile_advanced'
 -- remove the specified amount from the players inventory, the objects are identified by the resource type
+
 function HandleConsumeCoins(amount,transactionId,responseObj,...)
 	DebugMessage("TEST COINS <M <M <M <M <M")
 	local success = false

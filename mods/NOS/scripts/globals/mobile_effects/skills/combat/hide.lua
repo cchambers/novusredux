@@ -10,7 +10,7 @@ MobileEffectLibrary.Hide =
 		-- cpu is more valuable than memory, so let's cache this here.
 		self.IsPlayer = self.ParentObj:IsPlayer()
 
-		if(self.IsPlayer) then
+		if(self.IsPlayer and not(args.Force)) then
 			local chest = self.ParentObj:GetEquippedObject("Chest");
             local legs = self.ParentObj:GetEquippedObject("Legs");
             local head = self.ParentObj:GetEquippedObject("Head");
