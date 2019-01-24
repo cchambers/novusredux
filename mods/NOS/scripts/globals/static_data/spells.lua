@@ -1260,7 +1260,7 @@ SpellData = {
 			Skill = "MagerySkill",
 			BeneficialSpellType = false,
 			AttackSpellType = true,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_incognito_effect",
 			Reagents = {
@@ -1802,7 +1802,9 @@ SpellData = {
 			},
 			ReagentsRequired = true,
 			Reagents = {
-				"Mandrake"
+				"Mandrake",
+				"Spidersilk",
+				"Sulfurousash"
 			},
 		},
 
@@ -1900,6 +1902,8 @@ SpellData = {
 			ReagentsRequired = true,
 			Reagents = {
 				"Bloodmoss",
+				"Sulfurousash",
+				"Blackpearl",
 			},
 			CastTime = 6,
 		},
