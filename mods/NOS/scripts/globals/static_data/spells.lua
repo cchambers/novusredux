@@ -2247,7 +2247,7 @@ SpellData = {
 	
 		Spikepath = {
 			SpellDisplayName = "Spike Path",
-			PowerWords = "Ow My Toe",
+			PowerWords = "Wah Chyo Step",
 			Circle = 8,
 			manaCost = 80,
 			CanBeDodged = true,

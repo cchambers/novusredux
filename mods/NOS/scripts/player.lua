@@ -700,8 +700,7 @@ function DailyTaxWarn()
 	return
 end
 
-UnregisterEventHandler("", EventType.UserLogin, "")
-RegisterEventHandler(EventType.UserLogin,"",
+OverrideEventHandler("default:player",EventType.UserLogin, "", 
 	function(loginType)
 		if not( IsPossessed(this) ) then
 			local clusterController = GetClusterController()
