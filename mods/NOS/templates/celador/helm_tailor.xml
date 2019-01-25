@@ -104,6 +104,14 @@
 							Rotation = "9.012312E-07, 327.6842, -1.450345E-06",
 							UnlimitedStock = false,
 						},
+						{
+							Template = "tool_sewing_kit",
+							Price = 400,
+							Amount = 999,
+							RelativeLoc = "-2.3, 0.7008057, -2.5",
+							Rotation = "9.012312E-07, 327.6842, -1.450345E-06",
+							UnlimitedStock = false,
+						},
 					},
 				}
 			</Initializer>
