@@ -708,7 +708,8 @@ OverrideEventHandler("default:player",EventType.UserLogin, "",
 				clusterController:SendMessage("UserLogin",this,loginType)			
 			end
 			if ( loginType == "Connect" ) then
-				Guild.Initialize()
+				if (Guild ~= nil) then Guild.Initialize() end
+				-- KHI HERE FIX PLS K
 				-- warn about their plot taxes
 			end
 		end
