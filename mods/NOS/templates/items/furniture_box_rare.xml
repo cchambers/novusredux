@@ -35,6 +35,7 @@
                             { Weight = 2, Template = "furniture_globe", Unique = true, Packed=true },
                             { Weight = 2, Template = "lantern_street", Unique = true, Packed=true },
                             { Weight = 1, Template = "lantern_line", Unique = true, Packed=true },
+                            { Weight = 1, Template = "well", Unique = true, Packed=true },
                         },
                     },
                 }
