@@ -2,8 +2,7 @@
 	<Name>Pit Portal</Name>
 	<ClientId>881</ClientId>
 	<ObjectVariableComponent>	
-		<StringVariable Name="DestinationMap">TestMap</StringVariable>
-		<StringVariable Name="DestinationSubregion">TestMap</StringVariable>
+		<StringVariable Name="RegionAddress">TestMap</StringVariable>
 		<DoubleVariable Name="DestinationFacing">82</DoubleVariable>
 		<StringVariable Name="PortalName">[B768D5]TOURNAMENT AREA[-]</StringVariable>
 		<LocVariable Name="Destination">2.5,0,2.5</LocVariable>
