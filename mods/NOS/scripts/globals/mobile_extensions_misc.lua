@@ -9,10 +9,20 @@ function RequestConsumeResource(target,resourceType,amount,transactionId,respons
 end
 
 function CountCoins(target)
+
+	local total = 0
 	local bankObj = target:GetEquippedObject("Bank")
 	if( bankObj == nil ) then
 		return 0
 	end
+	
+	local backpackObj = target:GetEquippedObject("Backpack")
+	if( backpackObj == nil ) then
+		return 0
+	end
 
-	return CountResourcesInContainer(bankObj,"coins")	
+	total = CountResourcesInContainer(bankObj,"coins")
+	total = total + CountResourcesInContainer(backpackObj,"coins")	
+
+	return total
 end
