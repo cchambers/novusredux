@@ -339,8 +339,6 @@ end
 function ExecuteKarmaAction(mobileA, action, mobileB)
     Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
 
-    DebugMessage(tostring(mobileA:GetName() .. " " .. action .. " " .. mobileB:GetName()))
-
     if (mobileB ~= nil) then
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
