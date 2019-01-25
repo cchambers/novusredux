@@ -194,13 +194,14 @@ MobileEffectLibrary.WashBandage =
 		-- if (IsLocInRegion(target,"Water")) then
 		-- 	isWater = true
 		-- end
+		local isWaterSource = target:HasObjVar("WaterSource")
 		
-		if (target:GetObjVar("State") == "Full") then
-				isWater = true
-			else
-				self.ParentObj:SystemMessage("That is empty.")
-				return false
-			end
+		if (target:GetObjVar("State") == "Full" or isWaterSource) then
+			isWater = true
+		else
+			self.ParentObj:SystemMessage("That is empty.")
+			return false
+		end
 
 		if (isWater == true) then
 			local backpackObj = self.ParentObj:GetEquippedObject("Backpack")
@@ -216,12 +217,10 @@ MobileEffectLibrary.WashBandage =
 				end
 			end
 
-			-- if( not( TryAddToStack("Bandage",backpackObj,bAmount))) then
-				CreateStackInBackpack(self.ParentObj, "bandage", bAmount)
-			-- end
+			CreateStackInBackpack(self.ParentObj, "bandage", bAmount)
 			bloodies:Destroy() 
 
-			if (bAmount > 50) then
+			if (bAmount > 50 and not(isWaterSource)) then
 				-- check if target is waterskin
 				UpdateWaterContainerState(target, "Empty")
 				self.ParentObj:NpcSpeech("The container has been emptied.")
