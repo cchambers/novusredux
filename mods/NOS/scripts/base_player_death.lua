@@ -139,9 +139,7 @@ RegisterEventHandler(EventType.CreatedObject, "created_corpse", function (succes
 
 function TurnNearbyMossIntoBloodMoss()
 	-- TODO - Verlorens - Globalize this call, so it's not in base_player_death.lua AND base_ai_mob.lua
-	-- TODO - Verlorens - Make it a more elegant way in which moss turns into bloodmoss.  
-	-- Right now it's set so if something dies close enough to it, it turns into bloodmoss.
-	-- Right now it's set so if ANY NPC but Undead dies.
+	-- Right now it's set so if something that is not Undead, dies close enough to it, it turns into bloodmoss.
 	local nearbyMoss = FindObjects(SearchMulti(
 		{
 			SearchRange(this:GetLoc(), 8),
@@ -159,7 +157,11 @@ end
 
 RegisterEventHandler(EventType.CreatedObject,"bloodmoss_created_by_death",function (success,objRef)
     if (success) then
-        Decay(objRef, 900)  -- 900 seconds is 15 minutes
+        if( not (objRef:HasModule("harvestable_plant")) ) then
+            -- A safety check in case the harvestable_plant module is not attached.
+            objRef:AddModule("harvestable_plant")
+        end
+        objRef:SendMessage("TransitionColorFromMossToBloodmoss", objRef)
 	end
 end)
 
