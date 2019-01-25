@@ -339,13 +339,15 @@ end
 function ExecuteKarmaAction(mobileA, action, mobileB)
     Verbose("Karma", "ExecuteKarmaAction", mobileA, action, mobileB)
 
+    DebugMessage(tostring(mobileA:GetName() .. " " .. action .. " " .. mobileB:GetName()))
+
     if (mobileB ~= nil) then
-        
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
         if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
     end
+
     if (action == KarmaActions.Negative.Murder) then -- and IsPlayerCharacter(aggressor)?
         local aggressor = mobileA
         local victim = mobileB
@@ -357,7 +359,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
             aggressor:SendMessage("StartMobileEffect", "Murderer")
         end
         -- KHI TOTEM
-        Totem(aggressor, "murder")
+        aggressor:SendMessage("Totem", "Murder")
     end
 
     local adjust, endInitiate = CalculateKarmaAction(mobileA, action, mobileB)

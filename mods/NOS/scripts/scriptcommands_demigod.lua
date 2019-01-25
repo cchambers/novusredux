@@ -1249,7 +1249,7 @@ DemigodCommandFuncs = {
 		end
 	end,
 }
-RegisterCommand{ Command="tile", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Tile, Usage="[<target_id|self>]", Desc="Toggle invulnerability" }
+RegisterCommand{ Command="tile", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Tile, Usage="[<target_id|self>]", Desc="Tile a thing" }
 RegisterCommand{ Command="invuln", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ToggleInvuln, Usage="[<target_id|self>]", Desc="Toggle invulnerability", Aliases={"inv"} }
 RegisterCommand{ Command="create", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Create, Usage="[<template>]", Desc="[$2478]" }
 RegisterCommand{ Command="createequippedobject", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateEquippedObject, Usage="<template> [<targetid]", Desc="Created the object as an equipped object on the target." }
