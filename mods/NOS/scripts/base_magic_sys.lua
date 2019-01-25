@@ -1016,12 +1016,10 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 	this:PlayAnimation("idle")
 	this:DelObjVar("LastSpell")
-
+	
 	-- If Resurrect spell, on pet, make sure the PetSlots stuff is gravey.
 	if spellName == "Resurrect" and IsPet(_spellTarget) and TargetDeadCheck(spellName, _spellTarget) then
-		-- DebugMessage(" Is Pet! ")
-		if (_spellTarget.IsPet() and  CanAddToActivePets(_spellTarget:GetObjectOwner(), _spellTarget) ) then
-		--if (_spellTarget:GetObjVar("PetSlots") > GetRemainingActivePetSlots(this)) then
+		if ( not ( CanAddToActivePets(_spellTarget:GetObjVar("controller"), _spellTarget) ) ) then
 			this:NpcSpeechToUser("The pets ghost returns, but immediately runs away.  It cannot be controlled by it's owner at this time.",this)
 			CancelSpellCast()
 			return false

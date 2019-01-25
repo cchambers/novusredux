@@ -69,8 +69,7 @@ MobileEffectLibrary.Bandage =
 			) then
 				LookAt(self.ParentObj, self.Target)
 
-				if (self.IsPet and CanAddToActivePets(target:GetObjectOwner(), target) ) then
-				--if (self.IsPet and target:GetObjVar("PetSlots") > GetRemainingActivePetSlots(self.ParentObj) ) then
+				if (self.IsPet and not ( CanAddToActivePets(target:GetObjVar("controller"), target) ) ) then
 					self.ParentObj:NpcSpeechToUser("The pets ghost returns, but immediately runs away.  It cannot be controlled by it's owner at this time.",self.ParentObj)
 					EndMobileEffect(root)
 					return false
