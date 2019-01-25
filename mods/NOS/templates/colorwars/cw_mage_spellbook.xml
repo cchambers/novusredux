@@ -1,0 +1,18 @@
+<ObjectTemplate>
+	<Name>Full Spellbook</Name>
+	<ClientId>184</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="WeaponType">Spellbook</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+		<LuaModule Name="spellbook">
+			<Initializer>
+				{
+					Spells = "All"
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

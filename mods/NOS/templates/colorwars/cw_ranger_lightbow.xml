@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Short Bow[-]</Name>
+	<ClientId>1145</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Shortbow</StringVariable>
+		<DoubleVariable Name="MaxDurability">50</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
