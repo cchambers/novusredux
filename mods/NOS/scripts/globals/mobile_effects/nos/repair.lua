@@ -1,76 +1,118 @@
 MobileEffectLibrary.Repair = {
     ShouldStack = false,
     OnEnterState = function(self, root, target, args)
+        local user = self.ParentObj
         if (target) then
-            -- IS THERE A FORGE NEARBY?
+            self.Target = target
+            if not (IsInBackpack(target, user)) then
+                user:SystemMessage("That is not in your pack.", "info")
+                EndMobileEffect(root)
+                return false
+            end
+
             local forge =
                 FindObjects(
                 SearchMulti(
                     {
-                        SearchMobileInRange(5), --in 10 units
+                        SearchObjectInRange(5), --in 10 units
                         SearchObjVar("GuideEventId", "NearForge") -- this is from NPE but serves our purpose...
                     }
                 )
             )
 
-            if (forge == nil) then
-                self.ParentObj:SystemMessage("You need a forge to do that.","info")
+            if (#forge == 0) then
+                user:SystemMessage("You need a forge to do that.", "info")
+                EndMobileEffect(root)
+                return false
             else
-                RegisterSingleEventHandler(
-                    EventType.ClientTargetGameOjResponse,
+                self.RepairTarget(self, target, root)
+            end
+        end
+        return
+    end,
+    RepairTarget = function(self, target, root)
+        local user = self.ParentObj
+        local maxDurability = target:GetObjVar("MaxDurability")
+        self.Durability = target:GetObjVar("Durability") or maxDurability
+        local damage = maxDurability - self.Durability
+        self.PermanentDamage = target:GetObjVar("PermanentDamage") or 0
+
+        if (self.Durability >= maxDurability - self.PermanentDamage) then
+            user:SystemMessage("That is already fully repaired.", "info")
+            EndMobileEffect(root)
+            return false
+        else
+            if (CheckSkillChance(user, "MetalsmithSkill")) then
+                local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
+                self.StartProgressBar(self, root)
+                user:ScheduleTimerDelay(self.Duration, "Blacksmith.Repair")
+                local bestAmount = maxDurability - self.PermanentDamage
+
+                local repair = {0, 100}
+                if (skillLevel < 30) then
+                    repair = {5, 20}
+                elseif (skillLevel < 65) then
+                    repair = {35, 65}
+                elseif (skillLevel < 85) then
+                    repair = {75, 90}
+                elseif (skillLevel <= 100) then
+                    repair = {90, 100}
+                end
+
+                local percent = math.random(repair[1], repair[2]) * 0.01
+                self.RepairTo = math.round(bestAmount * percent)
+                
+                -- user:NpcSpeech(tostring(percent .. " of " .. bestAmount .. " is " .. self.RepairTo))
+                self.PermanentDamage = maxDurability - self.RepairTo
+
+                RegisterEventHandler(
+                    EventType.Timer,
                     "Blacksmith.Repair",
-                    function(target, user)
-                        if (success) then
-                            self.RepairTarget(self, target)
-                        end
-                        EndMobileEffect(root)
+                    function()
+                        user:NpcSpeechToUser("*repaired*", user)
+                        self.DoRepair(self, root)
                     end
                 )
-                self.ParentObj:SystemMessage("Target the item for repair.", "info")
-                self.ParentObj:RequestClientTargetGameOj(self.ParentObj, "Blacksmith.Repair")
-                return
-            end
-        end
-        EndMobileEffect(root)
-    end,
-    RepairTarget = function(self, target)
-        -- check item durability, maxdurability, permanentdamage
-        -- play animation
-        -- do skill check
-        --
-    end,
-    OnExitState = function(self, root)
-        UnregisterEventHandler(GetCurrentModule(), EventType.ClientTargetLocResponse, "Telecrook.Move")
-    end
-}
-
-MobileEffectLibrary.TelecrookRes = {
-    ShouldStack = false,
-    OnEnterState = function(self, root, target, args)
-        if (not IsImmortal(self.ParentObj)) then
-            -- They shouldn't have this.
-            self.DestroyCrook(self)
-        elseif (target) then
-            if (IsDead(target)) then
-                target:SendMessage("Resurrect", 1.0, nil, true)
             else
-                target:NpcSpeech("*restored*")
-                target:SetStatValue("Health", GetMaxHealth(target))
-                target:SetStatValue("Mana", 250)
-                target:SetStatValue("Stamina", 250)
+                local destroy = math.random(1, 20) == 1
+                if (destroy) then
+                    user:NpcSpeech("[ff0000]*break*[-]")
+                    user:SystemMessage("You fail to repair the item and destroy it in the process.", "info")
+                    target:Destroy()
+                else
+                    user:SystemMessage("You fail to repair the item.", "info")
+                end
             end
         end
-        EndMobileEffect(root)
+        return
     end,
-    DestroyCrook = function(self)
-        local crook = self.ParentObj:GetEquippedObject("RightHand")
-        if (crook and crook:GetObjVar("WeaponType") == "Telecrook") then
-            self.ParentObj:SystemMessage("You shouldn't have that.", "info")
-            crook:Destroy()
-            EndMobileEffect(root)
-        end
+    StartProgressBar = function(self, root)
+        ProgressBar.Show(
+            {
+                TargetUser = self.ParentObj,
+                Label = "Repairing...",
+                Duration = self.Duration,
+                PresetLocation = "AboveHotbar",
+                DialogId = "Repairing",
+                CanCancel = true,
+                CancelFunc = function()
+                    EndMobileEffect(root)
+                end
+            }
+        )
+    end,
+    DoRepair = function(self, root)
+        self.Target:SetObjVar("PermanentDamage", self.PermanentDamage)
+        self.Target:SetObjVar("Durability", self.RepairTo)
+        EndMobileEffect(root)
+        return
     end,
     OnExitState = function(self, root)
-        UnregisterEventHandler(GetCurrentModule(), EventType.ClientTargetLocResponse, "Telecrook.Res")
-    end
+        UnregisterEventHandler("", EventType.Timer, "Blacksmith.Repair")
+    end,
+    Target = nil,
+    Durability = 0,
+    RepairTo = 0,
+    PermanentDamage = 0,
+    Duration = TimeSpan.FromSeconds(1)
 }

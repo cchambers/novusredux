@@ -401,7 +401,7 @@ EquipmentStats = {
 			Attack = 3,
 			MinSkill = 0,
 			PrimaryAbility = "Repair",
-			SecondaryAbility = "Recover",
+			SecondaryAbility = "Reclaim",
 			TwoHandedWeapon = true,
 			Speed = 3
 		},
