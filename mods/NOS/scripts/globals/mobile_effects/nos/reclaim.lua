@@ -25,7 +25,9 @@ MobileEffectLibrary.Reclaim = {
                 EndMobileEffect(root)
                 return false
             else
-                self.ReclaimTarget(self, target, root)
+                -- self.ReclaimTarget(self, target, root)
+                EndMobileEffect(root)
+                return false
             end
         end
         return
@@ -34,19 +36,30 @@ MobileEffectLibrary.Reclaim = {
         local user = self.ParentObj
         local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
 
-        local repair = {0, 100}
+        local reclaim = {0, 100}
         if (skillLevel < 30) then
-            repair = {5, 20}
+            reclaim = {10, 30}
         elseif (skillLevel < 65) then
-            repair = {35, 65}
+            reclaim = {30, 50}
         elseif (skillLevel < 85) then
-            repair = {75, 90}
+            reclaim = {50, 60}
         elseif (skillLevel <= 100) then
-            repair = {90, 100}
+            reclaim = {60, 80}
         end
+        local percent = math.random(reclaim[1], reclaim[2]) * 0.01
 
-        local percent = math.random(repair[1], repair[2]) * 0.01
-        self.RepairTo = math.round(bestAmount * percent)
+        local weaponType = target:GetObjVar("WeaponType")
+            local material = target:GetObjVar("Material") or "Iron"
+            user:NpcSpeech(tostring("is " ..material.." "..weaponType))
+             
+            local table = GetRecipeTableFromSkill("MetalsmithSkill")
+            -- ULTIMATELY, run through all materials it takes... right now it only takes 1 mat but it could be multiple
+            local resources = table[weaponType].Resources[material]
+            for k, v in pairs(resources) do
+                user:NpcSpeech(tostring(k .. " " .. v))
+            end
+
+        self.reclaim = math.round(bestAmount * percent)
         return
     end,
     StartProgressBar = function(self, root)
