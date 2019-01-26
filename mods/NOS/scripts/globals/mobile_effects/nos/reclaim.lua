@@ -40,11 +40,14 @@ MobileEffectLibrary.Reclaim = {
             return false
         end
         if (CheckSkillChance(user, "MetalsmithSkill")) then
-            local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
+            
             self.StartProgressBar(self, root)
             user:ScheduleTimerDelay(self.Duration, "Blacksmith.Repair")
+
             local bestAmount = maxDurability - self.PermanentDamage
             local damageDuringRepair = math.round(bestAmount * 0.01)
+
+            local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
             local repair = {0, 100}
             if (skillLevel < 30) then
                 repair = {5, 20}
@@ -71,7 +74,7 @@ MobileEffectLibrary.Reclaim = {
         else
             local destroy = math.random(1, 20) == 1
             if (destroy) then
-                user:NpcSpeech("[ff0000]*break*[-]")
+                user:NpcSpeech("[ff0000]*ting*[-]")
                 user:SystemMessage("You fail to repair the item and destroy it in the process.", "info")
                 target:Destroy()
             else
