@@ -63,7 +63,7 @@
 				ScavengeTables =
 					{
 					},		
-					WeaponAbilities = { primary="Slash" },		
+					WeaponAbilities = { primary="Cleave" },		
 				}
 			</Initializer>
 		</LuaModule>

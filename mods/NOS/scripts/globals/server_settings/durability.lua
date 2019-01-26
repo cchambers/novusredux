@@ -11,7 +11,6 @@ ServerSettings.Durability = {
         OnEquipmentHit = 0.05,
         -- jewelry is always 'hit' for durability calculations.
         OnJewelryHit = 0.05,
-
         OnToolUse = 0.005,
         OnMapDecipher = 0.25,
     },

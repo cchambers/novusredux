@@ -24,7 +24,7 @@
 		<DoubleVariable Name="Armor">80</DoubleVariable>
 		<DoubleVariable Name="Attack">80</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<DoubleVariable Name="Karma">9000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
@@ -34,7 +34,7 @@
 		<LuaModule Name="ai_demon">
 			<Initializer>
 				{ 
-				Stats = { Str=90, Agi=80, Int=60, Wis=60, Will=60 },
+				Stats = { Str=90, Agi=30, Int=60, Wis=60, Will=60 },
 				MobTraits =
 					{
 					},
@@ -53,6 +53,7 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.ExecutionerTubs,
 						{
 							NumItems = 1,
 							NumCoins = math.random(400,600),
@@ -61,7 +62,7 @@
 				ScavengeTables =
 					{
 					},					
-					WeaponAbilities = { primary="Slash" },	
+					WeaponAbilities = { primary="Concus" },	
 					AvailableSpells = { "Greaterheal", "Lightning", "Electricbolt" },
 				}
 			</Initializer>
