@@ -440,6 +440,7 @@ function OnLoad(isPossessed)
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
 		this:SendMessage("UpdateName")
+		if (this:HasModule("sp_incognito_effect")) then	this:DelModule("sp_incognito_effect") end
 	end
 
 	this:DelObjVar("BuffIcons")	
