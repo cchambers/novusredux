@@ -84,8 +84,8 @@
 						
 						-- Demon Horse spawns
 						{ Count = 1, 	TemplateId = "horse_nightmare", 				Region = "Dread1",	SpawnTime = 24, 	SpawnDuration = 3 	},
-						{ Count = 1, 	TemplateId = "silver_steed", 					Region = "Dread1",	SpawnTime = 8,		SpawnDuration = 3 	},
-						{ Count = 1, 	TemplateId = "brazen_bronco", 					Region = "Dread1",	SpawnTime = 16, 	SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "horse_silver_steed", 					Region = "Dread1",	SpawnTime = 8,		SpawnDuration = 3 	},
+						{ Count = 1, 	TemplateId = "horse_brazen_bronco", 					Region = "Dread1",	SpawnTime = 16, 	SpawnDuration = 3 	},
 					},
 				}
 			</Initializer>

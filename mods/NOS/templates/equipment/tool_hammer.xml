@@ -3,12 +3,9 @@
 	<ClientId>220</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="6"/>			
 	<ObjectVariableComponent>			
-      	<DoubleVariable Name="HarvestDelaySecs">2</DoubleVariable>
-		<StringVariable Name="WeaponType">MiningPick</StringVariable>
-		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
-		<StringVariable Name="ToolType">Pick</StringVariable>
-    </ObjectVariableComponent>
-	<ScriptEngineComponent>
-		<LuaModule Name="tool_miningpick"/>
-	</ScriptEngineComponent>
+		<DoubleVariable Name="HarvestDelaySecs">2</DoubleVariable>
+		<StringVariable Name="WeaponType">SmithHammer</StringVariable>
+		<DoubleVariable Name="MaxDurability">120</DoubleVariable>
+		<StringVariable Name="ToolType">Hammer</StringVariable>
+	</ObjectVariableComponent>
 </ObjectTemplate>
