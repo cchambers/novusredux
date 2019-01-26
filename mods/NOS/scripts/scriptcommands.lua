@@ -23,13 +23,17 @@ RegisterCommand {
             "countdown",
             function()
                 if (mFrom == 0) then
-                    this:NpcSpeech("[ff0000]BEGIN![-]")
+                    this:NpcSpeech("[b][ff0000]FIGHT![-]")
+                    this:PlayEffect("ShockwaveEffect")
                     CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
                         this:PlayEffect("BodyExplosion")
                     end)
-                    CallFunctionDelayed(TimeSpan.FromSeconds(0.6), ImmortalCommandFuncs.Cloak)
+                    CallFunctionDelayed(TimeSpan.FromSeconds(0.55), function ()
+                        ImmortalCommandFuncs.Cloak()
+                    end)
                 else
-                    this:NpcSpeech(tostring("[bada55]" .. mFrom .. "[-]"))
+                    this:NpcSpeech(tostring("[b][bada55]" .. mFrom .. "[-]"))
+                    this:PlayEffect("ImpactWaveEffect")
                     mFrom = mFrom - 1
                     this:ScheduleTimerDelay(TimeSpan.FromSeconds(1), "countdown")
                 end
