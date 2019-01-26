@@ -33,7 +33,7 @@ local HueNames = {
 if (initializer ~= nil) then
 	if( initializer.Random ~= nil ) then 
 		local len = 27
-		local rand = math.random(1,1024)
+		local rand = math.random(1,999)
 		this:SetHue(rand)
 		local name = HueNames["hue"..rand] or rand
 		if (name) then 
