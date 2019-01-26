@@ -65,7 +65,6 @@ MobileEffectLibrary.Reclaim = {
                 EventType.Timer,
                 "Blacksmith.Repair",
                 function()
-                    self.ParentObj:NpcSpeech("PING")
                     self.DoRepair(self, root)
                 end
             )

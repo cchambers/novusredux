@@ -10,7 +10,7 @@ MobileEffectLibrary.Repair = {
                 return false
             end
 
-            local forge =
+            self.Forge =
                 FindObjects(
                 SearchMulti(
                     {
@@ -20,7 +20,7 @@ MobileEffectLibrary.Repair = {
                 )
             )
 
-            if (#forge == 0) then
+            if (#self.Forge == 0) then
                 user:SystemMessage("You need a forge to do that.", "info")
                 EndMobileEffect(root)
                 return false
@@ -45,6 +45,8 @@ MobileEffectLibrary.Repair = {
             if (CheckSkillChance(user, "MetalsmithSkill")) then
                 local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
                 self.StartProgressBar(self, root)
+                FaceObject(user,self.Forge[1])
+                user:PlayAnimation("blacksmith")
                 user:ScheduleTimerDelay(self.Duration, "Blacksmith.Repair")
                 local bestAmount = maxDurability - self.PermanentDamage
 
@@ -70,6 +72,7 @@ MobileEffectLibrary.Repair = {
                     "Blacksmith.Repair",
                     function()
                         user:NpcSpeechToUser("*repaired*", user)
+                        user:PlayAnimation("idle")
                         self.DoRepair(self, root)
                     end
                 )
@@ -110,9 +113,11 @@ MobileEffectLibrary.Repair = {
     OnExitState = function(self, root)
         UnregisterEventHandler("", EventType.Timer, "Blacksmith.Repair")
     end,
+
+    Forge = {},
     Target = nil,
     Durability = 0,
     RepairTo = 0,
     PermanentDamage = 0,
-    Duration = TimeSpan.FromSeconds(1)
+    Duration = TimeSpan.FromSeconds(3)
 }
