@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Reagent Field Controller</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">10</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">5</DoubleVariable>
+	<DoubleVariable Name="spawnDecay">60</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="regfield"></LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

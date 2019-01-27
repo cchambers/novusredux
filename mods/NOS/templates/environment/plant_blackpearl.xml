@@ -3,6 +3,7 @@
 	<ClientId>605</ClientId>
 	<Color>0xFFC100FF</Color>
 	<Hue>15</Hue>
+	<ScaleModifier>0.45</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
 	<ObjectVariableComponent>
