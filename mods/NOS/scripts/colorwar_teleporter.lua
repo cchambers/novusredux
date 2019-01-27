@@ -121,6 +121,21 @@ function ChooseClass(user)
 	-- SPAWN THEIR KIT... 
 	-- COLOR THEM... 
 	-- TELEPORT THEM...
+	KitConfirm(user, "cw_kit_mage")
+end
+
+
+function KitConfirm(user, kit)
+	local teamHue = this:GetHue()
+	user:SetObjVar("HueActual", user:GetHue())
+	user:SetHut(teamHue)
+	CreateObjInBackpack(user,"kit")
+
+	local backpackObj = this:GetEquippedObject("Backpack")
+	local backpackObjects = GetResourcesInContainer(backpackObj, "ColorwarItem", true)
+	for index, resourceObj in pairs(backpackObjects) do
+		resourceObj:SetHue(teamHue)
+	end
 
 	ActivateTeleporter(user)
 end
