@@ -26,14 +26,18 @@ MobileEffectLibrary.Tame =
 
 		RegisterEventHandler(EventType.Timer, "Taming.Talk", function() 
 			local things = {
-				"Here%s",
-				"Good%s",
-				"I won't hurt you...",
-				"WHY WON'T YOU LOVE ME?",
-				"Relax!"
+				"Here %s",
+				"Good %s",
+				"I won't hurt you, %s",
+				"WHY WON'T YOU LOVE ME %s?",
+				"Relax %s!",
+				"%s, let's be friends...",
+				"Maybe just dinner, %s?"
 			}
-			this:NpcSpeech(string.format(things[math.random(1,#things)]), target.GetName())
-			this:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
+			local str = things[math.random(1,#things)];
+			local targetName = self.Target:GetName()
+			self.ParentObj:NpcSpeech(string.format(str, targetName))
+			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
 		end)
 		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
 

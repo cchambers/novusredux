@@ -23,6 +23,8 @@ require 'globals.mobile_effects.buffs.spells.spellpoison'
 require 'globals.mobile_effects.buffs.spells.spellcure'
 require 'globals.mobile_effects.buffs.spells.spellmagicreflection'
 
+require 'globals.mobile_effects.skills.pets.tame'
+
 require 'globals.mobile_effects.potions.cure'
 require 'globals.mobile_effects.potions.heal'
 require 'globals.mobile_effects.potions.stamina'
