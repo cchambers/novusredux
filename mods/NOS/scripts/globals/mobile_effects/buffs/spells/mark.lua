@@ -1,7 +1,7 @@
 NoMarkSubregions = 
 {
-	"BarrenLands",
-	"BlackForest",
+	"Arena",
+	"TestMap"
 }
 
 MobileEffectLibrary.Mark = 

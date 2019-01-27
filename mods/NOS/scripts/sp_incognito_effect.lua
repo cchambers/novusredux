@@ -1,9 +1,4 @@
-
-mDecreaseAmount = 0
-
 mDurationMinutes = 10
-
-mBuffed = false
 
 function HandleLoaded(caster)
 
@@ -12,7 +7,7 @@ function HandleLoaded(caster)
 	end
 
 	local skillLevel = GetSkillLevel(caster,"MagerySkill")
-	mDurationMinutes = 
+	mDurationMinutes = skillLevel / 10
 	this:SetObjVar("NameActual", this:GetName())
 
 	local name = "hello world"

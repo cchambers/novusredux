@@ -436,6 +436,12 @@ end
 function OnLoad(isPossessed)
 	if(Totem ~= nil) then Totem(this, "update") end
 	-- Logged out Incognito
+	for i,moduleName in pairs(this:GetAllModules()) do
+		if(string.match(moduleName,"sp_")) then
+			this:DelModule(moduleName)
+		end
+	end
+
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
@@ -456,12 +462,6 @@ function OnLoad(isPossessed)
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
 	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
-	for i,moduleName in pairs(this:GetAllModules()) do
-		if(string.match(moduleName,"sp_")) then
-			this:DelModule(moduleName)
-		end
-	end
-	
 
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")

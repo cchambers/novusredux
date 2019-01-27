@@ -3,7 +3,7 @@ MobileEffectLibrary.CrookProvoke =
     ShouldStack = false,
 
     OnEnterState = function(self, root, target, args)
-        self.ParentObj:SystemMessage("This has been disabled until further testing. Thanks KC!")
+        -- self.ParentObj:SystemMessage("This has been disabled until further testing. Thanks KC!")
         -- local skillLevel = GetSkillLevel(self.ParentObj, "AnimalLoreSkill")
         -- if (skillLevel < 80) then
         --     self.ParentObj:SystemMessage("You lack the Animal Lore (90) to do this.")

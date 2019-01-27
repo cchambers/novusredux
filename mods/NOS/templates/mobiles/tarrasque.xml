@@ -48,7 +48,7 @@
 				ScavengeTables =
 					{
 					},					
-					WeaponAbilities = { primary="Slash" },	
+					WeaponAbilities = { primary="Cleave" },	
 					AvailableSpells = {"Poison", "Frost", "Fireball", "Lightning", "Meteor"},
 				}
 			</Initializer>

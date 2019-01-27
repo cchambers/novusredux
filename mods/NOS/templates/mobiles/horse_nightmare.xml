@@ -25,14 +25,14 @@
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="TamingDifficulty">95.1</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PetSlots">6</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_demon">
 			<Initializer>
 				{ 
-				Stats = { Str=90, Agi=80, Int=60, Wis=60, Will=60 },
+				Stats = { Str=90, Agi=30, Int=60, Wis=60, Will=60 },
 				MobTraits =
 					{
 					},
@@ -51,6 +51,7 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.ExecutionerTubs,
 						{
 							NumItems = 1,
 							NumCoins = math.random(400,600),
@@ -59,7 +60,7 @@
 				ScavengeTables =
 					{
 					},					
-					WeaponAbilities = { primary="Slash" },	
+					WeaponAbilities = { primary="Bleed" },	
 					AvailableSpells = { "Poison", "Frost", "Fireball" },
 				}
 			</Initializer>
