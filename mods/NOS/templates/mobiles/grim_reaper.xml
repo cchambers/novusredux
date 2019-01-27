@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_grim_reaper">
 			<Initializer>				
 			{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=50, Will=50 },
+				Stats = { Str=100, Agi=80, Int=50, Wis=50, Will=50 },
 				MobTraits =
 				{
 					Might=3,
@@ -40,8 +40,12 @@
 				Skills = 
 				{ 
 					Brawling = 110, 
-					Magery=110,
-					Channeling=110,
+					Magery= 110,
+					Channeling= 110,
+					Lancing = 100,
+					Anatomy = 100,
+					MagicResist = 100,
+					MagicAffinity = 100
 				},	
 				EquipTable = 
 				{
@@ -53,7 +57,8 @@
 					TemplateDefines.LootTable.MageBoss,
 					TemplateDefines.LootTable.Boss,
 					TemplateDefines.LootTable.DeathBoss,
-					TemplateDefines.LootTable.AncientScrolls
+					TemplateDefines.LootTable.AncientScrolls,
+					TemplateDefines.LootTable.ExecutionerTubs,
 					-- Gold
 					{
 						NumCoins = math.random(5000,10000),

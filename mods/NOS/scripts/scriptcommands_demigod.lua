@@ -154,6 +154,28 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse, "resTarget",
 	end
 )
 
+RegisterEventHandler(EventType.ClientTargetGameObjResponse, "pitLock",
+	function(target,user)
+		if( target == nil ) then
+			return
+		end
+		if(target:HasModule("door")) then
+			if (target:HasObjVar("locked")) then
+				target:SetHue(949)
+				target:DelObjVar("locked")
+				target:PlayObjectSound("event:/objects/doors/door/door_unlock",false)
+			else
+				target:SetHue(859)
+				target:SetObjVar("locked",true)
+				target:PlayObjectSound("event:/objects/doors/door/door_lock",false)
+			end
+			DemigodCommandFuncs.Lock()
+		end
+	end
+)
+
+
+
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "resTargetForce",
 	function(target,user)
 		if not(IsDemiGod(this)) then return end
@@ -774,6 +796,11 @@ DemigodCommandFuncs = {
 		end
 		this:RequestClientTargetGameObj(this, "debug")		
 	end,
+
+	Lock = function(targetObjId)
+		this:RequestClientTargetGameObj(this, "pitLock")	
+	end,
+
 	AIState = function(targetObjId)
 		if(args ~= nil) then
 			gameObj = GameObj(tonumber(targetObjId))
@@ -1249,6 +1276,8 @@ DemigodCommandFuncs = {
 		end
 	end,
 }
+
+RegisterCommand{ Command="l", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Lock, Usage="[<target_id>]", Desc="Lock/unlock the pit doors." }
 RegisterCommand{ Command="tile", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Tile, Usage="[<target_id|self>]", Desc="Tile a thing" }
 RegisterCommand{ Command="invuln", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.ToggleInvuln, Usage="[<target_id|self>]", Desc="Toggle invulnerability", Aliases={"inv"} }
 RegisterCommand{ Command="create", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Create, Usage="[<template>]", Desc="[$2478]" }

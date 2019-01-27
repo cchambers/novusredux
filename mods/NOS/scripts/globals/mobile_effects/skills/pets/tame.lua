@@ -24,6 +24,23 @@ MobileEffectLibrary.Tame =
 			return false
 		end
 
+		RegisterEventHandler(EventType.Timer, "Taming.Talk", function() 
+			local things = {
+				"Here %s",
+				"Good %s",
+				"I won't hurt you, %s",
+				"WHY WON'T YOU LOVE ME %s?",
+				"Relax %s!",
+				"%s, let's be friends...",
+				"Maybe just dinner, %s?"
+			}
+			local str = things[math.random(1,#things)];
+			local targetName = self.Target:GetName()
+			self.ParentObj:NpcSpeech(string.format(str, targetName))
+			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
+		end)
+		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
+
 		RegisterEventHandler(EventType.Message, "DamageInflictedWhileBeingTamed", function()
 			if ( self._Player ) then
 				self.ParentObj:SystemMessage("That creature is too angry to continue taming.", "info")
@@ -31,6 +48,7 @@ MobileEffectLibrary.Tame =
 			self._Cancelled = true
 			EndMobileEffect(root)
 		end)
+		
 		-- start the effect on the target to listen for damage
 		self.Target:SendMessage("StartMobileEffect", "BeingTamed", self.ParentObj)
 
@@ -56,6 +74,7 @@ MobileEffectLibrary.Tame =
 	end,
 
 	OnExitState = function(self,root)
+		UnregisterEventHandler("", EventType.Timer, "Taming.Talk")
 		if ( self._Player ) then
 			RemoveBuffIcon(self.ParentObj, "TameBuff")
 			self.ParentObj:PlayAnimation("idle")

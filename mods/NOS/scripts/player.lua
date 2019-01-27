@@ -436,6 +436,12 @@ end
 function OnLoad(isPossessed)
 	if(Totem ~= nil) then Totem(this, "update") end
 	-- Logged out Incognito
+	for i,moduleName in pairs(this:GetAllModules()) do
+		if(string.match(moduleName,"sp_")) then
+			this:DelModule(moduleName)
+		end
+	end
+
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
@@ -456,12 +462,6 @@ function OnLoad(isPossessed)
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
 	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
-	for i,moduleName in pairs(this:GetAllModules()) do
-		if(string.match(moduleName,"sp_")) then
-			this:DelModule(moduleName)
-		end
-	end
-	
 
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")
@@ -700,8 +700,7 @@ function DailyTaxWarn()
 	return
 end
 
-UnregisterEventHandler("", EventType.UserLogin, "")
-RegisterEventHandler(EventType.UserLogin,"",
+OverrideEventHandler("default:player",EventType.UserLogin, "", 
 	function(loginType)
 		if not( IsPossessed(this) ) then
 			local clusterController = GetClusterController()
@@ -709,7 +708,8 @@ RegisterEventHandler(EventType.UserLogin,"",
 				clusterController:SendMessage("UserLogin",this,loginType)			
 			end
 			if ( loginType == "Connect" ) then
-				Guild.Initialize()
+				if (Guild ~= nil) then Guild.Initialize() end
+				-- KHI HERE FIX PLS K
 				-- warn about their plot taxes
 			end
 		end
@@ -727,3 +727,4 @@ RegisterEventHandler(EventType.UserLogin,"",
 			end			
 		end
 	end)
+

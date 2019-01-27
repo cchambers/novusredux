@@ -216,6 +216,36 @@ WeaponAbilitiesData.MortalStrike = {
     SkipHitAction = true
 }
 
+WeaponAbilitiesData.Repair = {        
+    MobileEffect = "Repair",
+    Stamina = 0,
+    NoCombat = true,
+    QueueTarget = "Obj",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(5),
+    Action = {
+        DisplayName = "Repair",
+        Tooltip = "Repair armor or weapons to the best of your ability.",
+        Icon = "Blessed Hammer",
+        Enabled = true
+    },
+}
+
+WeaponAbilitiesData.Reclaim = {        
+    MobileEffect = "Reclaim",
+    Stamina = 0,
+    NoCombat = true,
+    QueueTarget = "Obj",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(5),
+    Action = {
+        DisplayName = "Reclaim",
+        Tooltip = "Reclaim usable ore from crafted objects.",
+        Icon = "miningpicksmelting",
+        Enabled = false
+    },
+}
+
 WeaponAbilitiesData.TelecrookMove = {
     MobileEffect = "TelecrookMove",
     Stamina = 0,

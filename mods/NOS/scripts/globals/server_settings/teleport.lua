@@ -79,6 +79,7 @@ ServerSettings.Teleport = {
 	NoEntryUserPortal = 
 	{
 		"Subregion-BarrenLands",
-		"Subregion-BlackForest"
+		"Subregion-BlackForest",
+		"Arena"
 	}
 }

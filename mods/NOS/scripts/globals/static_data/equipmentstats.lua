@@ -396,6 +396,15 @@ EquipmentStats = {
 			TwoHandedWeapon = true,
 			Speed = 3
 		},
+		SmithHammer = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "Repair",
+			SecondaryAbility = "Reclaim",
+			TwoHandedWeapon = true,
+			Speed = 3
+		},
 		FishingRod = {
 			WeaponClass = "Tool",
 			Attack = 3,

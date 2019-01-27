@@ -2216,7 +2216,7 @@
 			</ObjVarOverrides>
 		</DynamicObject>
 	</Group>
-	<Group Name="BarrenLands-GuardTowers" Exclude="False">
+	<!-- <Group Name="BarrenLands-GuardTowers" Exclude="False">
 		<DynamicObject>
 			<Name>TowerSpawner1</Name>
 			<Id>1</Id>
@@ -2308,7 +2308,7 @@
 			<Id>1</Id>
 			<ObjectCreationParams>guard_tower_controller 2788.52 0 -308.26 0 75 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
-	</Group>
+	</Group> -->
 	<Group Name="SewerDungeon-Main3" Exclude="False">
 		<DynamicObject>
 			<Name>DungeonExit</Name>
@@ -6568,7 +6568,7 @@
 			<ObjectCreationParams>harpy_mob_spawner 1376.642 0.287 -449.493 0 344.899 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 	</Group>
-	<Group Name="EasternFrontier-GuardTowers" Exclude="False">
+	<!-- <Group Name="EasternFrontier-GuardTowers" Exclude="False">
 		<DynamicObject>
 			<Name>TowerSpawner3</Name>
 			<Id>1</Id>
@@ -6584,7 +6584,7 @@
 			<Id>3</Id>
 			<ObjectCreationParams>guard_tower_controller 1850.9 0 647.619 0 193 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
-	</Group>
+	</Group> -->
 	<Group Name="EasternFrontier-Main" Exclude="False">
 		<DynamicObject>
 			<Name>ResurrectShrineObject</Name>
@@ -20870,7 +20870,7 @@
 			<ObjectCreationParams>pirate_dagger_mob_spawner_grotto_balcony 1660 0 -2326 0 30 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 	</Group>
-	<Group Name="UpperPlains-GuardTowers" Exclude="False">
+	<!-- <Group Name="UpperPlains-GuardTowers" Exclude="False">
 		<DynamicObject>
 			<Name>TowerSpawner1</Name>
 			<Id>1</Id>
@@ -20927,7 +20927,7 @@
 				<StringVariable Name="TowerPrefab">GuardTower4</StringVariable>
 			</ObjVarOverrides>
 		</DynamicObject>
-	</Group>
+	</Group> -->
 	<Group Name="SouthernHills-Woodsmith" Exclude="False">
 		<DynamicObject>
 			<Name>ArchitectSpawner</Name>
