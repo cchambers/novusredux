@@ -129,7 +129,7 @@ function KitConfirm(user, kit)
 	local teamHue = this:GetHue()
 	user:SetObjVar("HueActual", user:GetHue())
 	user:SetHut(teamHue)
-	CreateObjInBackpack(user,"kit")
+	CreateObjInBackpack(user, kit)
 
 	local backpackObj = this:GetEquippedObject("Backpack")
 	local backpackObjects = GetResourcesInContainer(backpackObj, "ColorwarItem", true)
