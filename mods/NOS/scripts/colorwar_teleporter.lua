@@ -92,18 +92,38 @@ function ActivateTeleporter(user)
 end
 
 function ChooseClass(user)
-	-- KHI TODO
+	local backpackObj = this:GetEquippedObject("Backpack")
+	local backpackObjects = GetResourcesInContainer(backpackObj, "ColorwarItem", true)
+	for index, resourceObj in pairs(backpackObjects) do
+		user:SendMessage("You still have some stuff in your pack.")
+		return false
+	end
 
-	-- CHECK IF BACKPACK IS EMPTY
-	-- CHECK IF CARRYING ANYTHING
-	-- MAKE SURE THEY HAVE NO PETS OUT
+	if(this:GetEquippedObject("LeftHand")) then 
+		user:SendMessage("You still have something in your left hand.")
+		return false
+	end
 
-	-- POP OPEN THE "CHOOSE YOUR CLASS"
+	if(this:GetEquippedObject("RightHand")) then 
+		user:SendMessage("You still have something in your right hand.")
+		return false
+	end
+
+	local remainingPets = GetRemainingActivePetSlots(this)
+	local maxPets = MaxActivePetSlots(this)
+	
+	if (maxPets ~= remainingPets) then
+		user:SendMessage("Stable your pets.")
+		return false
+	end
+
+	-- POP OPEN THE "CHOOSE YOUR CLASS" DYNAMIC WINDOW AND THEN...
+	-- SPAWN THEIR KIT... 
+	-- COLOR THEM... 
+	-- TELEPORT THEM...
+
 	ActivateTeleporter(user)
 end
-
-local curGotoRegion = ServerSettings.RegionAddress
-local curGotoWorld = ServerSettings.WorldName
 
 RegisterEventHandler(
 	EventType.EnterView,
@@ -128,7 +148,6 @@ RegisterEventHandler(
 	function(user, usedType)
 		if (usedType == "Use" or usedType == "Activate") then
 			-- SHOW "CHOOSE YOUR CLASS KIT" WINDOW
-
 			ChooseClass(user)
 		end
 	end
