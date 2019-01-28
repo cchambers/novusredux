@@ -25,7 +25,7 @@ MobileEffectLibrary.Reclaim = {
                 EndMobileEffect(root)
                 return false
             else
-                -- self.ReclaimTarget(self, target, root)
+                self.ReclaimTarget(self, target, root)
                 EndMobileEffect(root)
                 return false
             end
