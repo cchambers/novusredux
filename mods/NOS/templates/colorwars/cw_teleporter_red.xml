@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<ClientId>177</ClientId>
+	<Hue>831</Hue>
+	<ObjectVariableComponent>	
+		<StringVariable Name="RegionAddress">TwoTowers</StringVariable>
+		<DoubleVariable Name="DestinationFacing">182</DoubleVariable>
+		<StringVariable Name="PortalName">[ff0000]RED[-] Team Teleporter</StringVariable>
+		<LocVariable Name="Destination">13.75,0,26.63</LocVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

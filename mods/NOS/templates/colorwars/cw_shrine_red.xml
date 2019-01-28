@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>[2E64FE]Read Team Shrine[-]</Name>
+	<ScaleModifier>1.0</ScaleModifier>
+	<Hue>831</Hue>
+	<ClientId>1866</ClientId>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_shrine"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

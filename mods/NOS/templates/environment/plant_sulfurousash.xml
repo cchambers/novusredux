@@ -3,6 +3,7 @@
 	<ClientId>579</ClientId>
 	<Color>FFF700</Color>
 	<Hue>30</Hue>
+	<ScaleModifier>1.65</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
 	<ObjectVariableComponent>
