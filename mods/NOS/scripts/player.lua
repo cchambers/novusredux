@@ -702,13 +702,13 @@ end
 
 
 function HandleRequestPickUp(pickedUpObject)
-	if (this:HasObjVar("ColorwarPlayer")) then
+	-- if (this:HasObjVar("ColorwarPlayer")) then
 		if (pickedUpObject:HasObjVar("ColorwarItem")) then
 			if (not(pickedUpObject:HasModule("colorwar_flag"))) then
 				pickedUpObject:SetHue(this:GetHue())
 			end
 		end
-	end
+	-- end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
 	local carriedObject = this:CarriedObject()
