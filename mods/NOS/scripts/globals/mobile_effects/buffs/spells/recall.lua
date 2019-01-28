@@ -8,22 +8,22 @@ MobileEffectLibrary.Recall =
 		-- 	return false
 		-- end
 		
-		if ( target == self.ParentObj ) then
-			local bindLoc = GetPlayerSpawnPosition(self.ParentObj)
-			local bindRegionAddress = ServerSettings.RegionAddress
+		-- if ( target == self.ParentObj ) then
+		-- 	local bindLoc = GetPlayerSpawnPosition(self.ParentObj)
+		-- 	local bindRegionAddress = ServerSettings.RegionAddress
 
-			local spawnPosEntry = self.ParentObj:GetObjVar("SpawnPosition")
-			if ( spawnPosEntry ~= nil ) then
-				bindLoc = spawnPosEntry.Loc
-				bindRegionAddress = spawnPosEntry.Region
-			end
+		-- 	local spawnPosEntry = self.ParentObj:GetObjVar("SpawnPosition")
+		-- 	if ( spawnPosEntry ~= nil ) then
+		-- 		bindLoc = spawnPosEntry.Loc
+		-- 		bindRegionAddress = spawnPosEntry.Region
+		-- 	end
 
-			-- send them home
-			TeleportUser(self.ParentObj, self.ParentObj, bindLoc, bindRegionAddress, self.ParentObj:GetFacing())
+		-- 	-- send them home
+		-- 	TeleportUser(self.ParentObj, self.ParentObj, bindLoc, bindRegionAddress, self.ParentObj:GetFacing())
 
-			EndMobileEffect(root)
-			return false
-		end
+		-- 	EndMobileEffect(root)
+		-- 	return false
+		-- end
 
 		if ( target:HasObjVar("Destination") ) then
 			local destRegionAddress = target:GetObjVar("RegionAddress")

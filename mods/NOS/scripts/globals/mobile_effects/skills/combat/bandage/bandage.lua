@@ -141,13 +141,6 @@ MobileEffectLibrary.Bandage =
 		local bloodies = FindResourceInContainer(backpackObj, "bandage_bloody")
 		local bAmount = 1
 
-		local lootObjects = backpackObj:GetContainedObjects()
-		for index, lootObj in pairs(lootObjects) do	    		
-			if(lootObj:GetCreationTemplateId() == "bandage_bloody" ) then
-				break
-			end
-		end
-
 		if( not( TryAddToStack("BloodyBandage",backpackObj,bAmount))) then
 			CreateObjInBackpack(self.ParentObj, "bandage_bloody")
 		end
