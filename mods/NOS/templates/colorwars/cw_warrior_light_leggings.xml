@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Chain Leggings[-]</Name>
+	<ClientId>1503</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="7"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">52</DoubleVariable>
+   		<StringVariable Name="ArmorType">Chain</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

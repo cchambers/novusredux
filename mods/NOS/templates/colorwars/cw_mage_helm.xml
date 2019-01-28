@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Necromancer Helm[-]</Name>
+	<ClientId>814</ClientId>
+	<Hue>895</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>			
+		<DoubleVariable Name="MaxDurability">100</DoubleVariable>
+		<StringVariable Name="ArmorType">Padded</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

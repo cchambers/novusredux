@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>177</ClientId>
+	<ObjectVariableComponent>	
+		<StringVariable Name="RegionAddress">TestMap</StringVariable>
+		<DoubleVariable Name="DestinationFacing">84</DoubleVariable>
+		<StringVariable Name="PortalName">[00ff00]EXIT COLORWAR AREA[-]</StringVariable>
+		<LocVariable Name="Destination">-87.21,0,-77.79</LocVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_exit"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

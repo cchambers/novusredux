@@ -1098,10 +1098,10 @@ DemigodCommandFuncs = {
 	end,
 
 	LuaGetBans = function()
-		GetBans("BanListResults");
+		-- GetBans("BanListResults");
 	end,
 
-		Broadcast = function(...)
+	Broadcast = function(...)
 		local line = CombineArgs(...)
 		if(line ~= nil) then
 			ServerBroadcast(line,true)
