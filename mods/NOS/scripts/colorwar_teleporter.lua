@@ -123,22 +123,23 @@ RegisterEventHandler(
 				return
 			end
 		)
--- RegisterEventHandler(
--- 	EventType.EnterView,
--- 	"TeleportPlayer",
--- 	function(user)
--- 		if (this:GetSharedObjectProperty("Weight") >= 0) then
--- 			DelView("TeleportPlayer")
--- 			return
--- 		end
--- 		-- prevent repeated teleports
--- 		if (user:HasTimer("TeleportDelay") or user:HasTimer("EnteringWorld")) then
--- 			return
--- 		end
+		
+RegisterEventHandler(
+	EventType.EnterView,
+	"TeleportPlayer",
+	function(user)
+		if (this:GetSharedObjectProperty("Weight") >= 0) then
+			DelView("TeleportPlayer")
+			return
+		end
+		-- prevent repeated teleports
+		if (user:HasTimer("TeleportDelay") or user:HasTimer("EnteringWorld")) then
+			return
+		end
 
--- 		ChooseClass(user)
--- 	end
--- )
+		ChooseClass(user)
+	end
+)
 
 RegisterEventHandler(
 	EventType.Message,
