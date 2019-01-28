@@ -104,17 +104,12 @@ function KitConfirm(user, kit)
 		user:SetObjVar("HueActual", user:GetHue())
 		user:SetHue(teamHue)
 	end
-	CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
-		local items = FindItemsInContainerRecursive(user:GetEquippedObject("Backpack"),
-			function (item)
-				if (item:HasObjVar("ColorwarItem")) and not(item:HasObjVar("ResourceType")) then
-					item:SetHue(teamHue)
-				end
-			return 
-		end)
-	end)
+	
+	user:PlayEffect("ShockwaveEffect")
 
-	ActivateTeleporter(user)
+	CallFunctionDelayed(TimeSpan.FromSeconds(1),function ( ... )
+		ActivateTeleporter(user)
+		end)
 end
 
 
