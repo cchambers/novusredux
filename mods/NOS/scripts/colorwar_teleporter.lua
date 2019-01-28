@@ -35,81 +35,95 @@ function ActivateTeleporter(user)
 	user:SystemMessage(this:GetObjVar("InvalidUseMessage") or "The portal fails to respond to your presence.")
 end
 
-function ChooseClass(user)
+function CheckChar(user)
+	local success = true
 	local items = FindItemsInContainerRecursive(user:GetEquippedObject("Backpack"),
 	function (item)
-		user:SendMessage("You still have some stuff in your pack.")
-		return false
+		success = false
+		return
 	end)
 
-	if(user:GetEquippedObject("LeftHand")) then 
-		user:SendMessage("You still have something in your left hand.")
-		return false
-	end
-
-	if(user:GetEquippedObject("RightHand")) then 
-		user:SendMessage("You still have something in your right hand.")
-		return false
-	end
+	local RightHand = user:GetEquippedObject("RightHand")
+	if (RightHand ~= nil) then success = false end
+	local LeftHand = user:GetEquippedObject("LeftHand")
+	if (LeftHand ~= nil) then success = false end
+	local Chest = user:GetEquippedObject("Chest")
+	if (Chest ~= nil) then success = false end
+	local Legs = user:GetEquippedObject("Legs")
+	if (Legs ~= nil) then success = false end
+	local Head = user:GetEquippedObject("Head")
+	if (Head ~= nil) then success = false end
 
 	local remainingPets = GetRemainingActivePetSlots(user)
 	local maxPets = MaxActivePetSlots(user)
 	
 	if (maxPets ~= remainingPets) then
-		user:SendMessage("Stable your pets.")
-		return false
+		user:SystemMessage("Stable your pets.","info")
+		success = false
 	end
+	return success
+end
 
-	local fontname = "PermianSlabSerif_Dynamic_Bold"
-	
-	local fontsize = rem(2)
+function ChooseClass(user)
+	if (CheckChar(user) == false) then
+		user:SystemMessage("You still have some stuff on your character. Bank it or trash it!","info")
+		return false
+	else
+		local fontname = "PermianSlabSerif_Dynamic_Bold"
+		
+		local fontsize = rem(2)
 
-	mCLASS = DynamicWindow("CHOOSECLASS", "Choose Starting Class", 450, 260, 47, 68, "Draggable", "TopLeft")
+		mCLASS = DynamicWindow("CHOOSECLASS", "Choose Starting Class", 450, 260, 47, 68, "Draggable", "TopLeft")
 
-	
-	mCLASS:AddLabel(75, 10, "RANGER", 110, 30, rem(2), "center", false, true, fontname)
+		
+		mCLASS:AddLabel(75, 10, "RANGER", 110, 30, rem(2), "center", false, true, fontname)
 
-	mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow", "", true, "Default", "default")
-	mCLASS:AddButton(20, 70, "cw_kit_ranger_heavy", "Ranger (Heavy)", 110, 24, "Warbow", "", true, "Default", "default")
+		mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow", "", true, "Default", "default")
+		mCLASS:AddButton(20, 70, "cw_kit_ranger_heavy", "Ranger (Heavy)", 110, 24, "Warbow", "", true, "Default", "default")
 
-	mCLASS:AddLabel(75, 110, "MAGE", 110, 30, rem(2), "center", false, true, fontname)
-	mCLASS:AddButton(20, 140, "cw_kit_mage", "Mage", 110, 24, "Staff/Crucible", "", true, "Default", "default")
+		mCLASS:AddLabel(75, 110, "MAGE", 110, 30, rem(2), "center", false, true, fontname)
+		mCLASS:AddButton(20, 140, "cw_kit_mage", "Mage", 110, 24, "Staff/Crucible", "", true, "Default", "default")
 
-	mCLASS:AddLabel(300, 10, "WARRIOR", 110, 30, rem(2), "center", false, true, fontname)
+		mCLASS:AddLabel(300, 10, "WARRIOR", 110, 30, rem(2), "center", false, true, fontname)
 
-	
-	mCLASS:AddLabel(235, 30, "HEAVY", 110, 30, rem(1.5), "center", false, true, fontname)
-	mCLASS:AddLabel(355, 30, "LIGHT", 110, 30, rem(1.5), "center", false, true, fontname)
-	
-	mCLASS:AddButton(180, 50, "cw_kit_warrior_heavy_bashing", "Bashing", 110, 24, "War Hammer/Plate", "", true, "Default", "default")
-	mCLASS:AddButton(180, 80, "cw_kit_warrior_heavy_lancing", "Lancing", 110, 24, "Halberd/Plate", "", true, "Default", "default")
-	mCLASS:AddButton(180, 110, "cw_kit_warrior_heavy_slashing", "Slashing", 110, 24, "Katana/Shield/Chain", "", true, "Default", "default")
-	mCLASS:AddButton(180, 140, "cw_kit_warrior_heavy_piercing", "Piercing", 110, 24, "Dagger/Shield/Chain", "", true, "Default", "default")
+		
+		mCLASS:AddLabel(235, 30, "HEAVY", 110, 30, rem(1.5), "center", false, true, fontname)
+		mCLASS:AddLabel(355, 30, "LIGHT", 110, 30, rem(1.5), "center", false, true, fontname)
+		
+		mCLASS:AddButton(180, 50, "cw_kit_warrior_heavy_bashing", "Bashing", 110, 24, "War Hammer/Plate", "", true, "Default", "default")
+		mCLASS:AddButton(180, 80, "cw_kit_warrior_heavy_lancing", "Lancing", 110, 24, "Halberd/Plate", "", true, "Default", "default")
+		mCLASS:AddButton(180, 110, "cw_kit_warrior_heavy_slashing", "Slashing", 110, 24, "Katana/Shield/Chain", "", true, "Default", "default")
+		mCLASS:AddButton(180, 140, "cw_kit_warrior_heavy_piercing", "Piercing", 110, 24, "Dagger/Shield/Chain", "", true, "Default", "default")
 
-	mCLASS:AddButton(300, 50, "cw_kit_warrior_light_bashing", "Bashing", 110, 24, "Mace/Shield/Chain", "", true, "Default", "default")
-	mCLASS:AddButton(300, 80, "cw_kit_warrior_light_lancing", "Lancing", 110, 24, "Spear/Chain", "", true, "Default", "default")
-	mCLASS:AddButton(300, 110, "cw_kit_warrior_light_slashing", "Slashing", 110, 24, "Katana/Shield/Chain", "", true, "Default", "default")
-	mCLASS:AddButton(300, 140, "cw_kit_warrior_light_piercing", "Piercing", 110, 24, "Dagger/Shield/Chain", "", true, "Default", "default")
-	user:OpenDynamicWindow(mCLASS)
+		mCLASS:AddButton(300, 50, "cw_kit_warrior_light_bashing", "Bashing", 110, 24, "Mace/Shield/Chain", "", true, "Default", "default")
+		mCLASS:AddButton(300, 80, "cw_kit_warrior_light_lancing", "Lancing", 110, 24, "Spear/Chain", "", true, "Default", "default")
+		mCLASS:AddButton(300, 110, "cw_kit_warrior_light_slashing", "Slashing", 110, 24, "Katana/Shield/Chain", "", true, "Default", "default")
+		mCLASS:AddButton(300, 140, "cw_kit_warrior_light_piercing", "Piercing", 110, 24, "Dagger/Shield/Chain", "", true, "Default", "default")
+		user:OpenDynamicWindow(mCLASS)
+	end
 end
 
 
 
 function KitConfirm(user, kit)
-	if (kit == nil) then return false end
-	CreateObjInBackpack(user, kit)
+	if (CheckChar(user) == true) then
+		if (kit == nil) then return false end
+		CreateObjInBackpack(user, kit)
 
-	local teamHue = this:GetHue()
-	if (not(user:HasObjVar("HueActual"))) then
-		user:SetObjVar("HueActual", user:GetHue())
-		user:SetHue(teamHue)
+		local teamHue = this:GetHue()
+		if (not(user:HasObjVar("HueActual"))) then
+			user:SetObjVar("HueActual", user:GetHue())
+			user:SetHue(teamHue)
+		end
+		user:PlayEffect("ShockwaveEffect")
+
+		CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
+			ActivateTeleporter(user)
+			end)
+
+	else
+		user:SystemMessage("You trying to sneak stuff in on me?", "info")
 	end
-	
-	user:PlayEffect("ShockwaveEffect")
-
-	CallFunctionDelayed(TimeSpan.FromSeconds(1),function ( ... )
-		ActivateTeleporter(user)
-		end)
 end
 
 
@@ -123,7 +137,7 @@ RegisterEventHandler(
 				return
 			end
 		)
-		
+
 RegisterEventHandler(
 	EventType.EnterView,
 	"TeleportPlayer",

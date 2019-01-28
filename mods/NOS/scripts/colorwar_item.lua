@@ -6,7 +6,6 @@
 
 
 function HandleRequestPickup(user) 
-	DebugMessage("CW ITEM PICKUP")
 	this:SetHue(user:GetHue())
 end
 
