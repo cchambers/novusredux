@@ -242,7 +242,7 @@ WeaponAbilitiesData.Reclaim = {
         DisplayName = "Reclaim",
         Tooltip = "Reclaim usable ore from crafted objects.",
         Icon = "miningpicksmelting",
-        Enabled = false
+        Enabled = true
     },
 }
 
