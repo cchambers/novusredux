@@ -5,13 +5,15 @@
 ]]--
 
 
-function HandleRequestPickup() 
-    DebugMessage("CW ITEM PICKUP")
+function HandleRequestPickup(user) 
+	DebugMessage("CW ITEM PICKUP")
+	this:SetHue(user:GetHue())
 end
 
 RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 	function()	
 		this:SetObjVar("ColorwarItem", true)
+		this:SetObjVar("NoDecay", true)
 	end)
 
 RegisterEventHandler(EventType.RequestPickUp, "", HandleRequestPickUp)

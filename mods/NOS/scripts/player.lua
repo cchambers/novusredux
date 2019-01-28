@@ -700,6 +700,97 @@ function DailyTaxWarn()
 	return
 end
 
+
+function HandleRequestPickUp(pickedUpObject)
+
+	if (pickedUpObject:HasObjVar("ColorwarItem")) then
+		pickedUpObject:SetHue(this:GetHue())
+	end
+
+	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
+	local carriedObject = this:CarriedObject()
+	if( carriedObject ~= nil and carriedObject:IsValid() and pickedUpObject ~= carriedObject) then
+		this:SystemMessage("You are already carrying something.","info")
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+
+	if not(CanPickUp(pickedUpObject)) then
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+	--DebugMessage("Pick up here")
+	this:SendMessage("BreakInvisEffect", "Pickup")
+
+	if ( pickedUpObject:IsContainer() ) then
+		CloseContainerRecursive(this, pickedUpObject)
+	end
+
+	-- keep track of the source location so we can undo the pickup
+	local sourceContainer = pickedUpObject:ContainedBy()
+	local sourceTopmost = pickedUpObject:TopmostContainer() or sourceContainer
+	local sourceLoc = pickedUpObject:GetLoc()
+	local sourceEquipSlot = nil
+	local equipSlot = GetEquipSlot(pickedUpObject)
+	--check to see if the containers have noloot on them
+	if (sourceContainer ~= nil) then 
+		if (sourceContainer:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false)) then			
+			this:SystemMessage("You can't pick that up.","info")
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+	end
+	if sourceTopmost ~= nil then
+		if sourceTopmost:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false) then			
+			this:SystemMessage("You can't pick that up.","info")
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+		if ( CheckKarmaLoot(this, sourceTopmost) == false ) then
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+	end
+	
+	--GW we may have just died instantly due to insta whack guards, and the karma check above
+	if( IsDead(this)) then
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+	if (sourceContainer == nil or sourceContainer ~= this:GetEquippedObject("Backpack")) then
+		local weight = pickedUpObject:GetSharedObjectProperty("Weight")
+		local canAdd,weightCont,maxWeight = CanAddWeightToContainer(this:GetEquippedObject("Backpack"),weight)
+		if ( not canAdd) then
+			if not (IsImmortal(this)) then
+				this:SystemMessage("You are carrying too much (Max: " .. tostring(maxWeight) .. " stones)","info")
+				SetMobileMod(this, "Disable", "OverweightPickup", true)
+				AddBuffIcon(this,"Overweight","Overweight","steal","Cannot move again until item is dropped.")
+				this:SendMessage("Overweight")
+			end
+		end
+	end
+	if(equipSlot ~= nil and this:GetEquippedObject(equipSlot) == pickedUpObject) then
+		sourceEquipSlot = equipSlot
+	end
+
+	if( pickedUpObject:MoveToContainer(this,Loc(0,0,0)) ) then
+		if(pickedUpObject:DecayScheduled()) then
+			pickedUpObject:RemoveDecay()
+		end
+
+		carriedObjectSource = sourceContainer
+		carriedObjectSourceLoc = sourceLoc
+		carriedObjectSourceEquipSlot = sourceEquipSlot
+		if(sourceEquipSlot ~= nil) then
+			pickedUpObject:SendMessage("WasUnequipped", this)
+		end
+	end
+end
+
+
+UnregisterEventHandler("", EventType.RequestPickUp, "")
+RegisterEventHandler(EventType.RequestPickUp, "", HandleRequestPickUp)
+
 OverrideEventHandler("default:player",EventType.UserLogin, "", 
 	function(loginType)
 		if not( IsPossessed(this) ) then
