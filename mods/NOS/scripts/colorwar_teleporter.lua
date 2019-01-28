@@ -75,17 +75,16 @@ function ChooseClass(user)
 
 		mCLASS = DynamicWindow("CHOOSECLASS", "Choose Starting Class", 450, 260, 47, 68, "Draggable", "TopLeft")
 
-		
 		mCLASS:AddLabel(75, 10, "RANGER", 110, 30, rem(2), "center", false, true, fontname)
+		mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow/Leather", "", true, "Default", "default")
+		mCLASS:AddButton(20, 70, "cw_kit_ranger_heavy", "Ranger (Heavy)", 110, 24, "Warbow/Leather", "", true, "Default", "default")
 
-		mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow", "", true, "Default", "default")
-		mCLASS:AddButton(20, 70, "cw_kit_ranger_heavy", "Ranger (Heavy)", 110, 24, "Warbow", "", true, "Default", "default")
-
+		
 		mCLASS:AddLabel(75, 110, "MAGE", 110, 30, rem(2), "center", false, true, fontname)
-		mCLASS:AddButton(20, 140, "cw_kit_mage", "Mage", 110, 24, "Staff/Crucible", "", true, "Default", "default")
+		mCLASS:AddButton(20, 140, "cw_kit_mage", "Mage", 110, 24, "Staff/Crucible/Cloth", "", true, "Default", "default")
+
 
 		mCLASS:AddLabel(300, 10, "WARRIOR", 110, 30, rem(2), "center", false, true, fontname)
-
 		
 		mCLASS:AddLabel(235, 30, "HEAVY", 110, 30, rem(1.5), "center", false, true, fontname)
 		mCLASS:AddLabel(355, 30, "LIGHT", 110, 30, rem(1.5), "center", false, true, fontname)
@@ -104,7 +103,6 @@ function ChooseClass(user)
 end
 
 
-
 function KitConfirm(user, kit)
 	if (CheckChar(user) == true) then
 		if (kit == nil) then return false end
@@ -120,7 +118,6 @@ function KitConfirm(user, kit)
 		CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
 			ActivateTeleporter(user)
 			end)
-
 	else
 		user:SystemMessage("You trying to sneak stuff in on me?", "info")
 	end
