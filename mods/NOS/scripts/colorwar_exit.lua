@@ -46,6 +46,8 @@ function ExitColorwars(user)
 	local Head = user:GetEquippedObject("Head")
 	if (Head ~= nil) then Head:Destroy() end
 
+	user:DelObjVar("ColorwarPlayer")
+
 	ActivateTeleporter(user)
 end
 

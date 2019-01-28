@@ -116,7 +116,7 @@ function KitConfirm(user, kit)
 			user:SetHue(teamHue)
 		end
 		user:PlayEffect("ShockwaveEffect")
-
+		user:SetObjVar("ColorwarPlayer", true)
 		CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
 			ActivateTeleporter(user)
 			end)
