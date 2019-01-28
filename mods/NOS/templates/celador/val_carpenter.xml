@@ -51,8 +51,9 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "tool_crook",
+							Template = "tool_hammer",
 							Price = 0,
+							Amount = 999,
 							RelativeLoc = "1.547974, 0.7149391, -0.03039551",
 							Rotation = "90, 323.3311, 0",
 							UnlimitedStock = false,

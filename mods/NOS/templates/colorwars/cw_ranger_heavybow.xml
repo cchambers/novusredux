@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Warbow[-]</Name>
+	<ClientId>1338</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="7"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Warbow</StringVariable>
+		<DoubleVariable Name="MaxDurability">50</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

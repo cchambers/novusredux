@@ -13,27 +13,61 @@ RegisterCommand {
 }
 
 RegisterCommand {
-	Command = "exit",
-	Category = "God Power",
-	AccessLevel = AccessLevel.Immortal,
-	Func = function()
-		this:PlayEffect("BodyExplosion")
-		CallFunctionDelayed(TimeSpan.FromSeconds(0.1), ImmortalCommandFuncs.Cloak)
-	end,
-	Desc = "Exit in a cool cool way."
+    Command = "cd",
+    Category = "God Power",
+    AccessLevel = AccessLevel.Immortal,
+    Func = function()
+        local mFrom = 5
+        RegisterEventHandler(
+            EventType.Timer,
+            "countdown",
+            function()
+                if (mFrom == 0) then
+                    this:NpcSpeech("[b][ff0000]FIGHT![-]")
+                    this:PlayEffect("ShockwaveEffect")
+                    CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
+                        this:PlayEffect("BodyExplosion")
+                    end)
+                    CallFunctionDelayed(TimeSpan.FromSeconds(0.55), function ()
+                        ImmortalCommandFuncs.Cloak()
+                    end)
+                else
+                    this:NpcSpeech(tostring("[b][bada55]" .. mFrom .. "[-]"))
+                    this:PlayEffect("ImpactWaveEffect")
+                    mFrom = mFrom - 1
+                    this:ScheduleTimerDelay(TimeSpan.FromSeconds(1), "countdown")
+                end
+            end
+        )
+
+        this:ScheduleTimerDelay(TimeSpan.FromSeconds(1), "countdown")
+
+    end,
+    Desc = "Countdown."
 }
 
 RegisterCommand {
-	Command = "pets",
-	Category = "Mortal Power",
-	AccessLevel = AccessLevel.Mortal,
-	Func = function()
+    Command = "exit",
+    Category = "God Power",
+    AccessLevel = AccessLevel.Immortal,
+    Func = function()
+        this:PlayEffect("BodyExplosion")
+        CallFunctionDelayed(TimeSpan.FromSeconds(0.1), ImmortalCommandFuncs.Cloak)
+    end,
+    Desc = "Exit in a cool cool way."
+}
+
+RegisterCommand {
+    Command = "pets",
+    Category = "Mortal Power",
+    AccessLevel = AccessLevel.Mortal,
+    Func = function()
         local remaining = GetRemainingActivePetSlots(this)
         local max = MaxActivePetSlots(this)
         this:SystemMessage(tostring("You can control " .. max .. " slots worth of pets."))
         this:SystemMessage(tostring("You have " .. remaining .. " remaining slots open."))
-	end,
-	Desc = "Check pet slots."
+    end,
+    Desc = "Check pet slots."
 }
 
 -- RegisterCommand {
@@ -65,13 +99,16 @@ RegisterCommand {
 -- 	Desc = "Exit in a cool cool way."
 -- }
 
-
-
-RegisterCommand{ Command="fixtracks", AccessLevel = AccessLevel.Mortal, Func=function() 
-	this:DelObjVar("TrackedSkills")
-	this:DelObjVar("SkillFavorites")
-	this:SystemMessage("Your tracked and favorited skills have been reset.")
-end, Desc="Reset your tracked skills." }
+RegisterCommand {
+    Command = "fixtracks",
+    AccessLevel = AccessLevel.Mortal,
+    Func = function()
+        this:DelObjVar("TrackedSkills")
+        this:DelObjVar("SkillFavorites")
+        this:SystemMessage("Your tracked and favorited skills have been reset.")
+    end,
+    Desc = "Reset your tracked skills."
+}
 
 RegisterCommand {
     Command = "setjail",
@@ -97,8 +134,8 @@ RegisterEventHandler(
         WriteAccountVar(user_id, "jail", "sentence", 240)
         WriteAccountVar(user_id, "jail", "characterJailed", tostring(target))
 
-        target:SetObjVar("NoGains", true);
-        
+        target:SetObjVar("NoGains", true)
+
         local jail_settings = GlobalVarRead("settings_jail")
 
         local jailLocation = jail_settings["location"]

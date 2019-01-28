@@ -7,38 +7,12 @@ MobileEffectLibrary.Hide =
 			self.ParentObj:SystemMessage("Cannot hide right now.", "info")
 			return EndMobileEffect(root)
 		end
+		
 		-- cpu is more valuable than memory, so let's cache this here.
 		self.IsPlayer = self.ParentObj:IsPlayer()
 
-		if(self.IsPlayer) then
-			local chest = self.ParentObj:GetEquippedObject("Chest");
-            local legs = self.ParentObj:GetEquippedObject("Legs");
-            local head = self.ParentObj:GetEquippedObject("Head");
-    
-			if (chest ~= nil) then
-                if (GetArmorSoundType(GetArmorType(chest)) == "Plate") then 
-                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
-                    return EndMobileEffect(root)
-                end
-            end
-    
-			if (legs ~= nil) then
-                if (GetArmorSoundType(GetArmorType(legs)) == "Plate") then 
-                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
-                    return EndMobileEffect(root)
-                end
-            end
-    
-			if (head ~= nil) then
-                if (GetArmorSoundType(GetArmorType(head)) == "Plate") then 
-                    self.ParentObj:SystemMessage("You cannot hide in metal armor.", "info")
-                    return EndMobileEffect(root)
-                end
-			end
-
-			if (HasMobileEffect(self.ParentObj, "HeavyArmorDebuff")) then 
-				return EndMobileEffect(root)
-			end
+		if(self.IsPlayer and not(args.Force)) then
+			self.PlateCheck(self.ParentObj, root)
 		end
 
 		if ( args.Force ~= true ) then
@@ -166,6 +140,8 @@ MobileEffectLibrary.Hide =
 		RegisterEventHandler(EventType.Timer, "StealthWalkTimer", function()
 			if not ( self.Moving ) then return end
 
+			self.PlateCheck(self.ParentObj, root)
+
 			local chance = math.clamp(GetSkillLevel(self.ParentObj, "StealthSkill"), self.MinChance, self.MaxChance)
 			if ( chance == 100 or CheckSkillChance(self.ParentObj, "StealthSkill", chance) ) then
 				local curStealth = self.ParentObj:GetStatValue("Stealth")
@@ -221,6 +197,42 @@ MobileEffectLibrary.Hide =
 					self.ParentObj:ForceObjectUpdate(targetObj)
 				end
 			end)
+	end,
+
+	PlateCheck = function(player, root) 
+		DebugMessage("PLATECHECK")
+		local chest = player:GetEquippedObject("Chest");
+		local legs = player:GetEquippedObject("Legs");
+		local head = player:GetEquippedObject("Head");
+
+		local metallic = false
+
+		if (chest ~= nil) then
+			if (GetArmorSoundType(GetArmorType(chest)) == "Plate") then 
+				metallic = true
+			end
+		end
+
+		if (legs ~= nil) then
+			if (GetArmorSoundType(GetArmorType(legs)) == "Plate") then 
+				metallic = true
+			end
+		end
+
+		if (head ~= nil) then
+			if (GetArmorSoundType(GetArmorType(head)) == "Plate") then 
+				metallic = true
+			end
+		end
+
+		if (metallic) then
+			player:SystemMessage("You cannot do that in metal armor.", "info")
+			return EndMobileEffect(root)
+		end
+
+		if (HasMobileEffect(player, "HeavyArmorDebuff")) then 
+			return EndMobileEffect(root)
+		end
 	end,
 
 	HandleStopped = function(self)

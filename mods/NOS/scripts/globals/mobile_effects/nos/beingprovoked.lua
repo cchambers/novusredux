@@ -16,7 +16,7 @@ MobileEffectLibrary.BeingProvoked =
 				local target = targetObj
 				if (target:IsMobile()) then
 					self.Target = target
-					self.ParentObj:SendMessage("AttackEnemy", target, true)
+					self.ParentObj:SendMessage("AttackEnemy", target)
 				else 
 					self.Tamer:SystemMessage("You are going to have a hard time trying to do that.", "info")
 					EndMobileEffect(root)

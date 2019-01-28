@@ -1,0 +1,32 @@
+<ObjectTemplate>
+	<ClientId>2293</ClientId>
+	<Name>[0078ff]Warrior Light Lancing[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_item"/>
+		<LuaModule Name="container"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables = {
+						{						
+						    NumItems = 7,
+							LootItems = 
+							{ 	
+								{ Template = "cw_warrior_spear", Unique = true },
+								{ Template = "cw_warrior_light_chest", Unique = true },
+								{ Template = "cw_warrior_light_helm", Unique = true },
+								{ Template = "cw_warrior_light_leggings", Unique = true },
+								{ Template = "bandage", StackCount = 25, Unique = true },
+								{ Template = "greater_stamina_potion", StackCount = 10, Unique = true },
+								{ Template = "superior_health_potion", StackCount = 1, Unique = true },
+							} 
+						},							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -152,7 +152,7 @@ RecipeCategories = {
 }
 
 AllRecipes = {
-MetalsmithSkill = {
+	MetalsmithSkill = {
 		--Materials
 		Iron = {
 			MinLevelToCraft = 0,

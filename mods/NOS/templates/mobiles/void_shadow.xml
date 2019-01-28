@@ -23,7 +23,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=195, Agi=78, Int=20 },
-					Skills = { Melee = 100, Brawling = 100 },
+					Skills = { Melee = 100, Brawling = 100, Slashing = 150, Anatomy = 80 },
 					EquipTable = {
 						BodyPartHead = TemplateDefines.MaleHeads,
 						},

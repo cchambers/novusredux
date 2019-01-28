@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">1000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Animal</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -45,14 +45,10 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.ScrollsBoss,
-						TemplateDefines.LootTable.ScrollsBoss,
-						TemplateDefines.LootTable.MageBoss,
-						TemplateDefines.LootTable.MageBoss,
-						TemplateDefines.LootTable.Boss,
+						TemplateDefines.LootTable.ExecutionerTubs,
 							{
-								NumCoins = math.random(1000,1400),
-								NumItems = 1,
+								NumCoins = math.random(5000,10000),
+								NumItems = 2,
 							{
 				    			{ Weight = 90, Template = "furniture_box", Unique = true },
 				    			{ Weight = 10, Template = "furniture_box_rare", Unique = true },

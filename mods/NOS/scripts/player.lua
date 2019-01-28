@@ -436,6 +436,12 @@ end
 function OnLoad(isPossessed)
 	if(Totem ~= nil) then Totem(this, "update") end
 	-- Logged out Incognito
+	for i,moduleName in pairs(this:GetAllModules()) do
+		if(string.match(moduleName,"sp_")) then
+			this:DelModule(moduleName)
+		end
+	end
+
 	if (this:HasObjVar("NameActual")) then
 		this:SetName(this:GetObjVar("NameActual"))
 		this:DelObjVar("NameActual")
@@ -456,12 +462,6 @@ function OnLoad(isPossessed)
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
 	if (not(hasPassiveDetect) and detectSkill >= 100) then this:AddModule("passive_detecthidden") end
 
-	for i,moduleName in pairs(this:GetAllModules()) do
-		if(string.match(moduleName,"sp_")) then
-			this:DelModule(moduleName)
-		end
-	end
-	
 
 	-- POWER HOUR FIXER
 	local powerhour = this:GetObjVar("PowerHourEnds")
@@ -700,8 +700,101 @@ function DailyTaxWarn()
 	return
 end
 
-UnregisterEventHandler("", EventType.UserLogin, "")
-RegisterEventHandler(EventType.UserLogin,"",
+
+function HandleRequestPickUp(pickedUpObject)
+	-- if (this:HasObjVar("ColorwarPlayer")) then
+		if (pickedUpObject:HasObjVar("ColorwarItem")) then
+			if (not(pickedUpObject:HasModule("colorwar_flag"))) then
+				pickedUpObject:SetHue(this:GetHue())
+			end
+		end
+	-- end
+
+	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
+	local carriedObject = this:CarriedObject()
+	if( carriedObject ~= nil and carriedObject:IsValid() and pickedUpObject ~= carriedObject) then
+		this:SystemMessage("You are already carrying something.","info")
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+
+	if not(CanPickUp(pickedUpObject)) then
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+	--DebugMessage("Pick up here")
+	this:SendMessage("BreakInvisEffect", "Pickup")
+
+	if ( pickedUpObject:IsContainer() ) then
+		CloseContainerRecursive(this, pickedUpObject)
+	end
+
+	-- keep track of the source location so we can undo the pickup
+	local sourceContainer = pickedUpObject:ContainedBy()
+	local sourceTopmost = pickedUpObject:TopmostContainer() or sourceContainer
+	local sourceLoc = pickedUpObject:GetLoc()
+	local sourceEquipSlot = nil
+	local equipSlot = GetEquipSlot(pickedUpObject)
+	--check to see if the containers have noloot on them
+	if (sourceContainer ~= nil) then 
+		if (sourceContainer:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false)) then			
+			this:SystemMessage("You can't pick that up.","info")
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+	end
+	if sourceTopmost ~= nil then
+		if sourceTopmost:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false) then			
+			this:SystemMessage("You can't pick that up.","info")
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+		if ( CheckKarmaLoot(this, sourceTopmost) == false ) then
+			this:SendPickupFailed(pickedUpObject)
+			return
+		end
+	end
+	
+	--GW we may have just died instantly due to insta whack guards, and the karma check above
+	if( IsDead(this)) then
+		this:SendPickupFailed(pickedUpObject)
+		return
+	end
+	if (sourceContainer == nil or sourceContainer ~= this:GetEquippedObject("Backpack")) then
+		local weight = pickedUpObject:GetSharedObjectProperty("Weight")
+		local canAdd,weightCont,maxWeight = CanAddWeightToContainer(this:GetEquippedObject("Backpack"),weight)
+		if ( not canAdd) then
+			if not (IsImmortal(this)) then
+				this:SystemMessage("You are carrying too much (Max: " .. tostring(maxWeight) .. " stones)","info")
+				SetMobileMod(this, "Disable", "OverweightPickup", true)
+				AddBuffIcon(this,"Overweight","Overweight","steal","Cannot move again until item is dropped.")
+				this:SendMessage("Overweight")
+			end
+		end
+	end
+	if(equipSlot ~= nil and this:GetEquippedObject(equipSlot) == pickedUpObject) then
+		sourceEquipSlot = equipSlot
+	end
+
+	if( pickedUpObject:MoveToContainer(this,Loc(0,0,0)) ) then
+		if(pickedUpObject:DecayScheduled()) then
+			pickedUpObject:RemoveDecay()
+		end
+
+		carriedObjectSource = sourceContainer
+		carriedObjectSourceLoc = sourceLoc
+		carriedObjectSourceEquipSlot = sourceEquipSlot
+		if(sourceEquipSlot ~= nil) then
+			pickedUpObject:SendMessage("WasUnequipped", this)
+		end
+	end
+end
+
+
+UnregisterEventHandler("", EventType.RequestPickUp, "")
+RegisterEventHandler(EventType.RequestPickUp, "", HandleRequestPickUp)
+
+OverrideEventHandler("default:player",EventType.UserLogin, "", 
 	function(loginType)
 		if not( IsPossessed(this) ) then
 			local clusterController = GetClusterController()
@@ -709,7 +802,8 @@ RegisterEventHandler(EventType.UserLogin,"",
 				clusterController:SendMessage("UserLogin",this,loginType)			
 			end
 			if ( loginType == "Connect" ) then
-				Guild.Initialize()
+				if (Guild ~= nil) then Guild.Initialize() end
+				-- KHI HERE FIX PLS K
 				-- warn about their plot taxes
 			end
 		end
@@ -727,3 +821,4 @@ RegisterEventHandler(EventType.UserLogin,"",
 			end			
 		end
 	end)
+

@@ -1,0 +1,14 @@
+﻿<ObjectTemplate>
+  <Name>[00FF00]Sewing Kit[-]</Name>
+	<ClientId>2023</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1" />
+		<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">FabricationSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">fabrication</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/fabrication/fabrication</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="fabrication_crafting"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

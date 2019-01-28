@@ -1388,7 +1388,7 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellHitSFX = "event:/animals/worm/worm_pain",
-			SpellTooltipString = "Poisons the target dealing damage over time and reducing healing.",
+			SpellTooltipString = "Paralyze the target.",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
 			MinSkillRequired = 50,
@@ -1802,7 +1802,9 @@ SpellData = {
 			},
 			ReagentsRequired = true,
 			Reagents = {
-				"Mandrake"
+				"Mandrake",
+				"Spidersilk",
+				"Sulfurousash"
 			},
 		},
 
@@ -1900,6 +1902,8 @@ SpellData = {
 			ReagentsRequired = true,
 			Reagents = {
 				"Bloodmoss",
+				"Sulfurousash",
+				"Blackpearl",
 			},
 			CastTime = 6,
 		},
@@ -2243,7 +2247,7 @@ SpellData = {
 	
 		Spikepath = {
 			SpellDisplayName = "Spike Path",
-			PowerWords = "Ow My Toe",
+			PowerWords = "Wah Chyo Step",
 			Circle = 8,
 			manaCost = 80,
 			CanBeDodged = true,

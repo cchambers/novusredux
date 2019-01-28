@@ -220,6 +220,14 @@ SkillData = {
 				Seconds = 3
 			}
 		},
+		TinkeringSkill = {
+			DisplayName = "Tinkering",
+			PrimaryStat = "Intelligence",
+			Description = "Creating things.",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.7,
+			Skip = true
+		},
 		MusicianshipSkill = {
 			DisplayName = "Musicianship",
 			PrimaryStat = "Intelligence",
@@ -228,13 +236,6 @@ SkillData = {
 			GainFactor = 0.3,
 			Skip = true
 		},
-		InscriptionSkill = {
-			DisplayName = "Inscription",
-			PrimaryStat = "Intelligence",
-			Description = "The ability to craft spell scrolls & spellbooks.",
-			SkillType = "TradeTypeSkill",
-			GainFactor = 0.7,
-		},
 		BardSkill = {
 			DisplayName = "Bard",
 			PrimaryStat = "Intelligence",
@@ -242,6 +243,13 @@ SkillData = {
 			SkillType = "CombatTypeSkill",
 			Skip = true,
 			GainFactor = 2.5,
+		},
+		InscriptionSkill = {
+			DisplayName = "Inscription",
+			PrimaryStat = "Intelligence",
+			Description = "The ability to craft spell scrolls & spellbooks.",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.7,
 		},
 		AnimalTamingSkill = {
 			DisplayName = "Animal Taming",
