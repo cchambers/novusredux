@@ -704,7 +704,9 @@ end
 function HandleRequestPickUp(pickedUpObject)
 
 	if (pickedUpObject:HasObjVar("ColorwarItem")) then
-		pickedUpObject:SetHue(this:GetHue())
+		if (not(pickedUpObject:HasModule("colorwar_flag"))) then
+			pickedUpObject:SetHue(this:GetHue())
+		end
 	end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
