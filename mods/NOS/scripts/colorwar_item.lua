@@ -6,7 +6,7 @@
 
 
 function HandleRequestPickup(user) 
-	this:SetHue(user:GetHue())
+	if (not(this:HasModule("colorwar_flag"))) then this:SetHue(user:GetHue()) end
 end
 
 RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
