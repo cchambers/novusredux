@@ -91,8 +91,8 @@ function ChooseClass(user)
 		
 		mCLASS:AddButton(180, 50, "cw_kit_warrior_heavy_bashing", "Bashing", 110, 24, "War Hammer/Plate", "", true, "Default", "default")
 		mCLASS:AddButton(180, 80, "cw_kit_warrior_heavy_lancing", "Lancing", 110, 24, "Halberd/Plate", "", true, "Default", "default")
-		mCLASS:AddButton(180, 110, "cw_kit_warrior_heavy_slashing", "Slashing", 110, 24, "Katana/Shield/Chain", "", true, "Default", "default")
-		mCLASS:AddButton(180, 140, "cw_kit_warrior_heavy_piercing", "Piercing", 110, 24, "Dagger/Shield/Chain", "", true, "Default", "default")
+		mCLASS:AddButton(180, 110, "cw_kit_warrior_heavy_slashing", "Slashing", 110, 24, "Great Axe/Plate", "", true, "Default", "default")
+		mCLASS:AddButton(180, 140, "cw_kit_warrior_heavy_piercing", "Piercing", 110, 24, "Poniard/Shield/Plate", "", true, "Default", "default")
 
 		mCLASS:AddButton(300, 50, "cw_kit_warrior_light_bashing", "Bashing", 110, 24, "Mace/Shield/Chain", "", true, "Default", "default")
 		mCLASS:AddButton(300, 80, "cw_kit_warrior_light_lancing", "Lancing", 110, 24, "Spear/Chain", "", true, "Default", "default")

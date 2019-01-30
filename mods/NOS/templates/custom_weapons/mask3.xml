@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[978161]Ancient Hood[-]</Name>
+	<ClientId>1846</ClientId>
+    <SharedStateEntry name="Weight" type="int" value="1"/>
+    <ObjectVariableComponent>
+   		<BoolVariable Name="CanDye">true</BoolVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

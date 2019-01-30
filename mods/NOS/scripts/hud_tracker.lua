@@ -80,6 +80,10 @@ end
 
 function UpdateConsumableWindow()
 	mCONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
+	local PH = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
+	PH = (PH / 2500000) * 100
+	PH = tostring(math.round(PH, 2) .. "%")
+
 	if (not(IsDead(this))) then
 		local fontname = "PermianSlabSerif_Dynamic_Bold"
 
@@ -112,10 +116,10 @@ function UpdateConsumableWindow()
 		mCONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
 		mCONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
 		mCONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 	end
 
 	local next = this:GetObjVar("NextPowerHour")
