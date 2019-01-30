@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[0078ff]Donation Box[-]</Name>
+	<ClientId>29</ClientId>
+	<ScaleModifier>2.25</ScaleModifier>
+	<Hue>899</Hue>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>		
+		<BoolVariable Name="NoReset">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="dono_box"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

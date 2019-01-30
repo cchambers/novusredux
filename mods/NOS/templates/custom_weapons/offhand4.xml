@@ -1,0 +1,8 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Test[-]</Name>
+	<ClientId>1507</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>			
+</ObjectTemplate>
