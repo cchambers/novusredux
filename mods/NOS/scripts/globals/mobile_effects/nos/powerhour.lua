@@ -25,7 +25,7 @@ MobileEffectLibrary.PowerHourBuff = {
 	AiPulse = function(self,root)
 		local ends = self.ParentObj:GetObjVar("PowerHourEnds") or 0
 		ends = ends - 1
-		if (ends < 0) then
+		if (ends <= 0) then
 			EndMobileEffect(root)
 		else 
 			self.ParentObj:SetObjVar("PowerHourEnds", ends)

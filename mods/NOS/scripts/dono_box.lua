@@ -4,7 +4,7 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
     function(addedObj)
 		-- coins
 		if(addedObj:GetObjVar("ResourceType") == "coins") then
-			DebugMessage("That's a lotta dough!");
+			DebugMessage("Gold added...");
 			PowerHourDonate(addedObj:GetObjVar("StackCount"))
 			addedObj:Destroy()
     		-- get amount, credit to total, destroy.
@@ -13,3 +13,11 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 		end
 		
 	end)
+
+
+	RegisterEventHandler(EventType.ContainerItemRemoved, "", 
+	function(itemRemoved)
+		if (itemRemoved:HasModule("dono_item")) then
+			itemRemoved:DelModule("dono_item")
+		end
+    end)

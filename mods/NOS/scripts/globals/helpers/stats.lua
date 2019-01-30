@@ -64,7 +64,7 @@ function DonateItem(obj)
     local obj = obj or this
 	local value = GetItemValue(obj)
     PowerHourDonate(value)
-    CallFunctionDelayed(TimeSpan.FromMinutes(5), function() 
+    CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
         obj:Destroy()
     end)
 end
@@ -86,6 +86,7 @@ function TriggerGlobalPowerHour()
     DebugMessage("Global Power Hour triggered!")
     GlobalVarWrite("GlobalPowerHour", nil, function(record) 
         record["Donations"] = 0
+        record["Ends"] = DateTime.UtcNow:Add(TimeSpan.FromHours(1))
         return true;
     end);
     local online = GlobalVarRead("User.Online") or {}
@@ -98,6 +99,4 @@ function TriggerGlobalPowerHour()
         user:PlayEffect("ImpactWaveEffect", 2)
         user:SystemMessage("Global Power Hour triggered for free! ENJOY [ff0000]<3[-]")
     end
-    
-
 end

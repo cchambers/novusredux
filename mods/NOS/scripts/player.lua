@@ -464,9 +464,21 @@ function OnLoad(isPossessed)
 
 
 	-- POWER HOUR FIXER
-	local powerhour = this:GetObjVar("PowerHourEnds")
+	local powerhour = this:GetObjVar("PowerHourEnds") or 0
 
-	if (powerhour) then
+	local globalph = GlobalVarReadKey("GlobalPowerHour", "Ends")
+	local now = DateTime.UtcNow
+
+	if (globalph ~= nil) then
+		local test = globalph:Subtract(now).Minutes
+		if (test > 0) then
+			if (test > powerhour) then
+				powerhour = test
+			end
+		end
+	end
+
+	if (powerhour > 0) then
 		powerhour = powerhour - 1;
 		if (powerhour > -1) then
 			this:SetObjVar("PowerHourEnds", powerhour)
@@ -708,8 +720,6 @@ function HandleRequestPickUp(pickedUpObject)
 				pickedUpObject:SetHue(this:GetHue())
 			end
 		end
-
-		if (pickedUpObject:HasModule("dono_item")) then pickedUpObject:DelModule("dono_item") end
 	-- end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
