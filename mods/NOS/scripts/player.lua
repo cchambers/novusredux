@@ -708,6 +708,8 @@ function HandleRequestPickUp(pickedUpObject)
 				pickedUpObject:SetHue(this:GetHue())
 			end
 		end
+
+		if (pickedUpObject:HasModule("dono_item")) then pickedUpObject:DelModule("dono_item") end
 	-- end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())

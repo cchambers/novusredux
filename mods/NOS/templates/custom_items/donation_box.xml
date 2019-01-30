@@ -1,5 +1,6 @@
 <ObjectTemplate>
   <Name>[0078ff]Donation Box[-]</Name>
+	<Tag>Donation_Box</Tag>
 	<ClientId>29</ClientId>
 	<ScaleModifier>2.25</ScaleModifier>
 	<Hue>899</Hue>

@@ -77,7 +77,6 @@ function PowerHourDonate(amount)
         return true;
 	end);
     DebugMessage(tostring("Another item donated! (+" .. amount .. ") > GlobalPowerHour at " .. donations))
-    
     if (donations > mPowerHourTrigger) then
         TriggerGlobalPowerHour()
     end
