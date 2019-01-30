@@ -1,13 +1,12 @@
 <ObjectTemplate>
-  <Name>[d9d9d9]Mage Staff[-]</Name>
-	<ClientId>1509</ClientId>
-	<Hue>775</Hue>
+  <Name>[978161]Fishing Rod[-]</Name>
+	<ClientId>635</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>			
-		<StringVariable Name="WeaponType">Staff</StringVariable>
+		<StringVariable Name="WeaponType">FishingRod</StringVariable>
 		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
-	</ObjectVariableComponent>
+	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
-		<LuaModule Name="colorwar_item"/>
+		<LuaModule Name="tool_fishing_rod"/>	
 	</ScriptEngineComponent>
 </ObjectTemplate>

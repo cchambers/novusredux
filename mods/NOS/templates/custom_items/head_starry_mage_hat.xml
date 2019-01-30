@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Starry Mage Hat[-]</Name>
+	<ClientId>612</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="3"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>
+   		<StringVariable Name="ArmorType">Assassin</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>
