@@ -893,8 +893,7 @@ AllRecipes = {
 		},
 	},
 
-WoodsmithSkill = {
-		
+	WoodsmithSkill = {
 		--resources
 		Brick = {
 			MinLevelToCraft = -10,
@@ -1623,7 +1622,7 @@ WoodsmithSkill = {
 		},
 	},
 
-FabricationSkill = {
+	FabricationSkill = {
 		--Materials
 		Cloth = {
             MinLevelToCraft = 0,
@@ -2172,7 +2171,7 @@ FabricationSkill = {
 		},
 	},
 
-AlchemySkill = {
+	AlchemySkill = {
 		-- HEALTH --
 		LesserHealthPotion = {
 			MinLevelToCraft = 0,
@@ -2592,7 +2591,7 @@ AlchemySkill = {
 		},]]
 	},
 
-InscriptionSkill = {
+	InscriptionSkill = {
 		HealScroll = {
 			MinLevelToCraft = -25,
 			MaxLevelToGain = 25,
