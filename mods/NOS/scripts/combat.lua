@@ -227,6 +227,12 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 	-- some queued abilities will bypass the normal execute hit action and call it manually, or do whatever is needed for the ability.
 	if (mQueuedWeaponAbility == nil or mQueuedWeaponAbility.SkipHitAction ~= true) then
 		if (hitSuccess) then
+			if (ranged) then
+				local targetArrowTable = atTarget:GetObjVar("ArrowCount") or { Arrows = 0, AshArrows = 0, BlightwoodArrows = 0 }
+				targetArrowTable[mArrowType] = targetArrowTable[mArrowType] + 1
+				atTarget:SetObjVar("ArrowCount", targetArrowTable)
+			end
+			-- -- add mArrowType++ on AtTarget ArrowCount table...
 			ExecuteHitAction(atTarget, hand)
 		else
 			ExecuteMissAction(atTarget, hand)
