@@ -33,7 +33,6 @@ function TurnNearbyMossIntoBloodMoss()
             j:Destroy()
         end
     end
-    return
 end
 
 function CreateArrowsInPack()
