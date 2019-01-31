@@ -7,6 +7,8 @@ require 'globals.mobile_effects.nos.crookprovoke'
 require 'globals.mobile_effects.nos.murderer'
 require 'globals.mobile_effects.nos.criminal'
 require 'globals.mobile_effects.nos.chaotic'
+require 'globals.mobile_effects.nos.mentor'
+require 'globals.mobile_effects.nos.beingmentored'
 
 require 'globals.mobile_effects.nos.paralyze'
 require 'globals.mobile_effects.nos.poison'
