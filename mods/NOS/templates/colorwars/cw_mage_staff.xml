@@ -1,6 +1,6 @@
 <ObjectTemplate>
   <Name>[d9d9d9]Mage Staff[-]</Name>
-	<ClientId>1518</ClientId>
+	<ClientId>1509</ClientId>
 	<Hue>775</Hue>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>			

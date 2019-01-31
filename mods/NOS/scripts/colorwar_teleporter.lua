@@ -158,7 +158,9 @@ RegisterEventHandler(
 	function(user, usedType)
 		if (usedType == "Use" or usedType == "Activate") then
 			-- SHOW "CHOOSE YOUR CLASS KIT" WINDOW
-			ChooseClass(user)
+			if(user:HasLineOfSightToObj(this)) then
+				ChooseClass(user)
+			end
 		end
 	end
 )

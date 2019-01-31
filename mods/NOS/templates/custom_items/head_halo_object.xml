@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Halo[-]</Name>
+	<ClientId>611</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="3"/>
+	<ObjectVariableComponent>			
+   		<DoubleVariable Name="MaxDurability">40</DoubleVariable>
+   		<StringVariable Name="ArmorType">Assassin</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

@@ -74,7 +74,9 @@ RegisterEventHandler(
 	"UseObject",
 	function(user, usedType)
 		if (usedType == "Use" or usedType == "Activate") then
-			ExitColorwars(user)
+			if(user:HasLineOfSightToObj(this)) then
+				ExitColorwars(user)
+			end
 		end
 	end
 )

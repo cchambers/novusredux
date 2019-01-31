@@ -1,16 +1,18 @@
-
 require 'default:base_ai_mob'
-require 'harvestable_plant'
 
 --handles when died
-UnregisterEventHandler("", EventType.Message,"HasDiedMessage")
-RegisterEventHandler(EventType.Message,"HasDiedMessage",
-    function ()
+UnregisterEventHandler("", EventType.Message, "HasDiedMessage")
+RegisterEventHandler(
+    EventType.Message,
+    "HasDiedMessage",
+    function()
         SetAITarget(nil)
         AI.ClearAggroList()
         AI.StateMachine.ChangeState("Dead")
         TurnNearbyMossIntoBloodMoss()
-    end)
+        CreateArrowsInPack()
+    end
+)
 
 function TurnNearbyMossIntoBloodMoss()
     -- TODO - Verlorens - Globalize this call, so it's not in base_player_death.lua AND base_ai_mob.lua
@@ -26,9 +28,11 @@ function TurnNearbyMossIntoBloodMoss()
                 CreateTempObj("plant_bloodmoss", j:GetLoc(), "bloodmoss_created_by_death")
                 j:Destroy()
             end
+
         end
     end
 end
+
 
 RegisterEventHandler(EventType.CreatedObject,"bloodmoss_created_by_death",function (success,objRef)
     if (success) then
@@ -39,3 +43,22 @@ RegisterEventHandler(EventType.CreatedObject,"bloodmoss_created_by_death",functi
         objRef:SendMessage("TransitionColorFromMossToBloodmoss", objRef)
 	end
 end)
+
+
+function CreateArrowsInPack()
+    local ArrowCount = this:GetObjVar("ArrowCount")
+    if (ArrowCount) then
+        local backpackObj = this:GetEquippedObject("Backpack")
+        for k, v in pairs(ArrowCount) do
+            -- There is a disjoint between template and resourceType.
+            -- This next line removes an "s" to correct that.  "Arrows" to "Arrow".
+            k = k:sub(1, -2)
+            local template = AllRecipes["WoodsmithSkill"][k].CraftingTemplateFile
+            if (v > 0) then
+                CreateStackInBackpack(this, template, v)
+            end
+        end
+        this:DelObjVar("ArrowCount")
+    end
+    return
+end
