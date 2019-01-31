@@ -360,6 +360,7 @@ SkillData = {
 			PrimaryStat = "Wisdom",
 			Description = "Teach others the ways of the world.",
 			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Inscription",
 			GainFactor = 0.3,
 			Abilities = { "Mentor" },
 		},

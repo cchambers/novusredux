@@ -3,41 +3,48 @@ MobileEffectLibrary.Mentor =
     ShouldStack = false,
 
     OnEnterState = function(self, root, target, args)
-        DebugMessage("Okay, then what")
-        -- self.ParentObj:SystemMessage("This has been disabled until further testing. Thanks KC!")
-        -- local skillLevel = GetSkillLevel(self.ParentObj, "AnimalLoreSkill")
-        -- if (skillLevel < 80) then
-        --     self.ParentObj:SystemMessage("You lack the Animal Lore (90) to do this.")
-        --     EndMobileEffect(root)
-        --     return false
-        -- end
-        -- if (target) then
-        --     local mobint = target:GetStatValue("Int")
-        --     local tamerint = self.ParentObj:GetStatValue("Int")
-        --     local formula = ((tamerint - mobint) > 2)
-        --     local crookObj = self.ParentObj:GetEquippedObject("RightHand")
-        --     local isCrook = crookObj and
-		-- 		 (GetWeaponType(crookObj) == "Crook" or
-		-- 		 GetWeaponType(crookObj) == "CrookAsh" or
-		-- 		 GetWeaponType(crookObj) == "CrookBlight")
+        self.Path = self.ParentObj:GetObjVar("MentorPath")
 
-        --     if (formula and crookObj and not(target:IsPlayer())) then
-        --         self.ParentObj:SystemMessage("It might work!")
-        --         self.ParentObj:PlayAnimation("fistpump")
-        --         if ( Success(ServerSettings.Durability.Chance.OnToolUse) ) then
-        --             AdjustDurability(crookObj, -1)
-        --         end
-        --         target:SendMessage("StartMobileEffect", "BeingProvoked", self.ParentObj)
-        --     else
-        --         self.ParentObj:SystemMessage("It probably won't work!")
-        --         self.ParentObj:PlayAnimation("sad")
-        --     end
-        -- end
-        EndMobileEffect(root)
+        if (self.Path == nil) then
+            self.ParentObj:SystemMessage("You must first choose the type of training you will be known for.","info")
+    
+            local fontname = "PermianSlabSerif_Dynamic_Bold"
+            mMENTOR = DynamicWindow("CHOOSEMENTORTYPE", "Choose Mentor Path", 450, 260, 47, 68, "Draggable", "Center")
+            -- mMENTOR:AddLabel(75, 10, "RANGER", 110, 30, 20, "center", false, true, fontname)
+            mMENTOR:AddButton(20, 40, "CombatSkillType", "Combat", 110, 24, "Teach the skills of a warrior.", "", true, "Default", "default")
+            mMENTOR:AddButton(180, 50, "TradeSkillType", "Trade", 110, 24, "Teach the skills of a craftsman.", "", true, "Default", "default")
+            self.ParentObj:OpenDynamicWindow(mMENTOR)
+
+            RegisterEventHandler(
+			EventType.DynamicWindowResponse,
+			"CHOOSEMENTORTYPE",
+			function(user, buttonId)
+				if (buttonId ~= nil and buttonId ~= "") then
+					user:SetObjVar("MentorPath")
+				end
+				return
+			end
+		)
+
+        end
+        self.RequestInitialTarget(self,root,target,args)
+    end,
+
+    RequestInitialTarget = function(self,root,target,args)
+        -- handle a new target
+        RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Mentor.Choose",
+            function (target)
+                self.ParentObj:SystemMessage("apply beingmentored mobileeffect to target and ping them every 3 seconds for 30")
+                target:SystemMessage("Targeted for learnin")
+                EndMobileEffect(root)
+            end)
+        self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "Mentor.Choose")
     end,
 
     OnExitState = function(self, root)
         return
     end,
+
+    Path = nil
 }
  

@@ -73,7 +73,7 @@ function ChooseClass(user)
 		
 		local fontsize = rem(2)
 
-		mCLASS = DynamicWindow("CHOOSECLASS", "Choose Starting Class", 450, 260, 47, 68, "Draggable", "TopLeft")
+		mCLASS = DynamicWindow("CHOOSECLASS", "Choose Starting Class", 450, 260, 47, 68, "Draggable", "Center")
 
 		mCLASS:AddLabel(75, 10, "RANGER", 110, 30, rem(2), "center", false, true, fontname)
 		mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow/Leather", "", true, "Default", "default")
