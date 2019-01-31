@@ -1,7 +1,7 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Blood Moss[-]</Name>
+	<Name>Blood Moss</Name>
 	<ClientId>579</ClientId>
-	<Color>0xFFff0000</Color>
+	<Color>0xFFFF0000</Color>
 	<Hue>30</Hue>
 	<ScaleModifier>1.65</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
@@ -9,4 +9,7 @@
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceSourceId">Bloodmoss</StringVariable>
 	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="harvestable_plant"/>
+	</ScriptEngineComponent>	
 </ObjectTemplate> 
