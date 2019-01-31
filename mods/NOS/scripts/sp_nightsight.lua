@@ -1,7 +1,9 @@
+require 'incl_gametime'
+
 function HandleInit() 
-	this:SendClientMessage("TimeUpdate", {"12:00", GetDaylightDurationSecs(), GetNighttimeDurationSecs()})
+	this:SendClientMessage("TimeUpdate", {0, 100, 0})
 	this:SystemMessage("You can now see in the dark.", "info")
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "EndNightSight")
+	this:ScheduleTimerDelay(TimeSpan.FromMinutes(10), "EndNightSight")
 end
 
 function EndEffect()
@@ -13,18 +15,8 @@ end
 RegisterEventHandler(
 	EventType.Timer,
 	"EndNightSight",
-	function()
-		EndEffect()
-	end
+	EndEffect
 )
 
-
-RegisterEventHandler(
-	EventType.Message,
-	"EndNightSight",
-	function()
-		EndEffect()
-	end
-)
 
 RegisterSingleEventHandler(EventType.ModuleAttached, "sp_nightsight", HandleInit)
