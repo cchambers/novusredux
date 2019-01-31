@@ -8,7 +8,6 @@ RegisterEventHandler(EventType.Message,"HasDiedMessage",
         AI.ClearAggroList()
         AI.StateMachine.ChangeState("Dead")
         TurnNearbyMossIntoBloodMoss()
-        CreateArrowsInPack()
     end)
 
 function TurnNearbyMossIntoBloodMoss()
@@ -27,18 +26,5 @@ function TurnNearbyMossIntoBloodMoss()
             j:Destroy()
         end
     end
-    return
 end
 
-function CreateArrowsInPack() 
-    local ArrowCount = this:GetObjVar("ArrowCount")
-	if (ArrowCount) then
-		local backpackObj = this:GetEquippedObject("Backpack")
-        for k, v in pairs(ArrowCount) do
-            k = k:sub(1,-2)
-            local template = AllRecipes["WoodsmithSkill"][k].CraftingTemplateFile
-			if (v > 0 ) then CreateStackInBackpack(this, template, v) end
-		end
-    end
-    return
-end
