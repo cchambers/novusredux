@@ -232,7 +232,6 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 				targetArrowTable[mArrowType] = targetArrowTable[mArrowType] + 1
 				atTarget:SetObjVar("ArrowCount", targetArrowTable)
 			end
-			-- -- add mArrowType++ on AtTarget ArrowCount table...
 			ExecuteHitAction(atTarget, hand)
 		else
 			ExecuteMissAction(atTarget, hand)
