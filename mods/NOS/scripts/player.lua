@@ -954,6 +954,6 @@ RegisterEventHandler(
 	"stuck",
 	function()
 		this:SystemMessage("This command has been proven exploitable, and as such, has been removed...")
-		this:SystemMessage("If you are truly stuck, post a message in #gm-help in Discord (nos.gg/discord)")
+		this:SystemMessage("If you are truly stuck, post a message in #gm-help in Discord ([bada55]nos.gg/discord)[-]")
 	end
 )
