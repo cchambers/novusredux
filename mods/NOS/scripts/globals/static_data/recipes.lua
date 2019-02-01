@@ -3055,6 +3055,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		NightsightScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Night Sight Scroll",
+			NeedRecipe = false,
+			Description = "A night sight scroll. ",
+			CraftingTemplateFile = "scroll_nightsight",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Blackpearl = 2,
+				FineScroll = 1,
+			},
+		},
 		BombardmentScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
