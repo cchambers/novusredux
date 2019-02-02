@@ -38,7 +38,8 @@ function Totem(mobile, task, args)
         if (args) then 
             payload = [[ {
                 "name": "]]..name..[[",
-                "aggressor": "]]..args..[[",
+                "aggressor": "]]..args.aggressor..[[",
+                "kind": "]]..args.kind..[[",
                 "when": "]]..when..[[",
                 "where": "]]..where..[["
             } ]]
