@@ -21,19 +21,34 @@ function Totem(mobile, task, args)
     local ip = tostring(mobile:GetIPAddress())
     local name = mobile:GetName()
     local api = tostring("http://localhost:1337/api/player/"..task)
+    local when = tostring(os.date())
+    local where = tostring(mobile:GetLoc())
     local payload = ""
 
     if (task == "murder") then
         payload = [[ {"worldid": "]]..id..[["} ]]
     elseif (task == "page") then
-		local when = tostring(os.date())
-		local where = tostring(mobile:GetLoc())
         payload = [[ {
-            "who": "]]..id..[[",
+            "name": "]]..name..[[",
             "what": "]]..args..[[",
             "when": "]]..when..[[",
             "where": "]]..where..[["
         } ]]
+    elseif (task == "death") then
+        if (args) then 
+            payload = [[ {
+                "name": "]]..name..[[",
+                "aggressor": "]]..args..[[",
+                "when": "]]..when..[[",
+                "where": "]]..where..[["
+            } ]]
+        else 
+            payload = [[ {
+                "name": "]]..name..[[",
+                "when": "]]..when..[[",
+                "where": "]]..where..[["
+            } ]]
+        end
     else
         -- default just updates player
         local skill = GetSkillTotal(mobile) or 0

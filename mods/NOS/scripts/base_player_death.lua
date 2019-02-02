@@ -472,9 +472,21 @@ baseMobileDeath = DoMobileDeath
 function DoMobileDeath(damager)
 	Verbose("PlayerDeath", "DoMobileDeath", damager, this)
 	baseMobileDeath(damager)
+	local name = this:GetName()
 
 	if ( damager ~= nil and damager ~= this and damager:IsPlayer() ) then
-		damager:SystemMessage("[0AB4F7] You have vanquished [-][F70A79]" .. this:GetName(), "info")
+		damager:SystemMessage("[0AB4F7] You have vanquished [-][F70A79]" .. name, "info")
+	end
+
+	if (damager == nil) then
+		Totem(this, "death")
+	elseif (damager == this) then
+		Totem(this, "death", this)
+	elseif (damager:IsPlayer()) then
+		Totem(this, "death", damager:GetName())
+	else
+		local what = damager:GetObjVar("MobileTeamType"):lower() or "creature"
+		Totem(this, "death", tostring("a/an "..what))
 	end
 
 	mBackpack = this:GetEquippedObject("Backpack")
