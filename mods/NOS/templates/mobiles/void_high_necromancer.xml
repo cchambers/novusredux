@@ -77,7 +77,7 @@
 							},
 						},
 					},
-					AvailableSpells = {"Spawnskeleton","Grimaura", "Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment", "Meteor"},
+					AvailableSpells = {"Spawnskeleton","Grimaura", "Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment"},
 				}
 			</Initializer>
 		</LuaModule>

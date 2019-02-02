@@ -88,7 +88,7 @@
 						TemplateDefines.LootTable.ScrollsMed,
 						TemplateDefines.LootTable.Humanoid,
 					},		
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},	
 				}
 			</Initializer>
 		</LuaModule>
