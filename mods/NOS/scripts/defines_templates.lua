@@ -625,6 +625,7 @@ TemplateDefines = {
 				{ Chance = 1, Template = "lscroll_earthquake", Unique = true },
 				{ Chance = 1, Template = "lscroll_portal", Unique = true },
 				{ Chance = 2, Template = "lscroll_mark", Unique = true },
+				{ Chance = 1, Template = "lscroll_ward_evil", Unique = true },
 			},
 		},
 		MagePoor = 
@@ -742,6 +743,21 @@ TemplateDefines = {
 				{ Chance = 1, Template = "armor_fullplate_helm", Unique = true },
 				{ Chance = 1, Template = "armor_fullplate_tunic", Unique = true },
 				{ Chance = 1, Template = "armor_fullplate_leggings", Unique = true },
+			},
+		},
+		PrestigeLow = 
+		{
+			NumItems = 1,	
+			LootItems = 
+			{ 
+				{ Chance = 0.1, Template = "prestige_stasis", Unique = true },
+				{ Chance = 0.1, Template = "prestige_charge", Unique = true },
+				{ Chance = 0.05, Template = "prestige_evasion", Unique = true },
+				{ Chance = 0.05, Template = "prestige_dart", Unique = true },
+				{ Chance = 0.05, Template = "prestige_spellchamber", Unique = true },
+				{ Chance = 0.05, Template = "prestige_empower", Unique = true },
+				{ Chance = 0.05, Template = "prestige_stunstrike", Unique = true },
+				{ Chance = 0.05, Template = "prestige_hamstring", Unique = true },
 			},
 		},
 		Prestige = 

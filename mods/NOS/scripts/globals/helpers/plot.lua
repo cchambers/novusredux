@@ -198,6 +198,11 @@ Plot.Destroy = function(controller, cb)
             object:Destroy()
         end)
 
+        -- destroy all merchants
+        Plot.ForeachMerchant(controller, function(merchant)
+            merchant:Destroy()
+        end)
+
         -- destroy all houses
         Plot.ForeachHouse(controller, function(house)
             local door = house:GetObjVar("HouseDoor")
@@ -209,6 +214,10 @@ Plot.Destroy = function(controller, cb)
 
         -- remove global and finally the controller
         DelGlobalVar("Plot."..controller.Id, function()
+            local bidWindow = controller:GetObjVar("BidWindow")
+            if ( bidWindow ) then
+                bidWindow:Destroy()
+            end
             controller:Destroy()
             cb(true)
         end)
@@ -578,18 +587,35 @@ Plot.ValidateBound = function(playerObj, bound, size, ignoreLoc)
         loc = Loc(pointsToCheck[i])
         if not( IsPassable(loc) ) then
             collisionInfo = GetCollisionInfoAtLoc(loc) or {}
-            for ii=1,#collisionInfo do
-                any = (type(collisionInfo[ii]) == "userdata") -- static collision
-                if not( any ) then
-                    local obj = GameObj(tonumber(StringSplit(collisionInfo[ii], " ")[3]))
-                    if ( obj and obj:IsValid() ) then
-                        any = not( obj:HasObjVar("IsPlotObject") or obj:HasObjVar("LockedDown") )
+            -- for ii=1,#collisionInfo do
+            --     any = (type(collisionInfo[ii]) == "userdata") -- static collision
+            --     if not( any ) then
+            --         local obj = GameObj(tonumber(StringSplit(collisionInfo[ii], " ")[3]))
+            --         if ( obj and obj:IsValid() ) then
+            --             any = not( obj:HasObjVar("IsPlotObject") or obj:HasObjVar("LockedDown") )
+            blocked = #collisionInfo < 1
+            if not( blocked ) then
+                for ii=1,#collisionInfo do
+                    any = (type(collisionInfo[ii]) == "userdata") -- static collision
+                    if not( any ) then
+                        local obj = GameObj(tonumber(StringSplit(collisionInfo[ii], " ")[3]))
+                        if ( obj and obj:IsValid() ) then
+                            any = not( obj:HasObjVar("IsPlotObject") or obj:HasObjVar("LockedDown") )
+                        end
                     end
+                    if ( any ) then
+                        blocked = true
+                        break        
+                    end
+                -- end
+                -- if ( any ) then
+                --     playerObj:SystemMessage("Something is blocking the "..PointsToString[i].." point.", "info")
+                --     return false
                 end
-                if ( any ) then
-                    playerObj:SystemMessage("Something is blocking the "..PointsToString[i].." point.", "info")
-                    return false
-                end
+            end
+            if ( blocked ) then
+                playerObj:SystemMessage("Something is blocking the "..PointsToString[i].." point.", "info")
+                return false
             end
         end
 	end

@@ -26,7 +26,8 @@ local HueNames = {
 	hue921 = "Lime",
 	hue922 = "Sherbet",
 	hue923 = "Limon",
-	hue930 = "Peach"
+	hue930 = "Peach",
+	hue984 = "Dread"
 }
 
 -- fire, ice, poison, lunar, 
