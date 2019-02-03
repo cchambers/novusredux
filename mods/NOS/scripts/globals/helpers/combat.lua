@@ -88,7 +88,7 @@ end
 
 function DonateItem(obj) 
     local obj = obj or this
-	local value = GetItemValue(obj)
+	local value = GetItemValue(obj) or 10
     PowerHourDonate(value)
     CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
         obj:Destroy()
@@ -120,7 +120,7 @@ function TriggerGlobalPowerHour()
 	for gameObj,dummy in pairs(online) do
         local user = gameObj
         user:SetObjVar("PowerHourEnds", 60)
-        user:SendMessage("StartMobileEffect", "PowerHourBuff")
+        user:SendMessageGlobal("StartMobileEffect", "PowerHourBuff")
         user:PlayAnimation("roar")
         user:PlayEffect("ImpactWaveEffect", 2)
         user:SystemMessage("Global Power Hour triggered for free! ENJOY [ff0000]<3[-]")

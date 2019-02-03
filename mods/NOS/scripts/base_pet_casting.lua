@@ -804,7 +804,7 @@ AI.StateMachine.AllStates.CastMeteor = {
         end
         --DebugMessage("Attempting Cast Fireball")
         this:StopMoving()
-        this:SendMessage("CastSpellMessage", "Meteor", this, nil, AI.MainTarget:GetLoc())
+        this:SendMessage("CastSpellMessage", this, nil, AI.MainTarget:GetLoc())
     end,
     AiPulse = function()
         DecideCombatState()

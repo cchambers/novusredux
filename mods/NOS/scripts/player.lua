@@ -810,8 +810,12 @@ function PerformPlayerTick(notFirst)
 	CheckAllegianceTitle(this)
 
 	CheckBidRefund()
+	
+	local gmMessages = GlobalVarRead("AccountMessages."..this:GetAttachedUserId())
 
-	HandleGmResponseWindow()
+	if (gmMessages and not this:HasModule("base_gm_message_responsewindow")) then
+		this:AddModule("base_gm_message_responsewindow")
+	end
 
 	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?

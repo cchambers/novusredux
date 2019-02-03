@@ -1,7 +1,0 @@
-<ObjectTemplate>
-	<Name>Test Controller</Name>
-	<ClientId>2</ClientId>				
-	<ScriptEngineComponent>
-		<LuaModule Name="test_controller"/>
-	</ScriptEngineComponent>
-</ObjectTemplate>

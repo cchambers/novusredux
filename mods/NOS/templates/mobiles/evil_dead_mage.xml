@@ -21,7 +21,7 @@
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">62</DoubleVariable>
 		<DoubleVariable Name="Attack">60</DoubleVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Power">30</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
@@ -62,7 +62,7 @@
 				ScavengeTables =
 					{
 					},			
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},	
 				}
 			</Initializer>
 		</LuaModule>
