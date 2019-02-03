@@ -241,12 +241,12 @@ TemplateDefines = {
 
 		ExecutionerTubs = 
 		{
-			NumItems = 1,
+			NumItems = 2,
 
 			LootItems = 
 			{ 
-				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
-    			{ Chance = 50, Template = "dye_tub_random", Unique = true },
+				{ Chance = 5, Template = "random_executioner_weapon_80_100", Unique = true},
+    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
