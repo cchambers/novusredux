@@ -1,8 +1,0 @@
-<ObjectTemplate>
-	<ClientId>2</ClientId>
-	<Name>Prefab Camp Controller</Name>
-	<ObjectVariableComponent/>	
-	<ScriptEngineComponent>
-		<LuaModule Name="prefab_camp_controller"/>
-	</ScriptEngineComponent>
-</ObjectTemplate>

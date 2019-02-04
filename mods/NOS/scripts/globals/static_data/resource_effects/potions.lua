@@ -347,3 +347,14 @@ ResourceEffectData.PotionNOSLesserPoison = {
         "A level one Poison.",
     }
 }
+
+ResourceEffectData.PotionDetectEvil = {
+    MobileEffect = "PotionDetectEvil",
+    MobileEffectArgs = {
+        Range = 70,
+    },
+    SelfOnly = true,
+    Tooltip = {
+        "Detects the presence of nearby evil.",
+    }
+}

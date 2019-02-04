@@ -3212,6 +3212,21 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		WardEvilScroll = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Ward: Evil Scroll",
+			NeedRecipe = false,
+			Description = "A Ward: Evil scroll. ",
+			CraftingTemplateFile = "lscroll_ward_evil",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				LemonGrass = 2,
+				Ginseng = 2,
+				AncientScroll = 1,
+			},
+		},
 		WallOfFireScroll = {
 			MinLevelToCraft = 17.8,
 			MaxLevelToGain = 67.8,

@@ -45,7 +45,7 @@
 					{ 
 						TemplateDefines.LootTable.Fourteen,
 					},	
-					AvailableSpells = {"Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment", "Meteor"},
+					AvailableSpells = {"Electricbolt", "Pillaroffire", "Spikepath", "Chainlightning", "Icerain", "Flamewave", "Teleport", "Bombardment"},
 					EquipTable = {
 						Backpack = { "backpack" }						
 					},	

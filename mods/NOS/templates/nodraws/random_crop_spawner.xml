@@ -1,8 +1,0 @@
-<ObjectTemplate>
-	<ClientId>2</ClientId>
-	<Name>Random Crop Spawner</Name>
-	<ObjectVariableComponent/>	
-	<ScriptEngineComponent>
-		<LuaModule Name="random_crop_spawner"/>
-	</ScriptEngineComponent>
-</ObjectTemplate>

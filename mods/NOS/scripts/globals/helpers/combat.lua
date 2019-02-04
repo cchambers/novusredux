@@ -15,6 +15,28 @@ mPowerHourTrigger = 2500000
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")
 
+function TotemGlobalEvent(task) 
+    local api = tostring("http://localhost:1337/api/"..task)
+    
+    local payload = ""
+
+    if (task ~= nil) then
+        payload = [[ { "name": "nada" } ]]
+        local res, code, response_headers, status =
+        http.request{
+            url = api,
+            method = "POST",
+            headers = { 
+                ["Content-Type"] = "application/json",
+                ["Content-Length"] = payload:len()
+            },
+            source = ltn12.source.string(payload),
+            sink = ltn12.sink.table(response_body)
+        }
+    end
+    
+end
+
 function Totem(mobile, task, args)
     local id = mobile.Id
     local account = tostring(mobile:GetAttachedUserId())
@@ -88,7 +110,7 @@ end
 
 function DonateItem(obj) 
     local obj = obj or this
-	local value = GetItemValue(obj)
+	local value = GetItemValue(obj) or 10
     PowerHourDonate(value)
     CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
         obj:Destroy()
@@ -121,9 +143,9 @@ function TriggerGlobalPowerHour()
 	for gameObj,dummy in pairs(online) do
         local user = gameObj
         user:SetObjVar("PowerHourEnds", 60)
-        user:SendMessage("StartMobileEffect", "PowerHourBuff")
+        user:SendMessageGlobal("StartMobileEffect", "PowerHourBuff")
         user:PlayAnimation("roar")
         user:PlayEffect("ImpactWaveEffect", 2)
-        user:SystemMessage("Global Power Hour triggered for free! ENJOY [ff0000]<3[-]")
+        user:SystemMessage("Global Power Hour triggered! [ff0000]<3[-]", "event")
     end
 end

@@ -103,6 +103,10 @@ function CorrectPetStats(localPet)
     end
 end
 
+function GetPetOwner(pet)
+	return (pet:GetObjectOwner() or pet:GetObjVar("controller"))
+end
+
 function SendMobileDataToDebugMessage(localMobile)
     -- This method is used to pump a lot of gameobject and template data into the console.
 
