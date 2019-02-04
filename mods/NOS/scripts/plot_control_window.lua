@@ -1,4 +1,3 @@
-
 local controller, plotController, isHouse, tab, contextCoOwner
 
 function Init(controllerObj, plotControllerObj, defaultTab)    
@@ -13,7 +12,7 @@ function Init(controllerObj, plotControllerObj, defaultTab)
     -- when controller isn't plot controller, it's a house.
     isHouse = controller.Id ~= plotController.Id
 
-    tab = defaultTab or ((isHouse and "Co-Owners") or "Info")
+    tab = defaultTab or ((isHouse and "Security") or "Info")
     UpdateWindow()
 end
 
@@ -33,11 +32,11 @@ function UpdateWindow()
         return
     end
 
-    local dynamicWindow = DynamicWindow("PlotControlWindow", (isHouse and "House" or "Plot") .. " Control",350,334,0,0,"")
+    local dynamicWindow = DynamicWindow("PlotControlWindow", (isHouse and "House" or "Plot") .. " Control",350,354,0,0,"")
 
     local tabs = {}
     if ( isHouse ) then
-        table.insert(tabs,{ Text = "Co-Owners" })
+        table.insert(tabs,{ Text = "Security" })
     else
         table.insert(tabs,{ Text = "Info" })
     end
@@ -48,7 +47,9 @@ function UpdateWindow()
     AddTabMenu(dynamicWindow,
     {
         ActiveTab = tab, 
-        Buttons = tabs
+        Buttons = tabs,
+        ButtonWidth = 103,
+        Width = 310,
     })    
 
     HandleTabs(dynamicWindow)
@@ -63,8 +64,9 @@ function HandleTabs(dynamicWindow)
         DecorateTab(dynamicWindow)
     else
         if ( isHouse ) then
-            if ( tab == "Co-Owners" ) then
+            if ( tab == "Security" ) then
                 CoOwnerTab(dynamicWindow)
+                FriendTab(dynamicWindow)
             end
         else
             if ( tab == "Info" ) then
@@ -91,11 +93,14 @@ function HandleDecorateWindowResponse(returnId)
     return true
 end
 
-function HandleCoOwnerTabResponse(returnId, user)
+function HandleSecurityTabResponse(returnId, user)
     local option, arg = string.match(returnId, "(.+)|(.+)")
-    if ( option == "Select" ) then
+    if ( option == "SelectCoOwner" ) then
         contextArg = arg
         user:OpenCustomContextMenu("CoOwnerOptions","Action",{"Remove"})
+    elseif ( option == "SelectFriend" ) then
+        contextArg = arg
+        user:OpenCustomContextMenu("FriendOptions","Action",{"Remove"})
     else
         -- nothing matched
         return false
@@ -105,7 +110,7 @@ function HandleCoOwnerTabResponse(returnId, user)
 end
 
 function DecorateTab(dynamicWindow)
-    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,244,"Sliced")
+    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,264,"Sliced")
 
     local lockdownStr = string.format("%d / %d", controller:GetObjVar("LockCount") or 0, controller:GetObjVar("LockLimit") or 10)
     dynamicWindow:AddLabel(20,44,"Lockdowns:",0,0,18)
@@ -127,7 +132,7 @@ function DecorateTab(dynamicWindow)
 end
 
 function ManageTab(dynamicWindow)
-    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,244,"Sliced")
+    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,264,"Sliced")
 
     -- shared buttons
     dynamicWindow:AddButton(20,40,"Rename","Rename",290,26,"Max 20 characters","",false,"List")
@@ -144,19 +149,18 @@ end
 
 -- house only
 function CoOwnerTab(dynamicWindow)
-    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,244,"Sliced")
+    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,132,"Sliced")
 
-    dynamicWindow:AddButton(20,240,"AddCoOwner","Add Co-Owner",290,26,"Co-Owners can Lock/Unlock the door, use secure containers, and lock down/release items. Only in this house.","",false,"List")
-    dynamicWindow:AddButton(20,200,"OpenBank","Open Your Bank",290,26,"Open your bank for free, temporarily.","",false,"List")
+    dynamicWindow:AddButton(11,135,"AddCoOwner","Add Co-Owner",308,26,"Co-Owners can Lock/Unlock the door, use secure containers, and lock down/release items. Only in this house.","",false,"List")
     
     local coOwners = controller:GetObjVar("HouseCoOwners") or {}
-    local scrollWindow = ScrollWindow(21,44,280,184,23)
+    local scrollWindow = ScrollWindow(18,38,280,92,23)
     local any = false
 
     for coowner,v in pairs(coOwners) do
         any = true
         local scrollElement = ScrollElement()
-        scrollElement:AddButton(0,0,string.format("Select|%s", coowner.Id),"",260,23,"","",false,"ThinFrameHover","")
+        scrollElement:AddButton(0,0,string.format("SelectCoOwner|%s", coowner.Id),"",260,23,"","",false,"ThinFrameHover","")
         scrollElement:AddLabel(
             6, --(number) x position in pixels on the window
             6, --(number) y position in pixels on the window
@@ -171,12 +175,61 @@ function CoOwnerTab(dynamicWindow)
         )
         scrollWindow:Add(scrollElement)
     end
+
     if not( any ) then
         local scrollElement = ScrollElement()
         scrollElement:AddLabel(
             6, --(number) x position in pixels on the window
             6, --(number) y position in pixels on the window
-            "No Co-Owners", --(string) text in the label
+            "No Co-Owners Added.", --(string) text in the label
+            0, --(number) width of the text for wrapping purposes (defaults to width of text)
+            0, --(number) height of the label (defaults to unlimited, text is not clipped)
+            16 --(number) font size (default specific to client)
+            --"center", --(string) alignment "left", "center", or "right" (default "left")
+            --false, --(boolean) scrollable (default false)
+            --false, --(boolean) outline (defaults to false)
+            --"" --(string) name of font on client (optional)
+        )
+        scrollWindow:Add(scrollElement)
+    end
+
+    dynamicWindow:AddScrollWindow(scrollWindow)
+end
+-- house only
+function FriendTab(dynamicWindow)
+    dynamicWindow:AddImage(8,162,"BasicWindow_Panel",314,132,"Sliced")
+
+    dynamicWindow:AddButton(11,265,"AddFriend","Add Friend",308,26,"Friends can open locked doors and use assigned secure containers. Only in this house.","",false,"List")
+    
+    local friends = controller:GetObjVar("HouseFriends") or {}
+    local scrollWindow = ScrollWindow(18,168,280,92,23)
+    local any = false
+
+    for friend,v in pairs(friends) do
+        any = true
+        local scrollElement = ScrollElement()
+        scrollElement:AddButton(0,0,string.format("SelectFriend|%s", friend.Id),"",260,23,"","",false,"ThinFrameHover","")
+        scrollElement:AddLabel(
+            6, --(number) x position in pixels on the window
+            6, --(number) y position in pixels on the window
+            friend:GetCharacterName(), --(string) text in the label
+            0, --(number) width of the text for wrapping purposes (defaults to width of text)
+            0, --(number) height of the label (defaults to unlimited, text is not clipped)
+            16 --(number) font size (default specific to client)
+            --"center", --(string) alignment "left", "center", or "right" (default "left")
+            --false, --(boolean) scrollable (default false)
+            --false, --(boolean) outline (defaults to false)
+            --"" --(string) name of font on client (optional)
+        )
+        scrollWindow:Add(scrollElement)
+    end
+
+    if not( any ) then
+        local scrollElement = ScrollElement()
+        scrollElement:AddLabel(
+            6, --(number) x position in pixels on the window
+            6, --(number) y position in pixels on the window
+            "No Friends Added.", --(string) text in the label
             0, --(number) width of the text for wrapping purposes (defaults to width of text)
             0, --(number) height of the label (defaults to unlimited, text is not clipped)
             16 --(number) font size (default specific to client)
@@ -193,7 +246,7 @@ end
 
 -- plot only
 function TaxTab(dynamicWindow)
-    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,206,"Sliced")
+    dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,226,"Sliced")
 
     local plotBounds = plotController:GetObjVar("PlotBounds")
     -- this will need to be updated to support L shaped plots
@@ -207,14 +260,10 @@ function TaxTab(dynamicWindow)
     end
 
     local plotSizeStr = plotSize.X .. "x" .. plotSize.Z
-    local taxesDueStr = Plot.GetTaxDueString()
-    local taxesAmountStr = GetAmountStrShort(ValueToAmounts(Plot.CalculateRate(plotBounds)))
-    dynamicWindow:AddLabel(20,44,"Plot Size:",0,0,18)
-    dynamicWindow:AddLabel(162,44,plotSizeStr,0,0,18)
-
-    -- if (taxesBalanceStr ~= "0") then
-    --     dynamicWindow:AddButton(10,248,"Pay","Get refund: " .. taxesBalanceStr,311,26,"Get your money back.","",false,"List")
-    -- end
+    -- local taxesDueStr = Plot.GetTaxDueString()
+    -- local taxesAmountStr = GetAmountStrShort(ValueToAmounts(Plot.CalculateRate(plotBounds)))
+    -- dynamicWindow:AddLabel(20,44,"Plot Size:",0,0,18)
+    -- dynamicWindow:AddLabel(162,44,plotSizeStr,0,0,18)
     -- dynamicWindow:AddLabel(20,64,"Taxes Due:",0,0,18)
     -- dynamicWindow:AddLabel(162,64,taxesDueStr,0,0,18)
     -- dynamicWindow:AddLabel(20,84,"Weekly Tax:",0,0,18)
@@ -223,6 +272,9 @@ function TaxTab(dynamicWindow)
     -- dynamicWindow:AddLabel(162,104,taxesBalanceStr,0,0,18)
 
     dynamicWindow:AddButton(10,248,"Checkin","Check in weekly!",311,26,"Check in here or open stuff on your plot to reset decay timers.","",false,"List")
+
+
+    -- dynamicWindow:AddButton(10,268,"Pay","Add to Tax Balance",311,26,"Deposit money into the tax balance for this plot.","",false,"List")
 end
 
 
@@ -232,6 +284,16 @@ RegisterEventHandler(EventType.ContextMenuResponse,"CoOwnerOptions", function(us
     if ( contextArg ) then
         if ( optionStr == "Remove" ) then
             Plot.RemoveHouseCoOwner(user, GameObj(tonumber(contextArg)), controller)
+            UpdateWindow()
+        end
+    end
+end)
+
+RegisterEventHandler(EventType.ContextMenuResponse,"FriendOptions", function(user,optionStr)
+    if ( contextArg ) then
+        if ( optionStr == "Remove" ) then
+            Plot.RemoveHouseFriend(user, GameObj(tonumber(contextArg)), controller)
+            UpdateWindow()
         end
     end
 end)
@@ -247,7 +309,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
         return
     end
     
-    if ( user ~= this or HandleDecorateWindowResponse(returnId) or HandleCoOwnerTabResponse(returnId, user) ) then return end
+    if ( user ~= this or HandleDecorateWindowResponse(returnId) or HandleSecurityTabResponse(returnId, user) ) then return end
 
     -- handle tabs
     local newTab = HandleTabMenuResponse(returnId)
@@ -273,13 +335,8 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
         elseif ( returnId == "AddCoOwner" ) then
             this:SendMessage("StartMobileEffect", "HouseAddCoOwner", controller)
             return -- don't cleanup
-        elseif ( returnId == "OpenBank" ) then
-            local distance = controller:GetLoc():Distance(this:GetLoc())
-            if (distance > 6) then
-                this:SystemMessage(tostring("Move a little closer to the center of your house to access your bank!"))
-            else
-                this:SendMessage("OpenBank", controller)
-            end
+        elseif ( returnId == "AddFriend" ) then
+            this:SendMessage("StartMobileEffect", "HouseAddFriend", controller)
             return -- don't cleanup
         end
     else
