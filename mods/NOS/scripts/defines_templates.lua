@@ -250,12 +250,11 @@ TemplateDefines = {
 			},
 		},
 
-
 		SpiderPoor = 
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 1, Template = "animalparts_spider_silk", Unique = true },
+    			{ Chance = 1, Template = "ingredient_spidersilk", Unique = true },
     		},
 		},
 
@@ -263,7 +262,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 10, Template = "animalparts_spider_silk", Unique = true, StackCountMin = 1, StackCountMax = 2 },
+    			{ Chance = 10, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 1, StackCountMax = 2 },
     		},
 		},
 
@@ -271,7 +270,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-    			{ Chance = 25, Template = "animalparts_spider_silk", Unique = true, StackCountMin = 1, StackCountMax = 3 },
+    			{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 1, StackCountMax = 3 },
     		},
 		},
 

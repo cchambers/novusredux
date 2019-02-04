@@ -15,6 +15,28 @@ mPowerHourTrigger = 2500000
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")
 
+function TotemGlobalEvent(task) 
+    local api = tostring("http://localhost:1337/api/"..task)
+    
+    local payload = ""
+
+    if (task == "powerhour") then
+        payload = [[ { "name": "nada" } ]]
+        local res, code, response_headers, status =
+        http.request{
+            url = api,
+            method = "POST",
+            headers = { 
+                ["Content-Type"] = "application/json",
+                ["Content-Length"] = payload:len()
+            },
+            source = ltn12.source.string(payload),
+            sink = ltn12.sink.table(response_body)
+        }
+    end
+    
+end
+
 function Totem(mobile, task, args)
     local id = mobile.Id
     local account = tostring(mobile:GetAttachedUserId())
@@ -97,6 +119,7 @@ end
 
 function PowerHourDonate(amount) 
     local donations = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
+    if (donations < 5) then donations = 5 end
     donations = donations + amount
 	GlobalVarWrite("GlobalPowerHour", nil, function(record) 
         record["Donations"] = donations;
@@ -123,6 +146,8 @@ function TriggerGlobalPowerHour()
         user:SendMessageGlobal("StartMobileEffect", "PowerHourBuff")
         user:PlayAnimation("roar")
         user:PlayEffect("ImpactWaveEffect", 2)
-        user:SystemMessage("Global Power Hour triggered for free! ENJOY [ff0000]<3[-]")
+        user:SystemMessage("Global Power Hour triggered! [ff0000]<3[-]", "event")
     end
+
+    TotemGlobalEvent("powerhour")
 end

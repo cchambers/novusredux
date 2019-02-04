@@ -36,7 +36,7 @@ MobileEffectLibrary.Tame =
 			}
 			local str = things[math.random(1,#things)];
 			local targetName = self.Target:GetName()
-			self.ParentObj:NpcSpeech(string.format(str, targetName))
+			self.ParentObj:NpcSpeechToUser(string.format(str, targetName), self.ParentObj)
 			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
 		end)
 		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(2), "Taming.Talk")
