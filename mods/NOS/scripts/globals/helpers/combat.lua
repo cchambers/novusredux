@@ -97,6 +97,7 @@ end
 
 function PowerHourDonate(amount) 
     local donations = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
+    if (donations < 5) then donations = 5 end
     donations = donations + amount
 	GlobalVarWrite("GlobalPowerHour", nil, function(record) 
         record["Donations"] = donations;
