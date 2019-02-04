@@ -20,7 +20,7 @@ function TotemGlobalEvent(task)
     
     local payload = ""
 
-    if (task ~= nil) then
+    if (task == "powerhour") then
         payload = [[ { "name": "nada" } ]]
         local res, code, response_headers, status =
         http.request{
@@ -148,4 +148,6 @@ function TriggerGlobalPowerHour()
         user:PlayEffect("ImpactWaveEffect", 2)
         user:SystemMessage("Global Power Hour triggered! [ff0000]<3[-]", "event")
     end
+
+    TotemGlobalEvent("powerhour")
 end
