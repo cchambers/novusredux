@@ -1670,7 +1670,7 @@ FabricationSkill = {
 			Subcategory = "Cloth",
 			NeedRecipe = false,
 			CanSalvage = false,
-			StackCount = 5,
+			StackCount = 1,
 			Resources = {
 				Spidersilk = 5,
 			},
