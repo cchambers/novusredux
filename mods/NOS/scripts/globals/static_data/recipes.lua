@@ -1659,6 +1659,23 @@ FabricationSkill = {
 			},
 		},
 
+		SilkThread = {
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
+			DisplayName = "Silk Thread",
+			CraftingTemplateFile = "animalparts_spider_silk",
+			Description = "A fabric woven from fine silk. Can be used to make silk clothing and armor.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Cloth",
+			NeedRecipe = false,
+			CanSalvage = false,
+			StackCount = 5,
+			Resources = {
+				Spidersilk = 5,
+			},
+		},
+
 		SilkCloth = {
 			MinLevelToCraft = 50,
 			MaxLevelToGain = 75,
