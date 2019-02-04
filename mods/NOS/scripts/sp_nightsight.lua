@@ -1,7 +1,7 @@
 require 'incl_gametime'
 
 function HandleInit() 
-	this:SendClientMessage("TimeUpdate", {0, 100, 0})
+	this:SendClientMessage("TimeUpdate", {0, 10000, 0})
 	this:SystemMessage("You can now see in the dark.", "info")
 	this:ScheduleTimerDelay(TimeSpan.FromMinutes(10), "EndNightSight")
 end
