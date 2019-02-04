@@ -150,7 +150,7 @@ end
 -- house only
 function CoOwnerTab(dynamicWindow)
     dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,132,"Sliced")
-
+    dynamicWindow:AddButton(20,200,"OpenBank","Open Your Bank",290,26,"Open your bank for free, temporarily.","",false,"List")
     dynamicWindow:AddButton(11,135,"AddCoOwner","Add Co-Owner",308,26,"Co-Owners can Lock/Unlock the door, use secure containers, and lock down/release items. Only in this house.","",false,"List")
     
     local coOwners = controller:GetObjVar("HouseCoOwners") or {}
@@ -338,6 +338,13 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "PlotControlWindow", funct
         elseif ( returnId == "AddFriend" ) then
             this:SendMessage("StartMobileEffect", "HouseAddFriend", controller)
             return -- don't cleanup
+        elseif ( returnId == "OpenBank" ) then
+            local distance = controller:GetLoc():Distance(this:GetLoc())
+            if (distance > 6) then
+                this:SystemMessage(tostring("Move a little closer to the center of your house to access your bank!"))
+            else
+                this:SendMessage("OpenBank", controller)
+            end
         end
     else
         -- handle individual button responses (all tabs) for plots
