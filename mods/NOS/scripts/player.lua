@@ -953,6 +953,26 @@ OverrideEventHandler(
 	end
 )
 
+function StartPowerHour(global) 
+	this:SetObjVar("PowerHourEnds", 60)
+	this:PlayAnimation("roar")
+	this:PlayEffect("ImpactWaveEffect", 2)
+	if (global == true) then
+		this:SendMessage("StartMobileEffect", "PowerHourBuff", { Global = true })
+	else
+		this:SendMessage("StartMobileEffect", "PowerHourBuff")
+	end
+end
+
+RegisterEventHandler(Event.Message, "StartPowerHour", StartPowerHour)
+RegisterEventHandler(Event.Message, "StartGlobalPowerHour", function () StartPowerHour(true) end)
+
+UnregisterEventHandler(
+	"",
+	Event.ClientUserCommand,
+	"stuck"
+)
+
 RegisterEventHandler(
 	EventType.ClientUserCommand,
 	"stuck",

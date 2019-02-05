@@ -219,13 +219,9 @@ RegisterEventHandler(
 							if (user == nil or buttonId == nil) then
 								return
 							end
-							-- Handles the invite command of the dynamic window
 							if (buttonId == 0) then
 								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
-								user:SetObjVar("PowerHourEnds", 60)
-								user:SendMessage("StartMobileEffect", "PowerHourBuff")
-								user:PlayAnimation("roar")
-								user:PlayEffect("ImpactWaveEffect", 2)
+								user:SendMessage("StartPowerHour")
 								ShowStatusElement(user,{IsSelf=true,ScreenX=10,ScreenY=10})
 								return
 							end
