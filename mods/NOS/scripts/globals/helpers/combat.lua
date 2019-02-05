@@ -141,12 +141,7 @@ function TriggerGlobalPowerHour()
     local online = GlobalVarRead("User.Online") or {}
 	local results = {}
 	for gameObj,dummy in pairs(online) do
-        local user = gameObj
-        user:SetObjVar("PowerHourEnds", 60)
-        user:SendMessageGlobal("StartMobileEffect", "PowerHourBuff")
-        user:PlayAnimation("roar")
-        user:PlayEffect("ImpactWaveEffect", 2)
-        user:SystemMessage("Global Power Hour triggered! [ff0000]<3[-]", "event")
+        gameObj:SendMessageGlobal("StartGlobalPowerHour")
     end
 
     TotemGlobalEvent("powerhour")
