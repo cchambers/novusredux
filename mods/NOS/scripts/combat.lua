@@ -715,11 +715,9 @@ function ApplyDamageToTarget(victim, damageInfo)
 						(0.5 + (1 * (GetSkillLevel(_MyOwner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single)))
 				end
 			elseif (damageInfo.Source) then
-				local executioner = damageInfo.Source:GetObjVar("Executioner")
+				local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
 				if (executioner ~= nil) then
-					finalDamage =
-						finalDamage *
-						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
+					finalDamage = finalDamage * (executioner or 1)
 				end
 
 				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
