@@ -960,16 +960,17 @@ function StartPowerHour(global)
 	if (global == true) then
 		this:SendMessage("StartMobileEffect", "PowerHourBuff", { Global = true })
 	else
+		this:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
 		this:SendMessage("StartMobileEffect", "PowerHourBuff")
 	end
 end
 
-RegisterEventHandler(Event.Message, "StartPowerHour", StartPowerHour)
-RegisterEventHandler(Event.Message, "StartGlobalPowerHour", function () StartPowerHour(true) end)
+RegisterEventHandler(EventType.Message, "StartPowerHour", function () StartPowerHour() end)
+RegisterEventHandler(EventType.Message, "StartGlobalPowerHour", function () StartPowerHour(true) end)
 
 UnregisterEventHandler(
 	"",
-	Event.ClientUserCommand,
+	EventType.ClientUserCommand,
 	"stuck"
 )
 

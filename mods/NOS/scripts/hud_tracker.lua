@@ -220,8 +220,7 @@ RegisterEventHandler(
 								return
 							end
 							if (buttonId == 0) then
-								user:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
-								user:SendMessage("StartPowerHour")
+								user:SendMessageGlobal("StartPowerHour")
 								ShowStatusElement(user,{IsSelf=true,ScreenX=10,ScreenY=10})
 								return
 							end
