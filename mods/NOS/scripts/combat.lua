@@ -717,7 +717,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			elseif (damageInfo.Source) then
 				local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
 				if (executioner ~= nil) then
-					finalDamage = finalDamage * (executioner or 1)
+					finalDamage = finalDamage * (ServerSettings.Executioner.LevelModifier[executioner] or 1)
 				end
 
 				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
