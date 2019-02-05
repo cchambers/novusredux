@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Test[-]</Name>
+	<ClientId>1526</ClientId>
+	<Hue>0</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ShieldType">Buckler</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>			
+</ObjectTemplate>

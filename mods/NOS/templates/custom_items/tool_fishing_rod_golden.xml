@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[978161]Fishing Rod[-]</Name>
+	<ClientId>635</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">FishingRod</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="tool_fishing_rod"/>	
+	</ScriptEngineComponent>
+</ObjectTemplate>

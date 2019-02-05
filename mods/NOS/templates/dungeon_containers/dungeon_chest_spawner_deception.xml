@@ -9,7 +9,7 @@
 			<Initializer>
 				{   
 					-- The maximum number of spawns based on a percentage of the number of nodes
-					MaxSpawnPercent = 10,
+					MaxSpawnPercent = 5,
 					-- how often will the spawner attempt to spawn a chest
 					SpawnPulseFrequency = TimeSpan.FromSeconds(10),
 					-- the chance it will attempt to spawn a chest during a pulse
@@ -17,11 +17,11 @@
 					SpawnPulseChance = 0.5,
 				    SpawnTable = {
 				    	-- weighted chance this chest will spawn
-				    	{ Weight = 50, Template="dungeon_chest_1" },
-				    	{ Weight = 40, Template="dungeon_chest_2" },
-				    	{ Weight = 30, Template="dungeon_chest_3" },
-				    	{ Weight = 15, Template="dungeon_chest_4" },
-				    	{ Weight = 5, Template="dungeon_chest_5" },
+				    	{ Weight = 60, Template="dungeon_chest_1" },
+				    	{ Weight = 30, Template="dungeon_chest_2" },
+				    	{ Weight = 10, Template="dungeon_chest_3" },
+				    	{ Weight = 0, Template="dungeon_chest_4" },
+				    	{ Weight = 0, Template="dungeon_chest_5" },
 				    }
 				}
 			</Initializer>

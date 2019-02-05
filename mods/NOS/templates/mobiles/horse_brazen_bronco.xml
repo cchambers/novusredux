@@ -62,7 +62,7 @@
 					{
 					},					
 					WeaponAbilities = { primary="FollowThrough" },	
-					AvailableSpells = { "Frost", "Bombardment", "Meteor" },
+					AvailableSpells = { "Frost", "Bombardment" },
 				}
 			</Initializer>
 		</LuaModule>

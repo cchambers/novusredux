@@ -80,6 +80,10 @@ end
 
 function UpdateConsumableWindow()
 	mCONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
+	local PH = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
+	PH = (PH / 2500000) * 100
+	PH = tostring(math.round(PH, 2) .. "%")
+
 	if (not(IsDead(this))) then
 		local fontname = "PermianSlabSerif_Dynamic_Bold"
 
@@ -112,10 +116,10 @@ function UpdateConsumableWindow()
 		mCONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
 		mCONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(7), "FLWR", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
 		mCONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 	end
 
 	local next = this:GetObjVar("NextPowerHour")
@@ -143,7 +147,7 @@ function ColorizeAmount(what, amount)
 	return "["..mLevelColors[level].."]"..what.."[-]"
 end
 
-function UpdateConsumables()
+function UpdateCnx()
 	local NOSCNX = DynamicWindow("NOSCNX" .. this.Id, "Server Stats", 600, 60, 0, -14, "Transparent", "BottomLeft")
 	local online = GlobalVarRead("User.Online")
 	local total = 0
@@ -160,6 +164,16 @@ function UpdateConsumables()
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"Hud.UpdateStats")
 end
 
+function UpdateAlert()
+	local NOSALERT = DynamicWindow("NOSALERT" .. this.Id, "Server Stats", 600, 60, 0, -300, "Transparent", "BottomLeft")
+	
+	NOSALERT:AddLabel(18, 0, tostring("[ff0000]Alert:[-] Event incoming, COLOR WARS in... "), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
+	this:OpenDynamicWindow(NOSALERT)
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"Hud.UpdateStats")
+end
+
+
+
 function StatBar() 
 	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", "FF0000", this)
 	mCONSUME:AddStatBar(-20, -27, 129, 7, "Mana", "3388ff", this)
@@ -167,8 +181,13 @@ function StatBar()
 end
 
 RegisterEventHandler(EventType.Timer, "Hud.UpdateStats", function() 
-	UpdateConsumables()
+	-- UpdateAlert()
+	UpdateCnx()
 	DoCount()
+	local alert = this:HasObjVar("AlertActive")
+	if (alert ~= nil) then
+		-- get "AlertEnds"
+	end
 end)
 
 

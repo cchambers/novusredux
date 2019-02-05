@@ -227,6 +227,11 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 	-- some queued abilities will bypass the normal execute hit action and call it manually, or do whatever is needed for the ability.
 	if (mQueuedWeaponAbility == nil or mQueuedWeaponAbility.SkipHitAction ~= true) then
 		if (hitSuccess) then
+			if (ranged) then
+				local targetArrowTable = atTarget:GetObjVar("ArrowCount") or { Arrows = 0, AshArrows = 0, BlightwoodArrows = 0 }
+				targetArrowTable[mArrowType] = targetArrowTable[mArrowType] + 1
+				atTarget:SetObjVar("ArrowCount", targetArrowTable)
+			end
 			ExecuteHitAction(atTarget, hand)
 		else
 			ExecuteMissAction(atTarget, hand)
@@ -529,7 +534,7 @@ function CheckHitSuccess(victim, hand)
 		end
 	else
 		-- mobs cannot have a hit chance lower than 50%.
-		hitSuccess = Success(math.max(hitChance / 100, 0.5))
+		hitSuccess = Success(math.max(hitChance / 100, 0.75))
 	end
 
 	return hitSuccess
@@ -1169,7 +1174,7 @@ function FindArrowType(mobile)
 				))
 			 then
 				mArrowType = type
-				mArrowDamageBonus = ArrowTypeData[type].Damage or 0
+				mArrowDamageBonus = ArrowTypeData[type].DamageBonus or 0
 				return true
 			end
 		end

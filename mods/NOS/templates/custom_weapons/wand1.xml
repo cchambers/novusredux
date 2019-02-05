@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Wand[-]</Name>
+	<ClientId>858</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="9"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Wand</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

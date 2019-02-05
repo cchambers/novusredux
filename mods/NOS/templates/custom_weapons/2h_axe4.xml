@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Great Axe[-]</Name>
+	<ClientId>1455</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="8"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">GreatAxe</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

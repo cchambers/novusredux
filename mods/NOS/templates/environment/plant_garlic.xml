@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<Name>[bdbdbd]Garlic[-]</Name>
+	<Name>Garlic</Name>
 	<ClientId>1012</ClientId>
 	<ScaleModifier>0.6</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>

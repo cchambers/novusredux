@@ -1,0 +1,69 @@
+<ObjectTemplate>
+	<ClientId>322</ClientId>
+	<Name>Greater Demon</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Giant</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">52</DoubleVariable>
+		<DoubleVariable Name="Attack">34</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="PetSlots">8</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">88</DoubleVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 65,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MapsLow,
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.PotionsPoor,
+						{
+							NumCoins = math.random(90,225),
+						},	
+					},
+				ScavengeTables =
+					{
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{				
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
