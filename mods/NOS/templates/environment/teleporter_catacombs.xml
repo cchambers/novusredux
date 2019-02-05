@@ -1,8 +1,0 @@
-<ObjectTemplate>
-	<Name>Teleporter</Name>
-	<ClientId>823</ClientId>
-	<ObjectVariableComponent/>
-	<ScriptEngineComponent>
-		<LuaModule Name="teleporter"/>
-	</ScriptEngineComponent>
-</ObjectTemplate>

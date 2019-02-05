@@ -100,6 +100,14 @@ SkillData = {
 			GainFactor = 0.375,
 			Abilities = { "Focus" },
 		},
+		ParryingSkill = {
+			DisplayName = "Parrying",
+			PrimaryStat = "Strength",
+			Description = "Not used.",
+			SkillType = "CombatTypeSkill",
+			GainFactor = 0.1,
+			Skip = true
+		},
 		EvocationSkill = {
 			DisplayName = "Evocation",
 			PrimaryStat = "Intelligence",
