@@ -497,6 +497,11 @@ function CheckHitSuccess(victim, hand)
 	local evasion = victim:GetStatValue("Evasion")
 	local hitChance = ((accuracy) / ((evasion) * 2) * 100)
 
+	-- INCREASE CHANCE OF HIT WITH 2H WEAPONS... 
+	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].TwoHandedWeapon) then
+		hitChance = hitChance * 1.5
+	end
+
 	local hitSuccess = false
 	-- if player or tamed pet
 	if (isPlayer or _MyOwner ~= nil) then

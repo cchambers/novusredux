@@ -5,5 +5,6 @@
 	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceSourceId">MushroomsPoison</StringVariable>
+		<DoubleVariable Name="HarvestGateMax">100</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>
