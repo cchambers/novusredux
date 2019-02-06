@@ -1,5 +1,17 @@
+require 'base_ai_settings'
+require 'base_ai_state_machine'
+require 'incl_combatai'
+require 'incl_combat_abilities'
 require 'incl_magic_sys'
 
+AI.CombatStateTable = {
+    {StateName = "Melee",Type = "melee",Range = 0},
+    {StateName = "AttackAbility",Type = "melee",Range = 0},
+    {StateName = "Flee",Type = "flee", Range = AI.GetSetting("AggroRange"),},
+    {StateName = "Chase",Type = "chase",Range = AI.GetSetting("AggroRange"),},
+}
+
+AI.StateMachine.ChangeState("Idle")
 --Set to cast
 AI.SetSetting("CanCast", true)
 

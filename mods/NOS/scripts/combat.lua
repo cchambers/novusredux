@@ -895,32 +895,103 @@ function InitiateCombatSequence()
 	end
 
 	-- if IS PET...
-	-- and IF CAN CAST...
-	-- ROLL TO CAST!
+	local isPet = this:GetObjectOwner()
 
-	local ready = mSwingReady
-	if (ready.RightHand) then
-		-- swing is ready, do it
-		PerformWeaponAttack(mCurrentTarget, "RightHand")
-	elseif not (this:HasTimer("SWING_TIMER_RightHand")) then
-		-- start swing over
-		ResetSwingTimer(0, "RightHand")
-	end
+	if (isPet) then
+		local canTryAbility = (AI.GetSetting("CanUseCombatAbilities") ~= false and (this:HasObjVar("CombatAbilities") or this:HasObjVar("WeaponAbilities")) )
+        if (AI.GetSetting("CanCast") == true or AI.GetSetting("NoMelee")) then
+            local shouldCast = math.random(1,3)
 
-	if (mDualWielding) then
-		if (ready.LeftHand) then
-			PerformWeaponAttack(mCurrentTarget, "LeftHand")
-		elseif not (this:HasTimer("SWING_TIMER_LeftHand")) then
-			ResetSwingTimer(0, "LeftHand")
+            if (shouldCast == 1 or not AI.GetSetting("NoMelee")) then
+                local CastTable = {}
+                -- setup CastTable to hold the spells this AI can cast
+                if (AI.Spells ~= nil) then
+                    for spellName,data in pairs(AI.Spells) do
+                        if(CanCast(spellName, AI.MainTarget) and AI.StateMachine.AllStates["Cast"..spellName] ~= nil) then
+                            table.insert(CastTable, spellName)
+                        end
+                    end
+                end
+
+                -- continue casting if we have at least one castable spell and there's no cooldown
+                if #CastTable > 0 and not this:HasTimer("CastCooldownTimer") then
+                    -- Pick a random one of these spells
+                    local spell = math.random(1, #CastTable)
+                    -- Change state to that spell
+                    AI.StateMachine.ChangeState("Cast"..CastTable[spell])
+                else
+                    local ability = math.random(1,3) 
+                    if (ability == 1 and canTryAbility) then
+                        AI.StateMachine.ChangeState("AttackAbility")
+                    else
+                        AI.StateMachine.ChangeState("Melee")
+                    end
+                end
+            elseif (shouldCast == 2) then
+                if (canTryAbility) then
+                    AI.StateMachine.ChangeState("AttackAbility")
+                else
+                    AI.StateMachine.ChangeState("Melee")
+                end
+            else
+                AI.StateMachine.ChangeState("Melee")
+            end
+        end
+	else
+		local ready = mSwingReady
+		if (ready.RightHand) then
+			-- swing is ready, do it
+			PerformWeaponAttack(mCurrentTarget, "RightHand")
+		elseif not (this:HasTimer("SWING_TIMER_RightHand")) then
+			-- start swing over
+			ResetSwingTimer(0, "RightHand")
+		end
+
+		if (mDualWielding) then
+			if (ready.LeftHand) then
+				PerformWeaponAttack(mCurrentTarget, "LeftHand")
+			elseif not (this:HasTimer("SWING_TIMER_LeftHand")) then
+				ResetSwingTimer(0, "LeftHand")
+			end
+		end
+
+		if (mCurrentTarget ~= nil) then
+			SetupViews()
+			if (IsPlayerCharacter(this)) then
+				SendPetCommandToAll(GetActivePets(this, PetStance.Aggressive), "autoattack", mCurrentTarget)
+			end
 		end
 	end
+end
 
-	if (mCurrentTarget ~= nil) then
-		SetupViews()
-		if (IsPlayerCharacter(this)) then
-			SendPetCommandToAll(GetActivePets(this, PetStance.Aggressive), "autoattack", mCurrentTarget)
-		end
-	end
+--Used for when casting is enabled through including other files
+function CanCast(spellname,target)
+    --DebugMessageA(this,"Checking Cast")
+    if  (target == nil)  then
+        --DebugMessageA(this,"No Target")
+        return false
+    end  
+
+    local spellRange = GetSpellRange(spellname,this)
+    spellRange = spellRange * spellRange
+    --DebugMessageA(this,"the spell " .. spellname .. "  has a spell range of " .. tostring(GetSpellRange(spellname,this)) .. "and is being called from  " .. tostring(this:DistanceFrom(target)))
+    if (this:DistanceFromSquared(target) > spellRange) then
+        --DebugMessageA(this,"Out of range")
+        return false
+    end
+
+    if not(HasManaForSpell(spellname, this)) then
+        --DebugMessageA(this,"Doesnt Has Mana")
+        return false
+    end
+
+    if not(MeetsSkillRequirements(this,spellname)) then
+       --DebugMessageA(this,"Doesnt Has Skill Requirements")
+        return false
+    end
+    --DebugMessageA(this,"Current Mana before cast is " .. this:GetName()  .. ", is " .. tostring(GetCurMana(this)))
+
+    return true
 end
 
 --EVENT HANDLERS

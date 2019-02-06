@@ -31,6 +31,13 @@ function StableSelf()
 	end
 end
 
+RegisterEventHandler(EventType.Message, "ClearTarget",
+    function()
+        AI.ClearAggroList()
+        SetAITarget(nil)   
+    end)
+
+
 function UnStableSelf()
     -- CorrectPetStats(this)
 
