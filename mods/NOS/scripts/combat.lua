@@ -894,6 +894,10 @@ function InitiateCombatSequence()
 		end
 	end
 
+	-- if IS PET...
+	-- and IF CAN CAST...
+	-- ROLL TO CAST!
+
 	local ready = mSwingReady
 	if (ready.RightHand) then
 		-- swing is ready, do it

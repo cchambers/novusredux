@@ -1,5 +1,5 @@
 require 'default:pet_controller'
--- require 'base_pet_casting'
+require 'base_pet_casting'
 
 SetCurVitality(this,GetMaxVitality(this))
 

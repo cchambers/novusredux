@@ -1,4 +1,4 @@
-require "base_ai_mob"
+require 'incl_magic_sys'
 
 --Set to cast
 AI.SetSetting("CanCast", true)
