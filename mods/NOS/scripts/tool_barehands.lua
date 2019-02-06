@@ -3,6 +3,7 @@ require 'base_tool_resourceharvester'
 QUALITY_IMPROVEMENT_SKILL_THRESHOLD = 40
 FAIL_CHANCE_SKILL_THRESHOLD = 30
 BASE_UPGRADE_CHANCE = 10
+
 ResourceHarvester.ToolType = "BareHands"
 ResourceHarvester.HarvestAnimation = "forage"
 ResourceHarvester.HarvestStopAnimation = "kneel_standup"
@@ -20,37 +21,16 @@ mUser = nil
 ResourceHarvester.CollectResource = function(user,resourceType)
 	local backpackObj = user:GetEquippedObject("Backpack")  
 	if( backpackObj ~= nil ) then		
-		-- TODO - Verlorens - Add in difficulty to harvesting checks, requires adding difficulty to each plant.. necessary?
-		--if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
-		local HarvestingSkill = GetSkillLevel(this, "HarvestingSkill")
-		
-		-- Max number of goods per harvesting skill:
-		-- Skill:   0   20  40  60  80  100
-		-- # Goods: 1   1   2   2   3   4
+	
+		local HarvestingSkill = GetSkillLevel(user, "HarvestingSkill")
 		local maxAmount = math.floor((HarvestingSkill / 33) + 1)
 		local stackAmount = math.random(1, maxAmount)
-		-- DebugMessage('maxAmount: '..tostring(maxAmount)..', stackAmount:'..tostring(stackAmount))
-
 		local spawnerObj = this:GetObjVar("Spawner")
-
+		
 		if(spawnerObj) then
 			spawnerObj:SendMessage("MobHasDied",this)
 		end		
-
-		-- Remove the ability to level from the continuously spawning cotton farms.
-		local nearbyFarmCotton = FindObject(SearchMulti(
-		{
-			SearchRange(user:GetLoc(), 4),
-			SearchObjVar("spawnTemplate","plant_cotton"),
-		}))
-		if( not nearbyFarmCotton ) then
-			CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.5)
-		-- else
-		-- 	DebugMessage("ResourceSourceId: "..tostring(nearbyFarmCotton:GetObjVar("ResourceSourceId")))
-		-- 	DebugMessage("spawnTemplate: "..tostring(nearbyFarmCotton:GetObjVar("spawnTemplate")))
-		-- 	DebugMessage("spawnDelay: "..tostring(nearbyFarmCotton:GetObjVar("spawnDelay")))
-		end
-
+		
 		-- see if the user gets an upgraded version
 		resourceType = GetHarvestResourceType(user,resourceType)
 		if (resourceType == nil) then return end
@@ -74,9 +54,15 @@ base_CompleteHarvest = ResourceHarvester.CompleteHarvest
 ResourceHarvester.CompleteHarvest = function(objRef,user)
 	-- make sure the user is still valid
 	if( user == nil or not(user:IsValid()) ) then return end
-	
-	--DebugMessage("CompleteHarvest "..tostring(objRef) .. ", "..tostring(harvestQueued))
-	
+
+	local HarvestingSkill = GetSkillLevel(user, "HarvestingSkill")
+	local skipGains = false;
+	local HarvestGateMin = objRef:GetObjVar("HarvestGateMin") or 0
+	local HarvestGateMax = objRef:GetObjVar("HarvestGateMax") or 100
+	if ((HarvestingSkill < HarvestGateMin) or (HarvestingSkill > HarvestGateMax)) then skipGains = true end
+
+	CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.4, skipGains)
+
 	local resInfoTab = GetResourceSourceInfo(objRef)
 
 	if(resInfoTab == nil) then
