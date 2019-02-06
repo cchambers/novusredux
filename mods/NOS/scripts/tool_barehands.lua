@@ -23,6 +23,10 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 	if( backpackObj ~= nil ) then		
 	
 		local HarvestingSkill = GetSkillLevel(user, "HarvestingSkill")
+
+		-- Max number of goods per harvesting skill:
+		-- Skill:   0   20  40  60  80  100
+		-- # Goods: 1   1   2   2   3   4
 		local maxAmount = math.floor((HarvestingSkill / 33) + 1)
 		local stackAmount = math.random(1, maxAmount)
 		local spawnerObj = this:GetObjVar("Spawner")
