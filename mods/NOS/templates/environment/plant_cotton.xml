@@ -5,5 +5,7 @@
 	<SharedStateEntry name="DefaultInteraction" type="string" value="Harvest"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceSourceId">Cotton</StringVariable>
+		<DoubleVariable Name="HarvestGateMin">0</DoubleVariable>
+		<DoubleVariable Name="HarvestGateMax">40</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>

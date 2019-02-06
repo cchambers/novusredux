@@ -497,6 +497,11 @@ function CheckHitSuccess(victim, hand)
 	local evasion = victim:GetStatValue("Evasion")
 	local hitChance = ((accuracy) / ((evasion) * 2) * 100)
 
+	-- INCREASE CHANCE OF HIT WITH 2H WEAPONS... 
+	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].TwoHandedWeapon) then
+		hitChance = hitChance * 1.5
+	end
+
 	local hitSuccess = false
 	-- if player or tamed pet
 	if (isPlayer or _MyOwner ~= nil) then
@@ -715,11 +720,9 @@ function ApplyDamageToTarget(victim, damageInfo)
 						(0.5 + (1 * (GetSkillLevel(_MyOwner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single)))
 				end
 			elseif (damageInfo.Source) then
-				local executioner = damageInfo.Source:GetObjVar("Executioner")
+				local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
 				if (executioner ~= nil) then
-					finalDamage =
-						finalDamage *
-						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
+					finalDamage = finalDamage * (ServerSettings.Executioner.LevelModifier[executioner] or 1)
 				end
 
 				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")

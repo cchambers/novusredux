@@ -1,20 +1,26 @@
 MobileEffectLibrary.PowerHourBuff = {
 	OnEnterState = function(self, root, target, args)
+		local user = self.ParentObj
 		AddBuffIcon(
-            self.ParentObj,
+            user,
             "PowerHourEffect",
             "Power Hour",
             "Ignite",
             "You are gaining skills at an increased rate.",
             false
-        )
+		)
+		
+		if (args.Global == true) then
+			user:SystemMessage("Global Power Hour triggered! [ff0000]<3[-]", "info")
+		end
 	end,
 
 	OnExitState = function(self,root)
-		if ( self.ParentObj:IsPlayer() ) then
-			RemoveBuffIcon(self.ParentObj, "PowerHourEffect")
-			self.ParentObj:SystemMessage("Your Power Hour has ended.", "info")
-			self.ParentObj:DelObjVar("PowerHourEnds")
+		local user = self.ParentObj
+		if ( user:IsPlayer() ) then
+			RemoveBuffIcon(user, "PowerHourEffect")
+			user:SystemMessage("Your Power Hour has ended.", "info")
+			user:DelObjVar("PowerHourEnds")
 		end
 	end,
 

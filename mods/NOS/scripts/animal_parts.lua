@@ -44,12 +44,14 @@ function HarvestParts(user)
 	local animalPartsDict = this:GetObjVar("AnimalParts")
 	local backpackObj = this:GetEquippedObject("Backpack")
 	local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
+	local resource = nil
 	if(backpackObj) then
 		local partCount = 0
 		if(animalPartsDict) then
 			for i,partInfo in pairs(animalPartsDict) do				
 				local count = partInfo.Count or 1
 				if( count > 0 ) then
+					resource = ResourceData.ResourceInfo[partInfo.ResourceType]
 			        local templateId = ResourceData.ResourceInfo[partInfo.ResourceType].Template
 					local dropPos = GetRandomDropPosition(backpackObj)
 					
@@ -79,7 +81,14 @@ function HarvestParts(user)
 			user:SystemMessage("You harvest some materials from the corpse.","info")
 			backpackObj:SendOpenContainer(user)
 			this:SetObjVar("lootable",true) 
-			CheckSkillChance(user,"HarvestingSkill", GetSkillLevel(user), 0.10)
+
+			local HarvestGateMin = resource.HarvestGateMin or 0
+			local HarvestGateMax = resource.HarvestGateMax or 100
+			local skipGains = false
+
+			if ((harvestingSkill < HarvestGateMin) or (harvestingSkill > HarvestGateMax)) then skipGains = true end
+			
+			CheckSkillChance(user,"HarvestingSkill", harvestingSkill, 0.10, skipGains)
 			SetDefaultInteraction(this,"Open Pack")
 			
 			SetMobileMod(user,"Busy","BusyHarvesting")

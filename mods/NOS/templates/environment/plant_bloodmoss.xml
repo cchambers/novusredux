@@ -8,6 +8,8 @@
 	<SharedStateEntry name="DefaultInteraction" type="string" value="Forage"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceSourceId">Bloodmoss</StringVariable>
+		<DoubleVariable Name="HarvestGateMin">40</DoubleVariable>
+		<DoubleVariable Name="HarvestGateMax">100</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="harvestable_plant"/>
