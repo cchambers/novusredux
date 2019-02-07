@@ -1404,6 +1404,20 @@ WoodsmithSkill = {
 				Boards = 4,
 			},
 		},
+		ArrowboxOfHolding = {
+			MinLevelToCraft = 55,
+			MaxLevelToGain = 80,
+			DisplayName = "Arrow Box of Holding",
+			Description = "A magical arrow container.",
+			NeedRecipe = false,
+			CraftingTemplateFile = "arrowbox_magic",
+			Category = "Furnishings",
+			Subcategory = "Storage",
+			Resources = {
+				BlightwoodBoards = 6,
+				EtherealBones = 2
+			},
+		},
 		Dresser = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 85,
