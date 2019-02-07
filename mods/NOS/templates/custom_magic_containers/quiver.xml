@@ -1,0 +1,36 @@
+<ObjectTemplate>
+	<ClientId>554</ClientId>
+	<Name>[0078ff]Arrow Box of Holding[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="3"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="container_magic">
+			<Initializer>
+				{
+					ResourceTypes = {
+						{
+							"Arrows",
+							"AshArrows",
+							"BlightwoodArrows",
+						},							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables = {
+						{						
+						    NumItems = 1,
+							LootItems = 
+							{ 	
+								{ Template = "arrow", StackCount = 100, Unique = true },
+							} 
+						},							
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

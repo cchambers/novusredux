@@ -1,11 +1,8 @@
 <ObjectTemplate>
 	<ClientId>555</ClientId>
 	<Name>[0078ff]Reagent Bag of Holding[-]</Name>
-	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<SharedStateEntry name="Capacity" type="int" value="8"/>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>
-		<BoolVariable Name="Reward">True</BoolVariable>
-	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container_magic">
 		<Initializer>
