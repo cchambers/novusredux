@@ -1405,8 +1405,8 @@ WoodsmithSkill = {
 			},
 		},
 		ArrowboxOfHolding = {
-			MinLevelToCraft = 55,
-			MaxLevelToGain = 80,
+			MinLevelToCraft = 100,
+			MaxLevelToGain = 100,
 			DisplayName = "Arrow Box of Holding",
 			Description = "A magical arrow container.",
 			NeedRecipe = false,
