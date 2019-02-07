@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<ClientId>554</ClientId>
+	<ClientId>1875</ClientId>
 	<Name>[0078ff]Arrow Box of Holding[-]</Name>
 	<SharedStateEntry name="Capacity" type="int" value="3"/>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
