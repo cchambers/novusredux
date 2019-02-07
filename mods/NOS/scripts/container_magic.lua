@@ -42,7 +42,6 @@ function HandleMagicContainer()
 end
 
 function RefreshWeight()
-    DebugMessage("HAY") 
     HandleMagicContainer()
 end
 
