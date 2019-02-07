@@ -1404,6 +1404,20 @@ WoodsmithSkill = {
 				Boards = 4,
 			},
 		},
+		ArrowboxOfHolding = {
+			MinLevelToCraft = 100,
+			MaxLevelToGain = 100,
+			DisplayName = "Arrow Box of Holding",
+			Description = "A magical arrow container.",
+			NeedRecipe = false,
+			CraftingTemplateFile = "arrowbox_magic",
+			Category = "Furnishings",
+			Subcategory = "Storage",
+			Resources = {
+				BlightwoodBoards = 6,
+				EtherealBones = 2
+			},
+		},
 		Dresser = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 85,
@@ -2185,6 +2199,22 @@ FabricationSkill = {
 			Subcategory = "Containers",
 			Resources = {
 				Leather = 1,
+			},
+		},
+		
+		RegbagOfHolding = {
+			MinLevelToCraft = 100,
+			MaxLevelToGain = 100,
+			DisplayName = "Regbag of Holding",
+			Description = "A magical leather pouch for spell reagents.",
+			NeedRecipe = false,
+			CanImprove = false,
+			CraftingTemplateFile = "regbag_magic",
+			Category = "Items",
+			Subcategory = "Containers",
+			Resources = {
+				VileLeather = 6,
+				EtherealBones = 2
 			},
 		},
 	},

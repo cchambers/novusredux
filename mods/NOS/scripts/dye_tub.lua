@@ -104,7 +104,7 @@ RegisterEventHandler(
 		end
 
 		if (target:HasObjVar("CanDye")) then
-			dyeable = true
+			dyeable = target:GetObjVar("CanDye")
 		end
 		
 		-- if (IsGod(user)) then dyeable = true end
