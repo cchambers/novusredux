@@ -3,7 +3,7 @@ require 'base_ai_state_machine'
 require 'incl_combatai'
 require 'incl_combat_abilities'
 require 'incl_magic_sys'
-
+mCurrentTarget = nil
 AI.CombatStateTable = {
     {StateName = "Melee",Type = "melee",Range = 0},
     {StateName = "AttackAbility",Type = "melee",Range = 0},
@@ -16,8 +16,10 @@ AI.StateMachine.ChangeState("Idle")
 AI.SetSetting("CanCast", true)
 
 AI.SetSetting("SpellRangeMod", 20)
+AI.SetSetting("AggroRange", 30)
 
 AI.SetSetting("ChaseRange", AI.GetSetting("LeashDistance") - 5)
+
 AI.Spells = {
     Heal = {
         Type = "healspell"
@@ -70,6 +72,25 @@ for spellName, data in pairs(AI.Spells) do
             Spell = spellName
         }
     )
+end
+
+availableSpellsDict = this:GetObjVar("AvailableSpellsDictionary")
+if (availableSpellsDict ~= nil) then
+    for i, state in pairs(AI.CombatStateTable) do
+        --DebugMessage("Evaulating state "..state.StateName)
+        --remove states that the AI isn't specifically set to cast
+        local canCastState = false
+        --DebugMessage("Evaulating state spell"..tostring(state.StateName))
+
+        if (state.Spell ~= nil and availableSpellsDict ~= nil) then
+            --DebugMessage("Checking through spell "..state.Spell)
+            if (availableSpellsDict[state.Spell] == nil) then
+                --DebugMessage("Removing spell "..i.." from combat state table, i is "..i)
+                table.remove(AI.CombatStateTable, i)
+                AI.StateMachine.AllStates[state.StateName] = nil
+            end
+        end
+    end
 end
 
 --Use these states for casting with AI
@@ -204,6 +225,7 @@ AI.StateMachine.AllStates.CastPoison = {
         return GetSpellCastTime("Poison", this) * 1000 + math.random(400)
     end,
     OnEnterState = function()
+        DebugMessage("LETS GO POISON!!!!1")
         if (not (AI.IsValidTarget(AI.MainTarget))) then
             AI.StateMachine.ChangeState("Idle")
             return
@@ -263,6 +285,7 @@ AI.StateMachine.AllStates.CastVoidblast = {
         -- this:SetMobileFrozen(false,false)--DFB HACK: ONLY FOR PLAYTEST
     end
 }
+
 AI.StateMachine.AllStates.CastSouldrain = {
     GetPulseFrequencyMS = function()
         return GetSpellCastTime("Souldrain", this) * 1000 + math.random(400)
@@ -295,6 +318,7 @@ AI.StateMachine.AllStates.CastSouldrain = {
         -- this:SetMobileFrozen(false,false)--DFB HACK: ONLY FOR PLAYTEST
     end
 }
+
 AI.StateMachine.AllStates.CastLightning = {
     GetPulseFrequencyMS = function()
         return GetSpellCastTime("Lightning", this) * 1000 + math.random(400)
@@ -996,24 +1020,7 @@ AI.StateMachine.AllStates.CastIcelance = {
         --this:SetMobileFrozen(false,false)
     end
 }
-availableSpellsDict = this:GetObjVar("AvailableSpellsDictionary")
-if (availableSpellsDict ~= nil) then
-    for i, state in pairs(AI.CombatStateTable) do
-        --DebugMessage("Evaulating state "..state.StateName)
-        --remove states that the AI isn't specifically set to cast
-        local canCastState = false
-        --DebugMessage("Evaulating state spell"..tostring(state.StateName))
 
-        if (state.Spell ~= nil and availableSpellsDict ~= nil) then
-            --DebugMessage("Checking through spell "..state.Spell)
-            if (availableSpellsDict[state.Spell] == nil) then
-                --DebugMessage("Removing spell "..i.." from combat state table, i is "..i)
-                table.remove(AI.CombatStateTable, i)
-                AI.StateMachine.AllStates[state.StateName] = nil
-            end
-        end
-    end
-end
 
 RegisterEventHandler(
     EventType.Message,
@@ -1028,3 +1035,70 @@ RegisterEventHandler(
         this:ScheduleTimerDelay(TimeSpan.FromSeconds(seconds), "CastCooldownTimer")
     end
 )
+
+
+RegisterEventHandler(
+    EventType.Message,
+    "InitiateCombat",
+    function(target) 
+        mCurrentTarget = target
+        InitiateCombatSequence()
+    end)
+
+    
+function SetAITarget(enemyObj)
+    AI.MainTarget = enemyObj
+    if( enemyObj ~= nil ) then
+        AI.LastTargetLocation = enemyObj:GetLoc()
+    else
+        AI.LastTargetLocation = nil
+    end
+end
+
+function InitiateCombatSequence()
+    local target = mCurrentTarget
+    Verbose("Combat", "InitiateCombatSequence")
+    SetAITarget(target)
+	if (IsDead(this)) then
+		return
+	end
+	-- if IS PET...
+    
+    local canTryAbility = (AI.GetSetting("CanUseCombatAbilities") ~= false and (this:HasObjVar("CombatAbilities") or this:HasObjVar("WeaponAbilities")) )
+    
+
+    
+    if (AI.GetSetting("CanCast") == true or AI.GetSetting("NoMelee")) then
+        local shouldCast = math.random(1,3)
+
+        DebugMessage(tostring(shouldCast))
+        if (shouldCast == 1 or not AI.GetSetting("NoMelee")) then
+            local CastTable = AI.Spells
+
+            -- continue casting if we have at least one castable spell and there's no cooldown
+            if #CastTable > 0 and not this:HasTimer("CastCooldownTimer") then
+                -- Pick a random one of these spells
+                local spell = math.random(1, #CastTable)
+                -- Change state to that spell
+                DebugMessage("Cast"..CastTable[spell])
+                AI.StateMachine.ChangeState("Cast"..CastTable[spell])
+            else
+                local ability = math.random(1,3) 
+                if (ability == 1 and canTryAbility) then
+                    AI.StateMachine.ChangeState("AttackAbility")
+                else
+                    AI.StateMachine.ChangeState("Melee")
+                end
+            end
+        elseif (shouldCast == 2) then
+            if (canTryAbility) then
+                AI.StateMachine.ChangeState("AttackAbility")
+            else
+                AI.StateMachine.ChangeState("Melee")
+            end
+        else
+            AI.StateMachine.ChangeState("Melee")
+        end
+    end
+    
+end

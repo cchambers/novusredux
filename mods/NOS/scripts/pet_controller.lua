@@ -14,6 +14,7 @@ function ClearState(skipCombat)
 		_IsAttacking = nil
 		SetCurrentTarget(nil)
 		SetInCombat(false, true)
+		
 	end
 	ClearPath()
 end
@@ -30,6 +31,26 @@ function StableSelf()
 		end
 	end
 end
+
+function Attack(target, force)
+	Verbose("Pet", "Attack", target)
+	if ( TooFarFromOwner() or not ValidCombatPetTarget(target) ) then return end
+	-- if we currently don't have an attack target
+	if ( force == true or (not _IsFollowing and (not _IsAttacking or not _IsAttacking:IsValid())) ) then
+		ClearState(true)
+		_IsAttacking = target
+		mInCombatState = true
+		SetCurrentTarget(target)
+		-- follow the thing we are attacking
+		PathToTarget(
+			target,
+			GetCombatRange(this, target),
+			ServerSettings.Pets.Combat.Speed
+		)
+		this:SendMessage("InitiateCombat", target)
+	end
+end
+
 
 RegisterEventHandler(EventType.Message, "ClearTarget",
     function()

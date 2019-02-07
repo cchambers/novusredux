@@ -49,7 +49,6 @@ oldDecideCombatState = DecideCombatState
 -- The brains of the operation. The AI literally weighs out it's options. Takes a series of values and determines the priorities of each.
 --NOTE: BE CAREFUL WHERE YOU CALL THIS FUNCTION AS CALLING IT ON AN ON ENTER OR EXIT STATE CAN LEAD TO INFINITE LOOPS!!!
 function DecideCombatState()
-
     if (this:HasObjVar("Invulnerable")) then DecideIdleState() return end
 
     local frameTime = ObjectFrameTimeMs()
@@ -63,7 +62,6 @@ function DecideCombatState()
         -----------------------------------------------------------------------------------------------------------------------------------
     --local start = ServerTimeMs()
     local totalLoading = ServerTimeMs()
-    --DebugMessage("Got here.")
     --LuaDebugCallStack("When is this happening?:")
     if (IsDead(this)) then AI.StateMachine.ChangeState("Dead") return end
     if not(AI.IsActive()) then return end
@@ -116,7 +114,6 @@ function DecideCombatState()
         return     
     end
         --local start = ServerTimeMs()
-   --DebugMessage("Got farther.")
     local mysize = GetBodySize(this)
     local theirsize = GetBodySize(target)
     local distanceFrom = target:DistanceFrom(this) 

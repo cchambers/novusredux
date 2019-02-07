@@ -971,7 +971,6 @@ end
 
 --Used for when casting is enabled through including other files
 function CanCast(spellname,target)
-    --DebugMessageA(this,"Checking Cast")
     if  (target == nil)  then
         --DebugMessageA(this,"No Target")
         return false
@@ -995,6 +994,7 @@ function CanCast(spellname,target)
         return false
     end
     --DebugMessageA(this,"Current Mana before cast is " .. this:GetName()  .. ", is " .. tostring(GetCurMana(this)))
+    DebugMessage(this,"Checking Cast")
 
     return true
 end
