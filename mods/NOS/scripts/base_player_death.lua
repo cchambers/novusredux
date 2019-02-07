@@ -486,7 +486,14 @@ function DoMobileDeath(damager)
 		Totem(this, "death", { aggressor = damager:GetName(), kind = 2 })
 	else
 		local what = damager:GetObjVar("MobileTeamType"):lower() or "creature"
-		Totem(this, "death", { aggressor = what, kind = 3 })
+		local power = damager:GetObjVar("Power") or 0
+		local kind = 3 -- mob
+		if (power > 0) then
+			kind = kind + math.round(power / 5)
+			if (kind > 10) then kind = 10 end
+		end
+		
+		Totem(this, "death", { aggressor = what, kind = kind })
 	end
 
 	mBackpack = this:GetEquippedObject("Backpack")
