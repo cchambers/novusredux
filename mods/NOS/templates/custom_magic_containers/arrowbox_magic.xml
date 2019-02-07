@@ -1,8 +1,12 @@
 <ObjectTemplate>
-	<ClientId>1875</ClientId>
+	<ClientId>554</ClientId>
 	<Name>[0078ff]Arrow Box of Holding[-]</Name>
+	<Hue>844</Hue>
 	<SharedStateEntry name="Capacity" type="int" value="3"/>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="CanDye">false</BoolVariable>
+   	</ObjectVariableComponent>		
 	<ScriptEngineComponent>
 		<LuaModule Name="container_magic">
 			<Initializer>
