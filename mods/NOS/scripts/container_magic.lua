@@ -41,8 +41,13 @@ function HandleMagicContainer()
     end
 end
 
+function RefreshWeight()
+    HandleMagicContainer()
+end
+
 RegisterEventHandler(EventType.ContainerItemAdded, "", HandleMagicContainer)
 
 RegisterEventHandler(EventType.ContainerItemRemoved, "", HandleMagicContainer)
 
-
+UnregisterEventHandler("", EventType.Message,"RefreshWeight")
+UnregisterEventHandler("", EventType.Message,"AdjustWeight")

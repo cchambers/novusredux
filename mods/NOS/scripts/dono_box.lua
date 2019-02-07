@@ -19,5 +19,6 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 	function(itemRemoved)
 		if (itemRemoved:HasModule("dono_item")) then
 			itemRemoved:DelModule("dono_item")
+			this:SendMessage("RefreshWeight")
 		end
     end)
