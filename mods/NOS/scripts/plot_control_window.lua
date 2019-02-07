@@ -150,7 +150,7 @@ end
 -- house only
 function CoOwnerTab(dynamicWindow)
     dynamicWindow:AddImage(8,32,"BasicWindow_Panel",314,132,"Sliced")
-    dynamicWindow:AddButton(20,200,"OpenBank","Open Your Bank",290,26,"Open your bank for free, temporarily.","",false,"List")
+    -- dynamicWindow:AddButton(20,200,"OpenBank","Open Your Bank",290,26,"Open your bank for free, temporarily.","",false,"List")
     dynamicWindow:AddButton(11,135,"AddCoOwner","Add Co-Owner",308,26,"Co-Owners can Lock/Unlock the door, use secure containers, and lock down/release items. Only in this house.","",false,"List")
     
     local coOwners = controller:GetObjVar("HouseCoOwners") or {}
