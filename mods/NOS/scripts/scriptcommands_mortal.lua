@@ -303,8 +303,12 @@ MortalCommandFuncs = {
 	ReplyTell = function(...)
 		MortalCommandFuncs.Tell(mLastTeller, ...)
 	end,
-	Wiki = function ()
-		this:SendClientMessage("OpenURL", "https://novusredux.com/wiki")
+	Wiki = function (search)
+		if (search) then
+			this:SendClientMessage("OpenURL", "https://www.novusredux.com/wiki/index.php?search="..search)
+		else
+			this:SendClientMessage("OpenURL", "https://novusredux.com/wiki")
+		end
 	end
 }
 
@@ -468,5 +472,5 @@ RegisterCommand {
 	Command = "wiki",
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.Wiki,
-	Desc = "Open our wiki."
+	Desc = "Open our wiki. Use a search term if you want: /wiki crafting"
 }
