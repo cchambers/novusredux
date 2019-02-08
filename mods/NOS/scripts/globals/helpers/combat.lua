@@ -10,7 +10,7 @@ end
 -- STATS --
 DebugMessage("TOTEM LOADED")
 
-mPowerHourTrigger = 2500000
+mPowerHourTrigger = 1250000
 
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")

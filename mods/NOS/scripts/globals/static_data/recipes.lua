@@ -1405,7 +1405,7 @@ WoodsmithSkill = {
 			},
 		},
 		ArrowboxOfHolding = {
-			MinLevelToCraft = 100,
+			MinLevelToCraft = 95,
 			MaxLevelToGain = 100,
 			DisplayName = "Arrow Box of Holding",
 			Description = "A magical arrow container.",
@@ -2203,7 +2203,7 @@ FabricationSkill = {
 		},
 		
 		RegbagOfHolding = {
-			MinLevelToCraft = 100,
+			MinLevelToCraft = 95,
 			MaxLevelToGain = 100,
 			DisplayName = "Regbag of Holding",
 			Description = "A magical leather pouch for spell reagents.",

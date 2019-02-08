@@ -302,6 +302,22 @@ MortalCommandFuncs = {
 	end,
 	ReplyTell = function(...)
 		MortalCommandFuncs.Tell(mLastTeller, ...)
+	end,
+	Wiki = function (search)
+		if (search) then
+			this:SendClientMessage("OpenURL", "https://www.novusredux.com/wiki/index.php?search="..search)
+		else
+			this:SendClientMessage("OpenURL", "https://novusredux.com/wiki")
+		end
+	end,
+	Donate = function ()
+		this:SendClientMessage("OpenURL", "https://novusredux.com/donate")
+	end,
+	Bracket = function ()
+		this:SendClientMessage("OpenURL", "https://novusredux.com/pvp")
+	end,
+	Khi = function ()
+		this:SendClientMessage("OpenURL", "https://khi.gg")
 	end
 }
 
@@ -461,3 +477,28 @@ RegisterCommand {
 	Func = MortalCommandFuncs.Page,
 	Desc = "Page the staff."
 }
+RegisterCommand {
+	Command = "wiki",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Wiki,
+	Desc = "Open our wiki. Use a search term if you want: /wiki crafting"
+}
+RegisterCommand {
+	Command = "khi",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Khi,
+	Desc = "o.O"
+}
+RegisterCommand {
+	Command = "donate",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Donate,
+	Desc = "Learn how to donate!"
+}
+RegisterCommand {
+	Command = "bracket",
+	AccessLevel = AccessLevel.Mortal,
+	Func = MortalCommandFuncs.Bracket,
+	Desc = "Open the most recent pvp bracket."
+}
+

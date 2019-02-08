@@ -6,7 +6,7 @@
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>					
 		<BoolVariable Name="CanDye">false</BoolVariable>
-   	</ObjectVariableComponent>	
+   	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="container_magic">
 		<Initializer>

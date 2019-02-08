@@ -81,7 +81,7 @@ end
 function UpdateConsumableWindow()
 	mCONSUME = DynamicWindow("CONSUMABLETRACKER" .. this.Id, "Consumable Tracker", 90, 150, 47, 68, "TransparentDraggable", "TopLeft")
 	local PH = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
-	PH = (PH / 2500000) * 100
+	PH = (PH / 1250000) * 100
 	PH = tostring(math.round(PH, 2) .. "%")
 
 	if (not(IsDead(this))) then
