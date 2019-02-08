@@ -31,9 +31,9 @@ function ExitColorwars(user)
 	end
 	local backpackObj = user:GetEquippedObject("Backpack")
 	local items = FindItemsInContainerRecursive(user:GetEquippedObject("Backpack"),
-            function (item)
-                return item:Destroy()
-            end)
+		function (item)
+			return item:Destroy()
+		end)
 
 	local RightHand = user:GetEquippedObject("RightHand")
 	if (RightHand ~= nil) then RightHand:Destroy() end
@@ -46,7 +46,19 @@ function ExitColorwars(user)
 	local Head = user:GetEquippedObject("Head")
 	if (Head ~= nil) then Head:Destroy() end
 
-	user:DelObjVar("ColorwarPlayer")
+	user:DelObjVar("ColorWarPlayer")
+	user:DelObjVar("ColorWarPoints")
+
+	local StatsActual = user:GetObjVar("StatsActual")
+	
+	user:DelObjVar("IsRed")
+	for stat, value in pairs(StatsActual) do
+		if (value == 0 and stat == "Murders") then
+			user:DelObjVar("Murders")
+		else
+			user:SetObjVar(stat, value)
+		end
+	end
 
 	ActivateTeleporter(user)
 end

@@ -1335,6 +1335,12 @@ RegisterEventHandler(
 			return
 		end
 		local slot = GetEquipSlot(item)
+		if (item:HasObjVar("ColorWarItem")) then
+			if (not(item:HasModule("colorwar_flag"))) then
+				item:SetHue(this:GetHue())
+			end
+		end
+		-- DebugMessage('combat.lua: EventType.ItemEquipped(item): '..tostring(item)..' has been equipped.  '..tostring(slot))
 		if (IsPlayerCharacter(this)) then
 			CancelCastPrestigeAbility(this)
 
