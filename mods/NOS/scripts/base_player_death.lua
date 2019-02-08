@@ -492,7 +492,7 @@ function DoMobileDeath(damager)
 			kind = kind + math.round(power / 5)
 			if (kind > 10) then kind = 10 end
 		end
-		
+
 		Totem(this, "death", { aggressor = what, kind = kind })
 	end
 
