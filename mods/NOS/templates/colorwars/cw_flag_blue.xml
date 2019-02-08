@@ -6,6 +6,7 @@
 	<ObjectVariableComponent>
 		<StringVariable Name="ShieldType">Buckler</StringVariable>
 		<DoubleVariable Name="MaxDurability">2000</DoubleVariable>
+		<BoolVariable Name="ColorWarFlag">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="colorwar_item"/>

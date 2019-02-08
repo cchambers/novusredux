@@ -9,6 +9,11 @@ MobileEffectLibrary.ColorWarPlayer = {
             false
 		)
 		self.ParentObj:SystemMessage("You are playing Color Wars!")
+		
+		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "ColorWar.CheckWin")
+		RegisterEventHandler(EventType.Timer,"ColorWar.CheckWin", function()
+			self.CheckWinCondition(self, root)
+		end)
 	end,
 
 	OnExitState = function(self, root)
@@ -19,6 +24,26 @@ MobileEffectLibrary.ColorWarPlayer = {
 
 	GetPulseFrequency = function(self, root)
 		return self.Duration
+	end,
+
+	CheckWinCondition = function (self, root) 
+		DebugMessage("CHECKING WIN CONDITION")
+		local user = self.ParentObj
+		local backpackObj = user:GetEquippedObject("Backpack")
+		local count = 0
+		local items = FindItemInContainerRecursive(backpackObj,function (item)
+			if item:HasObjVar("ColorWarFlag") then
+				count = count + 1
+				return true
+			end
+		end)
+
+		if (count >= 2) then
+			user:PlayEffect("SlimeTrailEffect", 20)
+			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "ColorWar.CheckWin")
+		else
+			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "ColorWar.CheckWin")
+		end
 	end,
 
 	AiPulse = function(self, root)
