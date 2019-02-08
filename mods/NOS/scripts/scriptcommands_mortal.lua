@@ -483,21 +483,18 @@ RegisterCommand {
 	Func = MortalCommandFuncs.Wiki,
 	Desc = "Open our wiki. Use a search term if you want: /wiki crafting"
 }
-
 RegisterCommand {
 	Command = "khi",
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.Donate,
 	Desc = "o.O"
 }
-
 RegisterCommand {
 	Command = "donate",
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.Donate,
 	Desc = "Learn how to donate!"
 }
-
 RegisterCommand {
 	Command = "bracket",
 	AccessLevel = AccessLevel.Mortal,
