@@ -486,7 +486,7 @@ RegisterCommand {
 RegisterCommand {
 	Command = "khi",
 	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.Donate,
+	Func = MortalCommandFuncs.Khi,
 	Desc = "o.O"
 }
 RegisterCommand {
