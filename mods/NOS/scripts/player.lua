@@ -578,6 +578,10 @@ function OnLoad(isPossessed)
 		this:SendMessage("StartMobileEffect", "Murderer")
 	end
 
+	if (this:HasObjVar("ColorWarPlayer")) then
+		this:SendMessage("StartMobileEffect", "ColorWarPlayer")
+	end
+
 	if (this:HasObjVar("IsCriminal")) then
 		this:SendMessage("StartMobileEffect", "Criminal")
 	end
@@ -826,13 +830,6 @@ function DailyTaxWarn()
 end
 
 function HandleRequestPickUp(pickedUpObject)
-	-- if (this:HasObjVar("ColorwarPlayer")) then
-		if (pickedUpObject:HasObjVar("ColorwarItem")) then
-			if (not(pickedUpObject:HasModule("colorwar_flag"))) then
-				pickedUpObject:SetHue(this:GetHue())
-			end
-		end
-	-- end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
 	local carriedObject = this:CarriedObject()

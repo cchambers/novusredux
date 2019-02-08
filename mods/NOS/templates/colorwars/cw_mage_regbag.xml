@@ -9,24 +9,26 @@
 		<LuaModule Name="container"/>
 		<LuaModule Name="fill_random_loot">
 			<Initializer>
+			{
+				LootTables = 
 				{
-					LootTables = {
-						{						
-						    NumItems = 8,
-							LootItems = 
-							{ 	
-								{ Template = "ingredient_ginsengroot", StackCount = 100, Unique = true },
-								{ Template = "ingredient_blackpearl", StackCount = 100, Unique = true },
-								{ Template = "ingredient_mandrakeroot", StackCount = 100, Unique = true },
-								{ Template = "ingredient_sulfurousash", StackCount = 100, Unique = true },
-								{ Template = "ingredient_nightshade", StackCount = 100, Unique = true },
-								{ Template = "ingredient_spidersilk", StackCount = 100, Unique = true },
-								{ Template = "ingredient_bloodmoss", StackCount = 100, Unique = true },
-								{ Template = "ingredient_garlic", StackCount = 100, Unique = true },
-							} 
-						},							
-					}
+					-- reagents
+					{
+						NumItems = 8,
+						LootItems = 
+						{ 	
+							{ Chance = 100,		Template = "ingredient_ginsengroot", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_blackpearl", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_mandrakeroot", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_sulfurousash", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_nightshade", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_spidersilk", 	StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_bloodmoss", 		StackCount = 100, 	Unique = true },
+							{ Chance = 100,		Template = "ingredient_garlic", 		StackCount = 100, 	Unique = true },
+						} 
+					},
 				}
+			}
 			</Initializer>
 		</LuaModule>
 	</ScriptEngineComponent>
