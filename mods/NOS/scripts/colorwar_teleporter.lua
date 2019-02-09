@@ -115,6 +115,7 @@ function KitConfirm(user, kit)
 		user:PlayEffect("ShockwaveEffect")
 		user:SetObjVar("ColorWarPlayer", true)
 		user:SetObjVar("ColorWarPoints", 0)
+		user:SetObjVar("ColorWarKit", kit)
 		local charTable = {
 			Karma = user:GetObjVar("Karma") or 0,
 			Fame = user:GetObjVar("Fame") or 0,

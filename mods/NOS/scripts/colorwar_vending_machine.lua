@@ -73,6 +73,7 @@ function ShowVendingWindow(user)
 		"default"
 	)
 	mBUYWINDOW:AddButton(190, 130, "cw_plate_set", "Plate Armor", 160, 24, "Clink clank.", "", false, "Default", "default")
+	mBUYWINDOW:AddButton(20, 160, "cw_rekit", "RE-KIT AFTER RES", 330, 40, "ONCE A MINUTE, DON'T SPAM PLS.", "", true, "Default", "default")
 
 	user:OpenDynamicWindow(mBUYWINDOW)
 end
@@ -131,13 +132,26 @@ RegisterEventHandler(
 				cw_warrior_heavy_chest = 1,
 				cw_warrior_heavy_leggings = 1
 			}
+		elseif (buttonId == "cw_rekit") then
+			if not(user:HasTimer("NoRekitTimer")) then
+				local kit = user:GetObjVar("ColorWarKit")
+				CreateObjInBackpack(user, kit)
+				user:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"NoRekitTimer")
+			else 
+				user:SystemMessage("You are doing that too fast.")
+			end
 		end
 
 		if (points >= value) then
 			points = points - value
 			user:SetObjVar("ColorWarPoints", points)
+			
 			for item, amount in pairs(items) do
-				CreateStackInBackpack(user, item, amount)
+				if (amount > 1) then
+					CreateStackInBackpack(user, item, amount)
+				else 
+					CreateObjInBackpack(user, item)
+				end
 			end
 		else
 			user:SystemMessage(tostring("You cannot afford that yet: [ff0000]" .. value .. "[-] > " .. points), "info")

@@ -48,6 +48,7 @@ function ExitColorwars(user)
 
 	user:DelObjVar("ColorWarPlayer")
 	user:DelObjVar("ColorWarPoints")
+	user:DelObjVar("ColorWarKit")
 
 	local StatsActual = user:GetObjVar("StatsActual")
 	
