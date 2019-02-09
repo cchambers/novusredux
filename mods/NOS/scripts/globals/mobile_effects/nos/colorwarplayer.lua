@@ -27,13 +27,11 @@ MobileEffectLibrary.ColorWarPlayer = {
 	end,
 
 	CheckWinCondition = function (self, root) 
-		DebugMessage("CHECKING WIN CONDITION")
 		local user = self.ParentObj
 		local backpackObj = user:GetEquippedObject("Backpack")
 		local count = 0
 		local items = FindItemInContainerRecursive(backpackObj,function (item)
 			if (item:HasObjVar("ColorWarFlag")) then
-				DebugMessage("ONE FLAG")
 				count = count + 1
 			end
 		end)
