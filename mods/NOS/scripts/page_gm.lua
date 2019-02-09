@@ -19,9 +19,6 @@ RegisterSingleEventHandler(
 	end
 )
 
-
-
-
 RegisterEventHandler(EventType.DynamicWindowResponse,"PageWindow",
 function (user,buttonId,page)
 	if (user == nil or not user:IsValid()) then
