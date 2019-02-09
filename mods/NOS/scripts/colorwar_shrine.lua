@@ -28,6 +28,10 @@ RegisterEventHandler(EventType.Message, "UseObject",
             user:SendMessage("Resurrect", 0.65)
             return
         end
+        local kit = user:GetObjVar("ColorWarKit")
+        CallFunctionDelayed(TimeSpan.FromSeconds(1),function()
+            CreateObjInBackpack(user, kit)
+        end)
     end)
 
 function OnLoad()

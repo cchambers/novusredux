@@ -136,8 +136,13 @@ RegisterEventHandler(
 		if (points >= value) then
 			points = points - value
 			user:SetObjVar("ColorWarPoints", points)
+			
 			for item, amount in pairs(items) do
-				CreateStackInBackpack(user, item, amount)
+				if (amount > 1) then
+					CreateStackInBackpack(user, item, amount)
+				else 
+					CreateObjInBackpack(user, item)
+				end
 			end
 		else
 			user:SystemMessage(tostring("You cannot afford that yet: [ff0000]" .. value .. "[-] > " .. points), "info")
