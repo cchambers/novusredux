@@ -1,0 +1,17 @@
+<ObjectTemplate>
+  <Name>A null</Name>
+	<ClientId>35</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="NameHue">FFFFFF</StringVariable>
+		<StringVariable Name="NameType">Shizzy</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="random_jewelry">
+			<Initializer>
+				{
+					Qualities = { "imperfect" }
+				}
+			</Initializer>
+	</ScriptEngineComponent>
+</ObjectTemplate>

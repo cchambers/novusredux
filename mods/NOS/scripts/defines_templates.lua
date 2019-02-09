@@ -63,12 +63,8 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
+    			{ Chance = 25, Template = "random_flawed_ring", Unique = true },
+    			{ Chance = 25, Template = "random_flawed_necklace", Unique = true },
 			},
 		},
 
@@ -79,20 +75,8 @@ TemplateDefines = {
 			LootItems = 
 			{ 
 				{ Chance = 25, Template = "random_executioner_weapon_0_50", Unique = true},
-
-				{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 25, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_imperfect", Unique = true },
+    			{ Chance = 25, Template = "random_imperfect_ring", Unique = true },
+    			{ Chance = 25, Template = "random_imperfect_necklace", Unique = true },
 			},
 		},
 
@@ -102,112 +86,47 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-
 				{ Chance = 25, Template = "random_executioner_weapon_20_80", Unique = true},
-
-				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 5, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 5, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 5, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_topaz_imperfect", Unique = true },
+				{ Chance = 25, Template = "random_jewelry", Unique = true },
+    			
 			},
 		},
 
 		FilthyRich = 
 		{
-			NumItems = 3,
+			NumItems = 2,
 
 			LootItems = 
 			{ 
+    			{ Chance = 50, Template = "random_jewelry", Unique = true },
 				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
-				
-    			{ Chance = 5, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 5, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 5, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 5, Template = "ring_topaz_imperfect", Unique = true },
-
-    			{ Chance = 15, Template = "necklace_ruby_perfect", Unique = true },
-    			{ Chance = 15, Template = "necklace_sapphire_perfect", Unique = true },
-    			{ Chance = 15, Template = "necklace_topaz_perfect", Unique = true },
-    			{ Chance = 15, Template = "ring_sapphire_perfect", Unique = true },
-    			{ Chance = 15, Template = "ring_ruby_perfect", Unique = true },
-    			{ Chance = 15, Template = "ring_topaz_perfect", Unique = true },
     			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
 		Boss = 
 		{
-			NumItems = 5,
+			NumItems = 3,
 					
 			LootItems = 
 			{ 
 				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
-
-				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 25, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_imperfect", Unique = true },
-
-    			{ Chance = 25, Template = "necklace_ruby_perfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_perfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
-				{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
-				
+				{ Chance = 25, Template = "random_jewelry", Unique = true },
     			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
 		DeathBoss = 
 		{
-			NumItems = 6,
+			NumItems = 5,
 					
 			LootItems = 
 			{ 
 				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
-
-				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 25, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_imperfect", Unique = true },
-
-    			{ Chance = 25, Template = "necklace_ruby_perfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_perfect", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_perfect", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_perfect", Unique = true },
-				
+				{ Chance = 25, Template = "random_perfect_necklace", Unique = true },
+				{ Chance = 25, Template = "random_perfect_ring", Unique = true },
+				{ Chance = 25, Template = "random_perfect_necklace", Unique = true },
+				{ Chance = 25, Template = "random_perfect_ring", Unique = true },
     			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
@@ -271,12 +190,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-	    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+	    		{ Chance = 2, Template = "random_flawed_jewelry", Unique = true },
     		},
 		},
 
@@ -284,19 +198,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-	    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 1, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 1, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 1, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 1, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 1, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 1, Template = "ring_topaz_imperfect", Unique = true },
+	    		{ Chance = 10, Template = "random_imperfect_jewelry", Unique = true },
     		},
 		},
 
@@ -304,26 +206,7 @@ TemplateDefines = {
 		{
 			NumItems = 1,
 	    	LootItems = {
-	    		{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 5, Template = "ring_topaz_flawed", Unique = true },
-
-    			{ Chance = 2, Template = "necklace_ruby_imperfect", Unique = true },
-    			{ Chance = 2, Template = "necklace_sapphire_imperfect", Unique = true },
-    			{ Chance = 2, Template = "necklace_topaz_imperfect", Unique = true },
-    			{ Chance = 2, Template = "ring_sapphire_imperfect", Unique = true },
-    			{ Chance = 2, Template = "ring_ruby_imperfect", Unique = true },
-    			{ Chance = 2, Template = "ring_topaz_imperfect", Unique = true },
-
-    			{ Chance = 1, Template = "necklace_ruby_perfect", Unique = true },
-    			{ Chance = 1, Template = "necklace_sapphire_perfect", Unique = true },
-    			{ Chance = 1, Template = "necklace_topaz_perfect", Unique = true },
-    			{ Chance = 1, Template = "ring_sapphire_perfect", Unique = true },
-    			{ Chance = 1, Template = "ring_ruby_perfect", Unique = true },
-    			{ Chance = 1, Template = "ring_topaz_perfect", Unique = true },
+	    		{ Chance = 10, Template = "random_perfect_jewelry", Unique = true },
     		},
 		},
 
