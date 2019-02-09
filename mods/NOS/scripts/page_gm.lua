@@ -29,18 +29,13 @@ function (user,buttonId,page)
 	end
 	if ( buttonId == "Submit" ) then
 		if ( page.PageDetails == "" or page.PageDetails == bugReportStartingText ) then
-			this:SystemMessage("[D70000]Please provide more detail in your report.[-]","info")
-			this:ScheduleTimerDelay(TimeSpan.FromMinutes(5),"NoPageTimer")
+			user:SystemMessage("[D70000]Please provide more detail in your report.[-]","info")
 			return
 		end
-		
-		Totem(this, "page", page.PageDetails)
-		
+		Totem(user, "page", page.PageDetails)
+		user:ScheduleTimerDelay(TimeSpan.FromMinutes(5),"NoPageTimer")
 		user:SystemMessage("Thanks! We will be by to help you as soon as possible.","info")
-
-		-- send global message to GMs only
 	else
 		user:DelModule("page_gm")
-		return
 	end
 end)
