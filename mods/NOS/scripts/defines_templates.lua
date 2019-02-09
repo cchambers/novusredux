@@ -78,7 +78,7 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 25, Template = "random_executioner_weapon_0_60", Unique = true},
+				{ Chance = 25, Template = "random_executioner_weapon_0_50", Unique = true},
 
 				{ Chance = 5, Template = "necklace_ruby_flawed", Unique = true },
     			{ Chance = 5, Template = "necklace_sapphire_flawed", Unique = true },
@@ -127,15 +127,8 @@ TemplateDefines = {
 
 			LootItems = 
 			{ 
-				{ Chance = 25, Template = "random_executioner_weapon_50_100", Unique = true},
+				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
 				
-				{ Chance = 25, Template = "necklace_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "necklace_topaz_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_sapphire_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_ruby_flawed", Unique = true },
-    			{ Chance = 25, Template = "ring_topaz_flawed", Unique = true },
-
     			{ Chance = 5, Template = "necklace_ruby_imperfect", Unique = true },
     			{ Chance = 5, Template = "necklace_sapphire_imperfect", Unique = true },
     			{ Chance = 5, Template = "necklace_topaz_imperfect", Unique = true },

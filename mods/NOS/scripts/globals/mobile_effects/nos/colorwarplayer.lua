@@ -32,16 +32,21 @@ MobileEffectLibrary.ColorWarPlayer = {
 		local backpackObj = user:GetEquippedObject("Backpack")
 		local count = 0
 		local items = FindItemInContainerRecursive(backpackObj,function (item)
-			if item:HasObjVar("ColorWarFlag") then
+			if (item:HasObjVar("ColorWarFlag")) then
+				DebugMessage("ONE FLAG")
 				count = count + 1
-				return true
 			end
 		end)
 
 		if (count >= 2) then
-			user:PlayEffect("SlimeTrailEffect", 20)
-			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "ColorWar.CheckWin")
+			user:PlayEffectWithArgs("SlimeTrailEffect", 0.0,"Bone=Ground")
+			self.HadFlag = true
+			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "ColorWar.CheckWin")
 		else
+			if (self.HadFlag == true) then
+				user:StopEffect("SlimeTrailEffect")
+				self.HadFlag = false
+			end
 			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "ColorWar.CheckWin")
 		end
 	end,
@@ -54,5 +59,7 @@ MobileEffectLibrary.ColorWarPlayer = {
 		user:SetObjVar("ColorWarPoints", points)
 	end,
 
-	Duration = TimeSpan.FromMinutes(1)
+	Duration = TimeSpan.FromMinutes(1),
+
+	HadFlag = false
 }
