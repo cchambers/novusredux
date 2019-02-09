@@ -236,6 +236,7 @@ MobileEffectLibrary.WashBandage =
 			isWater = true
 		else
 			self.ParentObj:SystemMessage("That is empty.")
+			EndMobileEffect(root)
 			return false
 		end
 
@@ -263,6 +264,7 @@ MobileEffectLibrary.WashBandage =
 			end
 		else
 			self.ParentObj:NpcSpeech("That doesn't seem to be water.")
+			EndMobileEffect(root)
 			return false
 		end
 	

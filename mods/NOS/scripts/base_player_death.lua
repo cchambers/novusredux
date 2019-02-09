@@ -10,6 +10,9 @@ function OnDeathStart()
 		return 
 	end
 
+	if(this:HasObjVar("ColorWarPlayer")) then
+		this:ScheduleTimerDelay(TimeSpan.FromSeconds(30),"CanRekit")
+	end
 	
 	if(this:HasObjVar("MagicReflection")) then
 		this:DelObjVar("MagicReflection")

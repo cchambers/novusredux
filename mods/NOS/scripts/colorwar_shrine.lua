@@ -5,8 +5,6 @@ function ValidateUse(user)
         return false
     end
 
-    DebugMessage(tostring("TEST: ".. user:GetHue()))
-
 	if(user:GetHue() ~= this:GetHue() ) then    
         user:SystemMessage("Find your team's shrine at your base.","info")  
         return false
@@ -28,10 +26,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
             user:SendMessage("Resurrect", 0.65)
             return
         end
-        local kit = user:GetObjVar("ColorWarKit")
-        CallFunctionDelayed(TimeSpan.FromSeconds(1),function()
-            CreateObjInBackpack(user, kit)
-        end)
+       
     end)
 
 function OnLoad()
