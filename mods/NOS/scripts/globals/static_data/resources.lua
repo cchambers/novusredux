@@ -271,8 +271,8 @@ ResourceData = {
 			SalvageValue = 1,
 			SkillGainDifficultyMultiplier = 2,
 			Difficulty = {
-				Min = 75,
-				Max = 125
+				Min = 65,
+				Max = 110
 			}
 		},
 		Ash = {
@@ -352,8 +352,8 @@ ResourceData = {
 			SkillGainDifficultyMultiplier = 2,
 
 			Difficulty = {
-				Min = 55,
-				Max = 105
+				Min = 60,
+				Max = 110
 			}
 		},
 		LeatherScraps = {
