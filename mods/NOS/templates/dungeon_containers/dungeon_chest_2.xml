@@ -47,12 +47,7 @@
 						{
 							NumItems = 1,
 					    	LootItems = {
-					    		{ Chance = 2, Template = "necklace_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "necklace_topaz_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_sapphire_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_ruby_flawed", Unique = true },
-				    			{ Chance = 2, Template = "ring_topaz_flawed", Unique = true },
+					    		{ Chance = 10, Template = "random_flawed_jewelry", Unique = true },
 				    		}
 						},
 
