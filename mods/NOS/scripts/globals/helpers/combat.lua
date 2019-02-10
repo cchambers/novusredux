@@ -50,8 +50,10 @@ function Totem(mobile, task, args)
     if (task == "murder") then
         payload = [[ {"worldid": "]]..id..[["} ]]
     elseif (task == "page") then
+        api = tostring("http://localhost:1337/api/page")
+        local who = tostring(name .. " (" .. id .. ")")
         payload = [[ {
-            "name": "]]..name..[[",
+            "who": "]]..who..[[",
             "what": "]]..args..[[",
             "when": "]]..when..[[",
             "where": "]]..where..[["

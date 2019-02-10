@@ -1,11 +1,13 @@
 <ObjectTemplate>
   <Name>[ff0000]RED TEAM FLAG[-]</Name>
-	<ClientId>1528</ClientId>
+	<ClientId>1531</ClientId>
 	<Hue>831</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ShieldType">Buckler</StringVariable>
 		<DoubleVariable Name="MaxDurability">2000</DoubleVariable>
+		<BoolVariable Name="ColorWarFlag">True</BoolVariable>
+		<BoolVariable Name="NoDecay">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="colorwar_item"/>

@@ -1336,8 +1336,9 @@ RegisterEventHandler(
 		end
 		local slot = GetEquipSlot(item)
 		if (item:HasObjVar("ColorWarItem")) then
+			local user = this
 			if (not(item:HasModule("colorwar_flag"))) then
-				item:SetHue(this:GetHue())
+				item:SetHue(user:GetHue())
 			end
 		end
 		-- DebugMessage('combat.lua: EventType.ItemEquipped(item): '..tostring(item)..' has been equipped.  '..tostring(slot))

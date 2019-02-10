@@ -2,7 +2,9 @@
   <Name>Tattered SOS</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent/>
+	<ObjectVariableComponent>	
+		<DoubleVariable Name="Difficulty">10</DoubleVariable>	
+	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">
 				<Initializer>

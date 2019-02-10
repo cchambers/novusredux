@@ -1,0 +1,15 @@
+<ObjectTemplate>
+  <Name>A null</Name>
+	<ClientId>35</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScriptEngineComponent>
+		<LuaModule Name="random_jewelry">
+			<Initializer>
+				{
+					Types = { "necklace" },
+					Qualities = { "perfect" }
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

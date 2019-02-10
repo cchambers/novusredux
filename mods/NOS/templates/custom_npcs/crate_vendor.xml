@@ -65,15 +65,7 @@
 							RelativeLoc = "1.57547, 0.9797916, -0.00306",
 							Rotation = "0, 270.0002, 0",
 							UnlimitedStock = false,
-						},
-						{
-							Template = "dye_tub_random",
-							Price = 1500000,
-							Amount = 999,
-							RelativeLoc = "0.84790, 0, 0.7139",
-							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = true,
-						},
+						}
 					},
 				}
 			</Initializer>
