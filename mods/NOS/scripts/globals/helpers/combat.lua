@@ -112,7 +112,8 @@ end
 
 function DonateItem(obj) 
     local obj = obj or this
-	local value = GetItemValue(obj) or 10
+    local value = GetItemValue(obj) or 10
+    if (value < 10) then value = 10 end
     PowerHourDonate(value)
     CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
         obj:Destroy()
@@ -121,7 +122,6 @@ end
 
 function PowerHourDonate(amount) 
     local donations = GlobalVarReadKey("GlobalPowerHour", "Donations") or 0
-    if (donations < 5) then donations = 5 end
     donations = donations + amount
 	GlobalVarWrite("GlobalPowerHour", nil, function(record) 
         record["Donations"] = donations;
@@ -129,11 +129,12 @@ function PowerHourDonate(amount)
 	end);
     DebugMessage(tostring("Another item donated! (+" .. amount .. ") > GlobalPowerHour at " .. donations))
     if (donations > mPowerHourTrigger) then
-        TriggerGlobalPowerHour()
+        local overflow = donations - mPowerHourTrigger
+        TriggerGlobalPowerHour(overflow)
     end
 end
 
-function TriggerGlobalPowerHour() 
+function TriggerGlobalPowerHour(overflow) 
     DebugMessage("Global Power Hour triggered!")
     GlobalVarWrite("GlobalPowerHour", nil, function(record) 
         record["Donations"] = 0
@@ -145,6 +146,8 @@ function TriggerGlobalPowerHour()
 	for gameObj,dummy in pairs(online) do
         gameObj:SendMessageGlobal("StartGlobalPowerHour")
     end
+
+    if (overflow > 0) then PowerHourDonate(overflow) end
 
     TotemGlobalEvent("powerhour")
 end
