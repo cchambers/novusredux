@@ -338,7 +338,7 @@ function DecideCombatState()
             if (state.Type == "offensivespell" and CanCast(state.Spell,target)) then
                 state.Priority = state.Priority + math.random(0,6)
                  --DebugMessage("Change Priority of " ..  tostring(state.Type) .. " to " .. tostring(state.Priority) .. "at line"  .. 590)
-                --DebugMessage("Priority: Add Spells "..  this:GetName())
+                DebugMessage("Priority: Add Spells "..  this:GetName())
                 if (evocationSkill > weaponSkillLevel and distanceFrom <= state.Range) then
                     --DebugMessage("Change Priority of " ..  tostring(state.Type) .. " to " .. tostring(state.Priority) .. "at line"  .. 593)
                     state.Priority = state.Priority  + math.random(1,3)

@@ -98,8 +98,7 @@ end
 
 function CanUserSell(item,user)
 	local topmost = item:TopmostContainer() or item
-
-
+	
 	if( topmost ~= user ) then		
 		if (topmost:HasObjVar("controller")) then
 			if (topmost:GetObjVar("controller") ~= user) then 
