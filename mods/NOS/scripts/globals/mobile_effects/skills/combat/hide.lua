@@ -200,7 +200,7 @@ MobileEffectLibrary.Hide =
 	end,
 
 	PlateCheck = function(player, root) 
-		DebugMessage("PLATECHECK")
+		-- DebugMessage("PLATECHECK")
 		local chest = player:GetEquippedObject("Chest");
 		local legs = player:GetEquippedObject("Legs");
 		local head = player:GetEquippedObject("Head");

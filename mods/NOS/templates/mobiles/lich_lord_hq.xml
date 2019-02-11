@@ -1,7 +1,8 @@
 <ObjectTemplate>
 	<ClientId>1584</ClientId>
 	<Name>Dark Lord</Name>
-	<ScaleModifier>1</ScaleModifier>
+	<Color>0xFF7851A9</Color>
+	<ScaleModifier>1.2</ScaleModifier>
 	<SharedStateEntry name="BodyOffset" type="double" value="1.5"/>
 	<!-- Champion Mob-->
 	<MobileComponent>			
@@ -23,7 +24,7 @@
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Power">30</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_skeleton">
@@ -73,7 +74,7 @@
 				ScavengeTables =
 				{
 				},
-				AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},	
+				AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},	
 			}
 			</Initializer>
 		</LuaModule>
@@ -81,91 +82,36 @@
 			<Initializer>
 			{ 
 				Names = {
-					"Aamon",
-					"Agalierept",
-					"Agares",
-					"Aglasis",
-					"Aiwaz",
-					"Astaroth",
-					"Ayperos",
-					"Azatoth",
-					"Azmodaeus",
-					"Azrael",
-					"Baal",
-					"Ba`al",
-					"Barbatos",
-					"Bathim",
-					"Bathsin",
-					"Bechard",
-					"Be`elzubub",
-					"Be`elzebubba",
-					"Beelzebuth",
-					"Botis",
-					"Brulefer",
-					"Bucon",
-					"Buer",
-					"Clauneck",
-					"Clitheret",
-					"Cthulhu",
-					"Druzil",
-					"El Chupacabra",
-					"Eleogap",
-					"Eliezer",
-					"Eligor",
-					"Eracove",
-					"Faraii",
-					"Fleurety",
-					"Frimost",
-					"Frucissiere",
-					"Fruitimere",
-					"Glassyalabolas",
-					"GrimmOmen",
-					"Guland",
-					"Gusoyn",
-					"Hael",
-					"Haristum",
-					"Heramael",
-					"Hiepacth",
-					"Huictiigara",
-					"Humots",
-					"Inocard",
-					"Khil",
-					"Maleki",
-					"Marbas",
-					"Mephistopheles",
-					"Mersilde",
-					"Minoson",
-					"Molech",
-					"Moloch",
-					"Morail",
-					"Musisin",
-					"Naberrs",
-					"Nebiros",
-					"Nebirots",
-					"Nyarlathotep",
-					"Pentagnony",
-					"Proculo",
-					"Pruslas",
-					"Pursan",
-					"Rofocale",
-					"Sargatans",
-					"Satanchia",
-					"Satanciae",
-					"Segal",
-					"Sergulath",
-					"Sergutthy",
-					"Sidragrosam",
-					"Sirchade",
-					"Surgat",
-					"Sustugriel",
-					"Tarchimache",
-					"Tarihimal",
-					"Trimasel",
-					"Vaelfar",
-					"Wormius",
-					"Yog-Sothoth",
-					"Y`reif Eci",
-					"Zoray"
+					"Grulak Blackhand",
+					"Vrazad Shadowend",
+					"Riodan Graeme",
+					"Shiothum the Desecrator",
+					"Yadum the Carver",
+					"Corow the Experi-Mentor",
+					"Vraulazar Nightshade",
+					"Chouqir the Abominable",
+					"Faghor Deville",
+					"Cheigrim the Abomination",
+					"Prithes Deathhand",
+					"Nethas Deville",
+					"Iwriotos Craft",
+					"Moudhos Diction",
+					"Nudrex Blackhand",
+					"Panoth Morte",
+					"Kredrex the Demon",
+					"Miqis the Serpent",
+					"Stoutos Anatomy",
+					"Ximorn Blight",
+					"Etobrix Shadowend",
+					"Strubrix the Putrid",
+					"Achreiqrax Nightshade",
+					"Crapeth the Maggot",
+					"Tiomin Graeme",
+					"Agethir the Blight",
+					"Ovimirn Cruor",
+					"Orumirn the Paranoid",
+					"Pranoth the Defiler",
+					"Yewith Carnage",
 				},
 			}
 			</Initializer>

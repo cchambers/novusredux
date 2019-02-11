@@ -439,6 +439,7 @@ function GetTitle(targetObj)
 	local klevel = 1
 	while karma < karmaLevels[klevel] do
 		klevel = klevel + 1
+		if (klevel == #karmaLevels) then break end
 	end
 
 	klevel = karmaLevels[klevel]
@@ -576,6 +577,10 @@ function OnLoad(isPossessed)
 	local murders = this:GetObjVar("Murders")
 	if (murders ~= nil) then
 		this:SendMessage("StartMobileEffect", "Murderer")
+	end
+
+	if (this:HasObjVar("ColorWarPlayer")) then
+		this:SendMessage("StartMobileEffect", "ColorWarPlayer")
 	end
 
 	if (this:HasObjVar("IsCriminal")) then
@@ -810,8 +815,12 @@ function PerformPlayerTick(notFirst)
 	CheckAllegianceTitle(this)
 
 	CheckBidRefund()
+	
+	local gmMessages = GlobalVarRead("AccountMessages."..this:GetAttachedUserId())
 
-	HandleGmResponseWindow()
+	if (gmMessages and not this:HasModule("base_gm_message_responsewindow")) then
+		this:AddModule("base_gm_message_responsewindow")
+	end
 
 	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
@@ -822,13 +831,6 @@ function DailyTaxWarn()
 end
 
 function HandleRequestPickUp(pickedUpObject)
-	-- if (this:HasObjVar("ColorwarPlayer")) then
-	if (pickedUpObject:HasObjVar("ColorwarItem")) then
-		if (not (pickedUpObject:HasModule("colorwar_flag"))) then
-			pickedUpObject:SetHue(this:GetHue())
-		end
-	end
-	-- end
 
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
 	local carriedObject = this:CarriedObject()
@@ -949,11 +951,32 @@ OverrideEventHandler(
 	end
 )
 
+function StartPowerHour(global) 
+	this:SetObjVar("PowerHourEnds", 60)
+	this:PlayAnimation("roar")
+	this:PlayEffect("ImpactWaveEffect", 2)
+	if (global == true) then
+		this:SendMessage("StartMobileEffect", "PowerHourBuff", { Global = true })
+	else
+		this:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
+		this:SendMessage("StartMobileEffect", "PowerHourBuff")
+	end
+end
+
+RegisterEventHandler(EventType.Message, "StartPowerHour", function () StartPowerHour() end)
+RegisterEventHandler(EventType.Message, "StartGlobalPowerHour", function () StartPowerHour(true) end)
+
+UnregisterEventHandler(
+	"",
+	EventType.ClientUserCommand,
+	"stuck"
+)
+
 RegisterEventHandler(
 	EventType.ClientUserCommand,
 	"stuck",
 	function()
 		this:SystemMessage("This command has been proven exploitable, and as such, has been removed...")
-		this:SystemMessage("If you are truly stuck, post a message in #gm-help in Discord (nos.gg/discord)")
+		this:SystemMessage("Send a page by typing [bada55]/page[-] and someone will help you as soon as possible.")
 	end
 )

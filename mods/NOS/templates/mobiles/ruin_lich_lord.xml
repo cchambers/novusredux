@@ -22,7 +22,7 @@
 		<DoubleVariable Name="Karma">-5000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Power">30</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_skeleton">
@@ -47,7 +47,7 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.Rich,
-						TemplateDefines.LootTable.RuinMobLow,
+						TemplateDefines.LootTable.RuinMob,
 						TemplateDefines.LootTable.ScrollsHigh,
 						{
 							NumCoins = math.random(650,800),
@@ -57,7 +57,7 @@
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+					AvailableSpells = {"Greaterheal", "Poison", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
 				}
 			</Initializer>
 		</LuaModule>

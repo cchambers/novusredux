@@ -26,7 +26,7 @@ function DoRevealStuff()
 	)
 	for i, v in pairs(mobiles) do
 		if (not IsDead(v)) then
-			local canSee = this:HasLineOfSightToLoc(v,ServerSettings.Combat.LOSEyeLevel)
+			local canSee = this:HasLineOfSightToLoc(v:GetLoc(),ServerSettings.Combat.LOSEyeLevel)
 			if (HasMobileEffect(v, "Hide") and canSee) then
 				v:SendMessage("StartMobileEffect", "Revealed")
 				CheckSkillChance(this, "DetectHiddenSkill")

@@ -271,8 +271,8 @@ ResourceData = {
 			SalvageValue = 1,
 			SkillGainDifficultyMultiplier = 2,
 			Difficulty = {
-				Min = 75,
-				Max = 125
+				Min = 65,
+				Max = 110
 			}
 		},
 		Ash = {
@@ -352,8 +352,8 @@ ResourceData = {
 			SkillGainDifficultyMultiplier = 2,
 
 			Difficulty = {
-				Min = 55,
-				Max = 105
+				Min = 60,
+				Max = 110
 			}
 		},
 		LeatherScraps = {
@@ -458,18 +458,24 @@ ResourceData = {
 			DisplayName = "Leather",
 			CraftedItemPrefix = "Tanned",
 			SkillGainDifficultyMultiplier = 10,
+			HarvestGateMin = 0,
+			HarvestGateMax = 65
 		},
 		BeastLeather = {
 			Template = "resource_beast_leather",
 			DisplayName = "Beast Leather",
 			CraftedItemPrefix = "Beast",
 			SkillGainDifficultyMultiplier = 5,
+			HarvestGateMin = 45,
+			HarvestGateMax = 85
 		},
 		VileLeather = {
 			Template = "resource_vile_leather",
 			DisplayName = "Vile Leather",
 			CraftedItemPrefix = "Vile",
 			SkillGainDifficultyMultiplier = 10,
+			HarvestGateMin = 75,
+			HarvestGateMax = 100
 		},
 		Boards = {
 			DisplayName = "Wooden Boards",

@@ -102,7 +102,6 @@ function ChooseClass(user)
 	end
 end
 
-
 function KitConfirm(user, kit)
 	if (CheckChar(user) == true) then
 		if (kit == nil) then return false end
@@ -114,7 +113,17 @@ function KitConfirm(user, kit)
 			user:SetHue(teamHue)
 		end
 		user:PlayEffect("ShockwaveEffect")
-		user:SetObjVar("ColorwarPlayer", true)
+		user:SetObjVar("ColorWarPlayer", true)
+		user:SetObjVar("ColorWarPoints", 0)
+		user:SetObjVar("ColorWarKit", kit)
+		local charTable = {
+			Karma = user:GetObjVar("Karma") or 0,
+			Fame = user:GetObjVar("Fame") or 0,
+			Murders = user:GetObjVar("Murders") or 0
+		}
+
+		user:SetObjVar("StatsActual", charTable)
+
 		CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
 			ActivateTeleporter(user)
 			end)

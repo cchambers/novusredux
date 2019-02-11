@@ -1404,6 +1404,20 @@ WoodsmithSkill = {
 				Boards = 4,
 			},
 		},
+		ArrowboxOfHolding = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Arrow Box of Holding",
+			Description = "A magical arrow container.",
+			NeedRecipe = false,
+			CraftingTemplateFile = "arrowbox_magic",
+			Category = "Furnishings",
+			Subcategory = "Storage",
+			Resources = {
+				BlightwoodBoards = 6,
+				EtherealBones = 2
+			},
+		},
 		Dresser = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 85,
@@ -1659,6 +1673,23 @@ FabricationSkill = {
 			},
 		},
 
+		SilkThread = {
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
+			DisplayName = "Silk Thread",
+			CraftingTemplateFile = "animalparts_spider_silk",
+			Description = "A fabric woven from fine silk. Can be used to make silk clothing and armor.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Cloth",
+			NeedRecipe = false,
+			CanSalvage = false,
+			StackCount = 1,
+			Resources = {
+				Spidersilk = 10,
+			},
+		},
+
 		SilkCloth = {
 			MinLevelToCraft = 50,
 			MaxLevelToGain = 75,
@@ -1670,9 +1701,9 @@ FabricationSkill = {
 			Subcategory = "Cloth",
 			NeedRecipe = true,
 			CanSalvage = false,
-			StackCount = 5,
+			StackCount = 1,
 			Resources = {
-				Silk = 1,
+				Silk = 5,
 			},
 		},
 
@@ -2168,6 +2199,22 @@ FabricationSkill = {
 			Subcategory = "Containers",
 			Resources = {
 				Leather = 1,
+			},
+		},
+		
+		RegbagOfHolding = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Regbag of Holding",
+			Description = "A magical leather pouch for spell reagents.",
+			NeedRecipe = false,
+			CanImprove = false,
+			CraftingTemplateFile = "regbag_magic",
+			Category = "Items",
+			Subcategory = "Containers",
+			Resources = {
+				VileLeather = 6,
+				EtherealBones = 2
 			},
 		},
 	},
@@ -3055,6 +3102,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		NightsightScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Night Sight Scroll",
+			NeedRecipe = false,
+			Description = "A night sight scroll. ",
+			CraftingTemplateFile = "scroll_nightsight",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Blackpearl = 2,
+				FineScroll = 1,
+			},
+		},
 		BombardmentScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
@@ -3178,6 +3239,21 @@ InscriptionSkill = {
 			Subcategory = "Scrolls",
 			Resources = {
 				LemonGrass = 2,
+				AncientScroll = 1,
+			},
+		},
+		WardEvilScroll = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Ward: Evil Scroll",
+			NeedRecipe = false,
+			Description = "A Ward: Evil scroll. ",
+			CraftingTemplateFile = "lscroll_ward_evil",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				LemonGrass = 2,
+				Ginseng = 2,
 				AncientScroll = 1,
 			},
 		},

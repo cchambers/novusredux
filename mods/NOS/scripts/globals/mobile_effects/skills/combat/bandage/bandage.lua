@@ -83,6 +83,26 @@ MobileEffectLibrary.Bandage =
 				EndMobileEffect(root)
 				return false
 			end
+
+			LookAt(self.ParentObj, self.Target)
+
+			-- handle breaking effect from actions/moving
+			self._WasDead = true
+			SetMobileMod(self.ParentObj, "Busy", "BandagingCorpse", true)
+			RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
+				if ( what ~= "Pickup" ) then
+					self.Interrupted(self, root)
+				end
+			end)
+			RegisterEventHandler(EventType.StartMoving, "", function()
+				self.Interrupted(self, root)
+			end)
+			if ( IsInCombat(self.ParentObj) ) then
+				self.ParentObj:SendMessage("EndCombatMessage")
+			end
+			self.ParentObj:StopMoving()
+			self.ParentObj:PlayAnimation("forage")
+			
 			return -- stop the rest of OnEnterState execution, but wait for the pulse still.
 		end
 		-- clear theses since we aren't resurrecting.
@@ -154,8 +174,12 @@ MobileEffectLibrary.Bandage =
 	end,
 
 	AiPulse = function(self,root)
-		if ( ValidateRangeWithError(SkillData.AllSkills.HealingSkill.Options.BandageRange, self.ParentObj, self.Target, "Too far away.") ) then
-			if ( Success(0.25) and IsDead(self.Target) ) then
+		if ( 
+			not self._Interrupted
+			and
+			ValidateRangeWithError(SkillData.AllSkills.HealingSkill.Options.BandageRange, self.ParentObj, self.Target, "Too far away.")
+		) then
+			if ( Success(0.3) and IsDead(self.Target) ) then
 				-- resurrect the corpse
 				self.Target:SetObjVar("sp_resurrect_effectSource", self.ParentObj)
 				self.Target:AddModule("sp_resurrect_effect")
@@ -163,15 +187,34 @@ MobileEffectLibrary.Bandage =
 				CheckSkill(self.ParentObj, "HealingSkill", self.Healing, SkillData.AllSkills.HealingSkill.Options.SkillRequiredToResurrect)
 				CheckSkill(self.ParentObj, self.SupplimentalSkill, self.Supplimental, SkillData.AllSkills.HealingSkill.Options.SkillRequiredToResurrect)
 			else
-				self.ParentObj:NpcSpeechToUser("You fail to stir the corpse.",self.ParentObj)
+				if ( IsDead(self.Target) ) then
+					self.ParentObj:NpcSpeechToUser("You fail to stir the corpse.", self.ParentObj)
+				end
 			end
 		end
 		EndMobileEffect(root)
 	end,
+
+	Interrupted = function(self,root)
+		self.ParentObj:SystemMessage("Bandaging interrupted.", "info")
+		self._Interrupted = true
+		EndMobileEffect(root)
+	end,
+
+	OnExitState = function(self,root)
+		if ( self._WasDead ) then
+			SetMobileMod(self.ParentObj, "Busy", "BandagingCorpse", nil)
+			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
+			UnregisterEventHandler("", EventType.StartMoving, "")
+			self.ParentObj:PlayAnimation("idle")
+		end
+	end,
 	
 	ParentObj = nil,
 	_HealAmount = 0,
-	_MaxHealth = 0
+	_MaxHealth = 0,
+	_WasDead = false,
+	_Interrupted = false,
 }
 
 
@@ -193,6 +236,7 @@ MobileEffectLibrary.WashBandage =
 			isWater = true
 		else
 			self.ParentObj:SystemMessage("That is empty.")
+			EndMobileEffect(root)
 			return false
 		end
 
@@ -220,6 +264,7 @@ MobileEffectLibrary.WashBandage =
 			end
 		else
 			self.ParentObj:NpcSpeech("That doesn't seem to be water.")
+			EndMobileEffect(root)
 			return false
 		end
 	

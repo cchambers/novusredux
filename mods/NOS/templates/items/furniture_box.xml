@@ -21,7 +21,7 @@
                             { Weight = 15, Template = "item_potted_plant_round_bush", Unique = true },
                             { Weight = 15, Template = "furniture_wall_hanger", Unique = true, Packed=true },
                             { Weight = 15, Template = "furniture_bed_soldiers_cot", Unique = true, Packed=true },
-                            { Weight = 15, Template = "furniture_table_wooden_plant", Unique = true, Packed=true },
+                            { Weight = 15, Template = "furniture_table_wooden_blank", Unique = true, Packed=true },
                             { Weight = 15, Template = "furniture_weapon_rack_wooden", Unique = true, Packed=true },
                             { Weight = 5, Template = "item_potted_plant_tree", Unique = true },
                             { Weight = 5, Template = "item_basket", Unique = true },

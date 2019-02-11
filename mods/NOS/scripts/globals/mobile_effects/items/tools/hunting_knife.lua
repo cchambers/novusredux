@@ -216,8 +216,6 @@ MobileEffectLibrary.HuntingKnife =
             local backpackObj = self.Backpack
             local resourceType = "Blackpearl"
             if( backpackObj ~= nil ) then		
-                -- TODO - VERLORENS Add in difficulty to harvestinging checks, requires adding difficulty to each plant.. necessary?
-                --if ( CheckSkill(self.ParentObj, "HarvestingSkill", self._Difficulty) ) then
                 local harvestingSkill = GetSkillLevel(self.ParentObj, "HarvestingSkill")
                 
                 -- Max number of goods per harvesting skill:
@@ -228,7 +226,7 @@ MobileEffectLibrary.HuntingKnife =
                 
                 -- Yes still doing this the rough way, but it's nice to have that extra number.
                 -- No I'm not being vindictive here >.>
-                if(blackpearlChance >= 8) then
+                if(blackpearlChance >= 6 and harvestingSkill < 40) then
                     CheckSkillChance(self.ParentObj,"HarvestingSkill")
                 end
 

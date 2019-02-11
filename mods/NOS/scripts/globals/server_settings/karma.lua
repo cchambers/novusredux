@@ -116,6 +116,7 @@ ServerSettings.Karma = {
                 Outcast = 0,
             },
             SlayMonsterModifier = 20,
+            Evil = true
         }
     }
 }

@@ -39,9 +39,6 @@ ResourceHarvester.CollectResource = function(user,resourceType)
 		if(math.random(0, maxHarvestingChance) > 5) then
 			harvestingBonus = 1
 		end
-		if ( math.random(0, 100) > 96 ) then
-			CheckSkillChance(user, "HarvestingSkill", HarvestingSkill, 0.05)
-		end
 		mHarvestedStackCount = mHarvestedStackCount + harvestingBonus
 
 		-- see if the user gets an upgraded version

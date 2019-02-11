@@ -497,6 +497,11 @@ function CheckHitSuccess(victim, hand)
 	local evasion = victim:GetStatValue("Evasion")
 	local hitChance = ((accuracy) / ((evasion) * 2) * 100)
 
+	-- INCREASE CHANCE OF HIT WITH 2H WEAPONS... 
+	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].TwoHandedWeapon) then
+		hitChance = hitChance * 1.5
+	end
+
 	local hitSuccess = false
 	-- if player or tamed pet
 	if (isPlayer or _MyOwner ~= nil) then
@@ -534,7 +539,7 @@ function CheckHitSuccess(victim, hand)
 		end
 	else
 		-- mobs cannot have a hit chance lower than 50%.
-		hitSuccess = Success(math.max(hitChance / 100, 0.5))
+		hitSuccess = Success(math.max(hitChance / 100, 0.75))
 	end
 
 	return hitSuccess
@@ -715,11 +720,9 @@ function ApplyDamageToTarget(victim, damageInfo)
 						(0.5 + (1 * (GetSkillLevel(_MyOwner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single)))
 				end
 			elseif (damageInfo.Source) then
-				local executioner = damageInfo.Source:GetObjVar("Executioner")
+				local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
 				if (executioner ~= nil) then
-					finalDamage =
-						finalDamage *
-						(ServerSettings.Executioner.LevelModifier[damageInfo.Source:GetObjVar("ExecutionerLevel") or 1] or 1)
+					finalDamage = finalDamage * (ServerSettings.Executioner.LevelModifier[executioner] or 1)
 				end
 
 				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
@@ -1174,7 +1177,7 @@ function FindArrowType(mobile)
 				))
 			 then
 				mArrowType = type
-				mArrowDamageBonus = ArrowTypeData[type].Damage or 0
+				mArrowDamageBonus = ArrowTypeData[type].DamageBonus or 0
 				return true
 			end
 		end
@@ -1332,6 +1335,13 @@ RegisterEventHandler(
 			return
 		end
 		local slot = GetEquipSlot(item)
+		if (item:HasObjVar("ColorWarItem")) then
+			local user = this
+			if (not(item:HasModule("colorwar_flag"))) then
+				item:SetHue(user:GetHue())
+			end
+		end
+		-- DebugMessage('combat.lua: EventType.ItemEquipped(item): '..tostring(item)..' has been equipped.  '..tostring(slot))
 		if (IsPlayerCharacter(this)) then
 			CancelCastPrestigeAbility(this)
 

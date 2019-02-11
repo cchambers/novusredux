@@ -2,8 +2,9 @@
   <Name>Soaked Map</Name>
 	<ClientId>113</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
-  <DoubleVariable Name="Difficulty">30</DoubleVariable>
-	<ObjectVariableComponent/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="Difficulty">30</DoubleVariable>
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="sos_map">
 				<Initializer>

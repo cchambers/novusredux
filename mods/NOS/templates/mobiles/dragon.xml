@@ -14,7 +14,7 @@
 		<StringVariable Name="MonsterAR">130</StringVariable>
 		<DoubleVariable Name="Armor">87</DoubleVariable>
 		<DoubleVariable Name="Attack">83</DoubleVariable>
-		<DoubleVariable Name="Power">20</DoubleVariable>
+		<DoubleVariable Name="Power">30</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
@@ -62,7 +62,7 @@
 					{
 					},		
 					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
-					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment", "Meteor"},
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
 				}
 			</Initializer>
 		</LuaModule>

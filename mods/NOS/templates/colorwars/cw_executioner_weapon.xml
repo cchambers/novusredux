@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>Magic Weapon</Name>
+	<ClientId>35</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_random_executioner_weapon">
+			<Initializer>
+				{
+					Intensity = { 50, 100 }
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
