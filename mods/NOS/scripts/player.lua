@@ -439,7 +439,7 @@ function GetTitle(targetObj)
 	local klevel = 1
 	while karma < karmaLevels[klevel] do
 		klevel = klevel + 1
-		if (klevel == 9) then break end
+		if (klevel == #karmaLevels) then break end
 	end
 
 	klevel = karmaLevels[klevel]
