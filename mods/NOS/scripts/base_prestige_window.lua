@@ -31,6 +31,27 @@ function GetAllAbilitiesSorted()
 	return mAllAbilitiesSorted
 end
 
+function BackToBooks(user)
+	local one = user:GetObjVar("PrestigeAbility1")
+	local two = user:GetObjVar("PrestigeAbility2")
+	local three = user:GetObjVar("PrestigeAbility3")
+	if (one ~= nil) then
+		local bookname = tostring("prestige_"..one.AbilityName:lower())
+		CreateObjInBackpack(user, bookname)
+		user:DelObjVar("PrestigeAbility1")
+	end
+	if (two ~= nil) then
+		local bookname = tostring("prestige_"..two.AbilityName:lower())
+		CreateObjInBackpack(user, bookname)
+		user:DelObjVar("PrestigeAbility2")
+	end
+	if (three ~= nil) then
+		local bookname = tostring("prestige_"..three.AbilityName:lower())
+		CreateObjInBackpack(user, bookname)
+		user:DelObjVar("PrestigeAbility3")
+	end
+end
+
 function GetActualAbilityPageIndex(position)
 	return ((mPrestigePageIndex - 1) * 2) + position
 end
@@ -138,6 +159,21 @@ function OpenPrestigeWindow()
 			dynamicWindow:AddLabel(553,curY+2,"[43240f]"..data.Data.DisplayName.."[-]",160,0,28,"center",false,false,"Kingthings_Dynamic")
 			curY = curY + 34
 		end
+
+		dynamicWindow:AddButton(
+			430, --(number) x position in pixels on the window
+			300, --(number) y position in pixels on the window
+			"ResetPrestige", --(string) return id used in the DynamicWindowResponse event
+			"Reset Abilities Back to Books", --(string) text in the button (defaults to empty string)
+			nil, --(number) width of the button (defaults to width of text)
+			0,--(number) height of the button (default decided by type of button)
+			"", --(string) mouseover tooltip for the button (default blank)
+			"", --(string) server command to send on button click (default to none)
+			true, --(boolean) should the window close when this button is clicked? (default true)
+			"Default" --(string) button type (default "Default")
+			--buttonState --(string) button state (optional, valid options are default,pressed,disabled)
+			--customSprites --(table) Table of custom button sprites (normal, hover, pressed. disabled)
+		)
 
 		dynamicWindow:AddLabel(196-22,334,"[43240f]Experience[-]",160,0,24,"center",false,false,"Kingthings_Dynamic")
 		dynamicWindow:AddLabel(196+90,334,"[43240f]Ability Points[-]",160,0,24,"center",false,false,"Kingthings_Dynamic")
@@ -250,6 +286,8 @@ function HandlePrestigeBookWindowResponse(user,buttonId)
 			RemoveSkillFromTracker("Prestige")
 		end
 		OpenPrestigeWindow()
+	elseif(buttonId == "ResetPrestige") then
+		BackToBooks(user)
 	else
 		local option, arg = string.match(buttonId, "(.+)|(.+)")
 		if(option == "Page") then
