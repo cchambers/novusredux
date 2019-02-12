@@ -94,25 +94,25 @@ TemplateDefines = {
 
 		FilthyRich = 
 		{
-			NumItems = 2,
+			NumItems = 1,
 
 			LootItems = 
 			{ 
     			{ Chance = 50, Template = "random_jewelry", Unique = true },
 				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
-    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
 		Boss = 
 		{
-			NumItems = 3,
+			NumItems = 1,
 					
 			LootItems = 
 			{ 
 				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
 				{ Chance = 25, Template = "random_jewelry", Unique = true },
-    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -153,11 +153,11 @@ TemplateDefines = {
 
 		ExecutionerTubs = 
 		{
-			NumItems = 2,
+			NumItems = 1,
 
 			LootItems = 
 			{ 
-				{ Chance = 5, Template = "random_executioner_weapon_80_100", Unique = true},
+				{ Chance = 5, Template = "random_executioner_weapon_0_100", Unique = true},
     			{ Chance = 5, Template = "dye_tub_random", Unique = true },
 			},
 		},
