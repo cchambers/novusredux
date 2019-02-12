@@ -128,7 +128,7 @@ function PowerHourDonate(amount)
         return true;
 	end);
     DebugMessage(tostring("Another item donated! (+" .. amount .. ") > GlobalPowerHour at " .. donations))
-    if (donations > mPowerHourTrigger) then
+    if (donations >= mPowerHourTrigger) then
         local overflow = donations - mPowerHourTrigger
         TriggerGlobalPowerHour(overflow)
     end
