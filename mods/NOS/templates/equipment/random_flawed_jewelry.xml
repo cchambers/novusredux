@@ -13,5 +13,6 @@
 					Qualities = { "flawed" }
 				}
 			</Initializer>
+		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>

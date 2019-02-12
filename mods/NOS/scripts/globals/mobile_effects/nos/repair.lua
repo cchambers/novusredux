@@ -106,7 +106,7 @@ MobileEffectLibrary.Repair = {
     end,
     DoRepair = function(self, root)
         self.Target:SetObjVar("PermanentDamage", self.PermanentDamage)
-        self.Target:SetObjVar("Durability", self.RepairTo)
+        AdjustDurability(self.Target, self.RepairTo - self.Durability)
         EndMobileEffect(root)
         return
     end,

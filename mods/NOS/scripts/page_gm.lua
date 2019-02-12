@@ -6,9 +6,10 @@ RegisterSingleEventHandler(
 			local newWindow = DynamicWindow("PageWindow","Page a GM",400,300,200,200,"Default","TopLeft")
 			local x = 30
 			local y = 215
-			newWindow:AddTextField(x, 10, 320,200, "PageDetails", "Details are important! Delete this line.")
+			newWindow:AddTextField(x, 30, 320, 180, "PageDetails", "")
 			
-			newWindow:AddButton(x, y, "Submit", "Submit", 150, 0, "", "", true)
+			newWindow:AddLabel(x, 10, "What's up? Remember: details are important!", 400, 30, 18, "left", true, true, "PermianSlabSerif_Dynamic_Bold")
+			newWindow:AddButton(x, y, "Submit", "Send Page", 150, 0, "", "", true)
 			newWindow:AddButton(x+170, y, "Cancel", "Cancel", 150, 0, "", "", true)
 			--newWindow:AddButton(x, y, "CancelImprovement", "Cancel", 200, 0, "Stop Attempting to Improve the item.", "", false)
 			this:OpenDynamicWindow(newWindow,this)

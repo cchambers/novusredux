@@ -13,5 +13,6 @@
 					Qualities = { "perfect" }
 				}
 			</Initializer>
+		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
