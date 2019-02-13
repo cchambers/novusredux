@@ -1,5 +1,8 @@
 MobileEffectLibrary.ColorWarPlayer = {
 	OnEnterState = function(self, root, target, args)
+		local cred = self.ParentObj:GetObjVar("Credits") or 0
+		cred = cred + 1
+		self.ParentObj:SetObjVar("Credits", cred)
 		AddBuffIcon(
             self.ParentObj,
             "ColorWarPlayerEffect",
@@ -39,10 +42,12 @@ MobileEffectLibrary.ColorWarPlayer = {
 		if (count >= 2) then
 			user:PlayEffectWithArgs("SlimeTrailEffect", 0.0,"Bone=Ground")
 			self.HadFlag = true
+			self.ParentObj:SetObjVar("ColorWarWin", true)
 			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "ColorWar.CheckWin")
 		else
 			if (self.HadFlag == true) then
 				user:StopEffect("SlimeTrailEffect")
+				self.ParentObj:DelObjVar("ColorWarWin")
 				self.HadFlag = false
 			end
 			self.ParentObj:ScheduleTimerDelay(TimeSpan.FromSeconds(5), "ColorWar.CheckWin")
