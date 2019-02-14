@@ -481,6 +481,9 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
         LuaDebugCallStack("[ShouldChaoticProtect] target not provided.")
         return false
     end
+
+    if ( IsImmortal(player) and not TestMortal(player) ) then return false end
+    
     if ( 
         -- players already temp chaotic don't need to be protected.
         player:HasObjVar("IsChaotic")

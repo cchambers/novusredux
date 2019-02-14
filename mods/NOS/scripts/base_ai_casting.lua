@@ -5,7 +5,6 @@ AI.SetSetting("CanCast", true)
 
 AI.SetSetting("SpellRangeMod", 20)
 
-AI.SetSetting("ChaseRange", AI.GetSetting("LeashDistance") - 5)
 AI.Spells = {
     Heal = {
         Type = "healspell"
