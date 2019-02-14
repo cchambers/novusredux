@@ -14,7 +14,7 @@ function SetStack(amount)
 		this:SetSharedObjectProperty("Weight", newWeight)
 		local containedObj = this:ContainedBy()
         if(containedObj ~= nil) then
-            if (not(containedObj:HasModule('container_magic'))) then
+            if (not(containedObj:HasModule("container_magic"))) then
                 containedObj:SendMessage("AdjustWeight", adjustWeightBy)
             end
 		end
@@ -42,7 +42,7 @@ function AdjustStack(delta)
 			local containedObj = this:ContainedBy()
 			if(containedObj ~= nil) then
                 --DebugMessage("(2) adjustWeightBy is "..tostring(adjustWeightBy))
-                if (not(containedObj:HasModule('container_magic'))) then
+                if (not(containedObj:HasModule("container_magic"))) then
                     containedObj:SendMessage("AdjustWeight", adjustWeightBy)
                 end
 			end
