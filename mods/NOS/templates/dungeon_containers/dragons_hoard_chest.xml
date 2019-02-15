@@ -34,7 +34,6 @@
 							NumItemsMin = 3,
 							NumItemsMax = 5,
 					    	LootItems = {
-
 				    			{ Weight = 15, Template = "necklace_ruby_perfect", Unique = true },
 				    			{ Weight = 15, Template = "necklace_sapphire_perfect", Unique = true },
 				    			{ Weight = 15, Template = "necklace_topaz_perfect", Unique = true },
