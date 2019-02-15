@@ -119,7 +119,7 @@ RegisterEventHandler(EventType.CreatedObject, "created_corpse", function (succes
 				local slot = GetEquipSlot(equippedObjects[i])
 				if ( slot == "Backpack" ) then
 					backpack = equippedObjects[i]
-				elseif ( slot ~= "TempPack" and slot ~= "Bank" ) then
+				elseif ( slot ~= "TempPack" and slot ~= "Bank" and slot ~= nil) then
 					if ( slot:match("BodyPart") ) then
 						-- replicate the hair
 						if ( slot == "BodyPartHair" or slot == "BodyPartFacialHair" ) then
@@ -328,6 +328,13 @@ function EndDeath(ghostResurrect)
 
 	-- stop being treated like a ghost
 	this:DelObjVar("IsDead")
+	--this:SetHideNearbyMobiles(false)
+
+	
+	local nearbyMobiles = FindObjects(SearchMobileInRange(this:GetUpdateRange()))
+	for i=1,#nearbyMobiles do
+		nearbyMobiles[i]:ForceObjectUpdate(this)
+	end
 	
 	this:SendMessage("SetFullLevelPct",50)
 

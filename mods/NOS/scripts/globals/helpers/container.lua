@@ -9,7 +9,7 @@ function TryPutObjectInContainer(obj, container, locInContainer, canOverfill, tr
         local isGood = false
         for k, v in pairs(ResourceTypes[1]) do
             if (ResourceTypes[1][k] == type) then
-                return true
+                isGood = true
             end
         end
         

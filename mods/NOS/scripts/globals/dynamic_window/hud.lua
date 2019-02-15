@@ -9,8 +9,8 @@ function ShowStatusElement(mobileObj, args)
 	}
 
 	local width = 166
-	local height = (args.IsSelf and 58) or 44
-	local statusWindow = DynamicWindow(args.DialogId, "", width, height, args.ScreenX, args.ScreenY, "Transparent")
+	local height = (args.IsSelf and 58) or 10
+	local statusWindow = DynamicWindow(args.DialogId, "", width, height, args.ScreenX, args.ScreenY, "TransparentDraggable")
 	-- local online = GlobalVarRead("User.Online")
 	-- local userCount = "CNX: " .. tostring(#online)
 	-- 	statusWindow:AddLabel(
@@ -24,7 +24,7 @@ function ShowStatusElement(mobileObj, args)
 	-- end
 	
 	-- this is a special command that handles the click client side by targeting the mob with the id of the buttonid
-	statusWindow:AddButton(0, 0, "", "", width, height, "", "$target " .. mobileObj.Id, false, "Invisible")
+	statusWindow:AddButton(0,24,"","",166,36,"","$target "..mobileObj.Id,false,"Invisible")
 
 	statusWindow:AddImage(0, 0, args.FrameImage)
 

@@ -9,7 +9,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
 
 	-- if we are being attacked by a player
-	if (IsPlayerCharacter(damager) or IsPet(damager)) then
+	if (IsPlayerObject(damager)) then
 		if (ServerSettings.PlayerInteractions.PlayerVsPlayerEnabled ~= true and damager ~= this and not IsGod(damager)) then
 			-- if pvp enabled, not damaging ourselves, and the damager is not a god, stop here (disabled PVP)
 			return true
