@@ -59,9 +59,13 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 25},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 20},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 20, StackCountMax = 25},
+								{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 20, StackCountMax = 25},
 								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 25},
 							}
 						},
