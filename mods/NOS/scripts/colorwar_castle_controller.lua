@@ -82,33 +82,35 @@ function EndColorWars(winners)
 	)
 
 	for i, j in pairs(players) do
-		local hue = j:GetHue()
-		if (hue == winners) then
-			local credits = j:GetObjVar("Credits") or 0
-			credits = credits + 2
-			j:SetObjVar("Credits", credits)
-			if (j:HasObjVar("ColorWarCaptain")) then
-				credits = credits + 1
+		if (j:HasObjVar("ColorWarPlayer")) then
+			local hue = j:GetHue()
+			if (hue == winners) then
+				local credits = j:GetObjVar("Credits") or 0
+				credits = credits + 2
+				j:SetObjVar("Credits", credits)
+				if (j:HasObjVar("ColorWarCaptain")) then
+					credits = credits + 1
+				end
 			end
-		end
-		j:SystemMessage(
-			"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
-			"info"
-		)
-		if (IsDead(j)) then
+			j:SystemMessage(
+				"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
+				"info"
+			)
+			if (IsDead(j)) then
+				CallFunctionDelayed(
+					TimeSpan.FromSeconds(4),
+					function()
+						j:SendMessage("Resurrect", true)
+					end
+				)
+			end
 			CallFunctionDelayed(
-				TimeSpan.FromSeconds(4),
+				TimeSpan.FromSeconds(5),
 				function()
-					j:SendMessage("Resurrect", true)
+					ExitColorwars(j)
 				end
 			)
 		end
-		CallFunctionDelayed(
-			TimeSpan.FromSeconds(5),
-			function()
-				ExitColorwars(j)
-			end
-		)
 	end
 end
 
