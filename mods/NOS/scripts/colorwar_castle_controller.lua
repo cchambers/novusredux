@@ -75,8 +75,8 @@ function EndColorWars(winners)
 				end
             end
             if (IsDead(j)) then j:SendMessage("Resurrect", true) end
-            j:SystemMessage("Color Wars is over: "..mTeams[tostring("h"..winners)].." wins! Leaving area in 3 seconds...")
-            CallFunctionDelayed(TimeSpan.FromSeconds(3), function () 
+            j:SystemMessage("Color Wars is over: "..mTeams[tostring("h"..winners)].." wins! Leaving area in 5 seconds...", "info")
+            CallFunctionDelayed(TimeSpan.FromSeconds(5), function () 
                 ExitColorwars(j)
             end)
         end
