@@ -8,7 +8,6 @@
 		<BoolVariable Name="NoReset">True</BoolVariable>
 		<LocVariable Name="Destination">2430.55,0,536.92</LocVariable>
 	</ObjectVariableComponent>	
-	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="colorwar_castle_controller" />
 	</ScriptEngineComponent>
