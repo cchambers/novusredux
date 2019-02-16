@@ -1,8 +1,8 @@
 AddView("WinCondition", SearchMobileInRange(6.0))
 
 mTeams = {
-    h831 = "Red",
-    h835 = "Blue"
+    h831 = "[ff0000]Red[-]",
+    h835 = "[0000ff]Blue[-]"
 }
 
 function ExitColorwars(user)
