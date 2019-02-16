@@ -1,8 +1,8 @@
 AddView("WinCondition", SearchMobileInRange(6.0))
 
 mTeams = {
-    h831 = "[ff0000]Red[-]",
-    h835 = "[0000ff]Blue[-]"
+	h831 = "[ff0000]Red[-]",
+	h835 = "[0000ff]Blue[-]"
 }
 
 function ExitColorwars(user)
@@ -12,28 +12,42 @@ function ExitColorwars(user)
 		user:SetHue(hue)
 	end
 	local backpackObj = user:GetEquippedObject("Backpack")
-	local items = FindItemsInContainerRecursive(user:GetEquippedObject("Backpack"),
-		function (item)
+	local items =
+		FindItemsInContainerRecursive(
+		user:GetEquippedObject("Backpack"),
+		function(item)
 			return item:Destroy()
-		end)
+		end
+	)
 
 	local RightHand = user:GetEquippedObject("RightHand")
-	if (RightHand ~= nil) then RightHand:Destroy() end
+	if (RightHand ~= nil) then
+		RightHand:Destroy()
+	end
 	local LeftHand = user:GetEquippedObject("LeftHand")
-	if (LeftHand ~= nil) then LeftHand:Destroy() end
+	if (LeftHand ~= nil) then
+		LeftHand:Destroy()
+	end
 	local Chest = user:GetEquippedObject("Chest")
-	if (Chest ~= nil) then Chest:Destroy() end
+	if (Chest ~= nil) then
+		Chest:Destroy()
+	end
 	local Legs = user:GetEquippedObject("Legs")
-	if (Legs ~= nil) then Legs:Destroy() end
+	if (Legs ~= nil) then
+		Legs:Destroy()
+	end
 	local Head = user:GetEquippedObject("Head")
-	if (Head ~= nil) then Head:Destroy() end
+	if (Head ~= nil) then
+		Head:Destroy()
+	end
 
 	user:DelObjVar("ColorWarPlayer")
 	user:DelObjVar("ColorWarPoints")
 	user:DelObjVar("ColorWarKit")
+	if (user:HasObjVar("ColorWarCaptain")) then user:DelObjVar("ColorWarCaptain") end
 
 	local StatsActual = user:GetObjVar("StatsActual")
-	
+
 	user:DelObjVar("IsRed")
 	for stat, value in pairs(StatsActual) do
 		if (value == 0 and stat == "Murders") then
@@ -43,59 +57,82 @@ function ExitColorwars(user)
 		end
 	end
 
-    local newTime = ServerTimeSecs()
-    local destLoc = this:GetObjVar("Destination")
-    local region = this:GetObjVar("RegionAddress")
+	local newTime = ServerTimeSecs()
+	local destLoc = this:GetObjVar("Destination")
+	local region = this:GetObjVar("RegionAddress")
 	if (type(destLoc) == "string") then
 		destLoc = Loc.ConvertFrom(destLoc)
 	end
 
 	if (destLoc ~= nil) then
-	        TeleportUser(this, user, destLoc, region)
+		TeleportUser(this, user, destLoc, region)
 		return
 	end
 end
 
-function EndColorWars(winners) 
-    local players = FindPlayersInRegion()
-     -- GAME OVER, FIND EVERYONE ON THE MAP AND PORT THEM HOME GIVING CREDITS TO WINNERS
-    local players = FindObjects(SearchMulti(
-        {
-            SearchPlayerInRange(300,true), --in 20 units
-        }))
+function EndColorWars(winners)
+	local players = FindPlayersInRegion()
+	local players =
+		FindObjects(
+		SearchMulti(
+			{
+				SearchPlayerInRange(300, true) --in 20 units
+			}
+		)
+	)
 
-        for i,j in pairs(players) do
-            local hue = j:GetHue()
-            if (hue == winners) then
-                local credits = j:GetObjVar("Credits") or 0
-                credits = credits + 2
-				j:SetObjVar("Credits", credits)
-				if (j:HasObjVar("ColorWarCaptain")) then
-					credits = credits + 1
+	for i, j in pairs(players) do
+		local hue = j:GetHue()
+		if (hue == winners) then
+			local credits = j:GetObjVar("Credits") or 0
+			credits = credits + 2
+			j:SetObjVar("Credits", credits)
+			if (j:HasObjVar("ColorWarCaptain")) then
+				credits = credits + 1
+			end
+		end
+		j:SystemMessage(
+			"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
+			"info"
+		)
+		if (IsDead(j)) then
+			CallFunctionDelayed(
+				TimeSpan.FromSeconds(4),
+				function()
+					j:SendMessage("Resurrect", true)
 				end
-            end
-            if (IsDead(j)) then j:SendMessage("Resurrect", true) end
-            j:SystemMessage("Color Wars is over: "..mTeams[tostring("h"..winners)].." wins! Leaving area in 5 seconds...", "info")
-            CallFunctionDelayed(TimeSpan.FromSeconds(5), function () 
-                ExitColorwars(j)
-            end)
-        end
+			)
+		end
+		CallFunctionDelayed(
+			TimeSpan.FromSeconds(5),
+			function()
+				ExitColorwars(j)
+			end
+		)
+	end
 end
 
-RegisterEventHandler(EventType.EnterView, "WinCondition", 
+RegisterEventHandler(
+	EventType.EnterView,
+	"WinCondition",
 	function(obj)
 		local hue = obj:GetHue()
-        if (obj:HasObjVar("ColorWarWin") and this:GetObjVar("TeamHue") == hue) then
-            EndColorWars(obj:GetHue())
-        end
-    end)
+		if (obj:HasObjVar("ColorWarWin") and this:GetObjVar("TeamHue") == hue) then
+			EndColorWars(obj:GetHue())
+		end
+	end
+)
 
-RegisterEventHandler(EventType.Timer,"CheckWinCondition",function ( ... )
-    local objects = GetViewObjects("WinCondition")
-    for i, obj in pairs(objects) do
-        if (obj:HasObjVar("ColorWarWin")) then
-            EndColorWars(obj:GetHue())
-        end
-    end
-    this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"CheckWinCondition")
-end)
+RegisterEventHandler(
+	EventType.Timer,
+	"CheckWinCondition",
+	function(...)
+		local objects = GetViewObjects("WinCondition")
+		for i, obj in pairs(objects) do
+			if (obj:HasObjVar("ColorWarWin")) then
+				EndColorWars(obj:GetHue())
+			end
+		end
+		this:ScheduleTimerDelay(TimeSpan.FromSeconds(1), "CheckWinCondition")
+	end
+)
