@@ -111,6 +111,16 @@ RegisterCommand {
 }
 
 RegisterCommand {
+    Command = "credit",
+    AccessLevel = AccessLevel.Mortal,
+    Func = function()
+        local credit = this:GetObjVar("Credits") or 0
+        this:SystemMessage("You are the proud owner of [bada55]" .. credit .. "[-] Credits.", "info")
+    end,
+    Desc = "Reset your tracked skills."
+}
+
+RegisterCommand {
     Command = "setjail",
     AccessLevel = AccessLevel.Immortal,
     Func = function()

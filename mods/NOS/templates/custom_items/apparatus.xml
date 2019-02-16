@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]The Apparatus[-]</Name>
+	<ClientId>2008</ClientId>
+	<Hue>915</Hue>
+	<ScaleModifier>2</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="CanDye">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="binger"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
