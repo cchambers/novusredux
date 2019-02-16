@@ -83,8 +83,9 @@ function EndColorWars(winners)
 end
 
 RegisterEventHandler(EventType.EnterView, "WinCondition", 
-    function(obj)
-        if (obj:HasObjVar("ColorWarWin")) then
+	function(obj)
+		local hue = obj:GetHue()
+        if (obj:HasObjVar("ColorWarWin") and this:GetObjVar("TeamHue") == hue) then
             EndColorWars(obj:GetHue())
         end
     end)
