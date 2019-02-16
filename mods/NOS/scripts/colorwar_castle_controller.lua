@@ -69,7 +69,10 @@ function EndColorWars(winners)
             if (hue == winners) then
                 local credits = j:GetObjVar("Credits") or 0
                 credits = credits + 2
-                j:SetObjVar("Credits", credits)
+				j:SetObjVar("Credits", credits)
+				if (j:HasObjVar("ColorWarCaptain")) then
+					credits = credits + 1
+				end
             end
             if (IsDead(j)) then j:SendMessage("Resurrect", true) end
             j:SystemMessage("Color Wars is over: "..mTeams[tostring("h"..winners)].." wins! Leaving area in 3 seconds...")
