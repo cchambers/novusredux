@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>Vending Machine</Name>
+	<ClientId>247</ClientId>
+	<ScaleModifier>2</ScaleModifier>
+	<Hue>899</Hue>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="credit_vending_machine"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

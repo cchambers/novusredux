@@ -20,8 +20,8 @@ ServerSettings.Crafting = {
                 Copper = 10,
                 Gold = 20,
                 Cobalt = 30,
-                Obsidian = 40,
-                Steel = 50,
+                Obsidian = 55,
+                Steel = 55,
 
                 Boards = 0,
                 AshBoards = 20,
