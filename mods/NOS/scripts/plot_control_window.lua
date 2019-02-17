@@ -166,18 +166,18 @@ function ManageTab(dynamicWindow)
     dynamicWindow:AddButton(20, 66, "Kick", "Kick", 290, 26, "Remove a target from your plot.", "", false, "List")
 
     if (isHouse) then
-        dynamicWindow:AddButton(
-            20,
-            200,
-            "OpenBank",
-            "Open Your Bank",
-            290,
-            26,
-            "Costs 10,000g.",
-            "",
-            false,
-            "List"
-        )
+        -- dynamicWindow:AddButton(
+        --     20,
+        --     200,
+        --     "OpenBank",
+        --     "Open Your Bank",
+        --     290,
+        --     26,
+        --     "Costs 10,000g.",
+        --     "",
+        --     false,
+        --     "List"
+        -- )
         dynamicWindow:AddButton(20, 92, "Destroy", "Destroy", 290, 26, "Destroy this house.", "", false, "List")
     else
         dynamicWindow:AddButton(

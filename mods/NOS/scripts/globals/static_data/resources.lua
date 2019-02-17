@@ -580,6 +580,10 @@ ResourceData = {
 			Template = "recipe_obsidian",
 			DisplayName = "Recipe: Obsidian",
 		},
+		RecipeSteel = {
+			Template = "recipe_steel",
+			DisplayName = "Recipe: Steel",
+		},
 		RecipeAshArrows = {
 			Template = "recipe_arrow_ash",
 			DisplayName = "Recipe: Ash Arrows",
