@@ -909,7 +909,7 @@ AllRecipes = {
 			},
 		},
 
-		PoleAxe = {
+		Poleaxe = {
 			MinLevelToCraft = 76,
 			MaxLevelToGain = 98,
 			DisplayName = "Poleaxe",
