@@ -14,7 +14,6 @@ RecipeCategories = {
 				{"Bashing","Bashing","Bashing"},
 				{"Piercing","Piercing","Piercing"},
 				{"Polearms","Polearms","Bones"},
-				{"Shields","Shields","Shield"},
 			},
 		},	
 		{
@@ -23,6 +22,7 @@ RecipeCategories = {
 				{"Head",},
 				{"Legs",},
 				{"Torso",},
+				{"Shields","Shields","Shield"},
 			},
 		},
 		{ 
@@ -45,6 +45,7 @@ RecipeCategories = {
 			Name = "Resources",
 			Subcategories = {
                 {"Wood","Wood","Wood"},
+                {"Laminates","Laminates","Wood"},
             },
 		},	
 		{
@@ -1179,7 +1180,7 @@ AllRecipes = {
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			NeedRecipe = true,
-			Category = "Shields",
+			Category = "Armor",
 			Subcategory = "Shields",
 			Resources = {
 				Iron = { Iron = 4 },
@@ -1200,7 +1201,7 @@ AllRecipes = {
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			NeedRecipe = true,
-			Category = "Shields",
+			Category = "Armor",
 			Subcategory = "Shields",
 			Resources = {
 				Iron = { Iron = 4 },
@@ -1221,7 +1222,7 @@ AllRecipes = {
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			NeedRecipe = true,
-			Category = "Shields",
+			Category = "Armor",
 			Subcategory = "Shields",
 			Resources = {
 				Iron = { Iron = 4 },
@@ -1242,7 +1243,7 @@ AllRecipes = {
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			NeedRecipe = true,
-			Category = "Shields",
+			Category = "Armor",
 			Subcategory = "Shields",
 			Resources = {
 				Iron = { Iron = 4 },
@@ -1263,7 +1264,7 @@ AllRecipes = {
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			NeedRecipe = true,
-			Category = "Shields",
+			Category = "Armor",
 			Subcategory = "Shields",
 			Resources = {
 				Iron = { Iron = 4 },
@@ -1448,6 +1449,22 @@ WoodsmithSkill = {
 				Blightwood = 5,
 			},
 		},
+		BroodwoodBoards = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Broodwood Boards",
+			CraftingTemplateFile = "resource_broodwood_boards",
+			Description = "Broodwood Boards",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Wood",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				BlightwoodBoards = 1,
+				AshBoards = 1,
+			},
+		},
 		--Bow
 		ShortBow = {
 			MinLevelToCraft = 15,
@@ -1464,6 +1481,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 		LongBow = {
@@ -1481,6 +1499,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 2 },
 				AshBoards = { AshBoards = 2 },
 				BlightwoodBoards = { BlightwoodBoards = 2 },
+				BroodwoodBoards = { BroodwoodBoards = 2 }
 			},
 		},
 		WarBow = {
@@ -1498,6 +1517,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 3 },
 				AshBoards = { AshBoards = 3 },
 				BlightwoodBoards = { BlightwoodBoards = 3 },
+				BroodwoodBoards = { BroodwoodBoards = 3 }
 			},
 		},
 		RecurveBow = {
@@ -1515,6 +1535,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 5 },
 				AshBoards = { AshBoards = 5 },
 				BlightwoodBoards = { BlightwoodBoards = 5 },
+				BroodwoodBoards = { BroodwoodBoards = 5 }
 			},
 		},
 		--weapons
@@ -1616,6 +1637,23 @@ WoodsmithSkill = {
 			},
 		},
 
+		BroodwoodArrow = {
+			MinLevelToCraft = 65,
+			MaxLevelToGain = 90,
+			DisplayName = "Broodwood Arrow",
+			CraftingTemplateFile = "arrow_broodwood",
+			Description = "",
+			NeedRecipe = false,
+			CanImprove = false,
+			Category = "Weapons",
+			Subcategory = "Bows",
+			StackCount = 20,
+			Resources = {
+				BroodwoodBoards = 1,
+				WildFeather = 1,
+			},
+		},
+
 		--shields
 
 		Buckler = {
@@ -1633,6 +1671,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 		
@@ -1650,6 +1689,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 
@@ -1667,6 +1707,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 2 },
 				AshBoards = { AshBoards = 2 },
 				BlightwoodBoards = { BlightwoodBoards = 2 },
+				BroodwoodBoards = { BroodwoodBoards = 2 }
 			},
 		},
 

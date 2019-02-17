@@ -26,6 +26,7 @@ ServerSettings.Crafting = {
                 Boards = 0,
                 AshBoards = 20,
                 BlightwoodBoards = 40,
+                BroodwoodBoards = 80
             }
         },
         Accuracy = {
@@ -41,6 +42,7 @@ ServerSettings.Crafting = {
                 Boards = 0,
                 AshBoards = 20,
                 BlightwoodBoards = 60,
+                BroodwoodBoards = 80
             }
         },
         -- these are NOT in percents
@@ -83,6 +85,7 @@ ServerSettings.Crafting = {
             Boards = 25,
             AshBoards = 100,
             BlightwoodBoards = 200,
+            BroodwoodBoards = 300
         }
     },
     -- bonus that can be gain frm the skill of crafting the item, the skill level is turned into a percent and multiplied against these numbers

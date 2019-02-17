@@ -27,6 +27,7 @@ MaterialIndex = {
         "Boards",
         "AshBoards",
         "BlightwoodBoards",
+        "BroodwoodBoards",
     }
 }
 
@@ -50,6 +51,7 @@ Materials = {
     Boards = 775,
     AshBoards = 866,
     BlightwoodBoards = 865,
+    BroodwoodBoards = 851,
 }
 
 MaterialTooltipColors = {
@@ -71,4 +73,5 @@ MaterialTooltipColors = {
     Boards = "[b5751b]",
     AshBoards = "[dbb47d]",
     BlightwoodBoards = "[b459ff]",
+    BroodwoodBoards = "[551a8b]",
 }
