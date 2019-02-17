@@ -12,7 +12,7 @@
 				{
 					GridSize = 256,
 					ExcludeRegions = {"NoHousing"},
-					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverride"},
 
 					GridInfo = {
 						{ GridLoc = {-3,-7}, SpawnMultiplier = 0.2, Spawns=TemplateDefines.GridSpawns.SouthernHills.Hard },

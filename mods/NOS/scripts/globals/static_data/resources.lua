@@ -503,6 +503,14 @@ ResourceData = {
 			SalvageResource = "Blightwood",
 			SkillGainDifficultyMultiplier = 5,
 		},
+		BroodwoodBoards = {
+			DisplayName = "Broodwood Boards",
+			Template = "resource_blightwood_boards",
+			CraftedItemPrefix = "Broodwood",
+			SalvageValue = 2,
+			SalvageResource = "Broodwood",
+			SkillGainDifficultyMultiplier = 10,
+		},
 		Cloth = {
 			DisplayName = "Cloth",
 			Template = "resource_bolt_of_cloth",
@@ -604,6 +612,10 @@ ResourceData = {
 		RecipeBlightwoodBoards = {
 			Template = "recipe_blightwood",
 			DisplayName = "Recipe: Blightwood Boards",
+		},
+		RecipeBroodwoodBoards = {
+			Template = "recipe_broodwood",
+			DisplayName = "Recipe: Broodwood Boards",
 		},
 		RecipeChainHelm = {
 			Template = "recipe_chain_helm",

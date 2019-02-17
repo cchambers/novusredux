@@ -12,7 +12,7 @@
 				{
 					GridSize = 256,
 					ExcludeRegions = {"NoHousing"},
-					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverride"},
 
 					GridInfo = {
 				        { GridLoc = {4,1}, SpawnMultiplier = 0.3, Spawns=TemplateDefines.GridSpawns.BlackForest.Easy },

@@ -26,7 +26,7 @@ ServerSettings.Crafting = {
                 Boards = 0,
                 AshBoards = 20,
                 BlightwoodBoards = 40,
-                BroodwoodBoards = 80
+                BroodwoodBoards = 60
             }
         },
         Accuracy = {
