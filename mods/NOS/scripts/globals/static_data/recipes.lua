@@ -1463,6 +1463,7 @@ WoodsmithSkill = {
 			Resources = {
 				BlightwoodBoards = 1,
 				AshBoards = 1,
+				Spidersilk = 4
 			},
 		},
 		--Bow
