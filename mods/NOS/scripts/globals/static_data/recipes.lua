@@ -4,6 +4,7 @@ RecipeCategories = {
 			Name = "Resources",
 			Subcategories = {
 				{"Ingots","Ingots","Materials1"},
+				{"Alloys","Alloys","Materials2"},
 			},
 		},	
 		{
@@ -243,7 +244,7 @@ AllRecipes = {
 			Description = "An alloy made from iron and carbon.",
 			ItemType = "ResourceClass",
 			Category = "Resources",
-			Subcategory = "Ingots",
+			Subcategory = "Alloys",
 			NeedRecipe = true,
 			CanSalvage = false,
 			Resources = {
@@ -445,7 +446,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -465,7 +466,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -485,7 +486,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -505,7 +506,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -525,7 +526,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -545,7 +546,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -565,29 +566,29 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 
-		-- Rapier = {
-		-- 	MinLevelToCraft = 50,
-		-- 	MaxLevelToGain = 75,
-		-- 	DisplayName = "Rapier",
-		-- 	CraftingTemplateFile = "weapon_rapier",
-		-- 	ItemType = "WeaponClass",
-		-- 	CanImprove = true,
-		-- 	Category = "Weapons",
-		-- 	Subcategory = "Slashing",
-		-- 	NeedRecipe = true,
-		-- 	Resources = {
-		-- 		Iron = { Iron = 2 },
-		-- 		Gold = { Gold = 2 },
-		-- 		Copper = { Copper = 2 },
-		-- 		Cobalt = { Cobalt = 2 },
-		-- 		Obsidian = { Obsidian = 2 },
-		Steel = { Steel = 1 }
-		-- 	},
-		-- },
+		Rapier = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Rapier",
+			CraftingTemplateFile = "weapon_rapier",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
 
 		--Blunts
 
@@ -607,7 +608,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 		Hammer = {
@@ -626,7 +627,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 		
@@ -646,7 +647,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -666,7 +667,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -686,7 +687,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -706,7 +707,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -727,7 +728,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Warhammer = {
@@ -746,7 +747,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 
@@ -767,7 +768,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Voulge = {
@@ -786,7 +787,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Spear = {
@@ -805,7 +806,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Halberd = {
@@ -824,7 +825,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		
@@ -844,7 +845,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 		
@@ -864,7 +865,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Naginata = {
@@ -883,7 +884,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		
@@ -903,7 +904,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -923,7 +924,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -944,7 +945,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		GreatAxe = {
@@ -963,7 +964,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		Butcher = {
@@ -982,7 +983,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		
@@ -1025,7 +1026,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		ChainTunic = {
@@ -1045,7 +1046,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		ScaleHelm = {
@@ -1065,7 +1066,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 2 }
 			},
 		},
 		ScaleLeggings = {
@@ -1085,7 +1086,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 		ScaleTunic = {
@@ -1105,7 +1106,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 		FullPlateHelm = {
@@ -1125,7 +1126,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 3 }
 			},
 		},
 		FullPlateLeggings = {
@@ -1145,7 +1146,7 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 5 }
 			},
 		},
 		FullPlateTunic = {
@@ -1165,7 +1166,7 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 5 }
 			},
 		},
 
@@ -1186,7 +1187,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -1207,7 +1208,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -1228,7 +1229,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -1249,7 +1250,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -1270,7 +1271,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 4 }
 			},
 		},
 
