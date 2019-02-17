@@ -104,4 +104,31 @@ ServerSettings.Crafting = {
             Max = 50, 
         }
     },
+
+    RandomRecipes = {
+        "arrow_broodwood",
+        "battle_hammer",
+        "bladed_bat",
+        "boarspear",
+        "broodwood",
+        "butcher",
+        "crescent",
+        "fullered_dagger",
+        "gladius",
+        "hardened_buckler",
+        "letter_opener",
+        "naginata",
+        "ninjato",
+        "oval_shield",
+        "pike",
+        "rapier",
+        "recurve",
+        "skinner",
+        "spetum",
+        "steel",
+        "stiletto",
+        "tapered_heater",
+        "warriors_kite",
+        "zukuri"
+    }
 }
