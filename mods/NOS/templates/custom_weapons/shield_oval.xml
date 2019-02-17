@@ -1,10 +1,9 @@
 <ObjectTemplate>
-  <Name>[d9d9d9]Test[-]</Name>
-	<ClientId>1521</ClientId>
-	<Hue>0</Hue>
+  <Name>[d9d9d9]Oval Shield[-]</Name>
+	<ClientId>1523</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ShieldType">Buckler</StringVariable>
+		<StringVariable Name="ShieldType">Heater</StringVariable>
 		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
 	</ObjectVariableComponent>			
 </ObjectTemplate>

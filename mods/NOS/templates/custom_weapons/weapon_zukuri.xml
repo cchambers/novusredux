@@ -1,9 +1,9 @@
 <ObjectTemplate>
-  <Name>[d9d9d9]Dagger[-]</Name>
+  <Name>[d9d9d9]Zukuri[-]</Name>
 	<ClientId>1445</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>			
-		<StringVariable Name="WeaponType">Dagger</StringVariable>
+		<StringVariable Name="WeaponType">Zukuri</StringVariable>
 		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
 	</ObjectVariableComponent>
 </ObjectTemplate>

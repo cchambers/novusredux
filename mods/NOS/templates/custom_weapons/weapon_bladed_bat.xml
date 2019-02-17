@@ -1,9 +1,9 @@
 <ObjectTemplate>
-  <Name>[d9d9d9]Mace[-]</Name>
-	<ClientId>1461</ClientId>
+  <Name>[d9d9d9]Bladed Bat[-]</Name>
+	<ClientId>1458</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="6"/>
 	<ObjectVariableComponent>			
-		<StringVariable Name="WeaponType">Mace</StringVariable>
+		<StringVariable Name="WeaponType">BladedBat</StringVariable>
 		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
 	</ObjectVariableComponent>					
 </ObjectTemplate>
