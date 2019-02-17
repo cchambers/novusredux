@@ -453,6 +453,11 @@ ResourceData = {
 			DisplayName = "Obsidian",
 			CraftedItemPrefix = "Obsidian",
 		},
+		Steel = {
+			Template = "resource_steel",
+			DisplayName = "Steel",
+			CraftedItemPrefix = "Steel",
+		},
 		Leather = {
 			Template = "resource_leather",
 			DisplayName = "Leather",
