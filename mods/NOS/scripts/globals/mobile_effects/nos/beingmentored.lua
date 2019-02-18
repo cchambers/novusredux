@@ -44,7 +44,7 @@ MobileEffectLibrary.BeingMentored =
 			else
 				local skillLevel = GetSkillLevel(self.ParentObj, self.SkillName)
 				if (skillLevel >= self.SkillMax) then
-					self.ParentObj:SystemMessage("You have learned all you can from "..self.Mentor:GetName() .. " about this.", "info")
+					self.ParentObj:SystemMessage("You have learned all you can from " .. self.Mentor:GetName() .. " about this.", "info")
 					EndMobileEffect(root)
 				else
 					self.ParentObj:PlayEffectWithArgs("ObjectGlowEffect",0.0,"Color=FFFF00")
