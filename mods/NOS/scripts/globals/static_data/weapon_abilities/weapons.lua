@@ -246,6 +246,21 @@ WeaponAbilitiesData.Reclaim = {
     },
 }
 
+WeaponAbilitiesData.Identify = {        
+    MobileEffect = "Identify",
+    Stamina = 0,
+    NoCombat = true,
+    QueueTarget = "Obj",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(5),
+    Action = {
+        DisplayName = "Identify",
+        Tooltip = "Identify an object's properties.",
+        Icon = "magicalguide",
+        Enabled = true
+    },
+}
+
 WeaponAbilitiesData.TelecrookMove = {
     MobileEffect = "TelecrookMove",
     Stamina = 0,

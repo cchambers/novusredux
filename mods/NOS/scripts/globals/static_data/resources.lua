@@ -356,6 +356,16 @@ ResourceData = {
 				Max = 110
 			}
 		},
+		SteelOre = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_steel_ore",
+			DisplayName = "Steel Ore",
+			SkillGainDifficultyMultiplier = 3,
+			Difficulty = {
+				Min = 105,
+				Max = 125
+			}
+		},
 		LeatherScraps = {
 			Template = "resource_leatherscraps",
 			DisplayName = "Leather Scraps",

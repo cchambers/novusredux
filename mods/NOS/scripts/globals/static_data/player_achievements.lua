@@ -23,6 +23,13 @@ AllAchievements = {
 			{"Master Ranger"			,80		,"Given to those who are masters and attuned to animals."			,{Title = "Master Ranger"			}},
 			{"Grandmaster Ranger"		,100	,"Given to those who are renound for their ability with animals."	,{Title = "Grandmaster Ranger"		}},
 		},
+		
+		ArmsLoreSkill = {
+			{"Warrior"					,30		,"Given to those who know about arms."							,{Title = "Apprentice Warrior"		}},
+			{"Journeyman Warrior"		,50		,"Given to those who are educated in arms."						,{Title = "Journeyman Warrior"		}},
+			{"Master Warrior"			,80		,"Given to those who are masters at arms."						,{Title = "Master Warrior"			}},
+			{"Grandmaster Warrior"		,100	,"Given to those who are renowned arms lorists."				,{Title = "Grandmaster Warrior"		}},
+		},
 
 		AnimalTamingSkill = {
 			{"Animal Tamer"				,30		,"Given to those who are animal trainers."							,{Title = "Apprentice Animal Tamer"	}},

@@ -340,6 +340,15 @@ SkillData = {
 			SkillIcon = "Skill_Knight",
 			GainFactor = 0.3,
 		},
+		ArmsLoreSkill = {
+			DisplayName = "Arms Lore",
+			PrimaryStat = "Agility",
+			Description = "Increases your effectiveness with weaponry.",
+			SkillType = "CombatTypeSkill",
+			SkillIcon = "Skill_Knight",
+			GainFactor = 0.3,
+			Abilities = { "Identify" },
+		},
 		TreasureHuntingSkill = {
 			DisplayName = "Treasure Hunting",
 			PrimaryStat = "Intelligence",

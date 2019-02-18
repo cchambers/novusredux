@@ -18,13 +18,15 @@ function RandomExecutionerWeapon()
 	RegisterSingleEventHandler(EventType.CreatedObject, "executioner_weapon_created", function(success, objRef)
 		if ( success ) then
 			-- set the random level
-			objRef:SetObjVar("ExecutionerLevel", GetLevelByIntensity())
+			local level = GetLevelByIntensity()
+			objRef:SetObjVar("ExecutionerLevel", level)
 			-- set the random mobile kind
 			objRef:SetObjVar("Executioner", ServerSettings.Executioner.RandomMobileKinds[
 				math.random(1, #ServerSettings.Executioner.RandomMobileKinds)
 			])
-			-- set the tooltip
-			SetItemTooltip(objRef)
+			local name = objRef:GetName()
+			name = "Magic " .. name
+			objRef:SetName(name)
 		end
 		-- Destroy the temporary item we used to run this script and create the weapon.
 		this:Destroy()

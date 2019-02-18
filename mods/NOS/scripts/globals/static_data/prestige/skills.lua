@@ -53,6 +53,24 @@ PrestigeData.Skills = {
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(30)
 		},
+		
+		Identify = {
+			Action = {
+				DisplayName = "Identify",
+				Icon = "track",	
+				Enabled = true
+			},
+
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			QueueTarget = "Obj",
+			Tooltip = "Attempt to learn more about things.",
+
+			MobileEffect = "Identify",
+			Cooldown = TimeSpan.FromSeconds(3)
+		},
+		
 		ApplyPoison = {
 			Action = {
 				DisplayName = "Apply Poison",

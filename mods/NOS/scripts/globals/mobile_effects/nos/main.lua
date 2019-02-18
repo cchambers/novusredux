@@ -9,6 +9,7 @@ require 'globals.mobile_effects.nos.criminal'
 require 'globals.mobile_effects.nos.chaotic'
 require 'globals.mobile_effects.nos.colorwarplayer'
 
+require 'globals.mobile_effects.nos.identify'
 require 'globals.mobile_effects.nos.paralyze'
 require 'globals.mobile_effects.nos.poison'
 require 'globals.mobile_effects.nos.powerhour'

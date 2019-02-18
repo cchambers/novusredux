@@ -128,7 +128,14 @@ function LootItemCreated(success,objref,stackCount,color,objVars)
 		RequestSetStack(objref,stackCount)
 	end
 
-	SetItemTooltip(objref)
+	-- SetItemTooltip(objref)
+
+	local executioner = item:GetObjVar("Executioner")
+	if ( executioner ~= nil ) then
+		local name = item:GetName()
+		name = "Magic " .. name
+		item:SetName(name)
+	end
 
 	if (objVars ~= nil) then
 		for i, j in pairs(objVars) do
