@@ -53,6 +53,21 @@ ServerSettings.Executioner = {
 		"weapon_gladius",
 		"weapon_naginata",
 		"weapon_poleaxe",
+        "weapon_battle_hammer",
+        "weapon_bladed_club",
+        "weapon_boarspear",
+        "weapon_butcher",
+        "weapon_crescent",
+        "weapon_fullered_dagger",
+        "weapon_letter_opener",
+        "weapon_ninjato",
+        "weapon_pike",
+        "weapon_rapier",
+        "weapon_recurve",
+        "weapon_skinner",
+        "weapon_spetum",
+        "weapon_stiletto",
+        "weapon_zukuri"
 	},
 	-- List of all possible MobileKind types for a weapon created via random_executioner_weapon.lua
 	RandomMobileKinds = {
