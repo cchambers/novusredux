@@ -16,6 +16,8 @@ MobileEffectLibrary.Mentoring =
 		RegisterEventHandler(EventType.Message, "Mentor.GainChance",
 		function ()
 			CheckSkillChance(self.ParentObj, "MentoringSkill")
+			local anims = self.Anims
+			self.ParentObj:PlayAnimation(anims[math.random(1,#anims)])
 		end)
 	end,
 
@@ -34,6 +36,13 @@ MobileEffectLibrary.Mentoring =
 		EndMobileEffect(root)
 	end,
 
+	Anims = {
+		"cast",
+		"fidget",
+		"alarmed",
+		"transaction",
+		"forage"
+	},
 	Student = nil,
 	Duration = TimeSpan.FromMinutes(5)
 }

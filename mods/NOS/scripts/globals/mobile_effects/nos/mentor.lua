@@ -3,6 +3,7 @@ MobileEffectLibrary.Mentor = {
     OnEnterState = function(self, root, target, args)
         self.Path = self.ParentObj:GetObjVar("MentorPath")
         self.SelectedSkill = self.ParentObj:GetObjVar("MentorSkill") or nil
+        self.SkillLevel = GetSkillLevel(self.ParentObj, "MentoringSkill")
         if (self.Path == nil) then
             self.ParentObj:SystemMessage("You must first choose the type of training you will be known for.", "info")
 
@@ -70,7 +71,11 @@ MobileEffectLibrary.Mentor = {
                             RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Mentor.Target",
                             function (targetObj)
                                 if (targetObj:IsPlayer()) then 
-                                    targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                    -- if (self.SkillLevel > 50) then
+                                    --     -- mentor everyone in the area?
+                                    -- else
+                                        targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                    -- end
                                     self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
                                 end
                                 EndMobileEffect(root)
