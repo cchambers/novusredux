@@ -20,6 +20,7 @@ MobileEffectLibrary.Mentoring =
 	end,
 
 	OnExitState = function(self,root)
+		self.Student:SendMessage("Mentor.End")
 		self.ParentObj:SystemMessage("Mentoring has ended", "info")
 		self.ParentObj:StopEffect("ObjectGlowEffect")
 		return
@@ -33,6 +34,6 @@ MobileEffectLibrary.Mentoring =
 		EndMobileEffect(root)
 	end,
 
-	Mentor = nil,
+	Student = nil,
 	Duration = TimeSpan.FromMinutes(5)
 }

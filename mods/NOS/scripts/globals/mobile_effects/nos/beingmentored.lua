@@ -9,6 +9,11 @@ MobileEffectLibrary.BeingMentored =
 		self.Mentor = mentor
 		-- Prompt for consent...
 		self.Mentor:SystemMessage(tostring("You begin teaching " .. self.ParentObj:GetName()) .. "...", "info")
+
+		RegisterSingleEventHandler(EventType.Message, "Mentor.End",
+		function ()
+			EndMobileEffect(root)
+		end)
 	end,
 
 	OnExitState = function(self,root)
