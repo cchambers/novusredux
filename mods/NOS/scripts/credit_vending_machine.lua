@@ -16,7 +16,7 @@ function ShowVendingWindow(user)
 
 	local fontsize = rem(2)
 
-	mBUYWINDOW = DynamicWindow("CREDITVENDING", "WELCOME!", 390, 260, 47, 68, "Draggable", "Center")
+	mBUYWINDOW = DynamicWindow("CREDITVENDING", "Something new?", 390, 260, 47, 68, "Draggable", "Center")
 
 	mBUYWINDOW:AddButton(20, 40, "random_recipe", "Rare Recipe - 10 Credits", 160, 24, tostring("Random! There are "..#mRandomRecipes.." to collect."), "", false, "Default", "default")
 	
