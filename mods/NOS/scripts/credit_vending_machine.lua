@@ -43,7 +43,7 @@ RegisterEventHandler(
 	"CREDITVENDING",
 	function(user, buttonId)
 		local items = {}
-		local value = 0
+		local value = 99999
 		local points = user:GetObjVar("Credits")
 
 		if (buttonId == "random_recipe") then
