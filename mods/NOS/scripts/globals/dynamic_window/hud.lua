@@ -8,8 +8,6 @@ function ShowStatusElement(mobileObj, args)
 		User = args.User or mobileObj
 	}
 
-	DebugMessage(args.User:GetName())
-
 	local width = 166
 	local height = (args.IsSelf and 58) or 10
 
@@ -31,8 +29,6 @@ function ShowStatusElement(mobileObj, args)
 	if (args.IsSelf) then
 		statusWindow:AddStatBar(17, 33, 129, 4, "Mana", "3388ff", mobileObj)
 		statusWindow:AddStatBar(17, 40, 129, 4, "Stamina", "fffd52", mobileObj)
-	else 
-		DebugMessage("NOT SELF")
 	end
 
 	args.User:OpenDynamicWindow(statusWindow)
