@@ -1,8 +1,7 @@
 MobileEffectLibrary.BeingMentored = 
 {
-
 	OnEnterState = function(self,root,mentor, args)
-		if ( mentor == nil ) then
+		if ( mentor == nil or self.ParentObj:HasTimer("Mentor.WasMentored")) then
 			EndMobileEffect(root)
 			return false
 		end
@@ -16,6 +15,7 @@ MobileEffectLibrary.BeingMentored =
 		self.Mentor:SendMessage("Mentor.End")
 		self.ParentObj:SystemMessage("That's all you can learn from your mentor today.", "info")
 		self.ParentObj:StopEffect("ObjectGlowEffect")
+		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromMinutes(15),"Mentor.WasMentored")
 	end,
 
 	GetPulseFrequency = function(self,root)
