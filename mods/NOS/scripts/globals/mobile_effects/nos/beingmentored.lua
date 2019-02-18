@@ -48,7 +48,10 @@ MobileEffectLibrary.BeingMentored =
 					EndMobileEffect(root)
 				else
 					self.ParentObj:PlayEffectWithArgs("ObjectGlowEffect",0.0,"Color=FFFF00")
-					CheckSkillChance(self.ParentObj, self.SkillName)
+					local success = CheckSkillChance(self.ParentObj, self.SkillName)
+					if (success) then
+						self.Mentor:SendMessage("Mentor.GainChance")
+					end
 				end
 			end
 		end
