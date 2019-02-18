@@ -255,7 +255,7 @@ WeaponAbilitiesData.Identify = {
     Cooldown = TimeSpan.FromSeconds(5),
     Action = {
         DisplayName = "Identify",
-        Tooltip = "Identify an object's properties.",
+        Tooltip = "Identify an object.",
         Icon = "magicalguide",
         Enabled = true
     },

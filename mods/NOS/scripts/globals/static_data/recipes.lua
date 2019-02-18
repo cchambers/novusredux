@@ -692,11 +692,11 @@ AllRecipes = {
 			},
 		},
 
-		BladedBat = {
+		BladedClub = {
 			MinLevelToCraft = 55,
 			MaxLevelToGain = 80,
-			DisplayName = "Bladed Bat",
-			CraftingTemplateFile = "weapon_bladed_bat",
+			DisplayName = "Bladed Club",
+			CraftingTemplateFile = "weapon_bladed_club",
 			ItemType = "WeaponClass",
 			CanImprove = true,
 			Category = "Weapons",
