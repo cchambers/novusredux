@@ -12,11 +12,17 @@ MobileEffectLibrary.Mentoring =
 		function ()
 			EndMobileEffect(root)
 		end)
+
+		RegisterEventHandler(EventType.Message, "Mentor.GainChance",
+		function ()
+			CheckSkillChance(self.ParentObj, "MentoringSkill")
+		end)
 	end,
 
 	OnExitState = function(self,root)
 		self.ParentObj:SystemMessage("Mentoring has ended", "info")
 		self.ParentObj:StopEffect("ObjectGlowEffect")
+		return
 	end,
 
 	GetPulseFrequency = function(self,root)
