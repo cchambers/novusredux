@@ -21,7 +21,7 @@ ServerSettings.Crafting = {
                 Gold = 20,
                 Cobalt = 30,
                 Obsidian = 55,
-                Steel = 55,
+                Steel = 75,
 
                 Boards = 0,
                 AshBoards = 20,
@@ -72,7 +72,7 @@ ServerSettings.Crafting = {
             Gold = 100,
             Cobalt = 150,
             Obsidian = 75,
-            Steel = 250,
+            Steel = 300,
 
             Cloth = 25,
             QuiltedCloth = 50,
