@@ -3,7 +3,7 @@ MobileEffectLibrary.BeingMentored =
 	OnEnterState = function(self,root,mentor, args)
 		if ( mentor == nil or self.ParentObj:HasTimer("Mentor.WasMentored")) then
 			EndMobileEffect(root)
-			return false
+			return
 		end
 		self.SkillName = args.SkillName
 		self.Mentor = mentor
