@@ -39,11 +39,11 @@ MobileEffectLibrary.BeingMentored =
 				self.OutOfRange = false
 			end
 			if (self.OutOfRange) then 
-				if (self.Warnings > 2) then
+				if (self.Warnings > 4) then
 					EndMobileEffect(root)
 					return
 				else
-					self.ParentObj:SystemMessage("You are too far away from your mentor.", "info")
+					self.ParentObj:SystemMessage("[ff0000]You are too far away from your mentor.[-]", "info")
 					self.Warnings = self.Warnings + 1
 				end
 			else
