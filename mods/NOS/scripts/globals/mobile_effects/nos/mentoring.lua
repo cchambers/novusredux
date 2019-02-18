@@ -7,10 +7,14 @@ MobileEffectLibrary.Mentoring =
 		end
 		self.Student = student
 		self.ParentObj:PlayAnimation("fidget")
+		RegisterSingleEventHandler(EventType.Message, "Mentor.End",
+		function ()
+			EndMobileEffect(root)
+		end)
 	end,
 
 	OnExitState = function(self,root)
-		self.ParentObj:SystemMessage("Mentoring has ended")
+		self.ParentObj:SystemMessage("Mentoring has ended", "info")
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -22,5 +26,5 @@ MobileEffectLibrary.Mentoring =
 	end,
 
 	Mentor = nil,
-	Duration = TimeSpan.FromSeconds(30)
+	Duration = TimeSpan.FromMinutes(5)
 }
