@@ -44,10 +44,15 @@ ServerSettings.Executioner = {
 		"weapon_shortbow",
 		"weapon_longbow",
 		"weapon_warbow",
+		"weapon_recurve_bow",
 		"weapon_dagger",
 		"weapon_kryss",
 		"weapon_poniard",
 		"weapon_bone_dagger",
+		"weapon_cleaver",
+		"weapon_gladius",
+		"weapon_naginata",
+		"weapon_poleaxe",
 	},
 	-- List of all possible MobileKind types for a weapon created via random_executioner_weapon.lua
 	RandomMobileKinds = {
