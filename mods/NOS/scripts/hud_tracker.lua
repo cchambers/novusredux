@@ -170,10 +170,14 @@ function UpdateAlert()
 	this:OpenDynamicWindow(NOSALERT)
 end
 
-
-
 function StatBar() 
-	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", "FF0000", this)
+	local healthColor = "FF0000"
+
+	if (HasMobileEffect(this, "Poison")) then
+		healthColor = "00FF00"
+	end
+	ShowStatusElement(this, { IsSelf = true })
+	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", healthColor, this)
 	mCONSUME:AddStatBar(-20, -27, 129, 7, "Mana", "3388ff", this)
 	mCONSUME:AddStatBar(-20, -19, 129, 7, "Stamina", "fffd52", this)
 end

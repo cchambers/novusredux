@@ -23,8 +23,15 @@ function ShowStatusElement(mobileObj, args)
 
 	local statusFrameImage = (args.IsSelf and "UtilityBar_StatusFrame") or "UtilityBar_StatusFrameSingle"
 	statusWindow:AddImage(14, 20, statusFrameImage, 135, 0, "Sliced")
+	
+	local healthColor = "FF0000"
 
-	statusWindow:AddStatBar(17, 23, 129, 7, "Health", "FF0000", mobileObj)
+	if (HasMobileEffect(mobileObj, "Poison")) then
+		DebugMessage("POISONED")
+		healthColor = "00FF00"
+	end
+
+	statusWindow:AddStatBar(17, 23, 129, 7, "Health", healthColor, mobileObj)
 
 	if (args.IsSelf) then
 		statusWindow:AddStatBar(17, 33, 129, 4, "Mana", "3388ff", mobileObj)

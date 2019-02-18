@@ -130,11 +130,11 @@ function LootItemCreated(success,objref,stackCount,color,objVars)
 
 	-- SetItemTooltip(objref)
 
-	local executioner = item:GetObjVar("Executioner")
+	local executioner = objref:GetObjVar("Executioner")
 	if ( executioner ~= nil ) then
-		local name = item:GetName()
+		local name = objref:GetName()
 		name = "Magic " .. name
-		item:SetName(name)
+		objref:SetName(name)
 	end
 
 	if (objVars ~= nil) then
