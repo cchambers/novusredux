@@ -276,6 +276,13 @@ AllAchievements = {
 			{"Master Harvester"    			,80		,"Given to those who have mastered harvesting."      				,{Title = "Master Harvester"    	}},
 			{"Grandmaster Harvester"   		,100	,"Given to those who are among the most profound harvesters."		,{Title = "Grandmaster Harvester"	}},
 		},
+
+		MentoringSkill = {
+			{"Tutor"        			,30		,"Given to those who have done some mentoring."						,{Title = "Tutor"	}},
+			{"Teacher"    				,50		,"Given to those are good at mentoring."                			,{Title = "Teacher"	}},
+			{"Instructor"    			,80		,"Given to those who have mastered mentoring."      				,{Title = "Instructor"  }},
+			{"Professor"   				,100	,"Given to those who are among the most profound mentors."			,{Title = "Professor"	}},
+		},
 	},
 
 	ActivityAchievements = {

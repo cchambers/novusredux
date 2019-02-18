@@ -372,6 +372,15 @@ SkillData = {
 			SkillType = "TradeTypeSkill",
 			GainFactor = 0.4,
 		},
+		MentoringSkill = {
+			DisplayName = "Mentoring",
+			PrimaryStat = "Wisdom",
+			Description = "Teach others the ways of the world.",
+			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Inscription",
+			GainFactor = 0.3,
+			Abilities = { "Mentor" },
+		},
 		--[[StealingSkill = {
 			DisplayName = "Stealing",
 			PrimaryStat = "Agility",
