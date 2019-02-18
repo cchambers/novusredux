@@ -18,7 +18,7 @@ function ShowVendingWindow(user)
 
 	mBUYWINDOW = DynamicWindow("CREDITVENDING", "WELCOME!", 390, 260, 47, 68, "Draggable", "Center")
 
-	mBUYWINDOW:AddButton(20, 40, "random_recipe", "Rare Recipe", 160, 24, tostring("Random! There are "..#mRandomRecipes.." to collect."), "", false, "Default", "default")
+	mBUYWINDOW:AddButton(20, 40, "random_recipe", "Rare Recipe - 10 Credits", 160, 24, tostring("Random! There are "..#mRandomRecipes.." to collect."), "", false, "Default", "default")
 	
 	user:OpenDynamicWindow(mBUYWINDOW)
 end
@@ -40,7 +40,7 @@ RegisterEventHandler(
 		local points = user:GetObjVar("Credits")
 		if (buttonId == "random_recipe") then
 			value = 10
-			local what = mRandomRecipes[math.random(1, #mRandomRecipes)]
+			local what = tostring("recipe_"..mRandomRecipes[math.random(1, #mRandomRecipes)])
 			items[what] = 1
 		end
 
