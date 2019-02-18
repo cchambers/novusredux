@@ -1,10 +1,12 @@
 MobileEffectLibrary.BeingMentored = 
 {
 	OnEnterState = function(self,root,mentor, args)
-		if ( mentor == nil or self.ParentObj:HasTimer("Mentor.WasMentored")) then
+		-- or self.ParentObj:HasTimer("Mentor.WasMentored")
+		if ( mentor == nil) then
 			EndMobileEffect(root)
 		else 
 			self.SkillName = args.SkillName
+			self.ParentObj:SetObjVar("BeingMentored", self.SkillName)
 			self.Mentor = mentor
 			-- Prompt for consent...
 			self.Mentor:SystemMessage(tostring("You begin teaching " .. self.ParentObj:GetName()) .. "...", "info")
@@ -20,6 +22,7 @@ MobileEffectLibrary.BeingMentored =
 		self.Mentor:SendMessage("Mentor.End")
 		self.ParentObj:SystemMessage("That's all you can learn from your mentor today.", "info")
 		self.ParentObj:StopEffect("ObjectGlowEffect")
+		self.ParentObj:DelObjVar("BeingMentored")
 		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromMinutes(15),"Mentor.WasMentored")
 	end,
 
