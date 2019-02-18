@@ -45,11 +45,11 @@ RegisterEventHandler(
 		local items = {}
 		local value = 0
 		local points = user:GetObjVar("Credits")
+		
 		if (buttonId == "random_recipe") then
 			value = 10
 			local what = tostring("recipe_"..mRandomRecipes[math.random(1, #mRandomRecipes)])
 			items[what] = 1
-
 		elseif (buttonId == "random_magic_weapon") then
 			items["random_executioner_weapon_60_100"] = 1
 		elseif (buttonId == "random_dye") then
