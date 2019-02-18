@@ -49,6 +49,13 @@ RegisterEventHandler(
 			value = 10
 			local what = tostring("recipe_"..mRandomRecipes[math.random(1, #mRandomRecipes)])
 			items[what] = 1
+
+		elseif (buttonId == "random_magic_weapon") then
+			items["random_executioner_weapon_60_100"] = 1
+		elseif (buttonId == "random_dye") then
+			items["dye_tub_random_common"] = 1
+		elseif (buttonId == "random_dye_rare") then
+			items["dye_tub_random_rare"] = 1
 		end
 
 		if (points >= value) then

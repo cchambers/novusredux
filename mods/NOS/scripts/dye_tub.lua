@@ -32,9 +32,16 @@ local HueNames = {
 
 -- fire, ice, poison, lunar, 
 if (initializer ~= nil) then
+	
 	if( initializer.Random ~= nil ) then 
+		local range = { 1, 976 }
+		if (initializer.Random == "rare") then
+			range = { 819, 976 }
+		elseif (initializer.Random == "rare") then
+			range = {1, 806 }
+		end
 		local len = 27
-		local rand = math.random(1,999)
+		local rand = math.random(range[1],range[2])
 		this:SetHue(rand)
 		local name = HueNames["hue"..rand] or rand
 		if (name) then 
