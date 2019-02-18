@@ -527,7 +527,10 @@ function CheckHitSuccess(victim, hand)
 				-- check weapon skill on hit/miss
 				local weaponClassInfo = EquipmentStats.BaseWeaponClass[_Weapon[hand].Class]
 				if (weaponClassInfo and weaponClassInfo.WeaponSkill and not (weaponClassInfo.WeaponSkillGainsDisabled)) then
-					CheckSkill(this, weaponClassInfo.WeaponSkill, victimWeaponSkillLevel)
+					local skillToCheck = weaponClassInfo.WeaponSkill
+					local ArmsLore = (GetSkillLevel(this,"ArmsLore") or 0.1) / 20
+					skillToCheck = skillToCheck + ArmsLore
+					CheckSkill(this, skillToCheck, victimWeaponSkillLevel)
 				end
 			else
 				-- owners can only gain if the pet didn't miss and they are within range of the pet.
