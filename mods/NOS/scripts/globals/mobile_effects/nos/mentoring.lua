@@ -18,6 +18,9 @@ MobileEffectLibrary.Mentoring =
 			CheckSkillChance(self.ParentObj, "MentoringSkill")
 			local anims = self.Anims
 			self.ParentObj:PlayAnimation(anims[math.random(1,#anims)])
+			CallFunctionDelayed(TimeSpan.FromSeconds(2),function ( ... )
+				self.ParentObj:PlayAnimation("idle")
+			end)
 		end)
 	end,
 
