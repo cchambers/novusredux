@@ -1,38 +1,22 @@
 MobileEffectLibrary.BeingMentored = 
 {
 
-	OnEnterState = function(self,root,mentor)
+	OnEnterState = function(self,root,mentor, args)
+		self.ParentObj:NpcSpeech("TEACH ME SOME " .. args.SkillName)
 		if ( mentor == nil ) then
 			EndMobileEffect(root)
 			return false
 		end
+		self.SkillName = args.SkillName
 		self.Mentor = mentor
 
-		self.Mentor:SystemMessage(tostring("You begin provoking the " .. self.ParentObj:GetName()), "info")
-
-		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "Crook.Provoke",
-		function (success, targetLoc, targetObj, user)
-			if (success) then
-				local target = targetObj
-				if (target:IsMobile()) then
-					self.Target = target
-					self.ParentObj:SendMessage("AttackEnemy", target)
-				else 
-					self.Mentor:SystemMessage("You are going to have a hard time trying to do that.", "info")
-					EndMobileEffect(root)
-				end
-			end
-		end)
-
-		self.Mentor:SystemMessage("What should it attack?", "info")
-		self.Mentor:RequestClientTargetLoc(self.ParentObj, "Crook.Provoke")
+		-- Prompt for consent...
+		self.Mentor:SystemMessage(tostring("You begin teaching " .. self.ParentObj:GetName()) .. "...", "info")
 	end,
 
 	OnExitState = function(self,root)
-		self.Mentor:SystemMessage(tostring("Provocation has ended.", "info"))
-		if (self.ParentObj:GetStatValue("Health") > self.Target:GetStatValue("Health")) then
-			self.ParentObj:SendMessage("EndCombatMessage")
-		end
+		self.Mentor:SystemMessage(tostring("Mentoring has ended.", "info"))
+		self.ParentObj:SystemMessage("That's all you can learn from your mentor today.", "info")
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -40,9 +24,34 @@ MobileEffectLibrary.BeingMentored =
 	end,
 
 	AiPulse = function(self,root)
-		EndMobileEffect(root)
+		if (self.Consent) then 
+			-- check range from mentor
+			local mentorLoc = self.Mentor:GetLoc()
+			local myLoc = self.ParentObj:GetLoc()
+			local distance = mentorLoc:Distance(myLoc)
+			if (distance > self.MaxRange) then
+				self.OutOfRange = true
+			else 
+				self.OutOfRange = false
+			end
+			if (self.OutOfRange) then 
+				if (self.Warnings > 2) then
+					EndMobileEffect(root)
+					return
+				else
+					self.ParentObj:SystemMessage("You are too far away from your mentor.", "info")
+					self.Warnings = self.Warnings + 1
+				end
+			else
+				-- CHECK SKILL CHANCE
+			end
+		end
 	end,
 
+	SkillName = nil,
+	OutOfRange = false,
+	Warnings = 0,
+	Consent = false,
 	Mentor = nil,
-	Duration = TimeSpan.FromSeconds(30)
+	Duration = TimeSpan.FromMinutes(5)
 }

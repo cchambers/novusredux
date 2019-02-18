@@ -2,7 +2,7 @@ MobileEffectLibrary.Mentor = {
     ShouldStack = false,
     OnEnterState = function(self, root, target, args)
         self.Path = self.ParentObj:GetObjVar("MentorPath")
-
+        self.SelectedSkill = self.ParentObj:GetObjVar("MentorSkill") or nil
         if (self.Path == nil) then
             self.ParentObj:SystemMessage("You must first choose the type of training you will be known for.", "info")
 
@@ -12,7 +12,7 @@ MobileEffectLibrary.Mentor = {
             mMENTOR:AddButton(
                 20,
                 40,
-                "CombatSkillType",
+                "CombatTypeSkill",
                 "Combat",
                 110,
                 24,
@@ -25,7 +25,7 @@ MobileEffectLibrary.Mentor = {
             mMENTOR:AddButton(
                 180,
                 40,
-                "TradeSkillType",
+                "TradeTypeSkill",
                 "Trade",
                 110,
                 24,
@@ -51,6 +51,33 @@ MobileEffectLibrary.Mentor = {
         else
             self.SelectSkill(self, root, target, self.Path)
         end
+        RegisterEventHandler(
+            EventType.DynamicWindowResponse,
+            "CHOOSESKILL",
+            function(user, returnId)
+    
+                if (returnId ~= nil) then
+                    action = StringSplit(returnId, "|")[1]
+                    if (action == nil) then return end
+                    skillName = StringSplit(returnId, "|")[2]
+                    if (skillName ~= nil) then
+                        if (action == "select") then
+                            self.SelectedSkill = skillName
+                            self.ParentObj:SetObjVar("MentorSkill", skillName)
+                            self.SelectSkill(self, root, target, self.Path, skillName)
+                        elseif (action == "train") then
+                            self.ParentObj:RequestClientTargetGameObj(this, "Mentor.Target")
+                            RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Mentor.Target",
+                            function (targetObj)
+                                targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
+                                EndMobileEffect(root)
+                            end)
+                        end
+                    end
+                end
+            end
+        )
     end,
     RequestInitialTarget = function(self, root, target, args)
         -- handle a new target
@@ -76,8 +103,10 @@ MobileEffectLibrary.Mentor = {
 
         for skillName, skillData in pairs(SkillData.AllSkills) do
             if (not (skillData.Skip)) then
-                DebugMessage(tostring(self.Path .. " " .. skillName .. " " .. skillData.SkillType))
-                if (mentorSkills[skillName] ~= nil and mentorSkills[skillName].SkillLevel >= 90) then
+                if
+                    (mentorSkills[skillName] ~= nil and self.Path == skillData.SkillType and
+                        mentorSkills[skillName].SkillLevel >= 90)
+                 then
                     table.insert(allSkills, skillName)
                 end
             end
@@ -89,9 +118,9 @@ MobileEffectLibrary.Mentor = {
             if ((i - 1) % 2 == 1) then
                 scrollElement:AddImage(0, 0, "Blank", 230, 25, "Sliced", "1A1C2B")
             end
-            scrollElement:AddLabel(45, 3, skillName, 0, 0, 18)
+            scrollElement:AddLabel(45, 6, skillName, 0, 0, 18)
             local selState = ""
-            if (skillName == self.selectedSkillName) then
+            if (skillName == self.SelectedSkill) then
                 selState = "pressed"
             end
             scrollElement:AddButton(20, 2, "select|" .. skillName, "", 0, 18, "", "", false, "Selection", selState)
@@ -99,7 +128,9 @@ MobileEffectLibrary.Mentor = {
         end
         newWindow:AddScrollWindow(scrollWindow)
 
-        newWindow:AddButton(15, 420, "train|", "Train", 100, 23, "", "", false, "", buttonState)
+        if (self.SelectSkill ~= nil) then
+            newWindow:AddButton(15, 420, "train|skill", "Train", 200, 23, "", "", true, "", "Default")
+        end
 
         self.ParentObj:OpenDynamicWindow(newWindow)
 
@@ -108,5 +139,6 @@ MobileEffectLibrary.Mentor = {
     OnExitState = function(self, root)
         return
     end,
+    SelectedSkill = nil,
     Path = nil
 }
