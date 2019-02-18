@@ -18,7 +18,15 @@ function ShowVendingWindow(user)
 
 	mBUYWINDOW = DynamicWindow("CREDITVENDING", "Something new?", 390, 260, 47, 68, "Draggable", "Center")
 
-	mBUYWINDOW:AddButton(20, 40, "random_recipe", "Rare Recipe - 10 Credits", 160, 24, tostring("Random! There are "..#mRandomRecipes.." to collect."), "", false, "Default", "default")
+	
+	mBUYWINDOW:AddLabel(100, 10, "5 Credits", 160, 30, rem(2), "center", false, true, fontname)
+	mBUYWINDOW:AddButton(20, 70, "random_magic_weapon", "Magic Weapon", 160, 26, tostring("Random! There are "..#mRandomWeapons.." to collect."), "", false, "Default", "default")
+	mBUYWINDOW:AddButton(20, 40, "random_dye", "Normal Dye Tub", 160, 26, tostring("Random! There are 800 to collect."), "", false, "Default", "default")
+	
+	
+	mBUYWINDOW:AddLabel(300, 10, "15 Credits", 160, 30, rem(2), "center", false, true, fontname)
+	mBUYWINDOW:AddButton(200, 40, "random_recipe", "Rare Recipe", 160, 26, tostring("Random! There are "..#mRandomRecipes.." to collect."), "", false, "Default", "default")
+	mBUYWINDOW:AddButton(200, 70, "random_dye_rare", "Rare Dye Tub", 160, 26, tostring("Random! There are 100 to collect."), "", false, "Default", "default")
 	
 	user:OpenDynamicWindow(mBUYWINDOW)
 end
@@ -56,7 +64,7 @@ RegisterEventHandler(
 				end
 			end
 		else
-			user:SystemMessage(tostring("You cannot afford that yet: [ff0000]" .. value .. "[-] > [bada55]" .. points), "info")
+			user:SystemMessage(tostring("You ([bada55]" .. points.."[-]) cannot afford that ([ff0000]" .. value .. "[-]) yet.", "info"))
 		end
 	end
 )
