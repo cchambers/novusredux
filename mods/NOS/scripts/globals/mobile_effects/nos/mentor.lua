@@ -69,8 +69,10 @@ MobileEffectLibrary.Mentor = {
                             self.ParentObj:RequestClientTargetGameObj(this, "Mentor.Target")
                             RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Mentor.Target",
                             function (targetObj)
-                                targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
-                                self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
+                                if (targetObj:IsPlayer()) then 
+                                    targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                    self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
+                                end
                                 EndMobileEffect(root)
                             end)
                         end

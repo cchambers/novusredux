@@ -3,17 +3,17 @@ MobileEffectLibrary.BeingMentored =
 	OnEnterState = function(self,root,mentor, args)
 		if ( mentor == nil or self.ParentObj:HasTimer("Mentor.WasMentored")) then
 			EndMobileEffect(root)
-			return
-		end
-		self.SkillName = args.SkillName
-		self.Mentor = mentor
-		-- Prompt for consent...
-		self.Mentor:SystemMessage(tostring("You begin teaching " .. self.ParentObj:GetName()) .. "...", "info")
+		else 
+			self.SkillName = args.SkillName
+			self.Mentor = mentor
+			-- Prompt for consent...
+			self.Mentor:SystemMessage(tostring("You begin teaching " .. self.ParentObj:GetName()) .. "...", "info")
 
-		RegisterSingleEventHandler(EventType.Message, "Mentor.End",
-		function ()
-			EndMobileEffect(root)
-		end)
+			RegisterSingleEventHandler(EventType.Message, "Mentor.End",
+			function ()
+				EndMobileEffect(root)
+			end)
+		end
 	end,
 
 	OnExitState = function(self,root)
