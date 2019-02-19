@@ -23,9 +23,11 @@
 			<Initializer>
 				{ 
 					Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
-          			Skills = 
-          			{ 
-          			Brawling = 50, 
+          			Skills = { 
+          				Brawling = 50, 
+						Metalsmith = 100,
+						Mining = 100,
+						ArmsLore = 100
           			},  
 			        MobTraits =
 			        	{

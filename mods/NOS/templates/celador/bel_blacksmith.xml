@@ -26,6 +26,7 @@
 					Skills= {
 						Metalsmith = 100,
 						Mining = 100,
+						ArmsLore = 100
 					},
 					EquipTable= {
 						RightHand= {

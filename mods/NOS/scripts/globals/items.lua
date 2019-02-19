@@ -426,8 +426,7 @@ function SetItemTooltip(item, noUseCases)
 	local executioner = item:GetObjVar("ExecutionerLevel")
 	local named = item:GetObjVar("Identified") or item:HasModule("imbued_weapon")
 	if ( executioner ~= nil and not(named) ) then
-		local name = item:GetName()
-		name = string.gsub(name, "Magic ", "")
+		local name = GetTemplateObjectName(item:GetCreationTemplateId())
 		name = tostring(name .. " of " .. ServerSettings.Executioner.LevelString[executioner or 1])
 		item:SetName(name)
 	end

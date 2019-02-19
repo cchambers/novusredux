@@ -49,12 +49,17 @@
 					Backpack = { "backpack" },
 				},
 				LootTables =
-				{
-					TemplateDefines.LootTable.MagePoor,
-					TemplateDefines.LootTable.ScrollsLow,
-					TemplateDefines.LootTable.AncientScrolls,
 					{
-						NumCoins = math.random(90,225),
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.BonesCursed,
+						TemplateDefines.LootTable.FineScrolls,
+						{
+							NumCoins = math.random(1200,2200)
+						},
 						{
 							{ Weight = 95, Template = "furniture_box", Unique = true },
 							{ Weight = 5, Template = "furniture_box_rare", Unique = true },
@@ -64,7 +69,7 @@
 				ScavengeTables =
 				{
 				},
-				AvailableSpells = { "Frost", "Poison", "Cure", "Fireball", "Lightning", "Electricbolt", "Bombardment" },
+				AvailableSpells = { "Frost", "Poison", "Fireball", "Lightning", "Electricbolt" },
 			}
 			</Initializer>
 		</LuaModule>

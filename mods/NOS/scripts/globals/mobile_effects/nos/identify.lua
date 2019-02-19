@@ -20,12 +20,14 @@ MobileEffectLibrary.Identify = {
 
     IdentifyTarget = function(self, target, root)
         local user = self.ParentObj
-        local skipGains = false
-        if(not(target:HasObjVar("Identified"))) then
-            skipGains = true
+        local success = false
+        if(target:HasObjVar("Identified")) then
+            success = CheckSkill(user, "ArmsLoreSkill", nil, true)
+        else
+            success = CheckSkill(user, "ArmsLoreSkill")
         end
 
-        if (CheckSkillChance(user, "ArmsLoreSkill", nil, nil, skipGains)) then
+        if (success) then
             local skillLevel = GetSkillLevel(user, "ArmsLoreSkill")
             self.StartProgressBar(self, root)
             user:PlayAnimation("forage")
@@ -35,7 +37,6 @@ MobileEffectLibrary.Identify = {
                 EventType.Timer,
                 "ArmsLore.ID",
                 function()
-                    user:NpcSpeechToUser("*ID'd*", user)
                     user:PlayAnimation("idle")
                     self.DoIdentify(self, root)
                     EndMobileEffect(root)
@@ -72,15 +73,24 @@ MobileEffectLibrary.Identify = {
         end
 
         local MaxDurability = item:GetObjVar("MaxDurability")
-        local Durability = item:GetObjVar("Durability") or 0
-
-        if (MaxDurability ~= nil) then
-            
+        local Durability = item:GetObjVar("Durability") or MaxDurability
+        local levels = #self.Durabilities
+        local level = (levels + 1) - math.ceil((Durability/MaxDurability) * levels)
+        local message = self.Durabilities[level]
+        
+        if (item:GetObjVar("WasImbued")) then
+            if (item:GetObjVar("ImbuedWeapon")) then
+                message = message .. " It is magically enhanced."
+            else
+                message = message .. " It has been magically enhanced in the past and cannot be repaired."
+            end
         end
 
         -- Durability
         -- Effectiveness of Armor
         -- Effectiveness of Weapon
+
+        self.ParentObj:SystemMessage("[bada55]Item information: [-]" .. message)
         
         local tooltipInfo = SetItemTooltip(item)
         item:SetObjVar("Identified", true)
