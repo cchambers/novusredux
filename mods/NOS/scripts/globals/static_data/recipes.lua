@@ -3496,6 +3496,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		ImbueScroll = {
+			MinLevelToCraft = 30,
+			MaxLevelToGain = 70,
+			DisplayName = "Imbue Scroll",
+			NeedRecipe = false,
+			Description = "An imbue scroll. ",
+			CraftingTemplateFile = "scroll_imbue",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
 		EnergyWallScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
