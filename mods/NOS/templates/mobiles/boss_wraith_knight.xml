@@ -11,7 +11,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">120000</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">10000</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Undead</StringVariable>
 		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -49,9 +49,6 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.TwentyTwo,
-						TemplateDefines.LootTable.TwentyTwo,
-						TemplateDefines.LootTable.TwentyTwo,
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 					},	

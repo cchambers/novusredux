@@ -539,7 +539,7 @@ function OnLoad(isPossessed)
 	-- GM Detect Hidden Passive
 	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
-	if (not (hasPassiveDetect) and detectSkill >= 100) then
+	if (not (hasPassiveDetect) and detectSkill >= 100 and not(IsImmortal(this))) then
 		this:AddModule("passive_detecthidden")
 	end
 

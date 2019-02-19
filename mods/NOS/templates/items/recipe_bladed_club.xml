@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Recipe: Bladed Club[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">BladedClub</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Bladed Club</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

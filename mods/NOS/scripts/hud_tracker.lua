@@ -161,21 +161,23 @@ function UpdateCnx()
 	total = tostring(total)
 	NOSCNX:AddLabel(18, 0, tostring("[bada55]" .. total .. "[-] players connected // join global chat at: [bada55]nos.gg/discord[-]"), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
 	this:OpenDynamicWindow(NOSCNX)
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"Hud.UpdateStats")
+	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"Hud.UpdateStats")
 end
 
 function UpdateAlert()
 	local NOSALERT = DynamicWindow("NOSALERT" .. this.Id, "Server Stats", 600, 60, 0, -300, "Transparent", "BottomLeft")
-	
 	NOSALERT:AddLabel(18, 0, tostring("[ff0000]Alert:[-] Event incoming, COLOR WARS in... "), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
 	this:OpenDynamicWindow(NOSALERT)
-	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"Hud.UpdateStats")
 end
 
-
-
 function StatBar() 
-	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", "FF0000", this)
+	local healthColor = "FF0000"
+
+	if (HasMobileEffect(this, "Poison")) then
+		healthColor = "00FF00"
+	end
+	ShowStatusElement(this, { IsSelf = true })
+	mCONSUME:AddStatBar(-20, -35, 129, 7, "Health", healthColor, this)
 	mCONSUME:AddStatBar(-20, -27, 129, 7, "Mana", "3388ff", this)
 	mCONSUME:AddStatBar(-20, -19, 129, 7, "Stamina", "fffd52", this)
 end

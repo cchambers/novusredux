@@ -340,6 +340,15 @@ SkillData = {
 			SkillIcon = "Skill_Knight",
 			GainFactor = 0.3,
 		},
+		ArmsLoreSkill = {
+			DisplayName = "Arms Lore",
+			PrimaryStat = "Agility",
+			Description = "Increases your effectiveness at using and crafting armor and weaponry.",
+			SkillType = "CombatTypeSkill",
+			SkillIcon = "Skill_Knight",
+			GainFactor = 0.3,
+			Abilities = { "Identify" },
+		},
 		TreasureHuntingSkill = {
 			DisplayName = "Treasure Hunting",
 			PrimaryStat = "Intelligence",
@@ -362,6 +371,15 @@ SkillData = {
 			Description = "Your experience improves your abilities when harvesting.",
 			SkillType = "TradeTypeSkill",
 			GainFactor = 0.4,
+		},
+		MentoringSkill = {
+			DisplayName = "Mentoring",
+			PrimaryStat = "Wisdom",
+			Description = "Teach others the ways of the world.",
+			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Inscription",
+			GainFactor = 0.3,
+			Abilities = { "Mentor" },
 		},
 		--[[StealingSkill = {
 			DisplayName = "Stealing",

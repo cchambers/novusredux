@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Recipe: Oval Shield[-]</Name>
+	<ClientId>639</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="Recipe">OvalShield</StringVariable>
+		<StringVariable Name="RecipeDisplayName">Oval Shield</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="recipe"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

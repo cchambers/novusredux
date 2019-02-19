@@ -1,0 +1,48 @@
+<ObjectTemplate>
+    <Name>Rare Recipe Box</Name>
+    <ClientId>2260</ClientId>
+    <Hue>899</Hue>
+    <SharedStateEntry name="Weight" type="int" value="5"/>
+    <ObjectVariableComponent>
+        <StringVariable Name="ResourceType">LotteryBox</StringVariable>
+    </ObjectVariableComponent>
+    <ScriptEngineComponent>
+        <LuaModule Name="set_initializer_variables">
+            <Initializer>
+                {
+                    LootTable = {
+                        NumItems = 1,
+                        LootItems = {
+                            { Weight = 10, Template = "recipe_battle_hammer", Unique = true },
+                            { Weight = 10, Template = "recipe_bladed_club", Unique = true },
+                            { Weight = 10, Template = "recipe_boarspear", Unique = true },
+                            { Weight = 10, Template = "recipe_butcher", Unique = true },
+                            { Weight = 10, Template = "recipe_crescent", Unique = true },
+                            { Weight = 10, Template = "recipe_fullered_dagger", Unique = true },
+                            { Weight = 10, Template = "recipe_gladius", Unique = true },
+                            { Weight = 10, Template = "recipe_letter_opener", Unique = true },
+                            { Weight = 10, Template = "recipe_naginata", Unique = true },
+                            { Weight = 10, Template = "recipe_ninjato", Unique = true },
+                            { Weight = 10, Template = "recipe_pike", Unique = true },
+                            { Weight = 10, Template = "recipe_rapier", Unique = true },
+                            { Weight = 10, Template = "recipe_recurve", Unique = true },
+                            { Weight = 10, Template = "recipe_skinner", Unique = true },
+                            { Weight = 10, Template = "recipe_spetum", Unique = true },
+                            { Weight = 10, Template = "recipe_stiletto", Unique = true },
+                            { Weight = 10, Template = "recipe_zukuri", Unique = true },
+                            
+                            { Weight = 5, Template = "recipe_tapered_heater", Unique = true },
+                            { Weight = 5, Template = "recipe_warriors_kite", Unique = true },
+                            { Weight = 5, Template = "recipe_oval_shield", Unique = true },
+                            { Weight = 5, Template = "recipe_arrow_broodwood", Unique = true },
+                            { Weight = 5, Template = "recipe_hardened_buckler", Unique = true },
+
+                            { Weight = 2, Template = "recipe_broodwood", Unique = true },
+                            { Weight = 2, Template = "recipe_steel", Unique = true },
+                        },
+                    },
+                }
+            </Initializer>
+        </LuaModule>
+    </ScriptEngineComponent>
+</ObjectTemplate>
