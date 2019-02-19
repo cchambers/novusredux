@@ -97,9 +97,9 @@ function EndColorWars(winners)
 		)
 		if (IsDead(j)) then
 			CallFunctionDelayed(
-				TimeSpan.FromSeconds(4),
+				TimeSpan.FromSeconds(3),
 				function()
-					j:SendMessage("Resurrect", true)
+					j:SendMessage("Resurrect", 100, this, true)
 				end
 			)
 		end
