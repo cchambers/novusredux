@@ -528,9 +528,10 @@ function CheckHitSuccess(victim, hand)
 				local weaponClassInfo = EquipmentStats.BaseWeaponClass[_Weapon[hand].Class]
 				if (weaponClassInfo and weaponClassInfo.WeaponSkill and not (weaponClassInfo.WeaponSkillGainsDisabled)) then
 					local skillToCheck = weaponClassInfo.WeaponSkill
+					skillToCheck = GetSkillLevel(this, skillToCheck)
 					local ArmsLore = (GetSkillLevel(this,"ArmsLore") or 0.1) / 20
 					skillToCheck = skillToCheck + ArmsLore
-					CheckSkill(this, skillToCheck, victimWeaponSkillLevel)
+					CheckSkill(this, weaponClassInfo.WeaponSkill, victimWeaponSkillLevel, skillToCheck)
 				end
 			else
 				-- owners can only gain if the pet didn't miss and they are within range of the pet.
@@ -583,9 +584,15 @@ function ExecuteHitAction(atTarget, hand)
 		Attacker = this
 	}
 
+	if (damageInfo.Source:HasObjVar("ImbuedWeapon")) then
+		local level = damageInfo.Source:GetObjVar("ExecutionerLevel") * -1
+		AdjustDurability(damageInfo.Source, level)
+		damageInfo.Source:SendMessage("Imbue.RemoveCharge")
+	end
+
 	-- damage the weapon that's being swung.
-	if ( _Weapon[hand].Object and Success(ServerSettings.Durability.Chance.OnWeaponSwing) and IsPlayerCharacter(this) ) then
-		AdjustDurability(_Weapon[hand].Object, -1)
+	if ( damageInfo.Source and Success(ServerSettings.Durability.Chance.OnWeaponSwing) and IsPlayerCharacter(this) ) then
+		AdjustDurability(damageInfo.Source, -1)
 	end
 
 	ApplyDamageToTarget(atTarget, damageInfo)

@@ -90,6 +90,7 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 	local skillToCheck = mSkillLevel
 	local ArmsLore = (GetSkillLevel(this,"ArmsLore") or 0.1) / 20
 	skillToCheck = skillToCheck + ArmsLore
+
 	mSuccess = CheckSkillChance(this, mSkill, skillToCheck, chance)
 
 	local consumeTable = resourceTable

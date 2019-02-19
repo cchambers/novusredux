@@ -424,7 +424,7 @@ function SetItemTooltip(item, noUseCases)
 
 	-- add Executioner info
 	local executioner = item:GetObjVar("ExecutionerLevel")
-	local named = item:GetObjVar("Identified")
+	local named = item:GetObjVar("Identified") or item:HasModule("imbued_weapon")
 	if ( executioner ~= nil and not(named) ) then
 		local name = item:GetName()
 		name = string.gsub(name, "Magic ", "")
