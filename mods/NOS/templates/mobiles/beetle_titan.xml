@@ -46,14 +46,13 @@
 					{
 						Backpack = { "backpack" },					
 					},
-				LootTables =
-					{
+				LootTables = {
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						{
 							NumCoins = math.random(4000,6000),
-						},
+						}
 					},		
 				}
 			</Initializer>

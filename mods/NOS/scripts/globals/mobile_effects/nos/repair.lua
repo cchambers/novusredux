@@ -10,6 +10,12 @@ MobileEffectLibrary.Repair = {
                 return false
             end
 
+            if (target:HasObjVar("WasImbued")) then
+                user:SystemMessage("This was damaged by magic and cannot be repaired.", "info")
+                EndMobileEffect(root)
+                return false
+            end
+
             self.Forge =
                 FindObjects(
                 SearchMulti(

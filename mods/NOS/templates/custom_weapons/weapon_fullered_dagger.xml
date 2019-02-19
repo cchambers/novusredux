@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Fullered Dagger[-]</Name>
+	<ClientId>1447</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">FulleredDagger</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

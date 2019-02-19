@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Rapier[-]</Name>
+	<ClientId>1470</ClientId>
+	<Hue>22</Hue>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Rapier</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

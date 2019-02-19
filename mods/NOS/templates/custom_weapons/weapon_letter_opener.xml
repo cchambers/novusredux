@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Letter Opener[-]</Name>
+	<ClientId>1444</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">LetterOpener</StringVariable>
+		<DoubleVariable Name="MaxDurability">60</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

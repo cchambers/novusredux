@@ -12,7 +12,7 @@
 				{
 					GridSize = 256,
 					ExcludeRegions = {"NoHousing"},
-					ExcludeOverrideRegions = {"GridSpawnHousingOverirde"},
+					ExcludeOverrideRegions = {"GridSpawnHousingOverride"},
 					GridInfo = {
 				       { GridLoc = {-12,-8}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.BarrenLands.Easy },
 				       { GridLoc = {-12,-7}, SpawnMultiplier = 0.6, Spawns=TemplateDefines.GridSpawns.BarrenLands.Easy },

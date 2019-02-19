@@ -23,6 +23,13 @@ AllAchievements = {
 			{"Master Ranger"			,80		,"Given to those who are masters and attuned to animals."			,{Title = "Master Ranger"			}},
 			{"Grandmaster Ranger"		,100	,"Given to those who are renound for their ability with animals."	,{Title = "Grandmaster Ranger"		}},
 		},
+		
+		ArmsLoreSkill = {
+			{"Warrior"					,30		,"Given to those who know about arms."							,{Title = "Apprentice Warrior"		}},
+			{"Journeyman Warrior"		,50		,"Given to those who are educated in arms."						,{Title = "Journeyman Warrior"		}},
+			{"Master Warrior"			,80		,"Given to those who are masters at arms."						,{Title = "Master Warrior"			}},
+			{"Grandmaster Warrior"		,100	,"Given to those who are renowned arms lorists."				,{Title = "Grandmaster Warrior"		}},
+		},
 
 		AnimalTamingSkill = {
 			{"Animal Tamer"				,30		,"Given to those who are animal trainers."							,{Title = "Apprentice Animal Tamer"	}},
@@ -268,6 +275,13 @@ AllAchievements = {
 			{"Journeyman Harvester"    		,50		,"Given to those are good at harvesting."                			,{Title = "Journeyman Harvester"	}},
 			{"Master Harvester"    			,80		,"Given to those who have mastered harvesting."      				,{Title = "Master Harvester"    	}},
 			{"Grandmaster Harvester"   		,100	,"Given to those who are among the most profound harvesters."		,{Title = "Grandmaster Harvester"	}},
+		},
+
+		MentoringSkill = {
+			{"Tutor"        			,30		,"Given to those who have done some mentoring."						,{Title = "Tutor"	}},
+			{"Teacher"    				,50		,"Given to those are good at mentoring."                			,{Title = "Teacher"	}},
+			{"Instructor"    			,80		,"Given to those who have mastered mentoring."      				,{Title = "Instructor"  }},
+			{"Professor"   				,100	,"Given to those who are among the most profound mentors."			,{Title = "Professor"	}},
 		},
 	},
 

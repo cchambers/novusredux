@@ -20,11 +20,13 @@ ServerSettings.Crafting = {
                 Copper = 10,
                 Gold = 20,
                 Cobalt = 30,
-                Obsidian = 40,
+                Obsidian = 60,
+                Steel = 75,
 
                 Boards = 0,
                 AshBoards = 20,
                 BlightwoodBoards = 40,
+                BroodwoodBoards = 60
             }
         },
         Accuracy = {
@@ -35,10 +37,12 @@ ServerSettings.Crafting = {
                 Gold = 20,
                 Cobalt = 30,
                 Obsidian = 40,
+                Steel = 50,
 
                 Boards = 0,
                 AshBoards = 20,
                 BlightwoodBoards = 60,
+                BroodwoodBoards = 80
             }
         },
         -- these are NOT in percents
@@ -50,6 +54,7 @@ ServerSettings.Crafting = {
                 Gold = 3,
                 Cobalt = 4,
                 Obsidian = 5,
+                Steel = 6,
 
                 Cloth = 1,
                 QuiltedCloth = 2,
@@ -66,7 +71,8 @@ ServerSettings.Crafting = {
             Copper = 50,
             Gold = 100,
             Cobalt = 150,
-            Obsidian = 200,
+            Obsidian = 75,
+            Steel = 300,
 
             Cloth = 25,
             QuiltedCloth = 50,
@@ -79,6 +85,7 @@ ServerSettings.Crafting = {
             Boards = 25,
             AshBoards = 100,
             BlightwoodBoards = 200,
+            BroodwoodBoards = 300
         }
     },
     -- bonus that can be gain frm the skill of crafting the item, the skill level is turned into a percent and multiplied against these numbers
@@ -97,4 +104,31 @@ ServerSettings.Crafting = {
             Max = 50, 
         }
     },
+
+    RandomRecipes = {
+        "arrow_broodwood",
+        "battle_hammer",
+        "bladed_bat",
+        "boarspear",
+        "broodwood",
+        "butcher",
+        "crescent",
+        "fullered_dagger",
+        "gladius",
+        "hardened_buckler",
+        "letter_opener",
+        "naginata",
+        "ninjato",
+        "oval_shield",
+        "pike",
+        "rapier",
+        "recurve",
+        "skinner",
+        "spetum",
+        "steel",
+        "stiletto",
+        "tapered_heater",
+        "warriors_kite",
+        "zukuri"
+    }
 }

@@ -53,6 +53,24 @@ PrestigeData.Skills = {
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(30)
 		},
+		
+		Identify = {
+			Action = {
+				DisplayName = "Identify",
+				Icon = "track",	
+				Enabled = true
+			},
+
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			QueueTarget = "Obj",
+			Tooltip = "Attempt to learn more about things.",
+
+			MobileEffect = "Identify",
+			Cooldown = TimeSpan.FromSeconds(3)
+		},
+		
 		ApplyPoison = {
 			Action = {
 				DisplayName = "Apply Poison",
@@ -88,9 +106,7 @@ PrestigeData.Skills = {
 				DisplayName = "Focus",
 				Icon = "Thunder Storm",
 				Enabled = true
-	    	},
-
-			MobileEffect = "Focus",
+			},
 		    Stamina = 0,
 		    Instant = true,
 		    NoTarget = true,
@@ -101,6 +117,23 @@ PrestigeData.Skills = {
 			MobileEffect = "Focus",
 			--MobileEffectArgs = {},
 			Cooldown = TimeSpan.FromSeconds(5)
+		},
+
+		Mentor = {
+			Action = {
+				DisplayName = "Mentor",
+				Icon = "transference",
+				Enabled = true
+	    	},
+
+		    Instant = true,
+		    NoCombat = true,
+		
+			Tooltip = "Each one, teach one.",
+
+			MobileEffect = "Mentor",
+			--MobileEffectArgs = {},
+			Cooldown = TimeSpan.FromSeconds(30)
 		},
 
 		Steal = {

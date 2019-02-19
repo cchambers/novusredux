@@ -19776,7 +19776,7 @@
 		</RegionBounds>
 	</RegionDefinition>
 	<RegionDefinition>
-		<RegionName>GridSpawnHousingOverirde</RegionName>
+		<RegionName>GridSpawnHousingOverride</RegionName>
 		<Category>Main</Category>
 		<RegionBounds>
 			<Rect>[(-2912.419,0.04999835,-2219.633)(-2867.786,0.04998877,-2181.984)(-2898.888,0.05000078,-2145.114)(-2943.521,0.05001036,-2182.763)(-2912.419,-0.05000165,-2219.633)(-2867.786,-0.05001123,-2181.984)(-2898.888,-0.04999922,-2145.114)(-2943.521,-0.04998964,-2182.763)]</Rect>

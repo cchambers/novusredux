@@ -4,6 +4,7 @@ RecipeCategories = {
 			Name = "Resources",
 			Subcategories = {
 				{"Ingots","Ingots","Materials1"},
+				{"Alloys","Alloys","Materials2"},
 			},
 		},	
 		{
@@ -21,6 +22,7 @@ RecipeCategories = {
 				{"Head",},
 				{"Legs",},
 				{"Torso",},
+				{"Shields","Shields","Shield"},
 			},
 		},
 		{ 
@@ -43,6 +45,7 @@ RecipeCategories = {
 			Name = "Resources",
 			Subcategories = {
                 {"Wood","Wood","Wood"},
+                {"Laminates","Laminates","Wood"},
             },
 		},	
 		{
@@ -234,6 +237,39 @@ AllRecipes = {
 			},
 		},
 
+		SteelOre = {
+			MinLevelToCraft = 85,
+			MaxLevelToGain = 110,
+			DisplayName = "Steel Ore",
+			CraftingTemplateFile = "resource_steel_ore",
+			Description = "An alloy made from iron and carbon.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Alloys",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				Iron = 1,
+				Wood = 5
+			},
+		},
+
+		Steel = {
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 115,
+			DisplayName = "Steel",
+			CraftingTemplateFile = "resource_steel",
+			Description = "Steel that has been cast into an ingot, ready to be shaped into weapons and armor.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Ingots",
+			NeedRecipe = true,
+			CanSalvage = false,
+			Resources = {
+				SteelOre = 5,
+			},
+		},
+
 		--Daggers
 		Dagger = {
 			MinLevelToCraft = 0,
@@ -251,6 +287,7 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
 			},
 		},
 		Kryss = {
@@ -269,6 +306,7 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
 			},
 		},
 		Poniard = {
@@ -287,6 +325,7 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
 			},
 		},
 
@@ -306,6 +345,87 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
+			},
+		},
+		
+		FulleredDagger = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
+			DisplayName = "Fullered Dagger",
+			CraftingTemplateFile = "weapon_fullered_dagger",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Piercing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
+			},
+		},
+
+		Stiletto = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
+			DisplayName = "Stiletto Dagger",
+			CraftingTemplateFile = "weapon_stiletto",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Piercing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
+			},
+		},
+
+		LetterOpener = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 85,
+			DisplayName = "Letter Opener",
+			CraftingTemplateFile = "weapon_letter_opener",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Piercing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
+			},
+		},
+
+		Zukuri = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 105,
+			DisplayName = "Zukuri",
+			CraftingTemplateFile = "weapon_zukuri",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Piercing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
 			},
 		},
 
@@ -327,6 +447,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -346,6 +467,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -365,6 +487,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -384,6 +507,87 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
+
+		Gladius = {
+			MinLevelToCraft = 30,
+			MaxLevelToGain = 55,
+			DisplayName = "Gladius",
+			CraftingTemplateFile = "weapon_gladius",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
+
+		Ninjato = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 95,
+			DisplayName = "Ninjato",
+			CraftingTemplateFile = "weapon_ninjato",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
+
+		Crescent = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 95,
+			DisplayName = "Crescent",
+			CraftingTemplateFile = "weapon_crescent",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
+			},
+		},
+
+		Rapier = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Rapier",
+			CraftingTemplateFile = "weapon_rapier",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -405,6 +609,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 		Hammer = {
@@ -423,6 +628,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 		
@@ -442,6 +648,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -461,6 +668,47 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
+
+		BattleHammer = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Battle Hammer",
+			CraftingTemplateFile = "weapon_battle_hammer",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Bashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
+			},
+		},
+
+		BladedClub = {
+			MinLevelToCraft = 55,
+			MaxLevelToGain = 80,
+			DisplayName = "Bladed Club",
+			CraftingTemplateFile = "weapon_bladed_club",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Bashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 2 },
+				Gold = { Gold = 2 },
+				Copper = { Copper = 2 },
+				Cobalt = { Cobalt = 2 },
+				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 
@@ -481,6 +729,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		Warhammer = {
@@ -499,6 +748,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 
@@ -519,6 +769,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		Voulge = {
@@ -537,6 +788,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		Spear = {
@@ -555,6 +807,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		Halberd = {
@@ -573,6 +826,106 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
+			},
+		},
+		
+		Pike = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 90,
+			DisplayName = "Pike",
+			CraftingTemplateFile = "weapon_pike",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Polearms",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+		
+		BoarSpear = {
+			MinLevelToCraft = 56,
+			MaxLevelToGain = 75,
+			DisplayName = "Boar Spear",
+			CraftingTemplateFile = "weapon_boarspear",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Polearms",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
+			},
+		},
+		Naginata = {
+			MinLevelToCraft = 76,
+			MaxLevelToGain = 98,
+			DisplayName = "Naginata",
+			CraftingTemplateFile = "weapon_naginata",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Polearms",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
+			},
+		},
+		
+		Spetum = {
+			MinLevelToCraft = 76,
+			MaxLevelToGain = 98,
+			DisplayName = "Spetum",
+			CraftingTemplateFile = "weapon_spetum",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Polearms",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		Poleaxe = {
+			MinLevelToCraft = 76,
+			MaxLevelToGain = 98,
+			DisplayName = "Poleaxe",
+			CraftingTemplateFile = "weapon_poleaxe",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Polearms",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
 			},
 		},
 
@@ -593,6 +946,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		GreatAxe = {
@@ -611,6 +965,26 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
+			},
+		},
+		Butcher = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 95,
+			DisplayName = "Butcher",
+			CraftingTemplateFile = "weapon_butcher",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Slashing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 3 },
+				Gold = { Gold = 3 },
+				Copper = { Copper = 3 },
+				Cobalt = { Cobalt = 3 },
+				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		
@@ -633,6 +1007,7 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
 			},
 		},
 		ChainLeggings = {
@@ -652,6 +1027,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		ChainTunic = {
@@ -671,6 +1047,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		ScaleHelm = {
@@ -690,6 +1067,7 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
+				Steel = { Steel = 2 }
 			},
 		},
 		ScaleLeggings = {
@@ -709,6 +1087,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
 			},
 		},
 		ScaleTunic = {
@@ -728,6 +1107,7 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
 			},
 		},
 		FullPlateHelm = {
@@ -747,6 +1127,7 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
+				Steel = { Steel = 3 }
 			},
 		},
 		FullPlateLeggings = {
@@ -766,6 +1147,7 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
+				Steel = { Steel = 5 }
 			},
 		},
 		FullPlateTunic = {
@@ -785,8 +1167,116 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
+				Steel = { Steel = 5 }
 			},
 		},
+
+		OvalShield = {
+			MinLevelToCraft = 64,
+			MaxLevelToGain = 89,
+			DisplayName = "Oval Shield",
+			CraftingTemplateFile = "shield_oval",
+			Description = "A metal shield.",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			NeedRecipe = true,
+			Category = "Armor",
+			Subcategory = "Shields",
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		HardenedBucker = {
+			MinLevelToCraft = 64,
+			MaxLevelToGain = 89,
+			DisplayName = "Hardened Buckler",
+			CraftingTemplateFile = "shield_hardened_buckler",
+			Description = "A metal shield.",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			NeedRecipe = true,
+			Category = "Armor",
+			Subcategory = "Shields",
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		WarriorsKite = {
+			MinLevelToCraft = 64,
+			MaxLevelToGain = 89,
+			DisplayName = "Warriors Kite",
+			CraftingTemplateFile = "shield_warriors_kite",
+			Description = "A metal shield.",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			NeedRecipe = true,
+			Category = "Armor",
+			Subcategory = "Shields",
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		ShieldOfJustice = {
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 105,
+			DisplayName = "Shield of Justice",
+			CraftingTemplateFile = "shield_of_justice",
+			Description = "A metal shield.",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			NeedRecipe = true,
+			Category = "Armor",
+			Subcategory = "Shields",
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		TaperedHeater = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 100,
+			DisplayName = "Tapered Heater",
+			CraftingTemplateFile = "shield_tapered_heater",
+			Description = "A metal shield.",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			NeedRecipe = true,
+			Category = "Armor",
+			Subcategory = "Shields",
+			Resources = {
+				Iron = { Iron = 4 },
+				Gold = { Gold = 4 },
+				Copper = { Copper = 4 },
+				Cobalt = { Cobalt = 4 },
+				Obsidian = { Obsidian = 4 },
+				Steel = { Steel = 4 }
+			},
+		},
+
+		
 		
 		CookingPot = {
 			MinLevelToCraft = 15,
@@ -959,6 +1449,23 @@ WoodsmithSkill = {
 				Blightwood = 5,
 			},
 		},
+		BroodwoodBoards = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Broodwood Boards",
+			CraftingTemplateFile = "resource_broodwood_boards",
+			Description = "Broodwood Boards",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Wood",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				BlightwoodBoards = 1,
+				AshBoards = 1,
+				Spidersilk = 4
+			},
+		},
 		--Bow
 		ShortBow = {
 			MinLevelToCraft = 15,
@@ -975,6 +1482,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 		LongBow = {
@@ -992,6 +1500,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 2 },
 				AshBoards = { AshBoards = 2 },
 				BlightwoodBoards = { BlightwoodBoards = 2 },
+				BroodwoodBoards = { BroodwoodBoards = 2 }
 			},
 		},
 		WarBow = {
@@ -1009,6 +1518,25 @@ WoodsmithSkill = {
 				Boards = { Boards = 3 },
 				AshBoards = { AshBoards = 3 },
 				BlightwoodBoards = { BlightwoodBoards = 3 },
+				BroodwoodBoards = { BroodwoodBoards = 3 }
+			},
+		},
+		RecurveBow = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 105,
+			DisplayName = "Recurve Bow",
+			CraftingTemplateFile = "weapon_recurve_bow",
+			ItemType = "WeaponClass",
+			Description = "A Recurve Bow. This is a master weapon.",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Bows",
+			NeedRecipe = true,
+			Resources = {
+				Boards = { Boards = 5 },
+				AshBoards = { AshBoards = 5 },
+				BlightwoodBoards = { BlightwoodBoards = 5 },
+				BroodwoodBoards = { BroodwoodBoards = 5 }
 			},
 		},
 		--weapons
@@ -1110,6 +1638,23 @@ WoodsmithSkill = {
 			},
 		},
 
+		BroodwoodArrow = {
+			MinLevelToCraft = 65,
+			MaxLevelToGain = 90,
+			DisplayName = "Broodwood Arrow",
+			CraftingTemplateFile = "arrow_broodwood",
+			Description = "",
+			NeedRecipe = false,
+			CanImprove = false,
+			Category = "Weapons",
+			Subcategory = "Bows",
+			StackCount = 20,
+			Resources = {
+				BroodwoodBoards = 1,
+				WildFeather = 1,
+			},
+		},
+
 		--shields
 
 		Buckler = {
@@ -1127,6 +1672,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 		
@@ -1144,6 +1690,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 1 },
 				AshBoards = { AshBoards = 1 },
 				BlightwoodBoards = { BlightwoodBoards = 1 },
+				BroodwoodBoards = { BroodwoodBoards = 1 }
 			},
 		},
 
@@ -1161,6 +1708,7 @@ WoodsmithSkill = {
 				Boards = { Boards = 2 },
 				AshBoards = { AshBoards = 2 },
 				BlightwoodBoards = { BlightwoodBoards = 2 },
+				BroodwoodBoards = { BroodwoodBoards = 2 }
 			},
 		},
 
@@ -2941,6 +3489,20 @@ InscriptionSkill = {
 			NeedRecipe = false,
 			Description = "A recall scroll. ",
 			CraftingTemplateFile = "lscroll_recall",
+			Category = "Scrolls",
+			Subcategory = "Scrolls",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+		ImbueScroll = {
+			MinLevelToCraft = 30,
+			MaxLevelToGain = 70,
+			DisplayName = "Imbue Scroll",
+			NeedRecipe = false,
+			Description = "An imbue scroll. ",
+			CraftingTemplateFile = "scroll_imbue",
 			Category = "Scrolls",
 			Subcategory = "Scrolls",
 			Resources = {

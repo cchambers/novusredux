@@ -124,6 +124,15 @@ EquipmentStats = {
 			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed"
 		},
+		FulleredDagger = {
+			WeaponClass = "Dagger",
+			Attack = 14,
+			Variance = 0.05,
+			MinSkill = 0,
+			Speed = 2.25,
+			PrimaryAbility = "Overpower",
+			SecondaryAbility = "Bleed"
+		},
 		Kryss = {
 			WeaponClass = "Dagger",
 			Variance = 0.05,
@@ -133,6 +142,24 @@ EquipmentStats = {
 			PrimaryAbility = "Stab",
 			SecondaryAbility = "MortalStrike"
 		},
+		Stiletto = {
+			WeaponClass = "Dagger",
+			Variance = 0.05,
+			Attack = 12,
+			Speed = 2,
+			MinSkill = 0,
+			PrimaryAbility = "Bleed",
+			SecondaryAbility = "MortalStrike"
+		},
+		LetterOpener = {
+			WeaponClass = "Dagger",
+			Variance = 0.05,
+			Attack = 12,
+			Speed = 2,
+			MinSkill = 0,
+			PrimaryAbility = "Bleed",
+			SecondaryAbility = "Stab"
+		},
 		Poniard = {
 			WeaponClass = "Dagger",
 			Variance = 0.05,
@@ -141,6 +168,15 @@ EquipmentStats = {
 			MinSkill = 0,
 			PrimaryAbility = "Stab",
 			SecondaryAbility = "Bleed"
+		},
+		Zukuri = {
+			WeaponClass = "Dagger",
+			Variance = 0.05,
+			Attack = 17,
+			Speed = 2.5,
+			MinSkill = 0,
+			PrimaryAbility = "Stab",
+			SecondaryAbility = "MortalStrike"
 		},
 		BoneDagger = {
 			WeaponClass = "Dagger",
@@ -186,6 +222,24 @@ EquipmentStats = {
 			MinSkill = 0,
 			Speed = 3.5,
 			PrimaryAbility = "Overpower",
+			SecondaryAbility = "FollowThrough"
+		},
+		BattleHammer = {
+			WeaponClass = "Blunt",
+			Variance = 0.05,
+			Attack = 22,
+			MinSkill = 0,
+			Speed = 3.25,
+			PrimaryAbility = "Bleed",
+			SecondaryAbility = "FollowThrough"
+		},
+		BattleHammer = {
+			WeaponClass = "Blunt",
+			Variance = 0.05,
+			Attack = 22,
+			MinSkill = 0,
+			Speed = 3.25,
+			PrimaryAbility = "Stun",
 			SecondaryAbility = "FollowThrough"
 		},
 		-- 2H Blunts
@@ -240,6 +294,16 @@ EquipmentStats = {
 			SecondaryAbility = "MortalStrike",
 			TwoHandedWeapon = true
 		},
+		Pike = {
+			WeaponClass = "PoleArm",
+			Variance = 0.1,
+			Attack = 23,
+			MinSkill = 0,
+			Speed = 4,
+			PrimaryAbility = "Stab",
+			SecondaryAbility = "Dismount",
+			TwoHandedWeapon = true
+		},
 		Halberd = {
 			WeaponClass = "PoleArm",
 			Variance = 0.1,
@@ -248,6 +312,46 @@ EquipmentStats = {
 			Speed = 4,
 			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Concus",
+			TwoHandedWeapon = true
+		},
+		Poleaxe = {
+			WeaponClass = "PoleArm",
+			Variance = 0.2,
+			Attack = 26,
+			MinSkill = 0,
+			Speed = 4,
+			PrimaryAbility = "Overpower",
+			SecondaryAbility = "Concus",
+			TwoHandedWeapon = true
+		},
+		Naginata = {
+			WeaponClass = "PoleArm",
+			Variance = 0.3,
+			Attack = 20,
+			MinSkill = 60,
+			Speed = 3,
+			PrimaryAbility = "Overpower",
+			SecondaryAbility = "MortalStrike",
+			TwoHandedWeapon = true
+		},
+		Spetum = {
+			WeaponClass = "PoleArm",
+			Variance = 0.3,
+			Attack = 19,
+			MinSkill = 60,
+			Speed = 3,
+			PrimaryAbility = "Overpower",
+			SecondaryAbility = "Bleed",
+			TwoHandedWeapon = true
+		},
+		BoarSpear = {
+			WeaponClass = "PoleArm",
+			Variance = 0.3,
+			Attack = 22,
+			MinSkill = 60,
+			Speed = 3.5,
+			PrimaryAbility = "MortalStrike",
+			SecondaryAbility = "Bleed",
 			TwoHandedWeapon = true
 		},
 		Scythe = {
@@ -279,6 +383,16 @@ EquipmentStats = {
 			MinSkill = 65,
 			Speed = 4,
 			PrimaryAbility = "Power",
+			SecondaryAbility = "Bleed",
+			TwoHandedWeapon = true,
+		},
+		Recurve = {
+			WeaponClass = "Bow",
+			Variance = 0.05,
+			Attack = 28,
+			MinSkill = 65,
+			Speed = 4,
+			PrimaryAbility = "DoubleShot",
 			SecondaryAbility = "Bleed",
 			TwoHandedWeapon = true,
 		},
@@ -349,6 +463,24 @@ EquipmentStats = {
 			PrimaryAbility = "Stab",
 			SecondaryAbility = "MortalStrike"
 		},
+		Rapier = {
+			WeaponClass = "Sword",
+			Variance = 0.05,
+			Attack = 12,
+			MinSkill = 0,
+			Speed = 2.2,
+			PrimaryAbility = "Stab",
+			SecondaryAbility = "Bleed"
+		},
+		Gladius = {
+			WeaponClass = "Sword",
+			Variance = 0.05,
+			Attack = 14,
+			MinSkill = 0,
+			Speed = 2.25,
+			PrimaryAbility = "Stab",
+			SecondaryAbility = "MortalStrike"
+		},
 		Katana = {
 			WeaponClass = "Sword",
 			Variance = 0.05,
@@ -357,6 +489,24 @@ EquipmentStats = {
 			Speed = 2.5,
 			PrimaryAbility = "Overpower",
 			SecondaryAbility = "Bleed"
+		},
+		Ninjato = {
+			WeaponClass = "Sword",
+			Variance = 0.05,
+			Attack = 13,
+			MinSkill = 0,
+			Speed = 2.25,
+			PrimaryAbility = "MortalStrike",
+			SecondaryAbility = "Bleed"
+		},
+		Crescent = {
+			WeaponClass = "Sword",
+			Variance = 0.05,
+			Attack = 16,
+			MinSkill = 0,
+			Speed = 2.65,
+			PrimaryAbility = "MortalStrike",
+			SecondaryAbility = "Overpower"
 		},
 		-- 2H Swords
 		LargeAxe = {
@@ -377,6 +527,16 @@ EquipmentStats = {
 			Speed = 4,
 			PrimaryAbility = "Overpower",
 			SecondaryAbility = "MortalStrike",
+			TwoHandedWeapon = true
+		},
+		Butcher = {
+			WeaponClass = "Sword2H",
+			Variance = 0.1,
+			Attack = 28,
+			MinSkill = 0,
+			Speed = 3.5,
+			PrimaryAbility = "Concus",
+			SecondaryAbility = "Bleed",
 			TwoHandedWeapon = true
 		},
 		-- Tools
@@ -734,12 +894,17 @@ EquipmentStats = {
 		},
 		HeaterShield = {
 			BaseBlockChance = 0,
-			ArmorRating = 35,
+			ArmorRating = 45,
+			MinSkill = 0
+		},
+		KiteShield = {
+			BaseBlockChance = 0,
+			ArmorRating = 50,
 			MinSkill = 0
 		},
 		Fortress = {
 			BaseBlockChance = 0,
-			ArmorRating = 35,
+			ArmorRating = 55,
 			MinSkill = 0
 		},
 		DragonGuard = {
@@ -753,11 +918,6 @@ EquipmentStats = {
 			MinSkill = 0
 		},
 		Guardian = {
-			BaseBlockChance = 0,
-			ArmorRating = 35,
-			MinSkill = 0
-		},
-		KiteShield = {
 			BaseBlockChance = 0,
 			ArmorRating = 35,
 			MinSkill = 0

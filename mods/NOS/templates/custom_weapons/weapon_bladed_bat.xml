@@ -1,0 +1,9 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Bladed Club[-]</Name>
+	<ClientId>1458</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">BladedClub</StringVariable>
+		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
+	</ObjectVariableComponent>					
+</ObjectTemplate>

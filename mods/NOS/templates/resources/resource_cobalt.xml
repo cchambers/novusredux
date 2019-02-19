@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[d7f5f2]Cobalt[-]</Name>
+	<ClientId>1000</ClientId>
+	<Hue>913</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Cobalt</StringVariable>
+		<StringVariable Name="PluralName">Cobalt</StringVariable>	
+		<DoubleVariable Name="UnitWeight">0.5</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

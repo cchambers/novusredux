@@ -356,6 +356,16 @@ ResourceData = {
 				Max = 110
 			}
 		},
+		SteelOre = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_steel_ore",
+			DisplayName = "Steel Ore",
+			SkillGainDifficultyMultiplier = 3,
+			Difficulty = {
+				Min = 105,
+				Max = 125
+			}
+		},
 		LeatherScraps = {
 			Template = "resource_leatherscraps",
 			DisplayName = "Leather Scraps",
@@ -453,6 +463,11 @@ ResourceData = {
 			DisplayName = "Obsidian",
 			CraftedItemPrefix = "Obsidian",
 		},
+		Steel = {
+			Template = "resource_steel",
+			DisplayName = "Steel",
+			CraftedItemPrefix = "Steel",
+		},
 		Leather = {
 			Template = "resource_leather",
 			DisplayName = "Leather",
@@ -497,6 +512,14 @@ ResourceData = {
 			SalvageValue = 2,
 			SalvageResource = "Blightwood",
 			SkillGainDifficultyMultiplier = 5,
+		},
+		BroodwoodBoards = {
+			DisplayName = "Broodwood Boards",
+			Template = "resource_blightwood_boards",
+			CraftedItemPrefix = "Broodwood",
+			SalvageValue = 2,
+			SalvageResource = "Broodwood",
+			SkillGainDifficultyMultiplier = 10,
 		},
 		Cloth = {
 			DisplayName = "Cloth",
@@ -580,6 +603,10 @@ ResourceData = {
 			Template = "recipe_obsidian",
 			DisplayName = "Recipe: Obsidian",
 		},
+		RecipeSteel = {
+			Template = "recipe_steel",
+			DisplayName = "Recipe: Steel",
+		},
 		RecipeAshArrows = {
 			Template = "recipe_arrow_ash",
 			DisplayName = "Recipe: Ash Arrows",
@@ -595,6 +622,10 @@ ResourceData = {
 		RecipeBlightwoodBoards = {
 			Template = "recipe_blightwood",
 			DisplayName = "Recipe: Blightwood Boards",
+		},
+		RecipeBroodwoodBoards = {
+			Template = "recipe_broodwood",
+			DisplayName = "Recipe: Broodwood Boards",
 		},
 		RecipeChainHelm = {
 			Template = "recipe_chain_helm",
