@@ -60,7 +60,7 @@ function UpdateWindow()
     dynamicWindow:AddLabel(20,curY+4,denomInfo.Color..denomInfo.Name.."[-]",0,0,18)
     dynamicWindow:AddTextField(20+147,curY,50,20,denomInfo.Name,_FieldAmounts[denomInfo.Name] or "0")
 
-    dynamicWindow:AddButton(10,140,"Pay","Deposit",220,26,"Deposit money into plot lockbox. (Non-Refundable)","",false,"List")
+    -- dynamicWindow:AddButton(10,140,"Pay","Deposit",220,26,"Deposit money into plot lockbox. (Non-Refundable)","",false,"List")
     
     this:OpenDynamicWindow(dynamicWindow, this)
 end

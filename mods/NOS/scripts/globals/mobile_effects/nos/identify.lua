@@ -86,9 +86,29 @@ MobileEffectLibrary.Identify = {
             end
         end
 
-        -- Durability
-        -- Effectiveness of Armor
-        -- Effectiveness of Weapon
+        local armorType = item:GetObjVar("ArmorType")
+        if (armorType) then
+            -- ArmorLevels
+            local armorLevel = EquipmentStats.BaseArmorStats[armorType].Chest.ArmorRating
+            local armorLevels = #self.ArmorLevels
+            armorLevel = (armorLevels + 1) - math.ceil((armorLevel/60) * armorLevels)
+            if (armorLevel > armorLevels) then
+                armorLevel = armorLevels
+            end
+            message = message .. " " .. self.ArmorLevels[armorLevel]
+        end
+
+        local weaponType = item:GetObjVar("WeaponType")
+        if (weaponType) then
+            -- ArmorLevels
+            local weaponLevel = EquipmentStats.BaseWeaponStats[weaponType].Attack
+            local weaponLevels = #self.WeaponLevels
+            weaponLevel = (weaponLevels + 1) - math.ceil((weaponLevel/40) * weaponLevels)
+            if (weaponLevel > weaponLevels) then 
+                weaponLevel = weaponLevels
+            end
+            message = message .. " " .. self.WeaponLevels[weaponLevel]
+        end
 
         self.ParentObj:SystemMessage("[bada55]Item information: [-]" .. message)
         

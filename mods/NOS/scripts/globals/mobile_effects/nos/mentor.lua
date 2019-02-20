@@ -1,6 +1,7 @@
 MobileEffectLibrary.Mentor = {
     ShouldStack = false,
     OnEnterState = function(self, root, target, args)
+
         self.Path = self.ParentObj:GetObjVar("MentorPath")
         self.SelectedSkill = self.ParentObj:GetObjVar("MentorSkill") or nil
         self.SkillLevel = GetSkillLevel(self.ParentObj, "MentoringSkill")
@@ -70,12 +71,17 @@ MobileEffectLibrary.Mentor = {
                             self.ParentObj:RequestClientTargetGameObj(this, "Mentor.Target")
                             RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "Mentor.Target",
                             function (targetObj)
+                                if (self.ParentObj == targetObj) then
+                                    self.ParentObj:SystemMessage("We learn from ourselves every day.", "info")
+                                    EndMobileEffect(root)
+                                    return false
+                                end
                                 if (targetObj:IsPlayer()) then 
-                                    -- if (self.SkillLevel > 50) then
-                                    --     -- mentor everyone in the area?
-                                    -- else
-                                        targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                    -- if (self.SkillLevel >= 65) then
+                                        -- mentor everyone in the area?
+                                        -- search players in the area, prompt them to learn skill.. if they say yes, startmobileeffect
                                     -- end
+                                    targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
                                     self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
                                 end
                                 EndMobileEffect(root)
@@ -125,7 +131,7 @@ MobileEffectLibrary.Mentor = {
             if ((i - 1) % 2 == 1) then
                 scrollElement:AddImage(0, 0, "Blank", 230, 25, "Sliced", "1A1C2B")
             end
-            scrollElement:AddLabel(45, 6, skillName, 0, 0, 18)
+            scrollElement:AddLabel(45, 6, SkillData.AllSkills[skillName].DisplayName, 0, 0, 18)
             local selState = ""
             if (skillName == self.SelectedSkill) then
                 selState = "pressed"
