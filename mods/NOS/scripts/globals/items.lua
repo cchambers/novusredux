@@ -430,6 +430,14 @@ function SetItemTooltip(item, noUseCases)
 		name = tostring(name .. " of " .. ServerSettings.Executioner.LevelString[executioner or 1])
 		item:SetName(name)
 	end
+
+	local poisoned = item:GetObjVar("PoisonLevel")
+	if (poisoned ~= nil) then
+		tooltipInfo.poisoned = {
+			TooltipString = "[00ff00]POISONED[-]",
+			Priority = 999,
+		}
+	end
 	
 	-- add the maker's mark
 	if ( ServerSettings.Crafting.MakersMark.Enabled and item:HasObjVar("CraftedBy") ) then

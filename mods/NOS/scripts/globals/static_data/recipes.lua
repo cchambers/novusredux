@@ -134,6 +134,13 @@ RecipeCategories = {
 				{"Spellbooks" ,"Spellbooks","Storage"},
 			},
 		},
+		-- {
+		-- 	Name = "Recipes",
+		-- 	Subcategories = 
+		-- 	{
+		-- 		{"Recipes" ,"Recipes","Storage"},
+		-- 	},
+		-- },
 		{
 			Name = "Books",
 			Subcategories = 
