@@ -36,10 +36,10 @@
 					},
 				Skills = 
 					{  
-					MagicAffinity=100,
-					MagicResist=100,
-					Magery=130,
-					Inscription=100,
+					MagicAffinity=75,
+					MagicResist=60,
+					Magery=90,
+					Inscription=80,
 					Brawling = 70,  
 					},	
 				EquipTable = 
@@ -62,7 +62,7 @@
 				ScavengeTables =
 					{
 					},
-					AvailableSpells = {"Lightning", "Electricbolt", "Frost"},		
+					AvailableSpells = {"Poison", "Fireball", "Lightning", "Frost"},		
 				}
 			</Initializer>
 		</LuaModule>

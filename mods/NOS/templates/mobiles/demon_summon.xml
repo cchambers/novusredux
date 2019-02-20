@@ -1,15 +1,15 @@
 <ObjectTemplate>
 	<ClientId>322</ClientId>
-	<Name>Greater Demon</Name>
+	<Name>Summoned Demon</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
 	<MobileComponent>			
 		<BaseRunSpeed>0.8</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Ork</StringVariable>
-		<StringVariable Name="MobileKind">Giant</StringVariable>
+		<DoubleVariable Name="BaseHealth">1400</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Undead</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
@@ -22,19 +22,19 @@
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
 		<DoubleVariable Name="PetSlots">8</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">88</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">95</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_default">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=80, Agi=50, Int=40, Wis=10, Will=10 },
 				MobTraits =
 					{
 					},
 				Skills = 
 					{ 
-					Brawling = 65,  
+					Brawling = 100,  
 					},	
 				EquipTable = 
 					{
@@ -42,12 +42,16 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.MapsLow,
-						TemplateDefines.LootTable.Humanoid,
-						TemplateDefines.LootTable.PotionsPoor,
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.BonesCursed,
+						TemplateDefines.LootTable.FineScrolls,
 						{
-							NumCoins = math.random(90,225),
-						},	
+							NumCoins = math.random(1000,3000),
+						},
 					},
 				ScavengeTables =
 					{

@@ -107,9 +107,9 @@ function EndColorWars(winners)
 				)
 			end
 			CallFunctionDelayed(
-				TimeSpan.FromSeconds(5),
+				TimeSpan.FromSeconds(3),
 				function()
-					ExitColorwars(j)
+					j:SendMessage("Resurrect", 100, this, true)
 				end
 			)
 		end

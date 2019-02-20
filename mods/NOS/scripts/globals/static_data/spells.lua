@@ -2049,7 +2049,9 @@ SpellData = {
 			},
 			ReagentsRequired = true,
 			Reagents = {
-				"Mandrake"
+				"Mandrake",
+				"Ginseng",
+				"Spidersilk"
 			},
 		},	
 
@@ -2138,6 +2140,8 @@ SpellData = {
 			ReagentsRequired = true,
 			Reagents = {
 				"Bloodmoss",
+				"Garlic",
+				"Ginseng"
 			},
 		},
 

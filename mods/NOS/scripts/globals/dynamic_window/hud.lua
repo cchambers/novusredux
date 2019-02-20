@@ -80,23 +80,13 @@ function UpdateItemBar(mobileObj)
 end
 
 function UpdateSpellBar(mobileObj)
-	--local curAction = GetSpellUserAction("Fireball")
-	--curAction.Slot = 1
-	--AddUserActionToSlot(curAction)
-	--curAction = GetSpellUserAction("Greaterheal")
-	--curAction.Slot = 2
-	--AddUserActionToSlot(curAction)
-	--curAction = GetSpellUserAction("Lightning")
-	--curAction.Slot = 3
-	--AddUserActionToSlot(curAction)
-
 	local spellItemSize = 48
 	local spellbarHeight = spellItemSize * 10
 	local spellSlotStartIndex = 1
 
 	local spellBarWindow = DynamicWindow("spellbar", "", 0, 0, 0, -(spellbarHeight / 2), "Transparent", "Left")
 	local curX = 2
-	for x = 0, 1 do
+	for x = 0, 3 do
 		for y = 0, 9 do
 			local index = (x * 10) + y
 			spellBarWindow:AddHotbarAction(curX, y * spellItemSize, index + spellSlotStartIndex, 0, 0, "Square", true)

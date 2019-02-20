@@ -57,7 +57,7 @@ PrestigeData.Skills = {
 		Identify = {
 			Action = {
 				DisplayName = "Identify",
-				Icon = "track",	
+				Icon = "god button",	
 				Enabled = true
 			},
 
