@@ -2,10 +2,12 @@
   <Name>[00FF00]The Apparatus[-]</Name>
 	<ClientId>2008</ClientId>
 	<Hue>915</Hue>
-	<ScaleModifier>2</ScaleModifier>
-	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScaleModifier>1.45</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<BoolVariable Name="CanDye">True</BoolVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+		<BoolVariable Name="Unique">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="binger"/>

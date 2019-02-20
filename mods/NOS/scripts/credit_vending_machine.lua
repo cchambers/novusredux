@@ -45,7 +45,7 @@ RegisterEventHandler(
 		local items = {}
 		local value = 99999
 		local points = user:GetObjVar("Credits")
-
+		if (buttonId == "" or buttonId == nil) then return end
 		if (buttonId == "random_recipe") then
 			value = 15
 			local what = tostring("recipe_"..mRandomRecipes[math.random(1, #mRandomRecipes)])

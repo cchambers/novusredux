@@ -21,20 +21,5 @@
 				}
 			</Initializer>
 		</LuaModule>
-		<LuaModule Name="fill_random_loot">
-			<Initializer>
-				{
-					LootTables = {
-						{						
-						    NumItems = 1,
-							LootItems = 
-							{ 	
-								{ Template = "arrow_blightwood", StackCount = 100, Unique = true },
-							} 
-						},							
-					}
-				}
-			</Initializer>
-		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
