@@ -68,24 +68,14 @@ MobileEffectLibrary.Identify = {
         local user = self.ParentObj
         user:SystemMessage("You study the item in an attempt to learn more about its craftsmanship and use.", "info")
         local item = self.Target
-        if (item:HasObjVar("PoisonLevel")) then
-            SetTooltipEntry(target,"poisoned","[00ff00]POISONED[-]", 999)
-        end
 
         local MaxDurability = item:GetObjVar("MaxDurability")
         local Durability = item:GetObjVar("Durability") or MaxDurability
         local levels = #self.Durabilities
         local level = (levels + 1) - math.ceil((Durability/MaxDurability) * levels)
-        local message = self.Durabilities[level]
+        local name = item:GetName()
+        local message = string.format(self.Durabilities[level], name)
         
-        if (item:GetObjVar("WasImbued")) then
-            if (item:GetObjVar("ImbuedWeapon")) then
-                message = message .. " It is magically enhanced."
-            else
-                message = message .. " It has been magically enhanced in the past and cannot be repaired."
-            end
-        end
-
         local armorType = item:GetObjVar("ArmorType")
         if (armorType) then
             -- ArmorLevels
@@ -95,7 +85,7 @@ MobileEffectLibrary.Identify = {
             if (armorLevel > armorLevels) then
                 armorLevel = armorLevels
             end
-            message = message .. " " .. self.ArmorLevels[armorLevel]
+            message = message .. self.ArmorLevels[armorLevel]
         end
 
         local weaponType = item:GetObjVar("WeaponType")
@@ -107,52 +97,70 @@ MobileEffectLibrary.Identify = {
             if (weaponLevel > weaponLevels) then 
                 weaponLevel = weaponLevels
             end
-            message = message .. " " .. self.WeaponLevels[weaponLevel]
+            message = message .. self.WeaponLevels[weaponLevel]
+        end
+        
+        local executionerLevel = item:GetObjVar("ExecutionerLevel")
+        if (executionerLevel) then
+            message = tostring(message .. " '" .. ServerSettings.Executioner.LevelString[executionerLevel] ..  "' means that this weapon does " .. ServerSettings.Executioner.LevelModifier[executionerLevel] .. "x damage.")
         end
 
-        self.ParentObj:SystemMessage("[bada55]Item information: [-]" .. message)
+        if (item:GetObjVar("WasImbued")) then
+            if (item:GetObjVar("ImbuedWeapon")) then
+                message = message .. " It is magically enhanced."
+            else
+                message = message .. " It has been magically enhanced in the past and cannot be repaired."
+            end
+        end
+
+        if (item:HasObjVar("PoisonLevel")) then
+              message = message .. " There is a thick acrid liquid on the edge of the blade -- definitely poison."
+        end
+
+        self.ParentObj:SystemMessage("[bada55]Identified: [-]" .. message)
         
         local tooltipInfo = SetItemTooltip(item)
         item:SetObjVar("Identified", true)
         EndMobileEffect(root)
         return
     end,
+
     OnExitState = function(self, root)
         UnregisterEventHandler("", EventType.Timer, "ArmsLore.ID")
     end,
 
     Durabilities = {
-        "Brand new",
-        "Almost new",
-        "Barely used, with a few nicks and scrapes",
-        "Fairly good condition",
-        "Suffered some wear and tear",
-        "Well used",
-        "Rather battered",
-        "Somewhat badly damaged",
-        "Flimsy and not trustworthy",
-        "Falling apart"
+        "This %s is brand new ",
+        "This %s is almost new ",
+        "This %s is barely used, with a few nicks and scrapes ",
+        "This %s is fairly good condition ",
+        "This %s has suffered some wear and tear ",
+        "This %s is well used ",
+        "This %s is rather battered ",
+        "This %s is somewhat badly damaged ",
+        "This %s is flimsy and not trustworthy ",
+        "This %s is falling apart "
     },
 
     ArmorLevels = {
-        "Is superbly crafted to provide maximum protection",
-        "Offers excellent protection",
-        "Is a superior defense against attack",
-        "Serves as sturdy protection",
-        "Offers some protection against blows",
-        "Provides very little protection",
-        "Provides almost no protection",
-        "Offers no defense against attackers"
+        "and is superbly crafted to provide maximum protection.",
+        "and offers excellent protection.",
+        "and is a superior defense against attack.",
+        "and serves as sturdy protection.",
+        "and offers some protection against blows.",
+        "and provides very little protection.",
+        "and provides almost no protection.",
+        "and offers no defense against attackers."
     },
 
     WeaponLevels = {
-        "Would be extraordinarily deadly",
-        "Would be a superior weapon",
-        "Would inflict serious damage and pain",
-        "Would likely hurt opponent a fair amount",
-        "Would do some damage",
-        "Would do minimal damage",
-        "Might scratch their opponent slightly"
+        "and is extraordinarily deadly.",
+        "and is a superior weapon.",
+        "and will inflict serious damage and pain.",
+        "and will likely hurt opponent a fair amount.",
+        "and will do some damage.",
+        "and will do minimal damage.",
+        "and will scratch your opponent... slightly."
     },
 
     Target = nil,
