@@ -29,27 +29,5 @@
 				}
 			</Initializer>
 		</LuaModule>
-		<LuaModule Name="fill_random_loot">
-			<Initializer>
-				{
-					LootTables = {
-						{						
-						    NumItems = 8,
-							LootItems = 
-							{ 	
-								{ Template = "ingredient_ginsengroot", StackCount = 50, Unique = true },
-								{ Template = "ingredient_blackpearl", StackCount = 50, Unique = true },
-								{ Template = "ingredient_mandrakeroot", StackCount = 50, Unique = true },
-								{ Template = "ingredient_sulfurousash", StackCount = 50, Unique = true },
-								{ Template = "ingredient_nightshade", StackCount = 50, Unique = true },
-								{ Template = "ingredient_spidersilk", StackCount = 50, Unique = true },
-								{ Template = "ingredient_bloodmoss", StackCount = 50, Unique = true },
-								{ Template = "ingredient_garlic", StackCount = 50, Unique = true },
-							} 
-						},							
-					}
-				}
-			</Initializer>
-		</LuaModule>
 	</ScriptEngineComponent>
 </ObjectTemplate>
