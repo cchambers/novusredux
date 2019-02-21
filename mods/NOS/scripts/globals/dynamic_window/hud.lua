@@ -86,7 +86,8 @@ function UpdateSpellBar(mobileObj)
 
 	local spellBarWindow = DynamicWindow("spellbar", "", 0, 0, 0, -(spellbarHeight / 2), "Transparent", "Left")
 	local curX = 2
-	for x = 0, 3 do
+	for x = 0, 4 do
+		if (x == 2) then return end
 		for y = 0, 9 do
 			local index = (x * 10) + y
 			spellBarWindow:AddHotbarAction(curX, y * spellItemSize, index + spellSlotStartIndex, 0, 0, "Square", true)

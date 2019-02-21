@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>2293</ClientId>
+	<Name>[0078ff]Donation Pouch[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<SharedStateEntry name="Weight" type="int" value="1"/>	
+	<ObjectVariableComponent>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="dono_pouch"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

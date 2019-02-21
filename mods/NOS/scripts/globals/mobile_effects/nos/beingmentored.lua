@@ -6,6 +6,7 @@ MobileEffectLibrary.BeingMentored =
 			EndMobileEffect(root)
 		else 
 			self.SkillName = args.SkillName
+			self.SkillMax = args.SkillMax or 40
 			self.ParentObj:SetObjVar("BeingMentored", self.SkillName)
 			self.Mentor = mentor
 			-- Prompt for consent...
@@ -23,7 +24,7 @@ MobileEffectLibrary.BeingMentored =
 		self.ParentObj:SystemMessage("That's all you can learn from your mentor today.", "info")
 		self.ParentObj:StopEffect("ObjectGlowEffect")
 		self.ParentObj:DelObjVar("BeingMentored")
-		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromMinutes(15),"Mentor.WasMentored")
+		self.ParentObj:ScheduleTimerDelay(TimeSpan.FromMinutes(5),"Mentor.WasMentored")
 	end,
 
 	GetPulseFrequency = function(self,root)
