@@ -5,13 +5,6 @@ MobileEffectLibrary.Identify = {
 	end,
 
     RequestInitialTarget = function(self,root,target,args)
-        
-        if (target:IsPlayer()) then
-            self.ParentObj:SystemMessage("That is not equipment.")
-            EndMobileEffect(root)
-            return false
-        end
-		-- handle a new target
 		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "ArmsLore.InitialTarget",
 			function (success,targetLoc,targetObj,user)
 				if ( success ) then
