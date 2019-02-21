@@ -25,8 +25,8 @@ MobileEffectLibrary.Identify = {
                     if (doIdentify ~= false) then 
                         self.IdentifyTarget(self, targetObj, root) 
                     else
-                        self.ParentObj:SystemMessage("Idenfity is for user on weapons, armor, and jewelry.", "info")
-					    EndMobileEffect(root)
+                        self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
+                        EndMobileEffect(root)
                     end
 				else
 					EndMobileEffect(root)
