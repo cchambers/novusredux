@@ -49,6 +49,7 @@
 					Backpack = { "backpack" },
 				},
 				LootTables =
+				{
 					{
 						TemplateDefines.LootTable.Rich,
 						TemplateDefines.LootTable.MageRich,
@@ -60,14 +61,13 @@
 						{
 							NumCoins = math.random(1200,2200)
 						},
+						NumItems = 1,
+						LootItems =
 						{
 							{ Weight = 95, Template = "furniture_box", Unique = true },
 							{ Weight = 5, Template = "furniture_box_rare", Unique = true },
 						}
 					}
-				},
-				ScavengeTables =
-				{
 				},
 				AvailableSpells = { "Frost", "Poison", "Fireball", "Lightning", "Electricbolt" },
 			}

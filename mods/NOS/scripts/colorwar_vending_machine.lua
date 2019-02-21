@@ -138,7 +138,7 @@ RegisterEventHandler(
 				CreateObjInBackpack(user, kit)
 				user:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"NoRekitTimer")
 			else 
-				user:SystemMessage("You are doing that too fast.")
+				user:SystemMessage("You are doing that too fast.", "info")
 			end
 		end
 
