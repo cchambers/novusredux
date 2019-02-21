@@ -88,6 +88,7 @@ TemplateDefines = {
 			{ 
 				{ Chance = 25, Template = "random_executioner_weapon_20_80", Unique = true},
 				{ Chance = 25, Template = "random_jewelry", Unique = true },
+    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
     			
 			},
 		},
@@ -100,6 +101,7 @@ TemplateDefines = {
 			{ 
     			{ Chance = 50, Template = "random_jewelry", Unique = true },
 				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
+    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
     			{ Chance = 1, Template = "dye_tub_random", Unique = true },
 			},
 		},
