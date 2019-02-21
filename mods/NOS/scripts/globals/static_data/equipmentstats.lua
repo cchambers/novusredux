@@ -233,12 +233,12 @@ EquipmentStats = {
 			PrimaryAbility = "Bleed",
 			SecondaryAbility = "FollowThrough"
 		},
-		BattleHammer = {
+		BladedClub = {
 			WeaponClass = "Blunt",
 			Variance = 0.05,
-			Attack = 22,
+			Attack = 20,
 			MinSkill = 0,
-			Speed = 3.25,
+			Speed = 3,
 			PrimaryAbility = "Stun",
 			SecondaryAbility = "FollowThrough"
 		},

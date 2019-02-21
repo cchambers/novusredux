@@ -5,18 +5,18 @@ MobileEffectLibrary.Identify = {
 	end,
 
     RequestInitialTarget = function(self,root,target,args)
-		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "ArmsLore.InitialTarget",
-			function (success,targetLoc,targetObj,user)
+		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "ArmsLore.InitialTarget",
+			function (target,user)
 				if ( success ) then
-                    self.Target = targetObj
+                    self.Target = target
                     local doIdentify = false
 
-                    if (targetObj:HasObjVar("WeaponType")) then doIdentify = true end
-                    if (targetObj:HasObjVar("ArmorType")) then doIdentify = true end
-                    if (targetObj:HasObjVar("JewelryType")) then doIdentify = true end
+                    if (self.Target:HasObjVar("WeaponType")) then doIdentify = true end
+                    if (self.Target:HasObjVar("ArmorType")) then doIdentify = true end
+                    if (self.Target:HasObjVar("JewelryType")) then doIdentify = true end
 
                     if (doIdentify ~= false) then 
-                        self.IdentifyTarget(self, targetObj, root) 
+                        self.IdentifyTarget(self, self.Target, root) 
                     else
                         self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
                         EndMobileEffect(root)
@@ -25,7 +25,7 @@ MobileEffectLibrary.Identify = {
 					EndMobileEffect(root)
 				end
 			end)
-		self.ParentObj:RequestClientTargetLoc(self.ParentObj, "ArmsLore.InitialTarget")
+		self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "ArmsLore.InitialTarget")
 	end,
 
     IdentifyTarget = function(self, target, root)
@@ -103,6 +103,11 @@ MobileEffectLibrary.Identify = {
         if (weaponType) then
             -- ArmorLevels
             local weaponLevel = EquipmentStats.BaseWeaponStats[weaponType].Attack
+            if (weaponLevel == nil) then
+                user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")
+                EndMobileEffect(root)
+                return false
+            end
             local weaponLevels = #self.WeaponLevels
             weaponLevel = (weaponLevels + 1) - math.ceil((weaponLevel/40) * weaponLevels)
             if (weaponLevel > weaponLevels) then 
@@ -139,6 +144,15 @@ MobileEffectLibrary.Identify = {
     OnExitState = function(self, root)
         UnregisterEventHandler("", EventType.Timer, "ArmsLore.ID")
     end,
+    
+	GetPulseFrequency = function(self, root)
+		return self.EndAfter
+    end,
+    
+    
+	AiPulse = function(self, root)
+		EndMobileEffect(root)
+	end,
 
     Durabilities = {
         "This %s is brand new ",
@@ -175,5 +189,6 @@ MobileEffectLibrary.Identify = {
     },
 
     Target = nil,
-    Duration = TimeSpan.FromSeconds(1)
+    Duration = TimeSpan.FromSeconds(1),
+    EndAfter = TimeSpan.FromSeconds(6)
 }
