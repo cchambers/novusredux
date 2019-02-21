@@ -7,8 +7,7 @@ MobileEffectLibrary.BeingProvoked =
 			return false
 		end
 		self.Tamer = tamer
-
-		self.Tamer:SystemMessage(tostring("You begin provoking the " .. self.ParentObj:GetName()), "info")
+		self.ParentObj:NpcSpeech("ARRRGHHH!")
 
 		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "Crook.Provoke",
 		function (success, targetLoc, targetObj, user)
@@ -17,10 +16,11 @@ MobileEffectLibrary.BeingProvoked =
 				if (target:IsMobile()) then
 					self.Target = target
 					self.ParentObj:SendMessage("AttackEnemy", target)
+					self.Tamer:SystemMessage(tostring("You begin provoking the " .. self.ParentObj:GetName()), "info")
 				else 
-					self.Tamer:SystemMessage("You are going to have a hard time trying to do that.", "info")
-					EndMobileEffect(root)
+					self.Tamer:SystemMessage("[ff0000]You fail to provoke the creature.[-]", "info")
 				end
+				EndMobileEffect(root)
 			end
 		end)
 
