@@ -498,7 +498,7 @@ function CheckHitSuccess(victim, hand)
 	local hitChance = ((accuracy) / ((evasion) * 2) * 100)
 
 	-- INCREASE CHANCE OF HIT WITH 2H WEAPONS... 
-	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].TwoHandedWeapon) then
+	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].AccuracyBuff) then
 		hitChance = hitChance * 1.5
 	end
 
