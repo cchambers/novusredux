@@ -346,7 +346,7 @@ SkillData = {
 			Description = "Increases your effectiveness at using and crafting armor and weaponry.",
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_Knight",
-			GainFactor = 0.3,
+			GainFactor = 0.4,
 			Abilities = { "Identify" },
 		},
 		TreasureHuntingSkill = {

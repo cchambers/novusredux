@@ -88,6 +88,7 @@ TemplateDefines = {
 			{ 
 				{ Chance = 25, Template = "random_executioner_weapon_20_80", Unique = true},
 				{ Chance = 25, Template = "random_jewelry", Unique = true },
+    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
     			
 			},
 		},
@@ -100,6 +101,7 @@ TemplateDefines = {
 			{ 
     			{ Chance = 50, Template = "random_jewelry", Unique = true },
 				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
+    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
     			{ Chance = 1, Template = "dye_tub_random", Unique = true },
 			},
 		},
@@ -407,6 +409,7 @@ TemplateDefines = {
 				{ Chance = 5, Template = "lscroll_portal", Unique = true },
 				{ Chance = 5, Template = "scroll_energywall", Unique = true },
 				{ Chance = 5, Template = "scroll_explosion", Unique = true },
+				{ Chance = 3, Template = "scroll_imbueweapon", Unique = true },
 				{ Chance = 5, Template = "scroll_flameaura", Unique = true },
 				{ Chance = 5, Template = "scroll_flamestrike", Unique = true },
 
