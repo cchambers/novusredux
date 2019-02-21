@@ -4,13 +4,30 @@ MobileEffectLibrary.Identify = {
         self.RequestInitialTarget(self,root,target,args)
 	end,
 
-	RequestInitialTarget = function(self,root,target,args)
+    RequestInitialTarget = function(self,root,target,args)
+        
+        if (target:IsPlayer()) then
+            self.ParentObj:SystemMessage("That is not equipment.")
+            EndMobileEffect(root)
+            return false
+        end
 		-- handle a new target
 		RegisterSingleEventHandler(EventType.ClientTargetLocResponse, "ArmsLore.InitialTarget",
 			function (success,targetLoc,targetObj,user)
 				if ( success ) then
                     self.Target = targetObj
-                    self.IdentifyTarget(self, targetObj, root)
+                    local doIdentify = false
+
+                    if (targetObj:HasObjVar("WeaponType")) then doIdentify = true end
+                    if (targetObj:HasObjVar("ArmorType")) then doIdentify = true end
+                    if (targetObj:HasObjVar("JewelryType")) then doIdentify = true end
+
+                    if (doIdentify ~= false) then 
+                        self.IdentifyTarget(self, targetObj, root) 
+                    else
+                        self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
+                        EndMobileEffect(root)
+                    end
 				else
 					EndMobileEffect(root)
 				end
@@ -22,7 +39,8 @@ MobileEffectLibrary.Identify = {
         local user = self.ParentObj
         local success = false
         if(target:HasObjVar("Identified")) then
-            success = CheckSkill(user, "ArmsLoreSkill", nil, true)
+            self.DoIdentify(self, root)
+            return
         else
             success = CheckSkill(user, "ArmsLoreSkill")
         end

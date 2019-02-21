@@ -134,6 +134,13 @@ RecipeCategories = {
 				{"Spellbooks" ,"Spellbooks","Storage"},
 			},
 		},
+		-- {
+		-- 	Name = "Recipes",
+		-- 	Subcategories = 
+		-- 	{
+		-- 		{"Recipes" ,"Recipes","Storage"},
+		-- 	},
+		-- },
 		{
 			Name = "Books",
 			Subcategories = 
@@ -2747,6 +2754,22 @@ FabricationSkill = {
 			Subcategory = "Containers",
 			Resources = {
 				Leather = 1,
+			},
+		},
+
+		DonationPouch = {
+			MinLevelToCraft = 1,
+			MaxLevelToGain = 30,
+			DisplayName = "Donation Pouch",
+			Description = "A pouch that works as a bank for G-PH credits.",
+			NeedRecipe = false,
+			CanImprove = false,
+			CraftingTemplateFile = "donation_pouch",
+			Category = "Items",
+			Subcategory = "Containers",
+			Resources = {
+				Leather = 1,
+				Blackpearl = 1
 			},
 		},
 		

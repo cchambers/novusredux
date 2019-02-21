@@ -128,7 +128,9 @@ function LootItemCreated(success,objref,stackCount,color,objVars)
 		RequestSetStack(objref,stackCount)
 	end
 
-	-- SetItemTooltip(objref)
+	if (objref:HasModule("spell_scroll")) then
+		SetItemTooltip(objref)
+	end
 
 	local executioner = objref:GetObjVar("Executioner")
 	if ( executioner ~= nil ) then

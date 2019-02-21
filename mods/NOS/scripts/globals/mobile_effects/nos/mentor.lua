@@ -81,7 +81,9 @@ MobileEffectLibrary.Mentor = {
                                         -- mentor everyone in the area?
                                         -- search players in the area, prompt them to learn skill.. if they say yes, startmobileeffect
                                     -- end
-                                    targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill })
+                                    local skillMax = 40
+                                    if (self.SkillLevel >= 100) then skillMax = 50 end
+                                    targetObj:SendMessage("StartMobileEffect", "BeingMentored", self.ParentObj, { SkillName = self.SelectedSkill, SkillMax = skillMax })
                                     self.ParentObj:SendMessage("StartMobileEffect", "Mentoring", targetObj, { SkillName = self.SelectedSkill })
                                 end
                                 EndMobileEffect(root)
