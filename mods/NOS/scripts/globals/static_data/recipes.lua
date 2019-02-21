@@ -297,6 +297,7 @@ AllRecipes = {
 				Steel = { Steel = 1 }
 			},
 		},
+		
 		Kryss = {
 			MinLevelToCraft = 5,
 			MaxLevelToGain = 30,
@@ -316,6 +317,27 @@ AllRecipes = {
 				Steel = { Steel = 1 }
 			},
 		},
+
+		Skinner = {
+			MinLevelToCraft = 35,
+			MaxLevelToGain = 60,
+			DisplayName = "Skinner",
+			CraftingTemplateFile = "weapon_skinner",
+			ItemType = "WeaponClass",
+			CanImprove = true,
+			Category = "Weapons",
+			Subcategory = "Piercing",
+			NeedRecipe = true,
+			Resources = {
+				Iron = { Iron = 1 },
+				Gold = { Gold = 1 },
+				Copper = { Copper = 1 },
+				Cobalt = { Cobalt = 1 },
+				Obsidian = { Obsidian = 1 },
+				Steel = { Steel = 1 }
+			},
+		},
+
 		Poniard = {
 			MinLevelToCraft = 10,
 			MaxLevelToGain = 35,
