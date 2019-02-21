@@ -422,6 +422,20 @@ function SetItemTooltip(item, noUseCases)
 		end
 	end
 
+	if ( item:HasObjVar("DonationWorth") ) then
+		local total = item:GetObjVar("DonationWorth")
+		while true do
+			total, k = string.gsub(total, "^(-?%d+)(%d%d%d)", "%1,%2")
+			if (k == 0) then
+				break
+			end
+		end
+		tooltipInfo.worth = {
+			TooltipString = tostring("Worth: " .. total .. "g"),
+			Priority = 998
+		}
+	end
+
 	-- add Executioner info
 	local executioner = item:GetObjVar("ExecutionerLevel")
 	local named = item:GetObjVar("Identified") or item:HasModule("imbued_weapon")

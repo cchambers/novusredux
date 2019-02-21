@@ -1,9 +1,5 @@
 require 'container'
 
-function HandleModuleLoaded() 
-	-- this:SetObjVar("DonationsWorth")
-end
-
 RegisterEventHandler(EventType.ContainerItemAdded, "", 
     function(addedObj)
 		-- coins
@@ -13,22 +9,17 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 			addedObj:Destroy()
 		else
 			local value = GetItemValue(addedObj) or 1
-			if (value < 1) then value = 1 end
-			total = total + total
+			DebugMessage(value)
+			if (value < 5) then value = 5 end
+			DebugMessage(tostring("+" .. value))
+			total = total + value
 			addedObj:Destroy()
 		end
 
 		this:SendMessage("RefreshWeight")
 		this:SetObjVar("DonationWorth", total)
 
-		while true do
-			total, k = string.gsub(total, "^(-?%d+)(%d%d%d)", "%1,%2")
-			if (k == 0) then
-				break
-			end
-		end
-
-		SetTooltipEntry(this,"worth","Worth: " .. total .. "g")
+		SetItemTooltip(this)
 	end)
 
 	RegisterEventHandler(EventType.ModuleAttached, "dono_pouch", HandleModuleLoaded)
