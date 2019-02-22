@@ -5,7 +5,7 @@ mCountdownEvery = 2
 
 
 function HandleModuleLoaded() 
-    CallFunctionDelayed(TimeSpan.FromSeconds(5), OpenRegistration)
+    CallFunctionDelayed(TimeSpan.FromMinutes(5), OpenRegistration)
 end
 
 function OpenRegistration()
@@ -22,7 +22,7 @@ function DoBroadcast()
     ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
     mCountdown = mCountdown - mCountdownEvery
     if (mCountdown > 0) then 
-        this:ScheduleTimerDelay(TimeSpan.FromSeconds(mCountdownEvery), "ColorWar.Broadcast")
+        this:ScheduleTimerDelay(TimeSpan.FromMinutes(mCountdownEvery), "ColorWar.Broadcast")
     else
         SummonPlayers()
     end
