@@ -1,7 +1,11 @@
 
+colorWars = "[FF0000]C[-][FF7F00]O[-][FFFF00]L[-][00FF00]O[-][0000FF]R[-] [4B0082]W[-][9400D3]A[-][FF0000]R[-][FF7F00]S[-]"
+mCountdown = 10
+mCountdownEvery = 2
+
 
 function HandleModuleLoaded() 
-    CallFunctionDelayed(TimeSpan.FromSeconds(2), OpenRegistration)
+    CallFunctionDelayed(TimeSpan.FromSeconds(5), OpenRegistration)
 end
 
 function OpenRegistration()
@@ -11,22 +15,24 @@ function OpenRegistration()
         return true
     end)
 
-    ServerBroadcast("Color Wars registration open for the next ten (10) minutes! To queue, type: /cw", true)
-    
-    CallFunctionDelayed(TimeSpan.FromSeconds(5), function()
-        ServerBroadcast("Color Wars registration open for the next five (5) minutes! To queue, type: /cw", true)
-    end)
+    DoBroadcast()
+end
 
-    CallFunctionDelayed(TimeSpan.FromSeconds(10), function()
+function DoBroadcast() 
+    ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
+    mCountdown = mCountdown - mCountdownEvery
+    if (mCountdown > 0) then 
+        this:ScheduleTimerDelay(TimeSpan.FromSeconds(mCountdownEvery), "ColorWar.Broadcast")
+    else
         SummonPlayers()
-    end)
+    end
 end
 
 function SummonPlayers()
     local players = GlobalVarRead("ColorWar.Queue")
     local count = 0
     if (players == nil) then
-        DebugMessage("No one is queued.")
+        ServerBroadcast("Color Wars cancelled -- no entrants.", true)
         CloseRegistration()
         return
     end
@@ -57,6 +63,7 @@ function CloseRegistration()
     end)
 end
 
+RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
 RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), HandleModuleLoaded)
 
 RegisterEventHandler(EventType.Message,"ColorWar.Queue", function ( args )
