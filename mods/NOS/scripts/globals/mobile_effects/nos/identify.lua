@@ -7,44 +7,45 @@ MobileEffectLibrary.Identify = {
     RequestInitialTarget = function(self,root,target,args)
 		RegisterSingleEventHandler(EventType.ClientTargetGameObjResponse, "ArmsLore.InitialTarget",
 			function (target,user)
-				if ( success ) then
-                    self.Target = target
-                    local doIdentify = false
+                self.Target = target
+                local doIdentify = false
 
-                    if (self.Target:HasObjVar("WeaponType")) then 
-                        local weaponType = self.Target:GetObjVar("WeaponType")
-                        if (EquipmentStats.BaseWeaponStats[weaponType].NoCombat) then
-                            -- still false
-                        else
-                            doIdentify = true 
-                        end
-                    end
-                    if (self.Target:HasObjVar("ArmorType")) then doIdentify = true end
-                    if (self.Target:HasObjVar("ShieldType")) then doIdentify = true end
-                    if (self.Target:HasObjVar("JewelryType")) then doIdentify = true end
-
-                    if (doIdentify ~= false) then 
-                        self.IdentifyTarget(self, self.Target, root) 
+                if (self.Target:HasObjVar("WeaponType")) then 
+                    local weaponType = self.Target:GetObjVar("WeaponType")
+                    if (EquipmentStats.BaseWeaponStats[weaponType].NoCombat) then
+                        -- still false
                     else
-                        self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
-                        EndMobileEffect(root)
+                        doIdentify = true 
                     end
-				else
-					EndMobileEffect(root)
-				end
+                end
+                if (self.Target:HasObjVar("ArmorType")) then doIdentify = true end
+                if (self.Target:HasObjVar("ShieldType")) then doIdentify = true end
+                if (self.Target:HasObjVar("JewelryType")) then doIdentify = true end
+
+                if (doIdentify ~= false) then 
+                    self.IdentifyTarget(self, root) 
+                else
+                    self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
+                    EndMobileEffect(root)
+                end
 			end)
 		self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "ArmsLore.InitialTarget")
 	end,
 
-    IdentifyTarget = function(self, target, root)
+    IdentifyTarget = function(self, root)
         local user = self.ParentObj
         local success = false
+        local target = self.Target
+
         if(target:HasObjVar("Identified")) then
             self.DoIdentify(self, root)
             return
         else
             success = CheckSkill(user, "ArmsLoreSkill")
         end
+
+        DebugMessage(tostring(target:GetName() .. " " .. user:GetName()))
+        DebugMessage(tostring(success))
 
         if (success) then
             local skillLevel = GetSkillLevel(user, "ArmsLoreSkill")
@@ -143,7 +144,7 @@ MobileEffectLibrary.Identify = {
         
         local executionerLevel = item:GetObjVar("ExecutionerLevel")
         if (executionerLevel) then
-            message = tostring(message .. " '" .. ServerSettings.Executioner.LevelString[executionerLevel] ..  "' means that this weapon does " .. ServerSettings.Executioner.LevelModifier[executionerLevel] .. "x damage.")
+            message = tostring(message .. " '" .. ServerSettings.Executioner.LevelString[executionerLevel] ..  "' means that this weapon does " .. tostring(ServerSettings.Executioner.LevelModifier[executionerLevel] * 100) .. "x damage.")
         end
 
         if (item:GetObjVar("WasImbued")) then
