@@ -107,14 +107,6 @@
 							UnlimitedStock = false,
 						},
 						{
-							Template = "regbag_noob",
-							Price = 600,
-							Amount = 400,
-							RelativeLoc = "0.84790, 0, 0.7139",
-							Rotation = "0, 270.0002, 0",
-							UnlimitedStock = false,
-						},
-						{
 							Template = "lantern_table",
 							Price = 400,
 							Amount = 1,

@@ -11,8 +11,16 @@ MobileEffectLibrary.Identify = {
                     self.Target = target
                     local doIdentify = false
 
-                    if (self.Target:HasObjVar("WeaponType")) then doIdentify = true end
+                    if (self.Target:HasObjVar("WeaponType")) then 
+                        local weaponType = self.Target:GetObjVar("WeaponType")
+                        if (EquipmentStats.BaseWeaponStats[weaponType].NoCombat) then
+                            -- still false
+                        else
+                            doIdentify = true 
+                        end
+                    end
                     if (self.Target:HasObjVar("ArmorType")) then doIdentify = true end
+                    if (self.Target:HasObjVar("ShieldType")) then doIdentify = true end
                     if (self.Target:HasObjVar("JewelryType")) then doIdentify = true end
 
                     if (doIdentify ~= false) then 
@@ -86,7 +94,8 @@ MobileEffectLibrary.Identify = {
         local level = (levels + 1) - math.ceil((Durability/MaxDurability) * levels)
         local name = item:GetName()
         local message = string.format(self.Durabilities[level], name)
-        
+        -- Shield Type
+
         local armorType = item:GetObjVar("ArmorType")
         if (armorType) then
             -- ArmorLevels
@@ -99,9 +108,25 @@ MobileEffectLibrary.Identify = {
             message = message .. self.ArmorLevels[armorLevel]
         end
 
+        local shieldType = item:GetObjVar("ShieldType")
+        if (shieldType) then
+            local shieldLevel = EquipmentStats.BaseShieldStats[shieldType].ArmorRating
+            if (shieldLevel == nil) then
+                user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")
+                EndMobileEffect(root)
+                return false
+            end
+            local shieldLevels = #self.ArmorLevels
+            shieldLevel = (shieldLevels + 1) - math.ceil((shieldLevel/60) * shieldLevels)
+            if (shieldLevel > shieldLevels) then 
+                shieldLevel = shieldLevels
+            end
+            message = message .. self.ArmorLevels[shieldLevel]
+        end
+        
+
         local weaponType = item:GetObjVar("WeaponType")
         if (weaponType) then
-            -- ArmorLevels
             local weaponLevel = EquipmentStats.BaseWeaponStats[weaponType].Attack
             if (weaponLevel == nil) then
                 user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")

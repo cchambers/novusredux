@@ -44,7 +44,7 @@ RegisterEventHandler(
 	function(user, buttonId)
 		local items = {}
 		local value = 99999
-		local points = user:GetObjVar("Credits")
+		local points = user:GetObjVar("Credits") or 0
 		if (buttonId == "" or buttonId == nil) then return end
 		if (buttonId == "random_recipe") then
 			value = 15

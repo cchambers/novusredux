@@ -297,7 +297,7 @@ AllRecipes = {
 				Steel = { Steel = 1 }
 			},
 		},
-		
+
 		Kryss = {
 			MinLevelToCraft = 5,
 			MaxLevelToGain = 30,
@@ -1221,7 +1221,7 @@ AllRecipes = {
 			},
 		},
 
-		HardenedBucker = {
+		HardenedBuckler = {
 			MinLevelToCraft = 64,
 			MaxLevelToGain = 89,
 			DisplayName = "Hardened Buckler",
