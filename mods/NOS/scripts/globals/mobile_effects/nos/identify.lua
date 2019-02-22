@@ -44,9 +44,6 @@ MobileEffectLibrary.Identify = {
             success = CheckSkill(user, "ArmsLoreSkill")
         end
 
-        DebugMessage(tostring(target:GetName() .. " " .. user:GetName()))
-        DebugMessage(tostring(success))
-
         if (success) then
             local skillLevel = GetSkillLevel(user, "ArmsLoreSkill")
             self.StartProgressBar(self, root)
@@ -88,13 +85,15 @@ MobileEffectLibrary.Identify = {
         local user = self.ParentObj
         user:SystemMessage("You study the item in an attempt to learn more about its craftsmanship and use.", "info")
         local item = self.Target
-
-        local MaxDurability = item:GetObjVar("MaxDurability")
-        local Durability = item:GetObjVar("Durability") or MaxDurability
-        local levels = #self.Durabilities
-        local level = (levels + 1) - math.ceil((Durability/MaxDurability) * levels)
-        local name = item:GetName()
-        local message = string.format(self.Durabilities[level], name)
+        local message = ""
+        local MaxDurability = item:GetObjVar("MaxDurability") 
+        if (MaxDurability ~= nil) then
+            local Durability = item:GetObjVar("Durability") or MaxDurability
+            local levels = #self.Durabilities
+            local level = (levels + 1) - math.ceil((Durability/MaxDurability) * levels)
+            local name = item:GetName()
+            message = message .. string.format(self.Durabilities[level], name)
+        end
         -- Shield Type
 
         local armorType = item:GetObjVar("ArmorType")

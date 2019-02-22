@@ -147,7 +147,11 @@ function TriggerGlobalPowerHour(overflow)
         gameObj:SendMessageGlobal("StartGlobalPowerHour")
     end
 
-    if (overflow > 0) then PowerHourDonate(overflow) end
+    if (overflow > 0) then 
+        CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
+            PowerHourDonate(overflow) 
+        end)
+    end
 
     TotemGlobalEvent("powerhour")
 end
