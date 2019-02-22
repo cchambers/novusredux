@@ -73,6 +73,10 @@ function ExitColorWars(user)
 end
 
 function EndColorWars(winners)
+	
+	if (this:HasTimer("ColorWars.End")) then return end
+	this:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"ColorWars.End", effect)
+	
 	local players = FindPlayersInRegion()
 	local players =
 		FindObjects(
