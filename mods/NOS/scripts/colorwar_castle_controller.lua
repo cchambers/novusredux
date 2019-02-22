@@ -120,9 +120,10 @@ RegisterEventHandler(
 	EventType.EnterView,
 	"WinCondition",
 	function(obj)
+		DebugMessage(obj:GetName())
 		local hue = obj:GetHue()
 		if (obj:HasObjVar("ColorWarWin") and this:GetObjVar("TeamHue") == hue) then
-			EndColorWars(obj:GetHue())
+			EndColorWars(hue)
 		end
 	end
 )

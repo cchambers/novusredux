@@ -4,10 +4,6 @@ mCountdown = 10
 mCountdownEvery = 2
 
 
-function HandleModuleLoaded() 
-    CallFunctionDelayed(TimeSpan.FromMinutes(5), OpenRegistration)
-end
-
 function OpenRegistration()
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite("ColorWar.Registration", nil, function (record) 
@@ -21,7 +17,7 @@ end
 function DoBroadcast() 
     ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
     mCountdown = mCountdown - mCountdownEvery
-    if (mCountdown > 0) then 
+    if (mCountdown >= 0) then 
         this:ScheduleTimerDelay(TimeSpan.FromMinutes(mCountdownEvery), "ColorWar.Broadcast")
     else
         SummonPlayers()
@@ -64,7 +60,7 @@ function CloseRegistration()
 end
 
 RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
-RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), HandleModuleLoaded)
+RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), OpenRegistration)
 
 RegisterEventHandler(EventType.Message,"ColorWar.Queue", function ( args )
     local user = args.user
