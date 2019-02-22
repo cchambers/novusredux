@@ -158,7 +158,7 @@ function UpdateCnx()
 	end
 
 	if (total < 2) then total = 2 end
-	total = tostring("[bada55]" .. total .. "[-]")
+	total = tostring(total)
 
 	local open = GlobalVarReadKey("ColorWar.Registration", "open")
 	if (open) then
@@ -169,9 +169,9 @@ function UpdateCnx()
 				cwtotal = cwtotal + 1
 			end
 		end
-		total = tostring("[bada55]" .. cwtotal .. "[-]") .. " / " .. total .. " players queued for color wars"
+		total = tostring("[ff00ff]" .. cwtotal .. "[-]") .. " of [bada55]" .. total .. "[-] players queued for color wars!"
 	else
-		total = total .. "  players connected"
+		total = "[bada55]" .. total .. "[-]  players connected"
 	end
 	
 	NOSCNX:AddLabel(18, 0, tostring(total .. " // join global chat at: [bada55]nos.gg/discord[-]"), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
