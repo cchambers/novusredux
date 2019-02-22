@@ -5,7 +5,7 @@ mTeams = {
 	h835 = "[0000ff]Blue[-]"
 }
 
-function ExitColorwars(user)
+function ExitColorWars(user)
 	local hue = user:GetObjVar("HueActual")
 	if (hue ~= nil) then
 		user:DelObjVar("HueActual")
@@ -100,18 +100,15 @@ function EndColorWars(winners)
 			)
 			if (IsDead(j)) then
 				CallFunctionDelayed(
-					TimeSpan.FromSeconds(4),
+					TimeSpan.FromSeconds(3),
 					function()
-						j:SendMessage("Resurrect", true)
+						j:SendMessage("Resurrect", 100, this, true)
 					end
 				)
 			end
-			CallFunctionDelayed(
-				TimeSpan.FromSeconds(3),
-				function()
-					j:SendMessage("Resurrect", 100, this, true)
-				end
-			)
+			CallFunctionDelayed(TimeSpan.FromSeconds(5), function() 
+				ExitColorWars(j)
+			end)
 		end
 	end
 end

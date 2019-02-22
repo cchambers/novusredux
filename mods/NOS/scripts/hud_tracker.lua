@@ -158,8 +158,23 @@ function UpdateCnx()
 	end
 
 	if (total < 2) then total = 2 end
-	total = tostring(total)
-	NOSCNX:AddLabel(18, 0, tostring("[bada55]" .. total .. "[-] players connected // join global chat at: [bada55]nos.gg/discord[-]"), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
+	total = tostring("[bada55]" .. total .. "[-]")
+
+	local open = GlobalVarReadKey("ColorWar.Registration", "open")
+	if (open) then
+		local cwtotal = 0
+		local players = GlobalVarRead("ColorWar.Queue")
+		if (players) then
+			for player, t in pairs(players) do
+				cwtotal = cwtotal + 1
+			end
+		end
+		total = tostring("[bada55]" .. cwtotal .. "[-]") .. " / " .. total .. " players queued for color wars"
+	else
+		total = total .. "  players connected"
+	end
+	
+	NOSCNX:AddLabel(18, 0, tostring(total .. " // join global chat at: [bada55]nos.gg/discord[-]"), 1000, 20, 18, "left", true, true, "SpectralSC-SemiBold")
 	this:OpenDynamicWindow(NOSCNX)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"Hud.UpdateStats")
 end

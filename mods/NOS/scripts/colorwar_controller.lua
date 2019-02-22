@@ -3,7 +3,6 @@ colorWars = "[FF0000]C[-][FF7F00]O[-][FFFF00]L[-][00FF00]O[-][0000FF]R[-] [4B008
 mCountdown = 10
 mCountdownEvery = 2
 
-
 function OpenRegistration()
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite("ColorWar.Registration", nil, function (record) 
@@ -15,7 +14,11 @@ function OpenRegistration()
 end
 
 function DoBroadcast() 
-    ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
+    if (mCountdown <= 0) then
+        ServerBroadcast("Summoning players for " .. colorWars, true)
+    else
+        ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
+    end
     mCountdown = mCountdown - mCountdownEvery
     if (mCountdown >= 0) then 
         this:ScheduleTimerDelay(TimeSpan.FromMinutes(mCountdownEvery), "ColorWar.Broadcast")
