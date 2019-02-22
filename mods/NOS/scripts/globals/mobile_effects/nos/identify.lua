@@ -23,19 +23,11 @@ MobileEffectLibrary.Identify = {
                 if (self.Target:HasObjVar("JewelryType")) then doIdentify = true end
 
                 if (doIdentify ~= false) then 
-<<<<<<< HEAD
                     self.IdentifyTarget(self, root) 
-=======
-                    self.IdentifyTarget(self, self.Target, root) 
->>>>>>> 0ed88986095629a5c13851de4b63a4dcccd33752
                 else
                     self.ParentObj:SystemMessage("Identify is for user on weapons, armor, and jewelry.", "info")
                     EndMobileEffect(root)
                 end
-<<<<<<< HEAD
-=======
-                EndMobileEffect(root)
->>>>>>> 0ed88986095629a5c13851de4b63a4dcccd33752
 			end)
 		self.ParentObj:RequestClientTargetGameObj(self.ParentObj, "ArmsLore.InitialTarget")
 	end,
@@ -152,7 +144,7 @@ MobileEffectLibrary.Identify = {
         
         local executionerLevel = item:GetObjVar("ExecutionerLevel")
         if (executionerLevel) then
-            message = tostring(message .. " '" .. ServerSettings.Executioner.LevelString[executionerLevel] ..  "' means that this weapon does " .. tostring(ServerSettings.Executioner.LevelModifier[executionerLevel] * 100) .. "x damage.")
+            message = tostring(message .. " '" .. ServerSettings.Executioner.LevelString[executionerLevel] ..  "' means that this weapon does " .. tostring(ServerSettings.Executioner.LevelModifier[executionerLevel] * 100) .. "% damage.")
         end
 
         if (item:GetObjVar("WasImbued")) then
