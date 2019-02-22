@@ -63,7 +63,7 @@ ServerSettings.Executioner = {
         "weapon_ninjato",
         "weapon_pike",
         "weapon_rapier",
-        "weapon_recurve",
+        "weapon_recurve_bow",
         "weapon_skinner",
         "weapon_spetum",
         "weapon_stiletto",

@@ -76,8 +76,25 @@ RegisterCommand {
     Category = "Mortal Power",
     AccessLevel = AccessLevel.Mortal,
     Func = function()
-        local controller = GlobalVarReadKey("ColorWar.Controller", "primary")
-        controller:SendMessageGlobal("ColorWar.Queue", { user = this })
+        local open = GlobalVarReadKey("ColorWar.Registration", "open")
+        if (open) then
+            local queued = GlobalVarReadKey("ColorWar.Queue", this)
+            if (queued) then
+                GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                    record[this] = nil
+                    return true
+                end)
+                this:SystemMessage("You have been de-queued.", "info")
+            else
+                GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                    record[this] = true
+                    return true
+                end)
+                this:SystemMessage("You will be summoned soon, store everything and get ready!", "info")
+            end
+        else
+            this:SystemMessage("Color Wars entry is not open at this time.", "info")
+        end
     end,
     Desc = "Join or leave color war queue."
 }
