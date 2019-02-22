@@ -70,6 +70,19 @@ RegisterCommand {
     Desc = "Check pet slots."
 }
 
+
+RegisterCommand {
+    Command = "cw",
+    Category = "Mortal Power",
+    AccessLevel = AccessLevel.Mortal,
+    Func = function()
+        local controller = GlobalVarReadKey("ColorWar.Controller", "primary")
+        controller:SendMessageGlobal("ColorWar.Queue", { user = this })
+    end,
+    Desc = "Join or leave color war queue."
+}
+
+
 -- RegisterCommand {
 -- 	Command = "pve",
 -- 	Category = "Mortal Power",

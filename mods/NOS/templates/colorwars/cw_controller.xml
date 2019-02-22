@@ -1,15 +1,15 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>ColorWar Castle Controller</Name>
-	<Tag>CW_CASTLE</Tag>
+	<Name>ColorWar Controller</Name>
+	<Tag>CW_CONTROLLER</Tag>
     <ObjectVariableComponent>	
 		<StringVariable Name="RegionAddress">AzureSky.NewCelador.EasternFrontier</StringVariable>
 		<DoubleVariable Name="DestinationFacing">79</DoubleVariable>
-		<DoubleVariable Name="TeamHue">831</DoubleVariable>
 		<BoolVariable Name="NoReset">True</BoolVariable>
 		<LocVariable Name="Destination">2430.55,0,536.92</LocVariable>
+		<DoubleVariable Name="RoundID">0</DoubleVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
-		<LuaModule Name="colorwar_castle_controller" />
+		<LuaModule Name="colorwar_controller" />
 	</ScriptEngineComponent>
 </ObjectTemplate>
