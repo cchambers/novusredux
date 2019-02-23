@@ -76,16 +76,8 @@ function EndColorWars(winners)
 	
 	if (this:HasTimer("ColorWars.End")) then return end
 	this:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"ColorWars.End", effect)
-	
+
 	local players = FindPlayersInRegion()
-	local players =
-		FindObjects(
-		SearchMulti(
-			{
-				SearchPlayerInRange(300, true) --in 20 units
-			}
-		)
-	)
 
 	for i, j in pairs(players) do
 		if (j:HasObjVar("ColorWarPlayer")) then
@@ -115,6 +107,18 @@ function EndColorWars(winners)
 			end)
 		end
 	end
+
+	-- local bodies = FindObjects(SearchMobileInRegion("TwoTowers"))
+	-- local bodyCount = 0
+
+	-- for i, j in pairs(bodies) do
+	-- 	if (IsPlayerCorpse(j)) then
+	-- 		bodyCount = bodyCount + 1	
+	-- 		j:Destroy()
+	-- 	end
+	-- end
+
+	-- DebugMessage(tostring("Destroyed " .. bodyCount .. " bodies."))
 end
 
 RegisterEventHandler(
