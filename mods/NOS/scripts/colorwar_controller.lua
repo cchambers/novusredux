@@ -6,9 +6,9 @@ mPlayerCount = 0
 mCaptains = {}
 mLastTeamPick = nil
 
-enterZone = {
-    e831 = "2435.55, 0, 532.21",
-    e834 = "2440.46, 0, 532.21"
+mEnterZone = {
+    e831 = "2435.55,0,532.21",
+    e835 = "2440.46,0,532.21"
 }
 
 function OpenRegistration()
@@ -75,76 +75,95 @@ function SummonPlayers()
     -- if less than 6 people, extend "OPEN" for 5 mins?
     CloseRegistration()
 
-    CallFunctionDelayed(TimeSpan.FromSeconds(5), PickCaptains)
+    CallFunctionDelayed(TimeSpan.FromSeconds(30), PickCaptains)
 end
 
 function PickCaptains()
-    DebugMessage("PickCaptains")
     for player, t in pairs(mPlayers) do
-        player:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "ColorWar.Roll")
-        player:ScheduleTimerDelay(TimeSpan.FromSeconds(65), "ColorWar.DoCaptains")
+        player:ScheduleTimerDelay(TimeSpan.FromSeconds(15), "ColorWar.Roll")
         player:SystemMessage("Want to be a captain? Time to roll for it! (/roll)", "event")
     end
+    this:ScheduleTimerDelay(TimeSpan.FromSeconds(20), "ColorWar.DoCaptains")
 end
 
 function DoCaptains()
-    DebugMessage("DoCaptains")
+    mCaptains = {}
     local heads = 0
-    local headsPlayer = nil
     local tails = 0
-    local tailsPlayer = nil
 
     for player, t in pairs(mPlayers) do
         local roll = player:GetObjVar("ColorWarRoll")
         player:DelObjVar("ColorWarRoll")
 
         if (roll > heads) then
-            if (tailsPlayer) then
+            if (mCaptains.red ~= nil) then
+                mCaptains.blue = mCaptains.red
                 tails = heads
-                tailsPlayer = tailsPlayer
+                DebugMessage("TOP BEATEN")
             end
             heads = roll
-            headsPlayer = player
+            mCaptains.red = player
+        elseif (roll > tails) then
+            tails = roll
+            mCaptains.blue = player
         end
     end
-
-    ChooseTeam(headsPlayer, tailsPlayer)
+    this:SendMessage("ColorWar.MakeCaptains")
 end
 
-function ChooseTeam(headsCaptain, tailsCaptain)
+function MakeCaptains()
     DebugMessage("CHOOSE TEAM")
-    mCaptains = {headsCaptain, tailsCaptain}
-    mHeadsCaptain = headsCaptain
-    mTailsCaptain = tailsCaptain
     -- pop "RED OR BLUE" window for HeadsPlayer. If they close it, open it for tailsPlayer
-    MakeCaptain(headsCaptain, 831, true)
-    MakeCaptain(tailsCaptain, 835)
+    ChoosePlayer(mCaptains.red, 831, true, true)
+    CallFunctionDelayed(TimeSpan.FromSeconds(1), function () 
+        ChoosePlayer(mCaptains.blue, 835, true)
+    end)
 end
 
-function MakeCaptain(player, team, firstPick)
-    player:SetObjVar("ColorWarCaptain", true)
+function ChoosePlayer(player, team, captain, firstPick)
+    if (player == nil) then
+        DebugMessage(tostring("PLAYER NIL " .. team))
+        return
+    end
     player:SetObjVar("ColorWarTeam", team)
+    local dest = tostring("e" .. team)
+    DebugMessage(dest)
+    dest = mEnterZone[dest]
+    DebugMessage(dest)
+    
+    if (captain) then
+        player:SetObjVar("ColorWarCaptain", true)
+    end
 
-    player:SendMessageGlobal("GlobalSummon", enterZone[tostring("e" .. team)], "AzureSky.NewCelador.EasternFrontier")
+    if (team == 831) then
+        player:SendMessageGlobal("GlobalSummon", this:GetObjVar("e831"), this:GetObjVar("RegionAddress"))
+    end
+
+    if (team == 835) then
+        player:SendMessageGlobal("GlobalSummon", this:GetObjVar("e835"), this:GetObjVar("RegionAddress"))
+    end
 
     if (firstPick) then
-    -- triggerTeamChooserWindow after 3 seconds
+        player:SystemMessage("Choose someone for your team.", "event")
+    else
+        mLastTeamPick = team
+        this:SendMessage("ColorWar.NextChoice")
     end
 end
 
-function ChooseTeammate(player, user)
-    local team = user:GetObjVar("ColorWarTeam")
-    mLastTeamPick = team
-    player:SetObjVar("ColorWarTeam", team)
-    player:SendMessageGlobal("GlobalSummon", enterZone[tostring("e" .. team)], "AzureSky.NewCelador.EasternFrontier")
-    this:SendMessage("ColorWar.NextChoice")
-end
 
 function NextChoice()
     if (mLastTeamPick == 831) then
+        ShowPicker(mCaptains.blue)
     else
+        ShowPicker(mCaptains.red)
     end
 end
+
+function ShowPicker(user) 
+    user:RequestClientTargetGameObj(this, "ColorWar.PlayerChosen")
+end
+
 
 function CloseRegistration()
     GlobalVarDelete("ColorWar.Queue", nil)
@@ -158,12 +177,32 @@ function CloseRegistration()
     )
 end
 
-RegisterEventHandler(EventType.Timer, "ColorWar.Go", OpenRegistration)
+RegisterEventHandler(EventType.Message, "ColorWar.Go", OpenRegistration)
 RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
+RegisterEventHandler(EventType.Timer, "ColorWar.PickCaptains", PickCaptains)
 RegisterEventHandler(EventType.Timer, "ColorWar.DoCaptains", DoCaptains)
-RegisterEventHandler(EventType.Nessage, "ColorWar.NextChoice", NextChoice)
+RegisterEventHandler(EventType.Message, "ColorWar.NextChoice", NextChoice)
+RegisterEventHandler(EventType.Message, "ColorWar.MakeCaptains", MakeCaptains)
 -- RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), OpenRegistration)
 
+RegisterEventHandler(EventType.ClientTargetGameObjResponse, "guildinvite",
+	function(target,user)
+        if( target == nil ) then
+            user:SystemMessage("Choose someone.", "info")
+            ShowPicker(user)
+			return
+		end
+
+		if (target:HasObjVar("ColorWarTeam")) then 
+            user:SystemMessage("Choose someone that isn't already on a team.", "info")
+            ShowPicker(user)
+			return
+		end
+
+        ChoosePlayer(target, user:GetObjVar("ColorWarTeam"))
+    end
+)
+    
 RegisterEventHandler(
     EventType.Message,
     "ColorWar.Queue",

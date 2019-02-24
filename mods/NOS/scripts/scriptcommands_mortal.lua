@@ -106,6 +106,8 @@ MortalCommandFuncs = {
 
 		local isColorWarRoll = this:HasTimer("ColorWar.Roll")
 		
+		local name = StripColorFromString(this:GetName())
+
 		if (not(isColorWarRoll)) then
 			local args = table.pack(...)
 			local lower = math.max(1, tonumber(args[1]) or 1)
@@ -115,7 +117,6 @@ MortalCommandFuncs = {
 				upper = lower
 				lower = temp
 			end
-			local name = StripColorFromString(this:GetName())
 			local roll = math.random(lower, upper)
 			local message = string.format("%s rolls %d (%d-%d)", name, roll, lower, upper)
 			this:SystemMessage(message)
@@ -126,8 +127,9 @@ MortalCommandFuncs = {
 		else
 			this:FireTimer("ColorWar.Roll")
 			local roll = math.random(1, 100)
-			local message = string.format("%s CAPTAIN ROLL: %d", name, roll)
-			this:SetObVar("ColorWarRoll", roll)
+			local message = string.format("%s Captain Roll: %d", name, roll)
+			this:SetObjVar("ColorWarRoll", roll)
+			this:SystemMessage(message)
 			local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
 			for i = 1, #nearbyPlayers do
 				nearbyPlayers[i]:SystemMessage(message)
