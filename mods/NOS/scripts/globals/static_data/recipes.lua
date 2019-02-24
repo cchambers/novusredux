@@ -230,7 +230,7 @@ AllRecipes = {
 
 		Obsidian = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 99,
+			MaxLevelToGain = 105,
 			DisplayName = "Obsidian",
 			CraftingTemplateFile = "resource_obsidian",
 			Description = "Obsidian that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -440,7 +440,7 @@ AllRecipes = {
 
 		Zukuri = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 99,
+			MaxLevelToGain = 105,
 			DisplayName = "Zukuri",
 			CraftingTemplateFile = "weapon_zukuri",
 			ItemType = "WeaponClass",
@@ -1285,7 +1285,7 @@ AllRecipes = {
 		},
 
 		TaperedHeater = {
-			MinLevelToCraft = 75,
+			MinLevelToCraft = 80,
 			MaxLevelToGain = 100,
 			DisplayName = "Tapered Heater",
 			CraftingTemplateFile = "shield_tapered_heater",
@@ -1551,7 +1551,7 @@ WoodsmithSkill = {
 			},
 		},
 		Recurve = {
-			MinLevelToCraft = 75,
+			MinLevelToCraft = 80,
 			MaxLevelToGain = 99,
 			DisplayName = "Recurve Bow",
 			CraftingTemplateFile = "weapon_recurve_bow",
