@@ -25,8 +25,12 @@ function OpenRegistration()
     DoBroadcast()
 end
 
-function DoBroadcast()
-    ServerBroadcast(colorWars .. " registration open for the next " .. mCountdown .. " minutes! To queue, type: /cw", true)
+function DoBroadcast() 
+    if (mCountdown <= 0) then
+        ServerBroadcast("Summoning players for " .. colorWars, true)
+    else
+        ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
+    end
     if (mCountdown > 5) then
         local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
         for i = 1, #nearbyPlayers do
@@ -34,7 +38,7 @@ function DoBroadcast()
         end
     end
     mCountdown = mCountdown - mCountdownEvery
-    if (mCountdown > 0) then
+    if (mCountdown >= 0) then 
         this:ScheduleTimerDelay(TimeSpan.FromMinutes(mCountdownEvery), "ColorWar.Broadcast")
     else
         SummonPlayers()
@@ -158,7 +162,7 @@ RegisterEventHandler(EventType.Timer, "ColorWar.Go", OpenRegistration)
 RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
 RegisterEventHandler(EventType.Timer, "ColorWar.DoCaptains", DoCaptains)
 RegisterEventHandler(EventType.Nessage, "ColorWar.NextChoice", NextChoice)
-RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), HandleModuleLoaded)
+-- RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(), OpenRegistration)
 
 RegisterEventHandler(
     EventType.Message,

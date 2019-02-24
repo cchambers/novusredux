@@ -5,7 +5,7 @@ mTeams = {
 	h835 = "[0000ff]Blue[-]"
 }
 
-function ExitColorwars(user)
+function ExitColorWars(user)
 	local hue = user:GetObjVar("HueActual")
 	if (hue ~= nil) then
 		user:DelObjVar("HueActual")
@@ -74,15 +74,11 @@ function ExitColorwars(user)
 end
 
 function EndColorWars(winners)
+	
+	if (this:HasTimer("ColorWars.End")) then return end
+	this:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"ColorWars.End", effect)
+
 	local players = FindPlayersInRegion()
-	local players =
-		FindObjects(
-		SearchMulti(
-			{
-				SearchPlayerInRange(300, true) --in 20 units
-			}
-		)
-	)
 
 	for i, j in pairs(players) do
 		if (j:HasObjVar("ColorWarPlayer")) then
@@ -101,29 +97,39 @@ function EndColorWars(winners)
 			)
 			if (IsDead(j)) then
 				CallFunctionDelayed(
-					TimeSpan.FromSeconds(4),
+					TimeSpan.FromSeconds(3),
 					function()
-						j:SendMessage("Resurrect", true)
+						j:SendMessage("Resurrect", 100, this, true)
 					end
 				)
 			end
-			CallFunctionDelayed(
-				TimeSpan.FromSeconds(3),
-				function()
-					j:SendMessage("Resurrect", 100, this, true)
-				end
-			)
+			CallFunctionDelayed(TimeSpan.FromSeconds(5), function() 
+				ExitColorWars(j)
+			end)
 		end
 	end
+
+	-- local bodies = FindObjects(SearchMobileInRegion("TwoTowers"))
+	-- local bodyCount = 0
+
+	-- for i, j in pairs(bodies) do
+	-- 	if (IsPlayerCorpse(j)) then
+	-- 		bodyCount = bodyCount + 1	
+	-- 		j:Destroy()
+	-- 	end
+	-- end
+
+	-- DebugMessage(tostring("Destroyed " .. bodyCount .. " bodies."))
 end
 
 RegisterEventHandler(
 	EventType.EnterView,
 	"WinCondition",
 	function(obj)
+		DebugMessage(obj:GetName())
 		local hue = obj:GetHue()
 		if (obj:HasObjVar("ColorWarWin") and this:GetObjVar("TeamHue") == hue) then
-			EndColorWars(obj:GetHue())
+			EndColorWars(hue)
 		end
 	end
 )

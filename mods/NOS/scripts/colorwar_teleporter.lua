@@ -105,13 +105,22 @@ end
 function KitConfirm(user, kit)
 	if (CheckChar(user) == true) then
 		if (kit == nil) then return false end
-		CreateObjInBackpack(user, kit)
-
 		local teamHue = this:GetHue()
 		if (not(user:HasObjVar("HueActual"))) then
 			user:SetObjVar("HueActual", user:GetHue())
 			user:SetHue(teamHue)
 		end
+
+		if (user:HasObjVar("ColorWarCaptain")) then
+			if (teamHue == 831) then
+				CreateObjInBackpack(user, "cw_flag_red")
+			else
+				CreateObjInBackpack(user, "cw_flag_blue")
+			end
+		end
+
+		CreateObjInBackpack(user, kit)
+
 		user:PlayEffect("ShockwaveEffect")
 		user:SetObjVar("ColorWarPlayer", true)
 		user:SetObjVar("ColorWarPoints", 0)
@@ -119,7 +128,8 @@ function KitConfirm(user, kit)
 		local charTable = {
 			Karma = user:GetObjVar("Karma") or 0,
 			Fame = user:GetObjVar("Fame") or 0,
-			Murders = user:GetObjVar("Murders") or 0
+			Murders = user:GetObjVar("Murders") or 0,
+			MurderTick = user:GetObjVar("MurderTick") or 0
 		}
 
 		user:SetObjVar("StatsActual", charTable)

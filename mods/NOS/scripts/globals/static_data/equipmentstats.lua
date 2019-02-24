@@ -240,7 +240,8 @@ EquipmentStats = {
 			MinSkill = 0,
 			Speed = 3,
 			PrimaryAbility = "Stun",
-			SecondaryAbility = "FollowThrough"
+			SecondaryAbility = "FollowThrough",
+			CanBePoisoned = true
 		},
 		-- 2H Blunts
 		Quarterstaff = {
