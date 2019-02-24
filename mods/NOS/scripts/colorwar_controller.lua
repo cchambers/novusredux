@@ -6,11 +6,6 @@ mPlayerCount = 0
 mCaptains = {}
 mLastTeamPick = nil
 
-mEnterZone = {
-    e831 = "2435.55,0,532.21",
-    e835 = "2440.46,0,532.21"
-}
-
 function OpenRegistration()
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite(
@@ -99,7 +94,6 @@ function DoCaptains()
             if (mCaptains.red ~= nil) then
                 mCaptains.blue = mCaptains.red
                 tails = heads
-                DebugMessage("TOP BEATEN")
             end
             heads = roll
             mCaptains.red = player
@@ -112,7 +106,6 @@ function DoCaptains()
 end
 
 function MakeCaptains()
-    DebugMessage("CHOOSE TEAM")
     -- pop "RED OR BLUE" window for HeadsPlayer. If they close it, open it for tailsPlayer
     ChoosePlayer(mCaptains.red, 831, true, true)
     CallFunctionDelayed(TimeSpan.FromSeconds(1), function () 
@@ -126,11 +119,7 @@ function ChoosePlayer(player, team, captain, firstPick)
         return
     end
     player:SetObjVar("ColorWarTeam", team)
-    local dest = tostring("e" .. team)
-    DebugMessage(dest)
-    dest = mEnterZone[dest]
-    DebugMessage(dest)
-    
+ 
     if (captain) then
         player:SetObjVar("ColorWarCaptain", true)
     end
@@ -145,9 +134,9 @@ function ChoosePlayer(player, team, captain, firstPick)
 
     if (firstPick) then
         player:SystemMessage("Choose someone for your team.", "event")
-    else
-        mLastTeamPick = team
-        this:SendMessage("ColorWar.NextChoice")
+    -- else
+    --     mLastTeamPick = team
+    --     this:SendMessage("ColorWar.NextChoice")
     end
 end
 
@@ -163,7 +152,16 @@ end
 function ShowPicker(user) 
     user:RequestClientTargetGameObj(this, "ColorWar.PlayerChosen")
 end
+RegisterEventHandler(EventType.ClientTargetGameObjResponse, "ColorWar.PlayerChosen", HandlePlayerChosen)
 
+function HandlePlayerChosen(target, user) 
+    if (target:IsPlayer() and not(target:HasObjVar("ColorWarTeam"))) then
+        ChoosePlayer(target, user:GetObjVar("ColorWarTeam"))
+    else
+        user:SystemMessage("Invalid choice. Try again.", "info")
+        ShowPicker(user)
+    end
+end
 
 function CloseRegistration()
     GlobalVarDelete("ColorWar.Queue", nil)

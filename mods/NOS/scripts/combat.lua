@@ -136,13 +136,12 @@ function PerformWeaponAttack(atTarget, hand)
 	--- perform the actual swing/shoot/w.e.
 	if ( _Weapon[hand].IsRanged ) then
 		if (mIsMoving) then
-			local chanceOverride = 100
 			local chance = 0
 			if not (this:HasTimer("OutOfArrows")) then
 				chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 2) * 0.01)
-				chanceOverride = CheckSkillChance(this, "MarksmanshipSkill")
+				CheckSkill(this, "MarksmanshipSkill")
+				ExecuteRangedWeaponAttack(atTarget, hand, chance)
 			end
-			ExecuteRangedWeaponAttack(atTarget, hand, chance)
 		else 
 			ExecuteRangedWeaponAttack(atTarget, hand)
 		end
@@ -499,20 +498,24 @@ function CheckHitSuccess(victim, hand)
 
 	-- INCREASE CHANCE OF HIT WITH 2H WEAPONS... 
 	if (EquipmentStats.BaseWeaponClass[_Weapon[hand].Class].AccuracyBuff) then
-		hitChance = hitChance * 1.5
+		hitChance = hitChance * 1.35
+	else
+		local addSkill = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 10
+		local mentor = this:GetObjVar("MentorPath")
+		if (mentor ~= nil) then
+			if (mentor == "CombatTypeSkill") then
+				addSkill = addSkill + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 10
+			end
+		end
+		hitChance = hitChance + addSkill
 	end
 
 	local hitSuccess = false
 	-- if player or tamed pet
 	if (isPlayer or _MyOwner ~= nil) then
-		-- calc hit chance
-		--To tweak hitchance vs monsters
 		if not (victim:IsPlayer()) then
-			--DebugMessage("hitChance = " .. hitChance/87.5)
 			hitSuccess = Success(hitChance / 87.5)
 		else
-			--DebugMessage("hitChance = " .. hitChance/100)
-			--To tweak hitchance vs players
 			hitSuccess = Success(hitChance / 100)
 		end
 		-- Ensure only gain off valid targets
@@ -528,11 +531,6 @@ function CheckHitSuccess(victim, hand)
 				local weaponClassInfo = EquipmentStats.BaseWeaponClass[_Weapon[hand].Class]
 				if (weaponClassInfo and weaponClassInfo.WeaponSkill and not (weaponClassInfo.WeaponSkillGainsDisabled)) then
 					CheckSkill(this, weaponClassInfo.WeaponSkill, victimWeaponSkillLevel)
-				-- 	local skillToCheck = weaponClassInfo.WeaponSkill
-				-- 	skillToCheck = GetSkillLevel(this, skillToCheck)
-				-- 	local ArmsLore = (GetSkillLevel(this,"ArmsLore") or 0.1) / 20
-				-- 	skillToCheck = skillToCheck + ArmsLore
-				-- 	CheckSkill(this, weaponClassInfo.WeaponSkill, victimWeaponSkillLevel, skillToCheck)
 				end
 			else
 				-- owners can only gain if the pet didn't miss and they are within range of the pet.

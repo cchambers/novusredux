@@ -1265,7 +1265,7 @@ AllRecipes = {
 
 		ShieldOfJustice = {
 			MinLevelToCraft = 90,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Shield of Justice",
 			CraftingTemplateFile = "shield_of_justice",
 			Description = "A metal shield.",
@@ -1552,7 +1552,7 @@ WoodsmithSkill = {
 		},
 		Recurve = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Recurve Bow",
 			CraftingTemplateFile = "weapon_recurve_bow",
 			ItemType = "WeaponClass",
@@ -3193,7 +3193,7 @@ AlchemySkill = {
 		},
 		DyeGold = {
 			MinLevelToCraft = 55,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Gold Dye",
 			NeedRecipe = true,
 			Description = "Gold Dye. ",

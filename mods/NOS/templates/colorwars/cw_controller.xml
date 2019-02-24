@@ -9,6 +9,7 @@
 		<LocVariable Name="Destination">2430.55,0,536.92</LocVariable>
 		<LocVariable Name="e831">2435,0,532</LocVariable>
 		<LocVariable Name="e835">2440,0,531</LocVariable>
+		<LocVariable Name="outside">2448,0,545</LocVariable>
 		<DoubleVariable Name="RoundID">0</DoubleVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>

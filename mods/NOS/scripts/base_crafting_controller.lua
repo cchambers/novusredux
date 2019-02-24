@@ -86,12 +86,21 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 	mDifficulty = reqSkillLev
 
 	mSkillLevel = GetSkillLevel(this,mSkill)
-	local chance = SkillValueMinMax(mSkillLevel, reqSkillLev, maxSkillLev)
 	local skillToCheck = mSkillLevel
-	local ArmsLore = (GetSkillLevel(this,"ArmsLore") or 0.1) / 20
-	skillToCheck = skillToCheck + ArmsLore
-
+	local addSkill = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 20
+	local mentor = this:GetObjVar("MentorPath")
+	local pre = addSkill
+	if (mentor ~= nil) then
+		if (mentor == "TradeTypeSkill") then
+			addSkill = addSkill + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 20
+		end
+	end
+	local post = addSkill
+	skillToCheck = skillToCheck + addSkill
+	
+	local chance = SkillValueMinMax(skillToCheck, reqSkillLev, maxSkillLev)
 	mSuccess = CheckSkillChance(this, mSkill, skillToCheck, chance)
+	
 
 	local consumeTable = resourceTable
 	if not(mSuccess) and recipeTable.ConsumeOnFail then
