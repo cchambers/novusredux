@@ -230,7 +230,7 @@ AllRecipes = {
 
 		Obsidian = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Obsidian",
 			CraftingTemplateFile = "resource_obsidian",
 			Description = "Obsidian that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -440,7 +440,7 @@ AllRecipes = {
 
 		Zukuri = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Zukuri",
 			CraftingTemplateFile = "weapon_zukuri",
 			ItemType = "WeaponClass",
@@ -1265,7 +1265,7 @@ AllRecipes = {
 
 		ShieldOfJustice = {
 			MinLevelToCraft = 90,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Shield of Justice",
 			CraftingTemplateFile = "shield_of_justice",
 			Description = "A metal shield.",
@@ -1285,7 +1285,7 @@ AllRecipes = {
 		},
 
 		TaperedHeater = {
-			MinLevelToCraft = 80,
+			MinLevelToCraft = 75,
 			MaxLevelToGain = 100,
 			DisplayName = "Tapered Heater",
 			CraftingTemplateFile = "shield_tapered_heater",
@@ -1551,8 +1551,8 @@ WoodsmithSkill = {
 			},
 		},
 		Recurve = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 99,
 			DisplayName = "Recurve Bow",
 			CraftingTemplateFile = "weapon_recurve_bow",
 			ItemType = "WeaponClass",
@@ -3193,7 +3193,7 @@ AlchemySkill = {
 		},
 		DyeGold = {
 			MinLevelToCraft = 55,
-			MaxLevelToGain = 105,
+			MaxLevelToGain = 99,
 			DisplayName = "Gold Dye",
 			NeedRecipe = true,
 			Description = "Gold Dye. ",

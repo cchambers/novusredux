@@ -6,11 +6,6 @@ mPlayerCount = 0
 mCaptains = {}
 mLastTeamPick = nil
 
-mEnterZone = {
-    e831 = "2435.55,0,532.21",
-    e835 = "2440.46,0,532.21"
-}
-
 function OpenRegistration()
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite(
@@ -124,9 +119,7 @@ function ChoosePlayer(player, team, captain, firstPick)
         return
     end
     player:SetObjVar("ColorWarTeam", team)
-    local dest = tostring("e" .. team)
-    dest = mEnterZone[dest]
-    
+ 
     if (captain) then
         player:SetObjVar("ColorWarCaptain", true)
     end
