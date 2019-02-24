@@ -104,22 +104,36 @@ MortalCommandFuncs = {
 		end
 		this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(500), "AntiSpamTimer")
 
-		local args = table.pack(...)
-		local lower = math.max(1, tonumber(args[1]) or 1)
-		local upper = math.min(1000, tonumber(args[2]) or 100)
-		if (lower > upper) then
-			local temp = upper
-			upper = lower
-			lower = temp
+		local isColorWarRoll = this:HasTimer("ColorWar.Roll")
+		
+		if (not(isColorWarRoll)) then
+			local args = table.pack(...)
+			local lower = math.max(1, tonumber(args[1]) or 1)
+			local upper = math.min(1000, tonumber(args[2]) or 100)
+			if (lower > upper) then
+				local temp = upper
+				upper = lower
+				lower = temp
+			end
+			local name = StripColorFromString(this:GetName())
+			local roll = math.random(lower, upper)
+			local message = string.format("%s rolls %d (%d-%d)", name, roll, lower, upper)
+			this:SystemMessage(message)
+			local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
+			for i = 1, #nearbyPlayers do
+				nearbyPlayers[i]:SystemMessage(message)
+			end
+		else
+			this:FireTimer("ColorWar.Roll")
+			local roll = math.random(1, 100)
+			local message = string.format("%s CAPTAIN ROLL: %d", name, roll)
+			this:SetObVar("ColorWarRoll", roll)
+			local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
+			for i = 1, #nearbyPlayers do
+				nearbyPlayers[i]:SystemMessage(message)
+			end
 		end
-		local name = StripColorFromString(this:GetName())
-		local roll = math.random(lower, upper)
-		local message = string.format("%s rolls %d (%d-%d)", name, roll, lower, upper)
-		this:SystemMessage(message)
-		local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
-		for i = 1, #nearbyPlayers do
-			nearbyPlayers[i]:SystemMessage(message)
-		end
+		
 	end,
 	Stats = function()
 		this:SystemMessage("Str:" .. GetStr(this) .. ",  Agi:" .. GetAgi(this) .. ",  Int:" .. GetInt(this))

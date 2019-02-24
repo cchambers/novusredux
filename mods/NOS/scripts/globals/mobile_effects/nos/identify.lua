@@ -44,9 +44,6 @@ MobileEffectLibrary.Identify = {
             success = CheckSkill(user, "ArmsLoreSkill")
         end
 
-        DebugMessage(tostring(target:GetName() .. " " .. user:GetName()))
-        DebugMessage(tostring(success))
-
         if (success) then
             local skillLevel = GetSkillLevel(user, "ArmsLoreSkill")
             self.StartProgressBar(self, root)

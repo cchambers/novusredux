@@ -1550,7 +1550,7 @@ WoodsmithSkill = {
 				BroodwoodBoards = { BroodwoodBoards = 3 }
 			},
 		},
-		RecurveBow = {
+		Recurve = {
 			MinLevelToCraft = 80,
 			MaxLevelToGain = 105,
 			DisplayName = "Recurve Bow",
