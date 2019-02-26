@@ -3,7 +3,7 @@
 	<ClientId>1523</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="4"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ShieldType">Heater</StringVariable>
+		<StringVariable Name="ShieldType">HeaterShield</StringVariable>
 		<DoubleVariable Name="MaxDurability">65</DoubleVariable>
 	</ObjectVariableComponent>			
 </ObjectTemplate>

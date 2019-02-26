@@ -110,18 +110,24 @@ MobileEffectLibrary.Identify = {
 
         local shieldType = item:GetObjVar("ShieldType")
         if (shieldType) then
-            local shieldLevel = EquipmentStats.BaseShieldStats[shieldType].ArmorRating
-            if (shieldLevel == nil) then
+            if (EquipmentStats.BaseShieldStats[shieldType] ~= nil) then
+                local shieldLevel = EquipmentStats.BaseShieldStats[shieldType].ArmorRating
+                if (shieldLevel == nil or ) then
+                    user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")
+                    EndMobileEffect(root)
+                    return false
+                end
+                local shieldLevels = #self.ArmorLevels
+                shieldLevel = (shieldLevels + 1) - math.ceil((shieldLevel/60) * shieldLevels)
+                if (shieldLevel > shieldLevels) then 
+                    shieldLevel = shieldLevels
+                end
+                message = message .. self.ArmorLevels[shieldLevel]
+            else
                 user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")
                 EndMobileEffect(root)
                 return false
             end
-            local shieldLevels = #self.ArmorLevels
-            shieldLevel = (shieldLevels + 1) - math.ceil((shieldLevel/60) * shieldLevels)
-            if (shieldLevel > shieldLevels) then 
-                shieldLevel = shieldLevels
-            end
-            message = message .. self.ArmorLevels[shieldLevel]
         end
         
 
