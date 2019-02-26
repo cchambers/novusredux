@@ -1,5 +1,5 @@
 colorWars = "[FF7F00]COLOR [0000FF]WARS[-]"
-mCountdown = 10
+mCountdown = 6
 mCountdownEvery = 2
 mPlayers = {}
 mPlayerCount = 0
@@ -7,6 +7,7 @@ mCaptains = {}
 mLastTeamPick = nil
 
 function OpenRegistration()
+    mCountdown = 6
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite(
         "ColorWar.Registration",
@@ -87,11 +88,11 @@ function DoCaptains()
     local tails = 0
 
     for player, t in pairs(mPlayers) do
-        local roll = player:GetObjVar("ColorWarRoll")
+        local roll = player:GetObjVar("ColorWarRoll") or 0
         player:DelObjVar("ColorWarRoll")
 
         if (roll > heads) then
-            if (mCaptains.red ~= nil) then
+            if (mCaptains.red) then
                 mCaptains.blue = mCaptains.red
                 tails = heads
             end
