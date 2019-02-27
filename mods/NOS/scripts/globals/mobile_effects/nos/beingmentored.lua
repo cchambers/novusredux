@@ -4,6 +4,7 @@ MobileEffectLibrary.BeingMentored =
 		-- or self.ParentObj:HasTimer("Mentor.WasMentored")
 		if ( mentor == nil) then
 			EndMobileEffect(root)
+			return false
 		else 
 			self.SkillName = args.SkillName
 			self.SkillMax = args.SkillMax or 40
@@ -15,6 +16,7 @@ MobileEffectLibrary.BeingMentored =
 			RegisterSingleEventHandler(EventType.Message, "Mentor.End",
 			function ()
 				EndMobileEffect(root)
+				return false
 			end)
 		end
 	end,
