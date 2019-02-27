@@ -24,7 +24,7 @@ RegisterEventHandler(EventType.Message, "UseObject",
         if (not ValidateUse(user)) then return end
         if (IsDead(user)) then
             user:SendMessage("Resurrect", 0.65)
-            user:ScheduleTimerDelay(TimeSpan.FromMinutes(2), "ColorWarDeath")
+            user:ScheduleTimerDelay(TimeSpan.FromMinutes(1), "ColorWarDeath")
             return
         end
        
