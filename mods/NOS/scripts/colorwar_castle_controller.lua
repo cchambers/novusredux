@@ -52,6 +52,8 @@ function ExitColorWars(user)
 	local StatsActual = user:GetObjVar("StatsActual")
 
 	user:DelObjVar("IsRed")
+	user:DelObjVar("IsCriminal")
+	
 	for stat, value in pairs(StatsActual) do
 		if (value == 0 and stat == "Murders") then
 			user:DelObjVar("Murders")
