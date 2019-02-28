@@ -112,7 +112,7 @@ MobileEffectLibrary.Identify = {
         if (shieldType) then
             if (EquipmentStats.BaseShieldStats[shieldType] ~= nil) then
                 local shieldLevel = EquipmentStats.BaseShieldStats[shieldType].ArmorRating
-                if (shieldLevel == nil or ) then
+                if (shieldLevel == nil) then
                     user:SystemMessage("This item is bugged. Please send a /page to log the time/location and we will check it out!", "info")
                     EndMobileEffect(root)
                     return false

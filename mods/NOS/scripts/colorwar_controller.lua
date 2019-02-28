@@ -1,4 +1,4 @@
-colorWars = "[FF7F00]COLOR[-][0000FF]WARS[-]"
+colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
 mCountdown = 6
 mCountdownEvery = 2
 mPlayers = {}
