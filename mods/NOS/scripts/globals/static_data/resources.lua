@@ -1197,6 +1197,10 @@ ResourceData = {
 			Template = "recipe_stoolwooden",
 			DisplayName = "Recipe: Wooden Stool",
 		},
+		RecipeWoodenChair = {
+			Template = "recipe_chairwooden",
+			DisplayName = "Recipe: Wooden Chair",
+		},
 		RecipeChairFancy = {
 			Template = "recipe_chairfancy",
 			DisplayName = "Recipe: Fancy Chair",
