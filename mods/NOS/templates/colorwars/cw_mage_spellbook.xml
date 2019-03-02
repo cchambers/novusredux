@@ -39,6 +39,7 @@
 						Attack = true,
 						Defense = true,
 						Incognito = true,
+						Imbue = true,
 						Nightsight = true,
 						Frost = true,
 						Paralyze = true,

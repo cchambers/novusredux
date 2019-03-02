@@ -27,7 +27,6 @@ function ShowStatusElement(mobileObj, args)
 	local healthColor = "FF0000"
 
 	if (HasMobileEffect(mobileObj, "Poison")) then
-		DebugMessage("POISONED")
 		healthColor = "00FF00"
 	end
 

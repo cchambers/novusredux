@@ -5,7 +5,6 @@ mScaleIncrease = 0.1
 mScaleMin = 8
 mScaleMax = 20
 
-USE_RANGE = 2
 
 function rem(amount) 
 	return amount * mScaleBase
@@ -134,7 +133,7 @@ function KitConfirm(user, kit)
 
 		user:SetObjVar("StatsActual", charTable)
 
-		CallFunctionDelayed(TimeSpan.FromSeconds(0.5),function ( ... )
+		CallFunctionDelayed(TimeSpan.FromSeconds(0.25),function ( ... )
 			ActivateTeleporter(user)
 			end)
 	else
