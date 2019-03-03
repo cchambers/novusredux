@@ -4,7 +4,7 @@ LootTables = {}
 -- Each table can have the following values
 --   NumCoins - The number of coins to spawn in the container
 -- NOTE: itemCreatedOverride should still call LootItemCreated to set stack, color etc
-function LootTables.SpawnLoot(lootTables,destContainer,objVars)
+function LootTables.SpawnLoot(lootTables,destContainer,objVars,autoStack)
 	--DebugMessage(1)
 	-- fill the mob's backpack
 	if( lootTables ~= nil ) then
@@ -68,11 +68,19 @@ function LootTables.SpawnLoot(lootTables,destContainer,objVars)
 							else								
 								local dropPos = GetRandomDropPosition(destContainer)
 
-								if(availableItems[itemIndex].Packed) then
-									CreatePackedObjectInContainer(itemTemplateId,false,destContainer,dropPos,"LootObject")
+								if ( availableItems[itemIndex].Packed ) then
+									Create.PackedObject.InContainer(itemTemplateId, destContainer, dropPos)
 									table.insert(itemsSpawned, itemTemplateId)
 								else
-									CreateObjInContainer(itemTemplateId, destContainer, dropPos, "LootObject",stackCount,color,objVars)
+									local shouldCreate = true
+									if(autoStack) then
+										local resourceType = GetTemplateObjVar(itemTemplateId, "ResourceType")
+										shouldCreate = not(TryAddToStack(resourceType, destContainer, stackCount) )
+									end
+
+									if(shouldCreate) then
+										CreateObjInContainer(itemTemplateId, destContainer, dropPos, "LootObject",stackCount,color,objVars)
+									end
 									table.insert(itemsSpawned, itemTemplateId)
 								end
 
@@ -94,27 +102,51 @@ function LootTables.SpawnLoot(lootTables,destContainer,objVars)
 		return itemsSpawned
 	end
 end
+function DistributeBossRewards(nearbyCombatants, lootTables, achievementName, isQuiet)
 
-function DistributeBossRewards(nearbyCombatants, lootTables, achievementName)
-	for i,j in pairs(nearbyCombatants) do
+	--Shuffle list of players
+	for i = #nearbyCombatants, 1, -1 do
+		local rand = math.random(i)
+		nearbyCombatants[i], nearbyCombatants[rand] = nearbyCombatants[rand], nearbyCombatants[i]
+	end
+
+	--Get 25 players to reward
+	local playersToReward = {}
+	counter = 1
+	for index, player in pairs(nearbyCombatants) do
+		if (counter < 25) then
+			playersToReward[counter] = player
+			counter = counter + 1
+		else
+			break
+		end
+	end
+
+	for index,player in pairs(playersToReward) do
         local skipPlayer = false
-        if (IsDead(j)) then skipPlayer = true end
+        if (IsDead(player)) then skipPlayer = true end
 
         if not (skipPlayer) then
 
         	if (achievementName ~= nil) then
-        		CheckAchievementStatus(j, "BossKills", achievementName, 1)
+        		CheckAchievementStatus(player, "BossKills", achievementName, 1)
         	end
 
         	if (lootTables == nil) then
         		return
         	end
 
-            local backpackObj = j:GetEquippedObject("Backpack")
+            local backpackObj = player:GetEquippedObject("Backpack")
             if (backpackObj ~= nil) then
-	            backpackObj:SendOpenContainer(j)
-	            LootTables.SpawnLoot(lootTables, backpackObj)
-	            j:SystemMessage("You have been rewarded for defeating the boss.","info")
+	            backpackObj:SendOpenContainer(player)
+	            local itemsSpawned = LootTables.SpawnLoot(lootTables, backpackObj, nil, true)
+	            if not(isQuiet) then
+	            	if(itemsSpawned and #itemsSpawned > 0) then
+	            		player:SystemMessage("You have been rewarded for defeating the boss.","info")			            
+			        else
+			        	player:SystemMessage("You have defeated the boss.","info")			        	
+			        end
+		        end
 	        end
         end
     end

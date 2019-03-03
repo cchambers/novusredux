@@ -12,7 +12,7 @@ SpellData = {
 	CircleSkills = {
 		{-20.1, 20.1},  -- circle -1 (for scrolls)
 		{-10.1, 30.1},  -- circle 0 (for scrolls)
-		{1.1, 40.1},  -- circle 1
+		{0, 40.1},  -- circle 1
 		{6.1, 50.1},  -- circle 2
 		{16.1, 60.1}, -- circle 3
 		{26.1, 70.1}, -- circle 4

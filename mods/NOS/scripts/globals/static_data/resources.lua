@@ -282,8 +282,8 @@ ResourceData = {
 			SalvageValue = 1,
 			SkillGainDifficultyMultiplier = 2,	
 			Difficulty = {
-				Min = 35,
-				Max = 85
+				Min = 50,
+				Max = 100
 			}
 		},
 

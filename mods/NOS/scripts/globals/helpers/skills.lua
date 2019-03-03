@@ -265,37 +265,38 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		if not( SkillData.AllSkills[skillName].AllowCampfireGains == true ) then effects[2] = "Campfire" end
 		local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
 		local preventGain = HasAnyMobileEffect(mobileObj, effects, mobileEffects)
-		
-		-- generate the gain chance
-		local gc = GenerateGainChance(skillTable.SkillLevel, chance, SkillData.AllSkills[skillName].GainFactor or 1)
+		if ( skillTable.SkillLevel < (skillTable.SkillCap or ss.Skills.PlayerSkillCap.Single) ) then
+			-- generate the gain chance
+			local gc = GenerateGainChance(skillTable.SkillLevel, chance, SkillData.AllSkills[skillName].GainFactor or 1)
 
-		if ( gc > 0 ) then
-			-- check preventGain all the way down here so we can only hit the user with a message when they would have gained.
-			if ( preventGain ) then
-				if not( mobileObj:HasTimer("GainWarn") ) then
-					local hasCampfireEffect, hasVitalityEffect = ContainsMobileEffect(mobileEffects, "Campfire"), ContainsMobileEffect(mobileEffects, "LowVitality")
-					
-					if ( hasCampfireEffect ) then
-						mobileObj:SystemMessage("You feel too at ease to improve your skills.","info")						
-					elseif ( hasVitalityEffect ) then
-						mobileObj:SystemMessage("You are too exhausted to improve your skills.","info")
+			if ( gc > 0 ) then
+				-- check preventGain all the way down here so we can only hit the user with a message when they would have gained.
+				if ( preventGain ) then
+					if not( mobileObj:HasTimer("GainWarn") ) then
+						local hasCampfireEffect, hasVitalityEffect = ContainsMobileEffect(mobileEffects, "Campfire"), ContainsMobileEffect(mobileEffects, "LowVitality")
+						
+						if ( hasCampfireEffect ) then
+							mobileObj:SystemMessage("You feel too at ease to improve your skills.","info")						
+						elseif ( hasVitalityEffect ) then
+							mobileObj:SystemMessage("You are too exhausted to improve your skills.","info")
+						end
+						
+						mobileObj:ScheduleTimerDelay(TimeSpan.FromSeconds(10),"GainWarn")
 					end
-					
-					mobileObj:ScheduleTimerDelay(TimeSpan.FromSeconds(10),"GainWarn")
+					return Success( chance )
 				end
-				return Success( chance )
-			end
 
-			-- apply a bonus for having already gained in the skill past this point before
-			if ( skillTable.SkillLevel < (skillTable.SkillMaxAttained or 0) ) then
-				gc = gc * ServerSettings.Skills.RegainBonusMultiplier
-			end
+				-- apply a bonus for having already gained in the skill past this point before
+				if ( skillTable.SkillLevel < (skillTable.SkillMaxAttained or 0) ) then
+					gc = gc * ServerSettings.Skills.RegainBonusMultiplier
+				end
 
-			if ( ContainsMobileEffect(mobileEffects, "PowerHourBuff") ) then
-				gc = gc * ServerSettings.Skills.PowerHourMultiplier
+				if ( ContainsMobileEffect(mobileEffects, "PowerHourBuff") ) then
+					gc = gc * ServerSettings.Skills.PowerHourMultiplier
+				end
+				
+				SkillGainByChance( mobileObj, skillName, skillTable.SkillLevel, gc * ServerSettings.Skills.GainFactor )
 			end
-			
-			SkillGainByChance( mobileObj, skillName, skillTable.SkillLevel, gc * ServerSettings.Skills.GainFactor )
 		end
 
 		-- save cpu cycles when there is zero chance of gaining.
@@ -331,7 +332,7 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				-- multiply realStatLevel by the ratio of skillMax:statMax since GenerateGainChance works off of skillMax server settings
 				local gc = GenerateGainChance(realStatLevel * (ss.Skills.PlayerSkillCap.Single/ss.Stats.IndividualPlayerStatCap), chance, gainFactor)
 				if ( gc > 0 ) then
-					--mobileObj:NpcSpeech("Gain Chance: "..gc)
+					--mobileObj:NpcSpeech(stat.." Gain Chance: "..(gc * ss.Stats.GainFactor))
 					StatGainByChance( mobileObj, stat, gc * ss.Stats.GainFactor, realStatLevel )
 				end
 			end

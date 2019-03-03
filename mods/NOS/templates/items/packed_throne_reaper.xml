@@ -1,9 +1,0 @@
-<ObjectTemplate>
-	<Name>Grim Throne</Name>
-	<ClientId>185</ClientId>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>		
-		<StringVariable Name="UnpackedTemplate">throne_reaper</StringVariable>
-		<StringVariable Name="ResourceType">PackedObject</StringVariable>
-	</ObjectVariableComponent>
-</ObjectTemplate>
