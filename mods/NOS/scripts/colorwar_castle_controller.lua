@@ -90,6 +90,10 @@ function EndColorWars(winners)
 	local players = FindPlayersInRegion()
 
 	for i, j in pairs(players) do
+		j:SystemMessage(
+			"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
+			"info"
+		)
 		if (j:HasObjVar("ColorWarPlayer")) then
 			local hue = j:GetHue()
 			if (hue == winners) then
@@ -100,10 +104,6 @@ function EndColorWars(winners)
 					credits = credits + 1
 				end
 			end
-			j:SystemMessage(
-				"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
-				"info"
-			)
 			if (IsDead(j)) then
 				CallFunctionDelayed(
 					TimeSpan.FromSeconds(3),

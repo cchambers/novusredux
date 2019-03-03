@@ -100,6 +100,53 @@ RegisterCommand {
 }
 
 
+RegisterCommand {
+    Command = "cwvote",
+    Category = "Mortal Power",
+    AccessLevel = AccessLevel.Mortal,
+    Func = function()
+        -- Is the vote running?
+        local open = GlobalVarReadKey("ColorWar.Vote", "open")
+        if (open) then
+            local queued = GlobalVarReadKey("ColorWar.Queue", this)
+            if (queued) then
+                GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                    record[this] = nil
+                    return true
+                end)
+                this:SystemMessage("You have un-voted.", "info")
+            else
+                GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                    record[this] = true
+                    return true
+                end)
+                this:SystemMessage("You have voted to start Color Wars!", "info")
+            end
+        else -- VOTE NOT RUNNING
+            if (this:HasTimer("NoVote")) then
+                this:SystemMessage("You are doing that too quickly.", "info")
+                return
+            end
+            local cwController = GameObj(68381273)
+            if (cwController) then
+                if (cwController:HasTimer("ColorWar.NoVote")) then
+                    this:SystemMessage("Color Wars vote can not be started yet.", "info")
+                    this:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "NoVote")
+                    return
+                else
+                    GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                        record[this] = true
+                        return true
+                    end)
+                   cwController:SendMessage("ColorWar.VoteStart")
+                end
+            end
+        end
+    end,
+    Desc = "Start or join a ColorWar vote."
+}
+
+
 -- RegisterCommand {
 -- 	Command = "pve",
 -- 	Category = "Mortal Power",

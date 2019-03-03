@@ -155,3 +155,9 @@ function TriggerGlobalPowerHour(overflow)
 
     TotemGlobalEvent("powerhour")
 end
+
+
+function ColorWarStart()
+    local obj = GameObj(68381273)
+    obj:SendMessage("ColorWar.Go")
+end

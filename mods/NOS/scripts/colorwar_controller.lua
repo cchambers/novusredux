@@ -1,6 +1,6 @@
 colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
-mCountdownStart = 6
-mCountdownEvery = 2
+mCountdownStart = 5
+mCountdownEvery = 1
 mNeeds = 6
 mPlayers = {}
 mPlayerCount = 0
@@ -274,9 +274,11 @@ function CheckChar(user)
 	if (Head ~= nil) then success = false end
 
 	local remainingPets = GetRemainingActivePetSlots(user)
-	local maxPets = MaxActivePetSlots(user)
+    local maxPets = MaxActivePetSlots(user)
+    
+    local pets = maxPets - remainingPets
 	
-	if (maxPets ~= remainingPets) then
+	if (pets ~= 0) then
 		user:SystemMessage("Stable your pets.","info")
 		success = false
 	end
@@ -359,6 +361,7 @@ function StartRound()
 
     mGameController = GameObj(68396825)
     mGameController:SendMessageGlobal("ColorWar.StartRound")
+    this:ScheduleTimerDelay(TimeSpan.FromMinutes(45),"ColorWar.NoVote")
 end
 
 function CheckRoundStarted()
@@ -372,10 +375,12 @@ RegisterEventHandler(EventType.Message, "ColorWar.Go", OpenRegistration)
 RegisterEventHandler(EventType.Message, "ColorWar.NextChoice", NextChoice)
 RegisterEventHandler(EventType.Message, "ColorWar.MakeCaptains", MakeCaptains)
 RegisterEventHandler(EventType.Message, "ColorWar.StartRound", StartRound)
+RegisterEventHandler(EventType.Message, "ColorWar.VoteStart", VoteStart)
 
 RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
 RegisterEventHandler(EventType.Timer, "ColorWar.PickCaptains", PickCaptains)
 RegisterEventHandler(EventType.Timer, "ColorWar.DoCaptains", DoCaptains)
+RegisterEventHandler(EventType.Timer, "ColorWar.Voting", VoteEnd)
 
 RegisterEventHandler(EventType.ClientTargetGameObjResponse, "ColorWar.PlayerChosen", HandlePlayerChosen)
 RegisterEventHandler(EventType.DynamicWindowResponse, "CHOOSECLASS",
@@ -432,6 +437,47 @@ function DoRevealStuff()
         end
 	end
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"ColorWar.EntryReveal")
+end
+
+function VoteStart()
+    GlobalVarWrite(
+        "ColorWar.Vote",
+        nil,
+        function(record)
+            record["open"] = true
+            return true
+        end
+    )
+    ServerBroadcast(colorWars.." vote opened for the next 2 minutes! Should we start up a CW? /cwvote", true)
+    this:ScheduleTimerDelay(TimeSpan.FromMinutes(2),"ColorWar.Voting")
+    this:ScheduleTimerDelay(TimeSpan.FromMinutes(45),"ColorWar.NoVote")
+end
+
+function VoteEnd()
+    -- if count > mNeeds
+    mPlayers = GlobalVarRead("ColorWar.Queue")
+    local count = 0
+    for player, t in pairs(mPlayers) do
+        if (GlobalVarReadKey("User.Online", player)) then
+            count = count + 1
+        end
+    end
+    if (count >= mNeeds) then
+        this:SendMessage("ColorWar.Go")
+    else
+        for player, t in pairs(mPlayers) do
+            player:SystemMessage("Color War vote failed. Try again later!", "info")
+        end
+        GlobalVarDelete("ColorWar.Queue", nil)
+    end
+    GlobalVarWrite(
+        "ColorWar.Vote",
+        nil,
+        function(record)
+            record["open"] = false
+            return true
+        end
+    )
 end
 
 RegisterEventHandler(EventType.Timer, "ColorWar.EntryReveal", DoRevealStuff)
