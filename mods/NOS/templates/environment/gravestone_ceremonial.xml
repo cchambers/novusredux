@@ -1,8 +1,0 @@
-<ObjectTemplate>
-  <Name>[0078ff]Gravestone[-]</Name>
-	<ClientId>251</ClientId>
-	<ObjectVariableComponent/>			
-	<ScriptEngineComponent>
-		<LuaModule Name="name_replacer"/>
-	</ScriptEngineComponent>
-</ObjectTemplate>

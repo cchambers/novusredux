@@ -55,7 +55,7 @@
 							{ 
 								{ Weight = 90, Template = "resource_wood", StackCountMin = 1, StackCountMax = 2 },
 								{ Weight = 8, Template = "resource_ash", StackCountMin = 1, StackCountMax = 2 },
-								{ Weight = 2, Template = "resource_blightwood_vile", StackCountMin = 1, StackCountMax = 2 },
+								{ Weight = 2, Template = "resource_blightwood", StackCountMin = 1, StackCountMax = 2 },
 							},
 						},						
 					},	

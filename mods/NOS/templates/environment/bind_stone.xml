@@ -3,6 +3,9 @@
 	<ClientId>2169</ClientId>
 	<ObjectVariableComponent/>
 	<ScaleModifier>0.5</ScaleModifier>
+	<ObjectVariableComponent>
+		<BoolVariable Name="ExteriorDecoration">true</BoolVariable>
+	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="bindstone"/>
 	</ScriptEngineComponent>

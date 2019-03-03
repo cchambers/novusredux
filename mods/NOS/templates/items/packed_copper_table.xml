@@ -1,9 +1,0 @@
-<ObjectTemplate>
-	<Name>Copper Blacksmith Table</Name>
-	<ClientId>185</ClientId>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>		
-		<StringVariable Name="UnpackedTemplate">furniture_table_blacksmith_copper</StringVariable>
-		<StringVariable Name="ResourceType">PackedObject</StringVariable>
-	</ObjectVariableComponent>
-</ObjectTemplate>
