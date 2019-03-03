@@ -1,5 +1,5 @@
 colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
-mCountdown = 6
+mCountdownStart = 6
 mCountdownEvery = 2
 mNeeds = 6
 mPlayers = {}
@@ -22,8 +22,8 @@ function rem(amount)
 end
 
 function OpenRegistration()
-    mCountdown = 6
-    TotemGlobalEvent("colorwar")
+    mCountdown = mCountdownStart
+    -- TotemGlobalEvent("colorwar")
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite(
         "ColorWar.Registration",
@@ -40,7 +40,7 @@ end
 function DoBroadcast() 
     if (mCountdown <= 0) then
         ServerBroadcast("Summoning players for " .. colorWars, true)
-    elseif(mCountDown > (mCountdown / 2)) then
+    elseif(mCountdown > (mCountdownStart / 2)) then
         ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
     else
         ServerBroadcast(colorWars.." registration closing soon! "..mCountdown.." minutes remain -> /cw", true)
@@ -48,16 +48,18 @@ function DoBroadcast()
 
     mPlayers = GlobalVarRead("ColorWar.Queue")
     local inQueue = 0
-    for player, t in pairs(mPlayers) do
-        if (GlobalVarReadKey("User.Online", player)) then
-            inQueue = inQueue + 1
+    if (mPlayers) then
+        for player, t in pairs(mPlayers) do
+            if (GlobalVarReadKey("User.Online", player)) then
+                inQueue = inQueue + 1
+            end
         end
     end
 
-    if (mCountdown > (mCountdown / 2)) then
+    if (mCountdown > (mCountdownStart / 3)) then
         local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
         for i = 1, #nearbyPlayers do
-            nearbyPlayers[i]:SystemMessage("If you just got out of colorwars, please requeue or you may be ejected!")
+            nearbyPlayers[i]:SystemMessage("If you just got out of "..colorWars.." please requeue (/cw) or you may be ejected!")
         end
     elseif (inQueue < mNeeds) then
         ServerBroadcast("Color Wars cancelled -- not enough entrants.", true)
@@ -178,9 +180,9 @@ function ChoosePlayer(player, team, captain, firstPick)
     
 
     if (mWaiting == 0) then
-        this:SendMessage("ColorWar.StartRound")
+        StartRound()
     else
-        this:SendMessage("ColorWar.NextChoice")
+        NextChoice()
     end
 end
 
@@ -355,23 +357,12 @@ function StartRound()
         end
     end
 
-    if (mGameController == nil) then
-       mGameController = GameObj(68396825)
-    end
-
-    mGameController:SendMessageGlobal("ColorWar.Countdown")
+    mGameController = GameObj(68396825)
+    mGameController:SendMessageGlobal("ColorWar.StartRound")
 end
 
 function CheckRoundStarted()
     return
-end
-
-function Test()
-    if (mGameController == nil) then
-       mGameController = GameObj(68396825)
-    end
-
-    mGameController:SendMessageGlobal("ColorWar.Countdown")
 end
 
 

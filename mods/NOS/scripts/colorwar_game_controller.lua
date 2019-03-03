@@ -1,16 +1,16 @@
 mRound = 0
 mPlayers = nil
 mPlaying = false
-mCountdown = 3
+mCountdown = 2
 
 function StartRound()
     mRound = (this:GetObjVar("Round") or 0) + 1
     this:SetObjVar("Round", mRound)
-    mCountDown = 3
     Countdown()
 end
 
 function Countdown() 
+    mPlayers = FindPlayersInRegion()
     if (mCountdown > 1) then
         for i, j in pairs(mPlayers) do
             if (not(j:HasObjVar("ColorWarRound"))) then
@@ -45,8 +45,12 @@ function StartGame()
 end
 
 function EndGame()
+    mCountDown = 2
+
     CallFunctionDelayed(TimeSpan.FromSeconds(6), function () 
         mPlaying = false
+        local cwbase = GameObj(68381273)
+        cwbase:SendMessageGlobal("ColorWar.Go")
     end)
     
     local bodies = FindObjects(SearchTemplate("player_corpse"))
@@ -59,7 +63,6 @@ function EndGame()
 	end
 
     DebugMessage(tostring("Destroyed " .. bodyCount .. " bodies."))
-    
 end
 
 
@@ -91,5 +94,6 @@ RegisterEventHandler(EventType.Timer, "ColorWar.FreezePing", FreezePing)
 RegisterEventHandler(EventType.Timer, "ColorWar.Countdown", Countdown)
 
 RegisterEventHandler(EventType.Message, "ColorWar.Countdown", StartRound)
+RegisterEventHandler(EventType.Message, "ColorWar.StartRound", StartRound)
 RegisterEventHandler(EventType.Message, "ColorWar.EndGame", EndGame)
 RegisterEventHandler(EventType.Message, "ColorWar.StartGame", StartGame)
