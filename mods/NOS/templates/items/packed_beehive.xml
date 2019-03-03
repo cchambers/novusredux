@@ -1,9 +1,0 @@
-<ObjectTemplate>
-	<Name>Beehive</Name>
-	<ClientId>185</ClientId>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
-	<ObjectVariableComponent>		
-		<StringVariable Name="UnpackedTemplate">beehive</StringVariable>
-		<StringVariable Name="ResourceType">PackedObject</StringVariable>
-	</ObjectVariableComponent>
-</ObjectTemplate>
