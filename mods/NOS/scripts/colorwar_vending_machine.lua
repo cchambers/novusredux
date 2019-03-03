@@ -73,7 +73,9 @@ function ShowVendingWindow(user)
 		"default"
 	)
 	mBUYWINDOW:AddButton(190, 130, "cw_plate_set", "Plate Armor", 160, 24, "Clink clank.", "", false, "Default", "default")
-	mBUYWINDOW:AddButton(20, 160, "cw_rekit", "RE-KIT AFTER RES", 330, 40, "ONCE A MINUTE, DON'T SPAM PLS.", "", true, "Default", "default")
+	if (user:HasTimer("ColorWarDeath")) then
+		mBUYWINDOW:AddButton(20, 160, "cw_rekit", "RE-KIT AFTER RES", 330, 40, "ONCE A MINUTE, DON'T SPAM PLS.", "", true, "Default", "default")
+	end
 
 	user:OpenDynamicWindow(mBUYWINDOW)
 end

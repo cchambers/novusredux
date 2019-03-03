@@ -257,7 +257,7 @@ MobileEffectLibrary.WashBandage =
 			CreateStackInBackpack(self.ParentObj, "bandage", bAmount)
 			bloodies:Destroy() 
 
-			if (bAmount > 50 and not(isWaterSource)) then
+			if (bAmount and bAmount > 50 and not(isWaterSource)) then
 				-- check if target is waterskin
 				UpdateWaterContainerState(target, "Empty")
 				self.ParentObj:NpcSpeech("The container has been emptied.")

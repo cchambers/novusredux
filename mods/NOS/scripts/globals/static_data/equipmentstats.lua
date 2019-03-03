@@ -241,7 +241,7 @@ EquipmentStats = {
 			Speed = 3,
 			PrimaryAbility = "Stun",
 			SecondaryAbility = "FollowThrough",
-			CanBePoisoned = true
+			CanBePoisoned = trued
 		},
 		-- 2H Blunts
 		Quarterstaff = {
@@ -891,6 +891,11 @@ EquipmentStats = {
 		DwarvenShield = {
 			BaseBlockChance = 0,
 			ArmorRating = 35,
+			MinSkill = 0
+		},
+		Heater = {
+			BaseBlockChance = 0,
+			ArmorRating = 45,
 			MinSkill = 0
 		},
 		HeaterShield = {

@@ -104,7 +104,7 @@ SkillData = {
 			DisplayName = "Parrying",
 			PrimaryStat = "Strength",
 			Description = "Not used.",
-			SkillType = "CombatTypeSkill",
+			SkillType = "Not",
 			GainFactor = 0.1,
 			Skip = true
 		},
@@ -112,7 +112,7 @@ SkillData = {
 			DisplayName = "Evocation",
 			PrimaryStat = "Intelligence",
 			Description = "Magery determines your knowledge of damage dealing spells.",
-			SkillType = "CombatTypeSkill",
+			SkillType = "Not",
 			GainFactor = 0.4,
 			Skip = true,
 		},
