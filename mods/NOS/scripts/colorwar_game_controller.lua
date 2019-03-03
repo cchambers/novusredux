@@ -45,7 +45,9 @@ function StartGame()
 end
 
 function EndGame()
-    mPlaying = false
+    CallFunctionDelayed(TimeSpan.FromSeconds(6), function () 
+        mPlaying = false
+    end)
     
     local bodies = FindObjects(SearchTemplate("player_corpse"))
 	

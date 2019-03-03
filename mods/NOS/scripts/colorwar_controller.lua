@@ -1,6 +1,7 @@
 colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
 mCountdown = 6
 mCountdownEvery = 2
+mNeeds = 6
 mPlayers = {}
 mPlayerCount = 0
 mCaptains = {}
@@ -22,6 +23,7 @@ end
 
 function OpenRegistration()
     mCountdown = 6
+    TotemGlobalEvent("colorwar")
     GlobalVarDelete("ColorWar.Player", nil)
     GlobalVarWrite(
         "ColorWar.Registration",
@@ -38,15 +40,31 @@ end
 function DoBroadcast() 
     if (mCountdown <= 0) then
         ServerBroadcast("Summoning players for " .. colorWars, true)
-    else
+    elseif(mCountDown > (mCountdown / 2)) then
         ServerBroadcast(colorWars.." registration open for the next "..mCountdown.." minutes! To queue, type: /cw", true)
+    else
+        ServerBroadcast(colorWars.." registration closing soon! "..mCountdown.." minutes remain -> /cw", true)
     end
-    if (mCountdown > 5) then
-        local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
-        for i = 1, #nearbyPlayers do
-            nearbyPlayers[i]:SystemMessage("IF YOU JUST GOT OUT OF A COLOR WARS, YOU MUST RE-QUEUE WITH /cw OR BE EJECTED")
+
+    mPlayers = GlobalVarRead("ColorWar.Queue")
+    local inQueue = 0
+    for player, t in pairs(mPlayers) do
+        if (GlobalVarReadKey("User.Online", player)) then
+            inQueue = inQueue + 1
         end
     end
+
+    if (mCountdown > (mCountdown / 2)) then
+        local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
+        for i = 1, #nearbyPlayers do
+            nearbyPlayers[i]:SystemMessage("If you just got out of colorwars, please requeue or you may be ejected!")
+        end
+    elseif (inQueue < mNeeds) then
+        ServerBroadcast("Color Wars cancelled -- not enough entrants.", true)
+        CloseRegistration()
+        return
+    end
+
     mCountdown = mCountdown - mCountdownEvery
     if (mCountdown >= 0) then 
         this:ScheduleTimerDelay(TimeSpan.FromMinutes(mCountdownEvery), "ColorWar.Broadcast")
@@ -58,11 +76,6 @@ end
 function SummonPlayers()
     mPlayers = GlobalVarRead("ColorWar.Queue")
     local count = 0
-    if (mPlayers == nil) then
-        ServerBroadcast("Color Wars cancelled -- not enough entrants.", true)
-        CloseRegistration()
-        return
-    end
     for player, t in pairs(mPlayers) do
         if (GlobalVarReadKey("User.Online", player)) then
             count = count + 1
