@@ -4,12 +4,28 @@ MobileEffectLibrary.Paralyze =
 		-- disable movement, casting, actions, etc.
 		local caster = target
 		local casterEval = GetSkillLevel(caster, "MagicAffinitySkill")
-		local targetResist = GetSkillLevel(self.ParentObj, "MagicAffinitySkill")
+		local targetResist = GetSkillLevel(self.ParentObj, "MagicResistSkill")
 
+		if (casterEval == 0) then casterEval = 1 end
+		if (targetResist == 0) then targetResist = 1 end
 
-		self.Duration = TimeSpan.FromSeconds((casterEval/10) - (targetResist/10) * 3)
+		local length = (casterEval/10) - (targetResist/10)
+		self.ParentObj:NpcSpeech(tostring(length))
 
-		self.ParentObj:SystemMessage("You have been paralyzed!", "info")
+		if (length <= 0) then
+			caster:SystemMessage("Target resist is too strong.","info")
+			EndMobileEffect(root)
+			return
+		end
+
+		if (not(self.ParentObj:IsPlayer())) then
+			length = length * 3
+		else
+			self.ParentObj:SystemMessage("You have been paralyzed!", "info")
+		end
+
+		self.Duration = TimeSpan.FromSeconds(length)
+			 
 		self.ParentObj:NpcSpeech("*paralyzed*")
 		SetMobileMod(self.ParentObj, "Disable", "Paralyze", true)
 
