@@ -1572,7 +1572,7 @@ WoodsmithSkill = {
 		},
 		Recurve = {
 			MinLevelToCraft = 80,
-			MaxLevelToGain = 99,
+			MaxLevelToGain = 100,
 			DisplayName = "Recurve Bow",
 			CraftingTemplateFile = "weapon_recurve_bow",
 			ItemType = "WeaponClass",
@@ -1687,7 +1687,7 @@ WoodsmithSkill = {
 			},
 		},
 
-		BroodwoodArrow = {
+		BroodwoodArrows = {
 			MinLevelToCraft = 65,
 			MaxLevelToGain = 90,
 			DisplayName = "Broodwood Arrow",

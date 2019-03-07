@@ -46,6 +46,8 @@ MobileEffectLibrary.Mentor = {
                     if (buttonId ~= nil and buttonId ~= "") then
                         user:SetObjVar("MentorPath", buttonId)
                         self.SelectSkill(self, root, target, buttonId)
+                    else
+                        EndMobileEffect(root)
                     end
                     return
                 end

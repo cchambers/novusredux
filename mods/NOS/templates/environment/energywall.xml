@@ -2,6 +2,7 @@
 <ObjectTemplate>
   <Name>Energy Wall</Name>
 	<ClientId>603</ClientId>
+	<ScaleModifier>0.1</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ScriptEngineComponent>
 		<LuaModule Name="sp_energywall_effect"></LuaModule>

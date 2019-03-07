@@ -2,7 +2,7 @@
 	<ClientId>2293</ClientId>
 	<Name>[0078ff]Warrior Light Lancing[-]</Name>
 	<SharedStateEntry name="Capacity" type="int" value="100"/>
-	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	
 	<ScriptEngineComponent>
 		<LuaModule Name="colorwar_item"/>

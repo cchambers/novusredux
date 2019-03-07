@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>ColorWar Game Controller</Name>
+	<Tag>CW_GAME</Tag>
+	<ObjectVariableComponent></ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="colorwar_game_controller" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

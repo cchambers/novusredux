@@ -5,7 +5,10 @@ mTeams = {
 	h835 = "[0000ff]Blue[-]"
 }
 
+mGameController = GameObj(68396825)
+
 function ExitColorWars(user)
+	user:SendMessage("EndGodFreezeEffect")
 	local hue = user:GetObjVar("HueActual")
 	if (hue ~= nil) then
 		user:DelObjVar("HueActual")
@@ -46,6 +49,7 @@ function ExitColorWars(user)
 	user:DelObjVar("ColorWarKit")
 	user:DelObjVar("ColorWarWin")
 	user:DelObjVar("ColorWarTeam")
+	user:DelObjVar("ColorWarRound")
 	
 	if (user:HasObjVar("ColorWarCaptain")) then user:DelObjVar("ColorWarCaptain") end
 
@@ -76,6 +80,9 @@ function ExitColorWars(user)
 end
 
 function EndColorWars(winners)
+	if (mGameController) then
+		mGameController:SendMessageGlobal("ColorWar.EndGame")
+	end
 	
 	if (this:HasTimer("ColorWars.End")) then return end
 	this:ScheduleTimerDelay(TimeSpan.FromMinutes(1),"ColorWars.End", effect)
@@ -83,6 +90,10 @@ function EndColorWars(winners)
 	local players = FindPlayersInRegion()
 
 	for i, j in pairs(players) do
+		j:SystemMessage(
+			"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
+			"info"
+		)
 		if (j:HasObjVar("ColorWarPlayer")) then
 			local hue = j:GetHue()
 			if (hue == winners) then
@@ -93,10 +104,6 @@ function EndColorWars(winners)
 					credits = credits + 1
 				end
 			end
-			j:SystemMessage(
-				"Color Wars is over: " .. mTeams[tostring("h" .. winners)] .. " wins! Leaving area in 5 seconds...",
-				"info"
-			)
 			if (IsDead(j)) then
 				CallFunctionDelayed(
 					TimeSpan.FromSeconds(3),
@@ -110,18 +117,6 @@ function EndColorWars(winners)
 			end)
 		end
 	end
-
-	-- local bodies = FindObjects(SearchMobileInRegion("TwoTowers"))
-	-- local bodyCount = 0
-
-	-- for i, j in pairs(bodies) do
-	-- 	if (IsPlayerCorpse(j)) then
-	-- 		bodyCount = bodyCount + 1	
-	-- 		j:Destroy()
-	-- 	end
-	-- end
-
-	-- DebugMessage(tostring("Destroyed " .. bodyCount .. " bodies."))
 end
 
 RegisterEventHandler(
