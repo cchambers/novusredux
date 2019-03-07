@@ -107,7 +107,7 @@ EquipmentStats = {
 	BaseWeaponStats = {
 		BareHand = {
 			WeaponClass = "Fist",
-			Attack = 1,
+			Attack = 0.2,
 			MinSkill = 0,
 			Speed = 2.25,
 			Variance = 0.1,
@@ -465,13 +465,13 @@ EquipmentStats = {
 			SecondaryAbility = "MortalStrike"
 		},
 		Rapier = {
-			WeaponClass = "Sword",
+			WeaponClass = "Dagger",
 			Variance = 0.05,
 			Attack = 12,
 			MinSkill = 0,
 			Speed = 2.2,
 			PrimaryAbility = "Stab",
-			SecondaryAbility = "Bleed"
+			SecondaryAbility = "MortalStrike"
 		},
 		Gladius = {
 			WeaponClass = "Sword",

@@ -7,9 +7,18 @@ MobileEffectLibrary.Paralyze =
 		local targetResist = GetSkillLevel(self.ParentObj, "MagicAffinitySkill")
 
 
-		self.Duration = TimeSpan.FromSeconds((casterEval/10) - (targetResist/10) * 3)
+		self.Duration = TimeSpan.FromSeconds((casterEval/10) - (targetResist/10))
 
-		self.ParentObj:SystemMessage("You have been paralyzed!", "info")
+		if (self.Duration <= 0) then
+			EndMobileEffect(root)
+			return
+		end
+
+		if (not(self.ParentObj:IsPlayer()) then
+			self.Duration = self.Duration * 3
+		else
+			self.ParentObj:SystemMessage("You have been paralyzed!", "info")
+		end
 		self.ParentObj:NpcSpeech("*paralyzed*")
 		SetMobileMod(self.ParentObj, "Disable", "Paralyze", true)
 
