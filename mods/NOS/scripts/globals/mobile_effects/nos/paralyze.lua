@@ -13,7 +13,7 @@ MobileEffectLibrary.Paralyze =
 		self.ParentObj:NpcSpeech(tostring(length))
 
 		if (length <= 0) then
-			caster:SystemMessage("Their resist is too strong.","info")
+			caster:SystemMessage("Target resist is too strong.","info")
 			EndMobileEffect(root)
 			return
 		end
