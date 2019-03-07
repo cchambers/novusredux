@@ -369,51 +369,6 @@ function CheckRoundStarted()
 end
 
 
-RegisterEventHandler(EventType.Message, "Test", Test)
-
-RegisterEventHandler(EventType.Message, "ColorWar.Go", OpenRegistration)
-RegisterEventHandler(EventType.Message, "ColorWar.NextChoice", NextChoice)
-RegisterEventHandler(EventType.Message, "ColorWar.MakeCaptains", MakeCaptains)
-RegisterEventHandler(EventType.Message, "ColorWar.StartRound", StartRound)
-RegisterEventHandler(EventType.Message, "ColorWar.VoteStart", VoteStart)
-
-RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
-RegisterEventHandler(EventType.Timer, "ColorWar.PickCaptains", PickCaptains)
-RegisterEventHandler(EventType.Timer, "ColorWar.DoCaptains", DoCaptains)
-RegisterEventHandler(EventType.Timer, "ColorWar.Voting", VoteEnd)
-
-RegisterEventHandler(EventType.ClientTargetGameObjResponse, "ColorWar.PlayerChosen", HandlePlayerChosen)
-RegisterEventHandler(EventType.DynamicWindowResponse, "CHOOSECLASS",
-			function(user, buttonId)
-				if (buttonId ~= nil and buttonId ~= "") then
-					KitConfirm(user, buttonId)
-				end
-				return
-			end
-		)
-
-
-RegisterEventHandler(
-    EventType.Message,
-    "ColorWar.Queue",
-    function(args)
-        local user = args.user
-
-        for index, char in pairs(mQueue) do
-            if (char == user) then
-                table.remove(mQueue, index)
-                DebugMessage("De-queued " .. user:GetName() .. " for Color Wars.")
-                user:SendMessageGlobal("ColorWar.Exit")
-                return
-            end
-        end
-
-        table.insert(mQueue, user)
-        DebugMessage("Queued " .. user:GetName() .. " for Color Wars.")
-        user:SendMessageGlobal("ColorWar.Enter")
-    end
-)
-
 
 function DoRevealStuff()
 	mLoc = this:GetLoc()
@@ -465,9 +420,7 @@ function VoteEnd()
     if (count >= mNeeds) then
         this:SendMessage("ColorWar.Go")
     else
-        for player, t in pairs(mPlayers) do
-            player:SystemMessage("Color War vote failed. Try again later!", "info")
-        end
+        ServerBroadcast("Color War vote failed. Try again later!", true)
         GlobalVarDelete("ColorWar.Queue", nil)
     end
     GlobalVarWrite(
@@ -482,3 +435,51 @@ end
 
 RegisterEventHandler(EventType.Timer, "ColorWar.EntryReveal", DoRevealStuff)
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"ColorWar.EntryReveal")
+
+
+RegisterEventHandler(EventType.Message, "Test", Test)
+
+RegisterEventHandler(EventType.Message, "ColorWar.Go", OpenRegistration)
+RegisterEventHandler(EventType.Message, "ColorWar.NextChoice", NextChoice)
+RegisterEventHandler(EventType.Message, "ColorWar.MakeCaptains", MakeCaptains)
+RegisterEventHandler(EventType.Message, "ColorWar.StartRound", StartRound)
+RegisterEventHandler(EventType.Message, "ColorWar.VoteStart", VoteStart)
+
+RegisterEventHandler(EventType.Timer, "ColorWar.Broadcast", DoBroadcast)
+RegisterEventHandler(EventType.Timer, "ColorWar.PickCaptains", PickCaptains)
+RegisterEventHandler(EventType.Timer, "ColorWar.DoCaptains", DoCaptains)
+RegisterEventHandler(EventType.Timer, "ColorWar.Voting", VoteEnd)
+
+RegisterEventHandler(EventType.ClientTargetGameObjResponse, "ColorWar.PlayerChosen", HandlePlayerChosen)
+RegisterEventHandler(EventType.DynamicWindowResponse, "CHOOSECLASS",
+			function(user, buttonId)
+				if (buttonId ~= nil and buttonId ~= "") then
+					KitConfirm(user, buttonId)
+                else
+                    ChooseClass(user)
+                end
+				return
+			end
+		)
+
+
+RegisterEventHandler(
+    EventType.Message,
+    "ColorWar.Queue",
+    function(args)
+        local user = args.user
+
+        for index, char in pairs(mQueue) do
+            if (char == user) then
+                table.remove(mQueue, index)
+                DebugMessage("De-queued " .. user:GetName() .. " for Color Wars.")
+                user:SendMessageGlobal("ColorWar.Exit")
+                return
+            end
+        end
+
+        table.insert(mQueue, user)
+        DebugMessage("Queued " .. user:GetName() .. " for Color Wars.")
+        user:SendMessageGlobal("ColorWar.Enter")
+    end
+)
