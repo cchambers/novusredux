@@ -14,7 +14,7 @@ MobileEffectLibrary.Paralyze =
 			return
 		end
 
-		if (not(self.ParentObj:IsPlayer()) then
+		if (not(self.ParentObj:IsPlayer())) then
 			self.Duration = self.Duration * 3
 		else
 			self.ParentObj:SystemMessage("You have been paralyzed!", "info")
