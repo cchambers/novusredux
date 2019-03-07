@@ -459,8 +459,8 @@ AllRecipes = {
 		},
 
 		Zukuri = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 115,
 			DisplayName = "Zukuri",
 			CraftingTemplateFile = "weapon_zukuri",
 			ItemType = "WeaponClass",
@@ -1305,8 +1305,8 @@ AllRecipes = {
 		},
 
 		TaperedHeater = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 100,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 115,
 			DisplayName = "Tapered Heater",
 			CraftingTemplateFile = "shield_tapered_heater",
 			Description = "A metal shield.",

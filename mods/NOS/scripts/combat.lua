@@ -138,7 +138,10 @@ function PerformWeaponAttack(atTarget, hand)
 		if (mIsMoving) then
 			local chance = 0
 			if not (this:HasTimer("OutOfArrows")) then
-				chance = ((GetSkillLevel(this,"MarksmanshipSkill") / 2) * 0.01)
+				chance = GetSkillLevel(this,"MarksmanshipSkill") / 10
+				if (chance < 5) then chance = 5 end
+				chance = math.random(0,chance) 
+				chance = chance >= 5
 				CheckSkill(this, "MarksmanshipSkill")
 				ExecuteRangedWeaponAttack(atTarget, hand, chance)
 			end
