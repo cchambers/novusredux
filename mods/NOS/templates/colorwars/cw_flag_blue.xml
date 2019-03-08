@@ -4,7 +4,7 @@
 	<Hue>835</Hue>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ShieldType">Buckler</StringVariable>
+		<StringVariable Name="ShieldType">Fortress</StringVariable>
 		<DoubleVariable Name="MaxDurability">2000</DoubleVariable>
 		<BoolVariable Name="ColorWarFlag">True</BoolVariable>
 		<BoolVariable Name="NoDecay">True</BoolVariable>

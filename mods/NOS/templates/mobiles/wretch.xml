@@ -1,0 +1,63 @@
+<ObjectTemplate>
+	<ClientId>1143</ClientId>
+	<Name>Wretch</Name>
+	<Color>0xc7e6ae</Color>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.7</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>0.7</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">900</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Giant</StringVariable>
+		<StringVariable Name="MobileKind">Giant</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">65</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						PiercingResistance = 1,
+						BowVulnerability = 1,
+					},
+				Skills = 
+					{ 
+					Brawling = 100,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.BeastBlood,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(300,450),
+						},
+					},
+				ScavengeTables =
+					{
+					},	
+					WeaponAbilities = { primary="Overpower", secondary="Charge" },			
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

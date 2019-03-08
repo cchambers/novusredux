@@ -488,23 +488,23 @@ function DoMobileDeath(damager)
 		damager:SystemMessage("[0AB4F7] You have vanquished [-][F70A79]" .. name, "info")
 	end
 
-	if (damager == nil) then
-		Totem(this, "death")
-	elseif (damager == this) then
-		Totem(this, "death", { aggressor = this:GetName(), kind = 1 })
-	elseif (damager:IsPlayer()) then
-		Totem(this, "death", { aggressor = damager:GetName(), kind = 2 })
-	else
-		local what = damager:GetObjVar("MobileTeamType"):lower() or "creature"
-		local power = damager:GetObjVar("Power") or 0
-		local kind = 3 -- mob
-		if (power > 0) then
-			kind = kind + math.round(power / 5)
-			if (kind > 10) then kind = 10 end
-		end
+	-- if (damager == nil) then
+	-- 	Totem(this, "death")
+	-- elseif (damager == this) then
+	-- 	Totem(this, "death", { aggressor = this:GetName(), kind = 1 })
+	-- elseif (damager:IsPlayer()) then
+	-- 	Totem(this, "death", { aggressor = damager:GetName(), kind = 2 })
+	-- else
+	-- 	local what = damager:GetObjVar("MobileTeamType"):lower() or "creature"
+	-- 	local power = damager:GetObjVar("Power") or 0
+	-- 	local kind = 3 -- mob
+	-- 	if (power > 0) then
+	-- 		kind = kind + math.round(power / 5)
+	-- 		if (kind > 10) then kind = 10 end
+	-- 	end
 
-		Totem(this, "death", { aggressor = what, kind = kind })
-	end
+	-- 	Totem(this, "death", { aggressor = what, kind = kind })
+	-- end
 
 	mBackpack = this:GetEquippedObject("Backpack")
 
