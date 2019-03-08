@@ -62,28 +62,30 @@ function GetSpellTargetType(spellName)
 	return nil
 end
 
-function ValidateSpellCastTarget(spellName, spellTarget, spellSource)
-	Verbose("Magic", "ValidateSpellCastTarget", spellName, spellTarget, spellSource)
-	local targetType = GetSpellInformation(spellName, "TargetType")
 
+function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
+	Verbose("Magic", "ValidateSpellCastTarget", spellName,spellTarget,spellSource)
+	local targetType = GetSpellInformation(spellName,"TargetType")
+	
 	if (not (spellTarget)) then
 		spellTarget = this
 	end
 
-	if (not IsInSpellRange(spellName, spellTarget, this)) then
+	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
-		CancelSpellCast()
 		return false
-	elseif (spellTarget ~= nil and targetType == "targetMobile" and not (spellTarget:IsMobile())) then
+	elseif ( spellName == "Resurrect" and not ValidResurrectTarget(this, spellTarget) ) then
+		DebugMessage("RES FAILED")
+		return false
+	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
 		if not (spellTarget:HasObjVar("Attackable")) then
 			return false
 		end
-	elseif (not LineOfSightCheck(spellName, spellTarget)) then
+	elseif( not LineOfSightCheck(spellName, spellTarget)) then
 		this:SystemMessage("Cannot see that.", "info")
-		CancelSpellCast()
 		return false
-	elseif (not TargetDeadCheck(spellName, spellTarget)) then
-		local mustBeDead = GetSpellInformation(spellName, "TargetMustBeDead")
+	elseif (not TargetDeadCheck(spellName,spellTarget)) then
+		local mustBeDead = GetSpellInformation(spellName, "TargetMustBeDead") 
 		local mustBeAlive = GetSpellInformation(spellName, "TargetMustBeAlive")
 		if (mustBeDead) then
 			this:SystemMessage(spellTarget:GetName() .. " is alive. Target must be dead. " .. spellName)
@@ -94,8 +96,8 @@ function ValidateSpellCastTarget(spellName, spellTarget, spellSource)
 			return false
 		end
 	elseif spellTarget:IsCloaked() and (not ShouldSeeCloakedObject(this, spellTarget)) then
-		if not (this:IsPlayer()) then
-			this:SendMessage("CannotSeeTarget", spellTarget)
+		if not (this:IsPlayer()) then 
+			this:SendMessage("CannotSeeTarget", spellTarget) 
 			return false
 		else
 			this:SystemMessage("Cannot see that.", "info")
@@ -103,17 +105,35 @@ function ValidateSpellCastTarget(spellName, spellTarget, spellSource)
 		end
 	elseif IsAttackTypeSpell(spellName) and not ValidCombatTarget(this, spellTarget) then
 		return false
-	elseif
-		(SpellData.AllSpells[spellName].BeneficialSpellType == true and SpellData.AllSpells[spellName].SkipKarmaCheck ~= true) and
-			not AllowFriendlyActions(this, spellTarget, true)
-	 then
+	elseif (SpellData.AllSpells[spellName].BeneficialSpellType == true and SpellData.AllSpells[spellName].SkipKarmaCheck ~= true) and not AllowFriendlyActions(this, spellTarget, true) then
 		return false
 	elseif (GetSpellInformation(spellName, "TargetResource")) then
 		if (spellTarget:GetObjVar("ResourceType") ~= GetSpellInformation(spellName, "TargetResource")) then
-			return false
+			return false		
 		end
 	end
 
+	return true
+end
+
+function ValidResurrectTarget(caster, target)
+	if ( not IsDead(target) ) then
+		caster:SystemMessage("Cannot resurrect that which is not dead.","info")
+		return false
+	else
+		if ( caster:IsPlayer() ) then
+			if ( IsTamedPet(target) ) then
+				if ( GetSkillLevel(caster, "AnimalLoreSkill") < 80 ) then
+					caster:SystemMessage("Not skilled enough in the lore of animals to resurrect this pet.","info")
+					return false
+				end
+			elseif ( not IsPlayerObject(target) ) then
+				caster:SystemMessage("Can only resurrect dead players and pets.","info")
+				return false
+			end
+		end
+	end
+	
 	return true
 end
 
@@ -202,7 +222,8 @@ function PrimeSpell(spellName, spellSource)
 	local myCastTime = GetSpellCastTime(spellName, spellSource)
 	if (myCastTime == nil) then
 		--DebugMessage("[ERROR] Invalid Spell Casttime")
-		return false
+		-- return false
+		myCastTime = 2.5
 	end
 
 	this:PlayAnimation("cast")
