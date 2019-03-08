@@ -141,26 +141,27 @@ RecipeCategories = {
 				{"Spellbooks" ,"Spellbooks","Storage"},
 			},
 		},
-		{
-			Name = "Recipes",
-			Subcategories = {
-				{"Wood","Wood","Wood"},
-				{"Ingots","Ingots","Materials1"},
-				{"Bows","Bows","Ranged"},
-				{"Slashing","Slashing","Slashing"},
-				{"Bashing","Bashing","Bashing"},
-				{"Piercing","Piercing","Piercing"},
-				{"Polearms","Polearms","Bones"},
-				{"Wood Shields","Wood Shields","Shield"},
-				{"Metal Shields","Metal Shields","Shield"},
-				{"Crafting Stations","Crafting Stations","CraftingStations"},
-				{"Tables & Chairs","Tables & Chairs","Chairs"},
-				{"Decorative Items","Decorative Items","DecorativeItems"},
-				{"Lighting" ,},
-				{"Storage" ,},
-				{"Fences","Fences","FencesWalls"},
-				{"Tools",},
-			},		},
+		-- {
+		-- 	Name = "Recipes",
+		-- 	Subcategories = {
+		-- 		{"Wood","Wood","Wood"},
+		-- 		{"Ingots","Ingots","Materials1"},
+		-- 		{"Bows","Bows","Ranged"},
+		-- 		{"Slashing","Slashing","Slashing"},
+		-- 		{"Bashing","Bashing","Bashing"},
+		-- 		{"Piercing","Piercing","Piercing"},
+		-- 		{"Polearms","Polearms","Bones"},
+		-- 		{"Wood Shields","Wood Shields","Shield"},
+		-- 		{"Metal Shields","Metal Shields","Shield"},
+		-- 		{"Crafting Stations","Crafting Stations","CraftingStations"},
+		-- 		{"Tables & Chairs","Tables & Chairs","Chairs"},
+		-- 		{"Decorative Items","Decorative Items","DecorativeItems"},
+		-- 		{"Lighting" ,},
+		-- 		{"Storage" ,},
+		-- 		{"Fences","Fences","FencesWalls"},
+		-- 		{"Tools",},
+		-- 	},		
+		-- },
 		{
 			Name = "Books",
 			Subcategories = 
@@ -5110,7 +5111,7 @@ InscriptionSkill = {
 			},
 		},
 		------storage
-		Barrel = {
+		BarrelRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Barrel Recipe",
