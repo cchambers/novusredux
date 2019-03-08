@@ -37,8 +37,15 @@ MobileEffectLibrary.ColorWarPlayer = {
 			if (item:HasObjVar("ColorWarFlag")) then
 				count = count + 1
 			end
+			
 		end)
-
+		
+		local LeftHand = user:GetEquippedObject("LeftHand")
+		if (LeftHand) then
+			if (LeftHand:HasObjVar("ColorWarFlag")) then
+				count = count + 1
+			end
+		end
 		if (count >= 2) then
 			user:PlayEffectWithArgs("SlimeTrailEffect", 0.0,"Bone=Ground")
 			self.HadFlag = true
