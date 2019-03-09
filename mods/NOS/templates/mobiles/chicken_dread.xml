@@ -1,5 +1,5 @@
 <ObjectTemplate>
-	<ClientId>59</ClientId>
+	<ClientId>205</ClientId>
 	<Name>Dread Chicken</Name>
 	<Color>0xFF000000</Color>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
@@ -59,13 +59,6 @@
 					{
 						{ ResourceType="Feather", RarityPct=100, Count=5 },
 					},
-				}
-			</Initializer>
-		</LuaModule>
-		<LuaModule Name="ai_mountable">
-			<Initializer>
-				{
-					Body = "chicken"
 				}
 			</Initializer>
 		</LuaModule>
