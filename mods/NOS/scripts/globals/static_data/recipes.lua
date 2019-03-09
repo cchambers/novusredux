@@ -2034,8 +2034,8 @@ WoodsmithSkill = {
 			},	
 		},
 		WineBarrel = {
-			MinLevelToCraft = 95,
-			MaxLevelToGain = 115,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 100,
 			DisplayName = "Wine Barrel",
 			Description = "[$3144]",
 			ItemType = "FurnitureClass",
@@ -2053,8 +2053,8 @@ WoodsmithSkill = {
 			},	
 		},	
 		WoodenBowl = {
-			MinLevelToCraft = 95,
-			MaxLevelToGain = 115,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 100,
 			DisplayName = "Wooden Bowl",
 			Description = "[$3144]",
 			ItemType = "FurnitureClass",
@@ -2070,7 +2070,22 @@ WoodsmithSkill = {
 				OakVeneer = { OakVeneer = 8 },
 				YewVeneer = { YewVeneer = 8 }
 			},	
-		},				
+		},		
+		StoneChair = {
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 100,
+			DisplayName = "Stone Chair",
+			Description = "[$3144]",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CanImprove = true,
+			CraftingTemplateFile = "furniture_stone_chair",
+			Category = "Furnishings",
+			Subcategory = "DecorativeItems",
+			Resources = {
+				Stone = 80,
+			},	
+		},					
 		Shelf = {
 			MinLevelToCraft = 20,
 			MaxLevelToGain = 45,
