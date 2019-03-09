@@ -4043,7 +4043,7 @@ InscriptionSkill = {
 		},
 
 		BroodwoodBoards = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Broodwood Board Recipe",
 			NeedRecipe = true,
@@ -4090,7 +4090,7 @@ InscriptionSkill = {
 		},
 
 		Steel = {
-			MinLevelToCraft = 95,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Steel Recipe",
 			NeedRecipe = true,
@@ -4138,7 +4138,7 @@ InscriptionSkill = {
 		},
 	
 		Recurve = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Recurve Bow Recipe",
 			NeedRecipe = true,
@@ -4200,7 +4200,7 @@ InscriptionSkill = {
 		},
 
 		Gladius = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Gladius Recipe",
 			NeedRecipe = true,
@@ -4245,7 +4245,7 @@ InscriptionSkill = {
 		},
 
 		Rapier = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Rapier Recipe",
 			NeedRecipe = true,
@@ -4275,7 +4275,7 @@ InscriptionSkill = {
 		},
 
 		Ninjato = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Ninjato Recipe",
 			NeedRecipe = true,
@@ -4290,7 +4290,7 @@ InscriptionSkill = {
 		},
 
 		Butcher = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Butcher Recipe",
 			NeedRecipe = true,
@@ -4351,7 +4351,7 @@ InscriptionSkill = {
 		},
 
 		BattleHammer = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Battle Hammer Recipe",
 			NeedRecipe = true,
@@ -4366,7 +4366,7 @@ InscriptionSkill = {
 		},
 
 		Warhammer = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Warhammer Recipe",
 			NeedRecipe = true,
@@ -4381,7 +4381,7 @@ InscriptionSkill = {
 		},
 
 		BladedClub = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Bladed Club Recipe",
 			NeedRecipe = true,
@@ -4442,7 +4442,7 @@ InscriptionSkill = {
 		},
 
 		Skinner = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Skinner Recipe",
 			NeedRecipe = true,
@@ -4457,7 +4457,7 @@ InscriptionSkill = {
 		},
 
 		LetterOpener = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Letter Opener Recipe",
 			NeedRecipe = true,
@@ -4472,7 +4472,7 @@ InscriptionSkill = {
 		},
 
 		Stiletto = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Stiletto Dagger Recipe",
 			NeedRecipe = true,
@@ -4487,7 +4487,7 @@ InscriptionSkill = {
 		},
 
 		FulleredDagger = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Fullered Dagger Recipe",
 			NeedRecipe = true,
@@ -4502,7 +4502,7 @@ InscriptionSkill = {
 		},
 
 		Zukuri = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Zukuri Recipe",
 			NeedRecipe = true,
@@ -4564,7 +4564,7 @@ InscriptionSkill = {
 		},
 
 		BoarSpear = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Boar Spear Recipe",
 			NeedRecipe = true,
@@ -4579,7 +4579,7 @@ InscriptionSkill = {
 		},
 
 		Pike = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Pike Recipe",
 			NeedRecipe = true,
@@ -4594,7 +4594,7 @@ InscriptionSkill = {
 		},
 
 		Poleaxe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Poleaxe Recipe",
 			NeedRecipe = true,
@@ -4609,7 +4609,7 @@ InscriptionSkill = {
 		},
 
 		Spetum = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Spetum Recipe",
 			NeedRecipe = true,
@@ -4624,7 +4624,7 @@ InscriptionSkill = {
 		},
 
 		Naginata = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Naginata Recipe",
 			NeedRecipe = true,
@@ -4686,7 +4686,7 @@ InscriptionSkill = {
 		},
 
 		HardenedBuckler = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Hardened Buckler Recipe",
 			NeedRecipe = true,
@@ -4701,7 +4701,7 @@ InscriptionSkill = {
 		},
 
 		OvalShield = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Oval Shield Recipe",
 			NeedRecipe = true,
@@ -4716,7 +4716,7 @@ InscriptionSkill = {
 		},
 
 		WarriorsKite = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Warriors Kite Recipe",
 			NeedRecipe = true,
@@ -4731,7 +4731,7 @@ InscriptionSkill = {
 		},
 
 		TaperedHeater = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Tapered Heater Recipe",
 			NeedRecipe = true,
@@ -4746,7 +4746,7 @@ InscriptionSkill = {
 		},
 
 		ShieldOfJustice = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Shield of Justice Recipe",
 			NeedRecipe = true,
