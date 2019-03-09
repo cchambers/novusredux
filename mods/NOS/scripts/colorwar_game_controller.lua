@@ -1,9 +1,11 @@
 mRound = 0
 mPlayers = nil
 mPlaying = false
+mCountdownStart = 2
 mCountdown = 2
 
 function StartRound()
+    mCountdown = mCountdownStart
     mRound = (this:GetObjVar("Round") or 0) + 1
     this:SetObjVar("Round", mRound)
     Countdown()
@@ -93,7 +95,6 @@ this:ScheduleTimerDelay(TimeSpan.FromSeconds(2),"ColorWar.FreezePing")
 RegisterEventHandler(EventType.Timer, "ColorWar.FreezePing", FreezePing)
 RegisterEventHandler(EventType.Timer, "ColorWar.Countdown", Countdown)
 
-RegisterEventHandler(EventType.Message, "ColorWar.Countdown", StartRound)
 RegisterEventHandler(EventType.Message, "ColorWar.StartRound", StartRound)
 RegisterEventHandler(EventType.Message, "ColorWar.EndGame", EndGame)
 RegisterEventHandler(EventType.Message, "ColorWar.StartGame", StartGame)

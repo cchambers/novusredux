@@ -23,7 +23,22 @@ MobileEffectLibrary.ApplyPoison =
 				Saber = true,
 				Katana = true,
 				LargeAxe = true,
-				GreatAxe = true
+				GreatAxe = true,
+				BladedClub = true,
+				Skinner = true,
+				LetterOpener = true,
+				Stiletto = true,
+				FulleredDagger = true,
+				Zukuri = true,
+				BoarSpear = true,
+				Pike = true,
+				Poleaxe = true,
+				Spetum = true,
+				Naginata = true,
+				Rapier = true,
+				Crescent = true,
+				Ninjato = true,
+				Butcher = true
 			}
 
 			local weaponType = target:GetObjVar("WeaponType")

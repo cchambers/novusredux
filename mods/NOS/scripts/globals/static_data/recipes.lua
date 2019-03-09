@@ -60,7 +60,7 @@ RecipeCategories = {
 			Name = "Furnishings",
 			Subcategories = {
 				{"CraftingStations" ,"Crafting Stations"},
-				{"TablesChairs" ,"Tables & Chairs"},
+				{"Tables & Chairs","Tables & Chairs","Chairs"},
 				{"DecorativeItems" ,"Decorative Items"},
 				{"Lighting" ,},
 				{"Storage" ,},
@@ -125,7 +125,14 @@ RecipeCategories = {
 			Name = "Scrolls",
 			Subcategories = 
 			{
-				{"Scrolls" ,"Scrolls","Storage"},
+				{"Circle 1" ,"Circle 1","Anvil1"},
+				{"Circle 2" ,"Circle 2","Anvil2"},
+				{"Circle 3" ,"Circle 3","Anvil3"},
+				{"Circle 4" ,"Circle 4","Anvil4"},
+				{"Circle 5" ,"Circle 5","Anvil5"},
+				{"Circle 6" ,"Circle 6","Anvil6"},
+				{"Circle 7" ,"Circle 7","Anvil7"},
+				{"Circle 8" ,"Circle 8","Anvil8"},
 			},
 		},
 		{
@@ -135,13 +142,26 @@ RecipeCategories = {
 				{"Spellbooks" ,"Spellbooks","Storage"},
 			},
 		},
-		-- {
-		-- 	Name = "Recipes",
-		-- 	Subcategories = 
-		-- 	{
-		-- 		{"Recipes" ,"Recipes","Storage"},
-		-- 	},
-		-- },
+		{
+			Name = "Recipes",
+			Subcategories = {
+				{"Wood","Wood","Wood"},
+				{"Ingots","Ingots","Materials1"},
+				{"Bows","Bows","Ranged"},
+				{"Slashing","Slashing","Slashing"},
+				{"Bashing","Bashing","Bashing"},
+				{"Piercing","Piercing","Piercing"},
+				{"Polearms","Polearms","Bones"},
+				{"Wood Shields","Wood Shields","Shield"},
+				{"Metal Shields","Metal Shields","Shield"},
+				{"Crafting Stations","Crafting Stations","CraftingStations"},
+				{"Tables & Chairs","Tables & Chairs","Chairs"},
+				{"Decorative Items","Decorative Items","DecorativeItems"},
+				{"Lighting" ,},
+				{"Storage" ,},
+				{"Fences","Fences","FencesWalls"},
+				{"Tools",},
+			},		},
 		{
 			Name = "Books",
 			Subcategories = 
@@ -440,8 +460,8 @@ AllRecipes = {
 		},
 
 		Zukuri = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 105,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 115,
 			DisplayName = "Zukuri",
 			CraftingTemplateFile = "weapon_zukuri",
 			ItemType = "WeaponClass",
@@ -1286,8 +1306,8 @@ AllRecipes = {
 		},
 
 		TaperedHeater = {
-			MinLevelToCraft = 80,
-			MaxLevelToGain = 100,
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 115,
 			DisplayName = "Tapered Heater",
 			CraftingTemplateFile = "shield_tapered_heater",
 			Description = "A metal shield.",
@@ -1905,7 +1925,7 @@ WoodsmithSkill = {
 			CraftingTemplateFile = "furniture_bench_fancy",
 			Description = "[$3133]",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 4,
 			},
@@ -1933,7 +1953,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_fancy",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 3,
 			},
@@ -1947,7 +1967,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_wooden",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 2,
 			},
@@ -1961,7 +1981,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_desk_fancy",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 40,
 			},
@@ -1989,7 +2009,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_table_wooden",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 4,
 			},
@@ -2004,7 +2024,7 @@ WoodsmithSkill = {
 			CanImprove = true,
 			CraftingTemplateFile = "furniture_table_wooden_large",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = { Boards = 10 },
 				AshBoards = { AshBoards = 10 },
@@ -2074,7 +2094,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_stool_wooden",
 			Category = "Furnishings",
-			Subcategory = "TablesChairs",
+			Subcategory = "Tables & Chairs",
 			Resources = {
 				Boards = 1,
 			},
@@ -3389,7 +3409,7 @@ InscriptionSkill = {
 			Description = "A heal scroll. ",
 			CraftingTemplateFile = "lscroll_heal",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				BlankScroll = 1,
@@ -3403,7 +3423,7 @@ InscriptionSkill = {
 			Description = "A refresh scroll. ",
 			CraftingTemplateFile = "lscroll_refresh",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3417,7 +3437,7 @@ InscriptionSkill = {
 			Description = "An Infuse scroll. ",
 			CraftingTemplateFile = "lscroll_infuse",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3431,7 +3451,7 @@ InscriptionSkill = {
 			Description = "A Magic Arrow scroll. ",
 			CraftingTemplateFile = "lscroll_mana_missile",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				LemonGrass = 1,
 				BlankScroll = 1,
@@ -3445,7 +3465,7 @@ InscriptionSkill = {
 			Description = "An Strength scroll. ",
 			CraftingTemplateFile = "scroll_strength",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3459,7 +3479,7 @@ InscriptionSkill = {
 			Description = "An Cunning scroll. ",
 			CraftingTemplateFile = "scroll_cunning",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3473,7 +3493,7 @@ InscriptionSkill = {
 			Description = "An Protection scroll. ",
 			CraftingTemplateFile = "scroll_protection",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3487,7 +3507,7 @@ InscriptionSkill = {
 			Description = "An Agility scroll. ",
 			CraftingTemplateFile = "scroll_agile",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3501,7 +3521,7 @@ InscriptionSkill = {
 			Description = "A Feeblemind scroll. ",
 			CraftingTemplateFile = "scroll_feeblemind",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3515,7 +3535,7 @@ InscriptionSkill = {
 			Description = "A Weaken scroll. ",
 			CraftingTemplateFile = "scroll_weaken",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3529,7 +3549,7 @@ InscriptionSkill = {
 			Description = "A Clumsy scroll. ",
 			CraftingTemplateFile = "scroll_clumsy",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3543,7 +3563,7 @@ InscriptionSkill = {
 			Description = "A Create Food scroll. ",
 			CraftingTemplateFile = "scroll_create_food",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 1",
 			Resources = {
 				Ginseng = 1,
 				FrayedScroll = 1,
@@ -3557,7 +3577,7 @@ InscriptionSkill = {
 			Description = "A Fireball scroll. ",
 			CraftingTemplateFile = "lscroll_fireball",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 3",
 			Resources = {
 				LemonGrass = 1,
 				BlankScroll = 1,
@@ -3571,7 +3591,7 @@ InscriptionSkill = {
 			Description = "A Bless scroll. ",
 			CraftingTemplateFile = "scroll_bless",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 3",
 			Resources = {
 				LemonGrass = 1,
 				BlankScroll = 1,
@@ -3585,7 +3605,7 @@ InscriptionSkill = {
 			Description = "A Curse scroll. ",
 			CraftingTemplateFile = "scroll_curse",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				LemonGrass = 1,
 				BlankScroll = 1,
@@ -3613,7 +3633,7 @@ InscriptionSkill = {
 			Description = "A cure scroll. ",
 			CraftingTemplateFile = "lscroll_cure",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				Ginseng = 1,
 				BlankScroll = 1,
@@ -3627,7 +3647,7 @@ InscriptionSkill = {
 			Description = "A Poison scroll. ",
 			CraftingTemplateFile = "lscroll_poison",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 3",
 			Resources = {
 				Mushrooms = 1,
 				FrayedScroll = 1,
@@ -3641,7 +3661,7 @@ InscriptionSkill = {
 			Description = "A teleport scroll. ",
 			CraftingTemplateFile = "lscroll_teleport",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 3",
 			Resources = {
 				Ginseng = 2,
 				FrayedScroll = 1,
@@ -3655,7 +3675,7 @@ InscriptionSkill = {
 			Description = "A ruin scroll. ",
 			CraftingTemplateFile = "lscroll_ruin",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 2",
 			Resources = {
 				LemonGrass = 2,
 				FrayedScroll = 1,
@@ -3669,7 +3689,7 @@ InscriptionSkill = {
 			Description = "A Lightning scroll. ",
 			CraftingTemplateFile = "lscroll_lightning",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3683,7 +3703,7 @@ InscriptionSkill = {
 			Description = "A recall scroll. ",
 			CraftingTemplateFile = "lscroll_recall",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3697,7 +3717,7 @@ InscriptionSkill = {
 			Description = "An imbue scroll. ",
 			CraftingTemplateFile = "scroll_imbue",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3711,7 +3731,7 @@ InscriptionSkill = {
 			Description = "A Energy Field scroll. ",
 			CraftingTemplateFile = "scroll_energywall",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3725,7 +3745,7 @@ InscriptionSkill = {
 			Description = "A Flame Wave scroll. ",
 			CraftingTemplateFile = "scroll_flamewave",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3739,7 +3759,7 @@ InscriptionSkill = {
 			Description = "A Ice Storm scroll. ",
 			CraftingTemplateFile = "scroll_hailstorm",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3753,7 +3773,7 @@ InscriptionSkill = {
 			Description = "A Ice Blade scroll. ",
 			CraftingTemplateFile = "scroll_iceblade",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3767,7 +3787,7 @@ InscriptionSkill = {
 			Description = "A Defense Up scroll. ",
 			CraftingTemplateFile = "scroll_defense",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3781,7 +3801,7 @@ InscriptionSkill = {
 			Description = "A Power Up scroll. ",
 			CraftingTemplateFile = "scroll_attack",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3795,7 +3815,7 @@ InscriptionSkill = {
 			Description = "A Greater Heal scroll. ",
 			CraftingTemplateFile = "lscroll_greater_heal",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3809,7 +3829,7 @@ InscriptionSkill = {
 			Description = "A Magic Reflection scroll. ",
 			CraftingTemplateFile = "scroll_magicreflection",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3823,7 +3843,7 @@ InscriptionSkill = {
 			Description = "A Poison Field scroll. ",
 			CraftingTemplateFile = "scroll_poisonfield",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 4",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3837,7 +3857,7 @@ InscriptionSkill = {
 			Description = "A Stone Wall scroll. ",
 			CraftingTemplateFile = "scroll_stonewall",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 3",
 			Resources = {
 				Ginseng = 2,
 				FineScroll = 1,
@@ -3851,7 +3871,7 @@ InscriptionSkill = {
 			Description = "A cloak scroll. ",
 			CraftingTemplateFile = "lscroll_cloak",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3865,7 +3885,7 @@ InscriptionSkill = {
 			Description = "A night sight scroll. ",
 			CraftingTemplateFile = "scroll_nightsight",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Blackpearl = 2,
 				FineScroll = 1,
@@ -3879,7 +3899,7 @@ InscriptionSkill = {
 			Description = "A Meteor Swarm scroll. ",
 			CraftingTemplateFile = "lscroll_bombardment",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				Mushrooms = 2,
 				FineScroll = 1,
@@ -3893,7 +3913,7 @@ InscriptionSkill = {
 			Description = "An energy bolt scroll.",
 			CraftingTemplateFile = "lscroll_electricbolt",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3907,7 +3927,7 @@ InscriptionSkill = {
 			Description = "An reveal scroll.",
 			CraftingTemplateFile = "scroll_reveal",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3921,7 +3941,7 @@ InscriptionSkill = {
 			Description = "An explosion scroll. ",
 			CraftingTemplateFile = "scroll_explosion",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3935,7 +3955,7 @@ InscriptionSkill = {
 			Description = "A mind blast scroll. ",
 			CraftingTemplateFile = "scroll_mindblast",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -3949,7 +3969,7 @@ InscriptionSkill = {
 			Description = "A meteor scroll. ",
 			CraftingTemplateFile = "lscroll_meteor",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				LemonGrass = 2,
 				AncientScroll = 1,
@@ -3963,7 +3983,7 @@ InscriptionSkill = {
 			Description = "A resurrection scroll. ",
 			CraftingTemplateFile = "lscroll_resurrect",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 8",
 			Resources = {
 				Moss = 2,
 				AncientScroll = 1,
@@ -3977,7 +3997,7 @@ InscriptionSkill = {
 			Description = "A Flame Aura scroll. ",
 			CraftingTemplateFile = "scroll_flameaura",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 8",
 			Resources = {
 				LemonGrass = 2,
 				AncientScroll = 1,
@@ -3991,7 +4011,7 @@ InscriptionSkill = {
 			Description = "A earthquake scroll. ",
 			CraftingTemplateFile = "lscroll_earthquake",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 8",
 			Resources = {
 				LemonGrass = 2,
 				AncientScroll = 1,
@@ -4005,7 +4025,7 @@ InscriptionSkill = {
 			Description = "A Ward: Evil scroll. ",
 			CraftingTemplateFile = "lscroll_ward_evil",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 8",
 			Resources = {
 				LemonGrass = 2,
 				Ginseng = 2,
@@ -4020,7 +4040,7 @@ InscriptionSkill = {
 			Description = "A wall of fire scroll. ",
 			CraftingTemplateFile = "lscroll_walloffire",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				LemonGrass = 2,
 				FineScroll = 1,
@@ -4034,7 +4054,7 @@ InscriptionSkill = {
 			Description = "A Flame Strike scroll. ",
 			CraftingTemplateFile = "scroll_flamestrike",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				Moss = 2,
 				AncientScroll = 1,
@@ -4048,7 +4068,7 @@ InscriptionSkill = {
 			Description = "A portal scroll. ",
 			CraftingTemplateFile = "lscroll_portal",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 7",
 			Resources = {
 				Moss = 2,
 				AncientScroll = 1,
@@ -4116,7 +4136,7 @@ InscriptionSkill = {
 			Description = "A mark scroll. ",
 			CraftingTemplateFile = "lscroll_mark",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 6",
 			Resources = {
 				Moss = 2,
 				AncientScroll = 1,
@@ -4130,12 +4150,1223 @@ InscriptionSkill = {
 			Description = "A frost scroll. ",
 			CraftingTemplateFile = "lscroll_frost",
 			Category = "Scrolls",
-			Subcategory = "Scrolls",
+			Subcategory = "Circle 5",
 			Resources = {
 				Moss = 2,
 				AncientScroll = 1,
 			},
 		},
+
+		-- recipes
+		----resources
+		
+		AshBoard = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Ash Board Recipe",
+			NeedRecipe = false,
+			Description = "A Carpenter recipe to craft ash boards. ",
+			CraftingTemplateFile = "recipe_ash",
+			Category = "Recipes",
+			Subcategory = "Wood",
+			Resources = {	
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Blightwood = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Blightwood Board Recipe",
+			NeedRecipe = false,
+			Description = "A Carpenter recipe to craft blightwood boards. ",
+			CraftingTemplateFile = "recipe_blightwood",
+			Category = "Recipes",
+			Subcategory = "Wood",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BroodwoodBoards = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Broodwood Board Recipe",
+			NeedRecipe = true,
+			Description = "A Carpenter recipe to craft broodwood boards. ",
+			CraftingTemplateFile = "recipe_broodwood",
+			Category = "Recipes",
+			Subcategory = "Wood",
+			Resources = {
+				Blackpearl = 5,
+				AncientScroll = 10,
+				FineScroll = 10,
+				EtherealBones = 10
+			},
+		},
+
+		Cobalt = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Cobalt Recipe",
+			NeedRecipe = true,
+			Description = "A Blacksmith recipe to craft Cobalt. ",
+			CraftingTemplateFile = "recipe_cobalt",
+			Category = "Recipes",
+			Subcategory = "Ingots",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Obsidian = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Obsidian Recipe",
+			NeedRecipe = true,
+			Description = "A Blacksmith recipe to craft Obsidian. ",
+			CraftingTemplateFile = "recipe_obsidian",
+			Category = "Recipes",
+			Subcategory = "Ingots",
+			Resources = {
+				Blackpearl = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Steel = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Steel Recipe",
+			NeedRecipe = true,
+			Description = "A Blacksmith recipe to craft Steel. ",
+			CraftingTemplateFile = "recipe_steel",
+			Category = "Recipes",
+			Subcategory = "Ingots",
+			Resources = {
+				Blackpearl = 5,
+				AncientScroll = 10,
+				FineScroll = 10,
+				EtherealBones = 10
+			},
+		},
+		----Bows
+
+		LongBow = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Long Bow Recipe",
+			NeedRecipe = true,
+			Description = "A Carpenter recipe to craft a Long Bow. ",
+			CraftingTemplateFile = "recipe_longbow",
+			Category = "Recipes",
+			Subcategory = "Bows",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+		
+		WarBow = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "War Bow Recipe",
+			NeedRecipe = true,
+			Description = "A Carpenter recipe to craft a War Bow. ",
+			CraftingTemplateFile = "recipe_warbow",
+			Category = "Recipes",
+			Subcategory = "Bows",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+	
+		Recurve = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Recurve Bow Recipe",
+			NeedRecipe = true,
+			Description = "A Carpenter recipe to craft a Recurve Bow. ",
+			CraftingTemplateFile = "recipe_recurve",
+			Category = "Recipes",
+			Subcategory = "Bows",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		----Slashing
+
+		Broadsword = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Broadsword Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Broadsword. ",
+			CraftingTemplateFile = "recipe_broadsword",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Saber = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Saber Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Saber. ",
+			CraftingTemplateFile = "recipe_saber",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Katana = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Katana Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Katana. ",
+			CraftingTemplateFile = "recipe_katana",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Gladius = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Gladius Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Gladius. ",
+			CraftingTemplateFile = "recipe_gladius",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		GreatAxe = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Great Axe Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Great Axe. ",
+			CraftingTemplateFile = "recipe_greataxe",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		LargeAxe = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Large Axe Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Large Axe. ",
+			CraftingTemplateFile = "recipe_largeaxe",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Rapier = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Rapier Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Rapier. ",
+			CraftingTemplateFile = "recipe_largeaxe",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Crescent = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Crescent Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Crescent. ",
+			CraftingTemplateFile = "recipe_crescent",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Ninjato = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Ninjato Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Ninjato. ",
+			CraftingTemplateFile = "recipe_ninjato",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Butcher = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Butcher Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Butcher. ",
+			CraftingTemplateFile = "recipe_butcher",
+			Category = "Recipes",
+			Subcategory = "Slashing",
+			Resources = {
+				LemonGrass = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		----Bashing
+		Hammer = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Hammer Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Hammer. ",
+			CraftingTemplateFile = "recipe_hammer",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Maul = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Maul Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Maul. ",
+			CraftingTemplateFile = "recipe_maul",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		WarMace = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "War Mace Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a War Mace. ",
+			CraftingTemplateFile = "recipe_warmace",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BattleHammer = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Battle Hammer Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Battle Hammer. ",
+			CraftingTemplateFile = "recipe_battle_hammer",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Warhammer = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Warhammer Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Warhammer. ",
+			CraftingTemplateFile = "recipe_warhammer",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		BladedClub = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Bladed Club Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Bladed Club. ",
+			CraftingTemplateFile = "recipe_bladed_club",
+			Category = "Recipes",
+			Subcategory = "Bashing",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		----Piercing
+		Kryss = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Kryss Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Kryss. ",
+			CraftingTemplateFile = "recipe_kryss",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Poniard = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Poniard Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Poniard. ",
+			CraftingTemplateFile = "recipe_poniard",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BoneDagger = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Bone Dagger Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Bone Dagger. ",
+			CraftingTemplateFile = "recipe_bonedagger",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Skinner = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Skinner Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Skinner. ",
+			CraftingTemplateFile = "recipe_skinner",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		LetterOpener = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Letter Opener Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Letter Opener. ",
+			CraftingTemplateFile = "recipe_letter_opener",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Stiletto = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Stiletto Dagger Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Stiletto Dagger. ",
+			CraftingTemplateFile = "recipe_stiletto",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		FulleredDagger = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Fullered Dagger Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Fullered Dagger. ",
+			CraftingTemplateFile = "recipe_fullered_dagger",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Zukuri = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Zukuri Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Zukuri. ",
+			CraftingTemplateFile = "recipe_zukuri",
+			Category = "Recipes",
+			Subcategory = "Piercing",
+			Resources = {
+				Garlic = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		----Polearms
+
+		Voulge = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Voulge Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Voulge. ",
+			CraftingTemplateFile = "recipe_voulge",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Spear = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Spear Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Spear. ",
+			CraftingTemplateFile = "recipe_spear",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		Halberd = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Halberd Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Halberd. ",
+			CraftingTemplateFile = "recipe_halberd",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BoarSpear = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Boar Spear Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Boar Spear. ",
+			CraftingTemplateFile = "recipe_boarspear",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Pike = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Pike Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Pike. ",
+			CraftingTemplateFile = "recipe_pike",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Poleaxe = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Poleaxe Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Poleaxe. ",
+			CraftingTemplateFile = "recipe_poleaxe",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Spetum = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Spetum Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Spetum. ",
+			CraftingTemplateFile = "recipe_speatum",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		Naginata = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Naginata Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Naginata. ",
+			CraftingTemplateFile = "recipe_naginata",
+			Category = "Recipes",
+			Subcategory = "Polearms",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		----Shields
+
+		--SmallShield = {
+		--	MinLevelToCraft = 60,
+		--	MaxLevelToGain = 125,
+		--	DisplayName = "SmallShield Recipe",
+		--	NeedRecipe = true,
+		--	Description = "A carpenter recipe to craft a Small Shield. ",
+		--	CraftingTemplateFile = "recipe_smallshield",
+		--	Category = "Recipes",
+		--	Subcategory = "Wood Shields",
+		--	Resources = {
+		--		Mushrooms = 2,
+		--		FineScroll = 1,
+		--	},
+		--},
+
+		Buckler = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Buckler Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Buckler. ",
+			CraftingTemplateFile = "recipe_buckler",
+			Category = "Recipes",
+			Subcategory = "Wood Shields",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
+
+		KiteShield = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Kite Shield Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Kite Shield. ",
+			CraftingTemplateFile = "recipe_kiteshield",
+			Category = "Recipes",
+			Subcategory = "Wood Shields",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
+
+		HardenedBuckler = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Hardened Buckler Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Hardened Buckler. ",
+			CraftingTemplateFile = "recipe_hardened_buckler",
+			Category = "Recipes",
+			Subcategory = "Metal Shields",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		OvalShield = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Oval Shield Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft an Oval Shield. ",
+			CraftingTemplateFile = "recipe_oval_shield",
+			Category = "Recipes",
+			Subcategory = "Metal Shields",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		WarriorsKite = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Warriors Kite Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Warriors Kite. ",
+			CraftingTemplateFile = "recipe_warriors_kite",
+			Category = "Recipes",
+			Subcategory = "Metal Shields",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		TaperedHeater = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Tapered Heater Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Tapered Heater. ",
+			CraftingTemplateFile = "recipe_tapered_heater",
+			Category = "Recipes",
+			Subcategory = "Metal Shields",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		ShieldOfJustice = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Shield of Justice Recipe",
+			NeedRecipe = true,
+			Description = "A blacksmith recipe to craft a Shield of Justice. ",
+			CraftingTemplateFile = "recipe_shield_of_justice",
+			Category = "Recipes",
+			Subcategory = "Metal Shields",
+			Resources = {
+				Mushrooms = 2,
+				AncientScroll = 1,
+			},
+		},
+
+		------crafting stations
+
+		Loom = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Loom Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Loom. ",
+			CraftingTemplateFile = "recipe_loom",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 2,
+			},
+		},
+
+		InscriptionTable = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Inscription Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft an Inscription Table. ",
+			CraftingTemplateFile = "recipe_inscriptiontable",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 2,
+			},
+		},
+
+		WoodsmithTable = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Carpentry Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Carpentry Table. ",
+			CraftingTemplateFile = "recipe_woodsmithtable",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Moss = 2,
+				FineScroll = 2,
+			},
+		},
+
+		AlchemyTable = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Alchemy Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Alchemy Table. ",
+			CraftingTemplateFile = "recipe_alchemytable",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Ginseng = 2,
+				FineScroll = 2,
+			},
+		},
+
+		Stove = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Stove Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Stove. ",
+			CraftingTemplateFile = "recipe_stove",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				LemonGrass = 2,
+				FineScroll = 2,
+			},
+		},
+
+		Forge = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Forge Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Forge. ",
+			CraftingTemplateFile = "recipe_forge",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Moss = 2,
+				FineScroll = 2,
+			},
+		},
+
+		Anvil = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Anvil Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft an Anvil. ",
+			CraftingTemplateFile = "recipe_anvil",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 2,
+			},
+		},
+		--carpentry recipes
+		----furnishings
+		------tables & chairs
+
+		StoolWooden = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Wooden Stool Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Wooden Stool. ",
+			CraftingTemplateFile = "recipe_stoolwooden",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Moss = 2,
+				BlankScroll = 1,
+			},
+		},
+
+		ChairWooden = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Wooden Chair Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Wooden Chair. ",
+			CraftingTemplateFile = "recipe_chairwooden",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Ginseng = 2,
+				BlankScroll = 1,
+			},
+		},
+
+		TableWooden = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Wooden Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Wooden Table. ",
+			CraftingTemplateFile = "recipe_tableinn",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Garlic = 2,
+				BlankScroll = 1,
+			},
+		},
+
+		ChairFancy = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Fancy Chair Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Fancy Chair. ",
+			CraftingTemplateFile = "recipe_chairfancy",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Moss = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		TableWoodenLarge = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Large Wooden Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a large Wooden Table. ",
+			CraftingTemplateFile = "recipe_tablewoodenlarge",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				LemonGrass = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		BenchFancy = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Fancy Bench Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Fancy Bench. ",
+			CraftingTemplateFile = "recipe_benchfancy",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Mushrooms = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		DeskFancy = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Fancy Desk Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Fancy Desk. ",
+			CraftingTemplateFile = "recipe_deskfancy",
+			Category = "Recipes",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Ginseng = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		------decorative items
+
+		Shelf = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Shelf Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Shelf. ",
+			CraftingTemplateFile = "recipe_shelf",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Mushrooms = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		FireplaceStone = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Stone Fireplace Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Stone Fireplace. ",
+			CraftingTemplateFile = "recipe_fireplacestone",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Blackpearl = 4,
+				AncientScroll = 1,
+			},
+		},
+
+		BedSmall = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Small Bed Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Small Bed. ",
+			CraftingTemplateFile = "recipe_bedsmall",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Ginseng = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BedMedium = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Medium Bed Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Medium Bed. ",
+			CraftingTemplateFile = "recipe_bedmedium",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BedLarge = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Large Bed Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Large Bed. ",
+			CraftingTemplateFile = "recipe_bedlarge",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Blackpearl = 2,
+				FineScroll = 1,
+			},
+		},
+
+		BookshelfWooden = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Wooden Bookshelf Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Wooden Bookshelf. ",
+			CraftingTemplateFile = "recipe_woodenbookshelf",
+			Category = "Recipes",
+			Subcategory = "Decorative Items",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
+
+		------lighting
+		StandingTorch = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Standing Torch Recipe",
+			NeedRecipe = true,
+			Description = "A carpenterrecipe to craft a Standing Torch. ",
+			CraftingTemplateFile = "recipe_standingtorch",
+			Category = "Recipes",
+			Subcategory = "Lighting",
+			Resources = {
+				Moss = 2,
+				FineScroll = 1,
+			},
+		},
+
+		WallLantern = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Wall Lantern Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Wall Lantern. ",
+			CraftingTemplateFile = "recipe_walllantern",
+			Category = "Recipes",
+			Subcategory = "Lighting",
+			Resources = {
+				Garlic = 2,
+				FineScroll = 1,
+			},
+		},
+
+		HangingLantern = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Hanging Lantern Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Hanging Lantern. ",
+			CraftingTemplateFile = "recipe_hanginglantern",
+			Category = "Recipes",
+			Subcategory = "Lighting",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
+		------storage
+		Barrel = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Barrel Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Barrel. ",
+			CraftingTemplateFile = "recipe_barrel",
+			Category = "Recipes",
+			Subcategory = "Storage",
+			Resources = {
+				Ginseng = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		Chest = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Chest Recipe",
+			NeedRecipe = false,
+			Description = "A carpenter recipe to craft a Chest. ",
+			CraftingTemplateFile = "recipe_chest",
+			Category = "Recipes",
+			Subcategory = "Storage",
+			Resources = {
+				LemonGrass = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		Crate = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Crate Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Crate. ",
+			CraftingTemplateFile = "recipe_crate",
+			Category = "Recipes",
+			Subcategory = "Storage",
+			Resources = {
+				Moss = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		Lockbox = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Lockbox Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Lockbox. ",
+			CraftingTemplateFile = "recipe_lockbox",
+			Category = "Recipes",
+			Subcategory = "Storage",
+			Resources = {
+				Ginseng = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		Dresser = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Dresser Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Dresser. ",
+			CraftingTemplateFile = "recipe_dresser",
+			Category = "Recipes",
+			Subcategory = "Storage",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
+
+		------fences
+		SmallFence = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Small Fence Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Small Fence. ",
+			CraftingTemplateFile = "recipe_smallfence",
+			Category = "Recipes",
+			Subcategory = "Fences",
+			Resources = {
+				Mushrooms = 2,
+				FrayedScroll = 1,
+			},
+		},
+
+		Gate = {
+			MinLevelToCraft = 60,
+			MaxLevelToGain = 125,
+			DisplayName = "Gate Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Gate. ",
+			CraftingTemplateFile = "recipe_fencedoor",
+			Category = "Recipes",
+			Subcategory = "Fences",
+			Resources = {
+				Mushrooms = 2,
+				FrayedScroll = 1,
+			},
+		},
+
 
 		--weapons
 

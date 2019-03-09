@@ -131,20 +131,21 @@ function ShowSpellBookDialog(from)
 		"Default",
 		"default"
 	)
-	dynamicWindow:AddButton(
-		3,
-		300,
-		"ChangePage|CircleIndex|9",
-		"Circles 9 & 10",
-		100,
-		40,
-		"",
-		"",
-		false,
-		"Default",
-		"default"
-	)
-
+	if(IsDemiGod(this)) then
+		dynamicWindow:AddButton(
+			3,
+			300,
+			"ChangePage|CircleIndex|9",
+			"Circles 9 & 10",
+			100,
+			40,
+			"",
+			"",
+			false,
+			"Default",
+			"default"
+		)
+	end
 	if (mPageType == "CircleIndex") then
 		dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
 		local xOffset = 110

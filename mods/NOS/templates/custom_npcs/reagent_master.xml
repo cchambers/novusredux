@@ -28,7 +28,9 @@
 					Skills= {
 						Alchemy = 100,
 						Magery = 100,
-						MagicAffinity = 100
+						MagicAffinity = 100,
+						Harvesting = 100,
+						MagicResist = 100
 					},
 					EquipTable= {
 						Legs= {

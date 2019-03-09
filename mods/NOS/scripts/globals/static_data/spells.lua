@@ -1,13 +1,15 @@
 SpellData = {
 	CastTimes = {
-		0.75, -- circle 1 cast time
-		1, -- circle 2 cast time
-		1.25, -- circle 3 cast time
-		1.5, -- circle 4 cast time
-		1.75, -- circle 5 cast time
-		2, -- circle 6 cast time
-		2.25, -- circle 7 cast time
-		2.5, -- circle 8 cast time
+		0.5,
+		0.75,
+		1,
+		1.25,
+		1.5,
+		1.75,
+		2,
+		2.25,
+		2.5,
+		2.75
 	},
 	CircleSkills = {
 		{-20.1, 20.1},  -- circle -1 (for scrolls)
@@ -1392,6 +1394,7 @@ SpellData = {
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
 			MinSkillRequired = 50,
+			MinTravelTime = 0.5,
 			spellSkillLevel = 70,
 			AttackSpellType = true,
 			SpellEnabled = true,
