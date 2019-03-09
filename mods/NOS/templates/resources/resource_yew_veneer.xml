@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[8B0000]Yew Veneer[-]</Name>
+	<ClientId>1008</ClientId>
+	<Hue>940</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">YewVeneer</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

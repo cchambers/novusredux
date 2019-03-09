@@ -28,6 +28,11 @@ MaterialIndex = {
         "AshBoards",
         "BlightwoodBoards",
         "BroodwoodBoards",
+        "CherryBoards",
+        "PurpleheartBoards",
+        "WormwoodBoards",
+        "OakVeneer",
+        "YewVeneer",
     }
 }
 
@@ -52,6 +57,11 @@ Materials = {
     AshBoards = 866,
     BlightwoodBoards = 865,
     BroodwoodBoards = 851,
+    CherryBoards = 858,
+    PurpleheartBoards = 927,
+    WormwoodBoards = 827,
+    OakVeneer = 936,
+    YewVeneer = 940,
 }
 
 MaterialTooltipColors = {
@@ -74,4 +84,9 @@ MaterialTooltipColors = {
     AshBoards = "[dbb47d]",
     BlightwoodBoards = "[b459ff]",
     BroodwoodBoards = "[551a8b]",
+    CherryBoards = "[8B0000]",
+    PurpleheartBoards = "[663399]",
+    WormwoodBoards = "[9ACD32]",
+    OakVeneer = "[dbb47d]",
+    YewVeneer = "[dbb47d]",
 }

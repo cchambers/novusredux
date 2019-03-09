@@ -25,6 +25,9 @@ ServerSettings.Crafting = {
 
                 Boards = 0,
                 AshBoards = 20,
+                CherryBoards = 20,
+                PurpleheartBoards = 20,
+                WormwoodBoards = 20,
                 BlightwoodBoards = 40,
                 BroodwoodBoards = 60
             }
@@ -41,6 +44,9 @@ ServerSettings.Crafting = {
 
                 Boards = 0,
                 AshBoards = 20,
+                CherryBoards = 20,
+                PurpleheartBoards = 20,
+                WormwoodBoards = 20,
                 BlightwoodBoards = 60,
                 BroodwoodBoards = 80
             }
@@ -84,6 +90,9 @@ ServerSettings.Crafting = {
 
             Boards = 25,
             AshBoards = 100,
+            CherryBoards = 100,
+            PurpleheartBoards = 100,
+            WormwoodBoards = 100,
             BlightwoodBoards = 200,
             BroodwoodBoards = 300
         }

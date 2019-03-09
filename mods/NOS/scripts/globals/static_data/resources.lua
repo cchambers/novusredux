@@ -521,6 +521,47 @@ ResourceData = {
 			SalvageResource = "Broodwood",
 			SkillGainDifficultyMultiplier = 10,
 		},
+		CherryBoards = {
+			DisplayName = "Cherry Boards",
+			Template = "resource_cherry_boards",
+			CraftedItemPrefix = "Cherry",
+			SalvageValue = 2,
+			SalvageResource = "Cherry",
+			SkillGainDifficultyMultiplier = 10,
+		},	
+		PurpleheartBoards = {
+			DisplayName = "Purpleheart Boards",
+			Template = "resource_purpleheart_boards",
+			CraftedItemPrefix = "Purpleheart",
+			SalvageValue = 2,
+			SalvageResource = "Purpleheart",
+			SkillGainDifficultyMultiplier = 10,
+		},		
+		WormwoodBoards = {
+			DisplayName = "Wormwood Boards",
+			Template = "resource_wormwood_boards",
+			CraftedItemPrefix = "Wormwood",
+			SalvageValue = 2,
+			SalvageResource = "Wormwood",
+			SkillGainDifficultyMultiplier = 10,
+		},		
+		OakVeneer = {
+			DisplayName = "Oak Veneer",
+			Template = "resource_oak_veneer",
+			CraftedItemPrefix = "Oak",
+			SalvageValue = 2,
+			SalvageResource = "Oak",
+			SkillGainDifficultyMultiplier = 10,
+		},			
+		YewVeneer = {
+			DisplayName = "Yew Veneer",
+			Template = "resource_yew_veneer",
+			CraftedItemPrefix = "Yew",
+			SalvageValue = 2,
+			SalvageResource = "Yew",
+			SkillGainDifficultyMultiplier = 10,
+		},							
+
 		Cloth = {
 			DisplayName = "Cloth",
 			Template = "resource_bolt_of_cloth",
@@ -627,6 +668,26 @@ ResourceData = {
 			Template = "recipe_broodwood",
 			DisplayName = "Recipe: Broodwood Boards",
 		},
+		RecipeCherryBoards = {
+			Template = "recipe_cherry",
+			DisplayName = "Recipe: Cherry Boards",
+		},
+		RecipePurpleheartBoards = {
+			Template = "recipe_purpleheart",
+			DisplayName = "Recipe: Purpleheart Boards",
+		},		
+		RecipeWormwoodBoards = {
+			Template = "recipe_wormwood",
+			DisplayName = "Recipe: Wormwood Boards",
+		},	
+		RecipeOakVeneer = {
+			Template = "recipe_oak",
+			DisplayName = "Recipe: Oak Veneer",
+		},	
+		RecipeYewVeneer = {
+			Template = "recipe_yew",
+			DisplayName = "Recipe: Yew Veneer",
+		},											
 		RecipeChainHelm = {
 			Template = "recipe_chain_helm",
 			DisplayName = "Recipe: Chain Helm",
