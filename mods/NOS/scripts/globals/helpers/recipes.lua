@@ -4,7 +4,7 @@ function HasRecipe(user,recipe)
 	-- DAB: Debug tool for crafting
 	if(user:HasObjVar("AllRecipes")) then return true end
 
-	local recipeRecipe = recipe.find("Recipe")
+	local recipeRecipe = string.find(recipe, "Recipe")
 
 	if (recipeRecipe ~= nil) then
 		recipe = recipe.gsub(recipe, "Recipe", "")
