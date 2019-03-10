@@ -4017,7 +4017,7 @@ InscriptionSkill = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Ash Board Recipe",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			Description = "A Carpenter recipe to craft ash boards. ",
 			CraftingTemplateFile = "recipe_ash",
 			Category = "Recipes",
@@ -4028,11 +4028,11 @@ InscriptionSkill = {
 			},
 		},
 
-		BlightwoodBoardRecipe = {
+		BlightwoodRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Blightwood Board Recipe",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			Description = "A Carpenter recipe to craft blightwood boards. ",
 			CraftingTemplateFile = "recipe_blightwood",
 			Category = "Recipes",
@@ -4043,8 +4043,8 @@ InscriptionSkill = {
 			},
 		},
 
-		BroodwoodBoardRecipe = {
-			MinLevelToCraft = 90,
+		BroodwoodBoardsRecipe = {
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Broodwood Board Recipe",
 			NeedRecipe = true,
@@ -4053,8 +4053,10 @@ InscriptionSkill = {
 			Category = "Recipes",
 			Subcategory = "Wood",
 			Resources = {
-				Mushrooms = 2,
-				AncientScroll = 1,
+				Blackpearl = 5,
+				AncientScroll = 10,
+				FineScroll = 10,
+				EtherealBones = 10
 			},
 		},
 
@@ -4089,7 +4091,7 @@ InscriptionSkill = {
 		},
 
 		SteelRecipe = {
-			MinLevelToCraft = 95,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Steel Recipe",
 			NeedRecipe = true,
@@ -4099,8 +4101,9 @@ InscriptionSkill = {
 			Subcategory = "Ingots",
 			Resources = {
 				Blackpearl = 5,
-				AncientScroll = 1,
-				FineScroll = 3,
+				AncientScroll = 10,
+				FineScroll = 10,
+				EtherealBones = 10
 			},
 		},
 		----Bows
@@ -4135,8 +4138,8 @@ InscriptionSkill = {
 			},
 		},
 	
-		RecurveBowRecipe = {
-			MinLevelToCraft = 90,
+		RecurveRecipe = {
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Recurve Bow Recipe",
 			NeedRecipe = true,
@@ -4198,7 +4201,7 @@ InscriptionSkill = {
 		},
 
 		GladiusRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Gladius Recipe",
 			NeedRecipe = true,
@@ -4243,7 +4246,7 @@ InscriptionSkill = {
 		},
 
 		RapierRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Rapier Recipe",
 			NeedRecipe = true,
@@ -4273,7 +4276,7 @@ InscriptionSkill = {
 		},
 
 		NinjatoRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Ninjato Recipe",
 			NeedRecipe = true,
@@ -4288,7 +4291,7 @@ InscriptionSkill = {
 		},
 
 		ButcherRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Butcher Recipe",
 			NeedRecipe = true,
@@ -4349,7 +4352,7 @@ InscriptionSkill = {
 		},
 
 		BattleHammerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Battle Hammer Recipe",
 			NeedRecipe = true,
@@ -4364,7 +4367,7 @@ InscriptionSkill = {
 		},
 
 		WarhammerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Warhammer Recipe",
 			NeedRecipe = true,
@@ -4379,7 +4382,7 @@ InscriptionSkill = {
 		},
 
 		BladedClubRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Bladed Club Recipe",
 			NeedRecipe = true,
@@ -4440,7 +4443,7 @@ InscriptionSkill = {
 		},
 
 		SkinnerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Skinner Recipe",
 			NeedRecipe = true,
@@ -4455,7 +4458,7 @@ InscriptionSkill = {
 		},
 
 		LetterOpenerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Letter Opener Recipe",
 			NeedRecipe = true,
@@ -4470,7 +4473,7 @@ InscriptionSkill = {
 		},
 
 		StilettoRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Stiletto Dagger Recipe",
 			NeedRecipe = true,
@@ -4485,7 +4488,7 @@ InscriptionSkill = {
 		},
 
 		FulleredDaggerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Fullered Dagger Recipe",
 			NeedRecipe = true,
@@ -4500,7 +4503,7 @@ InscriptionSkill = {
 		},
 
 		ZukuriRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Zukuri Recipe",
 			NeedRecipe = true,
@@ -4562,7 +4565,7 @@ InscriptionSkill = {
 		},
 
 		BoarSpearRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Boar Spear Recipe",
 			NeedRecipe = true,
@@ -4577,7 +4580,7 @@ InscriptionSkill = {
 		},
 
 		PikeRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Pike Recipe",
 			NeedRecipe = true,
@@ -4592,7 +4595,7 @@ InscriptionSkill = {
 		},
 
 		PoleaxeRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Poleaxe Recipe",
 			NeedRecipe = true,
@@ -4607,7 +4610,7 @@ InscriptionSkill = {
 		},
 
 		SpetumRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Spetum Recipe",
 			NeedRecipe = true,
@@ -4622,7 +4625,7 @@ InscriptionSkill = {
 		},
 
 		NaginataRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Naginata Recipe",
 			NeedRecipe = true,
@@ -4638,20 +4641,20 @@ InscriptionSkill = {
 
 		----Shields
 
-		SmallShieldRecipe = {
-			MinLevelToCraft = 60,
-			MaxLevelToGain = 125,
-			DisplayName = "Small Shield Recipe",
-			NeedRecipe = true,
-			Description = "A carpenter recipe to craft a Small Shield. ",
-			CraftingTemplateFile = "recipe_smallshield",
-			Category = "Recipes",
-			Subcategory = "Wood Shields",
-			Resources = {
-				Mushrooms = 2,
-				FineScroll = 1,
-			},
-		},
+		--SmallShieldRecipe = {
+		--	MinLevelToCraft = 60,
+		--	MaxLevelToGain = 125,
+		--	DisplayName = "SmallShield Recipe",
+		--	NeedRecipe = true,
+		--	Description = "A carpenter recipe to craft a Small Shield. ",
+		--	CraftingTemplateFile = "recipe_smallshield",
+		--	Category = "Recipes",
+		--	Subcategory = "Wood Shields",
+		--	Resources = {
+		--		Mushrooms = 2,
+		--		FineScroll = 1,
+		--	},
+		--},
 
 		BucklerRecipe = {
 			MinLevelToCraft = 60,
@@ -4684,7 +4687,7 @@ InscriptionSkill = {
 		},
 
 		HardenedBucklerRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Hardened Buckler Recipe",
 			NeedRecipe = true,
@@ -4699,7 +4702,7 @@ InscriptionSkill = {
 		},
 
 		OvalShieldRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Oval Shield Recipe",
 			NeedRecipe = true,
@@ -4714,7 +4717,7 @@ InscriptionSkill = {
 		},
 
 		WarriorsKiteRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Warriors Kite Recipe",
 			NeedRecipe = true,
@@ -4729,7 +4732,7 @@ InscriptionSkill = {
 		},
 
 		TaperedHeaterRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Tapered Heater Recipe",
 			NeedRecipe = true,
@@ -4744,7 +4747,7 @@ InscriptionSkill = {
 		},
 
 		ShieldOfJusticeRecipe = {
-			MinLevelToCraft = 90,
+			MinLevelToCraft = 70,
 			MaxLevelToGain = 125,
 			DisplayName = "Shield of Justice Recipe",
 			NeedRecipe = true,
@@ -4790,7 +4793,7 @@ InscriptionSkill = {
 			},
 		},
 
-		CarpentryTableRecipe = {
+		WoodsmithTableRecipe = {
 			MinLevelToCraft = 80,
 			MaxLevelToGain = 125,
 			DisplayName = "Carpentry Table Recipe",
@@ -4868,7 +4871,7 @@ InscriptionSkill = {
 		----furnishings
 		------tables & chairs
 
-		WoodenStoolRecipe = {
+		StoolWoodenRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Wooden Stool Recipe",
@@ -4883,7 +4886,7 @@ InscriptionSkill = {
 			},
 		},
 
-		WoodenChairRecipe = {
+		ChairWoodenRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Wooden Chair Recipe",
@@ -4898,7 +4901,7 @@ InscriptionSkill = {
 			},
 		},
 
-		TableInnRecipe = {
+		TableWoodenRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Wooden Table Recipe",
@@ -4913,7 +4916,7 @@ InscriptionSkill = {
 			},
 		},
 
-		FancyChairRecipe = {
+		ChairFancyRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Fancy Chair Recipe",
@@ -4928,7 +4931,7 @@ InscriptionSkill = {
 			},
 		},
 
-		LargeWoodenTableRecipe = {
+		TableWoodenLargeRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Large Wooden Table Recipe",
@@ -4943,7 +4946,7 @@ InscriptionSkill = {
 			},
 		},
 
-		FancyBenchRecipe = {
+		BenchFancyRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Fancy Bench Recipe",
@@ -4958,7 +4961,7 @@ InscriptionSkill = {
 			},
 		},
 
-		FancyDeskRecipe = {
+		DeskFancyRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Fancy Desk Recipe",
@@ -4990,7 +4993,7 @@ InscriptionSkill = {
 			},
 		},
 
-		StoneFireplaceRecipe = {
+		FireplaceStoneRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Stone Fireplace Recipe",
@@ -5005,7 +5008,7 @@ InscriptionSkill = {
 			},
 		},
 
-		SmallBedRecipe = {
+		BedSmallRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Small Bed Recipe",
@@ -5020,7 +5023,7 @@ InscriptionSkill = {
 			},
 		},
 
-		MediumBedRecipe = {
+		BedMediumRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Medium Bed Recipe",
@@ -5035,7 +5038,7 @@ InscriptionSkill = {
 			},
 		},
 
-		LargeBedRecipe = {
+		BedLargeRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Large Bed Recipe",
@@ -5050,7 +5053,7 @@ InscriptionSkill = {
 			},
 		},
 
-		WoodenBookShelfRecipe = {
+		BookshelfWoodenRecipe = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Wooden Bookshelf Recipe",
@@ -5130,7 +5133,7 @@ InscriptionSkill = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 125,
 			DisplayName = "Chest Recipe",
-			NeedRecipe = true,
+			NeedRecipe = false,
 			Description = "A carpenter recipe to craft a Chest. ",
 			CraftingTemplateFile = "recipe_chest",
 			Category = "Recipes",

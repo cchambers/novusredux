@@ -62,13 +62,15 @@ function GetSpellTargetType(spellName)
 	return nil
 end
 
-function ValidateSpellCastTarget(spellName, spellTarget, spellSource)
-	Verbose("Magic", "ValidateSpellCastTarget", spellName, spellTarget, spellSource)
-	local targetType = GetSpellInformation(spellName, "TargetType")
+
+function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
+	Verbose("Magic", "ValidateSpellCastTarget", spellName,spellTarget,spellSource)
+	local targetType = GetSpellInformation(spellName,"TargetType")
+	
 	if (not (spellTarget)) then
 		spellTarget = this
 	end
-	
+
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
 		return false
@@ -219,7 +221,8 @@ function PrimeSpell(spellName, spellSource)
 	local myCastTime = GetSpellCastTime(spellName, spellSource)
 	if (myCastTime == nil) then
 		--DebugMessage("[ERROR] Invalid Spell Casttime")
-		return false
+		-- return false
+		myCastTime = 2.5
 	end
 
 	this:PlayAnimation("cast")
