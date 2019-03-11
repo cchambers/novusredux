@@ -48,8 +48,8 @@ MobileEffectLibrary.Mentor = {
                         self.SelectSkill(self, root, target, buttonId)
                     else
                         EndMobileEffect(root)
+                        return false
                     end
-                    return
                 end
             )
         else
