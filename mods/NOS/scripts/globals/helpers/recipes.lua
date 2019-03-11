@@ -1,5 +1,15 @@
 require 'default:globals.helpers.recipes'
 
+function GetRecipeSkillRequired(mobileObj,recipe,material)
+	local entry, skillName = GetRecipeFromEntryName(recipe)
+	local modifier = 0
+	if(material) then
+		local materialIndex = IndexOf(MaterialIndex[skillName],material)
+		modifier = materialIndex --((materialIndex-1)*ServerSettings.Crafting.MaterialSkillDifficultyModifier)
+	end
+	return math.min(100,entry.MinLevelToCraft + modifier), math.min(100,entry.MaxLevelToGain + modifier)
+end
+
 function HasRecipe(user,recipe)
 	-- DAB: Debug tool for crafting
 	if(user:HasObjVar("AllRecipes")) then return true end

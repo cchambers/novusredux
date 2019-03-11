@@ -1,6 +1,7 @@
 colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
 mCountdownStart = 5
 mCountdownEvery = 1
+mOutside = nil
 mNeeds = 6
 mPlayers = {}
 mPlayerCount = 0
@@ -55,9 +56,9 @@ function DoBroadcast()
             end
         end
     end
-
+    local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
     if (mCountdown > (mCountdownStart / 3)) then
-        local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
+       
         for i = 1, #nearbyPlayers do
             nearbyPlayers[i]:SystemMessage("If you just got out of "..colorWars.." please requeue (/cw) or you may be ejected!")
         end
@@ -110,6 +111,7 @@ function PickCaptains()
         player:SystemMessage("Want to be a captain? Time to roll for it! (/roll)", "event")
     end
     this:ScheduleTimerDelay(TimeSpan.FromSeconds(20), "ColorWar.DoCaptains")
+    EjectNonPlayers()
 end
 
 function DoCaptains()
@@ -178,7 +180,6 @@ function ChoosePlayer(player, team, captain, firstPick)
 
     DebugMessage(tostring("WAITING: " .. mWaiting))
     
-
     if (mWaiting == 0) then
         StartRound()
     else
@@ -207,15 +208,26 @@ function HandlePlayerChosen(target, user)
     elseif (target:HasObjVar("ColorWarTeam")) then 
         user:SystemMessage("Choose someone that isn't already on a team.", "info")
         ShowPicker(user)
+    elseif (not(target:HasObjVar("ColorWarWaiting"))) then
+        user:SystemMessage("That player was not queued, choose someone else.", "info")
+        ShowPicker(user)
     else
        ChoosePlayer(target, user:GetObjVar("ColorWarTeam"))
+    end
+end
+
+function EjectNonPlayers()
+    local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
+    for i = 1, #nearbyPlayers do
+        nearbyPlayers[i]:SystemMessage("You were ejected for failing to queue! Try again later.","info")
+        nearbyPlayers[i]:SendMessageGlobal("GlobalSummon", this:GetObjVar("outside"), this:GetObjVar("RegionAddress"))
     end
 end
 
 function ChooseClass(user)
 	if (CheckChar(user) == false) then
         user:SystemMessage("You still have some stuff on your character. BANK IT OR LOSE IT!","info")
-        this:ScheduleTimerDelay(TimeSpan.FromSeconds(10),user:GetName(),function() 
+        CallFunctionDelayed(TimeSpan.FromSeconds(8),function ()
             ChooseClass(user)
         end)
 		return false
@@ -436,9 +448,7 @@ end
 RegisterEventHandler(EventType.Timer, "ColorWar.EntryReveal", DoRevealStuff)
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(5),"ColorWar.EntryReveal")
 
-
-RegisterEventHandler(EventType.Message, "Test", Test)
-
+RegisterEventHandler(EventType.Message, "ColorWar.Eject", EjectNonPlayers)
 RegisterEventHandler(EventType.Message, "ColorWar.Go", OpenRegistration)
 RegisterEventHandler(EventType.Message, "ColorWar.NextChoice", NextChoice)
 RegisterEventHandler(EventType.Message, "ColorWar.MakeCaptains", MakeCaptains)
