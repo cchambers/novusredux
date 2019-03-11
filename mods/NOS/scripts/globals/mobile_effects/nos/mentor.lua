@@ -62,7 +62,10 @@ MobileEffectLibrary.Mentor = {
     
                 if (returnId ~= nil) then
                     action = StringSplit(returnId, "|")[1]
-                    if (action == nil) then return end
+                    if (action == nil) then 
+                        EndMobileEffect(root)
+                        return false
+                    end
                     skillName = StringSplit(returnId, "|")[2]
                     if (skillName ~= nil) then
                         if (action == "select") then
