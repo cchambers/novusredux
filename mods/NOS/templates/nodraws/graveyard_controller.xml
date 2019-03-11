@@ -1,0 +1,30 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+						{ Count = 2, TemplateId = "skeleton",    Region = "GraveyardLowerMain" },
+						{ Count = 2, TemplateId = "ghoul",    Region = "GraveyardLowerMain" },
+						{ Count = 2, TemplateId = "ghoul",    Region = "GraveyardLower1" }, 
+						{ Count = 2, TemplateId = "skeleton",    Region = "GraveyardLower1" }, 
+						
+						{ Count = 2, TemplateId = "ghoul",    Region = "GraveyardRoomS" }, 
+						
+						{ Count = 2, TemplateId = "zombie",    Region = "GraveyardRoomL" },
+						{ Count = 1, TemplateId = "skeleton_archer",    Region = "GraveyardRoomL" },
+						{ Count = 3, TemplateId = "zombie",    Region = "GraveyardMiddle1" },
+						{ Count = 1, TemplateId = "zombie",    Region = "GraveyardMiddle1" },
+						{ Count = 1, TemplateId = "ghoul",    Region = "GraveyardMiddle1" },
+						{ Count = 1, TemplateId = "skeleton_archer",    Region = "GraveyardMiddle3" },
+						{ Count = 5, TemplateId = "skeleton_mage",    Region = "GraveyardCata" }, 
+						{ Count = 3, TemplateId = "lich",    Region = "GraveyardCrypt" }, 
+					}
+				}
+			</Initializer>	
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

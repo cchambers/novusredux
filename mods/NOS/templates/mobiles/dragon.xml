@@ -6,31 +6,26 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
     <SharedStateEntry name="BodyOffset" type="double" value="6.5"/>
-    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
 	<ObjectVariableComponent>
-		<DoubleVariable Name="BaseHealth">30000</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Awakening</StringVariable>
+		<DoubleVariable Name="BaseHealth">15000</DoubleVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<StringVariable Name="MonsterAR">130</StringVariable>
-		<DoubleVariable Name="Armor">87</DoubleVariable>
+		<DoubleVariable Name="Armor">100</DoubleVariable>
 		<DoubleVariable Name="Attack">83</DoubleVariable>
-		<DoubleVariable Name="Power">30</DoubleVariable>
+		<DoubleVariable Name="Power">40</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">2000</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
-		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="Karma">-15000</DoubleVariable>
 	</ObjectVariableComponent>
-	<ScriptEngineComponent>		
+	<ScriptEngineComponent>
 		<LuaModule Name="ai_dragon">
 			<Initializer>				
-				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=50, Will=50 },
+					{ 
+				Type = "fire",
+				Stats = { Str=100, Agi=20, Int=50, Wis=50, Will=50 },
 				MobTraits =
 					{
-					Might=3,
-					},
-				MobileEffects =
-					{
-						{ "NoStun", {Permanent=true} }
 					},
 				Skills = 
 					{ 
@@ -43,25 +38,22 @@
 					{
 						Backpack = { "backpack" },					
 					},
-				LootTables = 
-					{ 
-						TemplateDefines.LootTable.ScrollsBoss,
-						TemplateDefines.LootTable.ScrollsBoss,
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.AncientScrolls,
 						TemplateDefines.LootTable.MageBoss,
-						TemplateDefines.LootTable.MageBoss,
-						TemplateDefines.LootTable.Boss,
 						{
-							NumCoins = math.random(1500,2800),
-							NumItems = 1,
-					    	LootItems = {
-				    			{ Chance = 15, Template = "shield_dragon"},
-				    		},
+							NumCoins = math.random(3000,8000),
 						},
-					},	
+					},		
 				ScavengeTables =
 					{
 					},		
-					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
 					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Frost", "Fireball", "Lightning", "Electricbolt", "Bombardment"},
 				}
 			</Initializer>

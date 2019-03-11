@@ -1,0 +1,8 @@
+<ObjectTemplate>
+	<Name>CommandObject</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="runcommand"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

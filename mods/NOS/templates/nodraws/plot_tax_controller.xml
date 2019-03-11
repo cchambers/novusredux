@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Plot Tax Controller</Name>
+	<ObjectVariableComponent>
+		<BoolVariable Name="NoReset">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="plot_tax_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

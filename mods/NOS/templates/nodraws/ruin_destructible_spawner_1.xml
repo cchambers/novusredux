@@ -1,0 +1,46 @@
+<ObjectTemplate>
+	<ClientId>2515</ClientId>
+	<Name>[FF9500]Altar[-]</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="ObjectOffset" type="double" value="6"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+		<BoolVariable Name="ContinuousSpawns">true</BoolVariable>
+		<DoubleVariable Name="BaseHealth">2500</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="attackable_object_skill_gain">
+			<Initializer>
+			{
+				SkillLevel = 80,
+			}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="destructable_mob_spawner">
+			<Initializer>
+			{	
+				Spawns = 
+				{
+					{
+						Template = "lich", 
+						Max = 1,
+						AddSpawns = 1
+					},
+					{
+						Template = "mummy", 
+						Max = 1,
+						AddSpawns = 1
+					},
+					{
+						Template = "ruin_servant", 
+						Max = 2,
+						AddSpawns = 1
+					},
+				},
+				SpawnRange = 12,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

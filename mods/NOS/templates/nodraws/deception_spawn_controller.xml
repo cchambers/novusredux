@@ -1,0 +1,128 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+						{ Count = 3, TemplateId = "lizardman", Region = "RoomA5", DelayMin=4 }, 
+						{ Count = 1, TemplateId = "lizardman_scout", Region = "RoomA5", DelayMin=4 }, 
+
+						{ Count = 1, TemplateId = "lizardman", Region = "RoomA8", DelayMin=4 }, 
+						{ Count = 2, TemplateId = "lizardman_scout", Region = "RoomA8", DelayMin=4 }, 
+					   
+					    { Count = 3, TemplateId = "lizardman_scout", Region = "RoomA9", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "lizardman", Region = "RoomA10", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA11", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA12", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lizardman_dagger", Region = "RoomA14", DelayMin=4 }, 
+
+					    { Count = 3, TemplateId = "deception_viper", Region = "RoomA13", DelayMin=4 }, 
+
+					    { Count = 4, TemplateId = "deception_viper", Region = "RoomA16", DelayMin=4 }, 
+
+						{ Count = 1,TemplateId = "beetle_giant_poison", Region = "RoomA3", DelayMin=4 },
+						{ Count = 1,TemplateId = "beetle_giant_flame", Region = "RoomA3", DelayMin=4 },
+
+						{ Count = 1,TemplateId = "beetle_giant_poison", Region = "RoomA6", DelayMin=4 },
+						{ Count = 1,TemplateId = "beetle_giant_flame", Region = "RoomA6", DelayMin=4 },
+
+						{ Count = 4, TemplateId = "lizardman_mage", Region = "RoomA19", DelayMin=4 },
+						{ Count = 4, TemplateId = "lizardman", Region = "RoomA19", DelayMin=4 },
+
+						{ Count = 4, TemplateId = "lizardman_mage", Region = "RoomA20", DelayMin=4 },
+
+						{ Count = 3, TemplateId = "lizardman_dagger", Region = "RoomA22", DelayMin=4 },
+
+						{ Count = 3, TemplateId = "lizardman_scout", Region = "RoomA23", DelayMin=4 },
+
+						{ Count = 1,TemplateId = "beetle_giant_flame", Region = "RoomA15", DelayMin=4 },
+						{ Count = 5, TemplateId = "deception_viper", Region = "RoomA15", DelayMin=4 },
+						{ Count = 3, TemplateId = "lizardman_dagger", Region = "RoomA25", DelayMin=4 },
+
+
+					--Level 2
+
+						--RoomB2
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "RoomB2", DelayMin=4 },
+						{ Count = 7, TemplateId = "lizardman_dagger", Region = "RoomB2", DelayMin=4 },
+						{ Count = 4, TemplateId = "lizardman_scout", Region = "RoomB2", DelayMin=4 },
+
+						--RoomB5
+						{ Count = 1, TemplateId = "beetle_giant_poison", Region = "RoomB5", DelayMin=4 },
+						{ Count = 1, TemplateId = "beetle_giant_flame", Region = "RoomB5", DelayMin=4 },
+
+						--RoomB3
+						{ Count = 1, TemplateId = "deception_crocodile", Region = "RoomB3", DelayMin=4 },
+
+						--RoomB7
+						{ Count = 3, TemplateId = "deception_golem", Region = "RoomB7", DelayMin=4 },
+
+						--RoomB10
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "RoomB10", DelayMin=4 },
+						{ Count = 1, TemplateId = "beetle_giant_flame", Region = "RoomB10", DelayMin=4 },
+
+						--RoomB11
+						{ Count = 1, TemplateId = "gorgon", Region = "RoomB11", DelayMin=4 },
+						{ Count = 5, TemplateId = "deception_viper", Region = "RoomB11", DelayMin=4 },
+
+						--RoomB13(northern boss room)
+						--replace with drake spawner
+						{ Count = 1, TemplateId = "dragon_fire", Region = "RoomB13", DelayMin=4 },
+
+						--RoomB15
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "RoomB15", DelayMin=4 },
+						{ Count = 1, TemplateId = "gorgon", Region = "RoomB15", DelayMin=4 },
+
+						--HallwayB7
+						{ Count = 2, TemplateId = "gorgon", Region = "HallwayB7", DelayMin=4 },
+						{ Count = 1, TemplateId = "deception_crocodile", Region = "HallwayB7", DelayMin=4 },
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "HallwayB7", DelayMin=4 },
+
+						--HallwayB8
+						{ Count = 2, TemplateId = "gorgon", Region = "HallwayB8", DelayMin=4 },
+						{ Count = 2, TemplateId = "deception_crocodile", Region = "HallwayB8", DelayMin=4 },
+
+						--RoomB19
+						{ Count = 3, TemplateId = "gorgon", Region = "RoomB19", DelayMin=4 },
+						{ Count = 2, TemplateId = "deception_golem", Region = "RoomB19", DelayMin=4 },
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "RoomB19", DelayMin=4 },
+						{ Count = 2, TemplateId = "beetle_giant_flame", Region = "RoomB19", DelayMin=4 },
+
+						--RoomB18(western boss room)
+						{ Count = 1, TemplateId = "dragon_fire", Region = "RoomB18", DelayMin=8 },
+						--replace with drake spawner
+
+						--RoomB14(eastern boss room)
+						--replace with drake spawner
+
+						--RoomB22
+						{ Count = 1, TemplateId = "deception_golem", Region = "RoomB22", DelayMin=4 },
+
+						--RoomB21
+						{ Count = 1, TemplateId = "beetle_giant_poison", Region = "RoomB21", DelayMin=4 },
+
+						--RoomB23
+						{ Count = 1, TemplateId = "beetle_giant_flame", Region = "RoomB23", DelayMin=4 },
+
+						--RoomB20
+						{ Count = 2, TemplateId = "gorgon", Region = "RoomB20", DelayMin=4 },
+						{ Count = 1, TemplateId = "deception_golem", Region = "RoomB20", DelayMin=4 },
+						{ Count = 2, TemplateId = "beetle_giant_poison", Region = "RoomB20", DelayMin=4 },
+
+					-----------------------------------------------------------
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

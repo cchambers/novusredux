@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ClientId>2</ClientId>
+	<Color>0xFFF0FF00</Color>
+	<Name>Rothchilde's House Controller</Name>
+	<ObjectVariableComponent />
+	<ScriptEngineComponent>
+		<LuaModule Name="scene_item_spawner">
+			<Initializer>
+				{
+					ItemInventory= {
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

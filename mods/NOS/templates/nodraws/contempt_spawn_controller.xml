@@ -1,0 +1,224 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					   	{ Count = 3, TemplateId = "ork_mage", Region = "RoomA18", DelayMin=4 },
+
+					   	{ Count = 4, TemplateId = "ork_warrior", Region = "RoomA20", DelayMin=4 }, 
+
+					   	{ Count = 6, TemplateId = "ork_mage", Region = "RoomA19", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA20", DelayMin=4 },
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA19", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA24", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA23", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA22", DelayMin=4 }, 
+
+					    --fire trap hallway
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA25", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "ork_archer", Region = "HallwayA26", DelayMin=4 }, 
+
+					 
+
+					    --Wraith room
+					    
+
+
+					    --necromancer room
+					    { Count = 4, TemplateId = "ork_chief", Region = "RoomA4", DelayMin=4 }, 
+
+						--ghoul room after necromancer room
+					    { Count = 2, TemplateId = "ork_warrior", Region = "RoomA2", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "ork_archer", Region = "RoomA1", DelayMin=4 },  
+
+					    { Count = 2, TemplateId = "ork_chief", Region = "RoomA3", DelayMin=4 },
+
+					    --hallway right before spider room
+					    { Count = 1, TemplateId = "ork_warrior", Region = "HallwayA6", DelayMin=4 }, 
+
+					    --First spike trap room
+					    { Count = 2, TemplateId = "troll", Region = "RoomA12", DelayMin=4 }, 
+
+					    --First spike trap room
+					    { Count = 2, TemplateId = "ork_mage", Region = "RoomA13", DelayMin=4 },
+
+					    --First spike trap droom
+					    { Count = 2, TemplateId = "troll", Region = "RoomA14", DelayMin=4 },
+
+					    --First spike trap droom
+					    { Count = 4, TemplateId = "troll", Region = "RoomA14", DelayMin=4 }, 
+					    { Count = 2, TemplateId = "ork_chief", Region = "RoomA14", DelayMin=4 }, 
+
+						-----------------------------------------------------------
+
+					  --Level 2
+
+					  { Count = 2, TemplateId = "contempt_maggot", Region = "RoomB2", DelayMin=4 },
+
+					  --RoomB1 (southern boss room)
+					  --Replaced with ogre spawner
+					  --{ Count = 2, TemplateId = "contempt_ogre", Region = "RoomB1", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_maggot", Region = "RoomB1", DelayMin=4 },
+					  { Count = 1, TemplateId = "wretch", Region = "RoomB1", DelayMin=4 },
+
+					  --RoomB3
+					  --Replace with ogre spawner
+					  --{ Count = 1, TemplateId = "contempt_ogre", Region = "RoomB3", DelayMin=4 },
+
+					  --RoomB4
+					  --Replace with ogre spawner
+					  { Count = 2, TemplateId = "wretch", Region = "RoomB4", DelayMin=4 },
+
+					  -----------------------------------------------------------
+
+					  --Level 2: Western side
+
+					  --HallwayB3
+  					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB3", DelayMin=4 },
+  					  { Count = 1, TemplateId = "ork_mage", Region = "HallwayB3", DelayMin=4 },
+  					  { Count = 2, TemplateId = "ork_warrior", Region = "HallwayB3", DelayMin=4 },
+
+  					  --RoomB7
+					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB7", DelayMin=4 },
+  					  { Count = 2, TemplateId = "ork_mage", Region = "RoomB7", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB7", DelayMin=4 },
+
+					  --HallwayB5
+					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB5", DelayMin=4 },
+					  { Count = 1, TemplateId = "ork_mage", Region = "HallwayB5", DelayMin=4 },
+					  { Count = 2, TemplateId = "contempt_warg_alpha", Region = "HallwayB5", DelayMin=4 },
+
+					  --HallwayB4
+					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB4", DelayMin=4 },
+					  { Count = 2, TemplateId = "contempt_warg", Region = "HallwayB4", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "HallwayB4", DelayMin=4 },
+
+					  --RoomB33 (western boss room)
+					  --Replaced with ogre spawner
+					  --{ Count = 2, TemplateId = "contempt_ogre", Region = "RoomB33", DelayMin=4 },
+					  { Count = 2, TemplateId = "wretch", Region = "RoomB33", DelayMin=4 },
+
+					  -----------------------------------------------------------
+
+					  --Level 2: Western cells
+
+					  --North
+					  --RoomB10
+  					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB10", DelayMin=4 },
+  					  { Count = 3, TemplateId = "contempt_warg", Region = "RoomB10", DelayMin=4 },
+
+					  --RoomB11
+					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB11", DelayMin=4 },
+  					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB11", DelayMin=4 },
+
+
+					  --RoomB12
+
+
+					  --RoomB13
+  					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB13", DelayMin=4 },
+  					  { Count = 1, TemplateId = "ork_mage", Region = "RoomB13", DelayMin=4 },
+
+  					  --South
+  					  --RoomB14
+					  { Count = 2, TemplateId = "wretch", Region = "RoomB14", DelayMin=4 },
+
+					  --RoomB15
+
+					  --RoomB16
+					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB16", DelayMin=4 },
+  					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB16", DelayMin=4 },
+
+					  --RoomB17
+  					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB17", DelayMin=4 },
+  					  { Count = 3, TemplateId = "contempt_warg", Region = "RoomB17", DelayMin=4 },
+
+					  -----------------------------------------------------------
+
+					  --Level 2: Eastern side
+
+					  --HallwayB7
+					  { Count = 1, TemplateId = "wretch", Region = "HallwayB7", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_maggot", Region = "HallwayB7", DelayMin=4 },
+
+					  --RoomB26
+					  { Count = 2, TemplateId = "stone_harpy", Region = "RoomB26", DelayMin=4 },
+
+					  --HallwayB8
+					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB8", DelayMin=4 },
+					  { Count = 2, TemplateId = "contempt_warg", Region = "HallwayB8", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "HallwayB8", DelayMin=4 },
+
+					  --HallwayB9
+					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB9", DelayMin=4 },
+					  { Count = 2, TemplateId = "contempt_warg", Region = "HallwayB9", DelayMin=4 },
+					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "HallwayB9", DelayMin=4 },
+
+					  --RoomB32 (eastern boss room)
+					  --Replaced with ogre spawner
+					  --{ Count = 2, TemplateId = "contempt_ogre", Region = "RoomB32", DelayMin=4 },
+					  { Count = 2, TemplateId = "wretch", Region = "RoomB32", DelayMin=4 },
+
+					  -----------------------------------------------------------
+
+					  					  -----------------------------------------------------------
+
+					  --Level 2: Eastern cells
+
+					  --North
+					  --RoomB22
+  					  { Count = 2, TemplateId = "contempt_maggot", Region = "HallwayB22", DelayMin=4 },
+
+
+					  --RoomB23
+					  { Count = 1, TemplateId = "stone_harpy", Region = "HallwayB23", DelayMin=4 },
+  					  { Count = 1, TemplateId = "ork_mage", Region = "HallwayB23", DelayMin=4 },
+  					  { Count = 2, TemplateId = "ork_warrior", Region = "HallwayB23", DelayMin=4 },
+
+
+					  --RoomB24
+					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB24", DelayMin=4 },
+  					  { Count = 1, TemplateId = "ork_mage", Region = "RoomB24", DelayMin=4 },
+
+					  --RoomB25
+  					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB25", DelayMin=4 },
+  					  { Count = 2, TemplateId = "contempt_warg_alpha", Region = "RoomB25", DelayMin=4 },
+  					  
+
+  					  --South
+  					  --RoomB18
+					  { Count = 1, TemplateId = "contempt_warg_alpha", Region = "RoomB18", DelayMin=4 },
+  					  { Count = 3, TemplateId = "contempt_warg", Region = "RoomB18", DelayMin=4 },
+
+					  --RoomB19
+					  { Count = 1, TemplateId = "wretch", Region = "RoomB19", DelayMin=4 },
+
+					  --RoomB20
+					  { Count = 1, TemplateId = "wretch", Region = "RoomB20", DelayMin=4 },
+					  { Count = 1, TemplateId = "stone_harpy", Region = "RoomB20", DelayMin=4 },
+
+					  --RoomB21
+					  { Count = 2, TemplateId = "contempt_maggot", Region = "RoomB21", DelayMin=4 },
+
+					  -----------------------------------------------------------
+
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

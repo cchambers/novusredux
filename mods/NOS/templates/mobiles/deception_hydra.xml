@@ -1,0 +1,56 @@
+<ObjectTemplate>
+	<ClientId>1279</ClientId>
+	<Name>Hydra</Name>
+	<ScaleModifier>1.3</ScaleModifier>
+	<Color>0x688065</Color>
+	<MobileComponent>			
+		<BaseRunSpeed>0.7</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+    <SharedStateEntry name="BodyOffset" type="double" value="6.5"/>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">2000</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Reptile</StringVariable>
+		<StringVariable Name= "MobileKind">Dragon</StringVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
+		<DoubleVariable Name="Attack">100</DoubleVariable>
+		<DoubleVariable Name="Power">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_dragon">
+			<Initializer>				
+				{ 
+				Stats = { Str=21, Agi=30, Int=40, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						BowResistance = -0.8,
+						Might = 0.3,
+					},
+				MobileEffects =
+					{
+					},
+				Skills = 
+					{ 
+						Brawling = 100,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables = 
+					{ 
+
+					},	
+				ScavengeTables =
+					{
+					},		
+					WeaponAbilities = { primary="DragonFire", secondary="Eviscerate" },
+					AvailableSpells = {"Heal","Fireball", "Bombardment"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

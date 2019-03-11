@@ -1,0 +1,26 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Corruption Imp Spawner</Name>
+	<ObjectVariableComponent>	
+	<StringVariable Name="spawnRegion">Room3</StringVariable>
+	<DoubleVariable Name="spawnDelay">240</DoubleVariable>
+	<DoubleVariable Name="spawnCount">4</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 95, Template = "imp" },
+						{ Weight = 5, Template = "imp_hq" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 20,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
