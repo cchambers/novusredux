@@ -10,7 +10,7 @@
 	<ObjectVariableComponent>			
 		<StringVariable Name="MobileTeamType">Karvra</StringVariable>
 		<StringVariable Name="MobileKind">Reptile</StringVariable>
-		<DoubleVariable Name="BaseHealth">200</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">700</DoubleVariable>
 		<DoubleVariable Name="EquipmentDamageOnDeathMultiplier">1.0</DoubleVariable>
 	</ObjectVariableComponent>					
 	<ScriptEngineComponent>
@@ -35,28 +35,6 @@
 								{ Weight = 10, Template = "potion_refresh" },
 							},
 						},
-						--Right Hand Equipment
-					--	{
-					--		NumItems = 1,
-					--		LootItems = 
-					--		{ 
-								--{  Weight = 3, Template = "weapon_falchion_silver", Unique = true },
-								--{  Weight = 1, Template = "weapon_falchion_valiant", Unique = true },
-								--{  Weight = 14, Template = "weapon_falchion_crude", Unique = true },
-								--{  Weight = 3, Template = "weapon_cleaver_silver", Unique = true },
-								--{  Weight = 1, Template = "weapon_cleaver_valiant", Unique = true },
-								--{  Weight = 14, Template = "weapon_cleaver_crude", Unique = true },
-					--		},
-					--	},
-						--Left Hand Equipment
-					--	{
-					--		NumItems = 1,
-					--		LootItems = 
-					--		{ 
-								--{  Weight = 1, Template = "shield_wood_spike_hefty", Unique = true },
-								--{  Weight = 14, Template = "shield_wood_spike_splintered", Unique = true },
-					--		},
-					--	},
 					},
 				}
 			</Initializer>

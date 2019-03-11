@@ -1,0 +1,18 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent>
+		<LuaModule Name="sealed_room">
+			<Initializer>
+			{
+				Spawns = 
+				{
+					{"lich_lord",2}
+				},
+				RoomType = "Region",
+				Region = "RoomB8",
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -9,7 +9,7 @@
 	</MobileComponent>
 	<ObjectVariableComponent>		
 		<StringVariable Name="AI-WeaponType">Longbow</StringVariable>
-		<DoubleVariable Name="BaseHealth">405</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<StringVariable Name="MobileKind">Reptile</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_lizardmen">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=40, Agi=40, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					},

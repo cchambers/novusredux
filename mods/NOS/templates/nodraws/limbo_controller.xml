@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<Name>Limbo Map Controller</Name>
+	<Tag>MapController</Tag>
+	<ObjectVariableComponent/>			
+	<ScriptEngineComponent>
+		<LuaModule Name="shard_time_controller">
+			<Initializer>
+				{
+					DaylightDurationSecs = 60 * 60,
+					NighttimeDurationSecs = 0,
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="map_resource_controller">
+			<Initializer>
+				{
+					SpawnedSources = 
+					{												
+						{ MaxCount = 10, Region = "Limbo",       Resource =  "Crystal"},						
+					},
+				}
+			</Initializer>
+		</LuaModule>		
+	</ScriptEngineComponent>
+</ObjectTemplate>

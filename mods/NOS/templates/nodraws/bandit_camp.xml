@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Bandit Camp Controller</Name>
+	<ClientId>2</ClientId>
+	<ObjectVariableComponent>			
+		<StringVariable Name="Difficulty">Medium</StringVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="bandit_camp"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

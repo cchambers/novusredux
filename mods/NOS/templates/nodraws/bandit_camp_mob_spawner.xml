@@ -1,0 +1,29 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Bandit Camp Spawner</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">30</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">12</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 30, Template = "bandit" },
+						{ Weight = 30, Template = "bandit_female" },
+						{ Weight = 20, Template = "bandit_archer" },
+						{ Weight = 18, Template = "bandit_archer_female" },
+						{ Weight = 2, Template = "bandit_hq" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 30,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

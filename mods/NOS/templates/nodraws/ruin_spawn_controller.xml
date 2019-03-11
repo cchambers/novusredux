@@ -1,0 +1,129 @@
+<ObjectTemplate>
+	<Name>Dungeon Controller</Name>
+	<ClientId>2</ClientId>
+	<Color>0xFF00FF00</Color>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="dungeon_spawn_controller">
+			<Initializer>
+				{
+					SpawnInfo = {
+
+					--Level 1
+
+						{ Count = 3, TemplateId = "skeleton", Region = "RoomA5", DelayMin=4 }, 
+						{ Count = 1, TemplateId = "skeleton_archer", Region = "RoomA5", DelayMin=4 }, 
+
+						{ Count = 2, TemplateId = "skeleton", Region = "RoomA8", DelayMin=4 }, 
+						{ Count = 2, TemplateId = "skeleton_archer", Region = "RoomA8", DelayMin=4 }, 
+					   
+					    { Count = 3, TemplateId = "skeleton_archer", Region = "RoomA9", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "skeleton", Region = "RoomA10", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA11", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA12", DelayMin=4 }, 
+
+					    { Count = 1, TemplateId = "lich", Region = "RoomA14", DelayMin=4 }, 
+
+					    { Count = 2, TemplateId = "lich", Region = "RoomA13", DelayMin=4 }, 
+
+					    { Count = 3, TemplateId = "skeleton_mage", Region = "RoomA16", DelayMin=4 }, 
+
+					    --RoomA15
+					    { Count = 6, TemplateId = "zombie", Region = "RoomA15", DelayMin=4 }, 
+					    { Count = 2, TemplateId = "lich", Region = "RoomA15", Chance=3, DelayMin=4 },
+
+						{ Count = 2, TemplateId = "ghoul", Region = "RoomA3", DelayMin=4 },
+
+						{ Count = 2, TemplateId = "ghoul", Region = "RoomA6", DelayMin=4 },
+
+						{ Count = 6, TemplateId = "zombie", Region = "RoomA19", DelayMin=4 },
+
+					-----------------------------------------------------------
+
+					--Level 2
+
+						--RoomB1
+						{ Count = 3, TemplateId = "mummy", Region = "RoomB1", DelayMin=4 },
+						{ Count = 1, TemplateId = "lich", Region = "RoomB1", DelayMin=4 },
+
+						--RoomB2
+						{ Count = 1, TemplateId = "mummy", Region = "RoomB2", DelayMin=4 },
+
+						--RoomB4
+						{ Count = 1, TemplateId = "mummy", Region = "RoomB4", DelayMin=4 },
+
+						--RoomB3
+						--[[
+						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB3", DelayMin=4 },
+						{ Count = 1, TemplateId = "lich", Region = "RoomB3", DelayMin=4 },
+						]]--
+
+						--RoomB13
+						{ Count = 3, TemplateId = "mummy", Region = "RoomB13", DelayMin=4 },
+						{ Count = 1, TemplateId = "lich", Region = "RoomB13", DelayMin=4 },
+
+						--RoomB10
+						{ Count = 6, TemplateId = "ruin_servant", Region = "RoomB10", DelayMin=4 },
+						{ Count = 1, TemplateId = "lich", Region = "RoomB10", DelayMin=4 },
+
+						--RoomB12
+						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB12", DelayMin=4 },
+
+						--RoomB14 (hall to eastern boss room)
+						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB14", DelayMin=4 },
+						{ Count = 3, TemplateId = "lich", Region = "RoomB14", DelayMin=4 },
+
+						--RoomB17 (eastern boss room)
+						--{ Count = 2, TemplateId = "zombie_dragon", Region = "RoomB17", DelayMin=4 },
+						--Replaced with Lich spawner
+						--{ Count = 2, TemplateId = "lich_lord", Region = "RoomB17", DelayMin=4 },
+
+						--RoomB24 (hall to southern boss room)
+						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB24", DelayMin=4 },
+						{ Count = 2, TemplateId = "lich", Region = "RoomB24", DelayMin=4 },
+
+						--RoomB25 (southern boss room, west)
+						--{ Count = 2, TemplateId = "lich_lord", Region = "RoomB25", DelayMin=4 },
+
+						--RoomB26 (southern boss room, east)
+						--Replaced with lich spawner
+						--{ Count = 2, TemplateId = "lich_lord", Region = "RoomB26", DelayMin=4 },
+
+						--RoomB28 (southern boss room, center)
+						--{ Count = 2, TemplateId = "lich_lord", Region = "RoomB28", DelayMin=4 },
+
+						--RoomB23
+						{ Count = 1, TemplateId = "ruin_servant", Region = "RoomB23", DelayMin=4 },
+						{ Count = 2, TemplateId = "lich", Region = "RoomB23", DelayMin=4 },
+
+						--RoomB5
+						{ Count = 2, TemplateId = "mummy", Region = "RoomB5", DelayMin=4 },
+
+						--RoomB7
+						{ Count = 2, TemplateId = "mummy", Region = "RoomB7", DelayMin=4 },
+
+						--RoomB9
+						{ Count = 1, TemplateId = "ruin_servant", Region = "RoomB9", DelayMin=4 },
+						{ Count = 1, TemplateId = "lich", Region = "RoomB9", DelayMin=4 },
+
+						--RoomB19
+						{ Count = 2, TemplateId = "mummy", Region = "RoomB19", DelayMin=4 },
+
+						--Room21
+						{ Count = 2, TemplateId = "zombie_dragon", Region = "RoomB21", DelayMin=4 },
+						--[[
+						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB21", DelayMin=4 },
+						{ Count = 4, TemplateId = "skeleton", Region = "RoomB21", DelayMin=4 },
+						]]--
+
+					-----------------------------------------------------------
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
