@@ -1,7 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1585</ClientId>
 	<Name>Tarrasque</Name>
-	<Color>0xFFCC0000</Color>
+	<Color>0xFFFFCC00</Color>
 	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
 	<MobileComponent>			
 		<BaseRunSpeed>.8</BaseRunSpeed>
@@ -13,6 +13,8 @@
 		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<DoubleVariable Name="BaseHealth">8000</DoubleVariable>
 		<DoubleVariable Name="Armor">120</DoubleVariable>
 		<DoubleVariable Name="Attack">50</DoubleVariable>
@@ -20,14 +22,14 @@
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="FameXP">250</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">200</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">105</DoubleVariable>
-		<DoubleVariable Name="PetSlots">9</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PetSlots">11</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="ai_dragon">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=70, Agi=30, Int=21, Wis=10, Will=10 },
 				MobTraits =
 					{
 					Toughness = 2,
@@ -69,8 +71,8 @@
 				{
 					AnimalParts =
 					{
-						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
-						{ ResourceType="VileLeatherHide", RarityPct=20, Count=2 },
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=4 },
+						{ ResourceType="VileLeatherHide", RarityPct=20, Count=4 },
 					},				
 				}
 			</Initializer>

@@ -4,8 +4,7 @@ function GetRecipeSkillRequired(mobileObj,recipe,material)
 	local entry, skillName = GetRecipeFromEntryName(recipe)
 	local modifier = 0
 	if(material) then
-		local materialIndex = IndexOf(MaterialIndex[skillName],material)
-		modifier = materialIndex --((materialIndex-1)*ServerSettings.Crafting.MaterialSkillDifficultyModifier)
+		modifier = AllRecipes[skillName][material].DifficultyModifier or 1
 	end
 	return math.min(100,entry.MinLevelToCraft + modifier), math.min(100,entry.MaxLevelToGain + modifier)
 end

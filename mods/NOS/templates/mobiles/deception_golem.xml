@@ -26,10 +26,10 @@
 		<LuaModule Name="ai_default">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Stats = { Str=40, Agi=60, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
-					Brawling = 100,  
+					Brawling = 100,
 					},
 				MobileEffects = 
 				{
