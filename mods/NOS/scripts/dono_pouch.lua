@@ -1,10 +1,12 @@
-require 'container'
+require "container"
 
-RegisterEventHandler(EventType.ContainerItemAdded, "", 
-    function(addedObj)
+RegisterEventHandler(
+	EventType.ContainerItemAdded,
+	"",
+	function(addedObj)
 		-- coins
 		local total = this:GetObjVar("DonationWorth")
-		if(addedObj:GetObjVar("ResourceType") == "coins") then
+		if (addedObj:GetObjVar("ResourceType") == "coins") then
 			total = total + addedObj:GetObjVar("StackCount")
 			addedObj:Destroy()
 		elseif (addedObj:IsContainer()) then
@@ -13,20 +15,21 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 				local randomLoc = GetRandomDropPosition(this)
 				j:MoveToContainer(this, randomLoc)
 			end
-			addedObj:Destroy()
+			CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
+				addedObj:Destroy()
+			end)
 		else
 			local value = GetItemValue(addedObj) or 1
-			DebugMessage(value)
-			if (value < 5) then value = 5 end
-			DebugMessage(tostring("+" .. value))
+			if (value < 5) then
+				value = 5
+			end
 			total = total + value
 			addedObj:Destroy()
 		end
-
 		this:SendMessage("RefreshWeight")
 		this:SetObjVar("DonationWorth", total)
-
 		SetItemTooltip(this)
-	end)
+	end
+)
 
-	RegisterEventHandler(EventType.ModuleAttached, "dono_pouch", HandleModuleLoaded)
+RegisterEventHandler(EventType.ModuleAttached, "dono_pouch", HandleModuleLoaded)

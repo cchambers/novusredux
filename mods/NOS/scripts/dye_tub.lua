@@ -30,34 +30,34 @@ local HueNames = {
 	hue984 = "Dread"
 }
 
--- fire, ice, poison, lunar, 
+-- fire, ice, poison, lunar,
 if (initializer ~= nil) then
-	
-	if( initializer.Random ~= nil ) then 
-		local range = { 1, 976 }
+	if (initializer.Random ~= nil) then
+		local range = {1, 976}
 		if (initializer.Random == "rare") then
-			range = { 819, 976 }
+			range = {819, 976}
 		elseif (initializer.Random == "rare") then
-			range = {1, 806 }
+			range = {1, 806}
 		end
 		local len = 27
-		local rand = math.random(range[1],range[2])
+		local rand = math.random(range[1], range[2])
 		this:SetHue(rand)
-		local name = HueNames["hue"..rand] or rand
-		if (name) then 
+		local name = HueNames["hue" .. rand] or rand
+		if (name) then
 			this:SetName(name .. " Dye Tub")
 		end
-    end
+	end
 end
-
 
 RegisterEventHandler(
 	EventType.Message,
 	"UseObject",
 	function(user, usedType)
 		local hue = this:GetHue()
-		local name = HueNames["hue"..hue]
-		if (not(name)) then name = hue end
+		local name = HueNames["hue" .. hue]
+		if (not (name)) then
+			name = hue
+		end
 		local objName = this:GetName()
 		if (objName ~= name .. "Dye Tub" or objName == "Dye Tub" and name) then
 			this:SetName(name .. " Dye Tub")
@@ -71,39 +71,43 @@ RegisterEventHandler(
 	EventType.ClientTargetGameObjResponse,
 	"dyetub",
 	function(target, user)
-		local dyeable = true;
+		local dyeable = true
 
-		if not( IsInBackpack(target, user) ) then
-			user:SystemMessage("That must be in your backpack to dye.","info")
+		if not (IsInBackpack(target, user)) then
+			user:SystemMessage("That must be in your backpack to dye.", "info")
 			return false
 		end
 
-		if (target == nil) then return end
+		if (target == nil) then
+			return
+		end
 
 		if (target:HasObjVar("ArmorType")) then
 			local armorType = target:GetObjVar("ArmorType")
-			if (armorType ~= "Cloth"
-			and armorType ~= "MageRobe"
-			and armorType ~= "Padded"
-			and armorType ~= "Linen") then dyeable = false end
+			if (armorType ~= "Cloth" and armorType ~= "MageRobe" and armorType ~= "Padded" and armorType ~= "Linen") then
+				dyeable = false
+			end
 		end
 
 		if (target:HasObjVar("ResourceType")) then
-			local resourceType = target:GetObjVar("ResourceType")
-			if (resourceType ~= "Rune") then dyeable = false end
+			if (resourceType ~= "Rune") then
+				dyeable = false
+			end
 		end
 
-		if (target:HasModule("stackable")) then 
+		if (target:HasModule("stackable")) then	
 			dyeable = false
 		end
-		
-		if (target:HasObjVar("LockedDown") or target:HasObjVar("NoReset")) then 
+
+		if (target:HasObjVar("LockedDown") or target:HasObjVar("NoReset")) then
 			dyeable = false
 		end
-		
+
 		if (target:HasObjVar("WeaponType") or target:IsMobile()) then
 			local weaponType = target:GetObjVar("WeaponType")
-			if (weaponType ~= "Spellbook") then dyeable = false end
+			if (weaponType ~= "Spellbook") then
+				dyeable = false
+			end
 		end
 
 		if (GetWeight(target) <= 0) then
@@ -113,14 +117,14 @@ RegisterEventHandler(
 		if (target:HasObjVar("CanDye")) then
 			dyeable = target:GetObjVar("CanDye")
 		end
-		
+
 		-- if (IsGod(user)) then dyeable = true end
 
-		if (not(dyeable)) then 
-			user:SystemMessage("You cannot dye that.")
+		if (not (dyeable)) then
+			user:SystemMessage("You cannot dye that.", "info")
 			return
 		end
-		
+
 		target:SetHue(this:GetHue())
 	end
 )

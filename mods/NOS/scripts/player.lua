@@ -202,10 +202,7 @@ function CanPickUp(targetObj, quiet, isQuickLoot)
 	--DebugMessage("topCont is "..tostring(topCont:GetName()))
 	--if (not this:HasModule("ska_pickpocket")) then
 	--DebugMessage("Really big check:",topCont ~= nil,topCont:IsMobile(),(topCont:IsPlayer() or not(IsDead(topCont))),topCont ~= this,not(IsDemiGod(this)))
-	if
-		(topCont ~= nil and topCont:IsMobile() and (topCont:IsPlayer() or not (IsDead(topCont))) and topCont ~= this and
-			not (IsDemiGod(this)))
-	 then
+	if (topCont ~= nil and topCont:IsMobile() and (topCont:IsPlayer() or not (IsDead(topCont))) and topCont ~= this and not (IsDemiGod(this))) then
 		local owner = GetHirelingOwner(topCont) or topCont:GetObjVar("controller")
 		--DebugMessage("Smaller check: ",owner ~= this)
 		if (owner ~= this) then
@@ -274,10 +271,7 @@ function CanPickUp(targetObj, quiet, isQuickLoot)
 	)
 
 	if (lockedContainer ~= nil) then
-		if
-			(not lockedContainer:HasObjVar("SecureContainer") or
-				not Plot.HasObjectControl(this, lockedContainer, lockedContainer:HasObjVar("FriendContainer")))
-		 then
+		if (not lockedContainer:HasObjVar("SecureContainer") or not Plot.HasObjectControl(this, lockedContainer, lockedContainer:HasObjVar("FriendContainer"))) then
 			this:SystemMessage("That is in a locked container.", "info")
 			return false
 		end
@@ -439,7 +433,9 @@ function GetTitle(targetObj)
 	local klevel = 1
 	while karma < karmaLevels[klevel] do
 		klevel = klevel + 1
-		if (klevel == #karmaLevels) then break end
+		if (klevel == #karmaLevels) then
+			break
+		end
 	end
 
 	klevel = karmaLevels[klevel]
@@ -539,7 +535,7 @@ function OnLoad(isPossessed)
 	-- GM Detect Hidden Passive
 	local detectSkill = GetSkillLevel(this, "DetectHiddenSkill")
 	local hasPassiveDetect = this:HasModule("passive_detecthidden")
-	if (not (hasPassiveDetect) and detectSkill >= 100 and not(IsImmortal(this))) then
+	if (not (hasPassiveDetect) and detectSkill >= 100 and not (IsImmortal(this))) then
 		this:AddModule("passive_detecthidden")
 	end
 
@@ -815,8 +811,8 @@ function PerformPlayerTick(notFirst)
 	CheckAllegianceTitle(this)
 
 	CheckBidRefund()
-	
-	CheckGmMessage(this)
+
+	-- CheckGmMessage(this)
 
 	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
@@ -827,7 +823,6 @@ function DailyTaxWarn()
 end
 
 function HandleRequestPickUp(pickedUpObject)
-
 	-- DebugMessage("Tried to pick up "..pickedUpObject:GetName())
 	local carriedObject = this:CarriedObject()
 	if (carriedObject ~= nil and carriedObject:IsValid() and pickedUpObject ~= carriedObject) then
@@ -855,9 +850,7 @@ function HandleRequestPickUp(pickedUpObject)
 	local equipSlot = GetEquipSlot(pickedUpObject)
 	--check to see if the containers have noloot on them
 	if (sourceContainer ~= nil) then
-		if
-			(sourceContainer:HasObjVar("noloot") and not (IsHiredMerchant(this, sourceContainer)) and (IsDemiGod(this) == false))
-		 then
+		if (sourceContainer:HasObjVar("noloot") and not (IsHiredMerchant(this, sourceContainer)) and (IsDemiGod(this) == false)) then
 			this:SystemMessage("You can't pick that up.", "info")
 			this:SendPickupFailed(pickedUpObject)
 			return
@@ -948,26 +941,34 @@ OverrideEventHandler(
 	end
 )
 
-function StartPowerHour(global) 
+function StartPowerHour(global)
 	this:SetObjVar("PowerHourEnds", 60)
 	this:PlayAnimation("roar")
 	this:PlayEffect("ImpactWaveEffect", 2)
 	if (global == true) then
-		this:SendMessage("StartMobileEffect", "PowerHourBuff", { Global = true })
+		this:SendMessage("StartMobileEffect", "PowerHourBuff", {Global = true})
 	else
 		this:SetObjVar("NextPowerHour", DateTime.UtcNow:Add(TimeSpan.FromHours(22)))
 		this:SendMessage("StartMobileEffect", "PowerHourBuff")
 	end
 end
 
-RegisterEventHandler(EventType.Message, "StartPowerHour", function () StartPowerHour() end)
-RegisterEventHandler(EventType.Message, "StartGlobalPowerHour", function () StartPowerHour(true) end)
-
-UnregisterEventHandler(
-	"",
-	EventType.ClientUserCommand,
-	"stuck"
+RegisterEventHandler(
+	EventType.Message,
+	"StartPowerHour",
+	function()
+		StartPowerHour()
+	end
 )
+RegisterEventHandler(
+	EventType.Message,
+	"StartGlobalPowerHour",
+	function()
+		StartPowerHour(true)
+	end
+)
+
+UnregisterEventHandler("", EventType.ClientUserCommand, "stuck")
 
 RegisterEventHandler(
 	EventType.ClientUserCommand,
