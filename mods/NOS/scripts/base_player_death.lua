@@ -10,6 +10,10 @@ function OnDeathStart()
 		return 
 	end
 
+	if (this:HasObjVar("ProtectionSpell")) then
+		this:DelObjVar("ProtectionSpell")
+	end
+
 	if(this:HasObjVar("ColorWarPlayer")) then
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(30),"CanRekit")
 	end
