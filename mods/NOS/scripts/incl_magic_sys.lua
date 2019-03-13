@@ -9,17 +9,17 @@ function GetSpellCastTime(spellName, spellSource)
 
 		local castTime = SpellData.CastTimes[circle]
 
-		spellSource:NpcSpeech(tostring("Base: " ..castTime))
+		-- spellSource:NpcSpeech(tostring("Base: " ..castTime))
 
 		if (spellSource:HasObjVar("ProtectionSpell")) then
 			castTime = castTime + 0.5
-			spellSource:NpcSpeech(tostring("Prot+: " ..castTime))
+			-- spellSource:NpcSpeech(tostring("Prot+: " ..castTime))
 		end
 
 		local mainHand = spellSource:GetEquippedObject("RightHand")
 		if (mainHand and mainHand:GetObjVar("WeaponType") == "Spellbook") then
 			castTime = castTime - 0.25
-			spellSource:NpcSpeech(tostring("Book-: " ..castTime))
+			-- spellSource:NpcSpeech(tostring("Book-: " ..castTime))
 		end
 
 		return castTime
