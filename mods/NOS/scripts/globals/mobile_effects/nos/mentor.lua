@@ -1,7 +1,11 @@
 MobileEffectLibrary.Mentor = {
     ShouldStack = false,
     OnEnterState = function(self, root, target, args)
-
+        if (HasMobileEffect(self.ParentObj, "Mentoring")) then
+            self.ParentObj:SystemMessage("You are already doing that.","info")
+            EndMobileEffect(root)
+            return false
+        end
         self.Path = self.ParentObj:GetObjVar("MentorPath")
         self.SelectedSkill = self.ParentObj:GetObjVar("MentorSkill") or nil
         self.SkillLevel = GetSkillLevel(self.ParentObj, "MentoringSkill")
@@ -48,8 +52,8 @@ MobileEffectLibrary.Mentor = {
                         self.SelectSkill(self, root, target, buttonId)
                     else
                         EndMobileEffect(root)
+                        return false
                     end
-                    return
                 end
             )
         else
@@ -62,7 +66,10 @@ MobileEffectLibrary.Mentor = {
     
                 if (returnId ~= nil) then
                     action = StringSplit(returnId, "|")[1]
-                    if (action == nil) then return end
+                    if (action == nil) then 
+                        EndMobileEffect(root)
+                        return false
+                    end
                     skillName = StringSplit(returnId, "|")[2]
                     if (skillName ~= nil) then
                         if (action == "select") then
@@ -118,15 +125,23 @@ MobileEffectLibrary.Mentor = {
 
         local scrollWindow = ScrollWindow(20, 40, 250, 375, 25)
 
+        local count = 0
         for skillName, skillData in pairs(SkillData.AllSkills) do
             if (not (skillData.Skip)) then
                 if
                     (mentorSkills[skillName] ~= nil and self.Path == skillData.SkillType and
                         mentorSkills[skillName].SkillLevel >= 90)
                  then
+                    count = count + 1
                     table.insert(allSkills, skillName)
                 end
             end
+        end
+
+        if (count == 0) then
+            self.ParentObj:SystemMessage("You need to master a skill before you can teach any.","info")
+            EndMobileEffect(root)
+            return false
         end
 
         for i, skillName in pairs(allSkills) do
@@ -143,14 +158,13 @@ MobileEffectLibrary.Mentor = {
             scrollElement:AddButton(20, 2, "select|" .. skillName, "", 0, 18, "", "", false, "Selection", selState)
             scrollWindow:Add(scrollElement)
         end
+
         newWindow:AddScrollWindow(scrollWindow)
 
         if (self.SelectSkill ~= nil) then
             newWindow:AddButton(15, 420, "train|skill", "Train", 200, 23, "", "", true, "", "Default")
         end
-
         self.ParentObj:OpenDynamicWindow(newWindow)
-
         EndMobileEffect(root)
     end,
     OnExitState = function(self, root)

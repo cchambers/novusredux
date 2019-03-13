@@ -1,0 +1,81 @@
+<ObjectTemplate>
+	<ClientId>1585</ClientId>
+	<Name>Tarrasque</Name>
+	<Color>0xFFFFCC00</Color>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
+		<DoubleVariable Name="BaseHealth">8000</DoubleVariable>
+		<DoubleVariable Name="Armor">120</DoubleVariable>
+		<DoubleVariable Name="Attack">50</DoubleVariable>
+		<DoubleVariable Name="Karma">-10000</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="FameXP">250</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">200</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PetSlots">11</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_dragon">
+			<Initializer>
+				{ 
+				Stats = { Str=70, Agi=30, Int=21, Wis=10, Will=10 },
+				MobTraits =
+					{
+					Toughness = 2,
+					Might = 2,
+					},
+				Skills = 
+					{ 
+					Brawling=100, 
+					MagicAffinity=100,
+					Magery=100,
+					MagicResist=20,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.DeceptionMob,
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.VileBlood,
+						{
+							NumCoins = math.random(1000,4000),
+						},
+					},	
+				ScavengeTables =
+					{
+					},		
+					AvailableSpells = { "Lightning", "Electricbolt" },
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=4 },
+						{ ResourceType="VileLeatherHide", RarityPct=20, Count=4 },
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

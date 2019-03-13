@@ -23,7 +23,7 @@
 			<Initializer>
 				{ 
 					Stats = { Str=70, Agi=50, Int=10 },
-					Skills = { Melee = 60, Slashing = 40, Brawling = 40, Piercing = 40, Blocking = 40, Dodge = 40 },
+					Skills = { Melee = 100, Slashing = 100, Brawling = 100, Piercing = 100, Blocking = 100, Dodge = 100 },
 					EquipTable = 
 					{						
 						

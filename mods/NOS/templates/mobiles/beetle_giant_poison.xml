@@ -1,0 +1,68 @@
+<ObjectTemplate>
+	<ClientId>304</ClientId>
+	<Name>Venomous Beetle</Name>
+	<Hue>639</Hue>
+	<ScaleModifier>3</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">750</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Reptile</StringVariable>
+		<StringVariable Name= "MobileKind">Insect</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">35</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Brawling = 100,
+					Magery=100,
+					MagicResist=80
+					},
+				MobileEffects = 
+				{
+					{ "NoStun", {Permanent=true} },
+				},
+				MobTraits =
+					{
+						PiercingVulnerability = 1,
+						BowVulnerability = 1,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.SicklyEye,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(250,350),
+						},
+					},	
+				ScavengeTables =
+					{
+					},	
+				WeaponAbilities = { primary="PoisonBreath" },	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

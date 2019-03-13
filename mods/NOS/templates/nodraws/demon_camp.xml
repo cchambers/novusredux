@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[0078ff]Shrine to Kho[-]</Name>
+	<ClientId>319</ClientId>
+	<ObjectVariableComponent>			
+		<StringVariable Name="Difficulty">Medium</StringVariable>
+		<BoolVariable Name="HeatSource">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="demon_camp"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

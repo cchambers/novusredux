@@ -44,12 +44,16 @@ function ExitColorWars(user)
 		Head:Destroy()
 	end
 
+	user:SendMessage("EndCombatMessage")
+
 	user:DelObjVar("ColorWarPlayer")
 	user:DelObjVar("ColorWarPoints")
 	user:DelObjVar("ColorWarKit")
 	user:DelObjVar("ColorWarWin")
 	user:DelObjVar("ColorWarTeam")
 	user:DelObjVar("ColorWarRound")
+	
+	SetCurVitality(user,GetMaxVitality(user))
 	
 	if (user:HasObjVar("ColorWarCaptain")) then user:DelObjVar("ColorWarCaptain") end
 

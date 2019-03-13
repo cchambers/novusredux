@@ -1,0 +1,6 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Graveyard Camp Marker</Name>
+	<ObjectVariableComponent/>	
+	<ScriptEngineComponent/>		
+</ObjectTemplate>

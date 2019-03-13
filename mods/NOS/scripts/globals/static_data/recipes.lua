@@ -160,7 +160,8 @@ RecipeCategories = {
 				{"Storage" ,},
 				{"Fences","Fences","FencesWalls"},
 				{"Tools",},
-			},		},
+			},		
+		},
 		{
 			Name = "Books",
 			Subcategories = 
@@ -187,6 +188,7 @@ AllRecipes = {
 		Iron = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
+			DifficultyModifier = 1,
 			DisplayName = "Iron",
 			CraftingTemplateFile = "resource_iron",
 			Description = "Iron that has been cast into an ingot, ready to be shaped into weapons, armor and tools.",
@@ -203,6 +205,7 @@ AllRecipes = {
 		Copper = {
 			MinLevelToCraft = 20,
 			MaxLevelToGain = 45,
+			DifficultyModifier = 1,
 			DisplayName = "Copper",
 			CraftingTemplateFile = "resource_copper",
 			Description = "Copper that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -219,6 +222,7 @@ AllRecipes = {
 		Gold = {
 			MinLevelToCraft = 40,
 			MaxLevelToGain = 65,
+			DifficultyModifier = 2,
 			DisplayName = "Gold",
 			CraftingTemplateFile = "resource_gold",
 			Description = "Gold that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -235,6 +239,7 @@ AllRecipes = {
 		Cobalt = {
 			MinLevelToCraft = 60,
 			MaxLevelToGain = 85,
+			DifficultyModifier = 2,
 			DisplayName = "Cobalt",
 			CraftingTemplateFile = "resource_cobalt",
 			Description = "Cobalt that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -251,6 +256,7 @@ AllRecipes = {
 		Obsidian = {
 			MinLevelToCraft = 80,
 			MaxLevelToGain = 105,
+			DifficultyModifier = 3,
 			DisplayName = "Obsidian",
 			CraftingTemplateFile = "resource_obsidian",
 			Description = "Obsidian that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -284,6 +290,7 @@ AllRecipes = {
 		Steel = {
 			MinLevelToCraft = 90,
 			MaxLevelToGain = 115,
+			DifficultyModifier = 3,
 			DisplayName = "Steel",
 			CraftingTemplateFile = "resource_steel",
 			Description = "Steel that has been cast into an ingot, ready to be shaped into weapons and armor.",
@@ -4614,7 +4621,7 @@ InscriptionSkill = {
 			DisplayName = "Spetum Recipe",
 			NeedRecipe = true,
 			Description = "A blacksmith recipe to craft a Spetum. ",
-			CraftingTemplateFile = "recipe_speatum",
+			CraftingTemplateFile = "recipe_spetum",
 			Category = "Recipes",
 			Subcategory = "Polearms",
 			Resources = {
@@ -5058,7 +5065,7 @@ InscriptionSkill = {
 			DisplayName = "Wooden Bookshelf Recipe",
 			NeedRecipe = true,
 			Description = "A carpenter recipe to craft a Wooden Bookshelf. ",
-			CraftingTemplateFile = "recipe_woodenbookshelf",
+			CraftingTemplateFile = "recipe_bookshelfwooden",
 			Category = "Recipes",
 			Subcategory = "Decorative Items",
 			Resources = {

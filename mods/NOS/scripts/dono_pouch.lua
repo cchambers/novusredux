@@ -7,6 +7,13 @@ RegisterEventHandler(EventType.ContainerItemAdded, "",
 		if(addedObj:GetObjVar("ResourceType") == "coins") then
 			total = total + addedObj:GetObjVar("StackCount")
 			addedObj:Destroy()
+		elseif (addedObj:IsContainer()) then
+			local objects = FindItemsInContainerRecursive(addedObj)
+			for i, j in pairs(objects) do
+				local randomLoc = GetRandomDropPosition(this)
+				j:MoveToContainer(this, randomLoc)
+			end
+			addedObj:Destroy()
 		else
 			local value = GetItemValue(addedObj) or 1
 			DebugMessage(value)

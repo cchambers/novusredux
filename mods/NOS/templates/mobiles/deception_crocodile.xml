@@ -1,0 +1,66 @@
+<ObjectTemplate>
+	<ClientId>135</ClientId>
+	<Name>Hunter Crocodile</Name>
+	<Color>0xf0e0b6</Color>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="BodyOffset" type="double" value="2.5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="HostileLevel">8</DoubleVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					MobTraits =
+						{
+							Armored = 0.5,
+							Might = 0.1,
+							BowResistance = -0.5,
+						},
+					MobileEffects = 
+						{
+							{ "NoStun", {Permanent=true} },
+						},
+					Skills = 
+						{ 
+							Brawling = 100,  
+						},
+						LootTables = 
+					{ 
+						TemplateDefines.LootTable.Blood,			
+					},
+					WeaponAbilities = { primary="Charge", secondary="Hamstring" },
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					MeatCount = 4,					
+
+					MeatType = "CrocodileMeat",
+					AnimalParts =
+					{
+						{ ResourceType="LeatherHide", RarityPct=100, Count=4 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

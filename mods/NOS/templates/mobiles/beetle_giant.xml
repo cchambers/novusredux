@@ -8,16 +8,16 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">480</DoubleVariable>
-		<StringVariable Name="MobileTeamType">Insect</StringVariable>
-		<StringVariable Name="MobileKind">Insect</StringVariable>
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Insect</StringVariable>
+		<StringVariable Name= "MobileKind">Insect</StringVariable>
 		<BoolVariable Name="AI-Leash">False</BoolVariable>
 		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
 		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
 		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
 		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<DoubleVariable Name="Armor">49</DoubleVariable>
-		<DoubleVariable Name="Attack">45</DoubleVariable>
+		<DoubleVariable Name="Attack">25</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
 		<BoolVariable Name="DoNotEquip">True</BoolVariable>
@@ -28,7 +28,7 @@
 		<LuaModule Name="ai_default_animal">
 			<Initializer>
 				{ 
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
 				Skills = 
 					{ 
 					Brawling = 60,  
@@ -42,11 +42,12 @@
 						TemplateDefines.LootTable.Average,
 						TemplateDefines.LootTable.MapsLow,
 						{
-							NumCoins = math.random(125,175),
+							NumCoins = math.random(300,600),
 						},
 					},	
 				ScavengeTables =
 					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=1 },
 					},		
 				}
 			</Initializer>

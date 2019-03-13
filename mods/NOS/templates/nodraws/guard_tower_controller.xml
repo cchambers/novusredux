@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<Name>Guard Tower Controller</Name>
+	<ClientId>2</ClientId>
+	<Tag>GuardTowerObject</Tag>
+	<ObjectVariableComponent/>		
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_tower_controller"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

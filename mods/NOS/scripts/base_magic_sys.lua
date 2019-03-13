@@ -75,7 +75,6 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 		this:SystemMessage("Not in range.", "info")
 		return false
 	elseif ( spellName == "Resurrect" and not ValidResurrectTarget(this, spellTarget) ) then
-		DebugMessage("RES FAILED")
 		return false
 	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
 		if not (spellTarget:HasObjVar("Attackable")) then

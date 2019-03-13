@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Pirate Mob Spawner</Name>
+	<ObjectVariableComponent>	
+	<StringVariable Name="spawnRegion">SouthernHillsGrottoBeds</StringVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">3</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 49, Template = "pirate_knight" },
+						{ Weight = 49, Template = "pirate_knight_female" },
+						{ Weight = 2, Template = "pirate_hq" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 20,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
