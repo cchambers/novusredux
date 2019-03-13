@@ -11,8 +11,7 @@ function GetSpellCastTime(spellName, spellSource)
 
 		spellSource:NpcSpeech(tostring("Base: " ..castTime))
 
-		local hasProtection = spellSource:HasObjVar("ProtectionSpell")
-		if (hasProtection) then
+		if (spellSource:HasObjVar("ProtectionSpell")) then
 			castTime = castTime + 0.5
 			spellSource:NpcSpeech(tostring("Prot+: " ..castTime))
 		end

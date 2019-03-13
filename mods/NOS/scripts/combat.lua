@@ -627,8 +627,6 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 	damageInfo.Attacker = damageInfo.Attacker or this
 
-	local hasProtection = victim:HasObjVar("ProtectionSpell")
-
 	if not (damageInfo.Type) then
 		if (damageInfo.Source) then
 			damageInfo.Type = GetWeaponDamageType(damageInfo.Source)
@@ -703,7 +701,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 				victim:SendMessage("EndSunderEffect")
 			else
 				defense = math.max(victim:GetStatValue("Defense") or 0, defense)
-				if (hasProtection) then
+				if (victim:HasObjVar("ProtectionSpell")) then
 					defense = defense - 15
 				end
 			end
