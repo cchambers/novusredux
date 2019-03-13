@@ -890,7 +890,7 @@ EquipmentStats = {
 		},
 		DwarvenShield = {
 			BaseBlockChance = 0,
-			ArmorRating = 35,
+			ArmorRating = 40,
 			MinSkill = 0
 		},
 		Heater = {
