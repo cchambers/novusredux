@@ -627,7 +627,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 
 	damageInfo.Attacker = damageInfo.Attacker or this
 
-	local hasProtection = victim:HasModule("sp_protection_effect")
+	local hasProtection = victim:HasObjVar("ProtectionSpell")
 
 	if not (damageInfo.Type) then
 		if (damageInfo.Source) then
@@ -653,10 +653,6 @@ function ApplyDamageToTarget(victim, damageInfo)
 			--victim:NpcSpeech("Base Damage: "..damageInfo.Damage)
 			--victim:NpcSpeech("Final Damage: "..finalDamage)
 			finalDamage = (damageInfo.Attacker:GetStatValue("Power") * finalDamage) / 8
-
-			if (hasProtection) then
-				finalDamage = finalDamage - (finalDamage * 0.35) 
-			end
 
 			-- calculate variance if not passed in
 			if not (damageInfo.Variance) then
@@ -707,14 +703,15 @@ function ApplyDamageToTarget(victim, damageInfo)
 				victim:SendMessage("EndSunderEffect")
 			else
 				defense = math.max(victim:GetStatValue("Defense") or 0, defense)
+				if (hasProtection) then
+					defense = defense - 15
+				end
 			end
 			-- defense = math.max(defense, 45)
 
 			finalDamage = (( damageInfo.Attack * 70 ) / (defense + blockDefense) )
 
-			if (hasProtection) then
-				finalDamage = finalDamage - (finalDamage * 0.15) 
-			end
+			
 
 			--DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
 
