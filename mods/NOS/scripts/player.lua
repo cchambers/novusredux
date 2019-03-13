@@ -120,7 +120,6 @@ OverrideEventHandler(
 		end
 	end
 )
-
 -- this function checks range of the topmost object from this player
 function IsInRange(targetObj)
 	Verbose("Player", "IsInRange", targetObj)
@@ -250,7 +249,6 @@ function CanPickUp(targetObj, quiet, isQuickLoot)
 			return true
 		end
 	)
-
 	if (inSaleContainer) then
 		this:SystemMessage("[$2402]", "info")
 		return false
@@ -269,7 +267,6 @@ function CanPickUp(targetObj, quiet, isQuickLoot)
 			return true
 		end
 	)
-
 	if (lockedContainer ~= nil) then
 		if (not lockedContainer:HasObjVar("SecureContainer") or not Plot.HasObjectControl(this, lockedContainer, lockedContainer:HasObjVar("FriendContainer"))) then
 			this:SystemMessage("That is in a locked container.", "info")
@@ -649,7 +646,6 @@ function OnLoad(isPossessed)
 		this:SetMaxMoveSpeedModifier(ServerSettings.Stats.RunSpeedModifier)
 
 		--UpdateFactions()
-
 		this:SetStatValue("PrestigeXPMax", ServerSettings.Prestige.PrestigePointXP)
 
 		if (this:GetSharedObjectProperty("IsSneaking")) then
@@ -672,7 +668,6 @@ function OnLoad(isPossessed)
 
 	--refresh the quest UI
 	--this:SendMessage("RefreshQuestUI")
-
 	SendTimeUpdate(this)
 
 	InitializeHotbar()
@@ -717,7 +712,6 @@ function OnLoad(isPossessed)
 			end
 		end
 	)
-
 	CallFunctionDelayed(
 		TimeSpan.FromSeconds(10.0),
 		function()
@@ -726,7 +720,6 @@ function OnLoad(isPossessed)
 			end
 		end
 	)
-
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()), "UpdateChatChannels")
 end
 RegisterEventHandler(
@@ -736,7 +729,6 @@ RegisterEventHandler(
 		OnLoad(...)
 	end
 )
-
 RegisterEventHandler(
 	EventType.Message,
 	"User_Ping",
@@ -753,7 +745,6 @@ RegisterEventHandler(
 		from:SendMessage("User_Pong", me)
 	end
 )
-
 RegisterEventHandler(
 	EventType.Message,
 	"OpenBank",
@@ -779,7 +770,6 @@ RegisterEventHandler(
 		)
 	end
 )
-
 RegisterEventHandler(
 	EventType.StartMoving,
 	"",
@@ -793,7 +783,6 @@ RegisterEventHandler(
 		end
 	end
 )
-
 -- This is the player tick, it's performed once per minute. It's the alternative to having multiple systems all updating under their own timers.
 function PerformPlayerTick(notFirst)
 	-- prevent logins and reloads from taking minutes away
@@ -812,7 +801,7 @@ function PerformPlayerTick(notFirst)
 
 	CheckBidRefund()
 
-	-- CheckGmMessage(this)
+	CheckGmMessage(this)
 
 	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
@@ -940,7 +929,6 @@ OverrideEventHandler(
 		end
 	end
 )
-
 function StartPowerHour(global)
 	this:SetObjVar("PowerHourEnds", 60)
 	this:PlayAnimation("roar")
@@ -968,9 +956,8 @@ RegisterEventHandler(
 	end
 )
 
-UnregisterEventHandler("", EventType.ClientUserCommand, "stuck")
-
-RegisterEventHandler(
+OverrideEventHandler(
+	"player",
 	EventType.ClientUserCommand,
 	"stuck",
 	function()
