@@ -134,7 +134,8 @@ end
 
 --- Convenience to allow a single entry before actually doing an interrupt
 function CheckSpellCastInterrupt(mobileObj)
-    if ( IsPlayerCharacter(mobileObj) ) then
+	local hasProtection = mobileObj:HasObjVar("ProtectionSpell")
+    if ( IsPlayerCharacter(mobileObj) and not(hasProtection) ) then
         SpellCastInterrupt(mobileObj)
     end
 end

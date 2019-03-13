@@ -799,9 +799,9 @@ function PerformPlayerTick(notFirst)
 	-- check allegiance titles always
 	CheckAllegianceTitle(this)
 
-	CheckBidRefund()
+	-- CheckBidRefund()
 
-	CheckGmMessage(this)
+	-- CheckGmMessage(this)
 
 	-- ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
 	-- IS THIS STILL NEEDED NOW THAT THE BUTTON HAS BEEN MOVED?
