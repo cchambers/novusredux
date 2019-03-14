@@ -12,61 +12,58 @@ SpellData = {
 		2.75
 	},
 	CircleSkills = {
-		{-20.1, 20.1},  -- circle -1 (for scrolls)
-		{-10.1, 30.1},  -- circle 0 (for scrolls)
-		{0, 40.1},  -- circle 1
-		{6.1, 50.1},  -- circle 2
+		{-20.1, 20.1}, -- circle -1 (for scrolls)
+		{-10.1, 30.1}, -- circle 0 (for scrolls)
+		{0, 40.1}, -- circle 1
+		{6.1, 50.1}, -- circle 2
 		{16.1, 60.1}, -- circle 3
 		{26.1, 70.1}, -- circle 4
 		{36.1, 80.1}, -- circle 5
 		{51.8, 90.1}, -- circle 6
 		{66.1, 100.1}, -- circle 7
-		{80.1, 120.1}, --circle 8
+		{80.1, 120.1} --circle 8
 	},
-
-	AllSpells= {
-		
+	AllSpells = {
 		-- CIRCLE ONE --
 		CreateFood = {
-            SpellDisplayName = "Create Food",
+			SpellDisplayName = "Create Food",
 			PowerWords = "In Mani Ylem",
 			Icon = "food",
-            Circle = 1,
-            manaCost = 4,
-            effectDamageType = "Bashing",
-            effectType = "InstantHitSpell",
-            BaseCastTime = "One",
-            castTimeOffset = 0,
-            SpellPower = 0,
-            critChance = 1,
-            SpellRange = 15,
-            TargetType = "targetLocation",
-            TargetRequired = true,
-            CanBeInterrupted = true,
-            SpellType = "CreateFoodTypeSpell",
-            SpellPrimeFXName = "CastWater2",
-            SpellPotencySkill = "MagerySkill",
-            SpellPrimeSFX = "CastAir",
-            SpellTooltipString = "Manifest sustinence.",
-            requireLineOfSight = true,
-            Skill = "MagerySkill",
-            MinSkillRequired = 5,
-            spellSkillLevel = 10,
-            AttackSpellType = false,
-            SpellEnabled = true,
-            SpellFireAnim = "cast_teleport",
-            SpellReleaseUserScript = "sp_create_food",
-            DoNotReplaceTarget = true,
-            InstantHitSpell = true,
-            SpellLaunchSFX = "CastEarth",
-            ReagentsRequired = true,
-            Reagents = {
-                "Garlic",
-                "Ginseng",
-                "Mandrake"
-            },
+			Circle = 1,
+			manaCost = 4,
+			effectDamageType = "Bashing",
+			effectType = "InstantHitSpell",
+			BaseCastTime = "One",
+			castTimeOffset = 0,
+			SpellPower = 0,
+			critChance = 1,
+			SpellRange = 15,
+			TargetType = "targetLocation",
+			TargetRequired = true,
+			CanBeInterrupted = true,
+			SpellType = "CreateFoodTypeSpell",
+			SpellPrimeFXName = "CastWater2",
+			SpellPotencySkill = "MagerySkill",
+			SpellPrimeSFX = "CastAir",
+			SpellTooltipString = "Manifest sustinence.",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			MinSkillRequired = 5,
+			spellSkillLevel = 10,
+			AttackSpellType = false,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_teleport",
+			SpellReleaseUserScript = "sp_create_food",
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			SpellLaunchSFX = "CastEarth",
+			ReagentsRequired = true,
+			Reagents = {
+				"Garlic",
+				"Ginseng",
+				"Mandrake"
+			}
 		},
-
 		Heal = {
 			SpellDisplayName = "Heal",
 			PowerWords = "In Mani",
@@ -82,13 +79,13 @@ SpellData = {
 			critEffectTargetScript = "sp_heal_effect",
 			SpellType = "HealTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeGreenEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandGreenEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandGreenEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellFXName = "HealEffect",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
@@ -107,9 +104,8 @@ SpellData = {
 				"Ginseng",
 				"Garlic",
 				"Spidersilk"
-			},
+			}
 		},
-
 		ManaMissile = {
 			SpellDisplayName = "Magic Arrow",
 			PowerWords = "In Por Ylem",
@@ -129,13 +125,13 @@ SpellData = {
 			critEffectTargetScript = "sp_burn_effect",
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			CanBeDodged = true,
 			CanBeBlocked = true,
 			CanBeParried = true,
@@ -158,18 +154,17 @@ SpellData = {
 			SpellFireAnim = "spell_fire",
 			StanceOverride = {
 				Defensive = {
-					SpellReleaseUserScript  = "sp_fireshockwave_effect",
+					SpellReleaseUserScript = "sp_fireshockwave_effect",
 					critEffectTargetScript = "sp_knockback_effect",
 					critChance = 5,
 					SpellRange = 6,
-					manaCost = 12,
-				},
+					manaCost = 12
+				}
 			},
 			Reagents = {
-				"Sulfurousash",
-			},
+				"Sulfurousash"
+			}
 		},
-
 		Reflectivearmor = {
 			SpellDisplayName = "Reactive Armor",
 			PowerWords = "Flam Sanct",
@@ -189,13 +184,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Protects the caster in an armor that reflects damage while active.",
 			Skill = "MagerySkill",
@@ -208,9 +203,8 @@ SpellData = {
 				"Garlic",
 				"Sulfurousash",
 				"Spidersilk"
-			},
+			}
 		},
-
 		Weaken = {
 			SpellDisplayName = "Weaken",
 			PowerWords = "Des Mani",
@@ -225,13 +219,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Decrease targets strength.",
 			SpellFXArgs = "Bone=Ground",
@@ -245,9 +239,8 @@ SpellData = {
 			Reagents = {
 				"Garlic",
 				"Nightshade"
-			},
+			}
 		},
-
 		Clumsy = {
 			SpellDisplayName = "Clumsy",
 			PowerWords = "Uus Jux",
@@ -262,13 +255,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Decrease targets dexterity.",
 			SpellFXArgs = "Bone=Ground",
@@ -282,9 +275,8 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Nightshade"
-			},
+			}
 		},
-
 		Refresh = {
 			PowerWords = "Uus Grav",
 			Icon = "Ball Lightning 02",
@@ -319,9 +311,8 @@ SpellData = {
 				"Blackpearl",
 				"Mandrake"
 			},
-			Circle = 1,
-		},	
-
+			Circle = 1
+		},
 		Feeblemind = {
 			SpellDisplayName = "Feeblemind",
 			PowerWords = "Uus Jux",
@@ -336,13 +327,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Decrease targets dexterity.",
 			SpellFXArgs = "Bone=Ground",
@@ -356,9 +347,8 @@ SpellData = {
 			Reagents = {
 				"Ginseng",
 				"Nightshade"
-			},
+			}
 		},
-
 		-- CIRCLE TWO --
 		Cure = {
 			SpellDisplayName = "Cure",
@@ -376,13 +366,13 @@ SpellData = {
 			SpellFXName = "CureEffect",
 			SpellFXArgs = "Bone=Ground",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellFXDuration = 3,
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
@@ -399,10 +389,9 @@ SpellData = {
 			ReagentsRequired = true,
 			Reagents = {
 				"Garlic",
-				"Ginseng",
-			},
+				"Ginseng"
+			}
 		},
-
 		Ruin = {
 			SpellDisplayName = "Harm",
 			PowerWords = "An Mani",
@@ -424,13 +413,13 @@ SpellData = {
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellHitSFX = "event:/magic/fire/magic_fire_fireball_impact",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitFX = "VoidExplosionEffect",
 			SpellPotencySkill = "MagerySkill",
 			SpellTooltipString = "Harm your opponent.",
@@ -443,15 +432,14 @@ SpellData = {
 			SpellFireAnim = "spell_fire",
 			StanceOverride = {
 				Defensive = {
-					SpellReleaseUserScript  = "sp_staticshockwave_effect",
-				},
+					SpellReleaseUserScript = "sp_staticshockwave_effect"
+				}
 			},
 			Reagents = {
 				"Nightshade",
 				"Spidersilk"
-			},
+			}
 		},
-		
 		Intellect = {
 			SpellDisplayName = "Infuse",
 			PowerWords = "Mo Mani",
@@ -465,13 +453,13 @@ SpellData = {
 			SpellType = "BuffTypeSpell",
 			SpellFXName = "HealEffect",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellHitSFX = "event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Sacrifices up to 20% of casters max stamina in exchange for 25%-75% of that amount in mana.",
@@ -488,9 +476,8 @@ SpellData = {
 				"Mandrake",
 				"Ginseng"
 			},
-			PlayEffect = HealEffect,
+			PlayEffect = HealEffect
 		},
-
 		Agile = {
 			SpellDisplayName = "Agility",
 			PowerWords = "Ex Uus",
@@ -505,13 +492,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Increase targets agility.",
 			SpellFXArgs = "Bone=Ground",
@@ -525,9 +512,8 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake"
-			},
+			}
 		},
-		
 		Protection = {
 			SpellDisplayName = "Protection",
 			PowerWords = "Uus Sanct",
@@ -542,13 +528,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Decrease targets strength.",
 			SpellFXArgs = "Bone=Ground",
@@ -556,15 +542,14 @@ SpellData = {
 			Skill = "MagerySkill",
 			BeneficialSpellType = true,
 			AttackSpellType = false,
-			SpellEnabled = false,
+			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
 			spellHitEffectTargetScript = "sp_protection_effect",
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake"
-			},
+			}
 		},
-
 		Cunning = {
 			SpellDisplayName = "Cunning",
 			PowerWords = "Uus Wis",
@@ -579,13 +564,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Increase targets intelligence.",
 			SpellFXArgs = "Bone=Ground",
@@ -599,9 +584,8 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake"
-			},
+			}
 		},
-
 		Strength = {
 			SpellDisplayName = "Strength",
 			PowerWords = "Uus Mani",
@@ -616,13 +600,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Increase targets strength.",
 			SpellFXArgs = "Bone=Ground",
@@ -636,9 +620,8 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake"
-			},
+			}
 		},
-
 		-- CIRCLE 3 --
 		Bless = {
 			SpellDisplayName = "Bless",
@@ -654,13 +637,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Increase targets base stats.",
 			SpellFXArgs = "Bone=Ground",
@@ -674,9 +657,8 @@ SpellData = {
 			Reagents = {
 				"Garlic",
 				"Mandrake"
-			},
+			}
 		},
-
 		Fireball = {
 			SpellDisplayName = "Fireball",
 			PowerWords = "Vas Flam",
@@ -696,13 +678,13 @@ SpellData = {
 			critEffectTargetScript = "sp_burn_effect",
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			CanBeDodged = true,
 			CanBeBlocked = true,
 			CanBeParried = true,
@@ -724,18 +706,17 @@ SpellData = {
 			SpellFireAnim = "spell_fire",
 			StanceOverride = {
 				Defensive = {
-					SpellReleaseUserScript  = "sp_fireshockwave_effect",
+					SpellReleaseUserScript = "sp_fireshockwave_effect",
 					critEffectTargetScript = "sp_knockback_effect",
 					critChance = 5,
 					SpellRange = 6,
-					manaCost = 12,
-				},
+					manaCost = 12
+				}
 			},
 			Reagents = {
-				"Blackpearl",
-			},
+				"Blackpearl"
+			}
 		},
-
 		Poison = {
 			SpellDisplayName = "Poison",
 			PowerWords = "In Nox",
@@ -751,13 +732,13 @@ SpellData = {
 			CanBeInterrupted = true,
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellHitSFX = "event:/animals/worm/worm_pain",
@@ -771,10 +752,9 @@ SpellData = {
 			TargetMobileEffect = "SpellPoison",
 			ReagentsRequired = true,
 			Reagents = {
-				"Nightshade",
-			},
+				"Nightshade"
+			}
 		},
-		
 		Stonewall = {
 			SpellDisplayName = "Wall of Stone",
 			PowerWords = "In Sanct Ylem",
@@ -793,13 +773,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "CastAir",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Creates a wall of stone between two points.",
 			Skill = "MagerySkill",
 			MinSkillRequired = 50,
@@ -807,13 +787,13 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_air",
-			SpellReleaseUserMobileEffect  = "Stonewall",
+			SpellReleaseUserMobileEffect = "Stonewall",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "CastFire",
 			AffinityRequired = {
-				Fire = 4,
+				Fire = 4
 			},
 			ReagentsRequired = true,
 			Reagents = {
@@ -821,9 +801,8 @@ SpellData = {
 				"Blackpearl",
 				"Spidersilk",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		Teleport = {
 			SpellDisplayName = "Teleport",
 			PowerWords = "Rel Por",
@@ -839,13 +818,13 @@ SpellData = {
 			CanBeInterrupted = true,
 			SpellType = "TeleportSpellType",
 			SpellPrimeFXName = "ConjurePrimeBlueEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandBlueEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandBlueEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/air/magic_air_cast_air",
 			SpellTooltipString = "Teleports to the target location.",
@@ -856,17 +835,16 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_teleport",
-			SpellReleaseUserScript  = "sp_teleport_effect",
+			SpellReleaseUserScript = "sp_teleport_effect",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/air/magic_air_teleport",
 			ReagentsRequired = true,
 			Reagents = {
-				"Ginseng",
-			},
+				"Ginseng"
+			}
 		},
-
 		-- CIRCLE FOUR --
 		Lightning = {
 			SpellDisplayName = "Lightning",
@@ -885,13 +863,13 @@ SpellData = {
 			critEffectTargetScript = "sp_shocked_slow_effect",
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellFXName = "LightningCloudEffect",
 			SpellPrimeSFX = "event:/magic/air/magic_air_cast_air",
 			SpellHitSFX = "event:/magic/air/magic_air_lightning",
@@ -906,15 +884,14 @@ SpellData = {
 			SpellFireAnim = "cast_lightning",
 			StanceOverride = {
 				Defensive = {
-					SpellReleaseUserScript  = "sp_staticshockwave_effect",
-				},
+					SpellReleaseUserScript = "sp_staticshockwave_effect"
+				}
 			},
 			Reagents = {
 				"Mandrake",
 				"Sulfurousash"
-			},
+			}
 		},
-		
 		Recall = {
 			SpellDisplayName = "Recall",
 			PowerWords = "Kal Ort Por",
@@ -930,13 +907,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellPrimeFXName = "ConjurePrimeBlueEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandBlueEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandBlueEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeFXName = "event:/magic/water/magic_water_cast_water2",
 			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Teleports you to the location marked on the targetted rune. Cannot be used in Dungeons, Barren Lands, and Black Forest.",
@@ -952,10 +929,9 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake",
-				"Blackpearl",
-			},
+				"Blackpearl"
+			}
 		},
-
 		Curse = {
 			SpellDisplayName = "Curse",
 			PowerWords = "Des Sanct",
@@ -970,13 +946,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Decrease targets base stats.",
 			SpellFXArgs = "Bone=Ground",
@@ -990,9 +966,8 @@ SpellData = {
 			Reagents = {
 				"Garlic",
 				"Mandrake"
-			},
+			}
 		},
-
 		Greaterheal = {
 			SpellDisplayName = "Greater Heal",
 			PowerWords = "In Vas Mani",
@@ -1027,9 +1002,8 @@ SpellData = {
 				"Garlic",
 				"Mandrake",
 				"Spidersilk"
-			},
+			}
 		},
-
 		Walloffire = {
 			SpellDisplayName = "Fire Field",
 			PowerWords = "In Flam Grav",
@@ -1047,13 +1021,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Creates a wall of fire between two points.",
 			Skill = "MagerySkill",
 			MinSkillRequired = 50,
@@ -1061,23 +1035,22 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
-			SpellReleaseUserScript  = "sp_firewall_effect",
+			SpellReleaseUserScript = "sp_firewall_effect",
 			DoNotReplaceTarget = true,
 			critEffectTargetScript = "sp_burn_effect",
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			AffinityRequired = {
-				Fire = 4,
+				Fire = 4
 			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Blackpearl",
 				"Spidersilk",
 				"Sulfurousash"
-			},
-		},	
-
+			}
+		},
 		Poisonfield = {
 			SpellDisplayName = "Poison Field",
 			PowerWords = "In Nox Grav",
@@ -1101,13 +1074,13 @@ SpellData = {
 			spellSkillLevel = 60,
 			AttackSpellType = true,
 			SpellFireAnim = "cast_fire",
-			SpellReleaseUserScript  = "sp_poisonfield_effect",
+			SpellReleaseUserScript = "sp_poisonfield_effect",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "event:/magic/void/magic_void_cast_void",
 			AffinityRequired = {
-				Fire = 2,
+				Fire = 2
 			},
 			ReagentsRequired = true,
 			Reagents = {
@@ -1117,15 +1090,14 @@ SpellData = {
 			},
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand"
 		},
-
 		Iceblade = {
 			SpellDisplayName = "Ice Blade",
 			PowerWords = "Oof Chil",
@@ -1155,9 +1127,8 @@ SpellData = {
 				"Mandrake",
 				"Ginseng",
 				"Blackpearl"
-			},
+			}
 		},
-
 		-- CIRCLE FIVE --
 		Attack = {
 			SpellDisplayName = "Power Up",
@@ -1173,13 +1144,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Increase targets attack by 20%.",
 			SpellFXArgs = "Bone=Ground",
@@ -1193,10 +1164,9 @@ SpellData = {
 			spellHitEffectTargetScript = "sp_power_effect",
 			Reagents = {
 				"Garlic",
-				"Ginseng",
-			},
+				"Ginseng"
+			}
 		},
-
 		Defense = {
 			SpellDisplayName = "Fortify",
 			Circle = 5,
@@ -1211,13 +1181,13 @@ SpellData = {
 			SpellFXName = "ElectricShield",
 			SpellFXDuration = 3,
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
 			SpellTooltipString = "Increase targets defense by 20%.",
@@ -1230,10 +1200,9 @@ SpellData = {
 			spellHitEffectTargetScript = "sp_defense_effect",
 			Reagents = {
 				"Ginseng",
-				"Blackpearl",
-			},
+				"Blackpearl"
+			}
 		},
-
 		Incognito = {
 			SpellDisplayName = "Incognito",
 			PowerWords = "Kal In Ex",
@@ -1248,13 +1217,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Hide your identity.",
 			SpellFXArgs = "Bone=Ground",
@@ -1270,9 +1239,8 @@ SpellData = {
 				"Nightshade",
 				"Mandrake",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		Nightsight = {
 			SpellDisplayName = "Night Sight",
 			PowerWords = "In Lor",
@@ -1287,13 +1255,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "See in the dark.",
 			SpellFXArgs = "Bone=Ground",
@@ -1303,15 +1271,14 @@ SpellData = {
 			AttackSpellType = false,
 			SpellEnabled = true,
 			SpellFireAnim = "BuffEffect_C",
-			SpellReleaseUserScript  = "sp_nightsight",
+			SpellReleaseUserScript = "sp_nightsight",
 			Reagents = {
 				"Bloodmoss",
 				"Nightshade",
 				"Mandrake",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		Frost = {
 			SpellDisplayName = "Ray of Frost",
 			PowerWords = "Vas Chil",
@@ -1330,13 +1297,13 @@ SpellData = {
 			critEffectTargetScript = "sp_burn_effect",
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			CanBeDodged = true,
 			CanBeBlocked = true,
 			CanBeParried = true,
@@ -1359,21 +1326,20 @@ SpellData = {
 			SpellFireAnim = "spell_fire",
 			StanceOverride = {
 				Defensive = {
-					SpellReleaseUserScript  = "sp_fireshockwave_effect",
+					SpellReleaseUserScript = "sp_fireshockwave_effect",
 					critEffectTargetScript = "sp_knockback_effect",
 					critChance = 5,
 					SpellRange = 6,
-					manaCost = 12,
-				},
+					manaCost = 12
+				}
 			},
 			TargetMobileEffect = "Frost",
 			Reagents = {
 				"Mandrake",
 				"Ginseng"
 			},
-			Icon = "Chill",
+			Icon = "Chill"
 		},
-
 		Paralyze = {
 			SpellDisplayName = "Paralyze",
 			PowerWords = "An Ex Por",
@@ -1403,15 +1369,14 @@ SpellData = {
 				"Blackpearl",
 				"Nightshade",
 				"Spidersilk"
-			},
+			}
 		},
-
 		Meteor = {
 			SpellDisplayName = "Meteor",
 			PowerWords = "Des Flam Ylem",
 			Circle = 5,
 			manaCost = 52,
-			effectDamageType = "Fire",			
+			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
 			SpellPower = 52,
 			SpellRange = 12,
@@ -1421,20 +1386,20 @@ SpellData = {
 			SpellType = "MagicAttackTypeSpell",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "[$3306]",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellReleaseUserScript  = "sp_meteor_effect",
+			SpellReleaseUserScript = "sp_meteor_effect",
 			SpellPotencySkill = "MagerySkill",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
@@ -1446,9 +1411,8 @@ SpellData = {
 				"Bloodmoss",
 				"Spidersilk",
 				"Sulfurousash"
-			},
-		},	
-
+			}
+		},
 		MagicReflection = {
 			SpellDisplayName = "Magic Reflection",
 			PowerWords = "In Jux Sanct",
@@ -1463,13 +1427,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_grim_aura",
 			SpellTooltipString = "Reflect the next magical attack that hits you.",
 			SpellFXArgs = "Bone=Ground",
@@ -1484,9 +1448,8 @@ SpellData = {
 				"Garlic",
 				"Spidersilk",
 				"Mandrake"
-			},
+			}
 		},
-
 		MindBlast = {
 			SpellDisplayName = "Mind Blast",
 			PowerWords = "Por Corp Wis",
@@ -1527,7 +1490,7 @@ SpellData = {
 			CanBeBlocked = true,
 			CanBeParried = true,
 			AffinityRequired = {
-				Fire = 2,
+				Fire = 2
 			},
 			Reagents = {
 				"Sulfurousash",
@@ -1536,8 +1499,7 @@ SpellData = {
 				"Mandrake"
 			}
 		},
-		
-		-- CIRCLE SIX -- 
+		-- CIRCLE SIX --
 		Imbue = {
 			SpellDisplayName = "Imbue Weapon",
 			PowerWords = "In Ex Sanct",
@@ -1547,16 +1509,16 @@ SpellData = {
 			effectType = "InstantHitSpell",
 			SpellPower = 0,
 			critChance = 0,
-			SpellRange = OBJECT_INTERACTION_RANGE,			
+			SpellRange = OBJECT_INTERACTION_RANGE,
 			CanBeInterrupted = true,
 			SpellPrimeFXName = "ConjurePrimeBlueEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandBlueEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandBlueEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellType = "BuffTypeSpell",
 			SpellPrimeSFX = "event:/magic/air/magic_air_cast_air",
 			SpellTooltipString = "Cast on a weapon to give it extra damage.",
@@ -1571,7 +1533,7 @@ SpellData = {
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/air/magic_air_teleport",
-			SpellPotencySkill = "MagerySkill",			
+			SpellPotencySkill = "MagerySkill",
 			TargetType = "targetObject",
 			TargetRequired = true,
 			MobileEffect = "ImbueWeapon",
@@ -1582,9 +1544,8 @@ SpellData = {
 				"Ginseng",
 				"Nightshade"
 			},
-			CastTime = 4,
+			CastTime = 4
 		},
-
 		Electricbolt = {
 			SpellDisplayName = "Energy Bolt",
 			PowerWords = "Corp Por",
@@ -1605,13 +1566,13 @@ SpellData = {
 			CanBeInterrupted = true,
 			SpellType = "MagicAttackTypeSpell",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellFXName = "LightningBallEffect",
 			SpellFXArgs = "Bone=R_Hand",
 			SpellFXDelay = 0.15,
@@ -1632,14 +1593,13 @@ SpellData = {
 			CanBeBlocked = true,
 			CanBeParried = true,
 			AffinityRequired = {
-					Air = 2,
-				},
+				Air = 2
+			},
 			Reagents = {
 				"Blackpearl",
 				"Nightshade"
-			},
+			}
 		},
-
 		Explosion = {
 			SpellDisplayName = "Explosion",
 			PowerWords = "Vas Ort Flam",
@@ -1679,14 +1639,13 @@ SpellData = {
 			CanBeBlocked = true,
 			CanBeParried = true,
 			AffinityRequired = {
-				Fire = 2,
+				Fire = 2
 			},
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake"
-			},
+			}
 		},
-		
 		Mark = {
 			SpellDisplayName = "Mark",
 			PowerWords = "Kal Por Ylem",
@@ -1701,13 +1660,13 @@ SpellData = {
 			SpellFXName = "HealEffect",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellPrimeFXName = "ConjurePrimeBlueEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandBlueEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandBlueEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Inscribes a rune that allows for travel to this location using teleportation.",
 			SpellFXArgs = "Bone=Ground",
 			SpellEnabled = true,
@@ -1720,10 +1679,9 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake",
-				"Blackpearl",
-			},
+				"Blackpearl"
+			}
 		},
-
 		Cloak = {
 			SpellDisplayName = "Invisibility",
 			PowerWords = "An Lor Xen",
@@ -1738,13 +1696,13 @@ SpellData = {
 			SpellType = "BuffTypeSpell",
 			SpellFXName = "CloakEffect",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/air/magic_air_cast_air",
 			SpellHitSFX = "event:/magic/air/magic_air_cloack",
 			SpellPotencySkill = "MagerySkill",
@@ -1761,16 +1719,15 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Nightshade"
-			},
+			}
 		},
-
 		Reveal = {
 			SpellDisplayName = "Reveal",
 			PowerWords = "Wis Quas",
 			Circle = 6,
 			manaCost = 25,
 			upkeepCost = 0,
-			--effectDamageType = "Bashing",	If earthquake breaks we know.		
+			--effectDamageType = "Bashing",	If earthquake breaks we know.
 			effectType = "InstantHitSpell",
 			SpellPower = 8,
 			critChance = 20,
@@ -1789,26 +1746,25 @@ SpellData = {
 			spellSkillLevel = 75,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
-			completionEffectUserScript  = "sp_reveal_effect",
+			completionEffectUserScript = "sp_reveal_effect",
 			DistanceDecayRate = -.05,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			-- SpellPrimeFXName = "ConjurePrimeRedEffect",
-            -- SpellPrimeFXArgs = "Bone=Ground",
-            -- SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            -- SpellPrimeFX2Args = "Bone=L_Hand",
-            -- SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            -- SpellPrimedFXArgs = "Bone=R_Hand",
-            -- SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            -- SpellPrimedFX2Args = "Bone=L_Hand",
+			-- SpellPrimeFXArgs = "Bone=Ground",
+			-- SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			-- SpellPrimeFX2Args = "Bone=L_Hand",
+			-- SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			-- SpellPrimedFXArgs = "Bone=R_Hand",
+			-- SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			-- SpellPrimedFX2Args = "Bone=L_Hand",
 			-- critEffectTargetScript = "sp_shaken_slow_effect",
 			Reagents = {
 				"Bloodmoss",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		-- CIRCLE SEVEN --
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
@@ -1827,13 +1783,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Shoots out a wave of flames toward target area.",
 			Skill = "MagerySkill",
 			MinSkillRequired = 35,
@@ -1841,23 +1797,22 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellReleaseUserScript  = "sp_flamewave_effect",
+			SpellReleaseUserScript = "sp_flamewave_effect",
 			DoNotReplaceTarget = true,
 			critEffectTargetScript = "sp_burn_effect",
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			AffinityRequired = {
-				Fire = 3,
+				Fire = 3
 			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Spidersilk",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		Bombardment = {
 			SpellDisplayName = "Meteor Swarm",
 			PowerWords = "Kal Des Flam Ylem",
@@ -1880,13 +1835,13 @@ SpellData = {
 			--SpellFXName = "LightningCloudEffect",
 			--SpellLaunchFX = "RockLaunchEffect",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellHitSFX = "event:/magic/air/magic_air_lightning",
 			SpellHitFX = "RedCoreImpactWaveEffect",
@@ -1901,16 +1856,15 @@ SpellData = {
 			SpellFireAnim = "cast_earth",
 			critEffectTargetScript = "sp_shaken_slow_effect",
 			AffinityRequired = {
-				Earth = 2,
+				Earth = 2
 			},
 			Reagents = {
 				"Bloodmoss",
 				"Mandrake",
 				"Spidersilk",
-				"Sulfurousash",
-				},
+				"Sulfurousash"
+			}
 		},
-
 		Portal = {
 			SpellDisplayName = "Gate Travel",
 			PowerWords = "Vas Rel Por",
@@ -1920,16 +1874,16 @@ SpellData = {
 			effectType = "InstantHitSpell",
 			SpellPower = 0,
 			critChance = 0,
-			SpellRange = OBJECT_INTERACTION_RANGE,			
+			SpellRange = OBJECT_INTERACTION_RANGE,
 			CanBeInterrupted = true,
 			SpellPrimeFXName = "ConjurePrimeBlueEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandBlueEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandBlueEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandBlueEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellType = "BuffTypeSpell",
 			SpellPrimeSFX = "event:/magic/air/magic_air_cast_air",
 			SpellTooltipString = "Cast on a marked rune to summon a portal for magical travel. Cannot be used in Dungeons, or inside player housing.",
@@ -1944,7 +1898,7 @@ SpellData = {
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/air/magic_air_teleport",
-			SpellPotencySkill = "MagerySkill",			
+			SpellPotencySkill = "MagerySkill",
 			TargetType = "targetObject",
 			TargetRequired = true,
 			TargetResource = "Rune",
@@ -1953,17 +1907,16 @@ SpellData = {
 			Reagents = {
 				"Bloodmoss",
 				"Sulfurousash",
-				"Blackpearl",
+				"Blackpearl"
 			},
-			CastTime = 6,
+			CastTime = 6
 		},
-
 		Pillaroffire = {
 			SpellDisplayName = "Flamestrike",
 			PowerWords = "Kal Vas Flam",
 			Circle = 7,
 			manaCost = 60,
-			effectDamageType = "Fire",			
+			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
 			SpellPower = 60,
 			critChance = 12,
@@ -1975,13 +1928,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Summons a swirling vortex of fire at target location.",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
@@ -1990,7 +1943,7 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
-			spellHitEffectUserScript  = "sp_pillar_of_fire_effect",
+			spellHitEffectUserScript = "sp_pillar_of_fire_effect",
 			SpellPotencySkill = "MagerySkill",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
@@ -1998,21 +1951,20 @@ SpellData = {
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_burn_effect",
 			AffinityRequired = {
-				Fire = 1,
+				Fire = 1
 			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Spidersilk",
 				"Sulfurousash"
-			},
-		},	
-
+			}
+		},
 		Icerain = {
 			SpellDisplayName = "Hailstorm",
 			Icon = "icestorm",
 			Circle = 7,
 			manaCost = 60,
-			effectDamageType = "Piercing",			
+			effectDamageType = "Piercing",
 			effectType = "InstantHitSpell",
 			SpellPower = 20,
 			critChance = 4,
@@ -2024,13 +1976,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimedFXName = "PrimedWater2",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellTooltipString = "Rains down shards of ice at target location.",
 			SpellFXArgs = "Bone=Ground",
@@ -2041,23 +1993,22 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
-			SpellReleaseUserScript  = "sp_ice_rain_effect",
+			SpellReleaseUserScript = "sp_ice_rain_effect",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/water/magic_water_cast_water",
 			critEffectTargetScript = "sp_freeze_effect",
 			AffinityRequired = {
-				Water = 1,
+				Water = 1
 			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Ginseng",
 				"Spidersilk"
-			},
-		},	
-
+			}
+		},
 		Energywall = {
 			SpellDisplayName = "Energy Field",
 			PowerWords = "In Sanct Grav",
@@ -2075,13 +2026,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "CastAir",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Creates a wall of energy between two points.",
 			Skill = "MagerySkill",
 			MinSkillRequired = 50,
@@ -2089,13 +2040,13 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_air",
-			SpellReleaseUserMobileEffect  = "Energywall",
+			SpellReleaseUserMobileEffect = "Energywall",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "CastFire",
 			AffinityRequired = {
-				Fire = 4,
+				Fire = 4
 			},
 			ReagentsRequired = true,
 			Reagents = {
@@ -2103,9 +2054,8 @@ SpellData = {
 				"Blackpearl",
 				"Spidersilk",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		-- CIRCLE EIGHT --
 		Resurrect = {
 			SpellDisplayName = "Resurrection",
@@ -2121,13 +2071,13 @@ SpellData = {
 			TargetMustBeDead = true,
 			SpellType = "BeneficialSpellType",
 			SpellPrimeFXName = "ConjurePrimeGreenEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandGreenEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandGreenEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellHitSFX = "event:/magic/misc/magic_water_restoration",
@@ -2145,14 +2095,13 @@ SpellData = {
 				"Bloodmoss",
 				"Garlic",
 				"Ginseng"
-			},
+			}
 		},
-
 		Blackhole = {
 			SpellDisplayName = "Black Hole",
 			manaCost = 120,
 			Circle = 8,
-			effectDamageType = "Void",			
+			effectDamageType = "Void",
 			effectType = "InstantHitSpell",
 			SpellPower = 5,
 			critChance = 3,
@@ -2163,13 +2112,13 @@ SpellData = {
 			SpellType = "MagicAttackTypeSpell",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimedFXName = "PrimedVoid2",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellTooltipString = "Rupture space and time using magic, creating a black hole.",
@@ -2180,29 +2129,28 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_lightning",
-			SpellReleaseUserScript  = "sp_blackhole_effect",
+			SpellReleaseUserScript = "sp_blackhole_effect",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/void/magic_void_cast_void",
 			AffinityRequired = {
-						Void = 5,
+				Void = 5
 			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
-				"Nightshade",
-			},
-		},			
-		
+				"Nightshade"
+			}
+		},
 		Auraoffire = {
 			SpellDisplayName = "Flame Aura",
 			PowerWords = "Por Vas Flam",
 			Circle = 8,
 			manaCost = 15,
 			upkeepCost = -5,
-			effectDamageType = "Fire",			
+			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
 			SpellPower = 5,
 			critChance = 10,
@@ -2214,13 +2162,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimedFXName = "PrimedFire2",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellTooltipString = "Creates an Aura of fire surrounding the caster which damages targets around them. \n (Caster has reduced movement speed while under the effect)",
 			requireLineOfSight = true,
@@ -2230,31 +2178,30 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
-			completionEffectUserScript  = "sp_flameaura_effect",
+			completionEffectUserScript = "sp_flameaura_effect",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_burn_effect",
 			AffinityRequired = {
-					Fire = 3,
-				},
+				Fire = 3
+			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
 				"Spidersilk",
 				"Sulfurousash"
-			},
+			}
 		},
-				
 		Auraofheal = {
 			SpellDisplayName = "Healing Aura",
 			PowerWords = "Por Vas Mani",
 			Circle = 8,
 			manaCost = 15,
 			upkeepCost = -5,
-			effectDamageType = "Fire",			
+			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
 			SpellPower = 5,
 			critChance = 10,
@@ -2266,13 +2213,13 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimedFXName = "PrimedFire2",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellTooltipString = "Creates an Aura of healing surrounding the caster which heals friendlies around them. \n (Caster has reduced movement speed while under the effect)",
 			requireLineOfSight = true,
@@ -2282,23 +2229,22 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
-			completionEffectUserScript  = "sp_healaura_effect",
+			completionEffectUserScript = "sp_healaura_effect",
 			DistanceDecayRate = -.2,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			critEffectTargetScript = "sp_burn_effect",
 			AffinityRequired = {
-					Fire = 3,
-				},
+				Fire = 3
+			},
 			ReagentsRequired = true,
 			Reagents = {
 				"Mandrake",
 				"Bloodmoss",
 				"Ginseng"
-			},
+			}
 		},
-	
 		Spikepath = {
 			SpellDisplayName = "Spike Path",
 			PowerWords = "Wah Chyo Step",
@@ -2320,13 +2266,13 @@ SpellData = {
 			SpellPrimedFXName = "PrimedEarth2",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Shoots out ground spikes toward target area.",
 			Skill = "MagerySkill",
 			MinSkillRequired = 70,
@@ -2334,13 +2280,13 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_earth",
-			SpellReleaseUserScript  = "sp_spikepath_effect",
+			SpellReleaseUserScript = "sp_spikepath_effect",
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
 			requireLineOfSight = true,
 			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
 			AffinityRequired = {
-				Earth = 3,
+				Earth = 3
 			},
 			ReagentsRequired = true,
 			Reagents = {
@@ -2348,9 +2294,8 @@ SpellData = {
 				"Blackpearl",
 				"Bloodmoss",
 				"Nightshade"
-			},
-		},	
-
+			}
+		},
 		Earthquake = {
 			SpellDisplayName = "Earthquake",
 			PowerWords = "In Vas Por",
@@ -2358,7 +2303,7 @@ SpellData = {
 			manaCost = 100,
 			PreventTownCast = true,
 			upkeepCost = 0,
-			--effectDamageType = "Bashing",	If earthquake breaks we know.		
+			--effectDamageType = "Bashing",	If earthquake breaks we know.
 			effectType = "InstantHitSpell",
 			SpellPower = 8,
 			critChance = 20,
@@ -2371,13 +2316,13 @@ SpellData = {
 			SpellPrimedFXName = "PrimedEarth2",
 			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "Shakes the earth around the caster dealing damage.",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
@@ -2386,7 +2331,7 @@ SpellData = {
 			AttackSpellType = true,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_fire",
-			completionEffectUserScript  = "sp_earthquake_effect",
+			completionEffectUserScript = "sp_earthquake_effect",
 			DistanceDecayRate = -.05,
 			DoNotReplaceTarget = true,
 			InstantHitSpell = true,
@@ -2397,13 +2342,12 @@ SpellData = {
 				"Ginseng",
 				"Mandrake",
 				"Sulfurousash"
-			},
+			}
 		},
-
 		WardEvil = {
 			PowerWords = "Ward: Evil",
 			manaCost = 50,
-			effectDamageType = "Fire",			
+			effectDamageType = "Fire",
 			effectType = "InstantHitSpell",
 			SpellPower = 52,
 			SpellRange = 12,
@@ -2413,13 +2357,13 @@ SpellData = {
 			SpellType = "BuffTypeSpell",
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeFXName = "ConjurePrimeYellowEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellTooltipString = "[$3306]",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
@@ -2438,9 +2382,8 @@ SpellData = {
 				"Blackpearl",
 				"Ginseng"
 			},
-			Circle = 8,
+			Circle = 8
 		},
-
 		-- CIRCLE 10 --
 		Energyvortex = {
 			SpellDisplayName = "Summon Energy Vortex",
@@ -2455,13 +2398,13 @@ SpellData = {
 			SpellType = "BeneficialSpellType",
 			SpellPrimeSFX = "event:/magic/void/magic_void_cast_void",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_spawn_imp",
 			SpellTooltipString = "Summons an uncontrollable Vortex of Energy.",
 			requireLineOfSight = true,
@@ -2471,7 +2414,7 @@ SpellData = {
 			spellSkillLevel = 60,
 			SpellEnabled = true,
 			SpellFireAnim = "cast_heal",
-			SpellReleaseUserScript  = "sp_energy_vortex",
+			SpellReleaseUserScript = "sp_energy_vortex",
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
@@ -2480,7 +2423,6 @@ SpellData = {
 			},
 			Circle = 10
 		},
-
 		Arcanestorm = {
 			SpellDisplayName = "Summon Arcane Storm",
 			Icon = "lightningmastery",
@@ -2493,13 +2435,13 @@ SpellData = {
 			SpellType = "BeneficialSpellType",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water2",
 			SpellPrimeFXName = "ConjurePrimeRedEffect",
-            SpellPrimeFXArgs = "Bone=Ground",
-            SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimeFX2Args = "Bone=L_Hand",
-            SpellPrimedFXName = "MagicPrimeHandRedEffect",
-            SpellPrimedFXArgs = "Bone=R_Hand",
-            SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
-            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
 			SpellHitSFX = "event:/magic/void/magic_void_spawn_imp",
 			SpellTooltipString = "Summons an uncontrollable Arcane Storm.",
 			requireLineOfSight = true,
@@ -2509,14 +2451,14 @@ SpellData = {
 			spellSkillLevel = 60,
 			SpellEnabled = false,
 			SpellFireAnim = "cast_heal",
-			SpellReleaseUserScript  = "sp_arcane_storm",
+			SpellReleaseUserScript = "sp_arcane_storm",
 			Reagents = {
 				"Mandrake",
 				"Blackpearl",
 				"Bloodmoss",
 				"Nightshade"
 			},
-			Circle = 10	
-		},
-	},
+			Circle = 10
+		}
+	}
 }

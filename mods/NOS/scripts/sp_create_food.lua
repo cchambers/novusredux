@@ -16,6 +16,10 @@ function doCreateFood(target)
 	PlayEffectAtLoc("TeleportToEffect", target)
 end
 
+function CleanUp()
+	this:DelModule(GetCurrentModule())
+end
+
 RegisterEventHandler(
 	EventType.CreatedObject,
 	"created_food",
@@ -34,6 +38,8 @@ RegisterEventHandler(
 		if (objRef:HasModule("stackable")) then
 			objRef:DelModule("stackable")
 		end 
+
+		CleanUp()
 	end
 )
 

@@ -701,10 +701,15 @@ function ApplyDamageToTarget(victim, damageInfo)
 				victim:SendMessage("EndSunderEffect")
 			else
 				defense = math.max(victim:GetStatValue("Defense") or 0, defense)
+				if (victim:HasObjVar("ProtectionSpell")) then
+					defense = defense - 15
+				end
 			end
 			-- defense = math.max(defense, 45)
 
 			finalDamage = (( damageInfo.Attack * 70 ) / (defense + blockDefense) )
+
+			
 
 			--DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
 

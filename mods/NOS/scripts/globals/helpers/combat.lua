@@ -4,6 +4,9 @@ function DoResist(target, resistLevel, damage)
     local resistAmount = (resistLevel * 10 - 400) / 15
     -- target:SystemMessage(tostring("Damage: " .. damage .. " Resist: " .. resistAmount))
     target:PlayEffect("HoneycombShield", 1.5)
+    if (target:HasObjVar("ProtectionSpell")) then
+        resistAmount = resistAmount - (resistAmount * 0.35)
+    end
     return (damage * (resistAmount) * 0.01)
 end
 

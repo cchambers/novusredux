@@ -30,12 +30,14 @@
                             { Weight = 10, Template = "recipe_spetum", Unique = true },
                             { Weight = 10, Template = "recipe_stiletto", Unique = true },
                             { Weight = 10, Template = "recipe_zukuri", Unique = true },
+                            { Weight = 10, Template = "recipe_poleaxe", Unique = true },
                             
                             { Weight = 5, Template = "recipe_tapered_heater", Unique = true },
                             { Weight = 5, Template = "recipe_warriors_kite", Unique = true },
                             { Weight = 5, Template = "recipe_oval_shield", Unique = true },
                             { Weight = 5, Template = "recipe_arrow_broodwood", Unique = true },
                             { Weight = 5, Template = "recipe_hardened_buckler", Unique = true },
+                            { Weight = 5, Template = "recipe_shield_of_justice", Unique = true },
 
                             { Weight = 2, Template = "recipe_broodwood", Unique = true },
                             { Weight = 2, Template = "recipe_steel", Unique = true },
