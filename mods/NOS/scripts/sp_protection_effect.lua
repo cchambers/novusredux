@@ -6,7 +6,6 @@ function HandleLoaded(caster)
 		if (this ~= caster) then
 			caster:SystemMessage("They are no longer protected.", "info")
 		end
-		HandleIcon()
 	else
 		this:SetObjVar("ProtectionSpell", true)
 		this:SystemMessage("You are now protected. Spell casting will take longer.", "info")
@@ -14,7 +13,6 @@ function HandleLoaded(caster)
 		if (this ~= caster) then
 			caster:SystemMessage("They are now protected.", "info")
 		end
-		HandleIcon(true)
 	end
 	CleanUp()
 end
@@ -22,7 +20,5 @@ end
 function CleanUp()
 	this:DelModule(GetCurrentModule())
 end
-
-RegisterEventHandler(EventType.Message, "ProtectionIcon", HandleIcon)
 
 RegisterEventHandler(EventType.Message, "SpellHitEffectsp_protection_effect", HandleLoaded)

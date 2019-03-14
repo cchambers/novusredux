@@ -961,12 +961,12 @@ RegisterEventHandler(
 	end
 )
 
-OverrideEventHandler(
-	"player",
-	EventType.ClientUserCommand,
-	"stuck",
-	function()
-		this:SystemMessage("This command has been proven exploitable, and as such, has been removed...")
-		this:SystemMessage("Send a page by typing [bada55]/page[-] and someone will help you as soon as possible.")
-	end
-)
+-- OverrideEventHandler(
+-- 	"player",
+-- 	EventType.ClientUserCommand,
+-- 	"stuck",
+-- 	function()
+-- 		this:SystemMessage("This command has been proven exploitable, and as such, has been removed...")
+-- 		this:SystemMessage("Send a page by typing [bada55]/page[-] and someone will help you as soon as possible.")
+-- 	end
+-- )
