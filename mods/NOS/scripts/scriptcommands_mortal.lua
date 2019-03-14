@@ -357,18 +357,6 @@ RegisterCommand {
 	Desc = "Show achievement window"
 }
 RegisterCommand {
-	Command = "bugreport",
-	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.Page,
-	Desc = "Send a bug report"
-}
-RegisterCommand {
-	Command = "helpreport",
-	AccessLevel = AccessLevel.Mortal,
-	Func = MortalCommandFuncs.Page,
-	Desc = "Send a help report"
-}
-RegisterCommand {
 	Command = "say",
 	AccessLevel = AccessLevel.Mortal,
 	Func = MortalCommandFuncs.Say,

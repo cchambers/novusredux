@@ -7,12 +7,12 @@ COST_PER_UNIT = 5
 function ValidateWall(targetLoc)
 	----DebugMessage("--Debuggery Deh Yah")
 	if (not (IsPassable(targetLoc))) then
-		this:SystemMessage("[$2603]", "info")
+		this:SystemMessage("You cannot place a poison field there.", "info")
 		return false
 	end
 
 	if not (this:HasLineOfSightToLoc(targetLoc, ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("[$2604]", "info")
+		this:SystemMessage("You cannot place a poison field there.", "info")
 		return false
 	end
 

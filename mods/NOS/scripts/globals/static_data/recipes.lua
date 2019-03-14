@@ -2758,8 +2758,8 @@ FabricationSkill = {
 		},
 		
 		HardenedChest = {
-			MinLevelToCraft = 73,
-			MaxLevelToGain = 98,
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
 			DisplayName = "Hardened Chest",
 			Description = "A Leather Chest is a light armor piece protecting a user's upper body.",
 			NeedRecipe = true,

@@ -688,17 +688,15 @@ function GetSpellHealAmount(spellName, spellSource)
 	local healAmount = 0
 	local magicSkill = GetSkillLevel(spellSource, "MagerySkill")
 	if (spellName == "Heal") then
-		healAmount = (magicSkill / 7.5) + (math.floor(math.random(1, 3) + 0.5))
+		healAmount = (magicSkill / 10) * math.random(10, 15)
 	elseif (spellName == "Greaterheal") then
-		healAmount = (magicSkill * 0.4) + (math.floor(math.random(1, 10) + 0.5))
+		local rand = math.random(4,5)
+		healAmount = 800 * (magicSkill * (rand*0.001))
 	else
 		-- DebugMessage("Unknown healing spell "..spellName)
 		return 0
 	end
-	--round to nearest int
-	healAmount = math.floor(healAmount + 0.5)
-
-	return healAmount * 4
+	return healAmount 
 end
 
 function IsInSpellRange(spellName, spellTarget, spellSource)
