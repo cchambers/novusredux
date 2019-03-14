@@ -567,6 +567,11 @@ function OnLoad(isPossessed)
 		this:SendMessage("StartMobileEffect", "SpellMagicReflection")
 	end
 
+	-- PROTECTION --
+	if (this:HasObjVar("ProtectionSpell")) then
+		AddBuffIcon(this, "ProtectionBuff", "Protection", "Holy Shield", "Physical and Magical resist reduced. Cast time increased, but you cannot be interrupted.", false)
+	end
+
 	local murders = this:GetObjVar("Murders")
 	if (murders ~= nil) then
 		this:SendMessage("StartMobileEffect", "Murderer")
