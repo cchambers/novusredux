@@ -429,7 +429,7 @@ function VoteEnd()
             count = count + 1
         end
     end
-    if (count >= mNeeds) then
+    if (count >= mNeeds - 2) then
         this:SendMessage("ColorWar.Go")
     else
         ServerBroadcast("Color War vote failed. Try again later!", true)
