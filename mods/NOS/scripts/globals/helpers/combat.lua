@@ -164,3 +164,42 @@ function ColorWarStart()
     local obj = GameObj(68381273)
     obj:SendMessage("ColorWar.Go")
 end
+
+function ColorWarVote(user)
+    local open = GlobalVarReadKey("ColorWar.Vote", "open")
+    if (open) then
+        local queued = GlobalVarReadKey("ColorWar.Queue", user)
+        if (queued) then
+            GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                record[user] = nil
+                return true
+            end)
+            user:SystemMessage("You have un-voted.", "info")
+        else
+            GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                record[user] = true
+                return true
+            end)
+            user:SystemMessage("You have voted to start Color Wars!", "info")
+        end
+    else -- VOTE NOT RUNNING
+        if (user:HasTimer("NoVote")) then
+            user:SystemMessage("You are doing that too quickly.", "info")
+            return
+        end
+        local cwController = GameObj(68381273)
+        if (cwController) then
+            if (cwController:HasTimer("ColorWar.NoVote")) then
+                user:SystemMessage("Color Wars vote can not be started yet.", "info")
+                user:ScheduleTimerDelay(TimeSpan.FromSeconds(30), "NoVote")
+                return
+            else
+                GlobalVarWrite("ColorWar.Queue", nil, function (record) 
+                    record[user] = true
+                    return true
+                end)
+                cwController:SendMessage("ColorWar.VoteStart")
+            end
+        end
+    end
+end

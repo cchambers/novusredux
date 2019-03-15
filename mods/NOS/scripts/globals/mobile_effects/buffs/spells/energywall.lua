@@ -43,12 +43,12 @@ MobileEffectLibrary.Energywall =
 
 	ValidateWallLocation = function(wallPointLoc)
 		if( not(IsPassable(wallPointLoc)) ) then
-			Caster:SystemMessage("[$2603]")
+			Caster:SystemMessage("You cannot place an energy field there.")
 			return false
 		end
 
 		if not(Caster:HasLineOfSightToLoc(wallPointLoc,ServerSettings.Combat.LOSEyeLevel)) then
-			Caster:SystemMessage("[$2604]")
+			Caster:SystemMessage("You cannot place an energy field there.")
 			return false
 		end
 
