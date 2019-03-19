@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>301</ClientId>
+	<Name>[FF9500]Stone Wall Door[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ScaleModifier>0.75</ScaleModifier>
+	<ScriptEngineComponent>
+		<LuaModule Name="door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
