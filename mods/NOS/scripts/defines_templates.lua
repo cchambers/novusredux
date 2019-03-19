@@ -14,7 +14,7 @@ TemplateDefines = {
     			{ Chance = 2, Template = "item_bread", Unique = true },
     			{ Chance = 1, Template = "item_ale", Unique = true },
     			{ Chance = 5, Template = "regular_mana_potion", Unique = true },
-    			{ Chance = 5, Template = "regular_stam_potion", Unique = true },
+    			{ Chance = 5, Template = "regular_stamina_potion", Unique = true },
     			{ Chance = 5, Template = "regular_health_potion", Unique = true },
     			{ Chance = 5, Template = "regular_cure_potion", Unique = true },
     			{ Chance = 5, Template = "tool_cookingpot", Unique = true },

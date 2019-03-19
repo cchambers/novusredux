@@ -1,5 +1,7 @@
 require "default:globals.helpers.combat"
 
+mPowerHourTrigger = 1250000
+
 function DoResist(target, resistLevel, damage)
     local resistAmount = (resistLevel * 10 - 400) / 15
     -- target:SystemMessage(tostring("Damage: " .. damage .. " Resist: " .. resistAmount))
@@ -13,7 +15,6 @@ end
 -- STATS --
 DebugMessage("TOTEM LOADED")
 
-mPowerHourTrigger = 1250000
 
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")

@@ -16,8 +16,10 @@
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
 		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
 		<DoubleVariable Name="BaseHealth">8000</DoubleVariable>
-		<DoubleVariable Name="Armor">120</DoubleVariable>
-		<DoubleVariable Name="Attack">50</DoubleVariable>
+		<StringVariable Name="MonsterAR">130</StringVariable>
+		<DoubleVariable Name="Armor">100</DoubleVariable>
+		<DoubleVariable Name="Attack">83</DoubleVariable>
+		<DoubleVariable Name="Power">65</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="FameXP">250</DoubleVariable>
@@ -29,7 +31,7 @@
 		<LuaModule Name="ai_dragon">
 			<Initializer>
 				{ 
-				Stats = { Str=70, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=90, Agi=30, Int=21, Wis=30, Will=40 },
 				MobTraits =
 					{
 					Toughness = 2,
@@ -39,8 +41,9 @@
 					{ 
 					Brawling=100, 
 					MagicAffinity=100,
-					Magery=100,
-					MagicResist=20,
+					Magery=140,
+					MagicResist=80,
+					Melee=80
 					},	
 				EquipTable = 
 					{

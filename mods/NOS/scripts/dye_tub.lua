@@ -90,6 +90,7 @@ RegisterEventHandler(
 		end
 
 		if (target:HasObjVar("ResourceType")) then
+			local resourceType = target:GetObjVar("ResourceType")
 			if (resourceType ~= "Rune") then
 				dyeable = false
 			end
