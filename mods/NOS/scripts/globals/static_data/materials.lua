@@ -37,8 +37,9 @@ Materials = {
     Gold = 787,
     Copper = 667,
     Cobalt = 913,
-    Steel = 871,
     Obsidian = 893,
+    Steel = 871,
+    Spectral = 947,
 
     Cloth = 139,
     QuiltedCloth = 934,
@@ -59,8 +60,9 @@ MaterialTooltipColors = {
     Gold = "[e6b032]",
     Copper = "[9cff3c]",
     Cobalt = "[0049ab]",
-    Steel = "[43464b]",
     Obsidian = "[b459ff]",
+    Steel = "[43464b]",
+    Spectral = "[00FFFF]",
 
     Cloth = "[b3a489]",
     QuiltedCloth = "[e6cfa5]",

@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[d7f5f2]Spectral[-]</Name>
+	<ClientId>1000</ClientId>
+	<Hue>947</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Spectral</StringVariable>
+		<StringVariable Name="PluralName">Spectral</StringVariable>	
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

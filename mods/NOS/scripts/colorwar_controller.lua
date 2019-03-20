@@ -1,8 +1,8 @@
 colorWars = "[FF7F00]COLOR[-] [0000FF]WARS[-]"
-mCountdownStart = 5
+mCountdownStart = 3
 mCountdownEvery = 1
 mOutside = nil
-mNeeds = 6
+mNeeds = 4
 mPlayers = {}
 mPlayerCount = 0
 mCaptains = {}
@@ -219,8 +219,13 @@ end
 function EjectNonPlayers()
     local nearbyPlayers = FindObjects(SearchPlayerInRange(30))
     for i = 1, #nearbyPlayers do
-        nearbyPlayers[i]:SystemMessage("You were ejected for failing to queue! Try again later.","info")
-        nearbyPlayers[i]:SendMessageGlobal("GlobalSummon", this:GetObjVar("outside"), this:GetObjVar("RegionAddress"))
+    local who = nearbyPlayers[i]
+        if (not(IsImmortal(who))) then
+            if (not(who:HasObjVar("ColorWarWaiting")) and not(who:HasObjVar("ColorWarWaiting"))) then
+                who:SystemMessage("You were ejected for failing to queue! Try again later.","info")
+                who:SendMessageGlobal("GlobalSummon", this:GetObjVar("outside"), this:GetObjVar("RegionAddress"))
+            end
+        end
     end
 end
 
@@ -241,11 +246,9 @@ function ChooseClass(user)
 		mCLASS:AddLabel(75, 10, "RANGER", 110, 30, rem(2), "center", false, true, fontname)
 		mCLASS:AddButton(20, 40, "cw_kit_ranger_light", "Ranger (Light)", 110, 24, "Shortbow/Leather", "", true, "Default", "default")
 		mCLASS:AddButton(20, 70, "cw_kit_ranger_heavy", "Ranger (Heavy)", 110, 24, "Warbow/Leather", "", true, "Default", "default")
-
 		
 		mCLASS:AddLabel(75, 110, "MAGE", 110, 30, rem(2), "center", false, true, fontname)
 		mCLASS:AddButton(20, 140, "cw_kit_mage", "Mage", 110, 24, "Staff/Crucible/Cloth", "", true, "Default", "default")
-
 
 		mCLASS:AddLabel(300, 10, "WARRIOR", 110, 30, rem(2), "center", false, true, fontname)
 		
