@@ -366,6 +366,16 @@ ResourceData = {
 				Max = 125
 			}
 		},
+		SpectralOre = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_spectral_ore",
+			DisplayName = "Spectral Ore",
+			SkillGainDifficultyMultiplier = 3,
+			Difficulty = {
+				Min = 105,
+				Max = 125
+			}
+		},
 		LeatherScraps = {
 			Template = "resource_leatherscraps",
 			DisplayName = "Leather Scraps",
@@ -467,6 +477,11 @@ ResourceData = {
 			Template = "resource_steel",
 			DisplayName = "Steel",
 			CraftedItemPrefix = "Steel",
+		},
+		Spectral = {
+			Template = "resource_spectral",
+			DisplayName = "Spectral",
+			CraftedItemPrefix = "Spectral",
 		},
 		Leather = {
 			Template = "resource_leather",

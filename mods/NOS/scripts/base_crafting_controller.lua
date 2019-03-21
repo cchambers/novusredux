@@ -87,18 +87,16 @@ function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
 
 	mSkillLevel = GetSkillLevel(this,mSkill)
 	local skillToCheck = mSkillLevel
-	local ArmsLoreSkill = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 20
+	local LoreBoost = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 20
 	local mentor = this:GetObjVar("MentorPath")
-	local pre = ArmsLoreSkill
-	if (mentor ~= nil) then
-		if (mentor == "TradeTypeSkill") then
-			ArmsLoreSkill = ArmsLoreSkill + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 20
-		end
+	if (mentor ~= nil and mentor == "TradeTypeSkill") then
+		LoreBoost = LoreBoost + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 20
 	end
-	local post = ArmsLoreSkill
-	skillToCheck = skillToCheck + ArmsLoreSkill
+	if (LoreBoost < 1) then LoreBoost = 0 end
+
+	skillToCheck = reqSkillLev - LoreBoost
 	
-	local chance = SkillValueMinMax(skillToCheck, reqSkillLev, maxSkillLev)
+	local chance = SkillValueMinMax(mSkillLevel, skillToCheck, maxSkillLev)
 	mSuccess = CheckSkillChance(this, mSkill, mSkillLevel, chance)
 	
 
@@ -340,19 +338,18 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
 			if ( recipeTable.CanImprove ) then
 				local index = 0
                 local count = 0
-                local buttonsAdded = 0
+				local buttonsAdded = 0
+				local backpack = this:GetEquippedObject("Backpack")
 				for i=1,#MaterialIndex[skillName] do
-					local what = recipeTable.Resources[MaterialIndex[skillName][i]]
-					if ( what ~= nil ) then
-						this:SystemMessage(tostring(what))
-						if ( MaterialIndex[skillName][i] == mCurrentMaterial ) then
-							index = count
-						end
+					if ( recipeTable.Resources[MaterialIndex[skillName][i]] ~= nil ) then
 						count = count + 1
-                        local resourceTable = GetQualityResourceTable(recipeTable.Resources, MaterialIndex[skillName][i])
-                        local myResources = CountResourcesInContainer(this:GetEquippedObject("Backpack"), i)
-                        if ( resourceTable ~= nil) then
-                            buttonsAdded =  buttonsAdded + 1
+						local resourceTable = GetQualityResourceTable(recipeTable.Resources, MaterialIndex[skillName][i])
+                        local myResources = CountResourcesInContainer(backpack, MaterialIndex[skillName][i])
+						if ( resourceTable ~= nil and myResources > 0) then
+							if ( MaterialIndex[skillName][i] == mCurrentMaterial ) then
+								index = buttonsAddedb
+							end
+							buttonsAdded =  buttonsAdded + 1
 							--DebugMessage(resourceTable)
 							userActionData = GetDisplayItemActionData(mRecipe,recipeTable,MaterialIndex[skillName][i])
 							--DebugMessage(userActionData)
