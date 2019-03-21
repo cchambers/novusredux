@@ -56,6 +56,13 @@ Materials = {
     BroodwoodBoards = 851,
 }
 
+MaterialBonus = {
+    Spectral = {
+        AgiBonus = 5,
+        AttackSpeed = 5
+    }
+}
+
 MaterialTooltipColors = {
     Iron = "[969696]",
     Gold = "[e6b032]",
