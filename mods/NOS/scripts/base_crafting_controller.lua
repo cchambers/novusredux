@@ -1,116 +1,116 @@
 require 'default:base_crafting_controller'
 
--- function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
--- 	mResourceTable = nil
--- 	if(this:HasTimer("CraftingTimer")) then
--- 		this:SystemMessage("[FA0C0C]You are already crafting something[-]","info")
--- 		if not(mCrafting) then
--- 			if (stopCraftingOnFailure) then
--- 			   CleanUp()
--- 			end
--- 		end
--- 		return
--- 	end
+function HandleCraftRequest(userRequest,skill,stopCraftingOnFailure)
+	mResourceTable = nil
+	if(this:HasTimer("CraftingTimer")) then
+		this:SystemMessage("[FA0C0C]You are already crafting something[-]","info")
+		if not(mCrafting) then
+			if (stopCraftingOnFailure) then
+			   CleanUp()
+			end
+		end
+		return
+	end
 
--- 	skillName = StripFromString(skill,"Skill")
--- 	if (mTool == nil) then 
--- 		CleanUp()
--- 		return
--- 	end
--- 	local fabCont = mTool:TopmostContainer() or mTool
--- 	local fabLoc = fabCont:GetLoc()
--- 	if(this:GetLoc():Distance(fabLoc) > USAGE_DISTANCE ) then
--- 		this:SystemMessage("[FA0C0C]You are too far to use that![-]","info")
--- 			if (stopCraftingOnFailure) then
--- 			   CleanUp()
--- 			end
--- 		return
--- 	end
--- 	if not(this:HasLineOfSightToObj(fabCont,ServerSettings.Combat.LOSEyeLevel)) and not(fabCont:HasObjVar("IgnoreLOS")) then 
--- 		this:SystemMessage("[FA0C0C]You cannot see that![-]","info")
--- 			if (stopCraftingOnFailure) then
--- 			   CleanUp()
--- 			end
--- 		return 
--- 	end
--- 	local backpackObj = this:GetEquippedObject("Backpack")
--- 	local craftTemplate = GetRecipeTableFromSkill(skill)[userRequest]
--- 	local canCreate, reason = CanCreateItemInContainer(GetCraftTemplate(userRequest),backpackObj, craftTemplate.StackCount)
+	skillName = StripFromString(skill,"Skill")
+	if (mTool == nil) then 
+		CleanUp()
+		return
+	end
+	local fabCont = mTool:TopmostContainer() or mTool
+	local fabLoc = fabCont:GetLoc()
+	if(this:GetLoc():Distance(fabLoc) > USAGE_DISTANCE ) then
+		this:SystemMessage("[FA0C0C]You are too far to use that![-]","info")
+			if (stopCraftingOnFailure) then
+			   CleanUp()
+			end
+		return
+	end
+	if not(this:HasLineOfSightToObj(fabCont,ServerSettings.Combat.LOSEyeLevel)) and not(fabCont:HasObjVar("IgnoreLOS")) then 
+		this:SystemMessage("[FA0C0C]You cannot see that![-]","info")
+			if (stopCraftingOnFailure) then
+			   CleanUp()
+			end
+		return 
+	end
+	local backpackObj = this:GetEquippedObject("Backpack")
+	local craftTemplate = GetRecipeTableFromSkill(skill)[userRequest]
+	local canCreate, reason = CanCreateItemInContainer(GetCraftTemplate(userRequest),backpackObj, craftTemplate.StackCount)
 
--- 	if (not canCreate) then
--- 		if(reason == "full") then
--- 			this:SystemMessage("[FA0C0C]Your backpack is full![-]","info")
--- 		elseif(reason == "overweight") then
--- 			this:SystemMessage("[$1622]","info")
--- 		end
--- 		return
--- 	end
--- 	mItemToCraft = userRequest
--- 	local recipeTable = GetRecipeTableFromSkill(mSkill)[userRequest]
--- 	local resourceTable = recipeTable.Resources
--- 	local entryTable = {}
+	if (not canCreate) then
+		if(reason == "full") then
+			this:SystemMessage("[FA0C0C]Your backpack is full![-]","info")
+		elseif(reason == "overweight") then
+			this:SystemMessage("[$1622]","info")
+		end
+		return
+	end
+	mItemToCraft = userRequest
+	local recipeTable = GetRecipeTableFromSkill(mSkill)[userRequest]
+	local resourceTable = recipeTable.Resources
+	local entryTable = {}
 
--- 	if (not HasRecipe(this,userRequest,skill)) then
--- 		this:SystemMessage("[$1623]" ..userRequest .. "[-]","info")
--- 			if (stopCraftingOnFailure) then
--- 			   CleanUp()
--- 			end
--- 		return
--- 	end
+	if (not HasRecipe(this,userRequest,skill)) then
+		this:SystemMessage("[$1623]" ..userRequest .. "[-]","info")
+			if (stopCraftingOnFailure) then
+			   CleanUp()
+			end
+		return
+	end
 
--- 	local reqSkillLev, maxSkillLev = GetRecipeSkillRequired(this,userRequest,mCurrentMaterial)
--- 	if (not HasRequiredCraftingSkill(this,userRequest,skill) ) then
--- 		this:SystemMessage("You don't have enough "..skillName.." skill to craft item: " ..userRequest .. "" .." - Need "..reqSkillLev..", Have "..GetSkillLevel(this,mSkill), "info")
--- 			if (stopCraftingOnFailure) then
--- 			   CleanUp()
--- 			end
--- 		return
--- 	end
--- 	if (not this:HasObjVar("CanCraftOutOfThinAir")) then
--- 		if not(HasResources(resourceTable, this, mCurrentMaterial)) then
--- 			this:SystemMessage("[$1624]" ..userRequest .. "[-]","info" )
--- 				if (stopCraftingOnFailure) then
+	local reqSkillLev, maxSkillLev = GetRecipeSkillRequired(this,userRequest,mCurrentMaterial)
+	if (not HasRequiredCraftingSkill(this,userRequest,skill) ) then
+		this:SystemMessage("You don't have enough "..skillName.." skill to craft item: " ..userRequest .. "" .." - Need "..reqSkillLev..", Have "..GetSkillLevel(this,mSkill), "info")
+			if (stopCraftingOnFailure) then
+			   CleanUp()
+			end
+		return
+	end
+	if (not this:HasObjVar("CanCraftOutOfThinAir")) then
+		if not(HasResources(resourceTable, this, mCurrentMaterial)) then
+			this:SystemMessage("[$1624]" ..userRequest .. "[-]","info" )
+				if (stopCraftingOnFailure) then
 
--- 				   CleanUp()
--- 				end
--- 			return
--- 		else
--- 			mResourceTable = resourceTable
--- 			mHasMaterial = recipeTable.CanImprove
--- 		end
--- 	end
+				   CleanUp()
+				end
+			return
+		else
+			mResourceTable = resourceTable
+			mHasMaterial = recipeTable.CanImprove
+		end
+	end
 
--- 	this:RemoveTimer("CraftingTimer")
--- 	this:StopObjectSound("toolSound")
--- 	mSkill = skill
--- 	mDifficulty = reqSkillLev
+	this:RemoveTimer("CraftingTimer")
+	this:StopObjectSound("toolSound")
+	mSkill = skill
+	mDifficulty = reqSkillLev
 
--- 	mSkillLevel = GetSkillLevel(this,mSkill)
--- 	local skillToCheck = mSkillLevel
--- 	local addSkill = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 20
--- 	local mentor = this:GetObjVar("MentorPath")
--- 	local pre = addSkill
--- 	if (mentor ~= nil) then
--- 		if (mentor == "TradeTypeSkill") then
--- 			addSkill = addSkill + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 20
--- 		end
--- 	end
--- 	local post = addSkill
--- 	skillToCheck = skillToCheck + addSkill
+	mSkillLevel = GetSkillLevel(this,mSkill)
+	local skillToCheck = mSkillLevel
+	local ArmsLoreSkill = (GetSkillLevel(this,"ArmsLoreSkill") or 0.1) / 20
+	local mentor = this:GetObjVar("MentorPath")
+	local pre = ArmsLoreSkill
+	if (mentor ~= nil) then
+		if (mentor == "TradeTypeSkill") then
+			ArmsLoreSkill = ArmsLoreSkill + (GetSkillLevel(this,"MentoringSkill") or 0.1) / 20
+		end
+	end
+	local post = ArmsLoreSkill
+	skillToCheck = skillToCheck + ArmsLoreSkill
 	
--- 	local chance = SkillValueMinMax(skillToCheck, reqSkillLev, maxSkillLev)
--- 	mSuccess = CheckSkillChance(this, mSkill, skillToCheck, chance)
+	local chance = SkillValueMinMax(skillToCheck, reqSkillLev, maxSkillLev)
+	mSuccess = CheckSkillChance(this, mSkill, mSkillLevel, chance)
 	
 
--- 	local consumeTable = resourceTable
--- 	if not(mSuccess) and recipeTable.ConsumeOnFail then
--- 		consumeTable = {}
--- 		for resourceName,resourceAmount in pairs(resourceTable) do 
--- 			consumeTable[resourceName] = recipeTable.ConsumeOnFail[resourceName]
--- 		end
--- 	end
--- 	ConsumeResources(consumeTable, this, "crafting_controller", mCurrentMaterial)
--- end
+	local consumeTable = resourceTable
+	if not(mSuccess) and recipeTable.ConsumeOnFail then
+		consumeTable = {}
+		for resourceName,resourceAmount in pairs(resourceTable) do 
+			consumeTable[resourceName] = recipeTable.ConsumeOnFail[resourceName]
+		end
+	end
+	ConsumeResources(consumeTable, this, "crafting_controller", mCurrentMaterial)
+end
 
 
 function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultString,improveString)
@@ -342,16 +342,17 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
                 local count = 0
                 local buttonsAdded = 0
 				for i=1,#MaterialIndex[skillName] do
-					if ( recipeTable.Resources[MaterialIndex[skillName][i]] ~= nil ) then
+					local what = recipeTable.Resources[MaterialIndex[skillName][i]]
+					if ( what ~= nil ) then
+						this:SystemMessage(tostring(what))
 						if ( MaterialIndex[skillName][i] == mCurrentMaterial ) then
 							index = count
 						end
 						count = count + 1
                         local resourceTable = GetQualityResourceTable(recipeTable.Resources, MaterialIndex[skillName][i])
                         local myResources = CountResourcesInContainer(this:GetEquippedObject("Backpack"), i)
-                        if ( resourceTable ~= nil and myResources > 0 ) then
+                        if ( resourceTable ~= nil) then
                             buttonsAdded =  buttonsAdded + 1
-                            -- HERE KHI
 							--DebugMessage(resourceTable)
 							userActionData = GetDisplayItemActionData(mRecipe,recipeTable,MaterialIndex[skillName][i])
 							--DebugMessage(userActionData)
@@ -361,7 +362,7 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
                 end
                 
                 if (buttonsAdded == 0) then
-                    mainWindow:AddLabel(420,88,"[FFFFFF]You are missing required resources.[-]",50,0,18,"left",false,false)
+                    mainWindow:AddLabel(424,88,"[FFFFFF]You are missing the required resources![-]",50,0,18,"left",false,false)
                 else
                     mainWindow:AddImage(420+(50*index),85,"CraftingWindowWeaponTypeHighlight",47,47)
                 end

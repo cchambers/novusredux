@@ -12,7 +12,8 @@ MaterialIndex = {
         "Gold",
         "Cobalt",
 		"Obsidian",
-		"Steel",
+        "Steel",
+        "Spectral",
 	},
 	FabricationSkill = {
         "Cloth",

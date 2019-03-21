@@ -164,6 +164,26 @@ TemplateDefines = {
 			},
 		},
 
+		SpectralMin = 
+		{
+			NumItems = 2,
+
+			LootItems = 
+			{ 
+				{ Chance = 50, Template = "resource_spectral_ore"},
+			},
+		},
+
+		SpectralMax = 
+		{
+			NumItems = 1,
+
+			LootItems = 
+			{ 
+				{ Chance = 15, Template = "recipe_spectral", Unique = true},
+			},
+		},
+
 		SpiderPoor = 
 		{
 			NumItems = 1,
