@@ -2,7 +2,7 @@
 	<ClientId>2</ClientId>
 	<Name>Spectral Pirate Spawner</Name>
 	<ObjectVariableComponent>	
-	<StringVariable Name="spawnDay">Thu</StringVariable>
+	<StringVariable Name="spawnDay">Sun</StringVariable>
 	<DoubleVariable Name="spawnRadius">20</DoubleVariable>
 	<DoubleVariable Name="spawnDelay">300</DoubleVariable>
 	<DoubleVariable Name="spawnCount">10</DoubleVariable>

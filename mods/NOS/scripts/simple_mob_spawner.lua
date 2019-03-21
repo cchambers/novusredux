@@ -103,6 +103,12 @@ function CheckSpawn()
         local daysoftheweek = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"}
         local day = daysoftheweek[os.date("*t").wday]
         if (spawnDay ~= day) then
+            local spawns = this:GetObjVar("SpawnData")
+            if (spawns ~= nil) then
+                for k,v in spawns do
+                    v:Destroy()
+                end 
+            end
             return
         end
     end
