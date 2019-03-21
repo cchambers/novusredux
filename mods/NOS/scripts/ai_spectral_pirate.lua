@@ -17,7 +17,6 @@ AI.Settings.ChanceToNotAttackOnAlert = 50
 
 if (initializer ~= nil) then
 	if (initializer.PirateNames ~= nil) then
-		DebugMessage(day)   
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
         local job = initializer.PirateJobs[math.random(#initializer.PirateJobs)]
         this:SetName(name.." the Spectral "..job)

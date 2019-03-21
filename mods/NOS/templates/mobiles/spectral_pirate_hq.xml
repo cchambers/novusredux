@@ -69,7 +69,7 @@
 					{ 
 					Brawling = 125,
 					Slashing = 125,
-					MeleeSkill = 125
+					Melee = 125
 					},	
 				EquipTable = 
 					{
