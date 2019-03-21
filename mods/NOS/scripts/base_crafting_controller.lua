@@ -347,7 +347,7 @@ function ShowCraftingMenu(createdObject,isImproving,canImprove,improveResultStri
                         local myResources = CountResourcesInContainer(backpack, MaterialIndex[skillName][i])
 						if ( resourceTable ~= nil and myResources > 0) then
 							if ( MaterialIndex[skillName][i] == mCurrentMaterial ) then
-								index = buttonsAddedb
+								index = buttonsAdded
 							end
 							buttonsAdded =  buttonsAdded + 1
 							--DebugMessage(resourceTable)
