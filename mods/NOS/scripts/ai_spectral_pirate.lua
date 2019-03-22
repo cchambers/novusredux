@@ -16,7 +16,7 @@ AI.Settings.CanCast = true
 AI.Settings.ChanceToNotAttackOnAlert = 50
 
 if (initializer ~= nil) then
-    if( initializer.PirateNames ~= nil ) then    
+	if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
         local job = initializer.PirateJobs[math.random(#initializer.PirateJobs)]
         this:SetName(name.." the Spectral "..job)
@@ -62,7 +62,7 @@ quotes = {
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
-        if (math.random(1,4) == 1) then
+        if (math.random(1,2) == 1) then
             CreateObj("resource_spectral_ore",this:GetLoc(),"Spectral.CreatedOre")
         end
         CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()
