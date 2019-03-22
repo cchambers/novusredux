@@ -22,6 +22,7 @@ ServerSettings.Crafting = {
                 Cobalt = 30,
                 Obsidian = 60,
                 Steel = 75,
+                Spectral = 75,
 
                 Boards = 0,
                 AshBoards = 20,
@@ -38,6 +39,7 @@ ServerSettings.Crafting = {
                 Cobalt = 30,
                 Obsidian = 40,
                 Steel = 50,
+                Spectral = 50,
 
                 Boards = 0,
                 AshBoards = 20,
@@ -55,6 +57,7 @@ ServerSettings.Crafting = {
                 Cobalt = 4,
                 Obsidian = 5,
                 Steel = 6,
+                Spectral = 6,
 
                 Cloth = 1,
                 QuiltedCloth = 2,
@@ -73,6 +76,7 @@ ServerSettings.Crafting = {
             Cobalt = 150,
             Obsidian = 75,
             Steel = 300,
+            Spectral = 300,
 
             Cloth = 25,
             QuiltedCloth = 50,
@@ -120,6 +124,8 @@ ServerSettings.Crafting = {
         "naginata",
         "ninjato",
         "oval_shield",
+        "shield_of_justice",
+        "poleaxe",
         "pike",
         "rapier",
         "recurve",

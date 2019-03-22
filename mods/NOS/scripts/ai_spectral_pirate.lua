@@ -32,7 +32,7 @@ function HideMe()
 end
 
 if (initializer ~= nil) then
-    if( initializer.PirateNames ~= nil ) then    
+	if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
         local job = initializer.PirateJobs[math.random(#initializer.PirateJobs)]
         this:SetName(name.." the Spectral "..job)

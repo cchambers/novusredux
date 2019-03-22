@@ -6,7 +6,8 @@ MobileEffectLibrary.Reclaim = {
         Gold = "resource_gold",
         Cobalt = "resource_cobalt",
         Obsidian = "resource_obsidian",
-        Steel = "resource_steel"
+        Steel = "resource_steel",
+        Spectral = "resource_spectral"
     },
     OnEnterState = function(self, root, target, args)
         local user = self.ParentObj
