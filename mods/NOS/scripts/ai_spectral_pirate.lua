@@ -15,6 +15,22 @@ AI.Settings.CanUseCombatAbilities = true
 AI.Settings.CanCast = true
 AI.Settings.ChanceToNotAttackOnAlert = 50
 
+quotes = {
+    "Someone's after me ORE!",
+    "ORRRRRRRRRRRRRR'!",
+    "Avast ye landlubbers!",
+}
+
+
+function ShowMe()
+    this:SetCloak(false)
+    this:ScheduleTimerDelay(TimeSpan.Minutes(5), "HideMe")
+end
+
+function HideMe()
+    this:SetCloak(true)
+end
+
 if (initializer ~= nil) then
     if( initializer.PirateNames ~= nil ) then    
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
@@ -54,21 +70,20 @@ RegisterEventHandler(EventType.Message, "DamageInflicted",
         end
     end)
 
-quotes = {
-    "Someone's after me ORE!",
-    "ORRRRRRRRRRRRRR'!",
-    "Avast ye landlubbers!",
-}
-
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
-        if (math.random(1,4) == 1) then
+        if (math.random(1,2) == 1) then
             CreateObj("resource_spectral_ore",this:GetLoc(),"Spectral.CreatedOre")
         end
         CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()
             this:Destroy()
         end)
     end)
+
+RegisterEventHandler(EventType.Message, "DamageInflicted", ShowMe)
+RegisterEventHandler(EventType.Message, "DamageDealtOut", ShowMe)
+RegisterEventHandler(EventType.Timer, "HideMe", HideMe)
+
 
 AI.StateMachine.AllStates.DecidingCombat = {
         OnEnterState = function()   

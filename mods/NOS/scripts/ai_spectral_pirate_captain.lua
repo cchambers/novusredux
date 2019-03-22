@@ -19,7 +19,7 @@ if (initializer ~= nil) then
     if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
         local job = initializer.PirateJobs[math.random(#initializer.PirateJobs)]
-        this:SetName(name .. " the Spectral " .. job)
+        this:SetName(name .. " the Spectral Commander")
         CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function() 
             local sHue = 947
             this:SetHue(0)
@@ -33,7 +33,6 @@ if (initializer ~= nil) then
             if (Legs ~= nil) then Legs:SetHue(sHue) end
             local Head = this:GetEquippedObject("Head")
             if (Head ~= nil) then Head:SetHue(sHue) end
-            this:SetCloak(true)
         end)
     end
 end
@@ -66,7 +65,7 @@ RegisterEventHandler(
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
-        if (math.random(1,10) == 1) then
+        if (math.random(1,5) == 1) then
             CreateObj("recipe_spectral",this:GetLoc(),"Spectral.CreatedRecipe")
         end
         CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()
