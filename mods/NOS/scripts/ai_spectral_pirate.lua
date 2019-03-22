@@ -62,7 +62,7 @@ quotes = {
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
-        if (math.random(1,4) == 1) then
+        if (math.random(1,2) == 1) then
             CreateObj("resource_spectral_ore",this:GetLoc(),"Spectral.CreatedOre")
         end
         CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()

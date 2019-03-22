@@ -66,7 +66,7 @@ RegisterEventHandler(
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
-        if (math.random(1,10) == 1) then
+        if (math.random(1,5) == 1) then
             CreateObj("recipe_spectral",this:GetLoc(),"Spectral.CreatedRecipe")
         end
         CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()
