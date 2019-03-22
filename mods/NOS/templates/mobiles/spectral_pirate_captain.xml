@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">610</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2300</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
 		<StringVariable Name="MobileKind">Spectral</StringVariable>
 		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
@@ -43,7 +43,7 @@
 						"Admiral",
 						"Commander",
 					},
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=100, Agi=60, Int=80, Wis=80, Will=80 },
 				MobTraits =
 					{
 					Toughness = 2,

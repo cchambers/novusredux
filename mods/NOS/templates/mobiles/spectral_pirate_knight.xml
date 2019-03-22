@@ -8,7 +8,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">1400</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
 		<StringVariable Name="MobileKind">Spectral</StringVariable>
 		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
@@ -58,7 +58,7 @@
 				PirateJobs = {
 						"Corsair",
 					},
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=80, Agi=50, Int=50, Wis=50, Will=50 },
 				MobTraits =
 					{
 					},

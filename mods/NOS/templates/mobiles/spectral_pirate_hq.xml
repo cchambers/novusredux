@@ -10,7 +10,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">600</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
 		<StringVariable Name="MobileKind">Spectral</StringVariable>
 		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
