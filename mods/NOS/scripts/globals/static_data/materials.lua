@@ -12,7 +12,8 @@ MaterialIndex = {
         "Gold",
         "Cobalt",
 		"Obsidian",
-		"Steel",
+        "Steel",
+        "Spectral",
 	},
 	FabricationSkill = {
         "Cloth",
@@ -53,6 +54,13 @@ Materials = {
     AshBoards = 866,
     BlightwoodBoards = 865,
     BroodwoodBoards = 851,
+}
+
+MaterialBonus = {
+    Spectral = {
+        AgiBonus = 5,
+        AttackSpeed = 5
+    }
 }
 
 MaterialTooltipColors = {

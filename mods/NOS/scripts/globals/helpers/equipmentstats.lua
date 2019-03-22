@@ -276,12 +276,17 @@ function GetModifierString(desc,baseValue,bonusValue, reverseStat)
 end
 
 function GetArmorAgiBonus(slot,item)
-	armorType = GetArmorType(item)	
+	armorType = GetArmorType(item)
+	local material = item:GetObjVar("Material")
+	local matBonus = 0
+	if (MaterialBonus[material] ~= nil) then
+		matBonus = MaterialBonus[material].AgiBonus or 0
+	end
 
 	if(EquipmentStats.BaseArmorStats[armorType][slot].AgiBonus) then
-		return EquipmentStats.BaseArmorStats[armorType][slot].AgiBonus
+		return matBonus + EquipmentStats.BaseArmorStats[armorType][slot].AgiBonus
 	else
 		armorClass = GetArmorClassFromType(armorType)
-		return ( EquipmentStats.BaseArmorClass[armorClass][slot].AgiBonus or 0 )
+		return matBonus + (EquipmentStats.BaseArmorClass[armorClass][slot].AgiBonus or 0 )
 	end
 end 

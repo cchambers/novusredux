@@ -8,6 +8,10 @@ CustomItemValues = {
 	resource_gold_ore = 24,
 	resource_cobalt_ore = 32,
 	resource_obsidian_ore = 40,
+	resource_steel_ore = 80,
+	resource_steel = 400,
+	resource_spectral_ore = 120,
+	resource_spectral = 1200,
 
 	animalparts_blood = 5,
 	animalparts_blood_beast = 25,

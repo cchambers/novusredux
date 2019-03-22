@@ -81,8 +81,9 @@ function SummonPlayers()
     local count = 0
     for player, t in pairs(mPlayers) do
         if (GlobalVarReadKey("User.Online", player)) then
-            player:SetObjVar("ColorWarWaiting", true)
             count = count + 1
+            player:SetObjVar("ColorWarWaiting", true)
+            DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
             GlobalVarWrite(
                 "ColorWar.Player",
                 nil,
@@ -111,7 +112,7 @@ function PickCaptains()
         player:SystemMessage("Want to be a captain? Time to roll for it! (/roll)", "event")
     end
     this:ScheduleTimerDelay(TimeSpan.FromSeconds(20), "ColorWar.DoCaptains")
-    EjectNonPlayers()
+    -- EjectNonPlayers()
 end
 
 function DoCaptains()
