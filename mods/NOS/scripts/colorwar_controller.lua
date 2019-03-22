@@ -81,10 +81,8 @@ function SummonPlayers()
     local count = 0
     for player, t in pairs(mPlayers) do
         if (GlobalVarReadKey("User.Online", player)) then
-            count = count + 1
-            player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
             player:SetObjVar("ColorWarWaiting", true)
-            DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
+            count = count + 1
             GlobalVarWrite(
                 "ColorWar.Player",
                 nil,
@@ -93,6 +91,8 @@ function SummonPlayers()
                     return true
                 end
             )
+            player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
+            DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
         else
             DebugMessage(player:GetName() .. " is no longer online.")
         end
