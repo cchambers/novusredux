@@ -73,6 +73,22 @@ RecipeCategories = {
 			},
 		},	
 	},
+	StonemasonSkill = {
+		{
+			Name = "Resources",
+			Subcategories = {
+                {"Stone","Stone","Materials1"},
+            },
+		},	
+		{
+			Name = "Furnishings",
+			Subcategories = {
+				{"Tables & Chairs","Tables & Chairs","Chairs"},
+				{"DecorativeItems" ,"Decorative Items"},
+				{"FencesWalls" ,"Fences"},
+				},
+		},
+	},
 	AlchemySkill = {
 		{
 			Name = "Potions",
@@ -1439,6 +1455,73 @@ AllRecipes = {
 		},
 	},
 
+StonemasonSkill = {
+
+		--resources
+		Blocks = {
+			MinLevelToCraft = -10,
+			MaxLevelToGain = 15,
+			DisplayName = "Blocks",
+			CraftingTemplateFile = "resource_blocks",
+			Description = "Blocks",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Stone",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				Stone = 5,
+			},
+		},
+		QuartziteBlocks = {
+			MinLevelToCraft = 25,
+			MaxLevelToGain = 50,
+			DifficultyModifier = 2,
+			DisplayName = "Quartzite Blocks",
+			CraftingTemplateFile = "resource_quartzite_blocks",
+			Description = "Quartzite Blocks",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Stone",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				Quartzite = 5,
+			},
+		},
+		GraniteBlocks = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DifficultyModifier = 3,
+			DisplayName = "Granite Blocks",
+			CraftingTemplateFile = "resource_granite_blocks",
+			Description = "Granite Blocks",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Stone",
+			NeedRecipe = false,
+			CanSalvage = false,
+			Resources = {
+				Granite = 5,
+			},
+		},	
+		BenchStone = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Stone Bench",
+			Description = "A bench made of stone.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = true,
+			CraftingTemplateFile = "furniture_bench_stone",
+			Category = "Furnishings",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Blocks = 20,
+			},
+		},					
+		
+},
+
 WoodsmithSkill = {
 		
 		--resources
@@ -2107,6 +2190,21 @@ WoodsmithSkill = {
 				Boards = 150,
 			},
 		},
+		StonemasonTable = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
+			DisplayName = "Stonecraft Table",
+			Description = "Used to create items using the stonemason skill.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = true,
+			CraftingTemplateFile = "workbench_stonecraft_table",
+			Category = "Furnishings",
+			Subcategory = "CraftingStations",
+			Resources = {
+				Boards = 150,
+				Stone = 400,
+			},
+		},		
 		Loom = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 100,
@@ -4818,6 +4916,20 @@ InscriptionSkill = {
 				FineScroll = 2,
 			},
 		},
+		StonemasonTableRecipe = {
+			MinLevelToCraft = 80,
+			MaxLevelToGain = 125,
+			DisplayName = "Stonecraft Table Recipe",
+			NeedRecipe = true,
+			Description = "A carpenter recipe to craft a Stonecraft Table. ",
+			CraftingTemplateFile = "recipe_stonemasontable",
+			Category = "Recipes",
+			Subcategory = "Crafting Stations",
+			Resources = {
+				Moss = 2,
+				FineScroll = 2,
+			},
+		},		
 
 		AlchemyTableRecipe = {
 			MinLevelToCraft = 80,

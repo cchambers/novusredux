@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[FF9500]Stonecraft Table[-]</Name>
+	<ClientId>897</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="ToolSkill">StonemasonSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="crafting_stonemason"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

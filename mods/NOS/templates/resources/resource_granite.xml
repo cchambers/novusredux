@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[4C4D4F]Granite[-]</Name>
+	<ClientId>180</ClientId>
+    <Color>0x4C4D4F</Color>
+    <Hue>43</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Granite</StringVariable>
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>
