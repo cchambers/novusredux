@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[FFBF00]Gold[-]</Name>
+	<ClientId>2183</ClientId>
+	<ScaleModifier>0.5</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="UnitWeight">0.0001</DoubleVariable>
+		<StringVariable Name="ResourceType">coins</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="coins"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
