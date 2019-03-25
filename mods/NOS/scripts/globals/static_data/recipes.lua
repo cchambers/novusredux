@@ -3791,6 +3791,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		FireWallScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Wall of Fire Scroll",
+			NeedRecipe = false,
+			Description = "A Wall of Fire scroll. ",
+			CraftingTemplateFile = "scroll_firewall",
+			Category = "Scrolls",
+			Subcategory = "Circle 4",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
 		FlameWaveScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,

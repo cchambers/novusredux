@@ -22,15 +22,6 @@ quotes = {
 }
 
 
-function ShowMe()
-    this:SetCloak(false)
-    this:ScheduleTimerDelay(TimeSpan.Minutes(5), "HideMe")
-end
-
-function HideMe()
-    this:SetCloak(true)
-end
-
 if (initializer ~= nil) then
 	if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
@@ -38,7 +29,7 @@ if (initializer ~= nil) then
         this:SetName(name.." the Spectral "..job)
         CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function() 
             local sHue = 947
-            this:SetHue(0)
+            this:SetHue(824)
             local RightHand = this:GetEquippedObject("RightHand")
             if (RightHand ~= nil) then RightHand:SetHue(sHue) end
             local LeftHand = this:GetEquippedObject("LeftHand")
@@ -49,7 +40,6 @@ if (initializer ~= nil) then
             if (Legs ~= nil) then Legs:SetHue(sHue) end
             local Head = this:GetEquippedObject("Head")
             if (Head ~= nil) then Head:SetHue(sHue) end
-            this:SetCloak(true)
         end)
     end
 end
@@ -57,7 +47,7 @@ end
 RegisterEventHandler(EventType.Message, "DamageInflicted",
     function (damager)
         if AI.IsValidTarget(damager) then
-        if (IsFriend(attacker) and AI.Anger < 100) then return end
+            if (IsFriend(attacker) and AI.Anger < 100) then return end
             local myTeamType = this:GetObjVar("MobileTeamType")
             local nearbyTeamMembers = FindObjects(SearchMulti(
             {
@@ -79,10 +69,6 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
             this:Destroy()
         end)
     end)
-
-RegisterEventHandler(EventType.Message, "DamageInflicted", ShowMe)
-RegisterEventHandler(EventType.Message, "DamageDealtOut", ShowMe)
-RegisterEventHandler(EventType.Timer, "HideMe", HideMe)
 
 
 AI.StateMachine.AllStates.DecidingCombat = {

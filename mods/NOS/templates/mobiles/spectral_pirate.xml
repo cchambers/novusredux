@@ -1,6 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1</ClientId>
 	<Hue>824</Hue>
+	<Color>0xC100FFFF</Color>
 	<Name>Pirate</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
 	<MobileComponent>			
@@ -64,7 +65,13 @@
 					},
 				Skills = 
 					{ 
-					Brawling = 50,  
+					Brawling = 125,
+					Slashing = 125,
+					Piercing = 125,
+					Blocking = 125,
+					MagicResist= 95,
+					Bashing = 125,
+					Melee = 125   
 					},	
 				EquipTable = 
 					{
@@ -72,7 +79,7 @@
 						Chest = { {"clothing_short_sleeve_shirt_chest",199}, "clothing_long_sleeve_shirt_chest", "clothing_chest_beggar", "" },
 						Legs = { {"clothing_legs_pants",199}, "clothing_shorts_legs", "clothing_pirate_legs" },	
 						LeftHand = 	{ "shield_buckler" },
-						RightHand = {"weapon_saber", "weapon_longsword"},	
+						RightHand = {"weapon_saber", "weapon_gladius"},	
 						BodyPartHead = TemplateDefines.MaleHeads,
 						Head= {	"armor_assassin_helm",},
 					},

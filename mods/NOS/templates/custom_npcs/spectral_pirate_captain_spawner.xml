@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Spectral Pirate Captain Spawner</Name>
+	<ObjectVariableComponent>	
+		<StringVariable Name="spawnDay">Fri</StringVariable>
+		<DoubleVariable Name="spawnRadius">3</DoubleVariable>
+		<DoubleVariable Name="spawnDelay">600</DoubleVariable>
+		<StringVariable Name="spawnTemplate">spectral_pirate_captain</StringVariable>
+		<DoubleVariable Name="spawnCount">1</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner"></LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

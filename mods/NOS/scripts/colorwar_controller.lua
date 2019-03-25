@@ -92,7 +92,9 @@ function SummonPlayers()
                     return true
                 end
             )
-            player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
+            CallFunctionDelayed(TimeSpan.FromSeconds(1.5), function()
+                player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
+            end)
             DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
         else
             DebugMessage(player:GetName() .. " is no longer online.")
