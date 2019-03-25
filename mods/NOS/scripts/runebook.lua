@@ -2,37 +2,40 @@
 mOpen = false
 mScrollCount = 5
 mScrollMax = 40
+mRuneMax = 20
 
-function AddRune(runeName)
-	if ( runeName == nil ) then
-		DebugMessage("[runebook|AddRune] ERROR: runeName is nil")
-		return
-	end
-	local found = false
-	for k,v in pairs(RuneData.AllRunes) do
-		if ( k == runeName ) then
-			found = true
-		end
-	end
-	if not( found ) then
-		DebugMessage("[runebook|AddRune] ERROR: invalid rune '"..runeName.."' provided")
-		return
-	end
+function AddRune(rune, user)
 	local runeList = this:GetObjVar("RuneList") or {}
-	runeList[runeName] = true
-	SetRuneList(runeList)
-end
-
-function AddAllRunes()
-	runeList = {}
-	for runeName,runeData in pairs(RuneData.AllRunes) do
-		if(runeData.RuneEnabled) then
-			runeList[runeName] = true
-		end
+	local count = 0
+	for k,v in pairs(runeList) do
+		count = count + 1
+	end
+	if (count >= mRuneMax ) then
+		user:SystemMessage("That Rune Book is full.","info")
+		return
 	end
 
+	local RuneData = {
+		Name = this:GetName(),
+		Destination = this:GetObjVar("Destination"),
+		DestinationFacing = this:GetObjVar("DestinationFacing"),
+		Region = this:GetObjVar("RegionAddress"),
+	}
+
+	table.insert(runeList, RuneData)
+	user:SystemMessage("Rune copied to Rune Book!","info")
 	SetRuneList(runeList)
 end
+
+-- function AddAllRunes()
+-- 	for runeName,runeData in pairs(RuneData.AllRunes) do
+-- 		if(runeData.RuneEnabled) then
+-- 			runeList[runeName] = true
+-- 		end
+-- 	end
+
+-- 	SetRuneList(runeList)
+-- end
 
 function SetRuneList(runeList)
 	this:SetObjVar("RuneList", runeList);
@@ -42,6 +45,46 @@ end
 
 function UpdateTooltip()
 	SetTooltipEntry(this,"rune_count", "Contains "..(this:GetObjVar("RuneCount") or 0).." runes")
+end
+
+function OpenRuneBook(user) 
+	if not( user:HasModule("runebook_dynamic_window") ) then
+		user:AddModule("runebook_dynamic_window")
+	end
+	user:SendMessage("OpenRuneBook", this)
+end
+
+function TryAddRuneToRunebook(runebook, rune, user)
+	if ( runebook == nil ) then return end
+	if ( runebook:HasModule("runebook") ) then
+		local runename = rune:GetName()
+		if ( runename == nil ) then
+			if ( HasRuneNamed(runebook, runeName) ) then
+				user:SystemMessage("Runebook already has a rune with that name.","info")
+			else
+				AddRune(rune)
+			end
+		else
+			user:SystemMessage("Name this rune (double-click) before adding to the book.", "info")
+			return
+		end
+	else
+		user:SystemMessage("That is not a runebook.","info")
+	end
+end
+
+
+function TryAddScrollToRunebook(runebook, scroll, user)
+
+end
+
+function HasRuneNamed(runebook, runename)
+	if ( runebook == nil or runename == nil or runename == "" ) then return false end
+	local runes = runebook:GetObjVar("RuneList")
+
+	for k,v in pairs(runes) do
+
+	end
 end
 
 UpdateTooltip()
@@ -85,8 +128,7 @@ RegisterEventHandler(EventType.Message, "AddRuneScroll",
 			if ( user ) then
 				user:SystemMessage("Rune "..runeName.." added to runebook.","info")
 				local castingSkill = RuneData.AllRunes[runeName].Skill
-				local mPageType = castingSkill == "ManifestationSkill" and "ManifestationIndex" or "EvocationIndex"
-				OpenRuneBook(user,this,mPageType)
+				OpenRuneBook(user)
 			end
 		else
 			if ( user ) then
@@ -107,6 +149,6 @@ RegisterEventHandler(EventType.Message,"HandleDrop",
 		end
 
 		if(obj:HasObjVar("ResourceType") and obj:GetObjVar("ResourceType") == "Recall") then
-
+			TryAddScrollToRunebook(this,obj,user)
 		end
 	end)
