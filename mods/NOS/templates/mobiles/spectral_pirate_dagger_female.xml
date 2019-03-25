@@ -1,0 +1,79 @@
+<ObjectTemplate>
+	<ClientId>208</ClientId>
+	<Hue>824</Hue>
+	<Name>Pirate</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">800</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
+		<StringVariable Name="MobileKind">Spectral</StringVariable>
+		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
+		<DoubleVariable Name="EffectDelay">8</DoubleVariable>
+		<DoubleVariable Name="EffectLength">2</DoubleVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">42</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_spectral_pirate">
+			<Initializer>
+				{ 
+				PirateNames = {
+						"Megan",
+						"Alicia",
+						"Ethyl",
+						"Tania",
+						"Daphnie",
+						"Charlene",
+						"Melissa",
+						"Jenna",
+						"Sybil",
+						"Aubrey",
+						"Gina",
+						"Kayla",
+						"Phoebe",
+						"Lynette",
+						"Jacquelyn",
+						"Barbara",
+					},
+				PirateJobs = {
+						"Privateer",
+					},
+				Stats = { Str=80, Agi=50, Int=50, Wis=50, Will=50 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 60,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { "armor_hardened_chest" },
+						Head= {	"armor_assassin_helm",},
+						Legs = { {"clothing_legs_pants",199}, "clothing_shorts_legs", "clothing_pirate_legs" },	
+						RightHand = {"weapon_poniard", "weapon_kryss"},	
+						BodyPartHead = TemplateDefines.FemaleHeads,
+						BodyPartHair = TemplateDefines.FemaleHairVillage,
+					},
+				LootTables =
+					{
+					},
+				WeaponAbilities = { primary="Stab" }, { secondary="Backstab" },	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

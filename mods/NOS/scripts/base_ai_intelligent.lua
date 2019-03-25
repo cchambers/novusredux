@@ -379,7 +379,7 @@ function DecideIdleState()
                 local friend = math.random(1,#friendlies)
                 local friendToTalkTo = friendlies[friend]     
                 if (InitiateConversation == nil) then
-                    DebugMessage(this:GetName().." can converse but does not have a base_ai_conversation module!")
+                    -- DebugMessage(this:GetName().." can converse but does not have a base_ai_conversation module!")
                     return
                 end           
                 InitiateConversation(friendToTalkTo,false)
