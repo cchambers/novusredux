@@ -1,5 +1,5 @@
 <ObjectTemplate>
-  <Name>Runebook</Name>
+  <Name>Rune Book</Name>
 	<ClientId>184</ClientId>
 	<Hue>825</Hue>
 	<SharedStateEntry name="Weight" type="int" value="6"/>
