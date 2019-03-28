@@ -4142,6 +4142,20 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		MassCurseScroll = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Mass Curse",
+			NeedRecipe = false,
+			Description = "A Mass Curse scroll. ",
+			CraftingTemplateFile = "scroll_masscurse",
+			Category = "Scrolls",
+			Subcategory = "Circle 7",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
 		PortalScroll = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 125,
