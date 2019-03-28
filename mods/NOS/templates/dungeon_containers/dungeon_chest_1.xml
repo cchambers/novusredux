@@ -35,11 +35,11 @@
 							NumItemsMax = 2,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
-								{ Weight = 35,Template = "lesser_mana_potion", Unique = true },
-								{ Weight = 35,Template = "lesser_stamina_potion", Unique = true },
-								{ Weight = 35, Template = "bandage", StackCountMin = 1, StackCountMax = 10, Unique = true },
-								{ Weight = 25, Template = "arrow", Unique = true, StackCountMin = 0, StackCountMax = 5},
+								{ Chance = 35,Template = "lesser_health_potion", Unique = true },
+								{ Chance = 35,Template = "lesser_mana_potion", Unique = true },
+								{ Chance = 35,Template = "lesser_stamina_potion", Unique = true },
+								{ Chance = 35, Template = "bandage", StackCountMin = 1, StackCountMax = 10, Unique = true },
+								{ Chance = 25, Template = "arrow", Unique = true, StackCountMin = 0, StackCountMax = 5},
 							}
 						},
 
@@ -57,14 +57,14 @@
 							NumItemsMax = 2,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 5, StackCountMax = 15},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 5, StackCountMax = 15},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 5, StackCountMax = 15},
 							}
 						},
 

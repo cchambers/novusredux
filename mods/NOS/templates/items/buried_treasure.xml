@@ -37,12 +37,12 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
+								{ Chance = 35,Template = "lesser_health_potion", Unique = true },
+								{ Chance = 25, Template = "bandage", Unique = true },
+								{ Chance = 1, Template = "sapphire_gem", Unique = true },
+								{ Chance = 1, Template = "ruby_gem", Unique = true },
+								{ Chance = 1, Template = "topaz_gem", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
 							}
 						},
 
@@ -65,10 +65,10 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
 					}

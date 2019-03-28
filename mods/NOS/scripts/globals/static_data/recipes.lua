@@ -4157,6 +4157,21 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		Runebook = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 90,
+			DisplayName = "Rune Book",
+			NeedRecipe = false,
+			CraftingTemplateFile = "runebook",
+			Description = "An empty rune book. ",
+			Category = "Spellbooks",
+			Subcategory = "Spellbooks",
+			Resources = {
+				FrayedScroll = 20,
+				FineScroll = 10,
+				AncientScroll = 2,
+			},
+		},
 		BookRed = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,

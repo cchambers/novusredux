@@ -2462,3 +2462,12 @@ SpellData = {
 		}
 	}
 }
+
+
+RuneData = {
+	AllRunes = {
+		Helm = "",
+		Valus = "",
+		Eldeir = ""
+	}
+}
