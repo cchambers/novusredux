@@ -4267,6 +4267,34 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		ArchCure = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Arch Cure Scroll",
+			NeedRecipe = false,
+			Description = "An Arch Cure scroll. ",
+			CraftingTemplateFile = "scroll_archcure",
+			Category = "Scrolls",
+			Subcategory = "Circle 6",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
+		ArchProtection = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Arch Protection Scroll",
+			NeedRecipe = false,
+			Description = "A Arch Protection scroll. ",
+			CraftingTemplateFile = "scroll_archprotection",
+			Category = "Scrolls",
+			Subcategory = "Circle 6",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
 
 		-- recipes
 		----resources
