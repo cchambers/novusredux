@@ -3819,6 +3819,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		ChainLightning = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Chain Lightning Scroll",
+			NeedRecipe = false,
+			Description = "A Chain Lightning scroll. ",
+			CraftingTemplateFile = "scroll_chainlightning",
+			Category = "Scrolls",
+			Subcategory = "Circle 7",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
 		HailstormScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
