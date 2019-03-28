@@ -4128,6 +4128,20 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		MassHealScroll = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 125,
+			DisplayName = "Mass Heal",
+			NeedRecipe = false,
+			Description = "A Mass Heal scroll. ",
+			CraftingTemplateFile = "scroll_massheal",
+			Category = "Scrolls",
+			Subcategory = "Circle 7",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
 		PortalScroll = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 125,

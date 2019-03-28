@@ -15,6 +15,7 @@ require 'globals.mobile_effects.nos.colorwarplayer'
 
 require 'globals.mobile_effects.nos.massheal'
 require 'globals.mobile_effects.nos.beingmasshealed'
+require 'globals.mobile_effects.nos.masscurse'
 
 require 'globals.mobile_effects.nos.identify'
 require 'globals.mobile_effects.nos.paralyze'
