@@ -18,7 +18,7 @@ DebugMessage("TOTEM LOADED")
 
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")
-coroutine = LoadExternalModule("coroutine")
+-- coroutine = LoadExternalModule("coroutine")
 
 --local coroutine = require("coroutine")
 

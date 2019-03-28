@@ -1144,14 +1144,9 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 		ApplySpellCompletionEffects(spellName, myTarg, mSpellSource)
 		mSpellSource = nil
 	end
-	DebugMessage(tostring(1))
 
 	if (mPrimedSpell ~= nil) then
-	DebugMessage(tostring(2))
-
 		if (this:IsPlayer()) then
-		DebugMessage(tostring(3))
-
 			local spellRange = GetSpellInformation(spellName, "SpellRange") or 0
 
 			-- DAB TODO: If it is area effect, send the area effect radius
