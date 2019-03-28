@@ -1,3 +1,4 @@
+-- Runebook by Khi (Novus: Redux), Discord: Khi#1337
 
 mOpen = false
 mScrollCount = 0
@@ -30,16 +31,6 @@ function AddRune(rune, user)
 	SetRuneList(runeList)
 	OpenRuneBook(user)
 end
-
--- function AddAllRunes()
--- 	for runeName,runeData in pairs(RuneData.AllRunes) do
--- 		if(runeData.RuneEnabled) then
--- 			runeList[runeName] = true
--- 		end
--- 	end
-
--- 	SetRuneList(runeList)
--- end
 
 function SetRuneList(runeList)
 	this:SetObjVar("RuneList", runeList);
@@ -133,11 +124,7 @@ RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 	function()
 		AddUseCase(this,"Open", true)
 		if ( initializer ~= nil and initializer.Runes ~= nil ) then
-			if ( initializer.Runes == "All" ) then
-				AddAllRunes()
-			else
-				SetRuneList(initializer.Runes)
-			end
+			SetRuneList(initializer.Runes)
 		end
 		this:SetObjVar("HandlesDrop",true)
 	end)
@@ -175,11 +162,6 @@ RegisterEventHandler(EventType.Message, "AddRuneScroll",
 				user:SystemMessage("Failed to add scroll to runebook, scroll does not have a rune.","info")
 			end
 		end
-	end)
-
-RegisterEventHandler(EventType.Message, "LoadRunes", 
-	function()
-		AddAllRunes()
 	end)
 
 RegisterEventHandler(EventType.Message, "HandleDrop", 
