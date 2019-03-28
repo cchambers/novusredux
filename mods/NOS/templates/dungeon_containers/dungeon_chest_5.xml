@@ -33,11 +33,11 @@
 							NumItemsMax = 3,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "regular_health_potion", Unique = true },
-								{ Weight = 35,Template = "regular_mana_potion", Unique = true },
-								{ Weight = 35,Template = "regular_stamina_potion", Unique = true },
-								{ Weight = 35, Template = "bandage", Unique = true },
-								{ Weight = 25, Template = "arrow", Unique = true, StackCountMin = 10, StackCountMax = 20},
+								{ Chance = 35,Template = "regular_health_potion", Unique = true },
+								{ Chance = 35,Template = "regular_mana_potion", Unique = true },
+								{ Chance = 35,Template = "regular_stamina_potion", Unique = true },
+								{ Chance = 35, Template = "bandage", Unique = true },
+								{ Chance = 25, Template = "arrow", Unique = true, StackCountMin = 10, StackCountMax = 20},
 							}
 						},
 
@@ -55,14 +55,14 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 25, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_garlic", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_nightshade", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 25, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 25, StackCountMax = 35},
 							}
 						},
 
@@ -73,11 +73,11 @@
 
 							LootItems = 
 							{ 
-								{ Weight = 5, Template = "lscroll_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_cure", Unique = true },
-								{ Weight = 5, Template = "lscroll_poison", Unique = true },
-								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
-								{ Weight = 5, Template = "lscroll_mana_missile", Unique = true },
+								{ Chance = 5, Template = "lscroll_heal", Unique = true },
+								{ Chance = 5, Template = "lscroll_cure", Unique = true },
+								{ Chance = 5, Template = "lscroll_poison", Unique = true },
+								{ Chance = 5, Template = "lscroll_ruin", Unique = true },
+								{ Chance = 5, Template = "lscroll_mana_missile", Unique = true },
 
 							},
 						},

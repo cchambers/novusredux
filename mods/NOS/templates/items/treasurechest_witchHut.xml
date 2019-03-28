@@ -12,10 +12,10 @@
 				{
 					LootTables =
 					{	
-					    -- Gold
-					    {
-					    	NumCoins = math.random(600,800),
-				    	},
+						-- Gold
+						{
+							NumCoins = math.random(600,800),
+						},
 
 						--armor
 						{
@@ -24,12 +24,12 @@
 							LootItems = 
 							{	
 								--Rookie							
-								{ Weight = 10,Template = "armor_leather_helm", Unique = true },
-								{ Weight = 10,Template = "armor_leather_chest", Unique = true },
-								{ Weight = 10,Template = "armor_leather_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 10,Template = "robe_padded_tunic", Unique = true },
+								{ Chance = 10,Template = "armor_leather_helm", Unique = true },
+								{ Chance = 10,Template = "armor_leather_chest", Unique = true },
+								{ Chance = 10,Template = "armor_leather_leggings", Unique = true },
+								{ Chance = 10,Template = "robe_padded_leggings", Unique = true },
+								{ Chance = 10,Template = "robe_padded_helm", Unique = true },
+								{ Chance = 10,Template = "robe_padded_tunic", Unique = true },
 							}
 						},
 
@@ -39,17 +39,17 @@
 							NumItemsMax = 10,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
-								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
-    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-								{ Weight = 10, Template = "treasure_map", Unique = true },
-								{ Weight = 10, Template = "tool_shovel", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
+								{ Chance = 35,Template = "lesser_health_potion", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 10, Template = "tool_fishing_rod", Unique = true },
+								{ Chance = 10, Template = "treasure_map", Unique = true },
+								{ Chance = 10, Template = "tool_shovel", Unique = true },
+								{ Chance = 25, Template = "bandage", Unique = true },
+								{ Chance = 1, Template = "sapphire_gem", Unique = true },
+								{ Chance = 1, Template = "ruby_gem", Unique = true },
+								{ Chance = 1, Template = "emerald_gem", Unique = true },
+								{ Chance = 1, Template = "diamond_gem", Unique = true },
 							}
 						},
 
@@ -59,10 +59,10 @@
 							NumItemsMax = 12,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35,},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35,},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35,},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Chance = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Chance = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Chance = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35,},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35,},
 							}
 						},
 					}

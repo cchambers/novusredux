@@ -34,12 +34,12 @@
 							NumItemsMin = 3,
 							NumItemsMax = 5,
 					    	LootItems = {
-				    			{ Weight = 15, Template = "necklace_ruby_perfect", Unique = true },
-				    			{ Weight = 15, Template = "necklace_sapphire_perfect", Unique = true },
-				    			{ Weight = 15, Template = "necklace_topaz_perfect", Unique = true },
-				    			{ Weight = 15, Template = "ring_sapphire_perfect", Unique = true },
-				    			{ Weight = 15, Template = "ring_ruby_perfect", Unique = true },
-				    			{ Weight = 15, Template = "ring_topaz_perfect", Unique = true },
+				    			{ Chance = 15, Template = "necklace_ruby_perfect", Unique = true },
+				    			{ Chance = 15, Template = "necklace_sapphire_perfect", Unique = true },
+				    			{ Chance = 15, Template = "necklace_topaz_perfect", Unique = true },
+				    			{ Chance = 15, Template = "ring_sapphire_perfect", Unique = true },
+				    			{ Chance = 15, Template = "ring_ruby_perfect", Unique = true },
+				    			{ Chance = 15, Template = "ring_topaz_perfect", Unique = true },
 				    		}
 						},
 
@@ -49,10 +49,10 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "diamond_gem", Unique = true},
-								{ Weight = 25, Template = "emerald_gem", Unique = true},
-								{ Weight = 25, Template = "ruby_gem", Unique = true},
-								{ Weight = 25, Template = "topaz_gem", Unique = true},
+								{ Chance = 25, Template = "diamond_gem", Unique = true},
+								{ Chance = 25, Template = "emerald_gem", Unique = true},
+								{ Chance = 25, Template = "ruby_gem", Unique = true},
+								{ Chance = 25, Template = "topaz_gem", Unique = true},
 							}
 						},
 
@@ -63,11 +63,11 @@
 
 							LootItems = 
 							{ 
-								{ Weight = 5, Template = "scroll_flamestrike", Unique = true },
-								{ Weight = 5, Template = "scroll_hailstorm", Unique = true },
-								{ Weight = 5, Template = "scroll_flamewave", Unique = true },
-								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
-								{ Weight = 5, Template = "lscroll_recall", Unique = true },
+								{ Chance = 5, Template = "scroll_flamestrike", Unique = true },
+								{ Chance = 5, Template = "scroll_hailstorm", Unique = true },
+								{ Chance = 5, Template = "scroll_flamewave", Unique = true },
+								{ Chance = 5, Template = "lscroll_resurrect", Unique = true },
+								{ Chance = 5, Template = "lscroll_recall", Unique = true },
 
 							}
 						},
@@ -78,9 +78,9 @@
 
 							LootItems =
 							{
-								{ Weight = 33, Template = "resource_iron", Unique = true, StackCountMin = 50, StackCountMax = 100},
-								{ Weight = 33, Template = "resource_boards", Unique = true, StackCountMin = 50, StackCountMax = 100},
-								{ Weight = 33, Template = "resource_brick", Unique = true, StackCountMin = 50, StackCountMax = 100},
+								{ Chance = 33, Template = "resource_iron", Unique = true, StackCountMin = 50, StackCountMax = 100},
+								{ Chance = 33, Template = "resource_boards", Unique = true, StackCountMin = 50, StackCountMax = 100},
+								{ Chance = 33, Template = "resource_brick", Unique = true, StackCountMin = 50, StackCountMax = 100},
                             },
 						},
 	

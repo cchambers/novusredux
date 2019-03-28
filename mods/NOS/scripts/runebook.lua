@@ -10,21 +10,23 @@ function AddRune(rune, user)
 	for k,v in pairs(runeList) do
 		count = count + 1
 	end
+
 	if (count >= mRuneMax ) then
 		user:SystemMessage("That Rune Book is full.","info")
 		return
 	end
 
 	local RuneData = {
-		Name = this:GetName(),
-		Destination = this:GetObjVar("Destination"),
-		DestinationFacing = this:GetObjVar("DestinationFacing"),
-		Region = this:GetObjVar("RegionAddress"),
+		Name = tostring(rune:GetName()),
+		Rune = rune
 	}
 
 	table.insert(runeList, RuneData)
 	user:SystemMessage("Rune copied to Rune Book!","info")
+	user:SendMessage("OpenRuneBook", this)
+	rune:MoveToContainer(this,Loc())
 	SetRuneList(runeList)
+	OpenRuneBook(user)
 end
 
 -- function AddAllRunes()
@@ -39,7 +41,8 @@ end
 
 function SetRuneList(runeList)
 	this:SetObjVar("RuneList", runeList);
-	this:SetObjVar("RuneCount", CountTable(runeList))
+	local count = CountTable(runeList)
+	this:SetObjVar("RuneCount", count)
 	UpdateTooltip()
 end
 
@@ -54,37 +57,68 @@ function OpenRuneBook(user)
 	user:SendMessage("OpenRuneBook", this)
 end
 
-function TryAddRuneToRunebook(runebook, rune, user)
-	if ( runebook == nil ) then return end
-	if ( runebook:HasModule("runebook") ) then
-		local runename = rune:GetName()
-		if ( runename == nil ) then
-			if ( HasRuneNamed(runebook, runeName) ) then
-				user:SystemMessage("Runebook already has a rune with that name.","info")
-			else
-				AddRune(rune)
-			end
+function TryAddRuneToRuneBook(rune, user)
+	local runename = rune:GetName()
+	if ( runename ~= nil ) then
+		if ( HasRuneNamed(runename) ) then
+			user:SystemMessage("This Rune Book already has a rune with that name.","info")
 		else
-			user:SystemMessage("Name this rune (double-click) before adding to the book.", "info")
-			return
+			AddRune(rune, user)
 		end
 	else
-		user:SystemMessage("That is not a runebook.","info")
+		user:SystemMessage("Name this rune (double-click) before adding to the book.", "info")
+		return
 	end
 end
 
-
-function TryAddScrollToRunebook(runebook, scroll, user)
-
+function TryAddRecallScrollToRuneBook(scroll, user)
+	local charges = this:GetObjVar("Charges") or 0
+	local stack = scroll:GetObjVar("StackCount") or 1
+	if ((stack + mScrollCount) > mScrollMax) then
+		user:SystemMessage("You have filled this Rune Book's Recall charges.", "info")
+		stack = stack - (mScrollMax - mScrollCount)
+		this:SetObjVar("Charges", mScrollMax)
+		scroll:SetObjVar("StackCount", stack)
+		CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
+			SetItemTooltip(scroll)
+		end)
+	else 
+		local total = charges + stack
+		this:SetObjVar("Charges", total)
+		user:SystemMessage("You have added Recall charges to this Rune Book.", "info")
+		scroll:Destroy()
+	end
+	OpenRuneBook(user)
 end
 
-function HasRuneNamed(runebook, runename)
-	if ( runebook == nil or runename == nil or runename == "" ) then return false end
-	local runes = runebook:GetObjVar("RuneList")
+function TryAddPortalScrollToRuneBook(scroll, user)
+	local charges = this:GetObjVar("PortalCharges") or 0
+	local stack = scroll:GetObjVar("StackCount") or 1
+	if ((stack + mScrollCount) > mScrollMax) then
+		user:SystemMessage("You have filled this Rune Book's Portal charges.", "info")
+		stack = stack - (mScrollMax - mScrollCount)
+		this:SetObjVar("PortalCharges", mScrollMax)
+		scroll:SetObjVar("StackCount", stack)
+		CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
+			SetItemTooltip(scroll)
+		end)
+	else 
+		local total = charges + stack
+		this:SetObjVar("PortalCharges", total)
+		user:SystemMessage("You have added Portal charges to this Rune Book.", "info")
+		scroll:Destroy()
+	end
+	OpenRuneBook(user)
+end
 
+function HasRuneNamed(runename)
+	local runes = this:GetObjVar("RuneList") or {}
 	for k,v in pairs(runes) do
-
+		if (v.Name == runename) then
+			return true
+		end
 	end
+	return false
 end
 
 UpdateTooltip()
@@ -106,14 +140,14 @@ RegisterEventHandler(EventType.Message, "UseObject",
 	function(user,usedType)
 		if ( usedType == "Open" or usedType == "Use" ) then
 			this:PlayObjectSound("Use", true)
-			OpenRuneBook(user,this)
+			OpenRuneBook(user)
 		end
 	end)
 
 
 RegisterEventHandler(EventType.Message, "AddRune", 
 	function(runeName, user)
-		AddRune(runeName)
+		AddRune(runeName, user)
 		if ( user ) then
 			user:SystemMessage("Rune "..runeName.." added to runebook.","info")
 		end
@@ -123,7 +157,7 @@ RegisterEventHandler(EventType.Message, "AddRuneScroll",
 	function(scroll, user)
 		local runeName = scroll:GetObjVar("Rune")
 		if ( runeName ) then
-			AddRune(runeName)
+			AddRune(runeName, user)
 			scroll:SendMessage("AdjustStack", -1)
 			if ( user ) then
 				user:SystemMessage("Rune "..runeName.." added to runebook.","info")
@@ -142,13 +176,17 @@ RegisterEventHandler(EventType.Message, "LoadRunes",
 		AddAllRunes()
 	end)
 
-RegisterEventHandler(EventType.Message,"HandleDrop", 
+RegisterEventHandler(EventType.Message, "HandleDrop", 
 	function (user,obj)
 		if(obj:HasObjVar("Destination")) then
-			TryAddRuneToRunebook(this,obj,user)
+			TryAddRuneToRuneBook(obj,user)
 		end
 
-		if(obj:HasObjVar("ResourceType") and obj:GetObjVar("ResourceType") == "Recall") then
-			TryAddScrollToRunebook(this,obj,user)
+		if(obj:HasObjVar("ResourceType")) then
+			if (obj:GetObjVar("ResourceType") == "Recall") then
+				TryAddRecallScrollToRuneBook(obj,user) 
+			elseif (obj:GetObjVar("ResourceType") == "Portal") then
+				TryAddPortalScrollToRuneBook(obj,user) 
+			end
 		end
 	end)

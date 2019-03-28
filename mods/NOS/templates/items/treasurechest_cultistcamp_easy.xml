@@ -24,13 +24,13 @@
 							LootItems = 
 							{	
 								--Apprentice								
-								{ Weight = 35,Template = "weapon_saber", Unique = true },
-								{ Weight = 35,Template = "weapon_kryss", Unique = true },
-								{ Weight = 35,Template = "weapon_greataxe", Unique = true },
-								{ Weight = 35,Template = "weapon_mace", Unique = true },
-								{ Weight = 35,Template = "weapon_voulge", Unique = true },
-								{ Weight = 35,Template = "shield_buckler", Unique = true },
-								{ Weight = 35,Template = "weapon_shortbow", Unique = true },
+								{ Chance = 35,Template = "weapon_saber", Unique = true },
+								{ Chance = 35,Template = "weapon_kryss", Unique = true },
+								{ Chance = 35,Template = "weapon_greataxe", Unique = true },
+								{ Chance = 35,Template = "weapon_mace", Unique = true },
+								{ Chance = 35,Template = "weapon_voulge", Unique = true },
+								{ Chance = 35,Template = "shield_buckler", Unique = true },
+								{ Chance = 35,Template = "weapon_shortbow", Unique = true },
 							}
 						},
 
@@ -41,15 +41,15 @@
 							LootItems = 
 							{
 								--Apprentice							
-								{ Weight = 35,Template = "armor_brigandine_helm", Unique = true },
-								{ Weight = 35,Template = "armor_brigandine_tunic", Unique = true },
-								{ Weight = 35,Template = "armor_brigandine_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
-								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 35,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 35,Template = "robe_padded_tunic", Unique = true },
+								{ Chance = 35,Template = "armor_brigandine_helm", Unique = true },
+								{ Chance = 35,Template = "armor_brigandine_tunic", Unique = true },
+								{ Chance = 35,Template = "armor_brigandine_leggings", Unique = true },
+								{ Chance = 35,Template = "robe_padded_helm", Unique = true },
+								{ Chance = 35,Template = "robe_padded_tunic", Unique = true },
+								{ Chance = 35,Template = "robe_padded_leggings", Unique = true },
+								{ Chance = 35,Template = "robe_padded_leggings", Unique = true },
+								{ Chance = 35,Template = "robe_padded_helm", Unique = true },
+								{ Chance = 35,Template = "robe_padded_tunic", Unique = true },
 							}
 						},
 
@@ -61,14 +61,14 @@
 							LootItems = 
 							{
 								--Rookie								
-								{ Weight = 10,Template = "weapon_longsword", Unique = true },
-								{ Weight = 10,Template = "weapon_dagger", Unique = true },
-								{ Weight = 10,Template = "weapon_largeaxe", Unique = true },
-								{ Weight = 10,Template = "weapon_hammer", Unique = true },
-								{ Weight = 10,Template = "weapon_warhammer", Unique = true },
-								{ Weight = 10,Template = "weapon_warfork", Unique = true },
-								{ Weight = 10,Template = "weapon_longbow", Unique = true },
-								{ Weight = 10,Template = "shield_curvedshield", Unique = true },
+								{ Chance = 10,Template = "weapon_longsword", Unique = true },
+								{ Chance = 10,Template = "weapon_dagger", Unique = true },
+								{ Chance = 10,Template = "weapon_largeaxe", Unique = true },
+								{ Chance = 10,Template = "weapon_hammer", Unique = true },
+								{ Chance = 10,Template = "weapon_warhammer", Unique = true },
+								{ Chance = 10,Template = "weapon_warfork", Unique = true },
+								{ Chance = 10,Template = "weapon_longbow", Unique = true },
+								{ Chance = 10,Template = "shield_curvedshield", Unique = true },
 							}
 						},
 
@@ -79,15 +79,15 @@
 							LootItems = 
 							{	
 								--Rookie							
-								{ Weight = 10,Template = "armor_chain_helm", Unique = true },
-								{ Weight = 10,Template = "armor_chain_tunic", Unique = true },
-								{ Weight = 10,Template = "armor_chain_leggings", Unique = true },
-								{ Weight = 10,Template = "armor_leather_helm", Unique = true },
-								{ Weight = 10,Template = "armor_leather_chest", Unique = true },
-								{ Weight = 10,Template = "armor_leather_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_leggings", Unique = true },
-								{ Weight = 10,Template = "robe_padded_helm", Unique = true },
-								{ Weight = 10,Template = "robe_padded_tunic", Unique = true },
+								{ Chance = 10,Template = "armor_chain_helm", Unique = true },
+								{ Chance = 10,Template = "armor_chain_tunic", Unique = true },
+								{ Chance = 10,Template = "armor_chain_leggings", Unique = true },
+								{ Chance = 10,Template = "armor_leather_helm", Unique = true },
+								{ Chance = 10,Template = "armor_leather_chest", Unique = true },
+								{ Chance = 10,Template = "armor_leather_leggings", Unique = true },
+								{ Chance = 10,Template = "robe_padded_leggings", Unique = true },
+								{ Chance = 10,Template = "robe_padded_helm", Unique = true },
+								{ Chance = 10,Template = "robe_padded_tunic", Unique = true },
 							}
 						},
 
@@ -109,19 +109,19 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 35,Template = "lesser_health_potion", Unique = true },
-								{ Weight = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Weight = 5, Template = "tool_cookingpot", Unique = true },
-								{ Weight = 10, Template = "tool_mining_pick", Unique = true },
-    							{ Weight = 10, Template = "tool_fishing_rod", Unique = true },
-								{ Weight = 10, Template = "tool_shovel", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "emerald_gem", Unique = true },
-								{ Weight = 1, Template = "diamond_gem", Unique = true },
-								{ Weight = 5, Template = "treasure_map", Unique = true },
-								{ Weight = 4, Template = "treasure_map_1", Unique = true },
+								{ Chance = 35,Template = "lesser_health_potion", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
+								{ Chance = 10, Template = "tool_mining_pick", Unique = true },
+    							{ Chance = 10, Template = "tool_fishing_rod", Unique = true },
+								{ Chance = 10, Template = "tool_shovel", Unique = true },
+								{ Chance = 25, Template = "bandage", Unique = true },
+								{ Chance = 1, Template = "sapphire_gem", Unique = true },
+								{ Chance = 1, Template = "ruby_gem", Unique = true },
+								{ Chance = 1, Template = "emerald_gem", Unique = true },
+								{ Chance = 1, Template = "diamond_gem", Unique = true },
+								{ Chance = 5, Template = "treasure_map", Unique = true },
+								{ Chance = 4, Template = "treasure_map_1", Unique = true },
 							}
 						},
 
@@ -131,10 +131,10 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
 
@@ -145,10 +145,10 @@
 
 							LootItems = 
 							{ 
-								{ Weight = 5, Template = "lscroll_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_cure", Unique = true },
-								{ Weight = 5, Template = "lscroll_poison", Unique = true },
-								{ Weight = 5, Template = "lscroll_ruin", Unique = true },
+								{ Chance = 5, Template = "lscroll_heal", Unique = true },
+								{ Chance = 5, Template = "lscroll_cure", Unique = true },
+								{ Chance = 5, Template = "lscroll_poison", Unique = true },
+								{ Chance = 5, Template = "lscroll_ruin", Unique = true },
 
 							},
 						},	
@@ -160,10 +160,10 @@
 
 							LootItems = 
 							{ 
-								{ Weight = 5, Template = "lscroll_greater_heal", Unique = true },
-								{ Weight = 5, Template = "lscroll_lightning", Unique = true },
-								{ Weight = 5, Template = "lscroll_bombardment", Unique = true },
-								{ Weight = 5, Template = "lscroll_electricbolt", Unique = true },
+								{ Chance = 5, Template = "lscroll_greater_heal", Unique = true },
+								{ Chance = 5, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 5, Template = "lscroll_bombardment", Unique = true },
+								{ Chance = 5, Template = "lscroll_electricbolt", Unique = true },
 							},
 						},	
 					}
