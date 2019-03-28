@@ -4142,13 +4142,13 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
-		MassHealScroll = {
+		ArchHealScroll = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 125,
-			DisplayName = "Mass Heal",
+			DisplayName = "Arch Heal",
 			NeedRecipe = false,
-			Description = "A Mass Heal scroll. ",
-			CraftingTemplateFile = "scroll_massheal",
+			Description = "An Arch Heal scroll. ",
+		CraftingTemplateFile = "scroll_archheal",
 			Category = "Scrolls",
 			Subcategory = "Circle 7",
 			Resources = {

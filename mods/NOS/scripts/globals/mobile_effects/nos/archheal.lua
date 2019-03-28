@@ -1,4 +1,4 @@
-MobileEffectLibrary.MassHeal = 
+MobileEffectLibrary.ArchHeal = 
 {
 	OnEnterState = function(self,root,target,args)
 		local targets = FindObjects(SearchMobileInRange(self.Range))
@@ -6,7 +6,7 @@ MobileEffectLibrary.MassHeal =
 			local who = targets[i]
 			if (IsPlayerCharacter(who) or IsPet(who)) then 
 				if(GetCurHealth(who) < GetMaxHealth(who)) then
-					who:SendMessage("StartMobileEffect", "BeingMassHealed", self.ParentObj)
+					who:SendMessage("StartMobileEffect", "BeingArchHealed", self.ParentObj)
 				end
 			end
 		end

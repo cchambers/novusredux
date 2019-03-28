@@ -2102,10 +2102,10 @@ SpellData = {
 				"Sulfurousash"
 			}
 		},
-		MassHeal = {
-			SpellDisplayName = "Mass Heal",
+		ArchHeal = {
+			SpellDisplayName = "Arch Heal",
 			PowerWords = "Uus Vas Mani",
-			MobileEffect = "MassHeal",
+			MobileEffect = "ArchHeal",
 			Icon = "regenfocus",
 			Circle = 7,
 			manaCost = 80,

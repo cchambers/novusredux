@@ -1,10 +1,10 @@
 <ObjectTemplate>
-  <Name>[00FF00]Mass Heal[-]</Name>
+  <Name>[00FF00]Arch Heal[-]</Name>
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="Spell">MassHeal</StringVariable>
-		<StringVariable Name="ResourceType">MassHeal</StringVariable>
+		<StringVariable Name="Spell">ArchHeal</StringVariable>
+		<StringVariable Name="ResourceType">ArchHeal</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>

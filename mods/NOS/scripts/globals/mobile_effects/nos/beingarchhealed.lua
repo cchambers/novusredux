@@ -1,4 +1,4 @@
-MobileEffectLibrary.BeingMassHealed = 
+MobileEffectLibrary.BeingArchHealed = 
 {
 	OnEnterState = function(self,root,caster,args)
 		self.Caster = caster
