@@ -169,16 +169,16 @@ RecipeCategories = {
 				{"Books" ,"Books","Storage"},
 			},
 		},
-		{	
-			Name = "Staves",
-			Subcategories = {
-				{"Padded","Padded","Anvil1"},
-				{"Rookie","Rookie","Anvil2"},
-				{"Journeyman","Journeyman","Anvil3"},
-				{"Expert","Expert","Anvil4"},
-				{"Master","Master","Anvil5"},
-			},
-		},
+		-- {	
+		-- 	Name = "Staves",
+		-- 	Subcategories = {
+		-- 		{"Padded","Padded","Anvil1"},
+		-- 		{"Rookie","Rookie","Anvil2"},
+		-- 		{"Journeyman","Journeyman","Anvil3"},
+		-- 		{"Expert","Expert","Anvil4"},
+		-- 		{"Master","Master","Anvil5"},
+		-- 	},
+		-- },
 	},
 }
 
@@ -304,6 +304,23 @@ AllRecipes = {
 			},
 		},
 
+		Spectral = {
+			MinLevelToCraft = 92,
+			MaxLevelToGain = 125,
+			DifficultyModifier = 3,
+			DisplayName = "Spectral Steel",
+			CraftingTemplateFile = "resource_spectral",
+			Description = "Spectral essence that has been cast into an ingot.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Ingots",
+			NeedRecipe = true,
+			CanSalvage = false,
+			Resources = {
+				SpectralOre = 10,
+			},
+		},
+
 		--Daggers
 		Dagger = {
 			MinLevelToCraft = 0,
@@ -321,7 +338,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -341,7 +359,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -361,7 +380,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -381,7 +401,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -401,7 +422,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 		
@@ -421,7 +443,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -441,7 +464,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -461,7 +485,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -481,7 +506,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 
@@ -503,7 +529,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -523,7 +550,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -543,7 +571,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -563,7 +592,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -583,7 +613,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -603,7 +634,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -623,7 +655,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 
@@ -643,7 +676,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -665,7 +699,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 		Hammer = {
@@ -684,7 +719,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 		
@@ -704,7 +740,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -724,7 +761,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -744,7 +782,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -764,7 +803,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 
@@ -785,7 +825,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Warhammer = {
@@ -804,7 +845,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 
@@ -825,7 +867,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Voulge = {
@@ -844,7 +887,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Spear = {
@@ -863,7 +907,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Halberd = {
@@ -882,7 +927,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		
@@ -902,7 +948,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 		
@@ -922,7 +969,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Naginata = {
@@ -941,7 +989,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		
@@ -961,7 +1010,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -981,7 +1031,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1002,7 +1053,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		GreatAxe = {
@@ -1021,7 +1073,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		Butcher = {
@@ -1040,7 +1093,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		
@@ -1063,7 +1117,8 @@ AllRecipes = {
 				Copper = { Copper = 1 },
 				Cobalt = { Cobalt = 1 },
 				Obsidian = { Obsidian = 1 },
-				Steel = { Steel = 1 }
+				Steel = { Steel = 1 },
+				Spectral = { Spectral = 1 }
 			},
 		},
 		ChainLeggings = {
@@ -1083,7 +1138,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		ChainTunic = {
@@ -1103,7 +1159,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		ScaleHelm = {
@@ -1123,7 +1180,8 @@ AllRecipes = {
 				Copper = { Copper = 2 },
 				Cobalt = { Cobalt = 2 },
 				Obsidian = { Obsidian = 2 },
-				Steel = { Steel = 2 }
+				Steel = { Steel = 2 },
+				Spectral = { Spectral = 2 }
 			},
 		},
 		ScaleLeggings = {
@@ -1143,7 +1201,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 		ScaleTunic = {
@@ -1163,7 +1222,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 		FullPlateHelm = {
@@ -1183,7 +1243,8 @@ AllRecipes = {
 				Copper = { Copper = 3 },
 				Cobalt = { Cobalt = 3 },
 				Obsidian = { Obsidian = 3 },
-				Steel = { Steel = 3 }
+				Steel = { Steel = 3 },
+				Spectral = { Spectral = 3 }
 			},
 		},
 		FullPlateLeggings = {
@@ -1203,7 +1264,8 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
-				Steel = { Steel = 5 }
+				Steel = { Steel = 5 },
+				Spectral = { Spectral = 5 }
 			},
 		},
 		FullPlateTunic = {
@@ -1223,7 +1285,8 @@ AllRecipes = {
 				Copper = { Copper = 5 },
 				Cobalt = { Cobalt = 5 },
 				Obsidian = { Obsidian = 5 },
-				Steel = { Steel = 5 }
+				Steel = { Steel = 5 },
+				Spectral = { Spectral = 5 }
 			},
 		},
 
@@ -1244,7 +1307,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1265,7 +1329,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1286,7 +1351,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1307,7 +1373,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1328,7 +1395,8 @@ AllRecipes = {
 				Copper = { Copper = 4 },
 				Cobalt = { Cobalt = 4 },
 				Obsidian = { Obsidian = 4 },
-				Steel = { Steel = 4 }
+				Steel = { Steel = 4 },
+				Spectral = { Spectral = 4 }
 			},
 		},
 
@@ -1971,6 +2039,128 @@ WoodsmithSkill = {
 				Boards = 1,
 			},
 		},
+		WineBarrel = {
+			MinLevelToCraft = 85,
+			MaxLevelToGain = 100,
+			DisplayName = "Wine Barrel",
+			Description = "A big barrel to store wine.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_wine_barrel",
+			Category = "Furnishings",
+			Subcategory = "DecorativeItems",
+			Resources = {
+				Boards = 20,
+				AshBoards = 10,
+			},
+		},		
+		StoneWall = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Stone Wall",
+			Description = "A wall made of stone.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_stone_wall",
+			Category = "Furnishings",
+			Subcategory = "FencesWalls",
+			Resources = {
+				Brick = 20,
+				Boards = 5,
+				Iron = 2,
+			},
+		},
+		IronStoneWall = {
+			MinLevelToCraft = 98,
+			MaxLevelToGain = 100,
+			DisplayName = "Iron Stone Wall",
+			Description = "A wall made of stone with ironbars.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_iron_stone_wall",
+			Category = "Furnishings",
+			Subcategory = "FencesWalls",
+			Resources = {
+				Brick = 20,
+				Boards = 5,
+				Iron = 20,
+			},
+		},	
+		StoneWallDoor = {
+			MinLevelToCraft = 99,
+			MaxLevelToGain = 100,
+			DisplayName = "Stone Wall Door",
+			Description = "A door made of stone with ironbars.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_stone_wall_door",
+			Category = "Furnishings",
+			Subcategory = "FencesWalls",
+			Resources = {
+				Brick = 50,
+				Boards = 5,
+				Iron = 100,
+			},
+		},	
+		StoneChair = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Stone Chair",
+			Description = "A massive chair made of stone.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_stone_chair",
+			Category = "Furnishings",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Stone = 50,
+				Boards = 2,
+			},
+		},	
+		OrnateChair = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Ornate Chair",
+			Description = "A beautiful chair made of wood.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_ornate_chair",
+			Category = "Furnishings",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Iron = 2,
+				Boards = 50,
+			},
+		},	
+		PlankedTable = {
+			MinLevelToCraft = 95,
+			MaxLevelToGain = 100,
+			DisplayName = "Planked Table",
+			Description = "A table with a socket made of stone.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_planked_table",
+			Category = "Furnishings",
+			Subcategory = "Tables & Chairs",
+			Resources = {
+				Stone = 5,
+				Boards = 75,
+			},
+		},									
+		SignPost = {
+			MinLevelToCraft = 90,
+			MaxLevelToGain = 100,
+			DisplayName = "Sign Post",
+			Description = "A wooden post.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = false,
+			CraftingTemplateFile = "furniture_sign_post",
+			Category = "Furnishings",
+			Subcategory = "DecorativeItems",
+			Resources = {
+				Boards = 25,
+			},
+		},									
 		Campfire = {
 			MinLevelToCraft = -5,
 			MaxLevelToGain = 20,
@@ -3601,6 +3791,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		FireWallScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Wall of Fire Scroll",
+			NeedRecipe = false,
+			Description = "A Wall of Fire scroll. ",
+			CraftingTemplateFile = "scroll_firewall",
+			Category = "Scrolls",
+			Subcategory = "Circle 4",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
 		FlameWaveScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
@@ -3953,6 +4157,21 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		Runebook = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 90,
+			DisplayName = "Rune Book",
+			NeedRecipe = false,
+			CraftingTemplateFile = "runebook",
+			Description = "An empty rune book. ",
+			Category = "Spellbooks",
+			Subcategory = "Spellbooks",
+			Resources = {
+				FrayedScroll = 20,
+				FineScroll = 10,
+				AncientScroll = 2,
+			},
+		},
 		BookRed = {
 			MinLevelToCraft = 0,
 			MaxLevelToGain = 25,
@@ -4262,7 +4481,7 @@ InscriptionSkill = {
 			DisplayName = "Rapier Recipe",
 			NeedRecipe = true,
 			Description = "A blacksmith recipe to craft a Rapier. ",
-			CraftingTemplateFile = "recipe_largeaxe",
+			CraftingTemplateFile = "recipe_rapier",
 			Category = "Recipes",
 			Subcategory = "Slashing",
 			Resources = {
@@ -4893,7 +5112,7 @@ InscriptionSkill = {
 			Subcategory = "Tables & Chairs",
 			Resources = {
 				Moss = 2,
-				BlankScroll = 1,
+				FineScroll = 1,
 			},
 		},
 

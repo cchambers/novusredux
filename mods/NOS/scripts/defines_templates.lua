@@ -14,7 +14,7 @@ TemplateDefines = {
     			{ Chance = 2, Template = "item_bread", Unique = true },
     			{ Chance = 1, Template = "item_ale", Unique = true },
     			{ Chance = 5, Template = "regular_mana_potion", Unique = true },
-    			{ Chance = 5, Template = "regular_stam_potion", Unique = true },
+    			{ Chance = 5, Template = "regular_stamina_potion", Unique = true },
     			{ Chance = 5, Template = "regular_health_potion", Unique = true },
     			{ Chance = 5, Template = "regular_cure_potion", Unique = true },
     			{ Chance = 5, Template = "tool_cookingpot", Unique = true },
@@ -161,6 +161,26 @@ TemplateDefines = {
 			{ 
 				{ Chance = 5, Template = "random_executioner_weapon_0_100", Unique = true},
     			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+			},
+		},
+
+		SpectralMin = 
+		{
+			NumItems = 2,
+
+			LootItems = 
+			{ 
+				{ Chance = 50, Template = "resource_spectral_ore"},
+			},
+		},
+
+		SpectralMax = 
+		{
+			NumItems = 1,
+
+			LootItems = 
+			{ 
+				{ Chance = 15, Template = "recipe_spectral", Unique = true},
 			},
 		},
 

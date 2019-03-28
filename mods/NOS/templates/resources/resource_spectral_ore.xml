@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Spectral Ore[-]</Name>
+	<ClientId>1001</ClientId>
+	<Hue>947</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SpectralOre</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

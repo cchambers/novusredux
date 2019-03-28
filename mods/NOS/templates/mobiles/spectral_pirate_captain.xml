@@ -1,0 +1,78 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Hue>824</Hue>
+	<Color>0xC100FFFF</Color>
+	<Name>PirateBoss</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<ScaleModifier>1.2</ScaleModifier>
+	<SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<MobileComponent>			
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">2300</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
+		<StringVariable Name="MobileKind">Spectral</StringVariable>
+		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
+		<DoubleVariable Name="EffectDelay">10</DoubleVariable>
+		<DoubleVariable Name="EffectLength">20</DoubleVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">53</DoubleVariable>
+		<DoubleVariable Name="Attack">60</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">100</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_spectral_pirate_captain">
+			<Initializer>
+				{ 
+				PirateNames = {
+						"Bad Billy",
+						"Longshanks",
+						"Scar",
+						"Ripper",
+					},
+				PirateJobs = {
+						"Captain",
+						"Admiral",
+						"Commander",
+						"Dread"
+					},
+				Stats = { Str=100, Agi=60, Int=80, Wis=80, Will=80 },
+				MobTraits =
+					{
+					Toughness = 5,
+					Might = 6,
+					},
+				Skills = 
+					{ 
+					Brawling = 125,
+					Slashing = 125,
+					Lancing = 125,
+					MagicResist = 100,
+					Melee = 125 
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },
+						Chest = { "armor_fullplate_tunic" },
+						Head= {	"armor_assassin_helm",},
+						Legs = { "armor_fullplate_leggings" },	
+						RightHand = {"weapon_poleaxe"},	
+						BodyPartHead = TemplateDefines.MaleHeads,
+					},
+				LootTables = 
+					{ 
+					},					
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

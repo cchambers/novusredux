@@ -18,9 +18,9 @@ ServerSettings.Vitality = {
     -- settings for hearth objects, primary purpose is to regenerate vitality of players around it
     Hearth = {
         -- max distance one can be from a hearth object to receive the effect
-        MaxRange = 12,
+        MaxRange = 30,
         -- the regeneration bonus for a hearth that's not affected by anything.
-        BaseBonus = 0.365,
+        BaseBonus = 0.5,
         -- this pulse is a fail safe to prevent players from getting the buff stuck on them for whatever reason.
         PulseFrequency = TimeSpan.FromSeconds(1),
     },

@@ -210,7 +210,7 @@ function PrimeSpell(spellName, spellSource)
 		return
 	end
 
-	local myTargType = GetSpellTargetType(spellName)
+	-- local myTargType = GetSpellTargetType(spellName)
 	-- if ( myTargType == "RequestTarget" and ShouldAutoTarget(spellName) ) then
 	-- 	if(not ValidateSpellCastTarget(spellName,mAutoTarg,spellSource)) then
 	-- 		return false
@@ -265,8 +265,7 @@ function PrimeSpell(spellName, spellSource)
 			this:PlayObjectSound(mySound, false, myCastTime)
 		end
 		castingTime = TimeSpan.FromMilliseconds(myCastTime * 1000)
-		this:ScheduleTimerDelay(castingTime, "SpellPrimeTimer", spellName, spellSource)
-
+		this:ScheduleTimerDelay(castingTime, "SpellPrimeTimer", spellName, spellSource, mFreeSpell)
 		if (IsPlayerCharacter(this)) then
 			local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName
 			this:SendClientMessage("StartCasting", myCastTime)
@@ -338,7 +337,6 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 	end
 
 	spellSource:SendMessage("BreakInvisEffect", "Action")
-
 	if not (mFreeSpell == true) then
 		if not (CheckMana(spellName, spellSource)) then
 			return
@@ -452,7 +450,6 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 	local myBaseTimer = nil
 	local mySpellTime = timer * 1000
 	local myTime = ServerTimeMs() + (timer * 1000)
-
 	AdjustCurMana(this, -manaCost)
 	ApplyReleaseEffects(spellName, spTarget, spellSource, nil)
 	local myArgs = {
@@ -885,6 +882,15 @@ function HandleSpellCastCommand(spellName, spellTargetObj, spellSourceObj)
 	CastSpell(spellName, spellSource, spellTarget)
 end
 
+function HandleRuneBookCast(spellName, rune)
+	mFreeSpell = true
+	mPrimedSpell = spellName
+	mSpellSource = this
+	mQueuedTarget = rune
+	PrimeSpell(spellName)
+	-- HandleSpellTargeted(rune)
+end
+
 function HandleScrollCastRequest(spellName, scrollObj)
 	Verbose("Magic", "HandleScrollCastRequest", spellName, scrollObj)
 	if (spellName == nil or scrollObj == nil) then
@@ -967,6 +973,7 @@ function CastSpell(spellName, spellSource, spellTarget)
 	if (spellTarget ~= nil) then
 		mQueuedTarget = spellTarget
 	end
+
 	local myTarget = GetSpellInformation(spellName, "TargetType")
 	if ((myTarget == "Self") or (myTarget == "LeftHand") or (myTarget == "RightHand")) then
 		PrimeSpell(spellName, spellSource)
@@ -1149,6 +1156,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 			--DebugMessage(" Vect7: " .. tostring(clientInfo[1]) .. " " .. tostring(clientInfo[2]) .. " " .. tostring(clientInfo[3]))
 
 			this:SendClientMessage("SpellPrimed", clientInfo)
+
 		end
 
 		local primedFX = GetSpellInformation(spellName, "SpellPrimedFXName")
@@ -1202,6 +1210,7 @@ function HandleSpellTargeted(spellTarget)
 	elseif not (spellTarget:IsValid()) then
 		mPrimedSpell = nil
 	elseif (not ValidateSpellCastTarget(spellName, spellTarget, this)) then
+		DebugMessage("INVALID")
 		this:RequestClientTargetGameObj(this, "SelectSpellTarget")
 		return
 	elseif not (this:HasTimer("SpellPrimeTimer")) then
@@ -1370,6 +1379,7 @@ RegisterEventHandler(
 	end
 )
 
+RegisterEventHandler(EventType.Message, "RuneBookCastSpell", HandleRuneBookCast)
 RegisterEventHandler(EventType.Message, "ScrollCastSpell", HandleScrollCastRequest)
 RegisterEventHandler(EventType.Message, "CastSpellMessage", HandleSpellCastRequest)
 RegisterEventHandler(EventType.ClientUserCommand, "sp", HandleSpellCastCommand)

@@ -4,7 +4,7 @@
 	<ObjectVariableComponent>
 	<StringVariable Name="spawnRegion">RoomA15</StringVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
-	<DoubleVariable Name="spawnCount">4</DoubleVariable>
+	<DoubleVariable Name="spawnCount">5</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="simple_mob_spawner">
@@ -12,7 +12,7 @@
 				{
 					SpawnTable = {
 						{ Weight = 20, Template = "drake_fire" },
-						{ Weight = 78, Template = "wymling_fire" },
+						{ Weight = 78, Template = "wyrmling_fire" },
 						{ Weight = 2, Template = "dread_serpent" },
 					},
 					SpawnObjVars = {

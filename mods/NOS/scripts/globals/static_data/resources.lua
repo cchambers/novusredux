@@ -366,6 +366,16 @@ ResourceData = {
 				Max = 125
 			}
 		},
+		SpectralOre = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_spectral_ore",
+			DisplayName = "Spectral Ore",
+			SkillGainDifficultyMultiplier = 3,
+			Difficulty = {
+				Min = 105,
+				Max = 125
+			}
+		},
 		LeatherScraps = {
 			Template = "resource_leatherscraps",
 			DisplayName = "Leather Scraps",
@@ -467,6 +477,11 @@ ResourceData = {
 			Template = "resource_steel",
 			DisplayName = "Steel",
 			CraftedItemPrefix = "Steel",
+		},
+		Spectral = {
+			Template = "resource_spectral",
+			DisplayName = "Spectral",
+			CraftedItemPrefix = "Spectral",
 		},
 		Leather = {
 			Template = "resource_leather",
@@ -1197,6 +1212,38 @@ ResourceData = {
 			Template = "recipe_stoolwooden",
 			DisplayName = "Recipe: Wooden Stool",
 		},
+		RecipeWineBarrel = {
+			Template = "recipe_winebarrel",
+			DisplayName = "Recipe: Wine Barrel",
+		},
+		RecipeStoneWall = {
+			Template = "recipe_stonewall",
+			DisplayName = "Recipe: Stone Wall",
+		},
+		RecipeIronStoneWall = {
+			Template = "recipe_ironstonewall",
+			DisplayName = "Recipe: Iron Stone Wall",
+		},	
+		RecipeStoneWallDoor = {
+			Template = "recipe_stonewalldoor",
+			DisplayName = "Recipe: Stone Wall Door",
+		},	
+		RecipeStoneChair = {
+			Template = "recipe_stonechair",
+			DisplayName = "Recipe: Stone Chair",
+		},
+		RecipeOrnateChair = {
+			Template = "recipe_ornatechair",
+			DisplayName = "Recipe: Ornate Chair",
+		},	
+		RecipePlankedTable = {
+			Template = "recipe_plankedtable",
+			DisplayName = "Recipe: Planked Table",
+		},										
+		RecipeSignPost = {
+			Template = "recipe_signpost",
+			DisplayName = "Recipe: Sign Post",
+		},				
 		RecipeWoodenChair = {
 			Template = "recipe_chairwooden",
 			DisplayName = "Recipe: Wooden Chair",

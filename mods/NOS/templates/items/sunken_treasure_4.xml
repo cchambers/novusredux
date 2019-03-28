@@ -41,21 +41,21 @@
 							NumItemsMax = 5,
 							LootItems = 
 							{									
-								{ Weight = 50, Template = "resource_fish_barrel", Unique = true, StackCountMin = 5, StackCountMax = 15 },
-								{ Weight = 30, Template = "resource_fish_tero", Unique = true, StackCountMin = 3, StackCountMax = 10 },
-								{ Weight = 20, Template = "resource_fish_spotted_tero", Unique = true,StackCountMin = 2, StackCountMax = 5 },
-								{ Weight = 10, Template = "resource_fish_razor", Unique = true, StackCountMin = 1, StackCountMax = 3 },
-								{ Weight = 0.1, Template = "resource_fish_golden_aether", Unique = true },
-								{ Weight = 35,Template = "potion_heal", Unique = true },
-								{ Weight = 25, Template = "bandage", Unique = true },
-								{ Weight = 1, Template = "sapphire_gem", Unique = true },
-								{ Weight = 1, Template = "ruby_gem", Unique = true },
-								{ Weight = 1, Template = "topaz_gem", Unique = true },
-								{ Weight = 5, Template = "sos_map", Unique = true },
-								{ Weight = 4, Template = "sos_map_1", Unique = true },
-								{ Weight = 3, Template = "sos_map_2", Unique = true },
-								{ Weight = 2, Template = "sos_map_3", Unique = true },
-								{ Weight = 1, Template = "sos_map_4", Unique = true },
+								{ Chance = 50, Template = "resource_fish_barrel", Unique = true, StackCountMin = 5, StackCountMax = 15 },
+								{ Chance = 30, Template = "resource_fish_tero", Unique = true, StackCountMin = 3, StackCountMax = 10 },
+								{ Chance = 20, Template = "resource_fish_spotted_tero", Unique = true,StackCountMin = 2, StackCountMax = 5 },
+								{ Chance = 10, Template = "resource_fish_razor", Unique = true, StackCountMin = 1, StackCountMax = 3 },
+								{ Chance = 0.1, Template = "resource_fish_golden_aether", Unique = true },
+								{ Chance = 35,Template = "potion_heal", Unique = true },
+								{ Chance = 25, Template = "bandage", Unique = true },
+								{ Chance = 1, Template = "sapphire_gem", Unique = true },
+								{ Chance = 1, Template = "ruby_gem", Unique = true },
+								{ Chance = 1, Template = "topaz_gem", Unique = true },
+								{ Chance = 5, Template = "sos_map", Unique = true },
+								{ Chance = 4, Template = "sos_map_1", Unique = true },
+								{ Chance = 3, Template = "sos_map_2", Unique = true },
+								{ Chance = 2, Template = "sos_map_3", Unique = true },
+								{ Chance = 1, Template = "sos_map_4", Unique = true },
 							}
 						},
 
@@ -105,10 +105,10 @@
 							NumItemsMax = 4,
 							LootItems = 
 							{									
-								{ Weight = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
-								{ Weight = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_moss", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_lemongrass", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_mushroom", Unique = true, StackCountMin = 20, StackCountMax = 35},
+								{ Chance = 25, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 20, StackCountMax = 35},
 							}
 						},
 
@@ -119,10 +119,10 @@
 
 							LootItems = 
 							{ 
-								{ Weight = 5, Template = "lscroll_resurrect", Unique = true },
-								{ Weight = 5, Template = "lscroll_earthquake", Unique = true },
-								{ Weight = 5, Template = "lscroll_meteor", Unique = true },
-								{ Weight = 5, Template = "lscroll_portal", Unique = true },
+								{ Chance = 5, Template = "lscroll_resurrect", Unique = true },
+								{ Chance = 5, Template = "lscroll_earthquake", Unique = true },
+								{ Chance = 5, Template = "lscroll_meteor", Unique = true },
+								{ Chance = 5, Template = "lscroll_portal", Unique = true },
 							},
 						},	
 					}

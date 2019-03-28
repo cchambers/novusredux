@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Spectral Pirate Spawner</Name>
+	<ObjectVariableComponent>	
+	<StringVariable Name="spawnDay">Fri</StringVariable>
+		<DoubleVariable Name="spawnRadius">20</DoubleVariable>
+		<DoubleVariable Name="spawnDelay">1800</DoubleVariable>
+		<DoubleVariable Name="spawnCount">10</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 20, Template = "spectral_pirate" },
+						{ Weight = 20, Template = "spectral_pirate_female" },
+						{ Weight = 20, Template = "spectral_pirate_dagger" },
+						{ Weight = 20, Template = "spectral_pirate_dagger_female" },
+						{ Weight = 10, Template = "spectral_pirate_knight" },
+						{ Weight = 10, Template = "spectral_pirate_knight_female" },
+						{ Weight = 5, Template = "spectral_pirate_hq" },
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
