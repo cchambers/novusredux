@@ -1,5 +1,5 @@
 <ObjectTemplate>
 	<ClientId>684</ClientId>
-	<Name>[FF9500]Left Library Bookshelf[-]</Name>
+	<Name>[FF9500]Right Library Bookshelf[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 </ObjectTemplate>

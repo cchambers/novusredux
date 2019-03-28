@@ -18,99 +18,106 @@ DebugMessage("TOTEM LOADED")
 
 http = LoadExternalModule("http")
 ltn12 = LoadExternalModule("ltn12")
+-- coroutine = LoadExternalModule("coroutine")
+
+--local coroutine = require("coroutine")
 
 function TotemGlobalEvent(task) 
-    local api = tostring("http://localhost:1337/api/"..task)
     
-    local payload = ""
+    go = coroutine.create(function()
+        local api = tostring("http://localhost:1337/api/"..task)
+        
+        local payload = ""
 
-    if (task == "powerhour") then
-        payload = [[ { "name": "nada" } ]]
-        local res, code, response_headers, status =
-        http.request{
-            url = api,
-            method = "POST",
-            headers = { 
-                ["Content-Type"] = "application/json",
-                ["Content-Length"] = payload:len()
-            },
-            source = ltn12.source.string(payload),
-            sink = ltn12.sink.table(response_body)
-        }
-    end
-    
+        if (task == "powerhour") then
+            payload = [[ { "name": "nada" } ]]
+            local res, code, response_headers, status =
+            http.request{
+                url = api,
+                method = "POST",
+                headers = { 
+                    ["Content-Type"] = "application/json",
+                    ["Content-Length"] = payload:len()
+                },
+                source = ltn12.source.string(payload),
+                sink = ltn12.sink.table(response_body)
+            }
+        end
+    end)
 end
 
 function Totem(mobile, task, args)
-    local id = mobile.Id
-    local account = tostring(mobile:GetAttachedUserId())
-    local ip = tostring(mobile:GetIPAddress())
-    local name = mobile:GetName()
-    local api = tostring("http://localhost:1337/api/player/"..task)
-    local when = tostring(os.date())
-    local where = tostring(mobile:GetLoc())
-    local payload = ""
+    go = coroutine.create(function()
+        local id = mobile.Id
+        local account = tostring(mobile:GetAttachedUserId())
+        local ip = tostring(mobile:GetIPAddress())
+        local name = mobile:GetName()
+        local api = tostring("http://localhost:1337/api/player/"..task)
+        local when = tostring(os.date())
+        local where = tostring(mobile:GetLoc())
+        local payload = ""
 
-    if (task == "murder") then
-        payload = [[ {"worldid": "]]..id..[["} ]]
-    elseif (task == "page") then
-        api = tostring("http://localhost:1337/api/page")
-        local who = tostring(name .. " (" .. id .. ")")
-        payload = [[ {
-            "who": "]]..who..[[",
-            "what": "]]..args..[[",
-            "when": "]]..when..[[",
-            "where": "]]..where..[["
-        } ]]
-    elseif (task == "death") then
-        if (args) then 
+        if (task == "murder") then
+            payload = [[ {"worldid": "]]..id..[["} ]]
+        elseif (task == "page") then
+            api = tostring("http://localhost:1337/api/page")
+            local who = tostring(name .. " (" .. id .. ")")
             payload = [[ {
-                "name": "]]..name..[[",
-                "aggressor": "]]..args.aggressor..[[",
-                "kind": "]]..args.kind..[[",
+                "who": "]]..who..[[",
+                "what": "]]..args..[[",
                 "when": "]]..when..[[",
                 "where": "]]..where..[["
             } ]]
-        else 
+        elseif (task == "death") then
+            if (args) then 
+                payload = [[ {
+                    "name": "]]..name..[[",
+                    "aggressor": "]]..args.aggressor..[[",
+                    "kind": "]]..args.kind..[[",
+                    "when": "]]..when..[[",
+                    "where": "]]..where..[["
+                } ]]
+            else 
+                payload = [[ {
+                    "name": "]]..name..[[",
+                    "when": "]]..when..[[",
+                    "where": "]]..where..[["
+                } ]]
+            end
+        else
+            -- default just updates player
+            local skill = GetSkillTotal(mobile) or 0
+            local playMinutes = mobile:GetObjVar("PlayMinutes") or 0
+            local fame = mobile:GetObjVar("Fame") or 0
+            local karma = mobile:GetObjVar("Karma") or 0
+            local staff = IsImmortal(mobile)
+
             payload = [[ {
+                "account": "]]..account..[[",
+                "ip": "]]..ip..[[",
+                "worldid": "]]..id..[[",
                 "name": "]]..name..[[",
-                "when": "]]..when..[[",
-                "where": "]]..where..[["
+                "skillTotal": ]]..skill..[[,
+                "playMinutes": ]]..playMinutes..[[,
+                "fame": ]]..fame..[[,
+                "karma": ]]..karma..[[,
+                "staff": ]]..tostring(staff)..[[
             } ]]
         end
-    else
-        -- default just updates player
-        local skill = GetSkillTotal(mobile) or 0
-        local playMinutes = mobile:GetObjVar("PlayMinutes") or 0
-        local fame = mobile:GetObjVar("Fame") or 0
-        local karma = mobile:GetObjVar("Karma") or 0
-        local staff = IsImmortal(mobile)
 
-        payload = [[ {
-            "account": "]]..account..[[",
-            "ip": "]]..ip..[[",
-            "worldid": "]]..id..[[",
-            "name": "]]..name..[[",
-            "skillTotal": ]]..skill..[[,
-            "playMinutes": ]]..playMinutes..[[,
-            "fame": ]]..fame..[[,
-            "karma": ]]..karma..[[,
-            "staff": ]]..tostring(staff)..[[
-        } ]]
-    end
-
-    -- diff paylods for diff tasks?
-    local res, code, response_headers, status =
-        http.request{
-            url = api,
-            method = "POST",
-            headers = { 
-                ["Content-Type"] = "application/json",
-                ["Content-Length"] = payload:len()
-            },
-            source = ltn12.source.string(payload),
-            sink = ltn12.sink.table(response_body)
-        }
+        -- diff paylods for diff tasks?
+        local res, code, response_headers, status =
+            http.request{
+                url = api,
+                method = "POST",
+                headers = { 
+                    ["Content-Type"] = "application/json",
+                    ["Content-Length"] = payload:len()
+                },
+                source = ltn12.source.string(payload),
+                sink = ltn12.sink.table(response_body)
+            }
+    end)
 end
 
 
@@ -118,7 +125,9 @@ function DonateItem(obj)
     local obj = obj or this
     local value = GetItemValue(obj) or 10
     if (value < 10) then value = 10 end
-    PowerHourDonate(value)
+    go = coroutine.create(function()
+        PowerHourDonate(value)
+    end)
     CallFunctionDelayed(TimeSpan.FromSeconds(2), function() 
         obj:Destroy()
     end)

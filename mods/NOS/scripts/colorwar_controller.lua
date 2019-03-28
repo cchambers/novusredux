@@ -83,7 +83,6 @@ function SummonPlayers()
         if (GlobalVarReadKey("User.Online", player)) then
             count = count + 1
             player:SetObjVar("ColorWarWaiting", true)
-            player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
             DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
             GlobalVarWrite(
                 "ColorWar.Player",
@@ -93,6 +92,10 @@ function SummonPlayers()
                     return true
                 end
             )
+            CallFunctionDelayed(TimeSpan.FromSeconds(1.5), function()
+                player:SendMessageGlobal("GlobalSummon", this:GetObjVar("Destination"), this:GetObjVar("RegionAddress"))
+            end)
+            DebugMessage("Summoning " .. player:GetName() .. " for Color Wars.")
         else
             DebugMessage(player:GetName() .. " is no longer online.")
         end

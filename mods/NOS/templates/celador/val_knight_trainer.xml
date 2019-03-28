@@ -19,7 +19,7 @@
 		<LuaModule Name="ai_prestige_trainer" >
 			<Initializer>
 				{ 
-					Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+					Stats = { Str=80, Agi=50, Int=50, Wis=50, Will=50 },
 					Skills = 
 					{ 
 					Blocking = 100, 

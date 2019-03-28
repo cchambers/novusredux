@@ -10,6 +10,9 @@ MortalCommandFuncs = {
 	-- Mortal Commands
 
 	Page = function()
+		if (this:HasModule("page_gm")) then
+			this:DelModule("page_gm")
+		end
 		this:AddModule("page_gm")
 	end,
 

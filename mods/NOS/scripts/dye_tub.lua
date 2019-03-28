@@ -32,12 +32,13 @@ local HueNames = {
 	hue922 = "Sherbet",
 	hue923 = "Limon",
 	hue930 = "Peach",
+	hue947 = "Spectral",
 	hue957 = "Pika",
 	hue953 = "Spectral",
 	hue957 = "Pika",
 	hue950 = "Crimson",
 	hue971 = "Typhoon",
-	hue973ds = "Royal",
+	hue973 = "Royal",
 	hue976 = "Glacier",
 	hue984 = "Dread"
 }

@@ -3791,6 +3791,20 @@ InscriptionSkill = {
 				FineScroll = 1,
 			},
 		},
+		FireWallScroll = {
+			MinLevelToCraft = 46.4,
+			MaxLevelToGain = 96.4,
+			DisplayName = "Wall of Fire Scroll",
+			NeedRecipe = false,
+			Description = "A Wall of Fire scroll. ",
+			CraftingTemplateFile = "scroll_firewall",
+			Category = "Scrolls",
+			Subcategory = "Circle 4",
+			Resources = {
+				Mushrooms = 2,
+				FineScroll = 1,
+			},
+		},
 		FlameWaveScroll = {
 			MinLevelToCraft = 46.4,
 			MaxLevelToGain = 96.4,
@@ -4141,6 +4155,21 @@ InscriptionSkill = {
 				FrayedScroll = 10,
 				FineScroll = 5,
 				AncientScroll = 1,
+			},
+		},
+		Runebook = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 90,
+			DisplayName = "Rune Book",
+			NeedRecipe = false,
+			CraftingTemplateFile = "runebook",
+			Description = "An empty rune book. ",
+			Category = "Spellbooks",
+			Subcategory = "Spellbooks",
+			Resources = {
+				FrayedScroll = 20,
+				FineScroll = 10,
+				AncientScroll = 2,
 			},
 		},
 		BookRed = {

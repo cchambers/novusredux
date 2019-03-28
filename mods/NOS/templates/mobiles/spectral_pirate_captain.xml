@@ -1,6 +1,7 @@
 <ObjectTemplate>
 	<ClientId>1</ClientId>
 	<Hue>824</Hue>
+	<Color>0xC100FFFF</Color>
 	<Name>PirateBoss</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
 	<ScaleModifier>1.2</ScaleModifier>
@@ -10,7 +11,7 @@
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">610</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">2300</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Spectral</StringVariable>
 		<StringVariable Name="MobileKind">Spectral</StringVariable>
 		<StringVariable Name="DoEffect">BlueFogEffect</StringVariable>
@@ -42,16 +43,21 @@
 						"Captain",
 						"Admiral",
 						"Commander",
+						"Dread"
 					},
-				Stats = { Str=40, Agi=30, Int=21, Wis=10, Will=10 },
+				Stats = { Str=100, Agi=60, Int=80, Wis=80, Will=80 },
 				MobTraits =
 					{
-					Toughness = 2,
-					Might = 2,
+					Toughness = 5,
+					Might = 6,
 					},
 				Skills = 
 					{ 
-					Brawling = 70,  
+					Brawling = 125,
+					Slashing = 125,
+					Lancing = 125,
+					MagicResist = 100,
+					Melee = 125 
 					},	
 				EquipTable = 
 					{
@@ -59,7 +65,7 @@
 						Chest = { "armor_fullplate_tunic" },
 						Head= {	"armor_assassin_helm",},
 						Legs = { "armor_fullplate_leggings" },	
-						RightHand = {"weapon_warhammer"},	
+						RightHand = {"weapon_poleaxe"},	
 						BodyPartHead = TemplateDefines.MaleHeads,
 					},
 				LootTables = 

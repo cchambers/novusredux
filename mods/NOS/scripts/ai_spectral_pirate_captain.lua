@@ -19,25 +19,36 @@ if (initializer ~= nil) then
     if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
         local job = initializer.PirateJobs[math.random(#initializer.PirateJobs)]
-        this:SetName(name .. " the Spectral " .. job)
-        CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function() 
-            local sHue = 947
-            this:SetHue(0)
-            local RightHand = this:GetEquippedObject("RightHand")
-            if (RightHand ~= nil) then RightHand:SetHue(sHue) end
-            local LeftHand = this:GetEquippedObject("LeftHand")
-            if (LeftHand ~= nil) then LeftHand:SetHue(sHue) end
-            local Chest = this:GetEquippedObject("Chest")
-            if (Chest ~= nil) then Chest:SetHue(sHue) end
-            local Legs = this:GetEquippedObject("Legs")
-            if (Legs ~= nil) then Legs:SetHue(sHue) end
-            local Head = this:GetEquippedObject("Head")
-            if (Head ~= nil) then Head:SetHue(sHue) end
-            this:SetCloak(true)
-        end)
+        this:SetName(name .. " the Spectral Commander")
+        CallFunctionDelayed(
+            TimeSpan.FromSeconds(0.5),
+            function()
+                local sHue = 947
+                this:SetHue(824)
+                local RightHand = this:GetEquippedObject("RightHand")
+                if (RightHand ~= nil) then
+                    RightHand:SetHue(sHue)
+                end
+                local LeftHand = this:GetEquippedObject("LeftHand")
+                if (LeftHand ~= nil) then
+                    LeftHand:SetHue(sHue)
+                end
+                local Chest = this:GetEquippedObject("Chest")
+                if (Chest ~= nil) then
+                    Chest:SetHue(sHue)
+                end
+                local Legs = this:GetEquippedObject("Legs")
+                if (Legs ~= nil) then
+                    Legs:SetHue(sHue)
+                end
+                local Head = this:GetEquippedObject("Head")
+                if (Head ~= nil) then
+                    Head:SetHue(sHue)
+                end
+            end
+        )
     end
 end
-
 
 RegisterEventHandler(
     EventType.Message,
@@ -64,15 +75,21 @@ RegisterEventHandler(
     end
 )
 
-RegisterEventHandler(EventType.Message, "HasDiedMessage",
+RegisterEventHandler(
+    EventType.Message,
+    "HasDiedMessage",
     function(killer)
-        if (math.random(1,5) == 1) then
-            CreateObj("recipe_spectral",this:GetLoc(),"Spectral.CreatedRecipe")
+        if (math.random(1, 5) == 1) then
+            CreateObj("recipe_spectral", this:GetLoc(), "Spectral.CreatedRecipe")
         end
-        CallFunctionDelayed(TimeSpan.FromSeconds(2), function ()
-            this:Destroy()
-        end)
-    end)
+        CallFunctionDelayed(
+            TimeSpan.FromSeconds(2),
+            function()
+                this:Destroy()
+            end
+        )
+    end
+)
 
 quotes = {
     "Someone's after me ORE!",

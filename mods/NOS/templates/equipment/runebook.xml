@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>Rune Book</Name>
+	<ClientId>184</ClientId>
+	<Hue>825</Hue>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="WeaponType">Spellbook</StringVariable>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="runebook"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -15,6 +15,13 @@ AI.Settings.CanUseCombatAbilities = true
 AI.Settings.CanCast = true
 AI.Settings.ChanceToNotAttackOnAlert = 50
 
+quotes = {
+    "Someone's after me ORE!",
+    "ORRRRRRRRRRRRRR'!",
+    "Avast ye landlubbers!",
+}
+
+
 if (initializer ~= nil) then
 	if (initializer.PirateNames ~= nil) then
         local name = initializer.PirateNames[math.random(#initializer.PirateNames)]
@@ -22,7 +29,7 @@ if (initializer ~= nil) then
         this:SetName(name.." the Spectral "..job)
         CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function() 
             local sHue = 947
-            this:SetHue(0)
+            this:SetHue(824)
             local RightHand = this:GetEquippedObject("RightHand")
             if (RightHand ~= nil) then RightHand:SetHue(sHue) end
             local LeftHand = this:GetEquippedObject("LeftHand")
@@ -33,7 +40,6 @@ if (initializer ~= nil) then
             if (Legs ~= nil) then Legs:SetHue(sHue) end
             local Head = this:GetEquippedObject("Head")
             if (Head ~= nil) then Head:SetHue(sHue) end
-            this:SetCloak(true)
         end)
     end
 end
@@ -41,7 +47,7 @@ end
 RegisterEventHandler(EventType.Message, "DamageInflicted",
     function (damager)
         if AI.IsValidTarget(damager) then
-        if (IsFriend(attacker) and AI.Anger < 100) then return end
+            if (IsFriend(attacker) and AI.Anger < 100) then return end
             local myTeamType = this:GetObjVar("MobileTeamType")
             local nearbyTeamMembers = FindObjects(SearchMulti(
             {
@@ -54,12 +60,6 @@ RegisterEventHandler(EventType.Message, "DamageInflicted",
         end
     end)
 
-quotes = {
-    "Someone's after me ORE!",
-    "ORRRRRRRRRRRRRR'!",
-    "Avast ye landlubbers!",
-}
-
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)
         if (math.random(1,2) == 1) then
@@ -69,6 +69,7 @@ RegisterEventHandler(EventType.Message, "HasDiedMessage",
             this:Destroy()
         end)
     end)
+
 
 AI.StateMachine.AllStates.DecidingCombat = {
         OnEnterState = function()   
