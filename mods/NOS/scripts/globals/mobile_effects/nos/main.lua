@@ -20,6 +20,8 @@ require 'globals.mobile_effects.nos.archcure'
 require 'globals.mobile_effects.nos.archprotection'
 require 'globals.mobile_effects.nos.chainlightning'
 require 'globals.mobile_effects.nos.chainlightninghit'
+require 'globals.mobile_effects.nos.magiclock'
+require 'globals.mobile_effects.nos.magicunlock'
 
 require 'globals.mobile_effects.nos.identify'
 require 'globals.mobile_effects.nos.paralyze'
