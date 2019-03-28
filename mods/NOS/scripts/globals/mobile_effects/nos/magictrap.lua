@@ -6,9 +6,15 @@ MobileEffectLibrary.MagicTrap =
 			EndMobileEffect(root)
 			return
 		end
+		
+		if (target:IsEquipped()) then
+			self.ParentObj:SystemMessage("Nice try, but I saw that one coming!", "info")
+			EndMobileEffect(root)
+			return
+		end
+
 		local trapLevel = 1
 		local magerySkill = GetSkillLevel(self.ParentObj, "MagerySkill")
-		
 		if (magerySkill > 50 and magerySkill < 90) then
 			trapLevel = 2
 		elseif (magerySkill >= 90) then

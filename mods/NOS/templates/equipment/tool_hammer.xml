@@ -3,9 +3,14 @@
 	<ClientId>220</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="6"/>			
 	<ObjectVariableComponent>			
-		<DoubleVariable Name="HarvestDelaySecs">2</DoubleVariable>
 		<StringVariable Name="WeaponType">SmithHammer</StringVariable>
 		<DoubleVariable Name="MaxDurability">120</DoubleVariable>
-		<StringVariable Name="ToolType">Hammer</StringVariable>
+		<StringVariable Name="ToolSkill">MetalsmithSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
 	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="metalsmith_crafting"/>	
+		<LuaModule Name="tool_base"/>		
+	</ScriptEngineComponent>
 </ObjectTemplate>

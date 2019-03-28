@@ -6,6 +6,13 @@ MobileEffectLibrary.MagicLock =
 			EndMobileEffect(root)
 			return
 		end
+
+		if (target:IsEquipped()) then
+			self.ParentObj:SystemMessage("Nice try, but I saw that one coming!", "info")
+			EndMobileEffect(root)
+			return
+		end
+
 		local lockLevel = 1
 		local magerySkill = GetSkillLevel(self.ParentObj, "MagerySkill")
 		
