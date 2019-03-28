@@ -265,8 +265,7 @@ function PrimeSpell(spellName, spellSource)
 			this:PlayObjectSound(mySound, false, myCastTime)
 		end
 		castingTime = TimeSpan.FromMilliseconds(myCastTime * 1000)
-		this:ScheduleTimerDelay(castingTime, "SpellPrimeTimer", spellName, spellSource)
-
+		this:ScheduleTimerDelay(castingTime, "SpellPrimeTimer", spellName, spellSource, mFreeSpell)
 		if (IsPlayerCharacter(this)) then
 			local spellDisplayName = SpellData.AllSpells[spellName].SpellDisplayName
 			this:SendClientMessage("StartCasting", myCastTime)
@@ -338,7 +337,6 @@ function SetSpellTravelTime(spellName, spTarget, spellSource)
 	end
 
 	spellSource:SendMessage("BreakInvisEffect", "Action")
-
 	if not (mFreeSpell == true) then
 		if not (CheckMana(spellName, spellSource)) then
 			return

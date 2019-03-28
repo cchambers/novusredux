@@ -20,7 +20,7 @@ function ShowRuneBookDialog(from)
 	dynamicWindow:AddButton(726, 22, "", "", 0, 0, "", "", true, "CloseSquare", buttonState)
 
 	dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
-	dynamicWindow:AddLabel(250, 45, "[412A08]Recalls: " .. (mRuneBook:GetObjVar("Charges") or 0) .. "    Portals: " .. (mRuneBook:GetObjVar("PortalCharges") or 0) .. "[-]", 0, 0, 32, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+	dynamicWindow:AddLabel(250, 40, "[412A08]Recalls: " .. (mRuneBook:GetObjVar("Charges") or 0) .. "    Portals: " .. (mRuneBook:GetObjVar("PortalCharges") or 0) .. "[-]", 0, 0, 32, "center", false, false, "Kingthings_Calligraphica_Dynamic")
 
 	local xOffset = 100
 	local yOffset = 70
@@ -30,11 +30,11 @@ function ShowRuneBookDialog(from)
 			xOffset = xOffset + 320
 		end
 		local name = rune.Name
-		dynamicWindow:AddButton(xOffset, yOffset, "Recall|" .. i, "x|" .. name, 240, 34, "Recall", "", false, "BookList")
+		dynamicWindow:AddButton(xOffset, yOffset, "Recall|" .. i, "x|" .. name, 250, 34, "Recall", "", true, "BookList")
 		dynamicWindow:AddButton(xOffset + 20, yOffset + 6, "Drop|" .. i, "", 0, 0, "Remove rune; place in pack", "", false, "CloseSquare")
-		dynamicWindow:AddButton(xOffset + 240, yOffset + 7, "Portal|" .. i, "", 22, 22, "Portal", "", false, "Star")
+		dynamicWindow:AddButton(xOffset + 250, yOffset + 7, "Portal|" .. i, "", 22, 22, "Portal", "", true, "Star")
 		-- dynamicWindow:AddButton(xOffset+250, yOffset+7, "Portal|"..i, "", 22, 22, "Portal", "", false, "Track")
-		yOffset = yOffset + 32
+		yOffset = yOffset + 31
 	end
 
 	this:OpenDynamicWindow(dynamicWindow)
@@ -79,7 +79,6 @@ RegisterEventHandler(
 				local id = result[2]
 				local rune = GetRune(id)
 				user:SendMessage("RuneBookCastSpell", "Recall", rune)
-				ShowRuneBookDialog()
 				return
 			elseif (action == "Portal") then
 				if ((mRuneBook:GetObjVar("PortalCharges") or 0) == 0) then
@@ -93,7 +92,6 @@ RegisterEventHandler(
 				local id = result[2]
 				local rune = GetRune(id)
 				user:SendMessage("RuneBookCastSpell", "Portal", rune)
-				ShowRuneBookDialog()
 				return
 			end
 		end

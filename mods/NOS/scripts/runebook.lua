@@ -1,7 +1,9 @@
 
 mOpen = false
-mScrollCount = 5
+mScrollCount = 0
 mScrollMax = 40
+mPortalScrollCount = 0
+mPortalScrollMax = 40
 mRuneMax = 20
 
 function AddRune(rune, user)
@@ -74,14 +76,16 @@ end
 function TryAddRecallScrollToRuneBook(scroll, user)
 	local charges = this:GetObjVar("Charges") or 0
 	local stack = scroll:GetObjVar("StackCount") or 1
-	if ((stack + mScrollCount) > mScrollMax) then
-		user:SystemMessage("You have filled this Rune Book's Recall charges.", "info")
-		stack = stack - (mScrollMax - mScrollCount)
+	if (charges == mScrollMax) then
+		user:SystemMessage("That is full of Recall Charges.", "info")
+		return
+	end
+	if ((stack + charges) > mScrollMax) then
+		stack = stack - (mScrollMax - charges)
 		this:SetObjVar("Charges", mScrollMax)
 		scroll:SetObjVar("StackCount", stack)
-		CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
-			SetItemTooltip(scroll)
-		end)
+		SetItemTooltip(scroll)
+		user:SystemMessage("You have filled this Rune Book's Recall charges.", "info")
 	else 
 		local total = charges + stack
 		this:SetObjVar("Charges", total)
@@ -94,14 +98,16 @@ end
 function TryAddPortalScrollToRuneBook(scroll, user)
 	local charges = this:GetObjVar("PortalCharges") or 0
 	local stack = scroll:GetObjVar("StackCount") or 1
-	if ((stack + mScrollCount) > mScrollMax) then
-		user:SystemMessage("You have filled this Rune Book's Portal charges.", "info")
-		stack = stack - (mScrollMax - mScrollCount)
-		this:SetObjVar("PortalCharges", mScrollMax)
+	if (charges == mPortalScrollMax) then
+		user:SystemMessage("That is full of Portal Charges.", "info")
+		return
+	end
+	if ((stack + charges) > mPortalScrollMax) then
+		stack = stack - (mPortalScrollMax - charges)
+		this:SetObjVar("PortalCharges", mPortalScrollMax)
 		scroll:SetObjVar("StackCount", stack)
-		CallFunctionDelayed(TimeSpan.FromSeconds(0.5), function ()
-			SetItemTooltip(scroll)
-		end)
+		SetItemTooltip(scroll)
+		user:SystemMessage("You have filled this Rune Book's Portal charges.", "info")
 	else 
 		local total = charges + stack
 		this:SetObjVar("PortalCharges", total)
