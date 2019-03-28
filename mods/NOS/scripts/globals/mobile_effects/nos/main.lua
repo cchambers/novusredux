@@ -13,6 +13,9 @@ require 'globals.mobile_effects.nos.murderer'
 require 'globals.mobile_effects.nos.beingmentored'
 require 'globals.mobile_effects.nos.colorwarplayer'
 
+require 'globals.mobile_effects.nos.massheal'
+require 'globals.mobile_effects.nos.beingmasshealed'
+
 require 'globals.mobile_effects.nos.identify'
 require 'globals.mobile_effects.nos.paralyze'
 require 'globals.mobile_effects.nos.poison'
