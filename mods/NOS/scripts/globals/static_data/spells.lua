@@ -393,7 +393,7 @@ SpellData = {
 		},
 		
 		MagicUntrap = {
-			SpellDisplayName = "Untrap",
+			SpellDisplayName = "Remove Trap",
 			PowerWords = "An Jux",
 			Circle = 2,
 			manaCost = 20,

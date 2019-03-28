@@ -1,10 +1,10 @@
 <ObjectTemplate>
-  <Name>[00FF00]Unlock[-]</Name>
+  <Name>[00FF00]Remove Trap[-]</Name>
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="Spell">MagicUnlock</StringVariable>
-		<StringVariable Name="ResourceType">MagicUnlock</StringVariable>
+		<StringVariable Name="Spell">MagicUntrap</StringVariable>
+		<StringVariable Name="ResourceType">MagicUntrap</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>
