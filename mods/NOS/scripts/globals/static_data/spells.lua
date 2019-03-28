@@ -350,6 +350,89 @@ SpellData = {
 			}
 		},
 		-- CIRCLE TWO --
+		MagicTrap = {
+			SpellDisplayName = "Magic Trap",
+			PowerWords = "In Jux",
+			Circle = 2,
+			manaCost = 20,
+			effectType = "InstantHitSpell",
+			SpellPower = 0,
+			SpellRange = 12,
+			MobileEffect = "MagicTrap",
+			TargetType = "targetObject",
+			TargetRequired = true,
+			CanBeInterrupted = true,
+			SpellType = "BuffTypeSpell",
+			SpellPotencySkill = "MagerySkill",
+			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
+			SpellPrimeFXName = "ConjurePrimeRedEffect",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellTooltipString = "Create a target-jumping bolt of energy.",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			AttackSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_lightning",
+			SpellPotencySkill = "MagerySkill",
+			DistanceDecayRate = -.2,
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
+			ReagentsRequired = true,
+			Reagents = {
+				"Garlic",
+				"Spidersilk",
+				"Sulfurousash"
+			}
+		},
+		
+		MagicUntrap = {
+			SpellDisplayName = "Untrap",
+			PowerWords = "An Jux",
+			Circle = 2,
+			manaCost = 20,
+			effectType = "InstantHitSpell",
+			SpellPower = 0,
+			SpellRange = 12,
+			MobileEffect = "MagicUntrap",
+			TargetType = "targetObject",
+			TargetRequired = true,
+			CanBeInterrupted = true,
+			SpellType = "BuffTypeSpell",
+			SpellPotencySkill = "MagerySkill",
+			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
+			SpellPrimeFXName = "ConjurePrimeRedEffect",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellTooltipString = "Create a target-jumping bolt of energy.",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			AttackSpellType = false,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_lightning",
+			SpellPotencySkill = "MagerySkill",
+			DistanceDecayRate = -.2,
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
+			ReagentsRequired = true,
+			Reagents = {
+				"Garlic",
+				"Ginseng",
+				"Sulfurousash"
+			}
+		},
 		Cure = {
 			SpellDisplayName = "Cure",
 			PowerWords = "An Nox",
@@ -932,6 +1015,7 @@ SpellData = {
 				"Sulfurousash"
 			}
 		},
+		
 		-- CIRCLE FOUR --
 		Lightning = {
 			SpellDisplayName = "Lightning",
