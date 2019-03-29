@@ -377,6 +377,12 @@ TemplateDefines = {
 				{ Chance = 5, Template = "scroll_clumsy", Unique = true },
 				{ Chance = 5, Template = "scroll_create_food", Unique = true },
 				{ Chance = 5, Template = "scroll_cunning", Unique = true },
+				{ Chance = 5, Template = "scroll_protection", Unique = true },
+				{ Chance = 5, Template = "scroll_cunning", Unique = true },
+				{ Chance = 5, Template = "scroll_trap", Unique = true },
+				{ Chance = 5, Template = "scroll_lock", Unique = true },
+				{ Chance = 5, Template = "scroll_untrap", Unique = true },
+				{ Chance = 5, Template = "scroll_unlock", Unique = true },
 			},
 		},		
 		ScrollsMed = 
@@ -409,6 +415,7 @@ TemplateDefines = {
 				{ Chance = 15, Template = "scroll_reveal", Unique = true },
 				{ Chance = 15, Template = "scroll_spikepath", Unique = true },
 				{ Chance = 15, Template = "scroll_stonewall", Unique = true },
+				{ Chance = 15, Template = "scroll_paralyzefield", Unique = true },
 			},
 		},
 		ScrollsHigh = 
@@ -432,6 +439,10 @@ TemplateDefines = {
 				{ Chance = 3, Template = "scroll_imbue", Unique = true },
 				{ Chance = 5, Template = "scroll_flameaura", Unique = true },
 				{ Chance = 5, Template = "scroll_flamestrike", Unique = true },
+				{ Chance = 5, Template = "scroll_archcure", Unique = true },
+				{ Chance = 5, Template = "scroll_archheal", Unique = true },
+				{ Chance = 5, Template = "scroll_masscurse", Unique = true },
+				{ Chance = 5, Template = "scroll_archprotection", Unique = true },
 
 			},
 		},

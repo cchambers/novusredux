@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]Magic Lock[-]</Name>
+	<ClientId>1109</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Spell">MagicLock</StringVariable>
+		<StringVariable Name="ResourceType">MagicLock</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spell_scroll"/>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

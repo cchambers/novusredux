@@ -7,8 +7,8 @@
 		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
 		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
 	</ObjectVariableComponent>
-	<ScriptEngineComponent>
+	<!-- <ScriptEngineComponent>
 		<LuaModule Name="metalsmith_crafting"/>
 		<LuaModule Name="tool_base"/>
-	</ScriptEngineComponent>
+	</ScriptEngineComponent> -->
 </ObjectTemplate>

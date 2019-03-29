@@ -10,7 +10,6 @@ MobileEffectLibrary.Paralyze =
 		if (targetResist == 0) then targetResist = 1 end
 
 		local length = (casterEval/10) - (targetResist/10)
-		self.ParentObj:NpcSpeech(tostring(length))
 
 		if (length <= 0) then
 			caster:SystemMessage("Target resist is too strong.","info")
@@ -25,7 +24,6 @@ MobileEffectLibrary.Paralyze =
 		end
 
 		self.Duration = TimeSpan.FromSeconds(length)
-			 
 		self.ParentObj:NpcSpeech("*paralyzed*")
 		SetMobileMod(self.ParentObj, "Disable", "Paralyze", true)
 

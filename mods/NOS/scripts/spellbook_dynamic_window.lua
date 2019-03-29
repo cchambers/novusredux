@@ -149,32 +149,31 @@ function ShowSpellBookDialog(from)
 	if (mPageType == "CircleIndex") then
 		dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
 		local xOffset = 110
-		local yOffset = 80
+		local yOffset = 60
 		local circleIndex = 0
 		for i, spellEntry in pairs(spellsSorted) do
 			if (circleIndex == 0) then
 				circleIndex = mPageNumber
 				nextCircle = circleIndex + 1
-				local labelStr = "[412A08]Circle " .. circleIndex .. "[-]"
-				dynamicWindow:AddLabel(236, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
-				local labelStr = "[412A08]Circle " .. nextCircle .. "[-]"
-				dynamicWindow:AddLabel(550, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+				-- local labelStr = "[412A08]Circle " .. circleIndex .. "[-]"
+				-- dynamicWindow:AddLabel(236, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+				-- local labelStr = "[412A08]Circle " .. nextCircle .. "[-]"
+				-- dynamicWindow:AddLabel(550, 40, labelStr, 0, 0, 46, "center", false, false, "Kingthings_Calligraphica_Dynamic")
 			end
 
 			if (spellEntry.Data.Circle == circleIndex) then
 			else
 				circleIndex = spellEntry.Data.Circle
-				yOffset = 80
+				yOffset = 60
 				xOffset = xOffset + 320
 			end
 
 			local command = "ChangePage|" .. detailPageStr .. "|" .. spellEntry.id
 			local name = spellEntry.Data.SpellDisplayName
 			local skill = spellEntry.Data.Skill
-			skill = string.sub(skill, 1, 1)
 			local circle = tostring(spellEntry.Data.Circle or 1)
-			dynamicWindow:AddButton(xOffset, yOffset, command, skill .. "|" .. name, 250, 34, "", "", false, "BookList")
-			yOffset = yOffset + 31
+			dynamicWindow:AddButton(xOffset, yOffset, command, circle .. "|" .. name, 250, 34, "", "", false, "BookList")
+			yOffset = yOffset + 32
 		end
 	end
 

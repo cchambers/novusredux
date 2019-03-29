@@ -323,6 +323,8 @@ RegisterEventHandler(EventType.Message,"RegisterAbilitySelectTarget",function (p
 )
 
 function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
+	
+	DebugMessage(tostring(2))
 	Verbose("Magic", "PerformMagicalAttack", spellName, spTarget, spellSource, doNotRetarget)
 	-- DebugMessage(tostring(spellName .. " | " ..tostring(spTarget).." | " .. tostring(spellSource).. "|" .. tostring(doNotRetarget)))
 	if (doNotRetarget == nil) then
@@ -333,6 +335,8 @@ function PerformMagicalAttack(spellName, spTarget, spellSource, doNotRetarget)
 	end
 
 	if not (ValidCombatTarget(this, spTarget)) then
+	
+	DebugMessage(tostring("XX"))
 		return
 	end
 
@@ -360,6 +364,7 @@ function ExecuteSpellHitActions(atTarget, spellName, spellSource)
 	Verbose("Magic", "ExecuteSpellHitActions", atTarget, spellName, spellSource)
 	local damageAmount = 0
 
+	DebugMessage(tostring(1))
 	local baseDam = GetSpellInformation(spellName, "SpellPower") or 0
 	-- hack to make ruin damage based on distance
 	if (spellName == "Ruin" and atTarget:IsValid()) then
@@ -1126,6 +1131,8 @@ RegisterEventHandler(
 -----------------------
 --LEGACY
 function HandleMagicalAttackRequest(spellName, spTarg, spellSource, doNotRetarget, damagePvP)
+	
+	DebugMessage(tostring(3))
 	--DebugMessage(isNotAOE, " is AOE")
 	if (spTarg == spellSource and not ServerSettings.Combat.NoSelfDamageOnAOE and (not isNotAOE) and not damagePvP) then
 		return

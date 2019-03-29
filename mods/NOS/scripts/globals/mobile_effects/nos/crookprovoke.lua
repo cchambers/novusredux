@@ -36,6 +36,14 @@ MobileEffectLibrary.CrookProvoke =
             end
         end
 
+        local destLoc = self.ParentObj:GetLoc()
+        local protected = GetGuardProtectionForLoc(destLoc)
+        if (protected == "Town" or protected == "Protection") then
+            self.ParentObj:SystemMessage("The guards would definitely whack you for that one.", "info")
+            EndMobileEffect(root)
+            return false
+        end
+
         if (target ~= nil) then
             local mobint = target:GetStatValue("Int")
             local tamerint = self.ParentObj:GetStatValue("Int")
