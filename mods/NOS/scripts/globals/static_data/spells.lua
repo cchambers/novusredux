@@ -1671,6 +1671,53 @@ SpellData = {
 			}
 		},
 		-- CIRCLE SIX --
+		Paralyzefield = {
+			SpellDisplayName = "Paralyze Field",
+			PowerWords = "In Ex Grav",
+			Circle = 6,
+			SpellEnabled = true,
+			Icon = "Paralyze Cloud",
+			manaCost = 45,
+			effectDamageType = "Paralyze",
+			effectType = "InstantHitSpell",
+			SpellPower = 5,
+			critChance = 0,
+			SpellRange = 12,
+			TargetType = "targetLocation",
+			TargetRequired = true,
+			CanBeInterrupted = true,
+			SpellType = "WallSpellType",
+			SpellPotencySkill = "MagerySkill",
+			SpellTooltipString = "Creates a wall of paralyze between two points.",
+			Skill = "MagerySkill",
+			MinSkillRequired = 50,
+			spellSkillLevel = 60,
+			AttackSpellType = true,
+			SpellFireAnim = "cast_fire",
+			SpellReleaseUserScript = "sp_paralyzefield_effect",
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			requireLineOfSight = true,
+			SpellLaunchSFX = "event:/magic/void/magic_void_cast_void",
+			AffinityRequired = {
+				Fire = 2
+			},
+			ReagentsRequired = true,
+			Reagents = {
+				"Blackpearl",
+				"Ginseng",
+				"Spidersilk"
+			},
+			SpellPrimeSFX = "event:/magic/fire/magic_fire_cast_fire",
+			SpellPrimeFXName = "ConjurePrimeRedEffect",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandRedEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandRedEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand"
+		},
 		Imbue = {
 			SpellDisplayName = "Imbue Weapon",
 			PowerWords = "In Ex Sanct",
