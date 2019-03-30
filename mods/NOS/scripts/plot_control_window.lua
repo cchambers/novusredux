@@ -439,7 +439,7 @@ RegisterEventHandler(
         if
             ((isHouse and not Plot.HasHouseControl(this, plotController, controller)) or
                 (not isHouse and not Plot.IsOwner(this, controller)))
-         then
+        then
             CleanUp()
             return
         end
@@ -506,8 +506,8 @@ RegisterEventHandler(
                                     user:SendMessage("OpenBank", controller)
                                 else
                                     user:SystemMessage("You cannot afford to do that.")
+                                    return
                                 end
-                                return
                             end
                             user:SystemMessage("Opening bank...")
                         end
