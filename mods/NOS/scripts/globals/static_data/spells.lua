@@ -1983,6 +1983,53 @@ SpellData = {
 				"Sulfurousash"
 			}
 		},
+		
+		ArchHeal = {
+			SpellDisplayName = "Arch Cure",
+			PowerWords = "Uus An Nox",
+			MobileEffect = "ArchHeal",
+			Icon = "regenfocus",
+			Circle = 6,
+			manaCost = 70,
+			effectType = "InstantHitSpell",
+			TargetType = "Self",
+			TargetRequired = false,
+			CanBeInterrupted = true,
+			effectType = "InstantHitSpell",
+			SpellType = "HealTypeSpell",
+			SpellPrimeFXName = "ConjurePrimeGreenEffect",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandGreenEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellFXName = "HealEffect",
+			SpellPotencySkill = "MagerySkill",
+			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
+			SpellHitSFX = "event:/magic/misc/magic_water_restoration",
+			SpellTooltipString = "Heals targets in range.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			MinSkillRequired = 60,
+			spellSkillLevel = 70,
+			AttackSpellType = false,
+			BeneficialSpellType = true,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_heal",
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
+			ReagentsRequired = true,
+			Reagents = {
+				"Mandrake",
+				"Ginseng",
+				"Spidersilk",
+				"Sulfurousash"
+			}
+		},
 		-- CIRCLE SEVEN --
 		Flamewave = {
 			SpellDisplayName = "Flame Wave",
