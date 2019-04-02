@@ -3665,6 +3665,20 @@ InscriptionSkill = {
 				BlankScroll = 1,
 			},
 		},
+		ShadeScroll = {
+			MinLevelToCraft = 3.5,
+			MaxLevelToGain = 53.5,
+			DisplayName = "Shade Scroll",
+			NeedRecipe = false,
+			Description = "A Shade scroll. ",
+			CraftingTemplateFile = "scroll_shade",
+			Category = "Scrolls",
+			Subcategory = "Circle 4",
+			Resources = {
+				LemonGrass = 1,
+				BlankScroll = 1,
+			},
+		},
 		ArchCure = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 125,

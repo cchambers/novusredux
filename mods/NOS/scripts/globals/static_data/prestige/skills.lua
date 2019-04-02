@@ -54,6 +54,23 @@ PrestigeData.Skills = {
 			Cooldown = TimeSpan.FromSeconds(30)
 		},
 		
+		Taunt = {
+			Action = {
+				DisplayName = "Taunt",
+				Icon = "force_peace",	
+				Enabled = true
+			},
+
+			NoResetSwing = true,
+			NoCombat = true,
+			Instant = true,
+			QueueTarget = "Obj",
+			Tooltip = "Draw your enemies to you.",
+
+			MobileEffect = "Taunt",
+			Cooldown = TimeSpan.FromSeconds(45)
+		},
+		
 		Identify = {
 			Action = {
 				DisplayName = "Identify",
