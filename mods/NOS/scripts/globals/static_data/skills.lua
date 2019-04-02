@@ -138,6 +138,7 @@ SkillData = {
 			Description = "Blocking determines your effectiveness using a shield.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
+			Abilities = { "Taunt" },
 		},
 		MetalsmithSkill = {
 			DisplayName = "Blacksmithing",
@@ -338,7 +339,7 @@ SkillData = {
 			Description = "Increases your Defense in Heavy Armor.",
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_Knight",
-			GainFactor = 0.3,
+			GainFactor = 0.3
 		},
 		ArmsLoreSkill = {
 			DisplayName = "Arms Lore",

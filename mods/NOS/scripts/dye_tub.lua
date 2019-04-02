@@ -124,7 +124,7 @@ RegisterEventHandler(
 			end
 		end
 
-		if (GetWeight(target) <= 0) then
+		if (GetWeight(target) <= 0 and Plot.IsOwner(user, target)) then
 			dyeable = false
 		end
 
