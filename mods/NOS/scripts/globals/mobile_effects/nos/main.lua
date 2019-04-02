@@ -11,6 +11,9 @@ require 'globals.mobile_effects.nos.mentor'
 require 'globals.mobile_effects.nos.mentoring'
 require 'globals.mobile_effects.nos.murderer'
 require 'globals.mobile_effects.nos.beingmentored'
+require 'globals.mobile_effects.nos.taunt'
+require 'globals.mobile_effects.nos.beingtaunted'
+
 require 'globals.mobile_effects.nos.colorwarplayer'
 
 require 'globals.mobile_effects.nos.archheal'
