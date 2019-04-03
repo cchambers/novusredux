@@ -7,7 +7,7 @@ MobileEffectLibrary.Taunt = {
 		"I just won the lottery. My prize? I never get to see your face again.",
 	},
 
-	ActualEnemies = function () 
+	ActualEnemies = function (self) 
 		local enemyObjects = FindObjects(SearchMobileInRange(20))
 		local actualEnemies = {}
 		if (enemyObjects ~= nil) then
@@ -22,15 +22,23 @@ MobileEffectLibrary.Taunt = {
 	end,
 
 	OnEnterState = function(self, root, caster)
-		self.Caster = caster
-		local enemies = self.ActualEnemies()
-		for i,enemyObj in pairs(enemyObjects) do
-			enemyObj:SendMessage("StartMobileEffect", "BeingTaunted", caster)
+		local enemies = self.ActualEnemies(self)
+		for i,enemyObj in pairs(enemies) do
+			enemyObj:SendMessage("StartMobileEffect", "BeingTaunted", self.ParentObj)
+		end
+
+		if (self.Count == 0) then
+			self.ParentObj:SystemMessage("There is nothing here you can taunt.", "info")
+			EndMobileEffect(root)
+			return
 		end
 
 		if (self.Count > 3) then
-			caster:NpcSpeech(self.Quotes[math.random(1,#self.Quotes)])
+			self.ParentObj:NpcSpeech(self.Quotes[math.random(1,#self.Quotes)])
 		end
+
+		self.ParentObj:PlayAnimation("block")
+		self.ParentObj:PlayEffectWithArgs("LaughingSkullEffect", 20, "Bone=Head")
 	end,
 
 	OnExitState = function(self, root)

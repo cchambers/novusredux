@@ -107,3 +107,15 @@ Plot.ValidateBound = function(playerObj, bound, size, ignoreLoc)
     
     return true
 end
+
+Plot.Refresh = function(controller)
+    local newDate = DateTime.UtcNow:Add(TimeSpan.FromSeconds(30))
+    SetGlobalVar("Plot."..controller.Id, function(record)
+        record.Decay = newDate
+        return true
+    end)
+end
+
+Plot.Decay = function(controller) 
+    -- erase plot and unlock everything, pack furniture?
+end

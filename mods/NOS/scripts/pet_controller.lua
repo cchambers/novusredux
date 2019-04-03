@@ -1,4 +1,5 @@
 require 'default:pet_controller'
+require 'loop_effect'
 -- require 'base_pet_casting'
 
 SetCurVitality(this,GetMaxVitality(this))
