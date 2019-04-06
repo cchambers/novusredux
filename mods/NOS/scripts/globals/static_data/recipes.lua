@@ -3046,6 +3046,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
+				BottleEmptySmall = 1,
 				Ginseng = 1
 			},
 		},
@@ -3059,6 +3060,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "RegularPotions",
 			Resources = {
+				BottleEmptyMedium = 1,
 				Ginseng = 3
 			},
 		},
@@ -3072,6 +3074,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
+				BottleEmptyRegular = 1,
 				Ginseng = 7
 			},
 		},
@@ -3085,6 +3088,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "SuperiorPotions",
 			Resources = {
+				BottleEmptyLarge = 1,
 				Ginseng = 12
 			},
 		},
@@ -3101,6 +3105,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
+				BottleEmptySmall = 1,
 				Blackpearl = 1
 			},
 		},
@@ -3114,6 +3119,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "RegularPotions",
 			Resources = {
+				BottleEmptyMedium = 1,
 				Blackpearl = 3
 			},
 		},
@@ -3127,6 +3133,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
+				BottleEmptyRegular = 1,
 				Blackpearl = 7
 			},
 		},
@@ -3140,6 +3147,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "SuperiorPotions",
 			Resources = {
+				BottleEmptyLarge = 1,
 				Blackpearl = 12
 			},
 		},
@@ -3156,6 +3164,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
+				BottleEmptySmall = 1,
 				Mandrake = 1
 			},
 		},
@@ -3169,6 +3178,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "RegularPotions",
 			Resources = {
+				BottleEmptyMedium = 1,
 				Mandrake = 3
 			},
 		},
@@ -3182,6 +3192,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
+				BottleEmptyRegular = 1,
 				Mandrake = 7
 			},
 		},
@@ -3195,6 +3206,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "SuperiorPotions",
 			Resources = {
+				BottleEmptyLarge = 1,
 				Mandrake = 12
 			},
 		},
@@ -3210,6 +3222,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
+				BottleEmptySmall = 1,
 				Garlic = 1
 			},
 		},
@@ -3223,6 +3236,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "RegularPotions",
 			Resources = {
+				BottleEmptyMedium = 1,
 				Garlic = 3
 			},
 		},
@@ -3236,6 +3250,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
+				BottleEmptyRegular = 1,
 				Garlic = 7
 			},
 		},
@@ -3249,6 +3264,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "SuperiorPotions",
 			Resources = {
+				BottleEmptyLarge = 1,
 				Garlic = 12
 			},
 		},
@@ -3264,6 +3280,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "LesserPotions",
 			Resources = {
+				BottleEmptySmall = 1,
 				Nightshade = 1
 			},
 		},
@@ -3277,6 +3294,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "RegularPotions",
 			Resources = {
+				BottleEmptyMedium = 1,
 				Nightshade = 3
 			},
 		},
@@ -3290,6 +3308,7 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "GreaterPotions",
 			Resources = {
+				BottleEmptyRegular = 1,
 				Nightshade = 7
 			},
 		},
@@ -3303,7 +3322,22 @@ AlchemySkill = {
 			Category = "Potions",
 			Subcategory = "SuperiorPotions",
 			Resources = {
+				BottleEmptyLarge = 1,
 				Nightshade = 12
+			},
+		},
+		DeadlyPoisonPotion = {
+			MinLevelToCraft = 100,
+			MaxLevelToGain = 125,
+			DisplayName = "Deadly Poison Potion",
+			NeedRecipe = true,
+			Description = "Poison!",
+			CraftingTemplateFile = "deadly_poison_potion",
+			Category = "Potions",
+			Subcategory = "DeadlyPotions",
+			Resources = {
+				BottleEmptyXLarge = 1,
+				Nightshade = 24
 			},
 		},
 
