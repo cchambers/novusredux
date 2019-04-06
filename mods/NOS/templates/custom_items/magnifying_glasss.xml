@@ -1,0 +1,5 @@
+<ObjectTemplate>
+  <Name>Magnifying Glass</Name>
+	<ClientId>694</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+</ObjectTemplate>
