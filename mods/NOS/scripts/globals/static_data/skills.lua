@@ -138,7 +138,7 @@ SkillData = {
 			Description = "Blocking determines your effectiveness using a shield.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
-			Abilities = { "Taunt" },
+			-- Abilities = { "Taunt" },
 		},
 		MetalsmithSkill = {
 			DisplayName = "Blacksmithing",
@@ -151,6 +151,13 @@ SkillData = {
 				ConsumeAmount = 5,
 				Seconds = 3
 			}
+		},
+		TinkeringSkill = {
+			DisplayName = "Tinkering",
+			Description = "Tinkering is the ability to craft tools, mechanical, and finely detailed items.",
+			PrimaryStat = "Strength",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.7
 		},
 		WoodsmithSkill = {
 			DisplayName = "Carpentry",

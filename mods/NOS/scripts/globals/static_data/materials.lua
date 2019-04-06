@@ -15,6 +15,12 @@ MaterialIndex = {
         "Steel",
         "Spectral",
 	},
+	TinkeringSkill = {
+        "Copper",
+        "Gold",
+        "Steel",
+        "Spectral",
+	},
 	FabricationSkill = {
         "Cloth",
         "QuiltedCloth",
