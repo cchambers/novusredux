@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>1981</ClientId>
+	<Name>[CCCCCC]Tinker Tool Board[-]</Name>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ToolSkill">TinkeringSkill</StringVariable>
+		<StringVariable Name="ToolAnimation">blacksmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/blacksmithing/blacksmithing_hammer</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="tinker_crafting"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
