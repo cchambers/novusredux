@@ -154,7 +154,7 @@ SkillData = {
 		},
 		TinkeringSkill = {
 			DisplayName = "Tinkering",
-			Description = "Tinkering is the ability to craft tools, mechanical, and finely detailed items.",
+			Description = "Tinkering is the ability to craft tools, detailed items, and mechanical pets.",
 			PrimaryStat = "Strength",
 			SkillType = "TradeTypeSkill",
 			GainFactor = 0.7

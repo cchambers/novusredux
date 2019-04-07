@@ -3,17 +3,17 @@ RecipeCategories = {
 		{
 			Name = "Resources",
 			Subcategories = {
-				{"Ingots","Ingots","Materials1"},
-				{"Alloys","Alloys","Materials2"},
+				{"Ingots", "Ingots", "Materials1"},
+				{"Alloys", "Alloys", "Materials2"},
 			},
 		},	
 		{
 			Name = "Weapons",
 			Subcategories = {
-				{"Slashing","Slashing","Slashing"},
-				{"Bashing","Bashing","Bashing"},
-				{"Piercing","Piercing","Piercing"},
-				{"Polearms","Polearms","Bones"},
+				{"Slashing", "Slashing", "Slashing"},
+				{"Bashing", "Bashing", "Bashing"},
+				{"Piercing", "Piercing", "Piercing"},
+				{"Polearms", "Polearms", "Bones"},
 			},
 		},	
 		{
@@ -22,7 +22,7 @@ RecipeCategories = {
 				{"Head",},
 				{"Legs",},
 				{"Torso",},
-				{"Shields","Shields","Shield"},
+				{"Shields", "Shields", "Shield"},
 			},
 		},
 		{ 
@@ -36,7 +36,7 @@ RecipeCategories = {
 		{
 			Name = "First Aid",
 			Subcategories = {
-				{"First Aid" ,"First Aid","SilkFabric"},
+				{"First Aid", "First Aid", "SilkFabric"},
 			},
 		},
 	},
@@ -44,27 +44,27 @@ RecipeCategories = {
 		{
 			Name = "Resources",
 			Subcategories = {
-                {"Wood","Wood","Wood"},
-                {"Laminates","Laminates","Wood"},
+                {"Wood", "Wood", "Wood"},
+                {"Laminates", "Laminates", "Wood"},
             },
 		},	
 		{
 			Name = "Weapons",
 			Subcategories = {
-				{"Bows","Bows","Ranged"},
-				{"Shields","Shields","Shield"},
+				{"Bows", "Bows", "Ranged"},
+				{"Shields", "Shields", "Shield"},
 			},
 		},	
 		{
 			Name = "Furnishings",
 			Subcategories = {
-				{"CraftingStations" ,"Crafting Stations"},
-				{"Tables & Chairs","Tables & Chairs","Chairs"},
-				{"DecorativeItems" ,"Decorative Items"},
+				{"CraftingStations", "Crafting Stations"},
+				{"TablesChairs", "Tables & Chairs", "Chairs"},
+				{"DecorativeItems", "Decorative Items"},
 				{"Lighting" ,},
 				{"Storage" ,},
-				{"FencesWalls" ,"Fences"},
-				},
+				{"FencesWalls", "Fences"},
+			},
 		},
 		{
 			Name = "Tools",
@@ -77,12 +77,35 @@ RecipeCategories = {
 		{
 			Name = "Potions",
 			Subcategories = {
-				{"LesserPotions" ,"Lesser Potions","HealingPotions"},
-				{"RegularPotions" ,"Regular Potions","HealingPotions"},
-				{"GreaterPotions" ,"Greater Potions","HealingPotions"},
-				{"SuperiorPotions" ,"Superior Potions","HealingPotions"},
-				{"Remedies" ,"Remedies","Storage"},
+				{"LesserPotions", "Lesser Potions", "HealingPotions"},
+				{"RegularPotions", "Regular Potions", "HealingPotions"},
+				{"GreaterPotions", "Greater Potions", "HealingPotions"},
+				{"SuperiorPotions", "Superior Potions", "HealingPotions"},
+				{"Remedies", "Remedies", "Storage"},
 
+			},
+		},
+	},
+	TinkeringSkill = {
+		{
+			Name = "Resources",
+			Subcategories = {
+				{"Wire", "Wire", "Storage"},
+				{"Bottles", "Bottles", "Storage"},
+			},
+		},
+		{
+			Name = "Furniture",
+			Subcategories = {
+				{"Lighting", "Lighting", "Storage"},
+			},
+		},
+		{
+			Name = "Equipment",
+			Subcategories = {
+				{"Jewelry", "Jewelry", "Storage"},
+				{"Traps", "Traps", "Storage"},
+				{"Tools", "Tools", "Storage"},
 			},
 		},
 	},
@@ -90,8 +113,8 @@ RecipeCategories = {
 		{
 			Name = "Resources",
 			Subcategories = {
-				{"Cloth","Cloth","RoyalSilkFabric"},
-				{"Leather","Leather","TannedLeather"},				
+				{"Cloth", "Cloth", "RoyalSilkFabric"},
+				{"Leather", "Leather", "TannedLeather"},				
 			},
 		},	
 		{
@@ -113,9 +136,9 @@ RecipeCategories = {
         {
 			Name = "Items",
 			Subcategories = {
-				{"Tools","Tools","Tools"},
-				{"Horse","Pet Gear","PetArmor"},
-				{"Containers","Containers","Storage"}
+				{"Tools", "Tools", "Tools"},
+				{"Horse", "Pet Gear", "PetArmor"},
+				{"Containers", "Containers", "Storage"}
 			},
 		},
 	},
@@ -124,41 +147,41 @@ RecipeCategories = {
 			Name = "Scrolls",
 			Subcategories = 
 			{
-				{"Circle 1" ,"Circle 1","Anvil1"},
-				{"Circle 2" ,"Circle 2","Anvil2"},
-				{"Circle 3" ,"Circle 3","Anvil3"},
-				{"Circle 4" ,"Circle 4","Anvil4"},
-				{"Circle 5" ,"Circle 5","Anvil5"},
-				{"Circle 6" ,"Circle 6","Anvil6"},
-				{"Circle 7" ,"Circle 7","Anvil7"},
-				{"Circle 8" ,"Circle 8","Anvil8"},
+				{"Circle 1", "Circle 1", "Anvil1"},
+				{"Circle 2", "Circle 2", "Anvil2"},
+				{"Circle 3", "Circle 3", "Anvil3"},
+				{"Circle 4", "Circle 4", "Anvil4"},
+				{"Circle 5", "Circle 5", "Anvil5"},
+				{"Circle 6", "Circle 6", "Anvil6"},
+				{"Circle 7", "Circle 7", "Anvil7"},
+				{"Circle 8", "Circle 8", "Anvil8"},
 			},
 		},
 		{
 			Name = "Spellbooks",
 			Subcategories = 
 			{
-				{"Spellbooks" ,"Spellbooks","Storage"},
+				{"Spellbooks", "Spellbooks", "Storage"},
 			},
 		},
 		{
 			Name = "Recipes",
 			Subcategories = {
-				{"Wood","Wood","Wood"},
-				{"Ingots","Ingots","Materials1"},
-				{"Bows","Bows","Ranged"},
-				{"Slashing","Slashing","Slashing"},
-				{"Bashing","Bashing","Bashing"},
-				{"Piercing","Piercing","Piercing"},
-				{"Polearms","Polearms","Bones"},
-				{"Wood Shields","Wood Shields","Shield"},
-				{"Metal Shields","Metal Shields","Shield"},
-				{"Crafting Stations","Crafting Stations","CraftingStations"},
-				{"Tables & Chairs","Tables & Chairs","Chairs"},
-				{"Decorative Items","Decorative Items","DecorativeItems"},
+				{"Wood", "Wood", "Wood"},
+				{"Ingots", "Ingots", "Materials1"},
+				{"Bows", "Bows", "Ranged"},
+				{"Slashing", "Slashing", "Slashing"},
+				{"Bashing", "Bashing", "Bashing"},
+				{"Piercing", "Piercing", "Piercing"},
+				{"Polearms", "Polearms", "Bones"},
+				{"Wood Shields", "Wood Shields", "Shield"},
+				{"Metal Shields", "Metal Shields", "Shield"},
+				{"Crafting Stations", "Crafting Stations", "CraftingStations"},
+				{"TablesChairs", "Tables & Chairs", "Chairs"},
+				{"Decorative Items", "Decorative Items", "DecorativeItems"},
 				{"Lighting" ,},
 				{"Storage" ,},
-				{"Fences","Fences","FencesWalls"},
+				{"Fences", "Fences", "FencesWalls"},
 				{"Tools",},
 			},		
 		},
@@ -166,17 +189,17 @@ RecipeCategories = {
 			Name = "Books",
 			Subcategories = 
 			{
-				{"Books" ,"Books","Storage"},
+				{"Books", "Books", "Storage"},
 			},
 		},
 		-- {	
 		-- 	Name = "Staves",
 		-- 	Subcategories = {
-		-- 		{"Padded","Padded","Anvil1"},
-		-- 		{"Rookie","Rookie","Anvil2"},
-		-- 		{"Journeyman","Journeyman","Anvil3"},
-		-- 		{"Expert","Expert","Anvil4"},
-		-- 		{"Master","Master","Anvil5"},
+		-- 		{"Padded", "Padded", "Anvil1"},
+		-- 		{"Rookie", "Rookie", "Anvil2"},
+		-- 		{"Journeyman", "Journeyman", "Anvil3"},
+		-- 		{"Expert", "Expert", "Anvil4"},
+		-- 		{"Master", "Master", "Anvil5"},
 		-- 	},
 		-- },
 	},
@@ -1908,7 +1931,7 @@ WoodsmithSkill = {
 			CraftingTemplateFile = "furniture_bench_fancy",
 			Description = "[$3133]",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 4,
 			},
@@ -1936,7 +1959,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_fancy",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 3,
 			},
@@ -1950,7 +1973,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_chair_wooden",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 2,
 			},
@@ -1964,7 +1987,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_desk_fancy",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 40,
 			},
@@ -1992,7 +2015,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_table_wooden",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 4,
 			},
@@ -2006,7 +2029,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_table_wooden_large",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 10,
 			},
@@ -2034,7 +2057,7 @@ WoodsmithSkill = {
 			NeedRecipe = true,
 			CraftingTemplateFile = "furniture_stool_wooden",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Boards = 1,
 			},
@@ -2111,7 +2134,7 @@ WoodsmithSkill = {
 			NeedRecipe = false,
 			CraftingTemplateFile = "furniture_stone_chair",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Stone = 50,
 				Boards = 2,
@@ -2126,7 +2149,7 @@ WoodsmithSkill = {
 			NeedRecipe = false,
 			CraftingTemplateFile = "furniture_ornate_chair",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Iron = 2,
 				Boards = 50,
@@ -2141,7 +2164,7 @@ WoodsmithSkill = {
 			NeedRecipe = false,
 			CraftingTemplateFile = "furniture_planked_table",
 			Category = "Furnishings",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Stone = 5,
 				Boards = 75,
@@ -2281,6 +2304,21 @@ WoodsmithSkill = {
 			Subcategory = "CraftingStations",
 			Resources = {
 				Boards = 150,
+			},
+		},
+		TinkerBoard = {
+			MinLevelToCraft = 75,
+			MaxLevelToGain = 100,
+			DisplayName = "Tinker Tool Board",
+			Description = "Tools for tinkering.",
+			ItemType = "FurnitureClass",
+			NeedRecipe = true,
+			CraftingTemplateFile = "tool_board",
+			Category = "Furnishings",
+			Subcategory = "CraftingStations",
+			Resources = {
+				Iron = 20,
+				Boards = 60,
 			},
 		},
 		InscriptionTable = {
@@ -2433,6 +2471,107 @@ WoodsmithSkill = {
 			},
 		},
 	},
+
+TinkeringSkill = {
+	-- wire
+	-- 
+	DyeTub = {
+		MinLevelToCraft = 20,
+		MaxLevelToGain = 45,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "dye_tub",
+		Description = "A tub for dyes.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 10,
+		},
+	},
+	Bottle1 = {
+		MinLevelToCraft = 0,
+		MaxLevelToGain = 25,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "empty_bottle_1",
+		Description = "A bottle for potions.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 1,
+		},
+	},
+	Bottle2 = {
+		MinLevelToCraft = 20,
+		MaxLevelToGain = 45,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "empty_bottle_2",
+		Description = "A bottle for potions.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 2,
+		},
+	},
+	Bottle3 = {
+		MinLevelToCraft = 40,
+		MaxLevelToGain = 65,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "empty_bottle_3",
+		Description = "A bottle for potions.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 3,
+		},
+	},
+	Bottle4 = {
+		MinLevelToCraft = 60,
+		MaxLevelToGain = 85,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "empty_bottle_4",
+		Description = "A bottle for potions.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 4,
+		},
+	},
+	Bottle5 = {
+		MinLevelToCraft = 80,
+		MaxLevelToGain = 90,
+		DisplayName = "Cloth",
+		CraftingTemplateFile = "empty_bottle_5",
+		Description = "A bottle for potions.",
+		ItemType = "ResourceClass",
+		Category = "Containers",
+		Subcategory = "Bottles",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Sand = 5,
+		},
+	},
+},
 
 FabricationSkill = {
 		--Materials
@@ -5227,7 +5366,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Wooden Stool. ",
 			CraftingTemplateFile = "recipe_stoolwooden",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Moss = 2,
 				FineScroll = 1,
@@ -5242,7 +5381,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Wooden Chair. ",
 			CraftingTemplateFile = "recipe_chairwooden",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Ginseng = 2,
 				BlankScroll = 1,
@@ -5257,7 +5396,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Wooden Table. ",
 			CraftingTemplateFile = "recipe_tableinn",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Garlic = 2,
 				BlankScroll = 1,
@@ -5272,7 +5411,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Fancy Chair. ",
 			CraftingTemplateFile = "recipe_chairfancy",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Moss = 2,
 				FrayedScroll = 1,
@@ -5287,7 +5426,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a large Wooden Table. ",
 			CraftingTemplateFile = "recipe_tablewoodenlarge",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				LemonGrass = 2,
 				FrayedScroll = 1,
@@ -5302,7 +5441,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Fancy Bench. ",
 			CraftingTemplateFile = "recipe_benchfancy",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Mushrooms = 2,
 				FrayedScroll = 1,
@@ -5317,7 +5456,7 @@ InscriptionSkill = {
 			Description = "A carpenter recipe to craft a Fancy Desk. ",
 			CraftingTemplateFile = "recipe_deskfancy",
 			Category = "Recipes",
-			Subcategory = "Tables & Chairs",
+			Subcategory = "TablesChairs",
 			Resources = {
 				Ginseng = 2,
 				FrayedScroll = 1,

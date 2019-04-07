@@ -43,13 +43,12 @@ local HueNames = {
 	hue984 = "Dread"
 }
 
--- fire, ice, poison, lunar,
 if (initializer ~= nil) then
 	if (initializer.Random ~= nil) then
 		local range = {1, 976}
 		if (initializer.Random == "rare") then
 			range = {819, 976}
-		elseif (initializer.Random == "rare") then
+		else
 			range = {1, 806}
 		end
 		local len = 27

@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<Name>Wire</Name>
+	<ClientId>2014</ClientId>
+	<ScaleModifier>1.5</ScaleModifier>
+	<Hue>872</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Wire</StringVariable>
+		<StringVariable Name="PluralName">Wire</StringVariable>	
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

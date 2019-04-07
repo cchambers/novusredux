@@ -1,0 +1,15 @@
+<ObjectTemplate>
+	<Name>Copper Wire</Name>
+	<ClientId>2014</ClientId>
+	<ScaleModifier>1.5</ScaleModifier>
+	<Hue>830</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">CopperWire</StringVariable>
+		<StringVariable Name="PluralName">Copper Wire</StringVariable>	
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

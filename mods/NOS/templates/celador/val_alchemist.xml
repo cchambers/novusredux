@@ -40,7 +40,7 @@
 					},
 					ItemInventory= {
 						{
-							Template = "tool_alchemist_crucible",
+							Template = "tool_alchemist_mortar",
 							Price = 500,
 							Amount = 999,
 							RelativeLoc = "1.40802, 0.8844185, 0.4379883",
