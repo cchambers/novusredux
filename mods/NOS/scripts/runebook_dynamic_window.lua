@@ -11,16 +11,23 @@ RUNEBOOK_CALC_HEIGHT = RUNEBOOK_HEIGHT * RUNEBOOK_Y_OFFSET
 mRuneBook = nil
 mRunes = nil
 mOpen = false
+mUseRegs = false
 
 function ShowRuneBookDialog(from)
 	mRunes = mRuneBook:GetObjVar("RuneList") or {}
 	local dynamicWindow = DynamicWindow("RuneBook", "", RUNEBOOK_WIDTH, RUNEBOOK_HEIGHT, -RUNEBOOK_WIDTH / 2, -RUNEBOOK_HEIGHT / 2, "TransparentDraggable", "Center")
 
 	dynamicWindow:AddImage(0, 0, "PrestigeBook", RUNEBOOK_WIDTH, RUNEBOOK_HEIGHT)
-	dynamicWindow:AddButton(726, 22, "", "", 0, 0, "", "", true, "CloseSquare", buttonState)
+	dynamicWindow:AddButton(726, 22, "", "", 0, 0, "", "", true, "CloseSquare")
 
 	dynamicWindow:AddImage(110, 80, "SpellIndexInfo_Divider", 250, 0, "Sliced")
 	dynamicWindow:AddLabel(250, 40, "[412A08]Recalls: " .. (mRuneBook:GetObjVar("Charges") or 0) .. "    Portals: " .. (mRuneBook:GetObjVar("PortalCharges") or 0) .. "[-]", 0, 0, 32, "center", false, false, "Kingthings_Calligraphica_Dynamic")
+
+	mUseRegs = mRuneBook:GetObjVar("UseRegs") or false
+	local regsState = ""
+	if (mUseRegs) then regsState = "pressed" end
+	dynamicWindow:AddLabel(480, 45, "[412A08]Use reagents: " .. tostring(mUseRegs))
+	dynamicWindow:AddButton(450, 44, "ToggleUseRegs", "", 0, 0, "", "", false, "Selection", regsState)
 
 	local xOffset = 100
 	local yOffset = 70
@@ -72,26 +79,39 @@ RegisterEventHandler(
 					user:SystemMessage("Charge your Rune Book with Recall Scrolls.", "info")
 					return
 				else
-					local charges = mRuneBook:GetObjVar("Charges")
-					charges = charges - 1
-					mRuneBook:SetObjVar("Charges", charges)
+					if (not(mUseRegs)) then
+						local charges = mRuneBook:GetObjVar("Charges")
+						charges = charges - 1
+						mRuneBook:SetObjVar("Charges", charges)
+					end
 				end
 				local id = result[2]
 				local rune = GetRune(id)
-				user:SendMessage("RuneBookCastSpell", "Recall", rune)
+				user:SendMessage("RuneBookCastSpell", "Recall", rune, mUseRegs)
 				return
 			elseif (action == "Portal") then
 				if ((mRuneBook:GetObjVar("PortalCharges") or 0) == 0) then
 					user:SystemMessage("Charge your Rune Book with Portal Scrolls.", "info")
 					return
 				else
-					local charges = mRuneBook:GetObjVar("PortalCharges")
-					charges = charges - 1
-					mRuneBook:SetObjVar("PortalCharges", charges)
+					if (not(mUseRegs)) then
+						local charges = mRuneBook:GetObjVar("PortalCharges")
+						charges = charges - 1
+						mRuneBook:SetObjVar("PortalCharges", charges)
+					end
 				end
 				local id = result[2]
 				local rune = GetRune(id)
-				user:SendMessage("RuneBookCastSpell", "Portal", rune)
+				user:SendMessage("RuneBookCastSpell", "Portal", rune, mUseRegs)
+				return
+			elseif (action == "ToggleUseRegs") then
+				if (mUseRegs) then
+					mUseRegs = false
+				else
+					mUseRegs = true
+				end
+				mRuneBook:SetObjVar("UseRegs", mUseRegs)
+				ShowRuneBookDialog("use regs toggle")
 				return
 			end
 		end

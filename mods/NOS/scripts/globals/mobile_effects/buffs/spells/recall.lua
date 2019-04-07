@@ -27,13 +27,13 @@ MobileEffectLibrary.Recall =
 		if ( target:HasObjVar("Destination") ) then
 			local destRegionAddress = target:GetObjVar("RegionAddress")
 
-			if (destRegionAddress == "TestMap") then
-				self.ParentObj:SystemMessage("How'd you get that? Have this instead...","info")
-				target:Destroy()
-				CreateObjInBackpack(self.ParentObj,"item_ale")
-				EndMobileEffect(root)
-				return false
-			end
+			-- if (destRegionAddress == "TestMap") then
+			-- 	self.ParentObj:SystemMessage("How'd you get that? Have this instead...","info")
+			-- 	target:Destroy()
+			-- 	CreateObjInBackpack(self.ParentObj,"item_ale")
+			-- 	EndMobileEffect(root)
+			-- 	return false
+			-- end
 
 			local targetLoc = target:GetObjVar("Destination")
 
