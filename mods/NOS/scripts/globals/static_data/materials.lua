@@ -29,7 +29,12 @@ MaterialIndex = {
         "AshBoards",
         "BlightwoodBoards",
         "BroodwoodBoards",
-    }
+    },
+    StonemasonSkill = {
+        "Blocks",
+        "QuartziteBlocks",
+        "GraniteBlocks",
+    },
 }
 
 -- a resource must be defined in here to count as a material, the value is the hue
@@ -54,6 +59,10 @@ Materials = {
     AshBoards = 866,
     BlightwoodBoards = 865,
     BroodwoodBoards = 851,
+
+    Blocks = 44,
+    QuartziteBlocks = 45,
+    GraniteBlocks = 43.
 }
 
 MaterialBonus = {
@@ -84,4 +93,8 @@ MaterialTooltipColors = {
     AshBoards = "[dbb47d]",
     BlightwoodBoards = "[b459ff]",
     BroodwoodBoards = "[551a8b]",
+
+    Blocks = "[9B9DA1]",
+    QuartziteBlocks = "[CFD1D6]",
+    GraniteBlocks = "[4C4D4F]",    
 }

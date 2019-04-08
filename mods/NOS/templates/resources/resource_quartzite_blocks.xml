@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[CFD1D6]Quartzite Block[-]</Name>
+	<ClientId>2261</ClientId>
+	<Hue>45</Hue>
+	<ScaleModifier>0.25</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">QuartziteBlocks</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.5</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

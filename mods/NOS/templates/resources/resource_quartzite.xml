@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[CFD1D6]Quartzite[-]</Name>
+	<ClientId>180</ClientId>
+    <Hue>45</Hue>
+    <Color>0xCFD1D6</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Quartzite</StringVariable>
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

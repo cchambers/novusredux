@@ -67,6 +67,12 @@ ResourceData = {
 					VisualState = "ObsidianVein",
 					MinSkill = 80,
 				},
+				Quartzite = {
+					MinSkill = 80,
+				},	
+				Granite = {
+					MinSkill = 90,
+				},								
 			}
 		},
 
@@ -296,6 +302,24 @@ ResourceData = {
 				Max = 50
 			}
 		},
+		Quartzite = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_quartzite",
+			SalvageValue = 1,
+			Difficulty = {
+				Min = 70,
+				Max = 90
+			}
+		},
+		Granite = {
+			HarvestBonusSkill = "MiningSkill",
+			Template = "resource_granite",
+			SalvageValue = 1,
+			Difficulty = {
+				Min = 85,
+				Max = 95
+			}
+		},						
 		Sand = {
 			HarvestBonusSkill = "MiningSkill",
 			Template = "resource_sand",
@@ -507,6 +531,23 @@ ResourceData = {
 			HarvestGateMin = 75,
 			HarvestGateMax = 100
 		},
+		Blocks = {
+			DisplayName = "Stone Blocks",
+			Template = "resource_blocks",
+			CraftedItemPrefix = "Stone",
+		},	
+		QuartziteBlocks = {
+			DisplayName = "Quartzite Blocks",
+			Template = "resource_quartzite_blocks",
+			CraftedItemPrefix = "Quartzite",
+			SkillGainDifficultyMultiplier = 2,
+		},	
+		GraniteBlocks = {
+			DisplayName = "Granite Blocks",
+			Template = "resource_granite_blocks",
+			CraftedItemPrefix = "Granite",
+			SkillGainDifficultyMultiplier = 5,
+		},						
 		Boards = {
 			DisplayName = "Wooden Boards",
 			Template = "resource_boards",
@@ -1256,6 +1297,10 @@ ResourceData = {
 			Template = "recipe_benchfancy",
 			DisplayName = "Recipe: Fancy Bench",
 		},
+		RecipeBenchStone = {
+			Template = "recipe_benchstone",
+			DisplayName = "Recipe: Stone Bench",
+		},
 		RecipeSmallFence = {
 			Template = "recipe_smallfence",
 			DisplayName = "Recipe: Small Fence",
@@ -1340,6 +1385,10 @@ ResourceData = {
 			Template = "recipe_woodsmithtable",
 			DisplayName = "Recipe: Carpentry Table",
 		},
+		RecipeStonemasonTable = {
+			Template = "recipe_stonemasontable",
+			DisplayName = "Recipe: Stonecraft Table",
+		},		
 		RecipeLoom = {
 			Template = "recipe_loom",
 			DisplayName = "Recipe: Loom",

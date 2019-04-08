@@ -270,6 +270,13 @@ AllAchievements = {
 			{"Grandmaster Carpenter"		,100	,"Given to those who are among the most profound carpentry."	,{Title = "Grandmaster Carpenter"	}},
 		},
 
+		StonemasonSkill = {
+			{"Stonemason"					,30		,"Given to those who have learned stonecraft."					,{Title = "Apprentice Stonemason"	}},
+			{"Journeyman Stonemason"			,50		,"Given to those are good at stonecraft."						,{Title = "Journeyman Stonemason"	}},
+			{"Master Stonemason"				,80		,"Given to those who have mastered stonecraft."					,{Title = "Master Stonemason"		}},
+			{"Grandmaster Stonemason"		,100	,"Given to those who are among the most profound stonecraft."	,{Title = "Grandmaster Stonemason"	}},
+		},
+
 		HarvestingSkill = {
 			{"Harvester"        			,30		,"Given to those who have done some harvesting."					,{Title = "Apprentice Harvester"	}},
 			{"Journeyman Harvester"    		,50		,"Given to those are good at harvesting."                			,{Title = "Journeyman Harvester"	}},
@@ -499,6 +506,10 @@ AllAchievements = {
 
 		WoodsmithSkillRecipe = {
 			{"Carpentry Scholar"	,1		,"Given to those who have learned every Carpentry recipe."	,{Renown = "CraftingAdvancedOne"}},
+		},
+
+		StonemasonSkillRecipe = {
+			{"Stonecraft Scholar"	,1		,"Given to those who have learned every Stonecraft recipe."	,{Renown = "CraftingAdvancedOne"}},
 		},
 	},
 

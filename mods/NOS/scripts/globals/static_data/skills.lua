@@ -165,6 +165,19 @@ SkillData = {
 				Seconds = 3
 			}
 		},
+		StonemasonSkill = {
+			DisplayName = "Stonecraft",
+			Description = "Stonecraft is the capacity to work stone and allows creation of stone items.",
+			PrimaryStat = "Agility",
+			SkillType = "TradeTypeSkill",
+			SkillIcon = "Skill_Mining",
+			GainFactor = 0.7,
+			Practice = {
+				ResourceType = "Stone",
+				ConsumeAmount = 5,
+				Seconds = 3
+			}
+		},		
 		AlchemySkill = {
 			DisplayName = "Alchemy",
 			PrimaryStat = "Intelligence",
