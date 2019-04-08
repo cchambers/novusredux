@@ -699,13 +699,13 @@ EquipmentStats = {
 			--naked
 			ArmorClass = "Cloth",
 			Head = {
-				ArmorRating = 12
+				ArmorRating = 1
 			},
 			Chest = {
-				ArmorRating = 16
+				ArmorRating = 2
 			},
 			Legs = {
-				ArmorRating = 17
+				ArmorRating = 2
 			}
 		},
 		Padded = {

@@ -225,7 +225,7 @@ function GetBaseArmorSlotsStats(wearer, statName)
 	local totalStat = 0
 	local armorObj = nil
 	local baseStatMod = 1
-	for  i=1 , 3 do
+	for  i=1, 3 do
 		armorObj = wearer:GetEquippedObject(ARMORSLOTS[i])
 		if not(armorObj == nil) then
 			baseStat = GetArmorBaseStat(armorObj, statName)
