@@ -1,6 +1,6 @@
 <ObjectTemplate>
-	<ClientId>1054</ClientId>
-  	<Name>[FFFFFF]Gelacious Drink of Star-Soda[-]</Name>
+	<ClientId>109</ClientId>
+	<Name>[FFFFFF]Sparkle Soda[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="UserScript">potion_glowing_effect</StringVariable>

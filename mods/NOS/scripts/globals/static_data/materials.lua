@@ -15,10 +15,19 @@ MaterialIndex = {
         "Steel",
         "Spectral",
 	},
+	TinkeringSkill = {
+        "Copper",
+        "Gold",
+        "Steel",
+        "Spectral",
+	},
 	FabricationSkill = {
         "Cloth",
         "QuiltedCloth",
         "SilkCloth",
+        "SpectralSilkCloth",
+        "GildedSilkCloth",
+        "AntiqueSilkCloth",
 
         "Leather",
         "BeastLeather",
@@ -45,6 +54,9 @@ Materials = {
     Cloth = 139,
     QuiltedCloth = 934,
     SilkCloth = 872,
+    SpectralSilkCloth = 947,
+    GildedSilkCloth = 787,
+    AntiqueSilkCloth = 667,
 
     Leather = 800,
     BeastLeather = 893,
@@ -60,6 +72,16 @@ MaterialBonus = {
     Spectral = {
         AgiBonus = 5,
         AttackSpeed = 5
+    },
+    
+    SpectralSilkCloth = {
+        AgiBonus = 2
+    },
+    GildedSilkCloth = {
+        ManaRegen = 2
+    },
+    AntiqueSilkCloth = {
+        HealthRegen = 2
     }
 }
 

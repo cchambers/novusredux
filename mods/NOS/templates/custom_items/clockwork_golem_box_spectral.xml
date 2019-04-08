@@ -1,0 +1,12 @@
+﻿<ObjectTemplate>
+	<Name>Spectral Clockwork Golem (un-used)</Name>
+	<ScaleModifier>4</ScaleModifier>
+	<ClientId>1732</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="50" />
+	<ObjectVariableComponent>		
+		<StringVariable Name="Template">clockwork_golem_spectral</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="mechanical_pet_container" />
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -62,6 +62,9 @@ ServerSettings.Crafting = {
                 Cloth = 1,
                 QuiltedCloth = 2,
                 SilkCloth = 3,
+                SpectralSilkCloth = 4,
+                GildedSilkCloth = 4,
+                AntiqueSilkCloth = 4,
 
                 Leather = 1,
                 BeastLeather = 3,
@@ -81,6 +84,9 @@ ServerSettings.Crafting = {
             Cloth = 25,
             QuiltedCloth = 50,
             SilkCloth = 100,
+            SpectralSilkCloth = 150,
+            GildedSilkCloth = 150,
+            AntiqueSilkCloth = 150,
 
             Leather = 25,
             BeastLeather = 75,

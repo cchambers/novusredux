@@ -1,7 +1,6 @@
 <ObjectTemplate>
   <Name>Relic of the Ancients</Name>
 	<ClientId>112</ClientId>
-	<Color>0xFF32FF74</Color>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>					
     	<!-- Stackable objvars -->

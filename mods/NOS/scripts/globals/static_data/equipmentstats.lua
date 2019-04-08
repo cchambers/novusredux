@@ -574,6 +574,14 @@ EquipmentStats = {
 			TwoHandedWeapon = true,
 			Speed = 3
 		},
+		HandSaw = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "Cut",
+			TwoHandedWeapon = true,
+			Speed = 3
+		},
 		FishingRod = {
 			WeaponClass = "Tool",
 			Attack = 3,
@@ -699,13 +707,13 @@ EquipmentStats = {
 			--naked
 			ArmorClass = "Cloth",
 			Head = {
-				ArmorRating = 12
+				ArmorRating = 1
 			},
 			Chest = {
-				ArmorRating = 16
+				ArmorRating = 2
 			},
 			Legs = {
-				ArmorRating = 17
+				ArmorRating = 2
 			}
 		},
 		Padded = {

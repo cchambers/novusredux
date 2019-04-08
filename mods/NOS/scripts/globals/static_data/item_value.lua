@@ -58,6 +58,10 @@ CustomItemValues = {
 	item_meat_loaf = 20,
 	item_brisket = 40,
 	item_wild_steak = 100,
+	
+	lesser_health_potion = 20,
+	lesser_mana_potion = 20,
+	lesser_stamina_potion = 20,
 
 	resource_fish_barrel = 1,
 	resource_fish_tero = 5,

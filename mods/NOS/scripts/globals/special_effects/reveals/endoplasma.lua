@@ -1,6 +1,6 @@
 
 
-SpecialEffects.RevealZenroth = {
+SpecialEffects.RevealEndoplasma = {
     {
         Iterations = 1,
         --- Cache is overwritten as you add more effects

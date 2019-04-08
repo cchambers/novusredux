@@ -138,6 +138,7 @@ SkillData = {
 			Description = "Blocking determines your effectiveness using a shield.",
 			SkillType = "CombatTypeSkill",
 			GainFactor = 0.3,
+			-- Abilities = { "Taunt" },
 		},
 		MetalsmithSkill = {
 			DisplayName = "Blacksmithing",
@@ -150,6 +151,13 @@ SkillData = {
 				ConsumeAmount = 5,
 				Seconds = 3
 			}
+		},
+		TinkeringSkill = {
+			DisplayName = "Tinkering",
+			Description = "Tinkering is the ability to craft tools and other fine items.",
+			PrimaryStat = "Strength",
+			SkillType = "TradeTypeSkill",
+			GainFactor = 0.7
 		},
 		WoodsmithSkill = {
 			DisplayName = "Carpentry",
@@ -227,14 +235,6 @@ SkillData = {
 				ConsumeAmount = 5,
 				Seconds = 3
 			}
-		},
-		TinkeringSkill = {
-			DisplayName = "Tinkering",
-			PrimaryStat = "Intelligence",
-			Description = "Creating things.",
-			SkillType = "TradeTypeSkill",
-			GainFactor = 0.7,
-			Skip = true
 		},
 		MusicianshipSkill = {
 			DisplayName = "Musicianship",
@@ -338,7 +338,7 @@ SkillData = {
 			Description = "Increases your Defense in Heavy Armor.",
 			SkillType = "CombatTypeSkill",
 			SkillIcon = "Skill_Knight",
-			GainFactor = 0.3,
+			GainFactor = 0.3
 		},
 		ArmsLoreSkill = {
 			DisplayName = "Arms Lore",

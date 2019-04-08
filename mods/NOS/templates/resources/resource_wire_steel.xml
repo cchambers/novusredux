@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>SteelWire</Name>
+	<ClientId>2014</ClientId>
+	<ScaleModifier>1.5</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SteelWire</StringVariable>
+		<StringVariable Name="PluralName">SteelWire</StringVariable>	
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

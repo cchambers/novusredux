@@ -1,0 +1,16 @@
+﻿<ObjectTemplate>
+  <Name>[00FF00]Hand Saw[-]</Name>
+	<ClientId>930</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1" />
+		<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">HandSaw</StringVariable>
+		<DoubleVariable Name="MaxDurability">120</DoubleVariable>
+		<StringVariable Name="ToolSkill">WoodsmithSkill</StringVariable>	
+		<StringVariable Name="ToolAnimation">woodsmith</StringVariable>
+		<StringVariable Name="ToolSound">event:/character/skills/crafting_skills/carpentry/carpentry_saw</StringVariable>
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="crafting_woodsmith"/>
+		<LuaModule Name="tool_base"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[cccccc]Small Empty Bottle[-]</Name>
+	<ClientId>2006</ClientId>
+	<ScaleModifier>0.3</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BottleEmptySmall</StringVariable>
+		<StringVariable Name="PluralName">Empty Small Bottles</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

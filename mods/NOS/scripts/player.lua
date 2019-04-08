@@ -915,8 +915,6 @@ OverrideEventHandler(
 				if (Guild ~= nil) then
 					Guild.Initialize()
 				end
-			-- KHI HERE FIX PLS K
-			-- warn about their plot taxes
 			end
 		end
 

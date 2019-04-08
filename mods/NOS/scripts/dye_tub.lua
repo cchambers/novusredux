@@ -34,7 +34,7 @@ local HueNames = {
 	hue930 = "Peach",
 	hue947 = "Spectral",
 	hue957 = "Pika",
-	hue953 = "Spectral",
+	hue953 = "Void",
 	hue957 = "Pika",
 	hue950 = "Crimson",
 	hue971 = "Typhoon",
@@ -43,13 +43,12 @@ local HueNames = {
 	hue984 = "Dread"
 }
 
--- fire, ice, poison, lunar,
 if (initializer ~= nil) then
 	if (initializer.Random ~= nil) then
 		local range = {1, 976}
 		if (initializer.Random == "rare") then
 			range = {819, 976}
-		elseif (initializer.Random == "rare") then
+		else
 			range = {1, 806}
 		end
 		local len = 27
@@ -124,7 +123,7 @@ RegisterEventHandler(
 			end
 		end
 
-		if (GetWeight(target) <= 0) then
+		if (GetWeight(target) <= 0 and Plot.IsOwner(user, target)) then
 			dyeable = false
 		end
 

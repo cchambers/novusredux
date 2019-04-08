@@ -1,6 +1,6 @@
 
 
-SpecialEffects.RevealMiphon = {
+SpecialEffects.RevealMuska = {
     {
         Iterations = 2,
         --- Cache is overwritten as you add more effects

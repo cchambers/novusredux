@@ -1,8 +1,7 @@
 <ObjectTemplate>
   <Name>[00FF00]Deadly Poison Potion[-]</Name>
-	<ClientId>35</ClientId>
-	<Color>0xFF00FF00</Color>
-	<ScaleModifier>0.75</ScaleModifier>
+	<ClientId>2002</ClientId>
+	<ScaleModifier>0.34</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="ResourceType">PotionNOSDeadlyPoison</StringVariable>

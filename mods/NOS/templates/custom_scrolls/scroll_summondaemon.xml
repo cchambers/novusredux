@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]Summon Daemon[-]</Name>
+	<ClientId>1109</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>		
+		<StringVariable Name="Spell">SummonDaemon</StringVariable>
+		<StringVariable Name="ResourceType">SummonDaemon</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="spell_scroll"/>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

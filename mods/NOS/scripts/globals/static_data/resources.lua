@@ -443,6 +443,7 @@ ResourceData = {
 			Template = "resource_brick",
 			DisplayName = "Brick",
 		},
+
 		Iron = {
 			Template = "resource_iron",
 			DisplayName = "Iron",
@@ -483,6 +484,52 @@ ResourceData = {
 			DisplayName = "Spectral",
 			CraftedItemPrefix = "Spectral",
 		},
+
+		CopperWire = {
+			Template = "resource_wire_copper",
+			DisplayName = "CopperWire",
+			CraftedItemPrefix = "CopperWire",
+		},
+		GoldWire = {
+			Template = "resource_wire_gold",
+			DisplayName = "GoldWire",
+			CraftedItemPrefix = "GoldWire",
+		},
+		SteelWire = {
+			Template = "resource_wire_steel",
+			DisplayName = "SteelWire",
+			CraftedItemPrefix = "SteelWire",
+		},
+		SpectralWire = {
+			Template = "resource_wire_spectral",
+			DisplayName = "SpectralWire",
+			CraftedItemPrefix = "SpectralWire",
+		},
+
+		MetalParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "MetalParts",
+			CraftedItemPrefix = "MetalParts",
+		},
+
+		SpectralParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "SpectralParts",
+			CraftedItemPrefix = "SpectralParts",
+		},
+		GoldParts = {
+			Template = "resource_wire_gold",
+			DisplayName = "GoldParts",
+			CraftedItemPrefix = "GoldParts",
+		},
+		CopperParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "CopperParts",
+			CraftedItemPrefix = "CopperParts",
+		},
+
+
+
 		Leather = {
 			Template = "resource_leather",
 			DisplayName = "Leather",
@@ -507,6 +554,7 @@ ResourceData = {
 			HarvestGateMin = 75,
 			HarvestGateMax = 100
 		},
+
 		Boards = {
 			DisplayName = "Wooden Boards",
 			Template = "resource_boards",
@@ -551,6 +599,21 @@ ResourceData = {
 			CraftedItemPrefix = "Silk",
 			Template = "resource_silk_cloth",
 		},
+		SpectralSilkCloth = {
+			DisplayName = "Spectral Silk Cloth",
+			CraftedItemPrefix = "Spectral Silk",
+			Template = "resource_spectral_silk_cloth",
+		},
+		GildedSilkCloth = {
+			DisplayName = "Gilded Silk Cloth",
+			CraftedItemPrefix = "Gilded Silk",
+			Template = "resource_gilded_silk_cloth",
+		},
+		AntiqueSilkCloth = {
+			DisplayName = "Antique Silk Cloth",
+			CraftedItemPrefix = "Antique Silk",
+			Template = "resource_antique_silk_cloth",
+		},
 		WildSilkCloth = {
 			DisplayName = "Wild Silk Cloth",
 			CraftedItemPrefix = "Wild Silk",
@@ -589,6 +652,18 @@ ResourceData = {
 		RecipeSilkCloth = {
 			Template = "recipe_silkcloth",
 			DisplayName = "Recipe: Silk Cloth",
+		},
+		RecipeSpectralSilkCloth = {
+			Template = "recipe_spectralsilkcloth",
+			DisplayName = "Recipe: Spectral Silk Cloth",
+		},
+		RecipeGildedSilkCloth = {
+			Template = "recipe_gildedsilkcloth",
+			DisplayName = "Recipe: Gilded Silk Cloth",
+		},
+		RecipeAntiqueSilkCloth = {
+			Template = "recipe_antiquesilkcloth",
+			DisplayName = "Recipe: Antique Silk Cloth",
 		},
 		RecipeQuiltedCloth = {
 			Template = "recipe_quiltedcloth",
