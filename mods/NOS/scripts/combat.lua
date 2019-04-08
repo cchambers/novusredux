@@ -700,7 +700,7 @@ function ApplyDamageToTarget(victim, damageInfo)
 			end
 
 			blockDefense = CalculateBlockDefense(victim)
-			local defense = 45
+			local defense = 1
 			if ( HasMobileEffect(victim, "Sunder") ) then
 				-- end sunder, no armor defense reduction this hit
 				victim:SendMessage("EndSunderEffect")

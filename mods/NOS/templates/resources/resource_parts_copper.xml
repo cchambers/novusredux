@@ -1,12 +1,10 @@
 <ObjectTemplate>
-	<Name>Wire</Name>
-	<ClientId>2014</ClientId>
-	<ScaleModifier>1.5</ScaleModifier>
-	<Hue>872</Hue>
+	<Name>Copper Mechanism Parts</Name>
+	<ClientId>216</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
-		<StringVariable Name="ResourceType">Wire</StringVariable>
-		<StringVariable Name="PluralName">Wire</StringVariable>	
+		<StringVariable Name="ResourceType">CopperMetalParts</StringVariable>
+		<StringVariable Name="PluralName">Copper Mechanism Parts</StringVariable>	
 		<DoubleVariable Name="UnitWeight">1</DoubleVariable>	
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

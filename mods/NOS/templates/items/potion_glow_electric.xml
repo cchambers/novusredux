@@ -1,6 +1,6 @@
 <ObjectTemplate>
-	<ClientId>1052</ClientId>
-  	<Name>[FFFFFF]Electrifyingly Sour Soda[-]</Name>
+	<ClientId>109</ClientId>
+	<Name>[FFFFFF]Shockingly Sour Ale[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<Color>0xFF0000FF</Color>
 	<ObjectVariableComponent>

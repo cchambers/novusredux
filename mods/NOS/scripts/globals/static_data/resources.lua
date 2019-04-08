@@ -443,6 +443,7 @@ ResourceData = {
 			Template = "resource_brick",
 			DisplayName = "Brick",
 		},
+
 		Iron = {
 			Template = "resource_iron",
 			DisplayName = "Iron",
@@ -483,6 +484,52 @@ ResourceData = {
 			DisplayName = "Spectral",
 			CraftedItemPrefix = "Spectral",
 		},
+
+		CopperWire = {
+			Template = "resource_wire_copper",
+			DisplayName = "CopperWire",
+			CraftedItemPrefix = "CopperWire",
+		},
+		GoldWire = {
+			Template = "resource_wire_gold",
+			DisplayName = "GoldWire",
+			CraftedItemPrefix = "GoldWire",
+		},
+		SteelWire = {
+			Template = "resource_wire_steel",
+			DisplayName = "SteelWire",
+			CraftedItemPrefix = "SteelWire",
+		},
+		SpectralWire = {
+			Template = "resource_wire_spectral",
+			DisplayName = "SpectralWire",
+			CraftedItemPrefix = "SpectralWire",
+		},
+
+		MetalParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "MetalParts",
+			CraftedItemPrefix = "MetalParts",
+		},
+
+		SpectralParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "SpectralParts",
+			CraftedItemPrefix = "SpectralParts",
+		},
+		GoldParts = {
+			Template = "resource_wire_gold",
+			DisplayName = "GoldParts",
+			CraftedItemPrefix = "GoldParts",
+		},
+		CopperParts = {
+			Template = "resource_wire_spectral",
+			DisplayName = "CopperParts",
+			CraftedItemPrefix = "CopperParts",
+		},
+
+
+
 		Leather = {
 			Template = "resource_leather",
 			DisplayName = "Leather",
@@ -507,6 +554,7 @@ ResourceData = {
 			HarvestGateMin = 75,
 			HarvestGateMax = 100
 		},
+
 		Boards = {
 			DisplayName = "Wooden Boards",
 			Template = "resource_boards",

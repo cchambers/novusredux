@@ -1,6 +1,6 @@
 <ObjectTemplate>
-	<ClientId>1057</ClientId>
-  	<Name>[FFFFFF]Burning Hot Flask of the Habenero[-]</Name>
+	<ClientId>109</ClientId>
+	<Name>[FFFFFF]Hot-Head Concentrate[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<Color>0xFFFF0000</Color>
 	<ObjectVariableComponent>

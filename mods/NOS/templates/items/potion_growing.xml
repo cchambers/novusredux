@@ -1,6 +1,6 @@
 <ObjectTemplate>
-	<ClientId>1053</ClientId>
-  	<Name>[FFFFFF]Growing Potion[-]</Name>
+	<ClientId>109</ClientId>
+	<Name>[FFFFFF]Growing Potion[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>
 		<StringVariable Name="UserScript">potion_growing_effect</StringVariable>

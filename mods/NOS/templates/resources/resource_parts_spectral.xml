@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>Spectral Mechanism Parts</Name>
+	<ClientId>216</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">SpectralMetalParts</StringVariable>
+		<StringVariable Name="PluralName">Spectral Mechanism Parts</StringVariable>	
+		<DoubleVariable Name="UnitWeight">1</DoubleVariable>	
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

@@ -81,6 +81,7 @@ RecipeCategories = {
 				{"RegularPotions", "Regular Potions", "HealingPotions"},
 				{"GreaterPotions", "Greater Potions", "HealingPotions"},
 				{"SuperiorPotions", "Superior Potions", "HealingPotions"},
+				{"Effects", "Effects", "HealingPotions"},
 				{"Remedies", "Remedies", "Storage"},
 
 			},
@@ -2893,6 +2894,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 10 },
 				GildedSilkCloth = { GildedSilkCloth = 10 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 10 },
+				SteelSilkCloth = { SteelSilkCloth = 10 },
 			},
 		},
 
@@ -2914,6 +2916,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 15 },
 				GildedSilkCloth = { GildedSilkCloth = 15 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
+				SteelSilkCloth = { SteelSilkCloth = 15 },
 			},
 		},
 
@@ -2935,6 +2938,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 15 },
 				GildedSilkCloth = { GildedSilkCloth = 15 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
+				SteelSilkCloth = { SteelSilkCloth = 15 },
 			},
 		},
 
@@ -2956,6 +2960,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 15 },
 				GildedSilkCloth = { GildedSilkCloth = 15 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
+				SteelSilkCloth = { SteelSilkCloth = 15 },
 			},
 		},
 
@@ -2977,6 +2982,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 15 },
 				GildedSilkCloth = { GildedSilkCloth = 15 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
+				SteelSilkCloth = { SteelSilkCloth = 15 },
 			},
 		},
 
@@ -2998,6 +3004,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 15 },
 				GildedSilkCloth = { GildedSilkCloth = 15 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
+				SteelSilkCloth = { SteelSilkCloth = 15 },
 			},
 		},
 
@@ -3019,6 +3026,7 @@ FabricationSkill = {
 				SpectralSilkCloth = { SpectralSilkCloth = 20 },
 				GildedSilkCloth = { GildedSilkCloth = 20 },
 				AntiqueSilkCloth = { AntiqueSilkCloth = 20 },
+				SteelSilkCloth = { SteelSilkCloth = 20 },
 			},
 		},
 
@@ -3195,6 +3203,81 @@ FabricationSkill = {
 	},
 
 AlchemySkill = {
+		-- EFFECTS --
+		ShrinkingPotion = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Shrinking Potion",
+			NeedRecipe = false,
+			Description = "A potion that makes you smaller.",
+			CraftingTemplateFile = "potion_shrinking",
+			Category = "Potions",
+			Subcategory = "Effects",
+			Resources = {
+				BottleEmptyRegular = 1,
+				Ginseng = 1
+			},
+		},
+		
+		GrowingPotion = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Growing Potion",
+			NeedRecipe = false,
+			Description = "A potion that makes you taller.",
+			CraftingTemplateFile = "potion_growing",
+			Category = "Potions",
+			Subcategory = "Effects",
+			Resources = {
+				BottleEmptyRegular = 1,
+				Ginseng = 1
+			},
+		},
+		
+		GlowingPotion = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Sparkle Soda",
+			NeedRecipe = false,
+			Description = "A potion that makes you baller.",
+			CraftingTemplateFile = "potion_glow",
+			Category = "Potions",
+			Subcategory = "Effects",
+			Resources = {
+				BottleEmptyRegular = 1,
+				Ginseng = 1
+			},
+		},
+
+		HotHeadPotion = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Hot-Head Concentrate",
+			NeedRecipe = false,
+			Description = "A potion with some heat.",
+			CraftingTemplateFile = "potion_glow_fire",
+			Category = "Potions",
+			Subcategory = "Effects",
+			Resources = {
+				BottleEmptyRegular = 1,
+				Ginseng = 1
+			},
+		},
+		
+		ElectricPotion = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Shockingly Sour Ale",
+			NeedRecipe = false,
+			Description = "A potion with some spark.",
+			CraftingTemplateFile = "potion_glow_electric",
+			Category = "Potions",
+			Subcategory = "Effects",
+			Resources = {
+				BottleEmptyRegular = 1,
+				Ginseng = 1
+			},
+		},
 		-- HEALTH --
 		LesserHealthPotion = {
 			MinLevelToCraft = 0,
