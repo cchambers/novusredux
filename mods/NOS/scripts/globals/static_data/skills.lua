@@ -154,7 +154,7 @@ SkillData = {
 		},
 		TinkeringSkill = {
 			DisplayName = "Tinkering",
-			Description = "Tinkering is the ability to craft tools, detailed items, and mechanical pets.",
+			Description = "Tinkering is the ability to craft tools and other fine items.",
 			PrimaryStat = "Strength",
 			SkillType = "TradeTypeSkill",
 			GainFactor = 0.7
@@ -235,14 +235,6 @@ SkillData = {
 				ConsumeAmount = 5,
 				Seconds = 3
 			}
-		},
-		TinkeringSkill = {
-			DisplayName = "Tinkering",
-			PrimaryStat = "Intelligence",
-			Description = "Creating things.",
-			SkillType = "TradeTypeSkill",
-			GainFactor = 0.7,
-			Skip = true
 		},
 		MusicianshipSkill = {
 			DisplayName = "Musicianship",

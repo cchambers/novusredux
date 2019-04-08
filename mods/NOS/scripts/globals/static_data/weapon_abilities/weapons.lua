@@ -216,6 +216,21 @@ WeaponAbilitiesData.MortalStrike = {
     SkipHitAction = true
 }
 
+WeaponAbilitiesData.Cut = {        
+    MobileEffect = "Cut",
+    Stamina = 0,
+    NoCombat = true,
+    QueueTarget = "Obj",
+    Instant = true,
+    Cooldown = TimeSpan.FromSeconds(5),
+    Action = {
+        DisplayName = "Cut",
+        Tooltip = "Cut wood into boards on the go.",
+        Icon = "CraftingCategory_DurableWood",
+        Enabled = false
+    },
+}
+
 WeaponAbilitiesData.Repair = {        
     MobileEffect = "Repair",
     Stamina = 0,

@@ -43,15 +43,24 @@ function rem(amount)
 	return amount * mScaleBase
 end
 
+function GetNearbyMinions()
+	local currentMinions = FindObjects(SearchMulti({
+		SearchObjVar("controller", this),
+		SearchObjVar("Summon", true)
+	}))
+	return #currentMinions	
+end
+
 function DoCount() 
 	local petSlots = MaxActivePetSlots(this)
 	local remainingSlots = GetRemainingActivePetSlots(this)
 	local petSlotsTaken = petSlots - remainingSlots
+	local minions = GetNearbyMinions()
 
 	mTracked = {
 		followers = {
 			pets = tostring(petSlotsTaken.." / "..petSlots),
-			minions = tostring("0 / 3")
+			minions = tostring(minions .. " / " .. ServerSettings.Combat.MaxMinions)
 		},
 		aid = {
 			bandages = CountResourcesInContainer(mBackpackObj,"Bandage"),
@@ -116,10 +125,13 @@ function UpdateConsumableWindow()
 		mCONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
 		mCONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		-- mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(7), "MINS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 
 		mCONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+
+		-- mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 	end
 
 	local next = this:GetObjVar("NextPowerHour")

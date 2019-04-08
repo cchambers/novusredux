@@ -21,7 +21,9 @@ SpellData = {
 		{36.1, 80.1}, -- circle 5
 		{51.8, 90.1}, -- circle 6
 		{66.1, 100.1}, -- circle 7
-		{80.1, 120.1} --circle 8
+		{80.1, 120.1}, --circle 8
+		{-20.1, 20.1}, --circle 9
+		{-20.1, 20.1}, --circle 10
 	},
 	AllSpells = {
 		-- CIRCLE ONE --
@@ -2950,7 +2952,53 @@ SpellData = {
 				"Nightshade"
 			},
 			Circle = 10
-		}
+		},
+		Summon = {
+			SpellDisplayName = "Summon Creature",
+			PowerWords = "Do it",
+			MobileEffect = "SummonCreature",
+			Icon = "regenfocus",
+			Circle = 10,
+			manaCost = 1,
+			effectType = "InstantHitSpell",
+			TargetType = "Self",
+			TargetRequired = false,
+			CanBeInterrupted = true,
+			effectType = "InstantHitSpell",
+			SpellType = "HealTypeSpell",
+			SpellPrimeFXName = "ConjurePrimeGreenEffect",
+			SpellPrimeFXArgs = "Bone=Ground",
+			SpellPrimeFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimeFX2Args = "Bone=L_Hand",
+			SpellPrimedFXName = "MagicPrimeHandGreenEffect",
+			SpellPrimedFXArgs = "Bone=R_Hand",
+			SpellPrimedFX2Name = "MagicPrimeHandGreenEffect",
+			SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellFXName = "HealEffect",
+			SpellPotencySkill = "MagerySkill",
+			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
+			SpellHitSFX = "event:/magic/misc/magic_water_restoration",
+			SpellTooltipString = "Summon a creature.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			Skill = "MagerySkill",
+			MinSkillRequired = 50,
+			spellSkillLevel = 60,
+			AttackSpellType = false,
+			BeneficialSpellType = false,
+			SpellEnabled = true,
+			SpellFireAnim = "cast_heal",
+			DoNotReplaceTarget = true,
+			InstantHitSpell = true,
+			SpellLaunchSFX = "event:/magic/fire/magic_fire_cast_fire",
+			ReagentsRequired = false,
+			Reagents = {
+				"Mandrake",
+				"Ginseng",
+				"Garlic",
+				"Sulfurousash"
+			}
+		},
 	}
 }
 

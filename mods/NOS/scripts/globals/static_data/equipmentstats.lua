@@ -574,6 +574,14 @@ EquipmentStats = {
 			TwoHandedWeapon = true,
 			Speed = 3
 		},
+		HandSaw = {
+			WeaponClass = "Tool",
+			Attack = 3,
+			MinSkill = 0,
+			PrimaryAbility = "Cut",
+			TwoHandedWeapon = true,
+			Speed = 3
+		},
 		FishingRod = {
 			WeaponClass = "Tool",
 			Attack = 3,

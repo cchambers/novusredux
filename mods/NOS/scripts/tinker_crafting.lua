@@ -10,15 +10,9 @@ function HandleModuleLoaded()
 end
 
 function HandleUseTool(user,useType)
-
-	--DebugMessage("Received Use Request")
-	
-	if(useType ~= "Tinkering") then return end
-	
 	if( user == nil or not(user:IsValid()) ) then
 		return
 	end
-	
 	user:AddModule("base_crafting_controller")
 	user:SendMessage("InitiateCrafting", this,"TinkeringSkill","Resources")
 end
