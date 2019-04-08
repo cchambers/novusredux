@@ -3424,7 +3424,8 @@ AlchemySkill = {
 			Subcategory = "Effects",
 			Resources = {
 				BottleEmptyRegular = 1,
-				Ginseng = 1
+				EtherealBones = 1,
+				Blackpearl = 2
 			},
 		},
 		
@@ -3439,7 +3440,8 @@ AlchemySkill = {
 			Subcategory = "Effects",
 			Resources = {
 				BottleEmptyRegular = 1,
-				Ginseng = 1
+				EtherealBones = 1,
+				Ginseng = 2
 			},
 		},
 		
@@ -3454,7 +3456,8 @@ AlchemySkill = {
 			Subcategory = "Effects",
 			Resources = {
 				BottleEmptyRegular = 1,
-				Ginseng = 1
+				EtherealBones = 1,
+				Mandrake = 2
 			},
 		},
 
@@ -3469,7 +3472,8 @@ AlchemySkill = {
 			Subcategory = "Effects",
 			Resources = {
 				BottleEmptyRegular = 1,
-				Ginseng = 1
+				EtherealBones = 1,
+				Sulfurousash = 2
 			},
 		},
 		
@@ -3484,7 +3488,8 @@ AlchemySkill = {
 			Subcategory = "Effects",
 			Resources = {
 				BottleEmptyRegular = 1,
-				Ginseng = 1
+				EtherealBones = 1,
+				Garlic = 2
 			},
 		},
 		-- HEALTH --
