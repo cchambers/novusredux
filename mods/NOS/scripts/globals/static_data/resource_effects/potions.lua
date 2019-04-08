@@ -112,6 +112,7 @@ ResourceEffectData.PotionNOSSuperiorHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 80,
+        PotionLevel = 4
     },
     SelfOnly = true,
     Tooltip = {
@@ -123,6 +124,7 @@ ResourceEffectData.PotionNOSGreaterHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 60,
+        PotionLevel = 3
     },
     SelfOnly = true,
     Tooltip = {
@@ -134,6 +136,7 @@ ResourceEffectData.PotionNOSRegularHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 30,
+        PotionLevel = 2
     },
     SelfOnly = true,
     Tooltip = {
@@ -145,6 +148,7 @@ ResourceEffectData.PotionNOSLesserHealth = {
     MobileEffect = "PotionNOSHealth",
     MobileEffectArgs = {
         Percentage = 15,
+        PotionLevel = 1
     },
     SelfOnly = true,
     Tooltip = {
@@ -158,6 +162,7 @@ ResourceEffectData.PotionNOSSuperiorMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
         Percentage = 80,
+        PotionLevel = 4
     },
     SelfOnly = true,
     Tooltip = {
@@ -169,6 +174,7 @@ ResourceEffectData.PotionNOSGreaterMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
         Percentage = 60,
+        PotionLevel = 3
     },
     SelfOnly = true,
     Tooltip = {
@@ -180,6 +186,7 @@ ResourceEffectData.PotionNOSRegularMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
         Percentage = 30,
+        PotionLevel = 2
     },
     SelfOnly = true,
     Tooltip = {
@@ -191,6 +198,7 @@ ResourceEffectData.PotionNOSLesserMana = {
     MobileEffect = "PotionNOSMana",
     MobileEffectArgs = {
         Percentage = 15,
+        PotionLevel = 1
     },
     SelfOnly = true,
     Tooltip = {
@@ -204,6 +212,7 @@ ResourceEffectData.PotionNOSSuperiorStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
         Percentage = 80,
+        PotionLevel = 4
     },
     SelfOnly = true,
     Tooltip = {
@@ -215,6 +224,7 @@ ResourceEffectData.PotionNOSGreaterStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
         Percentage = 60,
+        PotionLevel = 3
     },
     SelfOnly = true,
     Tooltip = {
@@ -226,6 +236,7 @@ ResourceEffectData.PotionNOSRegularStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
         Percentage = 30,
+        PotionLevel = 2
     },
     SelfOnly = true,
     Tooltip = {
@@ -237,6 +248,7 @@ ResourceEffectData.PotionNOSLesserStamina = {
     MobileEffect = "PotionNOSStamina",
     MobileEffectArgs = {
         Percentage = 15,
+        PotionLevel = 1
     },
     SelfOnly = true,
     Tooltip = {
@@ -291,6 +303,21 @@ ResourceEffectData.PotionNOSLesserCure = {
 
 
 -- POISON --
+ResourceEffectData.PotionNOSDeadlyPoison = {
+    MobileEffect = "ApplyPoison",
+    MobileEffectArgs = {
+        PoisonLevel = 5,
+    },
+    RequireSkill = {
+        PoisoningSkill = 100,
+    },
+    NoCombat = true,
+    QueueTarget = "Loc", 
+    Tooltip = {
+        "A level five Poison.",
+    }
+}
+
 ResourceEffectData.PotionNOSSuperiorPoison = {
     MobileEffect = "ApplyPoison",
     MobileEffectArgs = {
