@@ -2890,6 +2890,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 10 },
 				QuiltedCloth = { QuiltedCloth = 10 },
 				SilkCloth = { SilkCloth = 10 },
+				SpectralSilkCloth = { SpectralSilkCloth = 10 },
+				GildedSilkCloth = { GildedSilkCloth = 10 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 10 },
 			},
 		},
 
@@ -2908,6 +2911,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 15 },
 				QuiltedCloth = { QuiltedCloth = 15 },
 				SilkCloth = { SilkCloth = 15 },
+				SpectralSilkCloth = { SpectralSilkCloth = 15 },
+				GildedSilkCloth = { GildedSilkCloth = 15 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
 			},
 		},
 
@@ -2926,6 +2932,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 15 },
 				QuiltedCloth = { QuiltedCloth = 15 },
 				SilkCloth = { SilkCloth = 15 },
+				SpectralSilkCloth = { SpectralSilkCloth = 15 },
+				GildedSilkCloth = { GildedSilkCloth = 15 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
 			},
 		},
 
@@ -2944,6 +2953,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 10 },
 				QuiltedCloth = { QuiltedCloth = 15 },
 				SilkCloth = { SilkCloth = 15 },
+				SpectralSilkCloth = { SpectralSilkCloth = 15 },
+				GildedSilkCloth = { GildedSilkCloth = 15 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
 			},
 		},
 
@@ -2962,6 +2974,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 15 },
 				QuiltedCloth = { QuiltedCloth = 15 },
 				SilkCloth = { SilkCloth = 15 },
+				SpectralSilkCloth = { SpectralSilkCloth = 15 },
+				GildedSilkCloth = { GildedSilkCloth = 15 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
 			},
 		},
 
@@ -2980,6 +2995,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 15 },
 				QuiltedCloth = { QuiltedCloth = 15 },
 				SilkCloth = { SilkCloth = 15 },
+				SpectralSilkCloth = { SpectralSilkCloth = 15 },
+				GildedSilkCloth = { GildedSilkCloth = 15 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 15 },
 			},
 		},
 
@@ -2998,6 +3016,9 @@ FabricationSkill = {
 				Cloth = { Cloth = 20 },
 				QuiltedCloth = { QuiltedCloth = 20 },
 				SilkCloth = { SilkCloth = 20 },
+				SpectralSilkCloth = { SpectralSilkCloth = 20 },
+				GildedSilkCloth = { GildedSilkCloth = 20 },
+				AntiqueSilkCloth = { AntiqueSilkCloth = 20 },
 			},
 		},
 

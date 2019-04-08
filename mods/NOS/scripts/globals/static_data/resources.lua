@@ -551,6 +551,21 @@ ResourceData = {
 			CraftedItemPrefix = "Silk",
 			Template = "resource_silk_cloth",
 		},
+		SpectralSilkCloth = {
+			DisplayName = "Spectral Silk Cloth",
+			CraftedItemPrefix = "Spectral Silk",
+			Template = "resource_spectral_silk_cloth",
+		},
+		GildedSilkCloth = {
+			DisplayName = "Gilded Silk Cloth",
+			CraftedItemPrefix = "Gilded Silk",
+			Template = "resource_gilded_silk_cloth",
+		},
+		AntiqueSilkCloth = {
+			DisplayName = "Antique Silk Cloth",
+			CraftedItemPrefix = "Antique Silk",
+			Template = "resource_antique_silk_cloth",
+		},
 		WildSilkCloth = {
 			DisplayName = "Wild Silk Cloth",
 			CraftedItemPrefix = "Wild Silk",
@@ -589,6 +604,18 @@ ResourceData = {
 		RecipeSilkCloth = {
 			Template = "recipe_silkcloth",
 			DisplayName = "Recipe: Silk Cloth",
+		},
+		RecipeSpectralSilkCloth = {
+			Template = "recipe_spectralsilkcloth",
+			DisplayName = "Recipe: Spectral Silk Cloth",
+		},
+		RecipeGildedSilkCloth = {
+			Template = "recipe_gildedsilkcloth",
+			DisplayName = "Recipe: Gilded Silk Cloth",
+		},
+		RecipeAntiqueSilkCloth = {
+			Template = "recipe_antiquesilkcloth",
+			DisplayName = "Recipe: Antique Silk Cloth",
 		},
 		RecipeQuiltedCloth = {
 			Template = "recipe_quiltedcloth",
