@@ -126,26 +126,26 @@ function ShowCraftingMenu(createdObject, isImproving, canImprove, improveResultS
 			return
 		end
 
-		local hammers = {}
+		-- local hammers = {}
 
-		-- look for hammers in their backpack
-		local backpack = this:GetEquippedObject("Backpack")
-		if ( backpack ) then
-			hammers = FindItemsInContainerRecursive(backpack, 'SmithHammer')
-		end
+		-- -- look for hammers in their backpack
+		-- local backpack = this:GetEquippedObject("Backpack")
+		-- if ( backpack ) then
+		-- 	hammers = FindItemsInContainerRecursive(backpack, 'SmithHammer')
+		-- end
 
-		-- look for one equipped
-		local equipped = this:GetEquippedObject("RightHand")
-		if ( equipped ) then
-			if (equipped:GetType() == 'SmithHammer') then
-				table.insert(hammers, equipped)
-			end
-		end
+		-- -- look for one equipped
+		-- local equipped = this:GetEquippedObject("RightHand")
+		-- if ( equipped ) then
+		-- 	if (equipped:GetType() == 'SmithHammer') then
+		-- 		table.insert(hammers, equipped)
+		-- 	end
+		-- end
 
-		if (#hammers == 0) then 
-			this:SystemMessage("You need a hammer of some sort to do this.")
-			return
-		end
+		-- if (#hammers == 0) then 
+		-- 	this:SystemMessage("You need a hammer of some sort to do this.")
+		-- 	return
+		-- end
 	end
 
 	isImproving = false

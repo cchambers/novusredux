@@ -44,7 +44,7 @@ function HarvestParts(user)
 	local animalPartsDict = this:GetObjVar("AnimalParts")
 	local backpackObj = this:GetEquippedObject("Backpack")
 	local harvestingSkill = GetSkillLevel(user, "HarvestingSkill")
-	local resource = nil
+	local resource = {}
 	if(backpackObj) then
 		local partCount = 0
 		if(animalPartsDict) then

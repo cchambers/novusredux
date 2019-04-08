@@ -4925,6 +4925,23 @@ InscriptionSkill = {
 				EtherealBones = 10
 			},
 		},
+
+		SpectralSteelRecipe = {
+			MinLevelToCraft = 70,
+			MaxLevelToGain = 125,
+			DisplayName = "Spectral Steel Recipe",
+			NeedRecipe = true,
+			Description = "A Blacksmith recipe to craft Spectral Steel. ",
+			CraftingTemplateFile = "recipe_spectral",
+			Category = "Recipes",
+			Subcategory = "Ingots",
+			Resources = {
+				Blackpearl = 5,
+				AncientScroll = 10,
+				FineScroll = 10,
+				EtherealBones = 10
+			},
+		},
 		----Bows
 
 		LongBowRecipe = {
