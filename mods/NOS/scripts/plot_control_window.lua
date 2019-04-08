@@ -166,18 +166,18 @@ function ManageTab(dynamicWindow)
     dynamicWindow:AddButton(20, 66, "Kick", "Kick", 290, 26, "Remove a target from your plot.", "", false, "List")
 
     if (isHouse) then
-        -- dynamicWindow:AddButton(
-        --     20,
-        --     200,
-        --     "OpenBank",
-        --     "Open Your Bank",
-        --     290,
-        --     26,
-        --     "Costs 10,000g.",
-        --     "",
-        --     false,
-        --     "List"
-        -- )
+        dynamicWindow:AddButton(
+            20,
+            200,
+            "OpenBank",
+            "Open Your Bank",
+            290,
+            26,
+            "Costs 10,000g.",
+            "",
+            false,
+            "List"
+        )
         dynamicWindow:AddButton(20, 92, "Destroy", "Destroy", 290, 26, "Destroy this house.", "", false, "List")
     else
         dynamicWindow:AddButton(
@@ -439,7 +439,7 @@ RegisterEventHandler(
         if
             ((isHouse and not Plot.HasHouseControl(this, plotController, controller)) or
                 (not isHouse and not Plot.IsOwner(this, controller)))
-         then
+        then
             CleanUp()
             return
         end
@@ -479,39 +479,40 @@ RegisterEventHandler(
                 local distance = controller:GetLoc():Distance(this:GetLoc())
                 if (distance > 6) then
                     user:SystemMessage(
-                        tostring("Move a little closer to the center of your house to access your bank!")
+                        tostring("Move a little closer to the center of your house to access your bank!"), "info"
                     )
                 else
-                    ClientDialog.Show {
-                        TargetUser = user,
-                        DialogId = "OpenBank" .. user.Id,
-                        TitleStr = "Open your bank?",
-                        DescStr = string.format(
-                            "Are you sure you want to open your bank? It will cost 10,000 gold! \nBe sure not to move or it may close!"
-                        ),
-                        Button1Str = "Yes",
-                        Button2Str = "No",
-                        ResponseObj = this,
-                        ResponseFunc = function(user, buttonId) 
-                            DebugMessage('GO THERE')
-                            local buttonId = tonumber(buttonId)
-                            if (user == nil or buttonId == nil) then
-                                return
-                            end
-                            if (buttonId == 0) then
-                                local count = CountCoins(user)
-                                local amount = 10000
-                                if (count >= amount) then
-                                    ConsumeResourceContainer(user, "coins", amount)
+                    -- ClientDialog.Show {
+                    --     TargetUser = user,
+                    --     DialogId = "OpenBank" .. user.Id,
+                    --     TitleStr = "Open your bank?",
+                    --     DescStr = string.format(
+                    --         "Are you sure you want to open your bank? It will cost 10,000 gold! \nBe sure not to move or it may close!"
+                    --     ),
+                    --     Button1Str = "Yes",
+                    --     Button2Str = "No",
+                    --     ResponseObj = this, -- try 'controller'
+                    --     ResponseFunc = function(user, buttonId) 
+                    --         DebugMessage('GO THERE')
+                    --         local buttonId = tonumber(buttonId)
+                    --         if (user == nil or buttonId == nil) then
+                    --             return
+                    --         end
+                    --         if (buttonId == 0) then
+                                -- local count = CountCoins(user)
+                                -- local amount = 10000
+                                -- if (count >= amount) then
+                                    user:SystemMessage("Opening bank...", "info")
+                                    -- ConsumeResourceContainer(user, "coins", amount)
                                     user:SendMessage("OpenBank", controller)
-                                else
-                                    user:SystemMessage("You cannot afford to do that.")
-                                end
-                                return
-                            end
-                            user:SystemMessage("Opening bank...")
-                        end
-                    }
+                                -- else
+                                --     user:SystemMessage("You cannot afford to do that.")
+                                --     return
+                                -- end
+                    --         end
+                    --         return
+                    --     end
+                    -- }
                 end
             end
         else
