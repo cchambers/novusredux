@@ -2492,6 +2492,38 @@ TinkeringSkill = {
 			Sand = 10,
 		},
 	},
+	HammerTool = {
+		MinLevelToCraft = 20,
+		MaxLevelToGain = 45,
+		DisplayName = "Hammer",
+		CraftingTemplateFile = "tool_hammer",
+		Description = "A hammer for smiths.",
+		ItemType = "WeaponClass",
+		Category = "Equipment",
+		Subcategory = "Tools",
+		NeedRecipe = false,
+		CanSalvage = false,
+		StackCount = 1,
+		Resources = {
+			Iron = 2,
+			Boards = 1
+		},
+		MortarTool = {
+			MinLevelToCraft = 20,
+			MaxLevelToGain = 45,
+			DisplayName = "Mortar and Pestle",
+			CraftingTemplateFile = "tool_alchemist_mortar",
+			Description = "A Mortar and Pestle for alchemists.",
+			ItemType = "WeaponClass",
+			Category = "Equipment",
+			Subcategory = "Tools",
+			NeedRecipe = false,
+			CanSalvage = false,
+			StackCount = 1,
+			Resources = {
+				Stone = 5
+			},
+	},
 	Bottle1 = {
 		MinLevelToCraft = 0,
 		MaxLevelToGain = 25,

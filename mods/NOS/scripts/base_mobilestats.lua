@@ -461,7 +461,6 @@ function RecalculateDefense()
 			end
 
 			thisArmorRating = thisArmorRating + armorRating
-		DebugMessage(tostring("><><>< " .. thisArmorRating))
 		end		
 	else
 		thisArmorRating = this:GetObjVar("Armor") or ServerSettings.Stats.DefaultMobArmorRating
@@ -469,8 +468,6 @@ function RecalculateDefense()
  
 	local defense = thisArmorRating + thisArmorBonus
 	defense = math.floor( (defense + GetMobileMod(MobileMod.DefensePlus)) * GetMobileMod(MobileMod.DefenseTimes, 1) )
-	DebugMessage("TEST")
-	DebugMessage(tostring(defense))
 	this:SetStatValue("Defense", math.max(defense, 1))
 end
 
