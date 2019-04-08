@@ -29,6 +29,7 @@ require 'globals.mobile_effects.nos.magicunlock'
 require 'globals.mobile_effects.nos.magictrap'
 require 'globals.mobile_effects.nos.magicuntrap'
 require 'globals.mobile_effects.nos.summoncreature'
+require 'globals.mobile_effects.nos.summondaemon'
 require 'globals.mobile_effects.nos.traptriggered'
 
 require 'globals.mobile_effects.nos.identify'

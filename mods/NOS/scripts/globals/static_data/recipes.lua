@@ -4604,6 +4604,20 @@ InscriptionSkill = {
 				AncientScroll = 1,
 			},
 		},
+		SummonDaemonScroll = {
+			MinLevelToCraft = 81.7,
+			MaxLevelToGain = 110.7,
+			DisplayName = "SummonDaemon Scroll",
+			NeedRecipe = false,
+			Description = "A summon daemon scroll. ",
+			CraftingTemplateFile = "scroll_summondaemon",
+			Category = "Scrolls",
+			Subcategory = "Circle 8",
+			Resources = {
+				Moss = 2,
+				AncientScroll = 1,
+			},
+		},
 		AuraoffireScroll = {
 			MinLevelToCraft = 75,
 			MaxLevelToGain = 125,
