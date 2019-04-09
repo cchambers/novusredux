@@ -2852,6 +2852,42 @@ FabricationSkill = {
 				Silk = 5,
 			},
 		},
+		
+		AntiqueSilkCloth = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Antique Silk Cloth",
+			CraftingTemplateFile = "resource_antique_silk_cloth",
+			Description = "A fabric woven from fine silk. Can be used to make silk clothing and armor.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Cloth",
+			NeedRecipe = true,
+			CanSalvage = false,
+			StackCount = 1,
+			Resources = {
+				Silk = 5,
+				CopperWire = 5
+			},
+		},
+		
+		SpectralSilkCloth = {
+			MinLevelToCraft = 50,
+			MaxLevelToGain = 75,
+			DisplayName = "Spectral Silk Cloth",
+			CraftingTemplateFile = "resource_spectral_silk_cloth",
+			Description = "A fabric woven from fine silk. Can be used to make silk clothing and armor.",
+			ItemType = "ResourceClass",
+			Category = "Resources",
+			Subcategory = "Cloth",
+			NeedRecipe = true,
+			CanSalvage = false,
+			StackCount = 1,
+			Resources = {
+				Silk = 5,
+				SpectralWire = 5
+			},
+		},
 
 		Leather = {
 			MinLevelToCraft = 25,
