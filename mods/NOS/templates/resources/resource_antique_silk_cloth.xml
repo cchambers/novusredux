@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[fff2d9]Bolt of Antique Silk Cloth[-]</Name>
+  <ClientId>992</ClientId>
+  <Hue>667</Hue>
+    <SharedStateEntry name="Weight" type="int" value="1" />
+  <ObjectVariableComponent>
+    <StringVariable Name="ResourceType">AntiqueSilkCloth</StringVariable>
+    <StringVariable Name="PluralName">Bolts of Antique Silk Cloth</StringVariable>
+    <DoubleVariable Name="UnitWeight">0.5</DoubleVariable>
+  </ObjectVariableComponent>
+  <ScriptEngineComponent>
+    <LuaModule Name="stackable" />
+  </ScriptEngineComponent>
+</ObjectTemplate>
