@@ -507,23 +507,23 @@ ResourceData = {
 		},
 
 		MetalParts = {
-			Template = "resource_wire_spectral",
+			Template = "resource_parts_spectral",
 			DisplayName = "MetalParts",
 			CraftedItemPrefix = "MetalParts",
 		},
 
 		SpectralParts = {
-			Template = "resource_wire_spectral",
+			Template = "resource_parts_spectral",
 			DisplayName = "SpectralParts",
 			CraftedItemPrefix = "SpectralParts",
 		},
 		GoldParts = {
-			Template = "resource_wire_gold",
+			Template = "resource_parts_gold",
 			DisplayName = "GoldParts",
 			CraftedItemPrefix = "GoldParts",
 		},
 		CopperParts = {
-			Template = "resource_wire_spectral",
+			Template = "resource_parts_spectral",
 			DisplayName = "CopperParts",
 			CraftedItemPrefix = "CopperParts",
 		},

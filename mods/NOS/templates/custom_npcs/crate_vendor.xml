@@ -52,7 +52,7 @@
 						},
 						{
 							Template = "furniture_box",
-							Price = 50000,
+							Price = 20000,
 							Amount = 20,
 							RelativeLoc = "3, 1, 0",
 							Rotation = "0, 270, 0",
@@ -60,7 +60,7 @@
 						},
 						{
 							Template = "furniture_box_rare",
-							Price = 100000,
+							Price = 60000,
 							Amount = 5,
 							RelativeLoc = "2, 1, 0",
 							Rotation = "0, 270, 0",
@@ -68,7 +68,7 @@
 						},
 						{
 							Template = "recipe_box_rare",
-							Price = 250000,
+							Price = 100000,
 							Amount = 5,
 							RelativeLoc = "1, 1, 0",
 							Rotation = "0, 270, 0",

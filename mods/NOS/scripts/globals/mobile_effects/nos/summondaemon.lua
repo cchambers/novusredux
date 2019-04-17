@@ -52,5 +52,5 @@ MobileEffectLibrary.SummonDaemon = {
 		EndMobileEffect(root)
 	end,
 	Duration = TimeSpan.FromSeconds(2),
-	Lifetime = 30
+	Lifetime = 480
 }

@@ -125,13 +125,15 @@ function UpdateConsumableWindow()
 		mCONSUME:AddLabel(rem(7.5), rem(5), bandicount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 		
 		mCONSUME:AddLabel(rem(1.5), rem(7), "PETS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		-- mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(7), "MINS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
-
 		mCONSUME:AddLabel(rem(1.5), rem(8.5), mTracked.followers.pets, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
-		mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+		
+		mCONSUME:AddLabel(rem(7.5), rem(7), "G-PH", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+	
+		-- mCONSUME:AddLabel(rem(7.5), rem(7), "MINS", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
+		-- mCONSUME:AddLabel(rem(7.5), rem(8.5), mTracked.followers.minions, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
 
-		-- mCONSUME:AddLabel(rem(7.5), rem(8.5), PH, valuewidth, labelheight, datafontsize, "center", false, true, fontname)
+
 	end
 
 	local next = this:GetObjVar("NextPowerHour")

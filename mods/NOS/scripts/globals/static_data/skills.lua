@@ -157,7 +157,7 @@ SkillData = {
 			Description = "Tinkering is the ability to craft tools and other fine items.",
 			PrimaryStat = "Strength",
 			SkillType = "TradeTypeSkill",
-			GainFactor = 0.7
+			GainFactor = 0.5
 		},
 		WoodsmithSkill = {
 			DisplayName = "Carpentry",

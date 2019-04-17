@@ -25,7 +25,8 @@ MobileEffectLibrary.PotionNOSMana =
 		EndMobileEffect(root)
 	end,
 
-	OnExitState = function(self, root) 
+	DoBottleReturn = function(self, root) 
+		local backpackObj = self.ParentObj:GetEquippedObject("Backpack")
 		local template = tostring("empty_bottle_"..self.PotionLevel)
 		local lootObjects = backpackObj:GetContainedObjects()
 		local pots = false

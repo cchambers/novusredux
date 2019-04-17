@@ -1,5 +1,6 @@
 <ObjectTemplate>
 	<ClientId>1981</ClientId>
+	<ScaleModifier>0.75</ScaleModifier>
 	<Name>[CCCCCC]Tinker Tool Board[-]</Name>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 	<ObjectVariableComponent>

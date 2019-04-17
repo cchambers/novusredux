@@ -37,6 +37,7 @@ local HueNames = {
 	hue953 = "Void",
 	hue957 = "Pika",
 	hue950 = "Crimson",
+	hue966 = "Nerd",
 	hue971 = "Typhoon",
 	hue973 = "Royal",
 	hue976 = "Glacier",

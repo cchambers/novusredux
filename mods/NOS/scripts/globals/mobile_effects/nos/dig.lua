@@ -185,7 +185,7 @@ MobileEffectLibrary.Dig = {
 
         for i, j in pairs(region) do
             local str = string.lower(j)
-            if (string.match(str, "beach") or string.match(str, "sand")) then
+            if (string.match(str, "beach") or string.match(str, "sand") or string.match(str, "desert")) then
                 beach = true
                 break
             end

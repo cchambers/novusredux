@@ -4,7 +4,7 @@
 	<ObjectVariableComponent>	
 	<StringVariable Name="spawnDay">Fri</StringVariable>
 		<DoubleVariable Name="spawnRadius">20</DoubleVariable>
-		<DoubleVariable Name="spawnDelay">1800</DoubleVariable>
+		<DoubleVariable Name="spawnDelay">600</DoubleVariable>
 		<DoubleVariable Name="spawnCount">10</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>

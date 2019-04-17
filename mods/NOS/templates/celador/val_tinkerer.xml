@@ -23,7 +23,9 @@
 					},
 					Skills= {
 						Mining = 100,
-						Lockpicking = 100,
+						Tinkering = 100,
+						ArmsLore = 100,
+						Lockpicking = 100
 					},
 					EquipTable= {
 						BodyPartHead= {

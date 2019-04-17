@@ -14,20 +14,14 @@ NPCTasks = {}
 
 AI.IntroMessages = {
     --note that this is a single string on multiple lines
-    "[$113]",
-    "[$114]"
+    "What can I do ya for?"
 }
 
 AI.TradeMessages = {
-    "[$115]",
-    "[$116]",
-    "[$117]",
-    "[$118]"
+    "Okay, talk to me.",
 }
 
 AI.GreetingMessages = {
-    "[$119]",
-    "[$120]",
     "Welcome, welcome. Can I interest you in something?"
 }
 
@@ -50,8 +44,6 @@ AI.NotYoursMessage = {
 
 AI.CantAffordPurchaseMessages = {
     "That's not enough to cover costs I'm afraid.",
-    "[$122]",
-    "[$123]"
 }
 
 AI.AskHelpMessages = {
@@ -61,20 +53,17 @@ AI.AskHelpMessages = {
 }
 
 AI.RefuseTrainMessage = {
-    "[$125]",
-    "[$126]"
+    "Not today.",
 }
 
 AI.WellTrainedMessage = {
-    "[$127]"
+    "You know just about everything I can teach you."
 }
 
 AI.CannotAffordMessages = AI.CantAffordPurchaseMessages
 
 AI.TrainScopeMessages = {
-    "[$128]",
-    "[$129]",
-    "[$130]"
+    "Sure, I can do that.",
 }
 
 AI.NevermindMessages = {
@@ -83,31 +72,8 @@ AI.NevermindMessages = {
     "What else would you desire?"
 }
 
-AI.TalkMessages = {
-    "[$131]",
-    "Ask, but know that there is always more to know!"
-}
-
 AI.WhoMessages = {
-    "[$132]"
-}
-
-AI.PersonalQuestion = {
-    "If you so wish. What is your question?",
-    "[$133]",
-    "I have much to divulge. Even about myself."
-}
-
-AI.HowMessages = {
-    "[$134]"
-}
-
-AI.FamilyMessage = {
-    "[$135]"
-}
-
-AI.SpareTimeMessages = {
-    "[$136]"
+    "Me? I'm just a dude playing a dude dressed as another dude! What can I do for ya?"
 }
 
 AI.WhatMessages = {
@@ -120,55 +86,11 @@ AI.StoryMessages = {
     "[$137]"
 }
 
-function Dialog.OpenTalkDialog(user)
-    text = AI.TalkMessages[math.random(1, #AI.TalkMessages)]
-
-    response = {}
-
-    response[1] = {}
-    response[1].text = "What do you know about..."
-    response[1].handle = "What"
-
-    response[2] = {}
-    response[2].text = "Who are you anyway?"
-    response[2].handle = "Who"
-
-    response[3] = {}
-    response[3].text = "What is this place?"
-    response[3].handle = "Where"
-
-    response[4] = {}
-    response[4].text = "Nevermind."
-    response[4].handle = "Nevermind"
-
-    NPCInteractionLongButton(text, this, user, "Responses", response)
-end
-
 function Dialog.OpenWhatDialog(user)
     --DebugMessage("WhatDialog")
     text = AI.WhatMessages[math.random(1, #AI.WhatMessages)]
 
     response = {}
-
-    response[1] = {}
-    response[1].text = "...The City of Petra?"
-    response[1].handle = "Imprisoning"
-
-    response[2] = {}
-    response[2].text = "...The gods?"
-    response[2].handle = "TheGods"
-
-    response[3] = {}
-    response[3].text = "...The art of making potions?"
-    response[3].handle = "Potions"
-
-    response[4] = {}
-    response[4].text = "...Magic?"
-    response[4].handle = "Magic"
-
-    response[5] = {}
-    response[5].text = "...Why your wife is so cross?"
-    response[5].handle = "Beatrix"
 
     response[6] = {}
     response[6].text = "Nevermind."
@@ -182,18 +104,6 @@ function Dialog.OpenWhoDialog(user)
 
     response = {}
 
-    response[1] = {}
-    response[1].text = "What's your story?"
-    response[1].handle = "Story"
-
-    response[2] = {}
-    response[2].text = "Why are you a mage?"
-    response[2].handle = "How"
-
-    response[3] = {}
-    response[3].text = "I have a personal question..."
-    response[3].handle = "PersonalQuestion"
-
     response[4] = {}
     response[4].text = "Nevermind."
     response[4].handle = "Nevermind"
@@ -201,68 +111,5 @@ function Dialog.OpenWhoDialog(user)
     NPCInteraction(text, this, user, "Responses", response)
 end
 
-function Dialog.OpenPersonalQuestionDialog(user)
-    text = AI.PersonalQuestion[math.random(1, #AI.PersonalQuestion)]
-
-    response = {}
-
-    response[1] = {}
-    response[1].text = "Do you have a family?"
-    response[1].handle = "Family"
-
-    response[2] = {}
-    response[2].text = "What's your last name?"
-    response[2].handle = "LastName"
-
-    response[3] = {}
-    response[3].text = "What do you do in your spare time?"
-    response[3].handle = "SpareTime"
-
-    response[4] = {}
-    response[4].text = "Nevermind."
-    response[4].handle = "Nevermind"
-
-    NPCInteractionLongButton(text, this, user, "Responses", response)
-end
-
-function Dialog.OpenCantDialog(user)
-    --DFB TODO: Make this dialog disappear and implement it based on a per-task basis!
-    DialogReturnMessage(this, user, "[$141]", "Right.")
-end
-function Dialog.OpenCeladorDialog(user)
-    DialogReturnMessage(this, user, "[$142]", "Right.")
-end
-Dialog.OpenWhereDialog = Dialog.OpenCeladorDialog
-
-function Dialog.OpenImprisoningDialog(user)
-    DialogReturnMessage(this, user, "[$143]", "Interesting. Thank you.")
-end
-function Dialog.OpenTheGodsDialog(user)
-    DialogReturnMessage(this, user, "[$144]", "Huh. Interesting.")
-end
-function Dialog.OpenPotionsDialog(user)
-    DialogReturnMessage(this, user, "[$145]", "Interesting. Thanks.")
-end
-function Dialog.OpenMagicDialog(user)
-    DialogReturnMessage(this, user, "[$146]", "Right.")
-end
-function Dialog.OpenBeatrixDialog(user)
-    DialogReturnMessage(this, user, "[$147]", "...Oh. Sorry")
-end
-function Dialog.OpenFamilyDialog(user)
-    DialogEndMessage(this, user, AI.FamilyMessage[math.random(1, #AI.FamilyMessage)], "Oh...")
-end
-function Dialog.OpenSpareTimeDialog(user)
-    DialogReturnMessage(this, user, AI.SpareTimeMessages[math.random(1, #AI.SpareTimeMessages)], "Oh.")
-end
-function Dialog.OpenHowDialog(user)
-    DialogReturnMessage(this, user, AI.HowMessages[math.random(1, #AI.HowMessages)], "Oh.")
-end
-function Dialog.OpenStoryDialog(user)
-    DialogReturnMessage(this, user, AI.StoryMessages[math.random(1, #AI.StoryMessages)], "Oh.")
-end
-function Dialog.OpenLastNameDialog(user)
-    DialogReturnMessage(this, user, "[$148]", "...Uh. Right.")
-end
 
 OverrideEventHandler("base_ai_npc", EventType.DynamicWindowResponse, "Responses", ResponsesDialog)

@@ -20802,17 +20802,17 @@
 		<DynamicObject>
 			<Name>ShipSpawner</Name>
 			<Id>1</Id>
-			<ObjectCreationParams>pirate_mob_spawner_small 1759.29 0 -1675.76 0 30 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>spectral_pirate_spawner 1759.29 0 -1675.76 0 30 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>ShipSpawner</Name>
 			<Id>1</Id>
-			<ObjectCreationParams>pirate_mob_spawner_small 1789.50 0 -1671.84 0 30 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>spectral_pirate_spawner 1789.50 0 -1671.84 0 30 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>ShipSpawner</Name>
 			<Id>1</Id>
-			<ObjectCreationParams>pirate_mob_spawner_small 1812.86 0 -1655.23 0 30 0 1 1 1</ObjectCreationParams>
+			<ObjectCreationParams>spectral_pirate_spawner 1812.86 0 -1655.23 0 30 0 1 1 1</ObjectCreationParams>
 		</DynamicObject>
 		<DynamicObject>
 			<Name>UndeadSpawner</Name>

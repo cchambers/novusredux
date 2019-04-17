@@ -2647,7 +2647,7 @@ TinkeringSkill = {
 	-- },
 	WireCopper = {
 		MinLevelToCraft = 50,
-		MaxLevelToGain = 65,
+		MaxLevelToGain = 75,
 		DisplayName = "Copper Wire",
 		CraftingTemplateFile = "resource_wire_copper",
 		Description = "A spool of copper wire.",
@@ -2663,7 +2663,7 @@ TinkeringSkill = {
 	},
 	WireGold = {
 		MinLevelToCraft = 70,
-		MaxLevelToGain = 85,
+		MaxLevelToGain = 95,
 		DisplayName = "Gold Wire",
 		CraftingTemplateFile = "resource_wire_gold",
 		Description = "A spool of gold wire.",
@@ -2678,7 +2678,7 @@ TinkeringSkill = {
 		},
 	},
 	WireSteel = {
-		MinLevelToCraft = 90,
+		MinLevelToCraft = 80,
 		MaxLevelToGain = 105,
 		DisplayName = "Steel Wire",
 		CraftingTemplateFile = "resource_wire_steel",
@@ -2694,7 +2694,7 @@ TinkeringSkill = {
 		},
 	},
 	WireSpectral = {
-		MinLevelToCraft = 90,
+		MinLevelToCraft = 85,
 		MaxLevelToGain = 105,
 		DisplayName = "Spectral Wire",
 		CraftingTemplateFile = "resource_wire_spectral",
