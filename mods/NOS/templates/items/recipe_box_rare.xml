@@ -39,6 +39,9 @@
                             { Weight = 5, Template = "recipe_hardened_buckler", Unique = true },
                             { Weight = 5, Template = "recipe_shield_of_justice", Unique = true },
 
+                            { Weight = 4, Template = "recipe_antiquesilkcloth", Unique = true },
+                            { Weight = 4, Template = "recipe_gildedsilkcloth", Unique = true },
+                            { Weight = 4, Template = "recipe_spectralsilkcloth", Unique = true },
                             { Weight = 2, Template = "recipe_broodwood", Unique = true },
                             { Weight = 2, Template = "recipe_steel", Unique = true },
                         },

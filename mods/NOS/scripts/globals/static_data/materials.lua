@@ -97,6 +97,9 @@ MaterialTooltipColors = {
     Cloth = "[b3a489]",
     QuiltedCloth = "[e6cfa5]",
     SilkCloth = "[fff2d9]",
+    SpectralSilkCloth = "[00FFFF]",
+    AntiqueSilkCloth = "[9cff3c]",
+    GildedSilkCloth = "[e6b032]",
 
     Leather = "[ab805c]",
     BeastLeather = "[b459ff]",
