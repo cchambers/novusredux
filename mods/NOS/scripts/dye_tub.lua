@@ -33,7 +33,6 @@ local HueNames = {
 	hue923 = "Limon",
 	hue930 = "Peach",
 	hue947 = "Spectral",
-	hue957 = "Pika",
 	hue953 = "Void",
 	hue957 = "Pika",
 	hue950 = "Crimson",

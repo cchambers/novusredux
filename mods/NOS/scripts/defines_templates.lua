@@ -380,7 +380,7 @@ TemplateDefines = {
 				{ Chance = 5, Template = "scroll_protection", Unique = true },
 				{ Chance = 5, Template = "scroll_cunning", Unique = true },
 				{ Chance = 5, Template = "scroll_trap", Unique = true },
-				{ Chance = 5, Template = "scroll_lock", Unique = true },
+				{ Chance = 5, Template = "scroll_magiclock", Unique = true },
 				{ Chance = 5, Template = "scroll_untrap", Unique = true },
 				{ Chance = 5, Template = "scroll_unlock", Unique = true },
 			},

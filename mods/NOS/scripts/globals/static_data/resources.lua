@@ -705,6 +705,10 @@ ResourceData = {
 			Template = "recipe_arrow_blightwood",
 			DisplayName = "Recipe: Blightwood Arrows",
 		},
+		RecipeBroodwoodArrows = {
+			Template = "recipe_arrow_broodwood",
+			DisplayName = "Recipe: Broodwood Arrows",
+		},
 		RecipeAshBoards = {
 			Template = "recipe_ash",
 			DisplayName = "Recipe: Ash Boards",

@@ -230,7 +230,7 @@ function ExecuteWeaponAttack(atTarget, hand, ranged, hitSuccessOverride, isCritO
 	if (mQueuedWeaponAbility == nil or mQueuedWeaponAbility.SkipHitAction ~= true) then
 		if (hitSuccess) then
 			if (ranged) then
-				local targetArrowTable = atTarget:GetObjVar("ArrowCount") or { Arrows = 0, AshArrows = 0, BlightwoodArrows = 0 }
+				local targetArrowTable = atTarget:GetObjVar("ArrowCount") or { Arrows = 0, AshArrows = 0, BlightwoodArrows = 0, BroodwoodArrows = 0 }
 				targetArrowTable[mArrowType] = targetArrowTable[mArrowType] + 1
 				atTarget:SetObjVar("ArrowCount", targetArrowTable)
 			end

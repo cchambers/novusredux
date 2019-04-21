@@ -951,7 +951,8 @@ ArrowTypes = {
 	"Arrows",
 	"FeatheredArrows",
 	"AshArrows",
-	"BlightwoodArrows"
+	"BlightwoodArrows",
+	"BroodwoodArrows"
 }
 
 ArrowTypeData = {
@@ -970,6 +971,10 @@ ArrowTypeData = {
 	BlightwoodArrows = {
 		DamageBonus = 5,
 		Name = "Blightwood Arrows"
+	},
+	BroodwoodArrows = {
+		DamageBonus = 7,
+		Name = "Broodwood Arrows"
 	}
 }
 

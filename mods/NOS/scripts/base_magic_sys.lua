@@ -901,23 +901,23 @@ function HandleScrollCastRequest(spellName, scrollObj)
 end
 
 function HandleSpellCastRequest(spellName, spellSource, preDefTarg, targetLoc)
-	DebugMessage(0)
+	-- DebugMessage(0)
 	Verbose("Magic", "HandleSpellCastRequest", spellName, spellSource, preDefTarg, targetLoc)
 	if (spellName == nil) then
 		return
 	end
-	DebugMessage(1)
+	-- DebugMessage(1)
 	if (spellSource == nil) then
 		spellSource = this
 	end
-	DebugMessage(2)
-	DebugMessage(tostring(preDefTarg:IsValid()))
+	-- DebugMessage(2)
+	-- DebugMessage(tostring(preDefTarg:IsValid()))
 	if not (preDefTarg == nil) and not (preDefTarg:IsValid()) and targetLoc == nil then
 		--DebugMessage("Error targetloc is nil and no target")
 		preDefTarg = nil
 		return
 	end
-	DebugMessage(3)
+	-- DebugMessage(3)
 
 	if (spellSource:IsPlayer()) then
 		CastSpell(spellName, spellSource, preDefTarg)
@@ -925,7 +925,7 @@ function HandleSpellCastRequest(spellName, spellSource, preDefTarg, targetLoc)
 		CastSpell(spellName, spellSource, preDefTarg)
 	-- spellSource:SendMessage("RequestMagicalAttack", spellName,preDefTarg,spellSource,false,true)
 	end
-	DebugMessage(4)
+	-- DebugMessage(4)
 
 end
 
