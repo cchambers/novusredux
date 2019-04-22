@@ -41,13 +41,20 @@ function RecalculateHealthRegen()
 		this:SetObjVar("HealthRegen",0)
 		this:SetStatRegenRate("Health",0)
 	else
-		this:SetStatRegenRate("Health", (ServerSettings.Stats.BaseHealthRegenRate + GetMobileMod(MobileMod.HealthRegenPlus)) *GetMobileMod(MobileMod.HealthRegenTimes, 1) )
+		local armorModifier = 0 -- start at the max mod possible
+		for i,slot in pairs(ARMORSLOTS) do
+			local item = this:GetEquippedObject(slot)
+			if ( item ) then
+				local matRegen = GetMaterialHealthRegenModifier(item) or 0
+				armorModifier = armorModifier + matRegen
+			end
+		end
+		this:SetStatRegenRate("Health", (ServerSettings.Stats.BaseHealthRegenRate + GetMobileMod(MobileMod.HealthRegenPlus) + armorModifier) *GetMobileMod(MobileMod.HealthRegenTimes, 1) )
 	end
 
 end
 
 function RecalculateManaRegen()
-
 	local manaRegen = this:GetObjVar("ManaRegen")
 	if not( manaRegen ) then
 		if ( IsPlayerCharacter(this) ) then
@@ -59,16 +66,20 @@ function RecalculateManaRegen()
 			end
 
 			-- get the lowest armor mana regen mod from equipped armor
-			local armorModifier = 1 -- start at the max mod possible
+			local armorModifier = 0 -- start at the max mod possible
+			local matMod = 0
 			for i,slot in pairs(ARMORSLOTS) do
 				local item = this:GetEquippedObject(slot)
 				if ( item ) then
+					local matRegen = GetMaterialManaRegenModifier(item) or 0
+					matMod = matMod + matRegen
 					local classRegen = GetArmorClassManaRegenModifier(item, slot)
 					if ( classRegen < armorModifier ) then armorModifier = classRegen end
 				end
 			end
+			
+			armorModifier = armorModifier + matMod
 
-		
 			-- double the modifier for active focusing
 			if ( HasMobileEffect(this, "Focus") ) then
 				armorModifier = armorModifier * 2
@@ -88,13 +99,10 @@ function RecalculateManaRegen()
 			manaRegen = ServerSettings.Stats.DefaultMobManaRegen
 		end
 	end
-
-
 	this:SetStatRegenRate("Mana", (ServerSettings.Stats.BaseManaRegenRate + manaRegen + GetMobileMod(MobileMod.ManaRegenPlus)) * GetMobileMod(MobileMod.ManaRegenTimes, 1) )
 end
 
 function RecalculateStaminaRegen()
-
 	local staminaRegen = this:GetObjVar("StaminaRegen")
 	if not( staminaRegen ) then
 		if ( this:IsPlayer() ) then
@@ -184,7 +192,7 @@ function RecalculateDerivedAgi()
 		end
 	end
 
-	agi = math.clamp(agi + agiBonus, ServerSettings.Stats.IndividualStatMin, ServerSettings.Stats.IndividualPlayerStatCap)
+	agi = math.clamp(agi + agiBonus, ServerSettings.Stats.IndividualStatMin, (ServerSettings.Stats.IndividualPlayerStatCap + 25))
 
 	this:SetStatValue("Agi", math.floor(( agi + GetMobileMod(MobileMod.AgilityPlus) ) *GetMobileMod(MobileMod.AgilityTimes, 1)) )
 
