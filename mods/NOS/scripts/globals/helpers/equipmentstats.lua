@@ -64,7 +64,6 @@ function GetArmorStaRegenModifier(object, slot)
 end
 
 function GetArmorClassManaRegenModifier(object, slot)
-	local armorClass = GetArmorClass(object)
 	if ( armorClass and EquipmentStats.BaseArmorClass[armorClass] ~= nil and EquipmentStats.BaseArmorClass[armorClass][slot] ~= nil ) then
 		return EquipmentStats.BaseArmorClass[armorClass][slot].ManaRegenModifier or 0
 	end
@@ -77,6 +76,24 @@ function GetArmorTypeManaRegenModifier(object, slot)
 		return EquipmentStats.BaseArmorStats[armorType][slot].ManaRegenModifier or 0
 	end
 	return 0
+end
+
+function GetMaterialHealthRegenModifier(object)
+	local material = object:GetObjVar("Material")
+	local matBonus = 0
+	if (MaterialBonus[material] ~= nil) then
+		matBonus = MaterialBonus[material].HealthRegen or 0
+	end
+	return matBonus
+end
+
+function GetMaterialManaRegenModifier(object)
+	local material = object:GetObjVar("Material")
+	local matBonus = 0
+	if (MaterialBonus[material] ~= nil) then
+		matBonus = MaterialBonus[material].ManaRegen or 0
+	end
+	return matBonus
 end
 
 -- This can avoid the extra get objvar call
@@ -95,7 +112,6 @@ end
 function GetArmorType(object)
 	if(object) then
 		local armorType = object:GetObjVar("ArmorType") or "Natural"
-		--DebugMessage(tostring("KHI ".. armorType))
 		if not(EquipmentStats.BaseArmorStats[armorType]) then
 			LuaDebugCallStack("Invalid armor type: "..tostring(armorType)..", Template: "..object:GetCreationTemplateId())
 		else
@@ -119,7 +135,6 @@ function GetArmorBaseStat(object,statName)
 	if( baseStat ~= nil ) then
 		return baseStat
 	end
-
 	return 0
 end
 
@@ -289,4 +304,4 @@ function GetArmorAgiBonus(slot,item)
 		armorClass = GetArmorClassFromType(armorType)
 		return matBonus + (EquipmentStats.BaseArmorClass[armorClass][slot].AgiBonus or 0 )
 	end
-end 
+end

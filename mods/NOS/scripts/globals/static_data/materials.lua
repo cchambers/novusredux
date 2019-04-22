@@ -73,15 +73,14 @@ MaterialBonus = {
         AgiBonus = 5,
         AttackSpeed = 5
     },
-    
     SpectralSilkCloth = {
         AgiBonus = 2
     },
     GildedSilkCloth = {
-        ManaRegen = 2
+        ManaRegen = 3
     },
     AntiqueSilkCloth = {
-        HealthRegen = 2
+        HealthRegen = 3
     }
 }
 

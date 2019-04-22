@@ -265,11 +265,3 @@ RegisterEventHandler(
 				return
 			end
 		)
-
---[[
-
-	Reg/ammo/pet/minion/bandage
-
-Events to listen to...
-
-]]--
