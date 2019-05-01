@@ -48,6 +48,7 @@
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.Recipes,
 						{
 							NumItems = 1,
 							NumCoins = math.random(600,800),

@@ -51,7 +51,8 @@
 				LootTables = 
 					{ 		
 						TemplateDefines.LootTable.Maps,
-						TemplateDefines.LootTable.Rich,	
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,	
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsRich,		
 						TemplateDefines.LootTable.ScrollsRich,

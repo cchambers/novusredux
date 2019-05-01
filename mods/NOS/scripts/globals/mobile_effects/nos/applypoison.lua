@@ -26,6 +26,7 @@ MobileEffectLibrary.ApplyPoison =
 			GreatAxe = true,
 			BladedClub = true,
 			Skinner = true,
+			Gladius = true,
 			LetterOpener = true,
 			Stiletto = true,
 			FulleredDagger = true,

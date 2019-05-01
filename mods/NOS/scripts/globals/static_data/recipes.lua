@@ -2880,7 +2880,7 @@ FabricationSkill = {
 			StackCount = 1,
 			Resources = {
 				Silk = 5,
-				CopperWire = 5
+				GoldWire = 5
 			},
 		},
 		

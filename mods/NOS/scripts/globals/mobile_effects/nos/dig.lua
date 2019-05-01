@@ -16,7 +16,7 @@ MobileEffectLibrary.Dig = {
 	end,
 	OnEnterState = function(self, root, target, args)
 		if (self:ValidateUse(root, args)) then
-			if (args.Duratoin ~= nil) then
+			if (args.Duration ~= nil) then
 				self.PulseFrequency = TimeSpan.FromSeconds(args.Duration)
 			end
 
@@ -236,7 +236,7 @@ MobileEffectLibrary.Dig = {
 		return false
 	end,
 	--Digging duration
-	PulseFrequency = TimeSpan.FromSeconds(5),
+	PulseFrequency = TimeSpan.FromSeconds(3),
 	ShovelEquipped = nil,
 	TargetLoc = nil
 }

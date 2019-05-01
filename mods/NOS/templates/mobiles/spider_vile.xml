@@ -51,7 +51,8 @@
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.SpiderRich,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.DecrepidEye,
 						{
 							NumCoins = math.random(450,600),

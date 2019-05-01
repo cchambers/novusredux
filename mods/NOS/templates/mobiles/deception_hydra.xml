@@ -27,7 +27,7 @@
 				MobTraits =
 					{
 						BowResistance = -0.8,
-						Might = 0.3,
+						Might = 3,
 					},
 				MobileEffects =
 					{

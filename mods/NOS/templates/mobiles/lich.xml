@@ -48,7 +48,8 @@
 					},
 					LootTables =
 					{
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.MagePoor,
 						TemplateDefines.LootTable.ScrollsLow,
 						TemplateDefines.LootTable.MapsLow,

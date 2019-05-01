@@ -1,11 +1,11 @@
 MobileEffectLibrary.SpellPoison = 
 {
-	OnEnterState = function(self,root,target,args)
+	OnEnterState = function(self,root,caster,args)
 		-- TARGET REPRESENTS THE PERSON THAT APPLIED THE POISON
-		self.Target = target
+		self.Caster = caster
 
-		local magery = GetSkillLevel(self.Target, "MagerySkill")
-		local poisoning = GetSkillLevel(self.Target, "PoisoningSkill")
+		local magery = GetSkillLevel(self.Caster, "MagerySkill")
+		local poisoning = GetSkillLevel(self.Caster, "PoisoningSkill")
 		local percent = magery / ServerSettings.Skills.PlayerSkillCap.Single
 		local poisonLevel = 1
 
@@ -21,7 +21,7 @@ MobileEffectLibrary.SpellPoison =
 			poisonLevel = 4
 		end
 
-		StartMobileEffect(self.ParentObj, "Poison", self.Target, {
+		StartMobileEffect(self.ParentObj, "Poison", self.Caster, {
 			PoisonLevel = poisonLevel
 		})
 

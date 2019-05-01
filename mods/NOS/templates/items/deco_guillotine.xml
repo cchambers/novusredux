@@ -1,5 +1,6 @@
 <ObjectTemplate>
-	<ClientId>1821</ClientId>
+	<ClientId>1729</ClientId>
 	<Name>[FF9500]Guillotine[-]</Name>
+	<ScaleModifier>0.8</ScaleModifier>
 	<SharedStateEntry name="Weight" type="int" value="-1"/>
 </ObjectTemplate>

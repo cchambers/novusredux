@@ -51,7 +51,8 @@
 						TemplateDefines.LootTable.SkeletonRich,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						{

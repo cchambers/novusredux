@@ -119,7 +119,7 @@ function UpdateConsumableWindow()
 		mCONSUME:AddLabel(rem(1.5), rem(3.5), "ARRW", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 		mCONSUME:AddLabel(rem(7.5), rem(3.5), "BAND", labelwidth, labelheight, labelfontsize, "center", false, true, fontname)
 		
-		local arrowcount = tostring(mTracked.arrows.regular .. " / " .. mTracked.arrows.ash .. " / " .. mTracked.arrows.blight.. " / " .. mTracked.arrows.brood)
+		local arrowcount = tostring(mTracked.arrows.regular + mTracked.arrows.ash + mTracked.arrows.blight + mTracked.arrows.brood)
 		local bandicount = tostring(mTracked.aid.bandages .. " : [FBAED2]" .. mTracked.aid.bloodybandages .. "[-]")
 		
 		mCONSUME:AddLabel(rem(1.5), rem(5), arrowcount, valuewidth, labelheight, datafontsize, "center", false, true, fontname)

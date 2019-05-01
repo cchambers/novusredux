@@ -55,7 +55,8 @@
 						TemplateDefines.LootTable.BonesEthereal,
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						{
 							NumCoins = math.random(500,650),
 						},

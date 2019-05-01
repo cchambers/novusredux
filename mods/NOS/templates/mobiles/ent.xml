@@ -46,7 +46,8 @@
 					{
 						TemplateDefines.LootTable.PotionsHigh,
 						TemplateDefines.LootTable.MapsHigh,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.Nectar,
 						{
 							NumItems = 1,

@@ -46,7 +46,8 @@
 					},
 				LootTables = 
 					{ 
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.WarriorRich,			
 						TemplateDefines.LootTable.MapsRich,	
 						TemplateDefines.LootTable.Humanoid,

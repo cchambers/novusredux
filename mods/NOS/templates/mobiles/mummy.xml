@@ -44,7 +44,8 @@
 						TemplateDefines.LootTable.BonesCursed,
 						TemplateDefines.LootTable.Potions,
 						TemplateDefines.LootTable.Maps,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						{
 							NumCoins = math.random(250,380),
 						},

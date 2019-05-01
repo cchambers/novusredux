@@ -47,7 +47,8 @@
 						TemplateDefines.LootTable.Potions,
 						TemplateDefines.LootTable.Spider,
 						TemplateDefines.LootTable.Maps,
-						TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,
 						TemplateDefines.LootTable.SicklyEye,
 						{
 							NumCoins = math.random(200,350),

@@ -14,7 +14,7 @@
 		<DoubleVariable Name="Attack">50</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="FameXP">250</DoubleVariable>
+		<DoubleVariable Name="FameXP">1500</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">200</DoubleVariable>
 		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
 		<DoubleVariable Name="PetSlots">9</DoubleVariable>

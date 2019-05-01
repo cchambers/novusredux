@@ -46,6 +46,7 @@
 						TemplateDefines.LootTable.Spider,
 						TemplateDefines.LootTable.Maps,
 						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.Recipes,
 						{
 							NumCoins = math.random(200,350),
 						},

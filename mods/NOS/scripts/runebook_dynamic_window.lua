@@ -75,7 +75,7 @@ RegisterEventHandler(
 				ShowRuneBookDialog()
 				return			
 			elseif (action == "Recall") then
-				if ((mRuneBook:GetObjVar("Charges") or 0) == 0) then
+				if ((mRuneBook:GetObjVar("Charges") or 0) == 0 and not(mUseRegs)) then
 					user:SystemMessage("Charge your Rune Book with Recall Scrolls.", "info")
 					return
 				else
@@ -90,7 +90,7 @@ RegisterEventHandler(
 				user:SendMessage("RuneBookCastSpell", "Recall", rune, mUseRegs)
 				return
 			elseif (action == "Portal") then
-				if ((mRuneBook:GetObjVar("PortalCharges") or 0) == 0) then
+				if ((mRuneBook:GetObjVar("PortalCharges") or 0) == 0 and not(mUseRegs)) then
 					user:SystemMessage("Charge your Rune Book with Portal Scrolls.", "info")
 					return
 				else

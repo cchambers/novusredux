@@ -64,7 +64,7 @@
 				MobTraits =
 					{
 					Toughness = 5,
-					Might = 5,
+					Might = 3,
 					},
 				Skills = 
 					{ 

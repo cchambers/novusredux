@@ -88,7 +88,7 @@ TemplateDefines = {
 			{ 
 				{ Chance = 25, Template = "random_executioner_weapon_20_80", Unique = true},
 				{ Chance = 25, Template = "random_jewelry", Unique = true },
-    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
+    			-- { Chance = 2, Template = "recipe_box_rare", Unique = true },
     			
 			},
 		},
@@ -101,8 +101,8 @@ TemplateDefines = {
 			{ 
     			{ Chance = 50, Template = "random_jewelry", Unique = true },
 				{ Chance = 10, Template = "random_executioner_weapon_30_90", Unique = true},
-    			{ Chance = 2, Template = "recipe_box_rare", Unique = true },
-    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
+    			-- { Chance = 2, Template = "recipe_box_rare", Unique = true },
+    			{ Chance = 2, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -114,7 +114,7 @@ TemplateDefines = {
 			{ 
 				{ Chance = 50, Template = "random_executioner_weapon_80_100", Unique = true},
 				{ Chance = 25, Template = "random_jewelry", Unique = true },
-    			{ Chance = 1, Template = "dye_tub_random", Unique = true },
+    			{ Chance = 2, Template = "dye_tub_random", Unique = true },
 			},
 		},
 
@@ -153,14 +153,51 @@ TemplateDefines = {
 			},
 		},
 
+		Recipes = {
+			NumItems = 1,
+			LootItems = {
+				{ Chance = 10, Template = "recipe_battle_hammer", Unique = true },
+				{ Chance = 10, Template = "recipe_bladed_club", Unique = true },
+				{ Chance = 10, Template = "recipe_boarspear", Unique = true },
+				{ Chance = 10, Template = "recipe_butcher", Unique = true },
+				{ Chance = 10, Template = "recipe_crescent", Unique = true },
+				{ Chance = 10, Template = "recipe_fullered_dagger", Unique = true },
+				{ Chance = 10, Template = "recipe_gladius", Unique = true },
+				{ Chance = 10, Template = "recipe_letter_opener", Unique = true },
+				{ Chance = 10, Template = "recipe_naginata", Unique = true },
+				{ Chance = 10, Template = "recipe_ninjato", Unique = true },
+				{ Chance = 10, Template = "recipe_pike", Unique = true },
+				{ Chance = 10, Template = "recipe_rapier", Unique = true },
+				{ Chance = 10, Template = "recipe_recurve", Unique = true },
+				{ Chance = 10, Template = "recipe_skinner", Unique = true },
+				{ Chance = 10, Template = "recipe_spetum", Unique = true },
+				{ Chance = 10, Template = "recipe_stiletto", Unique = true },
+				{ Chance = 10, Template = "recipe_zukuri", Unique = true },
+				{ Chance = 10, Template = "recipe_poleaxe", Unique = true },
+				
+				{ Chance = 5, Template = "recipe_tapered_heater", Unique = true },
+				{ Chance = 5, Template = "recipe_warriors_kite", Unique = true },
+				{ Chance = 5, Template = "recipe_oval_shield", Unique = true },
+				{ Chance = 5, Template = "recipe_arrow_broodwood", Unique = true },
+				{ Chance = 5, Template = "recipe_hardened_buckler", Unique = true },
+				{ Chance = 5, Template = "recipe_shield_of_justice", Unique = true },
+
+				{ Chance = 4, Template = "recipe_antiquesilkcloth", Unique = true },
+				{ Chance = 4, Template = "recipe_gildedsilkcloth", Unique = true },
+				{ Chance = 4, Template = "recipe_spectralsilkcloth", Unique = true },
+				{ Chance = 2, Template = "recipe_broodwood", Unique = true },
+				{ Chance = 2, Template = "recipe_steel", Unique = true },
+			},
+		},
+
 		ExecutionerTubs = 
 		{
 			NumItems = 1,
 
 			LootItems = 
 			{ 
-				{ Chance = 5, Template = "random_executioner_weapon_0_100", Unique = true},
-    			{ Chance = 5, Template = "dye_tub_random", Unique = true },
+				{ Chance = 35, Template = "random_executioner_weapon_0_100", Unique = true},
+    			{ Chance = 15, Template = "dye_tub_random", Unique = true },
 			},
 		},
 

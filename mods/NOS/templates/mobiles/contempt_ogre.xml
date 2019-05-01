@@ -42,7 +42,8 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.Rich,	
+TemplateDefines.LootTable.Rich,
+TemplateDefines.LootTable.Recipes,	
 						TemplateDefines.LootTable.ContemptMobLow,
 						TemplateDefines.LootTable.Humanoid,
 						TemplateDefines.LootTable.PotionsHigh,

@@ -48,7 +48,8 @@
 				Stats = { Str=100, Agi=60, Int=80, Wis=80, Will=80 },
 				MobTraits =
 					{
-					Toughness = 6
+					Toughness = 6,
+					Might = 3,
 					},
 				Skills = 
 					{ 

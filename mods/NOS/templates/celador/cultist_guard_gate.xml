@@ -32,6 +32,7 @@
 					},
 					LootTables = { 
 						TemplateDefines.LootTable.Rich,
+						TemplateDefines.LootTable.Recipes,
 						{
 							NumItems = math.random(1,2),
 							LootItems = 

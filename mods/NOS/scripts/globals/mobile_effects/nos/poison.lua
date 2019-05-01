@@ -7,9 +7,8 @@ MobileEffectLibrary.Poison =
 	-- Can this be resisted by Willpower?
 	Resistable = true,
 
-	OnEnterState = function(self,root,target,args)
-		-- TARGET REPRESENTS THE PERSON THAT APPLIED THE POISON
-		self.Target = target
+	OnEnterState = function(self,root,caster,args)
+		self.Caster = caster
 		self.PulseFrequency = args.PulseFrequency or self.PulseFrequency
 		self.PulseMax = args.PulseMax or self.PulseMax
 		self.MinDamage = args.MinDamage or self.MinDamage
@@ -24,7 +23,7 @@ MobileEffectLibrary.Poison =
 		
 		-- KHI TODO: POISON NEEDS TO BE ON A TIMER INSTEAD OF A PULSE, BUT SHOULD TICK FOR PULSES --
 
-		local resistance = GetSkillLevel(target, "PoisoningSkill")
+		local resistance = GetSkillLevel(self.ParentObj, "PoisoningSkill")
 		resistance = (100 - (resistance * 0.2)) * 0.01
 		self.MaxDamage = self.MaxDamage * resistance
 
@@ -55,7 +54,7 @@ MobileEffectLibrary.Poison =
 				end
 		end)	
 		
-		AdvanceConflictRelation(target, self.ParentObj)
+		AdvanceConflictRelation(caster, self.ParentObj)
 	end,
 
 	OnExitState = function(self,root)
@@ -71,9 +70,9 @@ MobileEffectLibrary.Poison =
 
 	GetPulseFrequency = function(self,root)
 		
-		local resistance = GetSkillLevel(self.Target, "PoisoningSkill")
-		resistance = (100 - (resistance * 0.2)) * 0.01
-		self.MaxDamage = self.MaxDamage * resistance
+		-- local resistance = GetSkillLevel(self.ParentObj, "PoisoningSkill")
+		-- resistance = (100 - (resistance * 0.2)) * 0.01
+		-- self.MaxDamage = self.MaxDamage * resistance
 
 		-- CONFIGURE FREQUENCY -- 
 		if (self.PoisonLevel > 1 and self.PoisonLevel <= 5) then -- if 2-4
@@ -85,8 +84,8 @@ MobileEffectLibrary.Poison =
 	end,
 
 	AiPulse = function(self,root)
-		self.MinDamage = 1 * self.PoisonLevel
-		self.MaxDamage = 3 * self.PoisonLevel
+		self.MinDamage = self.MinDamage * self.PoisonLevel
+		self.MaxDamage = self.MaxDamage * self.PoisonLevel
 		if (self.LastPoisonLevel ~= self.PoisonLevel) then
 			self.DoMessages(self, root)
 			self.LastPoisonLevel = self.PoisonLevel
@@ -96,7 +95,7 @@ MobileEffectLibrary.Poison =
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
 		else
-			self.ParentObj:SendMessage("ProcessMagicDamage", self.Target, math.random(self.MinDamage, self.MaxDamage))
+			self.ParentObj:SendMessage("ProcessMagicDamage", self.Caster, math.random(self.MinDamage, self.MaxDamage))
 		end
 	end,
 
