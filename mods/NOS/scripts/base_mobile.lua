@@ -5,6 +5,7 @@ require 'weapon_cache'
 require 'base_mobilestats'
 -- allows us to add temporary modifiers to this mobile.
 require 'base_mobile_mods'
+require 'use_object'
 
 mInvisibilityEffects = {}
 mInvisEffectsCount = 0
@@ -21,7 +22,7 @@ this:DelObjVar("Healers")
 
 function UpdateDamagersList(attacker, damage)
 	-- reasign to owner if applicable
-	attacker = attacker:GetObjectOwner() or attacker
+	attacker = attacker:GetObjVar("controller") or attacker
 
 	if(mDamagers[attacker]) then
 		mDamagers[attacker].Amount = mDamagers[attacker].Amount + damage
@@ -95,7 +96,7 @@ function DoMobileDeath(damager, damageSource)
 	SetMobileMod(this, "StaminaRegenPlus","Death", -1000)
 
 	local karmaLevel = GetKarmaLevel(GetKarma(this))
-	if ( IsPlayerCharacter(this) ) then
+	if (this:IsPlayerCharacter() and not IsPossessed(this)) then
 		if ( karmaLevel.GuardProtectPlayer == true ) then
 			KarmaPunishAllAggressorsForMurder(this)
 		end
@@ -173,8 +174,16 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 		CheckSpellCastInterrupt(this)
 	end
 
-	damageType = damageType or "Physical"
-	if ( damageType == "MAGIC" ) then
+	damageType = damageType or "Bashing"
+	local typeData = CombatDamageType[damageType]
+	-- not a real combat damage type, stop here.
+	if not( typeData ) then
+		LuaDebugCallStack("[HandleApplyDamage] invalid type: "..damageType)
+		return
+	end
+
+	local mod = {plus = 0,times = 1}
+	if ( typeData.Magic ) then
 		if ( not isReflected and hasMageArmor ) then
 			this:NpcSpeech("[ffffff]Reflected[-]", "combat")
 			return

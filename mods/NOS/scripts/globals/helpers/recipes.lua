@@ -1,6 +1,6 @@
 require 'default:globals.helpers.recipes'
 
-function GetRecipeSkillRequired(mobileObj,recipe,material)
+function GetRecipeSkillRequired(recipe,material)
 	local entry, skillName = GetRecipeFromEntryName(recipe)
 	local modifier = 0
 	if(material) then

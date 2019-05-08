@@ -528,14 +528,14 @@ function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 		StartMobileEffect(this, mobileEffect, this, args)
 	end
 
-	local spCasterEffectScript = GetSpellInformation(spellName, "completionEffectUserScript")
-	if not (spCasterEffectScript == nil) and not (this:HasModule(spCasterEffectScript)) then
-		this:AddModule(spCasterEffectScript)
-	end
-	--DebugMessage("SendingSpellCompletionMessage")
-	if (spCasterEffectScript ~= nil) then
-		this:SendMessage("CompletionEffect" .. spCasterEffectScript)
-	end
+	-- local spCasterEffectScript = GetSpellInformation(spellName, "completionEffectUserScript")
+	-- if not (spCasterEffectScript == nil) and not (this:HasModule(spCasterEffectScript)) then
+	-- 	this:AddModule(spCasterEffectScript)
+	-- end
+	-- --DebugMessage("SendingSpellCompletionMessage")
+	-- if (spCasterEffectScript ~= nil) then
+	-- 	this:SendMessage("CompletionEffect" .. spCasterEffectScript)
+	-- end
 
 	local spTargetEffectScript = GetSpellInformation(spellName, "completionEffectTargetScript")
 	if not (spTargetEffectScript == nil) and not (spTarget == nil) and not (spTarget:HasModule(spTargetEffectScript)) then

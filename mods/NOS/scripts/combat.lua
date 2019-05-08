@@ -114,7 +114,7 @@ function PerformWeaponAttack(atTarget, hand)
 	end
 
 	if not (this:HasLineOfSightToObj(atTarget, ServerSettings.Combat.LOSEyeLevel)) then
-		if (IsPlayerCharacter(this)) then
+		if (this:IsPlayer()) then
 			this:SystemMessage("Cannot See Target.", "info")
 		end
 		-- reset swing timer, can't really trigger on los gained back like we can with range
@@ -361,7 +361,8 @@ function ExecuteSpellHitActions(atTarget, spellName, spellSource)
 	Verbose("Magic", "ExecuteSpellHitActions", atTarget, spellName, spellSource)
 	local damageAmount = 0
 
-	local baseDam = GetSpellInformation(spellName, "SpellPower") or 0
+	-- local baseDam = GetSpellInformation(spellName, "SpellPower") or 0
+	local baseDam = SpellData.AllSpells[spellName] and SpellData.AllSpells[spellName].SpellPower or 0
 	-- hack to make ruin damage based on distance
 	if (spellName == "Ruin" and atTarget:IsValid()) then
 		local distance = this:DistanceFrom(atTarget)
@@ -378,14 +379,15 @@ function ExecuteSpellHitActions(atTarget, spellName, spellSource)
 
 	local damInfo = {}
 	damInfo.Damage = baseDam
-	damInfo.Type = "MAGIC"
+	damInfo.Type = SpellData.AllSpells[spellName] and SpellData.AllSpells[spellName].DamageType or "MAGIC"
 	damInfo.Source = this
 	damInfo.Attacker = this
-	damInfo.SpellCircle = GetSpellInformation(spellName, "Circle") or 1
+	damInfo.Victim = atTarget
+	damInfo.SpellCircle = SpellData.AllSpells[spellName] and SpellData.AllSpells[spellName].Circle or 1
 
 	CheckDestructionMobileEffect(this, atTarget, baseDam, spellName)
 
-	ApplyDamageToTarget(atTarget, damInfo)
+	ApplyDamageToTarget(damInfo)
 	ApplySpellEffects(spellName, atTarget, spellSource)
 end
 
@@ -584,7 +586,8 @@ function ExecuteHitAction(atTarget, hand)
 			GetCombatMod(CombatMod.AttackTimes, 1),
 		Type = _Weapon[hand].DamageType,
 		Source = _Weapon[hand].Object,
-		Attacker = this
+		Attacker = this,
+		Victim = atTarget
 	}
 
 	if (_Weapon[hand].Object and _Weapon[hand].Object:HasObjVar("ImbuedWeapon")) then
@@ -598,222 +601,56 @@ function ExecuteHitAction(atTarget, hand)
 		AdjustDurability(_Weapon[hand].Object, -1)
 	end
 
-	ApplyDamageToTarget(atTarget, damageInfo)
+	ApplyDamageToTarget(damageInfo)
 end
 
 RegisterEventHandler(EventType.Message, "ExecuteHitAction", ExecuteHitAction)
 
-function CalculateBlockDefense(victim)
-	Verbose("Combat", "CalculateBlockDefense", victim)
-	local shield = victim:GetEquippedObject("LeftHand")
-	if not( shield ) then return 0 end
-	local shieldType = GetShieldType(shield)
-	if ( shieldType and EquipmentStats.BaseShieldStats[shieldType] ) then
-		-- skill gain dependant on the attacker's weapon skill level
-		CheckSkill(victim, "BlockingSkill", GetSkillLevel(this,EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill))
-		if ( Success(GetSkillLevel(victim,"BlockingSkill")/335) ) then
-			victim:PlayAnimation("block")
-			if ( Success(ServerSettings.Durability.Chance.OnEquipmentHit) ) then
-				AdjustDurability(shield, -1)
-			end
-			return math.max(0, (EquipmentStats.BaseShieldStats[shieldType].ArmorRating or 0) + GetMagicItemArmorBonus(_Weapon.LeftHand.Object))
-		end
-	end
-	return 0
-end
-
-function ApplyDamageToTarget(victim, damageInfo)
-	Verbose("Combat", "ApplyDamageToTarget", victim, damageInfo)
+function ApplyDamageToTarget(damageInfo)
+	Verbose("Combat", "ApplyDamageToTarget", damageInfo)
 	if damageInfo == nil then return end
 
 	damageInfo.Attacker = damageInfo.Attacker or this
 
-	if not (damageInfo.Type) then
-		if (damageInfo.Source) then
-			damageInfo.Type = GetWeaponDamageType(damageInfo.Source)
-		else
-			damageInfo.Type = "TrueDamage"
-		end
-	end
-
-	if damageInfo.Attacker ~= victim and not (ValidCombatTarget(damageInfo.Attacker, victim)) then
+	if ( 
+		damageInfo.Attacker ~= damageInfo.Victim
+		and
+		not ValidCombatTarget(damageInfo.Attacker, damageInfo.Victim)
+	) then
 		return
 	end
 
-	local finalDamage = damageInfo.Damage or 0
-	local blockDefense = 0
-	damageInfo.PhysicalAbsorb = 0
-
-	if (damageInfo.Type ~= "TrueDamage" and damageInfo.Type ~= "Poison") then
-		local isPlayer = IsPlayerCharacter(victim)
-
-		--Get stats for the armor piece at the slot being hit OR the natural armor type the mob posses
-		if (damageInfo.Type == "MAGIC") then
-			--victim:NpcSpeech("Base Damage: "..damageInfo.Damage)
-			--victim:NpcSpeech("Final Damage: "..finalDamage)
-			finalDamage = (damageInfo.Attacker:GetStatValue("Power") * finalDamage) / 8
-
-			-- calculate variance if not passed in
-			if not (damageInfo.Variance) then
-				if (damageInfo.Source and isPlayer) then
-					-- KH TODO: Make this configurable
-					damageInfo.Variance = 0.05
-				else
-					-- DAB COMBAT CHANGES: Make this configurable
-					damageInfo.Variance = 0.05
-				end
-			end
-
-			finalDamage = randomGaussian(finalDamage, finalDamage * damageInfo.Variance)
-			local attackerEval = GetSkillLevel(damageInfo.Attacker, "MagicAffinitySkill")
-			local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
-			local resistGainChance = CheckSkill(victim, "MagicResistSkill")
-			local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
-			if (resistLevel < 40) then shouldResist = false end
-			-- this:NpcSpeech(tostring(shouldResist))
-
-			-- Boost spell power based on eval
-			local damageLevel = (math.floor(attackerEval/35))
-			if (damageLevel < 1.01) then damageLevel = 1.01 end
-			finalDamage = finalDamage * damageLevel
-			if (shouldResist) then
-				-- successful magic resist, reduce damage by up to 40%
-				victim:NpcSpeechToUser("[1CB1DC]*resist*[-]", damageInfo.Attacker)
-				finalDamage = finalDamage - DoResist(victim, resistLevel, finalDamage)
-			end
-
-			if not (isPlayer) then
-				-- is mob.
-				finalDamage = finalDamage
-			end
-		else
-			if not (damageInfo.Attack) then
-				if (damageInfo.Attacker and damageInfo.Attacker:IsValid()) then
-					damageInfo.Attack = damageInfo.Attacker:GetStatValue("Attack")
-				else
-					DebugMessage("ERROR: Attempting to perform weapon damage with no attacker")
-				end
-			end
-
-			blockDefense = CalculateBlockDefense(victim)
-			local defense = 1
-			if ( HasMobileEffect(victim, "Sunder") ) then
-				-- end sunder, no armor defense reduction this hit
-				victim:SendMessage("EndSunderEffect")
-			else
-				defense = math.max(victim:GetStatValue("Defense") or 0, defense)
-				if (victim:HasObjVar("ProtectionSpell")) then
-					defense = defense - 15
-				end
-			end
-			-- defense = math.max(defense, 45)
-
-			finalDamage = (( damageInfo.Attack * 70 ) / (defense + blockDefense) )
-
-			
-
-			--DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
-
-			-- calculate variance if not passed in
-			if not (damageInfo.Variance) then
-				if (damageInfo.Source and isPlayer) then
-					damageInfo.Variance = EquipmentStats.BaseWeaponStats[_Weapon.RightHand.Type].Variance or 0
-				else
-					-- DAB COMBAT CHANGES: Make this configurable
-					damageInfo.Variance = 0.20
-				end
-			end
-
-			--DebugMessage("DAMAGE: "..tostring(finalDamage))
-			--DebugMessage("DAMAGE: "..tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense),tostring(victimArmorRating),tostring(GetCombatMod(CombatMod.DefenseTimes,1)),tostring(GetCombatMod(CombatMod.DefensePlus)),tostring(victimArmorBonus))
-
-			finalDamage = randomGaussian(finalDamage, finalDamage * damageInfo.Variance)
-			--DebugMessage("VARIANCE",tostring(finalDamage),tostring(damageInfo.Variance))
-
-			if (_MyOwner ~= nil) then
-				-- add damage buff to pet attacks
-				if (_MyOwner:IsValid() and this:DistanceFrom(_MyOwner) <= ServerSettings.Pets.Command.Distance) then
-					finalDamage =
-						finalDamage *
-						(0.5 + (1 * (GetSkillLevel(_MyOwner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single)))
-				end
-			elseif (damageInfo.Source) then
-				local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
-				if (executioner ~= nil) then
-					finalDamage = finalDamage * (ServerSettings.Executioner.LevelModifier[executioner] or 1)
-				end
-
-				local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
-				if (poisoned ~= nil) then
-					local charges = damageInfo.Source:GetObjVar("PoisonCharges")
-					charges = charges - 1
-					if (charges < 0) then
-						damageInfo.Source:DelObjVar("PoisonLevel")
-						damageInfo.Source:DelObjVar("PoisonCharges")
-						RemoveTooltipEntry(damageInfo.Source,"poisoned")
-						damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
-					else
-						local victimPoisoningSkill = GetSkillLevel(victim, "PoisoningSkill")
-						local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel, true)
-						if (chanceToPoison) then
-							damageInfo.Source:SetObjVar("PoisonCharges", charges)
-							local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
-							victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
-								PoisonLevel = poisonLevel
-							})
-						end
-					end
-				end
-			end
+	if ( damageInfo.Source ) then
+		damageInfo.WeaponType = Weapon.GetType(damageInfo.Source)
+		damageInfo.WeaponClass = Weapon.GetClass(damageInfo.WeaponType)
+		if not( damageInfo.Type ) then
+			damageInfo.Type = Weapon.GetDamageType(damageInfo.WeaponType)
 		end
-
-		if ( Success(ServerSettings.Durability.Chance.OnJewelryHit) ) then
-			local item = victim:GetEquippedObject(JEWELRYSLOTS[math.random(1,#JEWELRYSLOTS)])
-			if ( item ) then
-				AdjustDurability(item, -1)
-			end
-		end
-
-		-- all but true damage/poison will also hurt the equipment.
-		damageInfo.Slot = damageInfo.Slot or GetHitLocation()
-		local hitItem = victim:GetEquippedObject(damageInfo.Slot)
-		local soundType = "Leather"
-		if (hitItem ~= nil) then
-			local hitArmorType = GetArmorType(hitItem)
-			soundType = GetArmorSoundType(hitArmorType)
-
-			if (isPlayer) then
-				-- damage equipment that was hit
-				if (Success(ServerSettings.Durability.Chance.OnEquipmentHit)) then
-					AdjustDurability(hitItem, -1)
-				end
-
-				-- perform proficiency check
-				local armorClass = GetArmorClassFromType(hitArmorType)
-				if ((armorClass == "Light" or armorClass == "Heavy") and ValidCombatGainTarget(damageInfo.Attacker, victim)) then
-					CheckSkill(
-						victim,
-						string.format("%sArmorSkill", armorClass),
-						GetSkillLevel(damageInfo.Attacker, EquipmentStats.BaseWeaponClass[_Weapon.RightHand.Class].WeaponSkill)
-					)
-				end
-			end
-		end
-
-		if (damageInfo.Type ~= "MAGIC") then
-			PlayWeaponSound(damageInfo.Attacker, "Impact" .. soundType, damageInfo.Source)
-		end
-	else
-		finalDamage = damageInfo.Damage
 	end
 
-	victim:SendMessage(
+	if not( damageInfo.Type ) then damageInfo.Type = "TrueDamage" end
+
+	local typeData = CombatDamageType[damageInfo.Type]
+	-- not a real combat damage type, stop here.
+	if not( typeData ) then
+		LuaDebugCallStack("[ApplyDamageToTarget] invalid type: "..tostring(damageInfo.Type))
+		return
+	end
+
+	-- pass in some variables
+	damageInfo.VictimIsPlayer = IsPlayerCharacter(damageInfo.Victim)
+	damageInfo.Owner = _MyOwner
+
+	-- alter the damageInfo table
+	damageInfo = CalculateDamageInfo(damageInfo)
+	
+	damageInfo.Victim:SendMessage(
 		"DamageInflicted",
 		damageInfo.Attacker,
-		finalDamage,
+		damageInfo.Damage,
 		damageInfo.Type,
 		false,
-		blockDefense > 0,
+		damageInfo.Blocked > 0,
 		damageInfo.IsReflected,
 		damageInfo.Source
 	)
@@ -1194,7 +1031,7 @@ function FindArrowType(mobile)
 						return item:GetObjVar("ResourceType") == type
 					end
 				))
-			 then
+			then
 				mArrowType = type
 				mArrowDamageBonus = ArrowTypeData[type].DamageBonus or 0
 				return true
@@ -1218,7 +1055,7 @@ function DrawBow()
 		return false
 	end
 
-	if (IsPlayerCharacter(this) and not FindArrowType(this)) then
+	if (IsPlayerCharacter(this) and not(IsPossessed(this)) and not(FindArrowType(this))) then
 		mOutOfArrows = true
 		return false
 	end
@@ -1354,6 +1191,7 @@ RegisterEventHandler(
 			return
 		end
 		local slot = GetEquipSlot(item)
+		-- if ( slot == "Mount" ) then return end -- KHI CHECK
 		if (item:HasObjVar("ColorWarItem")) then
 			local user = this
 			if (not(item:HasModule("colorwar_flag"))) then
@@ -1443,44 +1281,35 @@ RegisterEventHandler(EventType.Message, "ClearTarget", ClearTarget)
 RegisterEventHandler(EventType.Message, "AttackTarget", HandleAttackTarget)
 RegisterEventHandler(EventType.Message, "RequestMagicalAttack", HandleMagicalAttackRequest)
 
-function HandleWeaponDamageReceived(damager, isCrit, srcWeapon, type, slot, isReflected)
+function HandleWeaponDamageReceived(damager, isCrit, srcWeapon, isReflected)
 	local damageInfo = {
 		Attacker = damager,
+		Victim = this,
 		IsCrit = isCrit,
 		Source = srcWeapon,
-		Type = type,
-		Slot = slot,
 		IsReflected = isReflected
 	}
-	ApplyDamageToTarget(this, damageInfo)
+	ApplyDamageToTarget(damageInfo)
 end
 
-function HandleTypeDamageReceived(damager, damage, isCrit, type, slot, isReflected)
+function HandleTypeDamageReceived(damager, damage, type, isCrit, isReflected)
 	local damageInfo = {
 		Attacker = damager,
+		Victim = this,
 		Damage = damage,
 		Type = type,
 		IsCrit = isCrit,
-		Slot = slot,
 		IsReflected = isReflected
 	}
-	ApplyDamageToTarget(this, damageInfo)
+	ApplyDamageToTarget(damageInfo)
 end
 
-function HandleMagicDamageReceived(damager, damage, isCrit, slot, isReflected)
-	HandleTypeDamageReceived(damager, damage, isCrit, "MAGIC", slot, isReflected)
+function HandleMagicDamageReceived(damager, damage, isCrit, isReflected)
+	HandleTypeDamageReceived(damager, damage, "MAGIC", isCrit, isReflected)
 end
 
 function HandleTrueDamageReceived(damager, damage, isCrit, slot, isReflected)
-	local damageInfo = {
-		Attacker = damager,
-		Damage = damage,
-		Type = "TrueDamage",
-		IsCrit = isCrit,
-		Slot = slot,
-		IsReflected = isReflected
-	}
-	ApplyDamageToTarget(this, damageInfo)
+	HandleTypeDamageReceived(damager, damage, "TrueDamage", isCrit, isReflected)
 end
 
 RegisterEventHandler(EventType.Message, "ProcessWeaponDamage", HandleWeaponDamageReceived)

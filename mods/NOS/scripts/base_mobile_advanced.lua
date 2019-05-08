@@ -8,14 +8,13 @@ require 'base_skill_sys'
 
 local BaseDoMobileDeath = DoMobileDeath
 function DoMobileDeath(damager, damageSource)
-	BaseDoMobileDeath(damager, damageSource)
-
-	CancelCastPrestigeAbility(this)
-
 	local mountObj = this:GetEquippedObject("Mount")
 	if(mountObj ~= nil) then
 		DismountMobile(this, mountObj)
 	end
+
+	BaseDoMobileDeath(damager, damageSource)
+	CancelCastPrestigeAbility(this)
 
 	if not( IsPlayerCharacter(this) ) then
 
