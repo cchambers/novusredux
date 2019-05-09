@@ -2962,6 +2962,51 @@ SpellData = {
 			},
 			Circle = 10
 		},
+		
+		Etherealize = {
+			PowerWords = "Etherealize",
+			Circle = 7,
+			Icon = "Summon White Horse",
+			manaCost = 40,
+			effectType = "InstantHitSpell",
+			SpellRange = 12,
+			TargetType = "targetMobile",
+			TargetRequired = true,
+			SpellType = "BuffTypeSpell",
+			SpellFXName = "HealEffect",
+			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
+			SpellPrimeFXName = "ConjurePrimeYellowEffect",
+            SpellPrimeFXArgs = "Bone=Ground",
+            SpellPrimeFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimeFX2Args = "Bone=L_Hand",
+            SpellPrimedFXName = "MagicPrimeHandYellowEffect",
+            SpellPrimedFXArgs = "Bone=R_Hand",
+            SpellPrimedFX2Name = "MagicPrimeHandYellowEffect",
+            SpellPrimedFX2Args = "Bone=L_Hand",
+			SpellHitSFX = "event:/magic/misc/magic_water_event:/magic/misc/magic_water_restoration",
+			SpellTooltipString = "Turn a mount you own into a statue.",
+			SpellFXArgs = "Bone=Ground",
+			requireLineOfSight = true,
+			BeneficialSpellType = true,
+			SpellEnabled = false,
+			SpellFireAnim = "BuffEffect_C",
+			SpellDisplayName = "Etherealize",
+
+			Skill = "ManifestationSkill",
+
+			RequireTarget = true,
+
+			-- NOTICE: This is set at the bottom on Etherealize mobile effect
+			--TargetValidate = MobileEffectLibrary.Etherealize.ValidTarget,
+
+			MobileEffect = "Etherealize",
+
+			Reagents = {
+				"Ether",
+			},
+
+			NoDismount = true,
+		},
 		Arcanestorm = {
 			SpellDisplayName = "Summon Arcane Storm",
 			Icon = "lightningmastery",
