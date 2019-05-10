@@ -1187,38 +1187,36 @@ RegisterEventHandler(
 	EventType.ItemEquipped,
 	"",
 	function(item)
-		if (item == nil) then
-			return
-		end
+		if ( item == nil ) then return end
 		local slot = GetEquipSlot(item)
-		-- if ( slot == "Mount" ) then return end -- KHI CHECK
+		if ( slot == "Mount" ) then return end
 		if (item:HasObjVar("ColorWarItem")) then
 			local user = this
 			if (not(item:HasModule("colorwar_flag"))) then
 				item:SetHue(user:GetHue())
 			end
 		end
-		-- DebugMessage('combat.lua: EventType.ItemEquipped(item): '..tostring(item)..' has been equipped.  '..tostring(slot))
-		if (IsPlayerCharacter(this)) then
+		if ( IsPlayerCharacter(this) ) then
 			CancelCastPrestigeAbility(this)
 
-			if (slot == "RightHand" or slot == "LeftHand") then
+			if ( slot == "RightHand" or slot == "LeftHand" ) then
 				UpdatePlayerWeaponAbilities(this)
 			end
 
-			UpdateEquipmentSkillBonuses(this, item)
+			UpdateEquipmentSkillBonuses(this,item)
 
-			if (this:HasObjVar("IsHarvesting")) then
+			if (this:HasObjVar("IsHarvesting")) then	
 				local harvestingTool = this:GetObjVar("HarvestingTool")
 				harvestingTool:SendMessage("CancelHarvesting", this)
 			end
 
-			if (this:HasTimer("SpellPrimeTimer") and GetEquipmentClass(item) == "WeaponClass") then
+			if ( this:HasTimer("SpellPrimeTimer") and GetEquipmentClass(item) == "WeaponClass" ) then
 				CancelSpellCast()
 				DoFizzle(this)
 			end
 		end
-		if (slot == "RightHand" or slot == "LeftHand") then
+		if ( slot == "RightHand" or slot == "LeftHand" ) then
+			-- weapon was equipped, clear queued abilities.
 			ClearQueuedWeaponAbility()
 			ClearSwingTimers()
 			mWeaponSwapped = true

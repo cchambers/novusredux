@@ -1190,16 +1190,6 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	end
 end
 
--- FIZZLE
-
-function DoFizzle(mobileObj)
-	mobileObj:NpcSpeech("*fizzle*", "combat")
-	mobileObj:PlayObjectSound("event:/animals/worm/worm_pain", false)
-	-- if (mobileObj:IsPlayer()) then
-	-- 	mobileObj:SystemMessage("Cast failed.", "info")
-	-- end
-end
-
 function HandleSpellTargeted(spellTarget)
 	Verbose("Magic", "HandleSpellTargeted", spellTarget)
 	--DebugMessage("SpellTargeted")
