@@ -1,4 +1,420 @@
-require "default:globals.helpers.mobile"
+-- a list corresponding to each mobile mod and the stat that should be recalcuated when that mod changes,
+MobileModRecalculateStat = {
+	AccuracyPlus = { Accuracy = true },
+	AccuracyTimes = { Accuracy = true },
+	AgilityPlus = { Agility = true },
+	AgilityTimes = { Agility = true },
+	AttackPlus = { Attack = true },
+	AttackTimes = { Attack = true },
+	PowerPlus = { Power = true },
+	PowerTimes = { Power = true },
+	ForcePlus = { Force = true },
+	ForceTimes = { Force = true },
+	ConstitutionPlus = { Constitution = true },
+	ConstitutionTimes = { Constitution = true },
+	CritChancePlus = { CritChance = true },
+	CritChanceTimes = { CritChance = true },
+	DefensePlus = { Defense = true },
+	DefenseTimes = { Defense = true },
+	EvasionPlus = { Evasion = true },
+	EvasionTimes = { Evasion = true },
+	IntelligencePlus = { Intelligence = true },
+	IntelligenceTimes = { Intelligence = true },
+	StrengthPlus = { Strength = true },
+	StrengthTimes = { Strength = true },
+	WillPlus = { Will = true },
+	WillTimes = { Will = true },
+	WisdomPlus = { Wisdom = true },
+	WisdomTimes = { Wisdom = true },
+
+	-- max stats
+	MaxHealthPlus = { MaxHealth = true },
+	MaxHealthTimes = { MaxHealth = true },
+	MaxManaPlus = { MaxMana = true },
+	MaxManaTimes = { MaxMana = true },
+	MaxStaminaPlus = { MaxStamina = true },
+	MaxStaminaTimes = { MaxStamina = true },
+	MaxVitalityPlus = { MaxVitality = true },
+	MaxVitalityTimes = { MaxVitality = true },
+
+	--regen stats
+	HealthRegenPlus = { HealthRegen = true },
+	HealthRegenTimes = { HealthRegen = true },
+	ManaRegenPlus = { ManaRegen = true },
+	ManaRegenTimes = { ManaRegen = true },
+	StaminaRegenPlus = { StaminaRegen = true },
+	StaminaRegenTimes = { StaminaRegen = true },
+	VitalityRegenPlus = { VitalityRegen = true },
+	VitalityRegenTimes = { VitalityRegen = true },
+
+	-- other stats
+	MoveSpeedPlus = { MoveSpeed = true },
+	MoveSpeedTimes = { MoveSpeed = true },
+	MountMoveSpeedPlus = { MoveSpeed = true },
+	MountMoveSpeedTimes = { MoveSpeed = true },
+	
+	Disable = { MoveSpeed = true },
+}
+
+
+function CanEquip(equipper,equipObject,equippedOn)
+	Verbose("Mobile", "CanEquip",equipper,equipObject,equippedOn)
+	if ( equipper:IsPlayer() ) then
+		local weaponType = equipObject:GetObjVar("WeaponType")
+		if ( weaponType and EquipmentStats.BaseWeaponStats[weaponType] and EquipmentStats.BaseWeaponStats[weaponType].NoCombat ~= true ) then
+			local minSkill = EquipmentStats.BaseWeaponStats[weaponType].MinSkill or 0
+			if ( minSkill > 0 ) then
+				local weaponClass = EquipmentStats.BaseWeaponStats[weaponType].WeaponClass
+				if ( GetSkillLevel(equippedOn, EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill) < minSkill ) then
+					local skillDisplayName = SkillData.AllSkills[EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill].DisplayName or EquipmentStats.BaseWeaponClass[weaponClass].WeaponSkill
+					equipper:SystemMessage(string.format("%s %s required.", minSkill, skillDisplayName), "info")
+					return false
+				end
+			end
+		end
+	end
+
+	if (equippedOn:HasObjVar("OnlyEquipWeapons") and GetEquipSlot(equipObject) ~= "RightHand" and GetEquipSlot(equipObject) ~= "LeftHand") then
+ 		return false
+	end
+
+	if (equipObject:GetSharedObjectProperty("EquipSlot") == "Familiar") then
+	 	return false
+	end
+
+	if(IsGod(equipper) or equippedOn == equipper) then
+		return true
+	end
+
+	local owner = GetHirelingOwner(equippedOn)
+	if ( owner and owner == equipper ) then
+		return true
+	end	
+
+	return false
+end
+
+-- This function swaps the mobiles current weapon with the one passed in
+function DoEquip(equipObject, equippedOn, user)
+	Verbose("Mobile", "DoEquip", equipObject, equippedOn, user)
+	if( equippedOn == nil ) then
+		LuaDebugCallStack("nil equippedOn provided .")
+		return
+	end
+	if( user == nil ) then user = equippedOn end
+
+	--BB HACK: For no equip
+	if(equipObject:HasModule("temporary_no_equip_item")) then
+		user:SystemMessage("[$1878]","info")
+		return
+	end
+
+	local equipSlot = equipObject:GetSharedObjectProperty("EquipSlot")
+	
+	--GW Trade check hack for currently existing Pouch items that have Trade set on them. (FIXME)
+	if equipSlot and equipSlot ~= "Trade" then
+		if not( CanEquip(user, equipObject, equippedOn) ) then 
+			user:SystemMessage("You can not equip that there.","info")
+			return 
+		end
+		local oppositeHand = nil
+		if ( equipSlot == "LeftHand" ) then
+			oppositeHand = "RightHand"
+		elseif ( equipSlot == "RightHand" ) then
+			oppositeHand = "LeftHand"
+		end
+
+		local backpackObj = user:GetEquippedObject("Backpack")
+		if (backpackObj ~= nil or GetEquipSlot(equipObject) == "Backpack") then
+			local equippedObj = equippedOn:GetEquippedObject(equipSlot)
+			if( equippedObj ~= nil ) then
+				-- dont swap for backpacks that could get wierd
+	   			if(equipSlot ~= "Backpack") then
+	   				local randomLoc = GetRandomDropPosition(equippedOn)
+					equippedObj:MoveToContainer(backpackObj, randomLoc)
+					equippedObj:SendMessage("WasUnequipped", equippedOn)
+	   			else
+					user:SystemMessage("You are already wearing something there.","info")
+					return
+				end
+			end
+			--#2HanderForceBothHands
+			-- if just equipped a LeftHand or RightHand
+			if ( oppositeHand ~= nil ) then
+				oppositeHand = equippedOn:GetEquippedObject(oppositeHand)
+				-- if there's something in the other hand
+				if ( oppositeHand ~= nil ) then
+					local unequipOpposite = false
+					-- if the other hand is a 2hander
+					if ( IsTwoHandedWeapon(oppositeHand) ) then
+						-- allow some stuff to stay equipped with 2 handers
+						if ( equipObject:HasObjVar("CanBeEquippedWithTwoHandedWeapon") ) then
+							unequipOpposite = false
+						else
+							unequipOpposite = true
+						end
+					end
+					-- if we are equipping a 2hander
+					if ( IsTwoHandedWeapon(equipObject) ) then
+						-- allow some stuff to stay equipped with 2 handers
+						if ( oppositeHand:HasObjVar("CanBeEquippedWithTwoHandedWeapon") ) then
+							unequipOpposite = false
+						else
+							unequipOpposite = true
+						end
+					end
+					if ( unequipOpposite ) then
+						-- unequip other hand
+						local randomLoc = GetRandomDropPosition(equippedOn)
+						oppositeHand:MoveToContainer(backpackObj, randomLoc)
+						oppositeHand:SendMessage("WasUnequipped", equippedOn)
+					end
+				end
+			end
+			--#End2HanderForceBothHands
+
+		else
+			user:SystemMessage("You need a backpack to swap equipment.","info")
+		end
+	else
+		user:SystemMessage("You cannot equip that.","info")
+		return
+	end
+	equippedOn:EquipObject(equipObject)
+	equipObject:SendMessage("WasEquipped")
+end
+
+function DoUnequip(equipObject,equippedOn,user)
+	if( equippedOn == nil ) then
+		LuaDebugCallStack("nil equippedOn provided.")
+	end
+	if( user == nil ) then user = equippedOn end
+
+	-- check valid object
+	if( equipObject ~= nil and equipObject:IsValid() ) then
+		local equipSlot = GetEquipSlot(equipObject)
+		-- check it is equipped in that slot
+		if(equipSlot ~= nil and equippedOn:GetEquippedObject(equipSlot) == equipObject) then
+			local backpackObj = equippedOn:GetEquippedObject("Backpack")
+			-- make sure we have a backpack
+			if( backpackObj ~= nil) then				
+   				local randomLoc = GetRandomDropPosition(backpackObj)
+   				-- try to put the object in the container
+   				if(TryPutObjectInContainer(equipObject, backpackObj, randomLoc)) then
+   					equipObject:SendMessage("WasUnequipped", equippedOn)
+				end
+			end
+		end
+	end
+end
+
+--- Set a mobile mod, exactly the same as CombatMod but in base_mobile.lua (or player.lua) VM space. 
+--- If the type is of Plus (MoveSpeedPlus for example), the value supplied will be added to the value this is modding, happens before Times mods are applied.
+--- If the type is of Times (MoveSpeedTimes for example), when supplying -0.3 the final value will be 70% of original value, while supplying 0.30 the final value will be 130% of the original value. It's done this way so multiple mods added together will give us a fair number back.
+-- @param mobileObj mobile to set mod on
+-- @param modName string, the name of the mod to set, these can be found at the top of base_mobile_mods.lua
+-- @param modId string, Identifier of the mod, use this Id to overwrite or remove any existing mods.
+-- @param modValue any, the value to apply in this mod. (pass nil to remove a mod)
+function SetMobileMod(mobileObj, modName, modId, modValue)
+	if(mobileObj ~= nil) then
+		mobileObj:SendMessage("MobileMod", modName, modId, modValue)
+	end
+end
+
+--- Does exactly what SetMobileMod does, but will automatically remove the mod after the given timespan, it's safe to remove this manually before the time is up.
+-- @param mobileObj mobile to set mod on
+-- @param modName string, the name of the mod to set, these can be found in base_mobile_mods.lua
+-- @param modId string, Identifier of the mod, use this Id to overwrite or remove any existing mods.
+-- @param modValue any, the value to apply in this mod. (pass nil to remove a mod)
+-- @param modExpire timespan, how long before the mod is automically removed.
+function SetMobileModExpire(mobileObj, modName, modId, modValue, modExpire)
+	if(mobileObj ~= nil) then
+		mobileObj:SendMessage("MobileModExpire", modName, modId, modValue, modExpire)
+	end
+end
+
+--- This is a glorified combiner, it adds all the values in a table together and gives a final modifier.
+-- @param modTable the table full of each mod value
+-- @param base(optional) Zero ( 0 ) if not provided. For Times tables we use a base of 1. So 0.3 ends up being 1.3 and -0.3 ends up 0.7
+-- @return returns all values in the table added together, plus base.
+function GetMobileMod(modTable, base)
+	base = base or 0
+	if(modTable) then
+		for id,v in pairs(modTable) do			
+			base = base + v
+		end
+	end
+	return base
+end
+
+--- Copy of GetMobileMod but just named different to look better in the seperate scope.
+function GetCombatMod(modTable, base)
+	return GetMobileMod(modTable, base)
+end
+
+--- CombatMods work similar to MobileMods, though they do not effect derived stats and are applied ontop of any MobileMods, also they live in the combat.lua VM space.
+-- @param mobileObj mobile to set mod on
+-- @param modName string, the name of the mod to set, these can be found at the top of combat.lua
+-- @param modId string, Identifier of the mod, use this Id to overwrite or remove any existing mods.
+-- @param modValue any, the value to apply in this mod. (set nil to remove a mod)
+function SetCombatMod(mobileObj, modName, modId, modValue)
+	if(mobileObj ~= nil) then
+		mobileObj:SendMessage("CombatMod", modName, modId, modValue)
+	end
+end
+
+--- Determine if a mobile is mounted or not
+-- @param mobileObj
+-- @return true if mobileObj is mounted
+function IsMounted(mobileObj)
+	return ( GetMount(mobileObj) ~= nil )
+end
+
+--- Get the mounted object for a player, it's a convenience function to help make things look more clean but really it's just returning the equipped object at Mount slot.
+-- @param mobileObj
+-- @return mobileObj or nil if no mount
+function GetMount(mobileObj)
+	return mobileObj:GetEquippedObject("Mount")
+end
+
+--- Mount a mobile onto another mobile
+-- @param mobileObj
+-- @param mountObj
+function MountMobile(mobileObj, mountObj)
+	-- prevent exceptions
+	if ( mobileObj == nil ) then
+		LuaDebugCallStack("[MountMobile] nil mobileObj provided.")
+		return false
+	end
+	-- prevent exceptions
+	if ( mountObj == nil ) then
+		LuaDebugCallStack("[MountMobile] nil mountObj provided.")
+		return false
+	end
+
+	if not( GetEquipSlot(mountObj) == "Mount" ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Cannot mount that.", "info")
+		end
+		return false
+	end
+
+	if ( IsDead(mountObj) ) then
+		if ( mobileObj:IsPlayer() ) then
+			mobileObj:SystemMessage("Mount has died.", "info")
+		end
+		return false
+	end
+
+	-- clear target if the mount is the current target
+	if ( mobileObj:GetObjVar("CurrentTarget") == mountObj ) then
+		mobileObj:SendMessage("ClearTarget")
+	end
+	if ( IsPet(mountObj) ) then
+		local backpack = mountObj:GetEquippedObject("Backpack")
+		if ( backpack ) then
+			CloseContainerRecursive(mobileObj, backpack)
+		end
+		RemoveUseCase(mountObj, "Mount")
+		mountObj:SetObjectOwner(nil)
+	end
+	mobileObj:EquipObject(mountObj)
+	--break invis/hide effects
+	mobileObj:SendMessage("BreakInvisEffect", "Mount");
+	-- remove primed spells
+	-- mobileObj:SendMessage("CancelSpellCast")
+	-- mark movespeed stat dirty
+	mobileObj:SendMessage("RecalculateStats", {MoveSpeed=true})
+	AddUseCase(mobileObj,"Dismount",true,"IsSelf")
+	-- update pet run speeds
+	ForeachActivePet(mobileObj, function(pet)
+		pet:SendMessage("UpdateFollow")
+	end)
+	
+	return true
+end
+
+--- Dismount a mobile, does nothing if not mounted
+-- @param mobileObj
+-- @param mountObj(optional)
+-- @return boolean true if dismounted, false otherwise.
+function DismountMobile(mobileObj, mountObj)
+	mountObj = mountObj or GetMount(mobileObj)
+	if ( mobileObj and mountObj ) then
+		-- prevent dismounting more than once in a single frame (couple frames for good measure)
+		if ( mobileObj:HasTimer("Dismounting") ) then return end
+		mobileObj:ScheduleTimerDelay(TimeSpan.FromMilliseconds(200), "Dismounting")
+		mobileObj:StopMoving()
+		local statue = mountObj:GetObjVar("MountStatue")
+		if ( statue ~= nil ) then
+			local loc = mobileObj:GetLoc()
+			mountObj:SetWorldPosition(loc)
+			if ( statue:IsValid() ) then
+				local backpack = mobileObj:GetEquippedObject("Backpack")
+				if ( backpack ) then
+					statue:MoveToContainer(backpack, statue:GetLoc())
+				else
+					statue:SetWorldPosition(mobileObj:GetLoc())
+				end
+				mountObj:MoveToContainer(statue,Loc())
+			else
+				if ( mobileObj:IsPlayer() ) then
+					mobileObj:SystemMessage("Mount statue was destroyed.", "info")
+				end
+				mountObj:Destroy()
+			end
+			PlayEffectAtLoc("CloakEffect", loc, 0.5)
+		else
+			mountObj:SetWorldPosition(mobileObj:GetLoc())
+			mountObj:SetObjectOwner(mobileObj)
+			mountObj:SendMessage("BreakInvisEffect", "Mount")
+			AddUseCase(mountObj,"Mount",true,"IsController")
+		end
+		mobileObj:SendMessage("RecalculateStats", {MoveSpeed=true})-- mark movespeed stat dirty
+		RemoveUseCase(mobileObj,"Dismount")
+		mobileObj:SendMessage("BreakInvisEffect", "Mount")
+		return true
+	end
+	return false
+end
+
+function IsWearingHeavyArmor(mobileObj, hasShield)
+	if ( mobileObj == nil ) then return false end
+	--if ( hasShield == true ) then return true end
+	for i,slot in pairs(ARMORSLOTS) do
+		if ( GetArmorClass(mobileObj:GetEquippedObject(slot)) == "Heavy" ) then
+			return true
+		end
+	end
+	return false
+end
+
+-- Some mobs have the same animation set as humans. 
+function HasHumanAnimations(mobileObj)
+	-- mobs that can equip armor use the same rig as humans and therefore have the same animation set
+	return mobileObj:HasObjectTag("CanEquipArmor")
+end
+
+function Resisted(mobileObj)
+	if(TRAILER_BUILD) then
+		return false
+    end
+
+	if Success(0.5*((GetWill(mobileObj) - ServerSettings.Stats.IndividualStatMin) / (ServerSettings.Stats.IndividualPlayerStatCap - ServerSettings.Stats.IndividualStatMin))) then
+		mobileObj:PlayEffect("FrostShield", 1)
+		return true
+	end
+	return false
+end
+
+function GetStatusIconOverride(mobileObj)
+	return mobileObj:GetSharedObjectProperty("StatusIconOverride")
+end
+
+function SetStatusIconOverride(mobileObj,statusIcon)	
+	mobileObj:SetSharedObjectProperty("StatusIconOverride",statusIcon)
+end
+
 
 function CanMount(mobileObj)
     if (IsMobileDisabled(mobileObj)) then
@@ -33,3 +449,4 @@ function CanMount(mobileObj)
 
     return true
 end
+

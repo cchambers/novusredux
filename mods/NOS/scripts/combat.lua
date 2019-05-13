@@ -1211,8 +1211,8 @@ RegisterEventHandler(
 			end
 
 			if ( this:HasTimer("SpellPrimeTimer") and GetEquipmentClass(item) == "WeaponClass" ) then
-				CancelSpellCast()
-				DoFizzle(this)
+				CancelSpellCast(6)
+				-- DoFizzle(this)
 			end
 		end
 		if ( slot == "RightHand" or slot == "LeftHand" ) then
