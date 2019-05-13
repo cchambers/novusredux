@@ -236,7 +236,7 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 	skillLevel = skillLevel or GetSkillLevel(mobileObj, skillName, skillDictionary)
 
 	if ( chance == nil ) then
-		chance = 1 - ( ( ss.Skills.PlayerSkillCap.Single - skillLevel ) / ss.Skills.PlayerSkillCap.Single )		
+		chance = 1 - ( ( ss.Skills.PlayerSkillCap.Single - math.max(skillLevel, 0.1) ) / ss.Skills.PlayerSkillCap.Single )		
 	end
 
 	-- allow skipping gains from a parameter, and disallow NPCs from gaining at all, and disallow gains at a campfire.
@@ -246,18 +246,9 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		local skillTable = skillDictionary[skillName] or {}
 		skillTable.SkillLevel = skillTable.SkillLevel or 0
 
-		-- TODO - VERLORENS - Look into if this impacts anything else in the future.
-		if(skillTable.SkillLevel == 0) then
-			SetSkillLevel(mobileObj, skillName, 0.3, true)
-			return true
-		end
-
-		-- only continue if there is room to gain
-		if ( 
-			skillTable.SkillLevel >= (skillTable.SkillCap or ss.Skills.PlayerSkillCap.Single)
-			or not AntiMacroAllow(mobileObj, skillName, skillLevel)
-		) then
-			return Success( chance )
+		-- early exit cause anti macro stopped us
+		if not( AntiMacroAllow(mobileObj, skillName, skillLevel) ) then
+			return Success(chance)
 		end
 
 		local effects = {"LowVitality"}
@@ -265,7 +256,10 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		if not( SkillData.AllSkills[skillName].AllowCampfireGains == true ) then effects[2] = "Campfire" end
 		local mobileEffects = mobileObj:GetObjVar("MobileEffects") or {}
 		local preventGain = HasAnyMobileEffect(mobileObj, effects, mobileEffects)
+		
+		-- only continue skill check if there is room to skill gain
 		if ( skillTable.SkillLevel < (skillTable.SkillCap or ss.Skills.PlayerSkillCap.Single) ) then
+			
 			-- generate the gain chance
 			local gc = GenerateGainChance(skillTable.SkillLevel, chance, SkillData.AllSkills[skillName].GainFactor or 1)
 
@@ -317,8 +311,7 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				realStatLevel < ss.Stats.IndividualPlayerStatCap
 				and
 				-- "arbitrary check to insure that players stats are just scaling to some degree with the age of the character a little bit" - Miphon
-				-- used to say realStatLevel*2, wtf -- k // how to get 100 secondary stats, remove that
-				( i ~= 2 or (realStatLevel <= skillTable.SkillLevel) )
+				( i ~= 2 or (realStatLevel*2 <= skillTable.SkillLevel) )
 			) then
 				-- (increasing difficulty near stat cap)
 				local gainFactor = m.max(0.025, 1 - (realStatLevel / ss.Stats.TotalPlayerStatsCap))

@@ -8,7 +8,8 @@ function MaxActivePetSlots(master)
 end
 
 function MaxStabledPetSlots(master)
-	return 30 -- all pets count as 1
+    local slots = GetSkillLevel(master, "AnimalTamingSkill")/2
+	return math.max(30, slots)
 end
 
 function CorrectPetStats(localPet)

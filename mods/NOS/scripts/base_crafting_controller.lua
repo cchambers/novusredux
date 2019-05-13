@@ -58,7 +58,7 @@ function HandleCraftRequest(userRequest, skill, stopCraftingOnFailure)
 		return
 	end
 
-	local reqSkillLev, maxSkillLev = GetRecipeSkillRequired(this, userRequest, mCurrentMaterial)
+	local reqSkillLev, maxSkillLev = GetRecipeSkillRequired(userRequest, mCurrentMaterial)
 	if (not HasRequiredCraftingSkill(this, userRequest, skill)) then
 		this:SystemMessage("You don't have enough " .. skillName .. " skill to craft item: " .. userRequest .. "" .. " - Need " .. reqSkillLev .. ", Have " .. GetSkillLevel(this, mSkill), "info")
 		if (stopCraftingOnFailure) then
@@ -344,7 +344,7 @@ function ShowCraftingMenu(createdObject, isImproving, canImprove, improveResultS
 				skillColor = ""
 			end
 			--DebugMessage("i is "..tostring(i))
-			local skillReq, maxSkill = GetRecipeSkillRequired(this, mRecipe, mCurrentMaterial)
+			local skillReq, maxSkill = GetRecipeSkillRequired(mRecipe, mCurrentMaterial)
 			local minSkillLabel = skillColor .. "Minimum " .. GetSkillDisplayName(skillName) .. " Skill: " .. tostring(math.max(0, skillReq)) .. "[-]"
 
 			mainWindow:AddButton(489, 422 - 9, mRecipe, craftText, 120, 0, "Craft this item.", "", true, "", enableCraft)

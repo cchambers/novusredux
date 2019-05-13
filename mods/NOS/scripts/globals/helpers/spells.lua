@@ -51,6 +51,7 @@ end
 
 -- consumes scroll if passed
 function CheckSpellCastSuccess(spell, mobileObj, scrollObj)
+	DebugMessage("CHECKSPELLCASTSUCCESS")
     if ( SpellData.AllSpells[spell] == nil or SpellData.AllSpells[spell].Skill == nil ) then return false end
 	-- mobs always succeed.
 	if not( IsPlayerCharacter(mobileObj) ) then return true end

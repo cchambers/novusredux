@@ -528,14 +528,14 @@ function ApplySpellCompletionEffects(spellName, spTarget, spellSource)
 		StartMobileEffect(this, mobileEffect, this, args)
 	end
 
-	local spCasterEffectScript = GetSpellInformation(spellName, "completionEffectUserScript")
-	if not (spCasterEffectScript == nil) and not (this:HasModule(spCasterEffectScript)) then
-		this:AddModule(spCasterEffectScript)
-	end
-	--DebugMessage("SendingSpellCompletionMessage")
-	if (spCasterEffectScript ~= nil) then
-		this:SendMessage("CompletionEffect" .. spCasterEffectScript)
-	end
+	-- local spCasterEffectScript = GetSpellInformation(spellName, "completionEffectUserScript")
+	-- if not (spCasterEffectScript == nil) and not (this:HasModule(spCasterEffectScript)) then
+	-- 	this:AddModule(spCasterEffectScript)
+	-- end
+	-- --DebugMessage("SendingSpellCompletionMessage")
+	-- if (spCasterEffectScript ~= nil) then
+	-- 	this:SendMessage("CompletionEffect" .. spCasterEffectScript)
+	-- end
 
 	local spTargetEffectScript = GetSpellInformation(spellName, "completionEffectTargetScript")
 	if not (spTargetEffectScript == nil) and not (spTarget == nil) and not (spTarget:HasModule(spTargetEffectScript)) then
@@ -1024,7 +1024,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 	if (SpellData.AllSpells[spellName].PreventTownCast == true and GetGuardProtection(this) == "Town") then
 		this:SystemMessage("Cannot cast that spell in town.", "info")
-		CancelSpellCast()
+		CancelSpellCast(1)
 		return false
 	end
 
@@ -1040,7 +1040,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 
 	if (mQueuedTargetLoc == nil) then
 		if (not ValidateSpellCastTarget(spellName, _spellTarget, this)) then
-			CancelSpellCast()
+			CancelSpellCast(2)
 			return false
 		end
 	end
@@ -1052,7 +1052,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	if spellName == "Resurrect" and IsPet(_spellTarget) and TargetDeadCheck(spellName, _spellTarget) then
 		if ( not ( CanAddToActivePets(_spellTarget:GetObjVar("controller"), _spellTarget) ) ) then
 			this:NpcSpeechToUser("The pets ghost returns, but immediately runs away.  It cannot be controlled by it's owner at this time.",this)
-			CancelSpellCast()
+			CancelSpellCast(3)
 			return false
 		end
 	end
@@ -1098,7 +1098,7 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 				end
 
 				spellSource:SendMessage("ChamberSpell", spellName, spellDisplayName)
-				CancelSpellCast()
+				CancelSpellCast(4)
 				return false
 			end
 		end
@@ -1190,16 +1190,6 @@ function HandleSuccessfulSpellPrime(spellName, spellSource, free)
 	end
 end
 
--- FIZZLE
-
-function DoFizzle(mobileObj)
-	mobileObj:NpcSpeech("*fizzle*", "combat")
-	mobileObj:PlayObjectSound("event:/animals/worm/worm_pain", false)
-	-- if (mobileObj:IsPlayer()) then
-	-- 	mobileObj:SystemMessage("Cast failed.", "info")
-	-- end
-end
-
 function HandleSpellTargeted(spellTarget)
 	Verbose("Magic", "HandleSpellTargeted", spellTarget)
 	--DebugMessage("SpellTargeted")
@@ -1264,7 +1254,7 @@ function HandleSpellLocTargeted(success, targetLoc)
 	elseif not (IsLocInSpellRange(mPrimedSpell, targetLoc, mSpellSource)) then
 		this:SystemMessage("Not in range.", "info")
 		this:RequestClientTargetLoc(this, "SelectSpellLoc")
-		CancelSpellCast()
+		CancelSpellCast(5)
 		--DebugMessageA(this,"not in range")
 		return
 	elseif not (LineOfSightCheck(mPrimedSpell, targetLoc)) then
@@ -1332,7 +1322,9 @@ function CancelCurrentSpellEffects()
 	end
 end
 
-function CancelSpellCast()
+function CancelSpellCast(test)
+	DebugMessage("CANCELSPELLCAST")
+	DebugMessage(tostring(test))
 	Verbose("Magic", "CancelSpellCast")
 
 	if (this:HasTimer("CastFreezeTimer")) then
