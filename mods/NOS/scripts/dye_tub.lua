@@ -48,8 +48,8 @@ if (initializer ~= nil) then
 		local range = {1, 976}
 		if (initializer.Random == "rare") then
 			range = {819, 976}
-		else
-			range = {1, 806}
+		-- else
+		-- 	range = {1, 806}
 		end
 		local len = 27
 		local rand = math.random(range[1], range[2])
