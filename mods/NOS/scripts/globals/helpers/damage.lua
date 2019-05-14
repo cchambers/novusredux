@@ -87,8 +87,8 @@ function CalculateDamageInfo(damageInfo)
         damageInfo.Damage = damageInfo.Damage * damageLevel
         if (shouldResist) then
             -- successful magic resist, reduce damage by up to 40%
-            victim:NpcSpeechToUser("[1CB1DC]*resist*[-]", damageInfo.Attacker)
-            damageInfo.Damage = damageInfo.Damage - DoResist(victim, resistLevel, damageInfo.Damage)
+            damageInfo.Victim:NpcSpeechToUser("[1CB1DC]*resist*[-]", damageInfo.Attacker)
+            damageInfo.Damage = damageInfo.Damage - DoResist(damageInfo.Victim, resistLevel, damageInfo.Damage)
         end
         -- if ( CheckActiveSpellResist(damageInfo.Victim) ) then
         --     -- successful magic resist, half base damage
@@ -115,8 +115,6 @@ function CalculateDamageInfo(damageInfo)
     
         damageInfo.Damage = ( damageInfo.Attack * 70 ) / (defense + (damageInfo.Blocked or 0))
     
-        --DebugMessage("DO IT",tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense))
-    
         -- calculate variance if not passed in
         if not( damageInfo.Variance ) then
             if ( damageInfo.Source and damageInfo.VictimIsPlayer ) then
@@ -127,11 +125,7 @@ function CalculateDamageInfo(damageInfo)
             end
         end
     
-        --DebugMessage("DAMAGE: "..tostring(finalDamage))
-        --DebugMessage("DAMAGE: "..tostring(finalDamage),tostring(damageInfo.Attack),tostring(defense),tostring(victimArmorRating),tostring(GetCombatMod(CombatMod.DefenseTimes,1)),tostring(GetCombatMod(CombatMod.DefensePlus)),tostring(victimArmorBonus))
-    
         damageInfo.Damage = randomGaussian(damageInfo.Damage, damageInfo.Damage * damageInfo.Variance)
-        --DebugMessage("VARIANCE",tostring(finalDamage),tostring(damageInfo.Variance))
     
         if ( damageInfo.Owner ~= nil ) then
             -- add damage buff to pet attacks
