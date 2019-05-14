@@ -1324,9 +1324,7 @@ function CancelCurrentSpellEffects()
 	end
 end
 
-function CancelSpellCast(test)
-	DebugMessage("CANCELSPELLCAST")
-	DebugMessage(tostring(test))
+function CancelSpellCast(from)
 	Verbose("Magic", "CancelSpellCast")
 
 	if (this:HasTimer("CastFreezeTimer")) then
