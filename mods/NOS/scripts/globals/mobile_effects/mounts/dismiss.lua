@@ -1,4 +1,4 @@
-MobileEffectLibrary.MountDismiss = 
+MobileEffectLibrary.PetDismiss = 
 {
 
     OnEnterState = function(self,root,target,args)

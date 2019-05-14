@@ -558,7 +558,7 @@ RegisterEventHandler(EventType.Message, "UseObject", function(user,usedType)
 		end
 	elseif(usedType == "Dismiss") then
 		ClearState()
-		user:SendMessage("StartMobileEffect", "MountDismiss", this)
+		user:SendMessage("StartMobileEffect", "PetDismiss", this)
 	end
 end)
 

@@ -201,11 +201,12 @@ function CalculateKarmaAction(mobileA, action, mobileB)
         if ( action.Range and mobileA:DistanceFrom(mobileB) > action.Range ) then
             return 0
         end
+        
         -- explicitly stop all karma actions on your own pets/followers.
-        local owner = mobileB:HasObjVar("controller") and mobileB:GetObjVar("controller") or mobileB:GetObjectOwner()
+        local owner = mobileB:GetObjVar("controller")
         if ( mobileA == owner ) then return 0 end
-        isPlayerB, isPetB = IsPlayerObject(mobileB)
-        if ( owner and owner:IsValid() ) then mobileB = owner end
+        isPlayerB, isPetB = IsPlayerObject(mobileB), IsPet(mobileB)
+        if ( owner and owner:IsValid() and not IsPossessed(mobileB)) then mobileB = owner end
         karmaB = GetKarma(mobileB)
     end
 
