@@ -74,6 +74,8 @@ function ValidateSpellCastTarget(spellName,spellTarget,spellSource)
 	if ( not IsInSpellRange(spellName, spellTarget, this)) then
 		this:SystemMessage("Not in range.", "info")
 		return false
+	elseif ( SpellData.AllSpells[spellName].TargetValidate and not SpellData.AllSpells[spellName].TargetValidate(this, spellTarget) ) then
+		return false
 	elseif ( spellName == "Resurrect" and not ValidResurrectTarget(this, spellTarget) ) then
 		return false
 	elseif ( spellTarget ~= nil and targetType == "targetMobile" and not(spellTarget:IsMobile())) then
@@ -121,7 +123,7 @@ function ValidResurrectTarget(caster, target)
 		return false
 	else
 		if ( caster:IsPlayer() ) then
-			if ( IsTamedPet(target) ) then
+			if ( IsPet(target) ) then
 				if ( GetSkillLevel(caster, "AnimalLoreSkill") < 80 ) then
 					caster:SystemMessage("Not skilled enough in the lore of animals to resurrect this pet.","info")
 					return false

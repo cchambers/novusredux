@@ -601,13 +601,6 @@ function OnLoad(isPossessed)
 			end
 		end
 
-		-- DAB TODO: When the attached object can change we might need to change this
-		this:SetObjectTag("AttachedUser")
-
-		if (isPossessed) then
-			this:SetSharedObjectProperty("Title", "")
-		end
-
 		this:SetObjVar("LoginTime", DateTime.UtcNow)
 		bankBox = this:GetEquippedObject("Bank")
 		if (bankBox == nil) then
@@ -665,6 +658,8 @@ function OnLoad(isPossessed)
 			}
 		)
 	end
+	
+	this:SetObjectTag("AttachedUser")
 
 	-- send skill values to player
 	SendSkillList()
@@ -697,18 +692,15 @@ function OnLoad(isPossessed)
 				BuildHotbar(initializer.HotbarActions)
 			end
 
-			-- this technically does not need to be called every time you come from the backup
-			UpdateFixedAbilitySlots()
-
 			-- These functions are found in globals/dynamic_window/hud
 			UpdateHotbar(this)
 			UpdateSpellBar(this)
 			UpdateItemBar(this)
 			ShowStatusElement(this, {IsSelf = true, ScreenX = 10, ScreenY = 10})
-
-			InitializeClientConflicts(this)
+			UpdateFixedAbilitySlots()
 
 			if not (IsPossessed(this)) then
+				InitializeClientConflicts(this)
 				UpdateName()
 
 				if (IsMounted(this) and this:IsInRegion("NoMount")) then
@@ -726,6 +718,7 @@ function OnLoad(isPossessed)
 		end
 	)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()), "UpdateChatChannels")
+	UpdateAllegiancePlayerVars(this)
 end
 RegisterEventHandler(
 	EventType.Message,

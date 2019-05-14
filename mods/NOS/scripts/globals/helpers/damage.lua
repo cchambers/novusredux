@@ -75,9 +75,9 @@ function CalculateDamageInfo(damageInfo)
 
         damageInfo.Damage = randomGaussian(damageInfo.Damage, damageInfo.Damage * damageInfo.Variance)
         local attackerEval = GetSkillLevel(damageInfo.Attacker, "MagicAffinitySkill")
-        local shouldResist = CheckSkill(victim, "MagicResistSkill", attackerEval)
-        local resistGainChance = CheckSkill(victim, "MagicResistSkill")
-        local resistLevel = GetSkillLevel(victim, "MagicResistSkill")
+        local shouldResist = CheckSkill(damageInfo.Victim, "MagicResistSkill", attackerEval)
+        local resistGainChance = CheckSkill(damageInfo.Victim, "MagicResistSkill")
+        local resistLevel = GetSkillLevel(damageInfo.Victim, "MagicResistSkill")
         if (resistLevel < 40) then shouldResist = false end
         -- this:NpcSpeech(tostring(shouldResist))
 

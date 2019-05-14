@@ -163,7 +163,7 @@ function ExecuteRangedWeaponAttack(atTarget, hand, hitSuccessOverride, isCritOve
 		ResetSwingTimer(0, hand)
 		return
 	end
-	if ( IsPlayerCharacter(this) ) then
+	if ( IsPlayerCharacter(this) and not(IsPossessed(this)) ) then
 		-- consume the arrow before any further calculations.
 		if ( ConsumeResourceBackpack(this, mArrowType, 1) ) then
 			mOutOfArrows = false
