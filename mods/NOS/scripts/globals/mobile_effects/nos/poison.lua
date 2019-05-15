@@ -84,8 +84,8 @@ MobileEffectLibrary.Poison =
 	end,
 
 	AiPulse = function(self,root)
-		self.MinDamage = self.MinDamage * self.PoisonLevel
-		self.MaxDamage = self.MaxDamage * self.PoisonLevel
+		local minDamage = self.MinDamage * self.PoisonLevel
+		local maxDamage = self.MaxDamage * self.PoisonLevel
 		if (self.LastPoisonLevel ~= self.PoisonLevel) then
 			self.DoMessages(self, root)
 			self.LastPoisonLevel = self.PoisonLevel
@@ -95,7 +95,7 @@ MobileEffectLibrary.Poison =
 		if ( IsDead(self.ParentObj) or self.CurrentPulse > self.PulseMax ) then
 			EndMobileEffect(root)
 		else
-			self.ParentObj:SendMessage("ProcessMagicDamage", self.Caster, math.random(self.MinDamage, self.MaxDamage))
+			self.ParentObj:SendMessage("ProcessMagicDamage", self.Caster, math.random(minDamage, maxDamage))
 		end
 	end,
 

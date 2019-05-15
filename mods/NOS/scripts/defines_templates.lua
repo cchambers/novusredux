@@ -715,6 +715,7 @@ TemplateDefines = {
 				{ Chance = 2, Template = "prestige_charge", Unique = true },
 				{ Chance = 2, Template = "prestige_wound", Unique = true },
 				{ Chance = 2, Template = "prestige_evasion", Unique = true },
+				{ Chance = 2, Template = "prestige_vanish", Unique = true },
 				{ Chance = 1, Template = "prestige_dart", Unique = true },
 				{ Chance = 1, Template = "prestige_spellchamber", Unique = true },
 				{ Chance = 1, Template = "prestige_empower", Unique = true },

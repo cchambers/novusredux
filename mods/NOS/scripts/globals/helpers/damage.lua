@@ -105,7 +105,7 @@ function CalculateDamageInfo(damageInfo)
             end
         end
     
-        local defense = 1
+        local defense = 30
         if ( HasMobileEffect(damageInfo.Victim, "Sunder") ) then
             -- end sunder, no armor defense reduction this hit
             damageInfo.Victim:SendMessage("EndSunderEffect")
@@ -133,13 +133,31 @@ function CalculateDamageInfo(damageInfo)
                 damageInfo.Damage = damageInfo.Damage * (0.5 + (1 * (GetSkillLevel(damageInfo.Owner, "BeastmasterySkill") / ServerSettings.Skills.PlayerSkillCap.Single) ) )
             end
         elseif ( damageInfo.Source ) then
-            local executioner = damageInfo.Source:GetObjVar("Executioner")
-            if ( executioner ~= nil and executioner == damageInfo.Victim:GetObjVar("MobileKind") ) then
-                damageInfo.Damage = damageInfo.Damage * (
-                    ServerSettings.Executioner.LevelModifier[
-                        damageInfo.Source:GetObjVar("ExecutionerLevel") or 1
-                    ] or 1
-                )
+            local executioner = damageInfo.Source:GetObjVar("ExecutionerLevel")
+            if ( executioner ~= nil ) then
+                damageInfo.Damage = damageInfo.Damage * (ServerSettings.Executioner.LevelModifier[executioner] or 1)
+            end
+
+            local poisoned = damageInfo.Source:GetObjVar("PoisonLevel")
+            if (poisoned ~= nil) then
+                local charges = damageInfo.Source:GetObjVar("PoisonCharges")
+                charges = charges - 1
+                if (charges < 0) then
+                    damageInfo.Source:DelObjVar("PoisonLevel")
+                    damageInfo.Source:DelObjVar("PoisonCharges")
+                    RemoveTooltipEntry(damageInfo.Source,"poisoned")
+                    damageInfo.Attacker:SystemMessage("Your weapon is no longer [00ff00]poisoned[-]!", "info")
+                else
+                    local victimPoisoningSkill = GetSkillLevel(damageInfo.Victim, "PoisoningSkill")
+                    local chanceToPoison = CheckSkill(damageInfo.Attacker, "PoisoningSkill", victimWeaponSkillLevel, true)
+                    if (chanceToPoison) then
+                        damageInfo.Source:SetObjVar("PoisonCharges", charges)
+                        local poisonLevel = damageInfo.Source:GetObjVar("PoisonLevel")
+                        damageInfo.Victim:SendMessage("StartMobileEffect", "Poison", damageInfo.Attacker, {
+                            PoisonLevel = poisonLevel
+                        })
+                    end
+                end
             end
         end
     end

@@ -1,5 +1,9 @@
 MobileEffectLibrary.PetDismiss = 
 {
+    PetMountStatueTypes = {
+        Horse = "item_statue_mount_horse",
+        Warg = "item_statue_mount_warg",
+    },
 
     OnEnterState = function(self,root,target,args)
 
@@ -34,7 +38,7 @@ MobileEffectLibrary.PetDismiss =
         else
             -- this pet has never been turned into a statue before (or old one is invalid?), we need to create the statue
             local mountType = self.Pet:GetObjVar("MountType") or "Horse"
-            Create.InContainer(PetMountStatueTypes[mountType], self.Backpack, nil, function(statue)
+            Create.InContainer(self.PetMountStatueTypes[mountType], self.Backpack, nil, function(statue)
                 if ( statue and statue:IsValid() ) then
                     self.Statue = statue
                     self.Statue:SetObjVar("StatuePet", self.Pet)
@@ -64,7 +68,7 @@ MobileEffectLibrary.PetDismiss =
             return true
         end
 
-        if ( not IsTamedPet(self.Pet) or self.Pet:GetObjectOwner() ~= self.ParentObj ) then
+        if ( not IsPet(self.Pet) or self.Pet:GetObjectOwner() ~= self.ParentObj ) then
             self.ParentObj:SystemMessage("That is not your pet.", "info")
             return false
         end

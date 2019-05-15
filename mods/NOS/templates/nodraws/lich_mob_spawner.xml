@@ -13,7 +13,7 @@
 					SpawnTable = {
 						{ Weight = 95, Template = "lich" },
 						{ Weight = 4, Template = "lich_boss" },
-						{ Weight = 1, Template = "demon_summon" },
+						{ Weight = 2, Template = "demonic" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

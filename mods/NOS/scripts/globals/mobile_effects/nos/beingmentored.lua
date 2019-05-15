@@ -1,8 +1,8 @@
 MobileEffectLibrary.BeingMentored = 
 {
 	OnEnterState = function(self,root,mentor, args)
-		-- or self.ParentObj:HasTimer("Mentor.WasMentored")
-		if ( mentor == nil) then
+		
+		if ( mentor == nil or self.ParentObj:HasTimer("Mentor.WasMentored")) then
 			EndMobileEffect(root)
 			return false
 		else 

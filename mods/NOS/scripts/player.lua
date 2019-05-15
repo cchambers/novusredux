@@ -505,9 +505,9 @@ function UpdateName()
 end
 
 function OnLoad(isPossessed)
-	if (Totem ~= nil) then
-		Totem(this, "update")
-	end
+	-- if (Totem ~= nil) then
+	-- 	Totem(this, "update")
+	-- end
 	-- Logged out Incognito
 	for i, moduleName in pairs(this:GetAllModules()) do
 		if (string.match(moduleName, "sp_")) then

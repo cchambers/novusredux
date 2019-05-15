@@ -5,6 +5,7 @@ require 'weapon_cache'
 require 'base_mobilestats'
 -- allows us to add temporary modifiers to this mobile.
 require 'base_mobile_mods'
+-- allows this item to be used.
 require 'use_object'
 
 mInvisibilityEffects = {}
@@ -67,6 +68,7 @@ function Speak(entry)
 end
 
 function DoMobileDeath(damager, damageSource)
+	--DebugThis("damager "..tostring(damager).." damageSource "..tostring(damageSource), "base_mobile DoMobileDeath func")
 	Verbose("Mobile", "DoMobileDeath", damager)
 	SetCurHealth(this,0)
 
@@ -96,7 +98,7 @@ function DoMobileDeath(damager, damageSource)
 	SetMobileMod(this, "StaminaRegenPlus","Death", -1000)
 
 	local karmaLevel = GetKarmaLevel(GetKarma(this))
-	if (this:IsPlayer() and not IsPossessed(this)) then
+	if ( this:IsPlayer() and not IsPossessed(this)) then
 		if ( karmaLevel.GuardProtectPlayer == true ) then
 			KarmaPunishAllAggressorsForMurder(this)
 		end
@@ -175,6 +177,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 	end
 
 	damageType = damageType or "Bashing"
+	
 	local typeData = CombatDamageType[damageType]
 	-- not a real combat damage type, stop here.
 	if not( typeData ) then
@@ -188,26 +191,27 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 			this:NpcSpeech("[ffffff]Reflected[-]", "combat")
 			return
 		end
-		damageAmount = ( damageAmount + GetMobileMod(MobileMod.MagicDamageTakenPlus) ) * GetMobileMod(MobileMod.MagicDamageTakenTimes,1)
-	else
-		local mod = {
-			plus = GetMobileMod(MobileMod.PhysicalDamageTakenPlus),
-			times = GetMobileMod(MobileMod.PhysicalDamageTakenTimes, 1)
-		}
-		local modNames = {
-			string.format("%sDamageTakenPlus", damageType),
-			string.format("%sDamageTakenTimes", damageType)
-		}
-		if ( MobileMod[modNames[1]] ~= nil and MobileMod[modNames[2]] ~= nil ) then
-			mod.plus = mod.plus + GetMobileMod(MobileMod[modNames[1]])
-			mod.times = GetMobileMod(MobileMod[modNames[2]], mod.times)
-		end
-		damageAmount = ( damageAmount + mod.plus ) * mod.times
+		mod.plus = GetMobileMod(MobileMod.MagicDamageTakenPlus)
+		mod.times = GetMobileMod(MobileMod.MagicDamageTakenTimes, 1)
+	end
+
+	if ( typeData.Physical ) then
+		mod.plus = GetMobileMod(MobileMod.PhysicalDamageTakenPlus)
+		mod.times = GetMobileMod(MobileMod.PhysicalDamageTakenTimes, 1)
+	end
+
+	local modNames = {
+		string.format("%sDamageTakenPlus", damageType),
+		string.format("%sDamageTakenTimes", damageType)
+	}
+	if ( MobileMod[modNames[1]] ~= nil and MobileMod[modNames[2]] ~= nil ) then
+		--DebugMessage(modNames[1], modNames[2], GetMobileMod(MobileMod[modNames[1]], mod.plus), GetMobileMod(MobileMod[modNames[2]], mod.times))
+		damageAmount = ( damageAmount + GetMobileMod(MobileMod[modNames[1]], mod.plus) ) * GetMobileMod(MobileMod[modNames[2]], mod.times)
 	end
 
 	--to account for more absorbing then damage and prevent 0 damage done (or NaN or Infinity)
 	if ( damageAmount < 0.5 or damageAmount ~= damageAmount or damageAmount > 9999999999 ) then
-		damageAmount = 1
+		return
 	end
 	
 	damageAmount = math.round(damageAmount)
@@ -240,20 +244,19 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 			end
 			if ( damageAmount > 10 ) then
 				this:PlayEffect("BloodEffect_A")
-				local mountedDamager = (IsMounted(damager) and damager ~= this) 
-
-				if(IsMounted(this) and ServerSettings.Combat.DazedOnDamageWhileMounted) then
-					if (ServerSettings.Combat.DismountWhileDazed and HasMobileEffect(this, "Dazed") and not(ServerSettings.Combat.MountedAttackersCanTriggerDismount and mountedDamager)) then
-						local dismountRoll = math.random(0,100)
-						local dismountChance = ServerSettings.Combat.DismountWhileDazedChance or 50
-						if(dismountRoll < dismountChance) then
-							DismountMobile(this, nil)
-						end
-					else
-						if not(ServerSettings.Combat.MountedAttackersCanTriggerDaze and mountedDamager) then
-							this:SendMessage("StartMobileEffect", "Dazed", this, 3)
-						end
-					end
+				local mountedDamager = (IsMounted(damager) and damager ~= this) 		
+				if(IsMounted(this) and ServerSettings.Combat.DazedOnDamageWhileMounted) then		
+					if (ServerSettings.Combat.DismountWhileDazed and HasMobileEffect(this, "Dazed") and not(ServerSettings.Combat.MountedAttackersCanTriggerDismount and mountedDamager)) then		
+						local dismountRoll = math.random(0,100)		
+						local dismountChance = ServerSettings.Combat.DismountWhileDazedChance or 50		
+						if(dismountRoll < dismountChance) then		
+							DismountMobile(this, nil)		
+						end		
+					else		
+						if not(ServerSettings.Combat.MountedAttackersCanTriggerDaze and mountedDamager) then		
+							this:SendMessage("StartMobileEffect", "Dazed", this, 3)		
+						end		
+					end		
 				end
 			end			
 		end
@@ -262,106 +265,6 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 	return newHealth
 end
 
--- function HandleUseObject(user,usedType)
--- 	Verbose("Mobile", "HandleUseObject", user,usedType)
--- 	-- TODO: Check for guard protection (if you loot there it should alert the guards)	
--- 	if( usedType == "Open Pack" ) then
--- 		if(IsDead(this)) then
--- 			if(this:GetLoc():Distance(user:GetLoc()) > OBJECT_INTERACTION_RANGE ) then    
---         		user:SystemMessage("You cannot reach that.","info")  
---         		return false
---     		end
--- 	    	if not(user:HasLineOfSightToObj(this,ServerSettings.Combat.LOSEyeLevel)) then 
--- 	    		user:SystemMessage("[FA0C0C]You cannot see that![-]","info")
--- 	    		return false
--- 	    	end
-
--- 			if( this:HasObjVar("guardKilled") ) then
--- 				user:SystemMessage("[$1673]")
--- 			elseif( not(this:HasObjVar("lootable") or this:HasObjVar("HasPetPack")) ) then
--- 				user:SystemMessage("You find there is nothing of value on that corpse.","info")
--- 			else				
--- 		    	local backpackObj = this:GetEquippedObject("Backpack")
--- 			    if ( backpackObj == nil ) then
--- 					this:SendOpenContainer(user)
--- 				else
--- 					if ( #backpackObj:GetContainedObjects() > 0 ) then
--- 						backpackObj:SendOpenContainer(user)
--- 					else
--- 						user:SystemMessage("You find there is nothing of value on that corpse.","info")
--- 					end
--- 				end
--- 			end
--- 		elseif(this:HasObjVar("HasPetPack")) then
--- 			if(IsController(user,this) or IsDemiGod(user)) then
--- 				local backpackObj = this:GetEquippedObject("Backpack")
--- 			    if( backpackObj ~= nil ) then
--- 		    		backpackObj:SendMessage("OpenPack",user)
--- 			    end
--- 			else
--- 				user:SystemMessage("You can't do that.","info")
--- 			end
--- 		end
--- 	elseif( usedType == "Loot All" and IsDead(this) ) then
-
---     	local lootContainer = this:GetEquippedObject("Backpack")
--- 	    if( lootContainer == nil ) then
--- 			lootContainer = this
--- 		end
--- 		if ( #containerObj:GetContainedObjects() > 0 ) then
--- 			user:SendMessage("LootAll", this)
--- 		else
--- 			user:SystemMessage("You find nothing worth looting on this corpse.","info")
--- 			return
--- 		end
--- 	elseif(usedType == "Cut Off Head" and IsDead(this)) then
--- 		if (this:DistanceFrom(user) > 2) then
--- 			user:SystemMessage("You need to be next to them to cut their head off.","info")
--- 			return
--- 		end
--- 		if (this:GetObjVar("CanHarvestHead") == false) then 
--- 			user:SystemMessage("[D74444]Their head has already been cut off.[-]","info")
--- 			return
--- 		end
--- 		if(user:CarriedObject() ~= nil) then
--- 			user:SystemMessage("You are already carrying something.","info")
--- 			return
--- 		end
--- 		this:SetObjVar("CanHarvestHead", false)
--- 		--DebugMessage(1)
--- 		--DFB HACK: This functionality of pausing, playing an animation, and showing a progress bar should be a helper function
--- 		local killerTeam = user:GetObjVar("MobileTeamType")
--- 		local myTeam = this:GetObjVar("MobileTeamType")
--- 		local args = {myTeam,this:GetName(),this:GetCreationTemplateId()}
--- 		user:SendMessage("EndCombatMessage")
--- 		user:PlayObjectSound("event:/character/skills/gathering_skills/hunting/hunting_knife")
--- 		FaceObject(user,this)
--- 		ProgressBar.Show(
--- 		{
--- 			TargetUser = user,
--- 			Label="Slicing Head",
--- 			Duration=TimeSpan.FromSeconds(2.5),
--- 			PresetLocation="AboveHotbar"
--- 		})
--- 		CallFunctionDelayed(TimeSpan.FromSeconds(0.1),function ( ... )
--- 			SetMobileModExpire(this, "Disable", "CuttingHeadsOff", true, TimeSpan.FromSeconds(1))
--- 			user:PlayAnimation("carve")
--- 		end)
--- 		CallFunctionDelayed(TimeSpan.FromSeconds(1),function()	
--- 			user:PlayObjectSound("event:/objects/pickups/bounty_head/bounty_head_pickup",false)
--- 			user:PlayAnimation("idle")
--- 			RegisterEventHandler(EventType.CreatedObject, "CreateMobileBountyHead", HandleHeadCreated)
--- 			CreateObjInBackpack(user,"human_head","CreateMobileBountyHead",args)
--- 		end)
--- 	elseif(usedType == "Dismount" and user == this) then
--- 		local mountObj = this:GetEquippedObject("Mount")
--- 		if(mountObj ~= nil) then
--- 			if ( DismountMobile(this, mountObj) ) then
--- 				mountObj:SendMessage("UserPetCommand", "follow", this)
--- 			end
--- 		end
--- 	end
--- end
 
 function HandleHeadCreated(success,headObj,args)
 	--DebugMessage(2)
@@ -580,8 +483,8 @@ function SetStartingStats(statTable,quiet)
 	end	
 end
 
-function DoResurrect(statPct, resurrector, force)
-	if( not(IsDead(this)) ) then return end
+function DoResurrect(statPercent, resurrector)
+	if not( IsDead(this) ) then return end
 
 	local controller = this:GetObjVar("controller")
 	if ( controller and not controller:IsValid() ) then
@@ -591,85 +494,55 @@ function DoResurrect(statPct, resurrector, force)
 		return
 	end
 
-	if ( this:GetCreationTemplateId() == "player_corpse" ) then
-		-- look for the player
-		local playerOfCorpse = this:GetObjVar("PlayerObject")
-		if ( playerOfCorpse ~= nil and playerOfCorpse:IsValid() ) then
-			playerOfCorpse:SendMessage("PlayerResurrect", resurrector, this, force)
-		else
-			if( resurrector ~= nil and resurrector:IsValid() and resurrector:IsPlayer() ) then
-				-- not online? / they have already resurrected
-				resurrector:SystemMessage("Their soul will not realign with that body.", "info")
-			end
-		end
-		return
-	end
-
 	--AddView("alert", SearchMobileInRange(GetSetting("AlertRange")))
-	-- default to full stat values 
-	local newStatPct = statPct or .05
-	
-	this:SetSharedObjectProperty("IsDead", false)
-
-	-- start at statPercent specified
-	SetCurHealth(this,GetMaxHealth(this) * newStatPct)
-	SetCurStamina(this,GetMaxStamina(this) * newStatPct)
-	SetCurMana(this,GetMaxMana(this) * newStatPct)
 
 	if (this:DecayScheduled()) then
 		this:RemoveDecay()
 	end
 
-	this:SendMessage("SetFullLevelPct",50)
-	this:SendMessage("BeginRestState")
 	if (this:IsPlayer()) then
 		this:DelObjVar("CanHarvestHead")
 	end
-	this:SetMobileFrozen(false, false)
-	this:DelObjVar("Disabled")
-	this:SendMessage("OnResurrect")
 
 	this:SetCollisionBoundsFromTemplate(this:GetObjVar("FormTemplate") or this:GetCreationTemplateId())
+	
+	this:SetSharedObjectProperty("IsDead", false)
+	
+	this:SendMessage("OnResurrect")
 
-	if not( IsPlayerCharacter(this) ) then
-		local livingUseCases = this:GetObjVar("LivingUseCases")
-		if(livingUseCases ~= nil) then
-			this:SetObjVar("UseCases",livingUseCases)
-			this:DelObjVar("LivingUseCases")
-		end
-				
-		local mobileType = this:GetMobileType()
-		-- this order matters
-		if(mobileType == "Friendly") then
-			if IsMount(this) then
-				if not( this:IsEquipped() ) then	
-					SetDefaultInteraction(this,"Mount")
-				end
-			elseif ( HasUseCase(this,"Interact") ) then
-				this:SetSharedObjectProperty("DefaultInteraction","Interact")
-			else
-				this:SetSharedObjectProperty("DefaultInteraction","Use")
+	local livingUseCases = this:GetObjVar("LivingUseCases")
+	if(livingUseCases ~= nil) then
+		this:SetObjVar("UseCases",livingUseCases)
+		this:DelObjVar("LivingUseCases")
+	end
+			
+	local mobileType = this:GetMobileType()
+	-- this order matters
+	if(mobileType == "Friendly") then
+		if IsMount(this) then
+			if not( this:IsEquipped() ) then	
+				SetDefaultInteraction(this,"Mount")
 			end
+		elseif ( HasUseCase(this,"Interact") ) then
+			this:SetSharedObjectProperty("DefaultInteraction","Interact")
 		else
-			--if you're stupid enough to res an enemy mob.
-			this:SetSharedObjectProperty("DefaultInteraction","Attack")
+			this:SetSharedObjectProperty("DefaultInteraction","Use")
 		end
-
-		-- needed to clear sparkles on a resurrect
-		local backpack = this:GetEquippedObject("Backpack")
-		if ( backpack ~= nil and backpack:HasModule("tagged_mob") ) then
-			backpack:SendMessage("ClearMobTag")
-		end
-
-		-- clear the conflict table on the mobile if they were resurrected for whatever reason
-		ClearConflictTable(this)
 	else
-		this:SendMessage("PlayerResurrect", resurrector, nil, force)
+		--if you're stupid enough to res an enemy mob.
+		this:SetSharedObjectProperty("DefaultInteraction","Attack")
 	end
 
-	SetMobileMod(this, "HealthRegenPlus", "Death", nil)
-	SetMobileMod(this, "ManaRegenPlus","Death", nil)
-	SetMobileMod(this, "StaminaRegenPlus","Death", nil)
+	-- needed to clear sparkles on a resurrect
+	local backpack = this:GetEquippedObject("Backpack")
+	if ( backpack ~= nil and backpack:HasModule("tagged_mob") ) then
+		backpack:SendMessage("ClearMobTag")
+	end
+
+	-- clear the conflict table on the mobile if they were resurrected for whatever reason
+	ClearConflictTable(this)
+
+	DeathEndAll(this, statPercent)
 	
 	ApplyMobEffects()
 
@@ -682,13 +555,11 @@ RegisterEventHandler(EventType.Message, "AddXPLevel",
     end)
 
 --On resurrection
-RegisterEventHandler(EventType.Message, "Resurrect", 
-	function (statPercent, resurrector, force)
-		if( not(IsDead(this)) ) then return end
-
+RegisterEventHandler(EventType.Message, "Resurrect", function (statPercent, resurrector)
+	if( not(IsDead(this)) ) then return end
 		-- non player resurrects.
-		DoResurrect(statPercent, resurrector, force)		
-	end)
+	DoResurrect(statPercent, resurrector)		
+end)
 
 
 --- I was swug on (They missed a swing at me)
