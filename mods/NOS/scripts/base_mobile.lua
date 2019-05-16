@@ -483,8 +483,8 @@ function SetStartingStats(statTable,quiet)
 	end	
 end
 
-function DoResurrect(statPercent, resurrector)
-	if not( IsDead(this) ) then return end
+function DoResurrect(statPct, resurrector, force)
+	if( not(IsDead(this)) ) then return end
 
 	local controller = this:GetObjVar("controller")
 	if ( controller and not controller:IsValid() ) then
@@ -494,55 +494,85 @@ function DoResurrect(statPercent, resurrector)
 		return
 	end
 
+	if ( this:GetCreationTemplateId() == "player_corpse" ) then
+		-- look for the player
+		local playerOfCorpse = this:GetObjVar("PlayerObject")
+		if ( playerOfCorpse ~= nil and playerOfCorpse:IsValid() ) then
+			playerOfCorpse:SendMessage("PlayerResurrect", resurrector, this, force)
+		else
+			if( resurrector ~= nil and resurrector:IsValid() and resurrector:IsPlayer() ) then
+				-- not online? / they have already resurrected
+				resurrector:SystemMessage("Their soul will not realign with that body.", "info")
+			end
+		end
+		return
+	end
+
 	--AddView("alert", SearchMobileInRange(GetSetting("AlertRange")))
+	-- default to full stat values 
+	local newStatPct = statPct or .05
+	
+	this:SetSharedObjectProperty("IsDead", false)
+
+	-- start at statPercent specified
+	SetCurHealth(this,GetMaxHealth(this) * newStatPct)
+	SetCurStamina(this,GetMaxStamina(this) * newStatPct)
+	SetCurMana(this,GetMaxMana(this) * newStatPct)
 
 	if (this:DecayScheduled()) then
 		this:RemoveDecay()
 	end
 
+	this:SendMessage("SetFullLevelPct",50)
+	this:SendMessage("BeginRestState")
 	if (this:IsPlayer()) then
 		this:DelObjVar("CanHarvestHead")
 	end
-
-	this:SetCollisionBoundsFromTemplate(this:GetObjVar("FormTemplate") or this:GetCreationTemplateId())
-	
-	this:SetSharedObjectProperty("IsDead", false)
-	
+	this:SetMobileFrozen(false, false)
+	this:DelObjVar("Disabled")
 	this:SendMessage("OnResurrect")
 
-	local livingUseCases = this:GetObjVar("LivingUseCases")
-	if(livingUseCases ~= nil) then
-		this:SetObjVar("UseCases",livingUseCases)
-		this:DelObjVar("LivingUseCases")
-	end
-			
-	local mobileType = this:GetMobileType()
-	-- this order matters
-	if(mobileType == "Friendly") then
-		if IsMount(this) then
-			if not( this:IsEquipped() ) then	
-				SetDefaultInteraction(this,"Mount")
-			end
-		elseif ( HasUseCase(this,"Interact") ) then
-			this:SetSharedObjectProperty("DefaultInteraction","Interact")
-		else
-			this:SetSharedObjectProperty("DefaultInteraction","Use")
+	this:SetCollisionBoundsFromTemplate(this:GetObjVar("FormTemplate") or this:GetCreationTemplateId())
+
+	if not( IsPlayerCharacter(this) ) then
+		local livingUseCases = this:GetObjVar("LivingUseCases")
+		if(livingUseCases ~= nil) then
+			this:SetObjVar("UseCases",livingUseCases)
+			this:DelObjVar("LivingUseCases")
 		end
+				
+		local mobileType = this:GetMobileType()
+		-- this order matters
+		if(mobileType == "Friendly") then
+			if IsMount(this) then
+				if not( this:IsEquipped() ) then	
+					SetDefaultInteraction(this,"Mount")
+				end
+			elseif ( HasUseCase(this,"Interact") ) then
+				this:SetSharedObjectProperty("DefaultInteraction","Interact")
+			else
+				this:SetSharedObjectProperty("DefaultInteraction","Use")
+			end
+		else
+			--if you're stupid enough to res an enemy mob.
+			this:SetSharedObjectProperty("DefaultInteraction","Attack")
+		end
+
+		-- needed to clear sparkles on a resurrect
+		local backpack = this:GetEquippedObject("Backpack")
+		if ( backpack ~= nil and backpack:HasModule("tagged_mob") ) then
+			backpack:SendMessage("ClearMobTag")
+		end
+
+		-- clear the conflict table on the mobile if they were resurrected for whatever reason
+		ClearConflictTable(this)
 	else
-		--if you're stupid enough to res an enemy mob.
-		this:SetSharedObjectProperty("DefaultInteraction","Attack")
+		this:SendMessage("PlayerResurrect", resurrector, nil, force)
 	end
 
-	-- needed to clear sparkles on a resurrect
-	local backpack = this:GetEquippedObject("Backpack")
-	if ( backpack ~= nil and backpack:HasModule("tagged_mob") ) then
-		backpack:SendMessage("ClearMobTag")
-	end
-
-	-- clear the conflict table on the mobile if they were resurrected for whatever reason
-	ClearConflictTable(this)
-
-	DeathEndAll(this, statPercent)
+	SetMobileMod(this, "HealthRegenPlus", "Death", nil)
+	SetMobileMod(this, "ManaRegenPlus","Death", nil)
+	SetMobileMod(this, "StaminaRegenPlus","Death", nil)
 	
 	ApplyMobEffects()
 

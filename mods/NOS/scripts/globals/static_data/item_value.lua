@@ -43,6 +43,10 @@ CustomItemValues = {
 	rune_blank = 200,
 
 	--Animal Parts
+
+	armor_leather_chest = 30,
+	armor_leather_leggings = 20,
+	armor_leather_helm = 15,
 	
 	animalparts_human_skull = 10,
 	animalparts_leather_hide = 15,
