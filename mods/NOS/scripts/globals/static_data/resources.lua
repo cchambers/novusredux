@@ -512,17 +512,17 @@ ResourceData = {
 			CraftedItemPrefix = "MetalParts",
 		},
 
-		SpectralParts = {
+		SpectralMetalParts = {
 			Template = "resource_parts_spectral",
 			DisplayName = "SpectralParts",
 			CraftedItemPrefix = "SpectralParts",
 		},
-		GoldParts = {
+		GoldMetalParts = {
 			Template = "resource_parts_gold",
 			DisplayName = "GoldParts",
 			CraftedItemPrefix = "GoldParts",
 		},
-		CopperParts = {
+		CopperMetalParts = {
 			Template = "resource_parts_spectral",
 			DisplayName = "CopperParts",
 			CraftedItemPrefix = "CopperParts",
