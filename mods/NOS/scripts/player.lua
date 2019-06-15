@@ -1930,7 +1930,7 @@ function PerformPlayerTick(notFirst)
 	VitalityCheck(this)
 
 	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+	Allegiance.UpdateTitlele(this)
 
 	CheckBidRefund()
 
@@ -2777,7 +2777,6 @@ function OnLoad(isPossessed)
 		end
 	)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()), "UpdateChatChannels")
-	UpdateAllegiancePlayerVars(this)
 end
 RegisterEventHandler(
 	EventType.Message,
@@ -2854,7 +2853,7 @@ function PerformPlayerTick(notFirst)
 	VitalityCheck(this)
 
 	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+	Allegiance.UpdateTitlele(this)
 
 	-- CheckBidRefund()
 

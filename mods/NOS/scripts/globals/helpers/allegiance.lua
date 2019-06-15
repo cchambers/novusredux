@@ -1,24 +1,27 @@
+require 'stackable_helpers'
+Allegiance = {}
+
 --[[ Major Functions ]]
 
 --- Puts a player into a allegiance, fails if player already in allegiance
 -- @param playerObj
 -- @param allegianceId
 -- @return the GlobalVarUpdateResult event id or false if already in allegiance/bad params
-function AllegianceAddPlayer(playerObj, allegianceId)
+Allegiance.AddPlayer = function(playerObj, allegianceId)
     if ( playerObj == nil ) then
-        LuaDebugCallStack("[AllegianceAddPlayer] Nil playerObj provided.")
+        LuaDebugCallStack("[Allegiance.AddPlayer] Nil playerObj provided.")
         return false
     end
-    if ( GetAllegianceDataById(allegianceId) == nil ) then
-        LuaDebugCallStack("[AllegianceAddPlayer] Invalid Allegiance Id provided '"..tostring(allegianceId).."'")
+    if ( Allegiance.GetDataById(allegianceId) == nil ) then
+        LuaDebugCallStack("[Allegiance.AddPlayer] Invalid Allegiance Id provided '"..tostring(allegianceId).."'")
         return false
     end
 
     -- already in a allegiance, stop here.
-    if ( GetAllegianceId(playerObj) ~= nil ) then return false end
+    if ( Allegiance.GetId(playerObj) ~= nil ) then return false end
     
     -- save the allegiance members list
-    SetAllegianceVar("Members."..allegianceId, function(record)
+    Allegiance.SetVar("Members."..allegianceId, function(record)
         -- set the value as the time joined
         record[playerObj] = DateTime.UtcNow
         return true
@@ -26,7 +29,7 @@ function AllegianceAddPlayer(playerObj, allegianceId)
     function(success)
         if ( success ) then
             -- set the allegiance id on the player
-            SetAllegianceId(playerObj, allegianceId)
+            Allegiance.SetId(playerObj, allegianceId)
         end
     end)
 end
@@ -34,22 +37,22 @@ end
 --- Determines whether a player meets basic criteria to join an Allegiance
 -- @param playerObj
 -- @return true or false
-function AllegianceValidateJoin(playerObj)
+Allegiance.ValidateJoin = function(playerObj)
     if ( GetTotalBaseStats(playerObj) ~= ServerSettings.Stats.TotalPlayerStatsCap ) then return false end
     return true
 end
 
 --- Remove a player from a allegiance if they are in one
 -- @param playerObj
-function AllegianceRemovePlayer(playerObj)
+Allegiance.RemovePlayer = function(playerObj)
     if ( playerObj == nil ) then
-        LuaDebugCallStack("[AllegianceRemovePlayer] Nil playerObj provided.")
+        LuaDebugCallStack("[Allegiance.RemovePlayer] Nil playerObj provided.")
         return false
     end
-    local allegianceId = GetAllegianceId(playerObj)
+    local allegianceId = Allegiance.GetId(playerObj)
     if ( allegianceId == nil ) then return false end
 
-    SetAllegianceVar("Members."..allegianceId, function(record)
+    Allegiance.SetVar("Members."..allegianceId, function(record)
         -- remove the player from the allegiance
         record[playerObj] = nil
         return true
@@ -57,7 +60,7 @@ function AllegianceRemovePlayer(playerObj)
     function(success)
         if ( success ) then
             -- remove the allegiance from the player
-            SetAllegianceId(playerObj, nil)
+            Allegiance.SetId(playerObj, nil)
         end
     end)
 end
@@ -65,9 +68,9 @@ end
 --- Set/Delete a player's allegiance Id, also tons of other stuff
 -- @param playerObj
 -- @param value New allegiance id
-function SetAllegianceId(playerObj, value)
+Allegiance.SetId = function(playerObj, value)
     if ( value ) then
-        local allegianceData = GetAllegianceDataById(value)
+        local allegianceData = Allegiance.GetDataById(value)
         if ( allegianceData == nil ) then return end
         playerObj:SetObjVar("Allegiance", value)
         -- set the allegiance icon
@@ -75,9 +78,9 @@ function SetAllegianceId(playerObj, value)
         playerObj:SetSharedObjectProperty("FriendlyFactions", allegianceData.Icon)
         -- set allegiance player vars to defaults, unless they have favor already
         local favor = ServerSettings.Allegiance.SignupFavor or 1
-        favor = favor + GetFavor(playerObj)
-        SetAllegiancePlayerVarsDefault(playerObj, favor)
-        UpdateAllegiancePlayerVars(playerObj)
+        favor = favor + Allegiance.GetFavor(playerObj)
+        Allegiance.SetPlayerVarsDefault(playerObj, favor)
+        Allegiance.UpdatePlayerVars(playerObj)
         -- update pets
         ForeachActivePet(playerObj, function(pet)
             UpdatePetAllegiance(pet, value, allegianceData)
@@ -93,8 +96,8 @@ function SetAllegianceId(playerObj, value)
                 playerObj:SetSharedObjectProperty("FriendlyFactions", "")
                 playerObj:SystemMessage("You have denounced your allegiance.", "event")
 
-                RemovePlayerFromFavorTable(playerObj)
-                ClearAllegiancePlayerVars(playerObj)
+                Allegiance.RemovePlayerFromFavorTable(playerObj)
+                Allegiance.ClearPlayerVars(playerObj)
                 if playerObj:HasObjVar("AllegianceResign") then playerObj:DelObjVar("AllegianceResign") end
                 if playerObj:HasObjVar("Allegiance") then playerObj:DelObjVar("Allegiance") end
                 -- update pets
@@ -102,9 +105,9 @@ function SetAllegianceId(playerObj, value)
             end
         end)
 
-        local allegianceId = GetAllegianceId(playerObj)
+        local allegianceId = Allegiance.GetId(playerObj)
         if ( allegianceId ~= nil ) then
-            local amount = GetFavor(playerObj)
+            local amount = Allegiance.GetFavor(playerObj)
             local writeFunction = function(record)
                 -- default allegiance total favor to 0
                 if ( record[allegianceId] == nil ) then record[allegianceId] = 0 end
@@ -123,8 +126,8 @@ end
 
 --- Resignation for a allegiance takes time, this starts that 'countdown'
 -- @param playerObj
-function AllegianceBeginResignation(playerObj)
-    local allegianceId = GetAllegianceId(playerObj)
+Allegiance.BeginResignation = function(playerObj)
+    local allegianceId = Allegiance.GetId(playerObj)
 
     if ( allegianceId == nil ) then return end
 
@@ -133,7 +136,7 @@ end
 
 --- Take a player that just died and reward the player with the most damage that's within range.
 -- @param player
-function AllegianceRewardKill(player)
+Allegiance.RewardKill = function(player)
     local damagers = player:GetObjVar("Damagers")
     if ( damagers ~= nil ) then
         -- get a list of all groups/solos involved in all the damage
@@ -146,7 +149,7 @@ function AllegianceRewardKill(player)
                 and
                 damager:IsValid()
                 and
-                InOpposingAllegiance(damager, player)
+                Allegiance.InOpposing(damager, player)
                 and
                 damager:GetLoc():Distance(loc) < 60
             ) then
@@ -158,7 +161,7 @@ function AllegianceRewardKill(player)
         end
         -- transfer points from the player to the winner
         if ( winner ) then
-            TransferFavor(player, winner)
+            Allegiance.TransferFavor(player, winner)
         end
     end
 end
@@ -166,105 +169,220 @@ end
 --- Transfer favor from victim to aggressor, does not enforce they are in opposing allegiances tho they must both be in opposing allegiances.
 -- @param victim
 -- @param aggressor
-function TransferFavor(victim, aggressor)
+Allegiance.TransferFavor = function(victim, aggressor)
     -- cannot gain points while resigning
     --if ( victim:HasObjVar("AllegianceResign") ) then return end
-    local aAllegiance = GetAllegianceId(victim)
-    local bAllegiance = GetAllegianceId(aggressor)
+    local aAllegiance = Allegiance.GetId(victim)
+    local bAllegiance = Allegiance.GetId(aggressor)
     -- if either are not in an allegiance stop here
     if ( aAllegiance == nil or bAllegiance == nil ) then return end
     -- get the favor of A and B
-    local favorVictim = GetFavor(victim)
-    local favorAggressor = GetFavor(aggressor)
+    local favorVictim = Allegiance.GetFavor(victim)
+    local favorAggressor = Allegiance.GetFavor(aggressor)
     if ( favorVictim == nil or favorAggressor == nil ) then return end
 
     -- calculate the amount of favor to transfer
-    local favorMultiplier = GetFavorDRMultiplier(victim, aggressor)
+    local favorMultiplier = Allegiance.GetFavorDRMultiplier(victim, aggressor)
     local favorTransfer = favorVictim * favorMultiplier * ServerSettings.Allegiance.FavorTransferOnKill
     local favorVictim = favorVictim - favorTransfer
     local favorAggressor = favorAggressor + favorTransfer
 
     --update victim
-    local controllerIDVictim = GetAllegianceRosterControllerID(victim)
+    local controllerIDVictim = Allegiance.GetRosterControllerID(victim)
     if ( controllerIDVictim == nil ) then return nil end
-    SetFavor(victim, favorVictim)
+    Allegiance.SetFavor(victim, favorVictim)
     controllerIDVictim:SendMessageGlobal("AdjustFavorTable", victim, favorVictim)
 
     --update aggressor
-    local controllerIDVictim = GetAllegianceRosterControllerID(aggressor)
+    local controllerIDVictim = Allegiance.GetRosterControllerID(aggressor)
     if ( controllerIDVictim == nil ) then return nil end
-    SetFavor(aggressor, favorAggressor)
-    UpdateFavorDR(victim, aggressor)
+    Allegiance.SetFavor(aggressor, favorAggressor)
+    Allegiance.UpdateFavorDR(victim, aggressor)
     controllerIDVictim:SendMessageGlobal("AdjustFavorTable", aggressor, favorAggressor)
 end
 
 --- Checks if current season should end, updates global with new season, triggers reset of favor tables, recalculates standings
 -- @param none
-function CheckForAndStartNewSeason()
+Allegiance.CheckForAndStartNewSeason = function()
     local season = GlobalVarRead("Allegiance.CurrentSeason")
     if ( season == nil or season.StartDate == nil or DateTime.UtcNow > season.EndDate ) then
-        SetAllegianceVar("CurrentSeason", function(record)
-            local now = DateTime.UtcNow
-            local monthsTable = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
-            local seasonTable = {
-                Name = monthsTable[now.Month].." "..now.Year,
-                StartDate = now,
-                EndDate = now:Add(ServerSettings.Allegiance.SeasonDuration),
-            }
-            for k, v in pairs(record) do
-                record[k] = nil
-            end
-            for k, v in pairs(seasonTable) do
-                record[k] = v
-            end
-
-            return true
-        end,
-        function(success)
-            if ( success ) then
-                UpdateValidCharactersAllegianceVars()
-                WipeAllegianceRosterTable(1)
-                WipeAllegianceRosterTable(2)
-                WipeAllegianceRosterTable(3)
-                DebugMessage("[Allegiance] New Allegiance season successfully started")
-            end
-        end)
-
+        Allegiance.DoNewSeason()
     end
+end
+
+Allegiance.DoNewSeason = function(durationDays)
+    Allegiance.SetVar("CurrentSeason", function(record)
+        local durationDays = durationDays or ServerSettings.Allegiance.SeasonDurationDays or 90
+        local durationDays = TimeSpan.FromDays(durationDays)
+        local now = DateTime.UtcNow
+        local monthsTable = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
+        local seasonTable = {
+            Name = monthsTable[now.Month].." "..now.Year,
+            StartDate = now,
+            EndDate = now:Add(durationDays),
+        }
+        for k, v in pairs(record) do
+            record[k] = nil
+        end
+        for k, v in pairs(seasonTable) do
+            record[k] = v
+        end
+
+        return true
+    end,
+    function(success)
+        if ( success ) then
+            Allegiance.UpdateValidCharactersVars()
+            Allegiance.WipeAllFavorTables()
+            DebugMessage("New Allegiance season successfully started")
+        end
+    end)
+end
+
+Allegiance.SetDaysUntilEnd = function(durationDays)
+    Allegiance.SetVar("CurrentSeason", function(record)
+        local durationDays = durationDays or ServerSettings.Allegiance.SeasonDurationDays or 90
+        local durationDays = TimeSpan.FromDays(durationDays)
+        local now = DateTime.UtcNow
+        local seasonTable = {
+            EndDate = now:Add(durationDays),
+        }
+        for k, v in pairs(seasonTable) do
+            record[k] = v
+        end
+        return true
+    end,
+    function(success)
+        if ( success ) then
+            DebugMessage("New Allegiance end date set.")
+        end
+    end)
 end
 
 --- Sends a message to the controller that matches the allegiance ID to delete it's favor table
 -- @param allegianceId
-function WipeAllegianceRosterTable(allegianceId)
+Allegiance.WipeFavorTable = function(allegianceId)
     local rosterController = GlobalVarRead("Allegiance.RosterController."..allegianceId)
-    if ( rosterController["ID"] == nil ) then return nil end
-    rosterController["ID"]:SendMessageGlobal("WipeRosterTable")
+    if ( rosterController == nil or rosterController["ID"] == nil ) then return nil end
+    rosterController["ID"]:SendMessageGlobal("WipeFavorTable")
+end
+Allegiance.WipeAllFavorTables = function()
+    for i = 1, 3 do
+        Allegiance.WipeFavorTable(i)
+    end
+end
+
+--- Sends a message to the controller that matches the allegiance ID to calculate ranks for that Allegiance
+-- @param allegianceId
+Allegiance.CalculateRanks = function(allegianceId)
+    local rosterController = GlobalVarRead("Allegiance.RosterController."..allegianceId)
+    if ( rosterController == nil or rosterController["ID"] == nil ) then return nil end
+    rosterController["ID"]:SendMessageGlobal("CalculateAndUpdateRanks")
+end
+Allegiance.CalculateAllRanks = function()
+    for i = 1, 3 do
+        Allegiance.CalculateRanks(i)
+    end
+end
+
+Allegiance.GetHighestRankedPlayer = function(allegianceId)
+    local leader = "None"
+    local standings = GlobalVarRead("Allegiance.Standings."..allegianceId)
+    if ( standings == nil ) then return leader end
+    for k, v in pairs(standings) do
+        if ( type(k) == "userdata" and v[1] == 1 ) then
+            leader = k:GetCharacterName()
+        end
+    end
+    return leader
+end
+
+Allegiance.GetOnlinePlayers = function()
+    local onlineAllegianceMembers = {}
+    for i = 1, 3 do
+        local allegianceMembers = GlobalVarRead("Allegiance.Members."..i)
+        if ( allegianceMembers ~= nil ) then
+            for memberObj, v in pairs(allegianceMembers) do
+                if ( GlobalVarReadKey("User.Online", memberObj) ) then
+                    table.insert(onlineAllegianceMembers, memberObj)
+                end
+            end
+        end
+    end
+    return onlineAllegianceMembers
 end
 
 --- Gets and updates a player's allegiance ObjVars
 -- @param playerObj
 -- @return rank name, rank number, if applicable
-function UpdateValidCharactersAllegianceVars()
+Allegiance.UpdateValidCharactersVars = function()
     -- tell all cluster controllers accross all regions to reset all players.
     for regionAddress, v in pairs(GetClusterRegions()) do
         if ( regionAddress == ServerSettings.RegionAddress ) then
             --cluster control should always be master, this is called by master controller pulse
             local clusterController = GlobalVarReadKey("ClusterControl", "Master")
-            if ( clusterController ~= nil and clusterController ~= {} ) then
-                clusterController:SendMessage("UpdateValidCharactersAllegianceVars")
+            if ( clusterController ~= nil ) then
+                clusterController:SendMessage("Allegiance.UpdateValidCharactersVars")
             end
         elseif ( IsClusterRegionOnline(regionAddress) ) then
-            MessageRemoteClusterController(regionAddress, "UpdateValidCharactersAllegianceVars")
+            MessageRemoteClusterController(regionAddress, "Allegiance.UpdateValidCharactersVars")
         end
     end
 end
 
---[[ Updater Shiz ]]
+Allegiance.Chat = function(from, allegianceId , line)
+local name = ""
+	if ( from ~= nil) then
+		local actualName = from:GetObjVar("actualName")
+
+		if (actualName == nil) then
+			name = from:GetName()
+		else
+			name = actualName
+		end
+	end
+
+    local allegianceMembers = GlobalVarRead("Allegiance.Members."..allegianceId)
+    if ( allegianceMembers ~= nil ) then
+        from:SetObjVar("AllegianceChatCooldown", DateTime.UtcNow:Add(ServerSettings.Allegiance.ChatCooldown))
+        for memberObj, v in pairs(allegianceMembers) do
+            if ( GlobalVarReadKey("User.Online", memberObj) ) then
+                memberObj:SendMessageGlobal("Allegiance.Chat", name, Allegiance.GetRankNumber(from), line)
+            end
+        end
+    end
+end
+
+Allegiance.EventMessagePlayers = function(message)
+    if ( message == nil ) then return false end
+    local onlineAllegiancePlayers = Allegiance.GetOnlinePlayers()
+    for i = 1, #onlineAllegiancePlayers do
+        onlineAllegiancePlayers[i]:SendMessageGlobal("AllegianceEventMessage", message)
+    end
+end
+
+Allegiance.RewardAllegianceCurrency = function(playerObj, currencyAmount, silent)
+    if ( playerObj == nil or not playerObj:IsValid() ) then return false end
+    if ( currencyAmount == nil or currencyAmount < 1 ) then return false end
+    local backpack = playerObj:GetEquippedObject("Backpack")
+    if ( backpack == nil ) then return false end
+    Create.Stack.InBackpack("allegiance_salt", playerObj, currencyAmount, nil, function(obj)
+        if ( obj ) then
+                if not( silent ) then
+                    playerObj:NpcSpeech("+ "..currencyAmount.." salt", "combat")
+                end
+        else
+                DebugMessage("Salt creation to backpack failed for playerId: "..playerObj.Id)
+        end
+    end, false, false, true)
+end
+
+--[[ Updaters ]]
 
 --- Searches for the roster controller for given ID, and creates it if necessary, used by allegiance recruiter/leader
 -- @param allegianceLeader (mobileObj) Allegiance leader
-function CheckAndCreateRosterController(allegianceLeader)
-    local allegianceId = GetAllegianceId(allegianceLeader)
+Allegiance.CheckAndCreateRosterController = function(allegianceLeader)
+    local allegianceId = Allegiance.GetId(allegianceLeader)
     if ( allegianceId ~= nil ) then
         --search for controller, create if necessary
         local templateNames = {"pyros_allegiance_roster_controller", "tethys_allegiance_roster_controller", "ebris_allegiance_roster_controller"}
@@ -284,8 +402,8 @@ end
 --- Gets and updates a player's allegiance ObjVars
 -- @param playerObj
 -- @return rank name, rank number, if applicable
-function UpdateAllegiancePlayerVars(playerObj)
-    if ( playerObj == nil or not playerObj:IsValid() ) then return false end
+Allegiance.UpdatePlayerVars = function(playerObj)
+    if ( playerObj == nil or type(playerObj) ~= "userdata" or not playerObj:IsValid() ) then return false end
     --don't update anything if there is no season
     local currentGlobalSeason = GlobalVarRead("Allegiance.CurrentSeason")
     if ( currentGlobalSeason == nil or currentGlobalSeason.StartDate == nil ) then return false end
@@ -294,14 +412,14 @@ function UpdateAllegiancePlayerVars(playerObj)
     if ( playerVarSeason == nil or playerVarSeason ~= currentGlobalSeason.StartDate ) then
         if ( playerObj:HasObjVar("Favor") ) then playerObj:DelObjVar("Favor") end
 		if ( playerObj:HasObjVar("FavorDR") ) then playerObj:DelObjVar("FavorDR") end
-		ClearAllegiancePlayerVars(playerObj)
-		SetAllegiancePlayerVarsDefault(playerObj)
-		if ( GetAllegianceId(playerObj) ~= nil ) then
+		Allegiance.ClearPlayerVars(playerObj)
+		Allegiance.SetPlayerVarsDefault(playerObj)
+		if ( Allegiance.GetId(playerObj) ~= nil ) then
             CallFunctionDelayed(TimeSpan.FromSeconds(5),function()playerObj:SystemMessage("A new Allegiance season has started! Rankings have been reset!","event")end)
 		end
     end
 
-    local allegianceId = GetAllegianceId(playerObj)
+    local allegianceId = Allegiance.GetId(playerObj)
     if ( allegianceId == nil ) then return false end
 
     --get percentile and standing from globals
@@ -314,42 +432,55 @@ function UpdateAllegiancePlayerVars(playerObj)
     playerVarSeason ~= nil and 
     standingsSeason ~= nil and
     playerVarSeason == standingsSeason ) then
-
         local percentile = playerStats[1]
         local standing = playerStats[2]
         playerObj:SetObjVar("AllegiancePercentile", percentile)
         playerObj:SetObjVar("AllegianceStanding", standing)
         
-        local oldRankName = playerObj:GetObjVar("AllegianceRankName")
         --set rank name and number
         local rankTable = ServerSettings.Allegiance.Allegiances[allegianceId].Ranks
+        if ( rankTable == nil ) then
+            DebugMessage("No Allegiance rank table found.")
+            return false
+        end
+        local oldRankName = playerObj:GetObjVar("AllegianceRankName")
         for k, v in pairs(rankTable) do
-            if ( rankTable ~= nil and percentile >= v.Percentile ) then
+            if ( v.Standing and standing <= v.Standing ) then
                 playerObj:SetObjVar("AllegianceRankName", v.Name)
                 playerObj:SetObjVar("AllegianceRankNumber", v.Number)
                 local newRankName = playerObj:GetObjVar("AllegianceRankName")
                 if ( newRankName and newRankName ~= oldRankName ) then
                     CallFunctionDelayed(TimeSpan.FromSeconds(5),function()playerObj:SystemMessage("Your Allegiance rank is now "..v.Name, "event")end)
                 end
-                return v.Name, v.Number
+                return
+            elseif ( v.Percentile and percentile >= v.Percentile ) then
+                playerObj:SetObjVar("AllegianceRankName", v.Name)
+                playerObj:SetObjVar("AllegianceRankNumber", v.Number)
+                local newRankName = playerObj:GetObjVar("AllegianceRankName")
+                if ( newRankName and newRankName ~= oldRankName ) then
+                    CallFunctionDelayed(TimeSpan.FromSeconds(5),function()playerObj:SystemMessage("Your Allegiance rank is now "..v.Name, "event")end)
+                end
+                return
             end
         end
     else
         playerObj:SetObjVar("AllegiancePercentile", 0)
         playerObj:SetObjVar("AllegianceStanding", 0)
-        playerObj:SetObjVar("AllegianceRankName", "Unranked")
+        playerObj:SetObjVar("AllegianceRankName", "Inactive")
         playerObj:SetObjVar("AllegianceRankNumber", 0)
     end
+    
+    StartMobileEffect(playerObj, "AllegianceTopRank")
 end
 
 --- Set a player's allegiance ObjVars to default values for a new enlistee
 -- @param playerObj
 -- @param (optional) favor
-function SetAllegiancePlayerVarsDefault(playerObj, favor)
+Allegiance.SetPlayerVarsDefault = function(playerObj, favor)
     if not( playerObj:HasObjVar("Allegiance") ) then return false end
     local newFavor = favor or ServerSettings.Allegiance.SignupFavor or 1
-    SetFavor(playerObj, newFavor)
-    SetFavorFromEvents(playerObj, ServerSettings.Allegiance.FavorFromEvents)
+    Allegiance.SetFavor(playerObj, newFavor)
+    Allegiance.SetFavorFromEvents(playerObj, ServerSettings.Allegiance.FavorFromEvents)
 
     local currentGlobalSeason = GlobalVarRead("Allegiance.CurrentSeason")
     if ( currentGlobalSeason ~= nil and currentGlobalSeason.StartDate ~= nil ) then
@@ -359,7 +490,7 @@ end
 
 --- Removes all allegiance ObjVars on the player EXCEPT for Favor, AllegianceResign, Allegiance
 -- @param playerObj
-function ClearAllegiancePlayerVars(playerObj)
+Allegiance.ClearPlayerVars = function(playerObj)
     if ( playerObj:HasObjVar("FavorFromEvents") ) then playerObj:DelObjVar("FavorFromEvents") end
     if ( playerObj:HasObjVar("AllegianceStanding") ) then playerObj:DelObjVar("AllegianceStanding") end
     if ( playerObj:HasObjVar("AllegiancePercentile") ) then playerObj:DelObjVar("AllegiancePercentile") end
@@ -370,43 +501,43 @@ end
 
 --[[ Favor ]]
 
-function GetFavor(player)
+Allegiance.GetFavor = function(player)
     return player:GetObjVar("Favor") or 0
 end
 
-function GetAllegianceName(playerObj)
-    local allegianceId = GetAllegianceId(playerObj)
+Allegiance.GetAllegianceName = function(playerObj)
+    local allegianceId = Allegiance.GetId(playerObj)
     if ( allegianceId == nil ) then return nil end
-    local allegianceData = GetAllegianceDataById(allegianceId)
+    local allegianceData = Allegiance.GetDataById(allegianceId)
     if ( allegianceData ) then
         return allegianceData.Name
     end
     return nil
 end
 
-function SetFavor(player, favor)
+Allegiance.SetFavor = function(player, favor)
     player:SetObjVar("Favor", math.round(favor, 4))
 end
 
-function SetFavorFromEvents(player, favor)
+Allegiance.SetFavorFromEvents = function(player, favor)
     player:SetObjVar("FavorFromEvents", favor)
 end
 
 --- Remove a player's entry from their respective roster controller
 -- @param playerObj
-function RemovePlayerFromFavorTable(playerObj)
-    local controllerID = GetAllegianceRosterControllerID(playerObj)
+Allegiance.RemovePlayerFromFavorTable = function(playerObj)
+    local controllerID = Allegiance.GetRosterControllerID(playerObj)
     if ( controllerID == nil ) then return nil end
     controllerID:SendMessageGlobal("AdjustFavorTable", playerObj, 0, true)
 end
 
 --- Gets a player's corresponding roster controller ID
 -- @param playerObj
-function GetAllegianceRosterControllerID(playerObj)
-    local allegianceId = GetAllegianceId(playerObj)
+Allegiance.GetRosterControllerID = function(playerObj)
+    local allegianceId = Allegiance.GetId(playerObj)
     if ( allegianceId == nil ) then return nil end
     local rosterController = GlobalVarRead("Allegiance.RosterController."..allegianceId)
-    if ( rosterController.ID == nil ) then return nil end
+    if ( rosterController == nil or rosterController.ID == nil ) then return nil end
 
     return rosterController.ID
 end
@@ -416,7 +547,7 @@ end
 --- Adds a kill count to the aggressor(killer) FavorDR ObjVar, creates expiration time if it's the first kill in the entry
 -- @param victim (playerObj)
 -- @param aggressor (playerObj)
-function UpdateFavorDR(victim, aggressor)
+Allegiance.UpdateFavorDR = function(victim, aggressor)
     local FavorDR = aggressor:GetObjVar("FavorDR") or {}
     if ( FavorDR[victim] == nil ) then
         --set kills to 1, set entry expire date
@@ -431,8 +562,8 @@ end
 -- @param victim (playerObj)
 -- @param aggressor (playerObj)
 -- @return number from 0 to 1, to be used as multiplier for Favor transfer
-function GetFavorDRMultiplier(victim, aggressor)
-    PruneFavorDR(aggressor)
+Allegiance.GetFavorDRMultiplier = function(victim, aggressor)
+    Allegiance.PruneFavorDR(aggressor)
     local KillsToZero = ServerSettings.Allegiance.DRKillsToZero
     local FavorDR = aggressor:GetObjVar("FavorDR") or {}
     local KillsOnTarget = 0
@@ -448,7 +579,7 @@ end
 
 --- Removes expired diminishing returns entries from a player's FavorDR ObjVar table
 -- @param playerObj
-function PruneFavorDR(playerObj)
+Allegiance.PruneFavorDR = function(playerObj)
     local FavorDR = playerObj:GetObjVar("FavorDR") or {}
     for k, v in pairs(FavorDR) do
         if ( FavorDR[k] ~= nil ) then
@@ -467,7 +598,7 @@ end
 -- @param name The variable name
 -- @param writeFunction
 -- @param cb
-function SetAllegianceVar(name, writeFunction, cb)
+Allegiance.SetVar = function(name, writeFunction, cb)
     if ( name == nil or writeFunction == nil ) then return false end
     SetGlobalVar(string.format("Allegiance.%s", name), writeFunction, cb)
 end
@@ -476,7 +607,7 @@ end
 -- @param id
 -- @param name The variable name
 -- @return value of the global variable or nil
-function GetAllegianceVar(id, name)
+Allegiance.GetVar = function(id, name)
     if ( id == nil or name == nil ) then return nil end
     return GlobalVarRead("Allegiance."..name.."."..tostring(id))
 end
@@ -485,11 +616,11 @@ end
 -- @param victim
 -- @param aggressor
 -- @return true if both players are in opposing allegiances
-function InOpposingAllegiance(victim, aggressor)
-    Verbose("Allegiance", "InOpposingAllegiance", victim, aggressor)
-    local allegianceA = GetAllegianceId(victim)
+Allegiance.InOpposing = function(victim, aggressor)
+    Verbose("Allegiance", "Allegiance.InOpposing", victim, aggressor)
+    local allegianceA = Allegiance.GetId(victim)
     if ( allegianceA ~= nil ) then
-        local allegianceB = GetAllegianceId(aggressor)
+        local allegianceB = Allegiance.GetId(aggressor)
         if ( allegianceB ~= nil ) then
             return allegianceA ~= allegianceB
         end
@@ -501,28 +632,50 @@ end
 -- @param victim
 -- @param aggressor
 -- @return true or false
-function CanAttackAllegianceAttackable(aggressor, victim)
-    local allegianceId = aggressor:GetObjVar("Allegiance")
-    --attacker can't attack an allegiance mob if attacker is not in an allegiance
-    if ( allegianceId == nil ) then return false end
+Allegiance.CanAttackAllegianceAttackable = function(aggressor, victim)
+    --if victim does not have AllegianceAttackable, victim is attackable
     local allegianceAttackable = victim:GetObjVar("AllegianceAttackable")
-    --if victim doesn't have AllegianceAttackable true then return false
-    if ( allegianceAttackable ~= nil and allegianceAttackable ~= true ) then return false end
-    --otherwise true
-    return true
+    if ( allegianceAttackable == nil or allegianceAttackable ~= true ) then return true
+    --if aggressor is not in an Allegiance and assuming victim has AllegianceAttackable, return false
+    elseif ( aggressor:GetObjVar("Allegiance") == nil ) then return false
+    else
+        --otherwise return true
+        return true
+    end
 end
 
 --- Get a player's allegiance id
 -- @param playerObj
 -- @return the players allegiance id or nil
-function GetAllegianceId(playerObj)
+Allegiance.GetId = function(playerObj)
     return playerObj:GetObjVar("Allegiance")
+end
+
+Allegiance.CheckItemRequirements = function(playerObj, itemObj)
+    if ( playerObj == nil or itemObj == nil ) then return false end
+    local allegianceRequired = itemObj:GetObjVar("AllegianceRequired")
+    if ( allegianceRequired ) then
+        local allegianceId = playerObj:GetObjVar("Allegiance")
+        if ( allegianceId == nil or allegianceId ~= allegianceRequired ) then
+            playerObj:SystemMessage("Must be a member of that Allegiance to use.", "info")
+            return false
+        end
+    end
+    local rankRequired = itemObj:GetObjVar("AllegianceRankRequired")
+    if ( rankRequired ) then
+        local rank = Allegiance.GetRankNumber(playerObj)
+        if ( rank == nil or rank < rankRequired ) then
+            playerObj:SystemMessage("Requires an Allegiance rank of "..rankRequired..".", "info")
+            return false
+        end
+    end
+    return true
 end
 
 --- The the details about a allegiance by the allegiance's id
 -- @param allegianceId
 -- @return The allegiance data for the allegiance id or nil
-function GetAllegianceDataById(allegianceId)
+Allegiance.GetDataById = function(allegianceId)
     for i=1,#ServerSettings.Allegiance.Allegiances do
         if ( ServerSettings.Allegiance.Allegiances[i].Id == allegianceId ) then
             return ServerSettings.Allegiance.Allegiances[i]
@@ -531,58 +684,45 @@ function GetAllegianceDataById(allegianceId)
     return nil
 end
 
-function GetAllegiancePercentile(playerObj)
+Allegiance.GetPercentile = function(playerObj)
     return playerObj:GetObjVar("AllegiancePercentile") or 0
 end
 
-function GetAllegianceStanding(playerObj)
+Allegiance.GetStanding = function(playerObj)
     return playerObj:GetObjVar("AllegianceStanding") or 0
 end
 
-function GetAllegianceRankName(playerObj)
-    return playerObj:GetObjVar("AllegianceRankName") or "Unranked"
+Allegiance.GetRankName = function(playerObj)
+    return playerObj:GetObjVar("AllegianceRankName") or "Inactive"
 end
 
-function GetAllegianceRankNumber(playerObj)
+Allegiance.GetRankNumber = function(playerObj)
     return playerObj:GetObjVar("AllegianceRankNumber") or 0
 end
 
---[[ unused ]]
-
---- Higher level allegiance title check, only requiring player
--- @param player
-function CheckAllegianceTitle(player)
-    local allegiance = GetAllegianceId(player)
-
-    -- not in an allegiance, stop here
-    if ( allegiance == nil ) then return end
-
-    local totalFavor = GlobalVarRead("AllegianceFavor") or {}
-    totalFavor = totalFavor[allegiance] or 0
-
-    UpdateAllegianceTitle(player, allegiance, totalFavor)
-end
+--[[ Titles ]]
 
 --- Update a player's title for their allegiance, does not enfore or check much and is pretty raw
 -- @param player
 -- @param allegiance
--- @param totalFavor, Number Total favor for the allegiance
-function UpdateAllegianceTitle(player, allegiance, totalFavor)
-    totalFavor = totalFavor or 0
+Allegiance.UpdateTitlele = function(player)
+    local allegiance = Allegiance.GetId(player)
+    -- not in an allegiance, stop here
+    if ( allegiance == nil ) then return end
 
     -- get the allegiance data
-    local allegianceData = GetAllegianceDataById(allegiance)
+    local allegianceData = Allegiance.GetDataById(allegiance)
     if ( allegianceData == nil ) then
-        LuaDebugCallStack("[UpdateAllegianceTitle] Nil allegianceData, is allegiance '"..allegiance.."' valid?")
+        LuaDebugCallStack("[Allegiance.UpdateTitlele] Nil allegianceData, is allegiance '"..allegiance.."' valid?")
         return
     end
 
     -- decide the size of their slice of the pie
-    local percent = GetFavor(player) / totalFavor
+    local rankNumber = Allegiance.GetRankNumber(player)
 
     --Check if player should earn achievement for current allegiance
-    CheckAchievementStatus(player, "PvP", allegianceData.Icon.."Allegiance", percent, {TitleCheck = "Allegiance"}, "Allegiance")
+    CheckAchievementStatus(player, "PvP", allegianceData.Icon.."Allegiance", rankNumber, {TitleCheck = "Allegiance"}, "Allegiance")
 
-    --Check if a player who lost favor can use allegiance title
+    --Check if a player who lost rank can use allegiance title
     CheckTitleRequirement(victim, allegianceData.Icon.."Allegiance")
 end
