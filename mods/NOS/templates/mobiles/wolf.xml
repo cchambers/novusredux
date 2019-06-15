@@ -8,7 +8,7 @@
 		<MobileType>Animal</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>		
-		<DoubleVariable Name="BaseHealth">80</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">180</DoubleVariable>
 		<StringVariable Name="MobileTeamType">Wolf</StringVariable>
 		<StringVariable Name="MobileKind">Animal</StringVariable>
 		<DoubleVariable Name="HostileLevel">5</DoubleVariable>

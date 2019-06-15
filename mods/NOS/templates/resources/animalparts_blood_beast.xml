@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Beast Blood[-]</Name>
+	<ClientId>234</ClientId>
+	<Color>0xFFFF7000</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">BeastBlood</StringVariable>
+		<StringVariable Name="PluralName">Beast Blood</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

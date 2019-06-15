@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Key Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="NumTemplates">1</DoubleVariable>		
+		<StringVariable Name="Template1">catacombs_key_c</StringVariable>
+		<DoubleVariable Name="MaxItems">1</DoubleVariable>
+		<BoolVariable Name="EverythingIsWorthless">true</BoolVariable>
+		<DoubleVariable Name="SpawnDelaySecs">5</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="autofill_random_loot"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

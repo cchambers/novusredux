@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ClientId>208</ClientId>
+	<Hue>176</Hue>
+	<Name>Hannah</Name>
+	<SharedStateEntry name="Title" type="string" value="Mission Dispatcher"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="MobileTeamType">Villagers</StringVariable>
+		<DoubleVariable Name="BaseHealth">300</DoubleVariable>
+		<DoubleVariable Name="Karma">10000</DoubleVariable>
+		<BoolVariable Name="ImportantNPC">True</BoolVariable>
+		<BoolVariable Name="noloot">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="guard_protect" />
+		<LuaModule Name="ai_mission_dispatcher">
+			<Initializer>
+				{
+					EquipTable= {
+						BodyPartHair = {
+							{"hair_female_ponytail","0xFFA7856A"}
+						},
+           				BodyPartHead = {
+           					{"head_female05"}
+           				},
+						Chest= {
+							{"armor_leather_chest" ,"0xFFFFCCCC"},
+						},
+						Legs= {
+							{"armor_leather_leggings","0xFFFFCCCC"},
+						},
+						Backpack= {
+							"backpack",
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<BaseRunSpeed>1</BaseRunSpeed>
+		<MobileType>Friendly</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

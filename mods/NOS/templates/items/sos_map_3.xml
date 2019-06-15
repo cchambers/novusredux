@@ -1,0 +1,34 @@
+<ObjectTemplate>
+  <Name>Rum-stained Map</Name>
+	<ClientId>113</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent/>
+	<ScriptEngineComponent>
+		<LuaModule Name="sos_map">
+				<Initializer>
+				{
+				RegionalNames = 
+                    {
+                        {"Area-Ysel Lake","Ysel Lake"},
+                        {"Area-Serpent's Pass","Serpent's Pass"},
+
+                        {"Area-West Valusia","West Valusia"},
+                        {"Area-East Valusia","East Valusia"},
+
+                        {"Area-Vilewood","Vilewood"},
+                        {"Area-Spiritwood","Spiritwood"},
+                        {"Area-The Brushwoods","The Brushwoods"},
+                        {"WaterUpperNorthPond","Lake Petra"},
+                        {"WaterUpperNorthEastPond","The Hole"},
+
+                        {"Area-Denir","Denir"},
+                    },
+                    Rewards =
+                    {
+                    	"sunken_treasure_3"
+                    }
+				}
+				</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

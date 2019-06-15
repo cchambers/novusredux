@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>Song Book</Name>
+	<ClientId>2535</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>
+</ObjectTemplate>

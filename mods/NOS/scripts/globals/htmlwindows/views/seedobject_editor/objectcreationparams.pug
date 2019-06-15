@@ -1,0 +1,51 @@
+.row
+    .col-xs-25 Creation Template:
+    .col-xs-75
+        input(type='text', name='ocpinput')
+.row
+    .col-xs-3
+    .col-xs-30.center Position
+    .col-xs-3
+    .col-xs-30.center Rotation
+    .col-xs-3
+    .col-xs-30.center Scale
+.row
+    .col-xs-1
+    .col-xs-32
+        .row(of='position')
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='x', value="0")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='y', value="0")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='z', value="0")
+        .row
+            .col-xs-33.center x
+            .col-xs-33.center y
+            .col-xs-33.center z
+    .col-xs-1
+    .col-xs-32
+        .row(of='rotation')
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='x', value="0")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='y', value="0")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='z', value="0")
+        .row
+            .col-xs-33.center x
+            .col-xs-33.center y
+            .col-xs-33.center z
+    .col-xs-1
+    .col-xs-32
+        .row(of='scale')
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='x', value="1")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='y', value="1")
+            .col-xs-33
+                input.ocpinput(type='number', step='0.01', by='z', value="1")
+        .row
+            .col-xs-33.center x
+            .col-xs-33.center y
+            .col-xs-33.center z

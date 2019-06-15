@@ -1,0 +1,35 @@
+<ObjectTemplate>
+	<ClientId>2218</ClientId>
+	<Name>[FF9500]Gazer Portal[-]</Name>
+	<ScaleModifier>1</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="-1"/>
+	<SharedStateEntry name="ObjectOffset" type="double" value="3"/>
+	<ObjectVariableComponent>					
+		<BoolVariable Name="Attackable">true</BoolVariable>
+		<DoubleVariable Name="BaseHealth">2000</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="attackable_object_skill_gain">
+			<Initializer>
+			{
+				SkillLevel = 100,
+			}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="destructable_mob_spawner">
+			<Initializer>
+			{	
+				Spawns = 
+				{
+					{
+						Template = "mission_gazer_5", 
+						Max = 2,
+						AddSpawns = 1
+					},
+				},
+				SpawnRange = 12,
+			}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

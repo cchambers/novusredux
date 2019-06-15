@@ -1,0 +1,7 @@
+<ObjectTemplate>
+  <Name>Music Sheet</Name>
+	<ClientId>2536</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>
+</ObjectTemplate>

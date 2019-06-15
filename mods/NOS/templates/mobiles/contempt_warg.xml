@@ -1,0 +1,64 @@
+<ObjectTemplate>
+	<ClientId>1138</ClientId>
+	<Name>Warg</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
+	<ScaleModifier>1.0</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="BaseHealth">900</DoubleVariable>
+		<DoubleVariable Name="Armor">55</DoubleVariable>
+		<DoubleVariable Name="Attack">40</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="AI-Leash">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_wolf">
+			<Initializer>				
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					MobTraits =
+					{
+						Might = 2,
+					},
+					Skills = 
+					{ 
+						Brawling=100,
+						Melee=100,						
+					},
+					EquipTable = 
+					{
+						Backpack = { "backpack" },			
+					},	
+					LootTables =
+					{
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.SicklyEye,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(250,350),
+						},
+					},
+					WeaponAbilities = { primary="Bleed", secondary="Charge" },	
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=100, Count=3 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>
