@@ -2099,7 +2099,7 @@ RegisterEventHandler(EventType.ClientUserCommand,"OpenStore",function ( ... )
 -- POST 8.5 PLAYER.lua
 
 if (IsDemiGod(this)) then
-	require "default:base_player_mobedit"
+	require "NOS:base_player_mobedit"
 end
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
