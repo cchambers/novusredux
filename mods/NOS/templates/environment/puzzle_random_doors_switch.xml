@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>312</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent>
+		<StringVariable Name="LeverPuzzleTag">Contempt_Floor2_West</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="puzzle_random_doors_switch"/>		
+	</ScriptEngineComponent>	
+</ObjectTemplate>

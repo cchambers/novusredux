@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>[d9d9d9]Lute[-]</Name>
+	<ClientId>2517</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>			
+		<StringVariable Name="WeaponType">Crook</StringVariable>
+		<DoubleVariable Name="MaxDurability">20</DoubleVariable>
+		<StringVariable Name="ToolType">Axe</StringVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

@@ -136,7 +136,6 @@ function LearnAllRecipes(user)
 end
 --- end 8.5 recipes
 
-
 function HasRecipe(user,recipe)
 	-- DAB: Debug tool for crafting
 	if(user:HasObjVar("AllRecipes")) then return true end

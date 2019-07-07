@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Wild Feather[-]</Name>
+	<ClientId>236</ClientId>
+	<Hue>236</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">WildFeather</StringVariable>
+		<StringVariable Name="PluralName">Wild Feathers</StringVariable>	
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>	
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

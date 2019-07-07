@@ -1,0 +1,54 @@
+<ObjectTemplate>
+	<ClientId>289</ClientId>
+	<Name>Plump Maggot</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="1.25"/>
+	<ScaleModifier>2</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BodyOffset">1.2</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Animal</StringVariable>
+		<DoubleVariable Name="BaseHealth">900</DoubleVariable>
+		<DoubleVariable Name="Armor">50</DoubleVariable>
+		<DoubleVariable Name="Attack">55</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="AI-Leash">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_default">
+			<Initializer>				
+				{ 
+					Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+					MobTraits =
+					{
+						BashingVulnerability = 2,
+						SlashingResistance = 1,
+					},
+					Skills = 
+					{
+						Brawling = 100,
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.BeastBlood,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(300,450),
+						},
+					},
+					EquipTable = 
+					{
+						Backpack = { "backpack" },			
+					},	
+					WeaponAbilities = { primary="NpcAoeStun", secondary="Charge" },
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

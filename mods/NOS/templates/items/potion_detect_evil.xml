@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[00FF00]Detect Evil Potion[-]</Name>
+	<ClientId>1057</ClientId>
+	<Color>0xFFF90303</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">PotionDetectEvil</StringVariable>
+		<StringVariable Name="PluralName">Detect Evil Potion</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

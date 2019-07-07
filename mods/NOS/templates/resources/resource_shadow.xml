@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Shadow[-]</Name>
+	<ClientId>25</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Shadow</StringVariable>
+		<StringVariable Name="PluralName">Shadow</StringVariable>		
+		<DoubleVariable Name="UnitWeight">0.1</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

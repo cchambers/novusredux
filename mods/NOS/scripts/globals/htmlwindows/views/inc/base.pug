@@ -1,0 +1,91 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='/grid100.css')
+		link(rel='stylesheet', href='/style.css')
+		script(type='text/javascript', src='/jquery.js')
+	body
+		style.
+			body{
+				display:none;
+				overflow:hidden;
+			}
+			.right {
+				text-align:right;
+			}
+			.center {
+				text-align:center;
+			}
+		.row#handle
+			.col-xs-20
+				.spinner.hidden
+					.rect1
+					.rect2
+					.rect3
+					.rect4
+					.rect5
+			.col-xs-60
+				block title
+					| Legends of Aria
+			.col-xs-20
+				#close
+					| &times;
+		block content
+		script.
+			//setup some variables in the global scope of the browser,
+			var __WindowHeight = $(window).height();
+			var __ObjectId = null;
+			var __InGame = !{InGame}; //- javascript variable echoed without modification, so we can check for ingame on the client side too.
+			
+			// client calls this function when created.
+			function WindowInit(_objectId){
+				__ObjectId = _objectId;
+			}
+
+			function spin(show){
+				if(show){
+					$(".spinner").fadeIn();
+				}else{
+					$(".spinner").fadeOut();
+				}
+			}
+			
+			$(function(){
+				//- keep the window from 'flashing' while loading and only appearing when fully loaded. (Doesn't really prevent flashing..')
+				$("body").css("height", __WindowHeight + "px").fadeIn();
+
+				//- clear bind so window doesn't follow mouse anymore
+				var clearHold = function(e){
+					if ( __InGame ){
+						//- call a Unity client function.
+						IsDragging(false);
+					}else{
+						console.log("Stopped Dragging Window.");
+					}
+					bindHold();
+				};
+				//- bind to handle so we can move window.
+				var bindHold = function(){
+					$("#handle").off().on("mousedown", function(e){
+						$(this).on("mouseup", clearHold).on("mouseout", clearHold);
+						if ( __InGame ){
+							//- call a Unity client function.
+							IsDragging(true);
+						}else{
+							console.log("Started Dragging Window.");
+						}
+					});
+				}
+				bindHold();
+				
+				//- bind close button
+				$("#close").on("mouseup", function(e){
+					e.preventDefault();
+					if ( __InGame ){
+						//- call a Unity client function.
+						CloseWindow();
+					}else{
+						alert("Window Close Triggered.");
+					}
+				});
+			});

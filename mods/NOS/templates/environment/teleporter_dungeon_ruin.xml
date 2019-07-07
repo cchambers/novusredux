@@ -1,0 +1,16 @@
+<ObjectTemplate>
+	<!-- RUIN -->
+	<Name>The Halls of Ruin</Name>
+	<ClientId>1207</ClientId>
+	<ObjectVariableComponent>	
+		<BoolVariable Name="ChooseUniverse">False</BoolVariable>
+		<StringVariable Name="RegionAddress">Ruin</StringVariable>
+		<BoolVariable Name="NoTeleportEffect">True</BoolVariable>
+		<LocVariable Name="Destination">186,0,-23</LocVariable>
+		<DoubleVariable Name="DestinationFacing">255</DoubleVariable>		
+		<DoubleVariable Name="TeleportRange">0</DoubleVariable>		
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

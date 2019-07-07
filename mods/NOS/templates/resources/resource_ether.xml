@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Ether[-]</Name>
+	<ClientId>1010</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">Ether</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

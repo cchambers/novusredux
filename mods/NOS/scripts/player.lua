@@ -1930,7 +1930,7 @@ function PerformPlayerTick(notFirst)
 	VitalityCheck(this)
 
 	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+	Allegiance.UpdateTitlele(this)
 
 	CheckBidRefund()
 
@@ -2099,7 +2099,7 @@ RegisterEventHandler(EventType.ClientUserCommand,"OpenStore",function ( ... )
 -- POST 8.5 PLAYER.lua
 
 if (IsDemiGod(this)) then
-	require "default:base_player_mobedit"
+	require "NOS:base_player_mobedit"
 end
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
@@ -2777,7 +2777,6 @@ function OnLoad(isPossessed)
 		end
 	)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()), "UpdateChatChannels")
-	UpdateAllegiancePlayerVars(this)
 end
 RegisterEventHandler(
 	EventType.Message,
@@ -2854,7 +2853,7 @@ function PerformPlayerTick(notFirst)
 	VitalityCheck(this)
 
 	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+	Allegiance.UpdateTitlele(this)
 
 	-- CheckBidRefund()
 

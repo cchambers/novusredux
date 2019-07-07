@@ -1,0 +1,13 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Golden Aether Fish[-]</Name>
+	<ClientId>631</ClientId>
+	<ScaleModifier>0.4</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="FilletType">animalparts_golden_aether_fish_fillet</StringVariable>
+		<StringVariable Name="ResourceType">AetherFish</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

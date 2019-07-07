@@ -1,0 +1,80 @@
+<ObjectTemplate>
+	<ClientId>1585</ClientId>
+	<Name>Crypt Dragon</Name>
+	<SharedStateEntry name="BodyOffset" type="double" value="2"/>
+	<ScaleModifier>0.8</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>0.65</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">3400</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Dragon</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
+		<DoubleVariable Name="Attack">100</DoubleVariable>
+		<DoubleVariable Name="Power">50</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">50</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						BowResistance = 3,
+					},
+				Skills = 
+					{ 
+						Brawling = 100,  
+						Evocation = 100,
+						Channeling = 100,
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.MageRich,
+						TemplateDefines.LootTable.ScrollsHigh,
+						TemplateDefines.LootTable.MapsHigh,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.PotionsHigh,
+						TemplateDefines.LootTable.BonesEthereal,
+						TemplateDefines.LootTable.VileBlood,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(1000,1500),
+						},
+					},
+				ScavengeTables =
+					{
+					},
+				WeaponAbilities = { primary="DragonFireSmall", secondary="PoisonSplash" },	
+				AvailableSpells = {"Frost"},
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="BeastLeatherHide", RarityPct=60, Count=2 },
+						{ ResourceType="VileLeatherHide", RarityPct=20, Count=2 },
+					},				
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

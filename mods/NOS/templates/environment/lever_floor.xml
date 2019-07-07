@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>2513</ClientId>
+	<Name>Lever</Name>
+	<ObjectVariableComponent>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="lever"/>		
+	</ScriptEngineComponent>	
+</ObjectTemplate>

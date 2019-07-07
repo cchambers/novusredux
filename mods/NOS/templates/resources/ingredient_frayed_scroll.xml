@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Frayed Scroll[-]</Name>
+	<ClientId>113</ClientId>
+	<Hue>940</Hue>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">FrayedScroll</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

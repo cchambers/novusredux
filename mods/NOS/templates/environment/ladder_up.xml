@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<ClientId>837</ClientId>
+	<ObjectVariableComponent>	
+		<LocVariable Name="Destination">0, 0, 0</LocVariable>
+		<BoolVariable Name="NoTeleportEffect">true</BoolVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="teleporter"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

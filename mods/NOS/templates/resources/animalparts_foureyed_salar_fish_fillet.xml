@@ -1,0 +1,27 @@
+<ObjectTemplate>
+  <Name>[bdbdbd]Raw Four Eyed Salar Fish Fillet[-]</Name>
+	<ClientId>110</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="IsRaw">true</BoolVariable>
+		<DoubleVariable Name="FoodValue">12.0</DoubleVariable>
+		<DoubleVariable Name="CookingDifficulty">40.0</DoubleVariable>
+		<StringVariable Name="ResourceType">FishFilletFourEyedSalar</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						ManaCostMod = 
+						{
+						Bonus = -1,
+						},
+					},
+
+
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
