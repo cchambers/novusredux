@@ -57,7 +57,6 @@ function HandleCraftRequest(userRequest, skill, stopCraftingOnFailure)
 		end
 		return
 	end
-
 	local reqSkillLev, maxSkillLev = GetRecipeSkillRequired(userRequest, mCurrentMaterial)
 	if (not HasRequiredCraftingSkill(this, userRequest, skill)) then
 		this:SystemMessage("You don't have enough " .. skillName .. " skill to craft item: " .. userRequest .. "" .. " - Need " .. reqSkillLev .. ", Have " .. GetSkillLevel(this, mSkill), "info")

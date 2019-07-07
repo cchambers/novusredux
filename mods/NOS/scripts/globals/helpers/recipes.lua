@@ -77,7 +77,7 @@ function GetSkillRequiredForTemplate (baseTemplate)
 	return GetSkillForRecipe(GetRecipeNameFromBaseTemplate(baseTemplate))
 end
 
-function GetRecipeSkillRequired(mobileObj,recipe,material)
+function GetRecipeSkillRequired(recipe,material)
 	local entry, skillName = GetRecipeFromEntryName(recipe)
 	local modifier = 0
 	if(material) then
@@ -87,7 +87,7 @@ function GetRecipeSkillRequired(mobileObj,recipe,material)
 end
 
 function HasRequiredCraftingSkill(mobileObj,recipe,usedSkill, material)
-	return GetSkillLevel(mobileObj,usedSkill) >= (GetRecipeSkillRequired(mobileObj,recipe, material) or 0)
+	return GetSkillLevel(mobileObj,usedSkill) >= (GetRecipeSkillRequired(recipe, material) or 0)
 end
 
 -- function HasRecipe(user,recipe)
@@ -135,15 +135,6 @@ function LearnAllRecipes(user)
 	user:SetObjVar("AvailableRecipies",userRecipes)
 end
 --- end 8.5 recipes
-
--- function GetRecipeSkillRequired(mobileObj,recipe,material)
--- 	local entry, skillName = GetRecipeFromEntryName(recipe)
--- 	local modifier = 0
--- 	if(material) then
--- 		modifier = AllRecipes[skillName][material].DifficultyModifier or 1
--- 	end
--- 	return math.min(100,entry.MinLevelToCraft + modifier), math.min(100,entry.MaxLevelToGain + modifier)
--- end
 
 
 function HasRecipe(user,recipe)
