@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateName>Male</TemplateName>
+	<ClientId>1</ClientId>
+	<Color>FFFFFF</Color>
+	<ScaleModifier>1</ScaleModifier>
+	<Name />
+	<SharedStateEntry name="IsFlying" type="bool" value="False" />
+	<SharedStateEntry name="StatusIconOverride" type="string" value="" />
+	<SharedStateEntry name="Faction" type="string" value="None" />
+	<SharedStateEntry name="AudioIdentifierOverride" type="string" value="" />
+	<SharedStateEntry name="Pose" type="string" value="Standing" />
+	<SharedStateEntry name="NoInteract" type="bool" value="False" />
+	<SharedStateEntry name="BodyOffset" type="double" value="0.8" />
+	<SharedStateEntry name="IsBoss" type="bool" value="False" />
+	<SharedStateEntry name="ContainerWindowType" type="string" value="Coffin" />
+	<SharedStateEntry name="IsDead" type="bool" value="False" />
+	<SharedStateEntry name="FriendlyFactions" type="string" value="" />
+	<SharedStateEntry name="DenyPickup" type="bool" value="False" />
+	<SharedStateEntry name="CombatMode" type="bool" value="False" />
+	<SharedStateEntry name="IsSneaking" type="bool" value="False" />
+	<SharedStateEntry name="Capacity" type="double" value="2000" />
+	<SharedStateEntry name="Title" type="string" value="" />
+	<SharedStateEntry name="Weight" type="double" value="-1" />
+	<SharedStateEntry name="CombatStance" type="string" value="Passive" />
+	<SharedStateEntry name="DisplayName" type="string" value="" />
+	<SharedStateEntry name="TooltipString" type="string" value="" />
+	<SharedStateEntry name="DefaultInteraction" type="string" value="Interact" />
+	<ScriptEngineComponent>
+		<LuaModule Name="base_mobile_advanced">
+			<Initializer>{
+ EquipTable = {
+  Chest = {
+   {
+    "clothing_chest_beggar_dirty",
+    872,
+   },
+  },
+  BodyPartHead = {
+   {
+    "head_male03",
+    0,
+   },
+  },
+  Legs = {
+   {
+    "clothing_legs_beggar",
+    800,
+   },
+  },
+  Cloak = {
+   {
+    "clothing_chest_cloak_basic",
+    893,
+   },
+  },
+ },
+}</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+	<MobileComponent>
+		<MobileType>Player</MobileType>
+	</MobileComponent>
+</ObjectTemplate>

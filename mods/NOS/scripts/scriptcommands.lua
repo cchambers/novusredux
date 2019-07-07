@@ -138,7 +138,7 @@ RegisterCommand {
 --             end
 --         }
 --     end,
--- 	Desc = "Exit in a cool cool way."
+-- 	Desc = "Permanently switch to PvE mode."
 -- }
 
 RegisterCommand {

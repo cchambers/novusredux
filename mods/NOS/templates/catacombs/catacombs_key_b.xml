@@ -1,0 +1,12 @@
+<ObjectTemplate>
+  <Name>Door Key</Name>
+	<ClientId>117</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="lockUniqueId">CatacombsDoorB</StringVariable>			
+		<BoolVariable Name="OneTimeKey">true</BoolVariable>			
+	</ObjectVariableComponent>			
+	<ScriptEngineComponent>
+		<LuaModule Name="key"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,117 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Treasure Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="ChanceToBeTrapped">22</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="chance_to_trap"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(25,35),
+				    	},
+						-- Recipes
+						{						
+						    NumItems = math.random(0,1),
+							LootItems = 
+							{ 	
+								{ Chance = 10, Template = "recipe_banner_wall_green", Unique = true },
+								{ Chance = 10, Template = "recipe_cauldron_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_church_bench", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_priest_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_priest_helm", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_priest_legs", Unique = true },
+								{ Chance = 10, Template = "recipe_ribcage_candle", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_fetal", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_pieces", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_giveup", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_slumped", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_together", Unique = true },
+								{ Chance = 10, Template = "recipe_soldiers_cot", Unique = true },
+								{ Chance = 10, Template = "recipe_wall_hanger", Unique = true },
+								{ Chance = 10, Template = "recipe_weapon_rack_wooden", Unique = true },
+								{ Chance = 10, Template = "recipe_wall_torch", Unique = true },
+								{ Chance = 10, Template = "recipe_banner_green", Unique = true },
+								{ Chance = 10, Template = "recipe_barricade_chain", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_candelabra", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_column", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_dirk", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_helm", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_leggings", Unique = true },
+								{ Chance = 10, Template = "recipe_bone_pile2", Unique = true },
+								{ Chance = 10, Template = "recipe_boneaxe", Unique = true },
+								{ Chance = 10, Template = "recipe_cellar_chest_short", Unique = true },
+								{ Chance = 10, Template = "recipe_cellar_chest_tall", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_helm", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_judge_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_judge_legs", Unique = true },
+								{ Chance = 10, Template = "recipe_cloth_wayun_legs", Unique = true },
+								{ Chance = 10, Template = "recipe_greatsword", Unique = true },
+								{ Chance = 10, Template = "recipe_halberd", Unique = true },
+								{ Chance = 10, Template = "recipe_iron_altar", Unique = true },
+								{ Chance = 10, Template = "recipe_leather_wayun_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_leather_wayun_helm", Unique = true },
+								{ Chance = 10, Template = "recipe_leather_wayun_leggings", Unique = true },
+								{ Chance = 10, Template = "recipe_mummy_hunched", Unique = true },
+								{ Chance = 10, Template = "recipe_mummy_pile", Unique = true },
+								{ Chance = 10, Template = "recipe_mummy_sit", Unique = true },
+								{ Chance = 10, Template = "recipe_mummy_straight", Unique = true },
+								{ Chance = 10, Template = "recipe_pedestal", Unique = true },
+								{ Chance = 10, Template = "recipe_ribcage_candle", Unique = true },
+								{ Chance = 10, Template = "recipe_skeleton_fetal", Unique = true },
+								{ Chance = 10, Template = "recipe_mace", Unique = true },
+								{ Chance = 10, Template = "recipe_padded_worshipper_chest", Unique = true },
+								{ Chance = 10, Template = "recipe_padded_worshipper_helm", Unique = true },
+								{ Chance = 10, Template = "recipe_padded_worshipper_leggings", Unique = true },
+								{ Chance = 10, Template = "recipe_plantchest", Unique = true },
+								{ Chance = 10, Template = "recipe_planthelm", Unique = true },
+								{ Chance = 10, Template = "recipe_plantlegs", Unique = true },
+								{ Chance = 10, Template = "recipe_shield_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_staff_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_wand", Unique = true },
+								{ Chance = 10, Template = "recipe_wood_spike_shield", Unique = true },
+								{ Chance = 10, Template = "recipe_scythe", Unique = true },
+								{ Chance = 10, Template = "recipe_forge_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_alchemytable_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_loom_bone", Unique = true },
+								{ Chance = 10, Template = "recipe_forge_bone", Unique = true },
+							} 
+						},	
+						--ingredients
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 7, Template = "potion_refresh", Unique = true },
+								{ Chance = 10,Template = "potion_defense", Unique = true },
+								{ Chance = 10,Template = "potion_damage", Unique = true },
+								{ Chance = 10,Template = "potion_attackspeed", Unique = true },
+								{ Chance = 10, Template = "magnifying_glass", Unique = true },
+								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
+								{ Chance = 5, Template = "resource_iron", Unique = true },
+								{ Chance = 20, Template = "cooked_stew", Unique = true },
+								{ Chance = 20, Template = "animalparts_bone_cursed", Unique = true },
+								{ Chance = 20, Template = "animalparts_bone", Unique = true },
+								{ Chance = 10, Template = "kho_token", Unique = true },
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

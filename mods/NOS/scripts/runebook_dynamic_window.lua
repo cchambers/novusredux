@@ -1,4 +1,4 @@
-require "default:incl_magic_sys"
+require "NOS:incl_magic_sys"
 
 RUNEBOOK_X_OFFSET = 0.77
 RUNEBOOK_Y_OFFSET = 0.77

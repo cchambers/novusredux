@@ -1,4 +1,4 @@
-require "default:incl_magic_sys"
+require "NOS:incl_magic_sys"
 
 --[[
 

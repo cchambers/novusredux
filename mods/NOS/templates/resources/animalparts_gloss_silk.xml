@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Gossamer Silk[-]</Name>
+	<ClientId>242</ClientId>
+	<Color>0xFF993399</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">GossamerSilk</StringVariable>
+		<DoubleVariable Name="UnitWeight">0.2</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

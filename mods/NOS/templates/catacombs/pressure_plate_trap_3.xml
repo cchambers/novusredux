@@ -1,0 +1,14 @@
+<ObjectTemplate>
+	<ClientId>2504</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="TrapTemplate">spike_floor_narrow</StringVariable>
+		<StringVariable Name="TrapType">GroundSpikeTrap</StringVariable>
+		<DoubleVariable Name="TrapChance">5</DoubleVariable>
+		<DoubleVariable Name="LockpickingDifficulty">80</DoubleVariable>
+		<BoolVariable Name="locked">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="trapped_object"/>
+		<LuaModule Name="pressure_plate_trap"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,55 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Treasure Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="ChanceToBeTrapped">22</DoubleVariable>
+		<BoolVariable Name="Reward">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="chance_to_trap"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(100,500),
+				    	},
+						--spells
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 25, Template = "lscroll_electricbolt", Unique = true },
+								{ Chance = 12, Template = "lscroll_fireball", Unique = true },
+								{ Chance = 12, Template = "lscroll_fireball", Unique = true },
+								{ Chance = 12, Template = "lscroll_lightning", Unique = true },
+
+							}
+						},
+						--ingredients
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 15,Template = "potion_lheal", Unique = true },
+								{ Chance = 15,Template = "potion_mana", Unique = true },
+								{ Chance = 10,Template = "potion_defense", Unique = true },
+								{ Chance = 10, Template = "magnifying_glass", Unique = true },
+								{ Chance = 15, Template = "bandage", Unique = true },
+								{ Chance = 5, Template = "animalparts_spider_silk", Unique = true },
+								{ Chance = 5, Template = "resource_iron", Unique = true },
+								{ Chance = 20, Template = "cooked_stew", Unique = true },
+								{ Chance = 20, Template = "animalparts_bone_cursed", Unique = true },
+								{ Chance = 20, Template = "animalparts_bone", Unique = true },
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

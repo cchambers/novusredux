@@ -1,0 +1,13 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Plauge Rat Ear[-]</Name>
+	<ClientId>240</ClientId>
+	<Color>0xFF993399</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">PlagueRatEar</StringVariable>
+		<StringVariable Name="PluralName">Plauge Rat Ears</StringVariable>		
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

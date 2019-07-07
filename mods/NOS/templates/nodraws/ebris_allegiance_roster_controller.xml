@@ -1,0 +1,10 @@
+<ObjectTemplate>
+	<Name>Ebris Roster Controller</Name>
+	<ClientId>2</ClientId>				
+	<ScriptEngineComponent>
+		<LuaModule Name="allegiance_roster_controller"/>
+	</ScriptEngineComponent>
+	<ObjectVariableComponent>	
+		<StringVariable Name="Allegiance">3</StringVariable>
+	</ObjectVariableComponent>	
+</ObjectTemplate>

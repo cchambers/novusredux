@@ -1,0 +1,10 @@
+<ObjectTemplate>
+  <Name>Tax Credit</Name>
+	<ClientId>2095</ClientId>
+	<Hue>831</Hue>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">TaxCredit</StringVariable>
+		<DoubleVariable Name="TaxCreditAmount">10000</DoubleVariable>
+	</ObjectVariableComponent>
+</ObjectTemplate>

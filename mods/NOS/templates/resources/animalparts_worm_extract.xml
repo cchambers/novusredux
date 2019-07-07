@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Worm Extract[-]</Name>
+	<ClientId>114</ClientId>
+	<Color>0xFFCCFFCC</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">WormExtract</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

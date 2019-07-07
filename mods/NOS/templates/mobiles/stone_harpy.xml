@@ -1,0 +1,72 @@
+<ObjectTemplate>
+	<ClientId>1580</ClientId>
+	<Name>Stone Harpy</Name>
+	<Hue>836</Hue>
+	<SharedStateEntry name="BodyOffset" type="double" value="1"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">1100</DoubleVariable>
+		<StringVariable Name= "MobileTeamType">Ork</StringVariable>
+		<StringVariable Name="MobileKind">Harpy</StringVariable>
+		<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">false</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
+		<DoubleVariable Name="Armor">60</DoubleVariable>
+		<DoubleVariable Name="Attack">50</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">30</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>					
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_default">
+			<Initializer>
+				{ 
+				Stats = { Str=40, Agi=30, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+					},
+				Skills = 
+					{ 
+					Brawling = 65,  
+					},	
+				EquipTable = 
+					{
+						Backpack = { "backpack" },					
+					},
+				LootTables =
+					{
+						TemplateDefines.LootTable.Humanoid,
+						TemplateDefines.LootTable.Maps,
+						TemplateDefines.LootTable.FilthyRich,
+						TemplateDefines.LootTable.Potions,
+						TemplateDefines.LootTable.BeastBlood,
+						TemplateDefines.LootTable.PrestigeLow,
+						{
+							NumCoins = math.random(225,500),
+						},
+					},	
+				WeaponAbilities = { primary="MortalStrike", secondary="Dart" },	
+				ScavengeTables =
+					{
+					},			
+				}
+			</Initializer>
+		</LuaModule>
+		<LuaModule Name="animal_parts">
+			<Initializer>
+				{
+					AnimalParts =
+					{
+						{ ResourceType="WildFeather", RarityPct=100, Count=	20 },
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

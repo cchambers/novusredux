@@ -1,0 +1,52 @@
+<ObjectTemplate>
+	<ClientId>2475</ClientId>
+	<Name>Lich Servant</Name>
+	<ScaleModifier>0.8</ScaleModifier>
+	<MobileComponent>			
+		<BaseRunSpeed>.8</BaseRunSpeed>
+		<MobileType>Animal</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>
+		<DoubleVariable Name="BaseHealth">500</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Undead</StringVariable>
+		<StringVariable Name="MobileKind">Demon</StringVariable>
+		<StringVariable Name="NaturalWeaponType">Spikes</StringVariable>
+		<StringVariable Name="NaturalWeaponName">Fangs</StringVariable>
+		<StringVariable Name="NaturalArmor">Light</StringVariable>
+		<DoubleVariable Name="Armor">65</DoubleVariable>
+		<DoubleVariable Name="Attack">60</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">20</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+		<DoubleVariable Name="Power">12</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>		
+		<LuaModule Name="ai_skeleton">
+			<Initializer>				
+				{ 
+					Stats = { Str=21, Agi=30, Int=40, Wis=10, Wil=10 },
+					Skills = 
+					{ 
+						Brawling = 90, 
+						Channeling = 100,
+						Evocation = 100,
+					},
+					LootTables =
+					{
+						TemplateDefines.LootTable.Blood,
+						TemplateDefines.LootTable.PrestigeLow,
+
+					},
+
+					MobTraits =
+					{
+						BowVulnerability = 1,
+					},
+
+					AvailableSpells = {"Heal", "Greaterheal", "Poison", "Cure", "Ruin", "Fireball", "Lightning"},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

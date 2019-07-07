@@ -1,0 +1,87 @@
+<ObjectTemplate>
+	<ClientId>311</ClientId>
+	<Name>[0078ff]Treasure Chest[-]</Name>
+	<SharedStateEntry name="Capacity" type="int" value="100"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Reward">True</BoolVariable>
+		<DoubleVariable Name="ChanceToBeTrapped">22</DoubleVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="container"/>
+		<LuaModule Name="chance_to_trap"/>
+		<LuaModule Name="fill_random_loot">
+			<Initializer>
+				{
+					LootTables =
+					{	
+					    -- Gold
+					    {
+					    	NumCoins = math.random(2000,4000),
+				    	},
+						--spells
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Chance = 25, Template = "lscroll_electricbolt", Unique = true },
+								{ Chance = 25, Template = "lscroll_icelance", Unique = true },
+
+								{ Chance = 12, Template = "lscroll_resurrect", Unique = true },
+								{ Chance = 12, Template = "lscroll_teleport", Unique = true },
+								{ Chance = 12, Template = "lscroll_lightning", Unique = true },
+								{ Chance = 5, Template = "lscroll_icerain", Unique = true },
+								{ Chance = 5, Template = "lscroll_walloffire", Unique = true },
+
+							}
+						},
+						--ingredients
+						{
+							NumItems = math.random(0,1),
+							LootItems = 
+							{									
+								{ Weight = 75,Template = "potion_lheal", Unique = true },
+								{ Weight = 75,Template = "potion_mana", Unique = true },
+								{ Weight = 30, Template = "magnifying_glass", Unique = true },
+								{ Weight = 21, Template = "potion_refresh", Unique = true },
+								{ Weight = 30,Template = "potion_defense", Unique = true },
+								{ Weight = 30,Template = "potion_damage", Unique = true },
+								{ Weight = 30,Template = "potion_attackspeed", Unique = true },
+								{ Weight = 30,Template = "tool_hunting_knife", Unique = true },
+								{ Weight = 15, Template = "bandage", Unique = true },
+								{ Weight = 15, Template = "animalparts_spider_silk", Unique = true },
+								{ Weight = 15, Template = "resource_iron", Unique = true },
+								{ Weight = 60, Template = "cooked_stew", Unique = true },
+								{ Weight = 60, Template = "animalparts_bone_cursed", Unique = true },
+								{ Weight = 60, Template = "animalparts_bone", Unique = true },
+
+								{ Weight = 1, Template = "skill_animalken", Unique = true },
+								{ Weight = 1, Template = "skill_bashing", Unique = true },
+								{ Weight = 1, Template = "skill_blocking", Unique = true },
+								{ Weight = 1, Template = "skill_butchery", Unique = true },
+								{ Weight = 1, Template = "skill_channeling", Unique = true },
+								{ Weight = 1, Template = "skill_cooking", Unique = true },
+								{ Weight = 1, Template = "skill_dodge", Unique = true },
+								{ Weight = 1, Template = "skill_fabrication", Unique = true },
+								{ Weight = 1, Template = "skill_foraging", Unique = true },
+								{ Weight = 1, Template = "skill_lumberjack", Unique = true },
+								{ Weight = 1, Template = "skill_magic_affinity", Unique = true },
+								{ Weight = 1, Template = "skill_manifestation", Unique = true },
+								{ Weight = 1, Template = "skill_melee", Unique = true },
+								{ Weight = 1, Template = "skill_metalsmith", Unique = true },
+								{ Weight = 1, Template = "skill_mining", Unique = true },
+								{ Weight = 1, Template = "skill_necromancy", Unique = true },
+								{ Weight = 1, Template = "skill_piercing", Unique = true },
+								{ Weight = 1, Template = "skill_regneration", Unique = true },
+								{ Weight = 1, Template = "skill_rogue", Unique = true },
+								--{ Weight = 1, Template = "skill_salvage", Unique = true },
+								{ Weight = 1, Template = "skill_slashing", Unique = true },
+								{ Weight = 1, Template = "skill_woodsmith", Unique = true },
+
+							}
+						},
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

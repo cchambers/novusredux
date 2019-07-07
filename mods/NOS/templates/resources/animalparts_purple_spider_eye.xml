@@ -1,0 +1,25 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Purple Spider Eye[-]</Name>
+	<ClientId>234</ClientId>
+	<Color>0xFF993399</Color>
+	<SharedStateEntry name="Weight" type="int" value="4"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">PurpleSpiderEye</StringVariable>
+		<BoolVariable Name="IsRaw">true</BoolVariable>
+		<DoubleVariable Name="CookingDifficulty">15.0</DoubleVariable>
+		<DoubleVariable Name="FoodValue">6.0</DoubleVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						ManaRegenMod = { 
+							Multiplier = 1.1,
+						},
+					},
+				}
+			</Initializer></LuaModule>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

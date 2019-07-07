@@ -1,0 +1,16 @@
+if post.type == "list"
+    if error
+        li
+            a= error
+    else
+        ul
+            each group in all.WorldTemplateObjects.Group
+                li
+                    a= group.$.Name
+                        ul(group=group.$.Name, mod=group.$.Mod)
+                            if group.DynamicObject
+                                each dynobj in group.DynamicObject
+                                    li.selectable(gid=dynobj.Id[0])
+                                        a= dynobj.Name[0]
+else
+    | !{out}

@@ -1,0 +1,11 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Toxic Bones[-]</Name>
+	<ClientId>1009</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="6"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">ToxicBones</StringVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

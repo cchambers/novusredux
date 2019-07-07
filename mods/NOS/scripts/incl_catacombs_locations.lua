@@ -1,0 +1,35 @@
+CatacombsLocations = 
+{
+	{ Name = "Shrine1", Loc = Loc( 3.536,0.0,-6.734), Facing = 143 ,Type = "Shrine"},
+	{ Name = "Shrine2", Loc = Loc( 5.33, 0.6320896, -6.154), Facing = 143 ,Type = "Shrine"},
+	{ Name = "Shrine3", Loc = Loc( 3.608, 0.6320896, -5.229), Facing = 200 ,Type = "Shrine"},
+	{ Name = "Shrine4", Loc = Loc( 2.009, 0.6320896, -7.186), Facing = 178 ,Type = "Shrine"},
+
+	{ Name = "Merchant1", Loc = Loc( 11.658, 0.9690628, 0.459), Facing = 120 ,Type = "Merchant"},
+	{ Name = "Merchant2", Loc = Loc( 11.787, 0.969059, -3.27 ), Facing = 188 ,Type = "Merchant"},
+	{ Name = "Merchant3", Loc = Loc( 14.118, 0.825634, 6.043 ), Facing = 80 ,Type = "Merchant"},
+	{ Name = "Merchant4", Loc = Loc( 19.81, 0.8407993, 4.42), Facing = 244 ,Type = "Merchant"},
+	{ Name = "Merchant5", Loc = Loc( -29.3, 0.6320896, -1.64), Facing = 314 ,Type = "Merchant"},
+	{ Name = "Merchant6", Loc = Loc( -29.7, 0.6320896, 4.3), Facing = 88 ,Type = "Merchant"},
+	{ Name = "Merchant7", Loc = Loc( -29.3, 0.6320896, -1.64), Facing = 314 ,Type = "Merchant"},
+
+	{ Name = "Altar1", Loc = Loc( 0.035, -0.03792953, 28.926), Facing = 65 ,Type = "Altar"},
+	{ Name = "Altar2", Loc = Loc( 1.788, -0.03792953, 31.863), Facing = 65 ,Type = "Altar"},
+	{ Name = "Altar3", Loc = Loc( 2.406, -0.03792953, 30.52), Facing = 65 ,Type = "Altar"},
+	{ Name = "Altar4", Loc = Loc( 5.28, -0.03293037, 31.25), Facing = 65 ,Type = "Altar"},
+	{ Name = "Altar5", Loc = Loc( 7.464, -0.05992889, 28.429), Facing = 13 ,Type = "Altar"},
+	{ Name = "Altar6", Loc = Loc( 9.138, 0.1740723, 27.803), Facing = 13 ,Type = "Altar"},
+	{ Name = "Altar7", Loc = Loc( 8.52, 0.1870728, 25.08), Facing = 13 ,Type = "Altar"},
+	{ Name = "Altar8", Loc = Loc( 6.45, -0.09292984, 25.38), Facing = 13 ,Type = "Altar"},
+	{ Name = "Altar9", Loc = Loc( 7.71, 0.1670704, 22.08), Facing = 13 ,Type = "Altar"},
+	{ Name = "Altar10", Loc = Loc( 12.14, 0.5070705, 28.97), Facing = 328 ,Type = "Altar"},
+	{ Name = "Altar11", Loc = Loc( 13.77, 0.697073, 29.69), Facing = 328 ,Type = "Altar"},
+	{ Name = "Altar12", Loc = Loc( 15.34, 0.3870697, 27.23), Facing = 328 ,Type = "Altar"},
+	{ Name = "Altar13", Loc = Loc( 16.83, 0.09707069, 24.64), Facing = 328 ,Type = "Altar"},
+
+	{ Name = "Bed1", Loc = Loc( 21.2, 0.2051773, -2.62), Facing = 45 },
+	{ Name = "Bed2", Loc = Loc( 23.5, 0.3017788, -5.08), Facing = 238 },
+	{ Name = "Bed3", Loc = Loc( 24.02, 0.3544006, -10.46), Facing = 200 },
+	{ Name = "Bed4", Loc = Loc( 22.12, 0.5717735, -18.91), Facing = 226 },
+	{ Name = "Bed5", Loc = Loc( 18.04, 0.04448509, -18.96), Facing = 226 },
+}

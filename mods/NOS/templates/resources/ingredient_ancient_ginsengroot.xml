@@ -1,0 +1,27 @@
+<ObjectTemplate>
+	<Name>[bdbdbd]Ancient Ginseng[-]</Name>
+	<ClientId>8</ClientId>
+	<SharedStateEntry name="Weight" type="int" value="2"/>
+	<ObjectVariableComponent>
+		<StringVariable Name="ResourceType">AncientGinseng</StringVariable>
+		<DoubleVariable Name="CookingDifficulty">35.0</DoubleVariable>
+		<DoubleVariable Name="FoodValue">10.0</DoubleVariable>
+	</ObjectVariableComponent>	
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+			<LuaModule Name="food">
+			<Initializer>
+				{	
+					Bonuses = {
+						foodFillingnessMod = {
+							Multiplier = 1.3,
+							},
+						foodEffectPotencyMod = { 
+							Multiplier = 1.15,
+						},
+					},
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>	
+</ObjectTemplate>

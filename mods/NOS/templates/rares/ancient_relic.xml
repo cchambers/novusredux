@@ -1,0 +1,12 @@
+<ObjectTemplate>
+	<ClientId>293</ClientId>
+	<Name>[FF9500]Relic of the Ancients[-]</Name>
+	<Hue>973</Hue>
+	<ScaleModifier>0.5</ScaleModifier>
+	<SharedStateEntry name="Weight" type="int" value="5"/>
+	<ObjectVariableComponent>
+		<BoolVariable Name="Blessed">True</BoolVariable>
+		<StringVariable Name="ResourceType">AncientRelic</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent/>
+</ObjectTemplate>

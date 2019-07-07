@@ -1,0 +1,14 @@
+<ObjectTemplate>
+  <Name>[00FF00]Etherealize Potion[-]</Name>
+	<ClientId>35</ClientId>
+	<Color>0xCC000000</Color>
+	<SharedStateEntry name="Weight" type="int" value="1"/>
+	<ObjectVariableComponent>
+		<!-- Stackable objvars -->
+		<StringVariable Name="ResourceType">PotionEtherealize</StringVariable>
+		<StringVariable Name="PluralName">Etherealize Potions</StringVariable>
+	</ObjectVariableComponent>		
+	<ScriptEngineComponent>
+		<LuaModule Name="stackable"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>

@@ -1,0 +1,9 @@
+<ObjectTemplate>
+	<ClientId>302</ClientId>
+	<ObjectVariableComponent>
+		<StringVariable Name="LeverPuzzleTag">Contempt_Floor2_West_Boss</StringVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="puzzle_multiple_levers_door"/>
+	</ScriptEngineComponent>
+</ObjectTemplate>
