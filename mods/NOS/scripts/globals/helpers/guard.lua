@@ -54,7 +54,7 @@ end
 function IsProtected(mobile, from, mobileKarmaLevel, fromKarmaLevel, loc, guaranteed)
 	Verbose("Guard", "IsProtected", mobile, from, mobileKaramLevel, fromKarmaLevel, guaranteed)
 	-- these factors allow fighting anywhere no matter what
-	if ( ShareKarmaGroup(mobile, from) or InOpposingAllegiance(mobile, from) ) then
+	if ( ShareKarmaGroup(mobile, from) or Allegiance.InOpposing(mobile, from) ) then
 		return false
 	end
 
@@ -276,7 +276,7 @@ function NeutralGuardProtect(mobileB, mobileA, isPlayerB, isPlayerA, locB)
                 and
                 not ShareKarmaGroup(mobileA, mobileB)
                 and
-                not InOpposingAllegiance(mobileA, mobileB)
+                not Allegiance.InOpposing(mobileA, mobileB)
             )
             or
             -- or A is non-guard protected npc (like a beetle or something)

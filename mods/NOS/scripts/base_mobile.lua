@@ -102,7 +102,8 @@ function DoMobileDeath(damager, damageSource)
 		if ( karmaLevel.GuardProtectPlayer == true ) then
 			KarmaPunishAllAggressorsForMurder(this)
 		end
-		AllegianceRewardKill(this)
+		Allegiance.RewardKill(this)
+		-- GuildHelpers.RewardWarKill(this,damager) // what am I missing here
 	else
 		-- if it's a pet and the owner is valid
 		if ( _MyOwner ~= nil and _MyOwner:IsValid() ) then

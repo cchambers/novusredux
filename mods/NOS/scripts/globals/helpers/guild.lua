@@ -43,6 +43,22 @@ GuildHelpers.GetGuildRecord = function(id)
 	end
 end
 
+GuildHelpers.ScrubEmptyGuilds = function()
+	local guildRecords = GlobalVarListRecords("Guild.")
+	for i, recordName in pairs(guildRecords) do
+		local guildVar = GlobalVarRead(recordName)
+		-- first make sure its an actual guild record (For example Guild.Tag is not a guild record)
+		if(guildVar and guildVar.Data) then
+			local g = guildVar.Data
+			-- if there are no members then delete the guild record
+			if(CountTable(g.Members) == 0) then
+				DebugMessage("[GuildHelpers.ScrubEmptyGuilds] Scrubbing: "..g.Name)
+				GuildHelpers.DeleteGuildRecord(g.Id)
+			end		
+		end
+	end
+end
+
 GuildHelpers.SendMessageToAll = function(g,messageName,...)
 	for id,memberData in pairs(g.Members) do
 		local user = GameObj(id)
@@ -67,15 +83,24 @@ GuildHelpers.SendToAll = function(from, g , line)
 	GuildHelpers.SendMessageToAll(g,"GuildChat",name,line)		
 end
 
-GuildHelpers.Get = function (mobile)
+GuildHelpers.GetGuildId = function (mobile)
 	if (mobile == nil or not mobile:IsValid()) then
 		return nil
 	end
-	local guildId = mobile:GetObjVar("Guild")
+	return mobile:GetObjVar("Guild")
+end
+
+GuildHelpers.Get = function (mobile)
+	local guildId = GuildHelpers.GetGuildId(mobile)
 
 	if (guildId == nil) then return nil end
 
-	return GuildHelpers.GetGuildRecord(guildId)
+	-- check if the player still exists in the guild record
+	local g = GuildHelpers.GetGuildRecord(guildId)
+	if not(g) then return nil end
+	if not(g.Members[mobile.Id]) then return nil end
+
+	return g
 end
 
 GuildHelpers.GetName = function(user,guild)
@@ -83,6 +108,13 @@ GuildHelpers.GetName = function(user,guild)
 	if (guild == nil) then guild = GuildHelpers.Get(user) end
 	if (guild == nil) then return end
 
+	return guild.Name
+end
+
+GuildHelpers.GetNameByGuildId = function(guildId)
+	if (guildId == nil) then return "[Unknown]" end
+	local guild = GetGuildRecord(guildId)
+	if not(guild) then return "[Unknown]" end
 	return guild.Name
 end
 
@@ -126,10 +158,10 @@ GlobalVarWrite("Guild.Tag",eventId,
 end
 
 GuildHelpers.RemoveTagFromGlobalList = function(guild)
-if(guild == nil) then return end
-local tag = string.lower(guild.Tag)
+	if(guild == nil) then return end
+	local tag = string.lower(guild.Tag)
 
-GlobalVarWrite("Guild.Tag",nil,
+	GlobalVarWrite("Guild.Tag",nil,
 		function(record)
 			if(record[tag] ~= nil and record[tag] == guild.Id) then
 				record[tag] = nil 
@@ -139,6 +171,9 @@ GlobalVarWrite("Guild.Tag",nil,
 		end)
 end
 
+GuildHelpers.GuildExists = function(guildId)
+	return GlobalVarExists("Guild."..guildId)
+end
 
 --- Get the guild record from the guild id
 -- @param id double

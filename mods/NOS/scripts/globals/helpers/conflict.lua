@@ -194,7 +194,7 @@ function UpdateConflictRelation(mobileA, mobileB, isPlayerA, isPlayerB, locB, ne
                     and
                     not ShareKarmaGroup(mobileA, mobileB)
                     and
-                    not InOpposingAllegiance(mobileA, mobileB)
+                    not Allegiance.InOpposing(mobileA, mobileB)
                 )
             ) then
                 -- check if B is protected from A

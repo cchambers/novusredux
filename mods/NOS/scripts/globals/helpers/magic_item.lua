@@ -41,7 +41,7 @@ end
 
 function GetMagicItemArmorBonus(item)
 	local bonus = 0
-	if ( item ~= nil and item ~= "Fist" ) then--should Fist bonus be 0??
+	if ( item ~= nil and item ~= "Fist" ) then
 		local bonusIndex = ( item:GetObjVar("MagicArmorBonus") or 0 )
 		if ( bonusIndex > 0 and bonusIndex <= #MagicItemArmorModifiers ) then
 			bonus = MagicItemArmorModifiers[bonusIndex]

@@ -6,7 +6,7 @@ AI.Settings.EnableBuy = false
 AI.Settings.SkipIntroDialog = true
 
 this:SetObjVar("Invulnerable", true)
-CheckAndCreateRosterController(this)
+Allegiance.CheckAndCreateRosterController(this)
 
 __Allegiance_Data = nil
 function AllegianceData()

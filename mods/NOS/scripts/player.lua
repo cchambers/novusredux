@@ -1542,7 +1542,7 @@ function InitializePlayer()
 	if not(IsImmortal(this)) then
 		this:AddModule("temp_afkkick")	
 
-		ShowTutorialUI(this)
+		-- ShowTutorialUI(this)
 
 		if(ServerSettings.NewPlayer.InitiateSystemEnabled) then		
 			this:SetObjVar("InitiateMinutes", ServerSettings.NewPlayer.InitiateDurationMinutes)

@@ -215,7 +215,7 @@ function CalculateKarmaAction(mobileA, action, mobileB)
         if ( not action.Beneficial and ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
 
         -- players in opposing factions cannot affect each other's karma
-        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
+        if ( Allegiance.InOpposing(mobileA, mobileB) ) then return 0 end
     end
     
     local pvpMod = 1
@@ -344,7 +344,7 @@ function ExecuteKarmaAction(mobileA, action, mobileB)
         local owner = mobileB:GetObjVar("controller")
         if ( owner and (owner == mobileA) ) then return 0 end
         if ( ShareKarmaGroup(mobileA, mobileB) ) then return 0 end
-        if ( InOpposingAllegiance(mobileA, mobileB) ) then return 0 end
+        if ( Allegiance.InOpposing(mobileA, mobileB) ) then return 0 end
     end
 
     if (action == KarmaActions.Negative.Murder) then -- and IsPlayerCharacter(aggressor)?
@@ -495,7 +495,7 @@ function ShouldChaoticProtect(player, target, beneficial, silent)
         not IsPlayerObject(target)
         or
         -- allegiances do not affect order.
-        InOpposingAllegiance(player, target)
+        Allegiance.InOpposing(player, target)
         or
         -- sharing karma groups ignores order flag
         ShareKarmaGroup(player, target)
