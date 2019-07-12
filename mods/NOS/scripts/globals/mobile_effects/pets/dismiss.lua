@@ -1,5 +1,9 @@
 MobileEffectLibrary.PetDismiss = 
 {
+    PetMountStatueTypes = {
+        Horse = "item_statue_mount_horse",
+        Warg = "item_statue_mount_warg",
+    },
 
     OnEnterState = function(self,root,target,args)
 
@@ -21,16 +25,9 @@ MobileEffectLibrary.PetDismiss =
             return false
         end
 
-        PlayEffectAtLoc("CloakEffect", self.Pet:GetLoc())
-
-        if ( not(IsGod(self.ParentObj)) or TestMortal(self.ParentObj) ) then
-            self.Pet:SendMessage("Stable")
-            self.ParentObj:SystemMessage("Mount dismissed to stable.","info")
-            EndMobileEffect(root)
-            return true
-        end
-
         self.Pet:SetObjVar("Dismissing", true)
+
+        PlayEffectAtLoc("CloakEffect", self.Pet:GetLoc())
 
         -- get the pet's statue (if any)
         self.Statue = self.Pet:GetObjVar("PetStatue")
@@ -40,17 +37,14 @@ MobileEffectLibrary.PetDismiss =
             self.ToStatue(self,root)
         else
             -- this pet has never been turned into a statue before (or old one is invalid?), we need to create the statue
-            local template = CreatureStatueTypes["_"..self.Pet:GetIconId()] or "item_statue_horse"
-            local templateData = GetTemplateData(template)
-            if not( templateData.ObjectVariables ) then templateData.ObjectVariables = {} end
-            templateData.Name = "[FF9500]Pet Statue[-]"
-            templateData.ObjectVariables.ResourceType = "PetStatue"
-            templateData.LuaModules = {}
-
-            Create.Custom.InContainer(template, templateData, self.Backpack, nil, function(statue)
+            local mountType = self.Pet:GetObjVar("MountType") or "Horse"
+            Create.InContainer(self.PetMountStatueTypes[mountType], self.Backpack, nil, function(statue)
                 if ( statue and statue:IsValid() ) then
                     self.Statue = statue
                     self.Statue:SetObjVar("StatuePet", self.Pet)
+                    local hue = self.Pet:GetHue()
+                    self.Statue:SetHue(hue)
+                    self.Statue:SetName("a pocket-sized " .. self.Pet:GetName())
                     self.Pet:SetObjVar("PetStatue", self.Statue)
                     self.ToStatue(self,root)
                 else
@@ -87,16 +81,10 @@ MobileEffectLibrary.PetDismiss =
         if ( GetPetSlots(self.Pet) > ServerSettings.Pets.MaxSlotsToAllowDismiss ) then
             self.ParentObj:SystemMessage("Mount is too strong to dismiss.", "info")
             return false
-        end     
+        end		
     
         if ( IsPetCarryingItems(self.Pet) ) then
             self.ParentObj:SystemMessage("Cannot dismiss a mount that is carrying something.", "info")
-            return false
-        end
-
-        local stabledPets, stabledSlots = GetStabledPets(self.ParentObj)
-        if ( stabledSlots + 1 >= MaxStabledPetSlots(self.ParentObj) ) then
-            self.ParentObj:SystemMessage("Stable is full.","info")
             return false
         end
     

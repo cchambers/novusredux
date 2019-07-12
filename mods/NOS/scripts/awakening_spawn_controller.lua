@@ -1,4 +1,4 @@
-require 'default:spawn_controller'
+require 'spawn_controller'
 
 mAwakeningController = nil
 mAwakeningStage = nil

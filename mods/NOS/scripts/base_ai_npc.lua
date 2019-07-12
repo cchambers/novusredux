@@ -129,6 +129,8 @@ function CanUseNPC(user)
 end
 
 function HandleInteract(user,usedType)
+    
+    DebugMessage(1)
     if(usedType ~= "Interact") then return end
     if (not CanUseNPC(user)) then return end
     
@@ -191,7 +193,7 @@ end
 
 function Dialog.OpenGreetingDialog(user)
     text = AI.GreetingMessages[math.random(1,#AI.GreetingMessages)]
-
+    DebugMessage(36)
     response = {}
 
     response[1] = {}

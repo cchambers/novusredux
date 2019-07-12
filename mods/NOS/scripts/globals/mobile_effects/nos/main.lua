@@ -56,4 +56,5 @@ require 'globals.mobile_effects.potions.stamina'
 require 'globals.mobile_effects.potions.mana'
 
 require 'globals.mobile_effects.mounts.nomount'
+require 'globals.mobile_effects.mounts.summon'
 require 'globals.mobile_effects.mounts.dismiss'

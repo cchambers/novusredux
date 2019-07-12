@@ -1,2 +1,2 @@
-require 'default:ai_demon'
+require 'ai_demon'
 require 'loop_effect'

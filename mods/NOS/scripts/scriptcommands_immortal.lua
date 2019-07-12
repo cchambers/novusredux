@@ -135,8 +135,6 @@ RegisterEventHandler(EventType.ClientTargetGameObjResponse,"follow",
 	end)
 
 ImmortalCommandFuncs = {
-
-
 	Who = function(keyword)
 		if(not(IsImmortal(this))) then
 			this:SystemMessage("Who command has been temporarily disabled.")

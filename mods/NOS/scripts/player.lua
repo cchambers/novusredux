@@ -92,7 +92,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 end
 
 --On resurrection
-OverrideEventHandler("default:base_mobile",EventType.Message, "Resurrect", 
+RegisterEventHandler(EventType.Message, "Resurrect", 
 	function (statPercent, resurrector, force)
 		if( not(IsDead(this)) ) then return end
 
@@ -1320,7 +1320,7 @@ RegisterEventHandler(EventType.ClientUserCommand, "lootall", HandleLootAllComman
 RegisterEventHandler(EventType.ClientUserCommand, "equip", HandleEquipCommand)
 RegisterEventHandler(EventType.ClientUserCommand, "stuck", HandleStuckCommand)
 
-OverrideEventHandler("base_mobile", EventType.Message, "UpdateName", UpdateName)
+RegisterEventHandler(EventType.Message, "UpdateName", UpdateName)
 RegisterEventHandler(EventType.Message, "PickupObject", HandleRequestPickUp)
 RegisterEventHandler(EventType.Message, "UpdateTitle", UpdateTitle)
 RegisterEventHandler(EventType.Message, "VictimKilled", CheckKillAchievements)
@@ -1846,35 +1846,35 @@ RegisterEventHandler(EventType.UserLogout,"",
 		DoLogout(logoutType)
 	end)
 
-RegisterEventHandler(EventType.UserLogin,"",
-	function(loginType)
+-- RegisterEventHandler(EventType.UserLogin,"",
+-- 	function(loginType)
 
-		if not( IsPossessed(this) ) then
-			local clusterController = GetClusterController()
-			if ( clusterController ) then
-				clusterController:SendMessage("UserLogin",this,loginType)			
-			end
-			if ( loginType == "Connect" ) then
-				Guild.Initialize()
-				-- warn about their plot taxes
-				Plot.DailyTaxWarn(this)
-			end
-		end
+-- 		if not( IsPossessed(this) ) then
+-- 			local clusterController = GetClusterController()
+-- 			if ( clusterController ) then
+-- 				clusterController:SendMessage("UserLogin",this,loginType)			
+-- 			end
+-- 			if ( loginType == "Connect" ) then
+-- 				Guild.Initialize()
+-- 				-- warn about their plot taxes
+-- 				Plot.DailyTaxWarn(this)
+-- 			end
+-- 		end
 
-		if(loginType == "ChangeWorld") then
-			if (ServerSettings.WorldName == "Catacombs") then
-				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
-			end
-			return
-		end
+-- 		if(loginType == "ChangeWorld") then
+-- 			if (ServerSettings.WorldName == "Catacombs") then
+-- 				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
+-- 			end
+-- 			return
+-- 		end
 
-		if(ServerSettings.WorldName == "Catacombs") then
-			local sendto = GetRegionAddressesForName("SouthernHills")
-			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
-				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
-			end			
-		end
-	end)
+-- 		if(ServerSettings.WorldName == "Catacombs") then
+-- 			local sendto = GetRegionAddressesForName("SouthernHills")
+-- 			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
+-- 				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
+-- 			end			
+-- 		end
+-- 	end)
 
 RegisterEventHandler(EventType.Message,"UpdateChatChannels",
 	function()
@@ -2952,10 +2952,7 @@ end
 UnregisterEventHandler("", EventType.RequestPickUp, "")
 RegisterEventHandler(EventType.RequestPickUp, "", HandleRequestPickUp)
 
-OverrideEventHandler(
-	"default:player",
-	EventType.UserLogin,
-	"",
+RegisterEventHandler(EventType.UserLogin,"",
 	function(loginType)
 		if not (IsPossessed(this)) then
 			local clusterController = GetClusterController()

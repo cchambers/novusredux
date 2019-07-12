@@ -85,6 +85,7 @@ MobileEffectLibrary.Mount =
 
 	CreateFromTemplate = function(self,root)
 		local template = self.Statue:GetObjVar("StatueMountTemplate")
+		DebugMessage("WHAT IN THE FUCKFUCK >< >< ><")
 		if ( template and self.Statue ) then
 			local templateData = GetTemplateData(template)
 			templateData.LuaModules = {}

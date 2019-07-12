@@ -1,4 +1,4 @@
-MobileEffectLibrary.PetSummon = 
+MobileEffectLibrary.MountSummon = 
 {
 
 	OnEnterState = function(self,root,target,args)
@@ -21,7 +21,7 @@ MobileEffectLibrary.PetSummon =
 
 		self._Applied = true
 
-        SetMobileMod(self.ParentObj, "Busy", "PetSummon", true)
+        SetMobileMod(self.ParentObj, "Busy", "MountSummon", true)
 		RegisterEventHandler(EventType.Message, "BreakInvisEffect", function(what)
 			EndMobileEffect(root)
 		end)
@@ -59,15 +59,14 @@ MobileEffectLibrary.PetSummon =
 
 	CreateFromTemplate = function(self,root)
 		local template = self.Statue:GetObjVar("StatuePetTemplate")
+		DebugMessage("WHAT IN THE FUCK >< >< ><")
 		if ( template ) then
 			Create.AtLoc(template, self.ParentObj:GetLoc(), function(mobile)
 				if ( mobile ) then
-					self.Statue:DelObjVar("StatuePetTemplate")
 					SetCreatureAsPet(mobile, self.ParentObj)
 					self.Pet = mobile
                     self.Statue:SetObjVar("StatuePet", self.Pet)
                     self.Pet:SetObjVar("PetStatue", self.Statue)
-					self.Pet:MoveToContainer(self.Statue,Loc())
 					self.OnDone(self,root)
 				else
 					self.ParentObj:SystemMessage("This statue appears to be broken, failed to create the creatue.", "info")
@@ -81,40 +80,42 @@ MobileEffectLibrary.PetSummon =
 	end,
 
 	OnDone = function(self,root)
-		if ( self.Pet and self.Can(self,root) ) then
-			-- move pet into world
+		if ( self._Applied ) then
+			SetMobileMod(self.ParentObj, "Busy", "MountSummon", nil)
+			UnregisterEventHandler("", EventType.StartMoving, "")
+			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
+			if ( self.ParentObj:HasTimer("MountSummonClose") ) then
+				self.ParentObj:FireTimer("MountSummonClose") -- close progress bar
+			end
+			self.ParentObj:PlayAnimation("idle")
+		end
+		if ( self.Done and self.Pet and self.Can(self,root) ) then
 			self.Pet:SetWorldPosition(self.ParentObj:GetLoc())
-			-- move the statue into pet
-			self.Statue:MoveToContainer(self.Pet,self.Statue:GetLoc())
 			if ( self.Pet:GetObjVar("controller") == self.ParentObj ) then
 				self.Pet:SetObjectOwner(self.ParentObj)
 			else
 				-- reassign owner
 				self.Pet:SendMessage("SetPetOwner", self.ParentObj)
 			end
-			SendPetCommandTo(self.Pet, "follow", self.ParentObj)
+			-- move the statue into pet
+			self.Statue:MoveToContainer(self.Pet,self.Statue:GetLoc())
+
+			-- auto mount
+			MountMobile(self.ParentObj, self.Pet)
 		end
-		EndMobileEffect(root)
 	end,
 
 	OnExitState = function(self,root)
-		if ( self._Applied ) then
-			SetMobileMod(self.ParentObj, "Busy", "PetSummon", nil)
-			UnregisterEventHandler("", EventType.StartMoving, "")
-			UnregisterEventHandler("", EventType.Message, "BreakInvisEffect")
-			if ( self.ParentObj:HasTimer("PetSummonClose") ) then
-				self.ParentObj:FireTimer("PetSummonClose") -- close progress bar
-			end
-			self.ParentObj:PlayAnimation("idle")
-		end
-	end,
-
-	AiPulse = function(self,root)
 		if ( self.Pet ) then
 			self.OnDone(self,root)
 		else
 			self.CreateFromTemplate(self,root)
 		end
+	end,
+
+	AiPulse = function(self,root)
+		self.Done = true
+		EndMobileEffect(root)
 	end,
 
 	GetPulseFrequency = function(self,root)
@@ -125,10 +126,10 @@ MobileEffectLibrary.PetSummon =
         ProgressBar.Show(
         {
             TargetUser = self.ParentObj,
-            Label = "Summon Pet",
+            Label = "Summon Mount",
             Duration = self.Duration,
             PresetLocation = "AboveHotbar",
-            DialogId = "PetSummon",
+            DialogId = "MountSummon",
             CanCancel = true,
 			CancelFunc = function()
 				EndMobileEffect(self,root)

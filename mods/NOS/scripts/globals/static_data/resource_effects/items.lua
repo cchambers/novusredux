@@ -1,7 +1,7 @@
 
 
 ResourceEffectData.MountStatue = {
-    MobileEffect = "Mount",
+    MobileEffect = "MountSummon",
     MobileEffectObjectAsTarget = true, -- pass the used object as the target.
     SelfOnly = true,
     NoConsume = true,
@@ -18,7 +18,7 @@ ResourceEffectData.MountStatue = {
 }
 
 ResourceEffectData.PetStatue = {
-    MobileEffect = "PetSummon",
+    MobileEffect = "MountSummon",
     MobileEffectObjectAsTarget = true, -- pass the used object as the target.
     SelfOnly = true,
     NoConsume = true,
