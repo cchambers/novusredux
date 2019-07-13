@@ -1,6 +1,6 @@
 require 'teleporter'
 
-OverrideEventHandler("default:teleporter",EventType.Message, "UseObject", 
+OverrideEventHandler("teleporter",EventType.Message, "UseObject", 
     function(user,usedType)
     	if(usedType == "Use" or usedType == "Activate") then 
     		if (user:GetObjVar("PickedProfession") == false) then

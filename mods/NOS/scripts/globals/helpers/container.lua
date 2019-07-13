@@ -1,4 +1,354 @@
-require 'default:globals.helpers.container'
+
+
+function IsInBank(item)
+	local result = false
+	ForEachParentContainerRecursive(item,false,function (contObj)
+			if(GetEquipSlot(contObj) == "Bank") then
+				result = true
+				-- found it stop searching
+				return false
+			end
+			-- keep looking
+			return true
+		end)
+
+	return result
+end
+
+function CreateObjInBackpackOrAtLocation(targetObj, createTemplate, createId, ...)
+	local backpackObj = targetObj:GetEquippedObject("Backpack")
+	
+	local canCreate,reason = CanCreateItemInContainer(createTemplate,backpackObj)
+	if(canCreate) then
+		local dropPos = GetRandomDropPosition(backpackObj)
+		CreateObjInContainer(createTemplate, backpackObj, dropPos, createId, ...)
+	else
+		createId = createId or uuid()
+		if(targetObj:IsPlayer()) then
+			targetObj:SystemMessage("[$1854]","info")
+		end
+		RegisterSingleEventHandler(EventType.CreatedObject,createId,
+			function (success,objRef)
+				Decay(objRef)
+			end)
+		CreateObj(createTemplate, targetObj:GetLoc(), createId, ...)
+	end	
+
+	return canCreate, reason
+end
+
+function JumbleContainerContents(lootObjects)
+	for index, item in pairs(lootObjects) do
+		if(item:GetLoc() == Loc.Zero) then
+			local randomLoc = GetRandomDropPosition(this)
+			item:UpdateContainerPosition(randomLoc)
+		end
+	end	
+end
+
+function TryStack(objToStack, containerObj, testOnly)
+	-- if this is a stackable object look to see if we can stack it
+	local resourceType = objToStack:GetObjVar("ResourceType")
+	if( resourceType ~= nil and IsStackable(objToStack) ) then
+		local resourceObj = FindResourceInContainer(containerObj,resourceType)
+		if( resourceObj ~= nil and IsStackable(resourceObj) ) then
+			if not(testOnly) then
+				RequestStackOnto(resourceObj,objToStack)
+			end
+			return true
+		end
+	end
+
+	return false
+end
+
+function GetContainerMaxWeight(container)	
+	if(container ~= nil and container:IsEquipped()) then
+		if(GetEquipSlot(container) == "Backpack") then
+			local mobileObj = container:TopmostContainer()
+			if(mobileObj ~= nil and mobileObj:IsMobile()) then
+				local baseLimit = ServerSettings.Misc.BackpackBaseWeightLimit
+				-- Saddlebags have double the weight limit
+				if(container:HasObjectTag("HorseBackpack")) then
+					baseLimit = baseLimit * 2
+				end
+				return baseLimit + ( GetStr(mobileObj) * 4 )
+			end
+		elseif(GetEquipSlot(container) == "Bank") then
+			return ServerSettings.Misc.BankWeightLimit			
+		end
+	end
+
+	return ServerSettings.Misc.DefaultContainerWeightLimit
+end
+
+function CanAddWeightToContainer(container,objWeight)
+	if(objWeight == 0) then return true end
+	-- check weight requirement on all parent containers with a max weight
+	local weightCont = nil
+	local maxWeight = 0
+	local canAdd = true
+
+	ForEachParentContainerRecursive(container,true,
+		function (parentCont)			
+			maxWeight = GetContainerMaxWeight(parentCont)
+
+			if(maxWeight ~= nil and not parentCont:IsPlayer()) then
+				local curWeight = GetContentsWeight(parentCont)
+				--DebugMessage("CHECKING WEIGHT",curWeight,objWeight,maxWeight)
+		
+				if(curWeight + objWeight > maxWeight) then
+					canAdd = false
+					weightCont = parentCont
+					maxWeight = maxWeight
+					return false
+				end				
+			end
+
+			return true
+		end)
+
+	return canAdd,weightCont,maxWeight
+end
+
+function CanCreateItemInContainer(template,container,amount)
+	amount = amount or 1
+
+	local reason = nil
+
+	if(container == nil) then
+		return false,"invalidcontainer"
+	end
+
+	local templateResource = GetTemplateObjVar(template,"ResourceType")
+	if ( container:IsFull() and not CanAddToStack(templateResource,container) ) then
+		return false, "full"
+	end
+
+	local templateWeight = GetCreationWeight(template,amount)
+	if(templateWeight ~= -1) then
+		local canAdd = CanAddWeightToContainer(container,templateWeight)
+		if not(canAdd) then
+			return false, "overweight"
+		end
+	end
+
+	return true
+end
+
+function CanObjectFitInContainer(obj, container)
+	return TryPutObjectInContainer(obj, container, Loc(0,0,0), false, false, true)
+end
+
+-- function TryPutObjectInContainer(obj, container, locInContainer, canOverfill, tryStack, testOnly)
+-- 	if(obj == container or container:IsContainedBy(obj)) then
+-- 		return false,"You can't put an object inside itself!"
+-- 	end
+
+-- 	local topContainer = obj:TopmostContainer()
+-- 	local topContainerInContainer = container:TopmostContainer() or container
+-- 	if (topContainer ~= nil and topContainer:IsPlayer() and (not topContainerInContainer:IsContainedBy(topContainer))) then
+-- 		if (not(topContainer:HasLineOfSightToObj(topContainerInContainer,ServerSettings.Combat.LOSEyeLevel))) then
+-- 			return false, "Container is not in sight."
+-- 		end
+-- 	end
+
+-- 	local objWeight = obj:GetSharedObjectProperty("Weight") or -1
+-- 	if(objWeight == nil or objWeight == -1) then
+-- 		return false,"That is too heavy for that container."
+-- 	end
+
+-- 	-- make sure this container or its parents are not for sale
+-- 	local isSaleContainer = false
+--     ForEachParentContainerRecursive(container,true,
+--         function (parentObj)
+--             if(parentObj:HasModule("hireling_merchant_sale_item")) then                
+--                 isSaleContainer = true
+--                 return false
+--             end
+--             return true
+--         end)
+
+--     if(isSaleContainer) then
+--         return false,"[$1853]"
+--     end
+
+-- 	if not(canOverfill) then
+-- 		local canAdd,weightCont,maxWeight = CanAddWeightToContainer(container,objWeight)
+
+-- 		-- if this would put any of our parent containers over their max weight then fail
+-- 		if not(canAdd) then
+-- 			return false,StripColorFromString(weightCont:GetName()).." cannot support any more weight. (Max: " .. tostring(maxWeight) .. " stones)"
+-- 		end
+-- 	end
+
+-- 	if( tryStack ) then
+-- 		if( TryStack(obj,container,testOnly) ) then
+-- 			return true
+-- 		end
+-- 	end
+
+-- 	if(locInContainer == nil) then
+-- 		locInContainer = GetRandomDropPosition(container)
+-- 	end
+
+-- 	if( canOverfill or container:CanHold(obj) ) then
+-- 		if not(testOnly) then
+-- 			obj:MoveToContainer(container, locInContainer)
+-- 		end
+-- 		return true
+-- 	end	
+
+-- 	return false,"There is not enough room for that object."
+-- end
+
+function CanAddToStack(resourceType, containerObj)
+	local resourceObj = FindResourceInContainer(containerObj,resourceType)
+	if( resourceObj ~= nil and IsStackable(resourceObj) ) then
+		return true	
+	end
+
+	return false
+end
+
+function TryAddToStack(resourceType, containerObj, count)	
+	if (containerObj == nil) then return false end
+	if (resourceType == nil) then return false end
+	if (count == nil) then return false end
+	local resourceObj = FindResourceInContainer(containerObj,resourceType)
+	if( resourceObj ~= nil and IsStackable(resourceObj) ) then
+		local addWeight = GetUnitWeight(resourceObj,count)
+		if(CanAddWeightToContainer(containerObj,addWeight)) then
+			RequestAddToStack(resourceObj,count)
+			return true, resourceObj
+		else
+			return false, "Weight"
+		end
+	end
+
+	return false, "NotFound"
+end
+
+function GetCapacity(containerObj)
+	if (containerObj == nil) then return 0 end
+	return containerObj:GetSharedObjectProperty("Capacity") or 0;
+end
+
+function FindObjectInContainer(containerObj,creationTemplate)
+	local contObjects = containerObj:GetContainedObjects()
+  	for index, contObj in pairs(contObjects) do
+  		if(contObj:GetCreationTemplateId() == creationTemplate) then
+  			return contObj
+  		end
+  	end	
+end
+
+-- close every sub container as well as the container
+function CloseContainerRecursive(user,containerObj)
+	local contObjects = containerObj:GetContainedObjects()
+  	for index, contObj in pairs(contObjects) do
+  		if(contObj:IsContainer()) then
+  			CloseContainerRecursive(user,contObj)  			
+  		end
+  	end
+
+  	containerObj:SendCloseContainer(user)
+end
+
+--- Consumes resource objects from a lua list (array) that match the specified resource type.
+-- @param contents array - ( the contents of a container normally ) DOES NOT GET CONTENTS OF CONTAINERS IN THE LIST
+-- @param resourceType string - The ResourceType to consume
+-- @param amount(optional) double - The amount of the resource to consume, defaults to 1
+-- @param objVarName(optional) string - Can be used to check against a different objvar than 'ResourceType' (defaults to ResourceType)
+-- @return true if the amount was consumed, false if the amount couldn't be consumed.
+function ConsumeResource(contents, resourceType, amount, objVarName)
+	if not( contents ) then contents = {} end
+	-- there are no contents to be consumed.
+	if ( #contents < 1 ) then return false end
+	amount = amount or 1
+	if ( amount < 1 ) then
+		local topmost = contents[1]:TopmostContainer()
+		local owner = topmost
+		if ( topmost and IsPet(topmost) ) then
+			owner = topmost:HasObjVar("controller") and topmost:GetObjVar("controller") or topmost:GetObjectOwner()
+		end
+		LuaDebugCallStack("[ConsumeResource] negative amount provided: " .. amount .. " topmost: "..topmost.Id.." owner: "..owner.Id)
+		return false
+	end
+	objVarName = objVarName or "ResourceType"
+	
+	local resourceObjs = {}
+	local total = 0
+	for i,resourceObj in pairs(contents) do
+		if ( resourceObj:GetObjVar(objVarName) == resourceType ) then
+			table.insert(resourceObjs, resourceObj)
+			total = total + GetStackCount(resourceObj)
+		end
+	end
+
+	if ( total >= amount ) then
+		-- sort stackable objects from smallest to largest
+		table.sort(resourceObjs,function(a,b) return GetStackCount(a)<GetStackCount(b) end)
+		local remainingAmount = amount
+		for index, resourceObj in pairs(resourceObjs) do
+			local resourceCount = GetStackCount(resourceObj)
+			if ( resourceCount > remainingAmount ) then				
+				RequestSetStackCount(resourceObj,resourceCount - remainingAmount)
+				remainingAmount = 0
+			else
+				remainingAmount = remainingAmount - resourceCount
+				resourceObj:Destroy()
+			end
+
+			if ( remainingAmount == 0 ) then
+				break
+			end
+		end
+		return true
+	end
+	return false
+end
+
+--- Convenience function to consume resources directly from a container recursively
+-- @param container
+-- @param resourceType string
+-- @param amount(optional) double - The amount of the resource to consume, defaults to 1
+-- @param objVarName(optional) string - defaults to "ResourceType"
+-- @return true or false (success/fail)
+function ConsumeResourceContainer(container, resourceType, amount, objVarName)
+	local contents = GetResourcesInContainer(container, resourceType, objVarName)
+	return ( contents and ConsumeResource(contents, resourceType, amount, objVarName) )
+end
+
+--- Convenience function to consume resources directly from a mobile's backpack, recursively.
+-- @param mobileObj
+-- @param resourceType string
+-- @param amount(optional) double - The amount of the resource to consume, defaults to 1
+-- @param objVarName(optional) string - defaults to "ResourceType"
+-- @return true or false (success/fail)
+function ConsumeResourceBackpack(mobileObj, resourceType, amount, objVarName)
+	local backpack = mobileObj:GetEquippedObject("Backpack")
+	return ( backpack and ConsumeResourceContainer(backpack, resourceType, amount, objVarName) )
+end
+
+function WarnContainerOverflow(container, user, capacity)
+	if ( capacity == nil ) then capacity = container:GetSharedObjectProperty("Capacity") end
+    -- anytime a container is opened that has more items in it than capacity it can handle,
+    -- warn the user that anything picked up from here cannot be placed back in here
+    local numItems = container:GetSharedObjectProperty("NumItems")
+    if ( numItems > capacity ) then
+        local name = StripColorFromString(container:GetName())
+        ClientDialog.Show{
+            TargetUser = user,
+            DialogId = "WarnContainerFull"..container.Id,
+            TitleStr = name .. " Is Overflowing!",
+            DescStr = name.." is over its item limit. If you pick up an item from here, you will not be able to place it back until enough items have been removed. Item limits are displayed below the item list view.",
+            Button1Str = "Ok",
+        }
+    end
+end
+
+-- NOS Edits
 
 
 function TryPutObjectInContainer(obj, container, locInContainer, canOverfill, tryStack, testOnly, source, dropper)

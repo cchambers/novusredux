@@ -92,7 +92,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 end
 
 --On resurrection
-OverrideEventHandler("default:base_mobile",EventType.Message, "Resurrect", 
+OverrideEventHandler("base_mobile",EventType.Message, "Resurrect", 
 	function (statPercent, resurrector, force)
 		if( not(IsDead(this)) ) then return end
 
@@ -2099,7 +2099,7 @@ RegisterEventHandler(EventType.ClientUserCommand,"OpenStore",function ( ... )
 -- POST 8.5 PLAYER.lua
 
 if (IsDemiGod(this)) then
-	require "default:base_player_mobedit"
+	require "base_player_mobedit"
 end
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
@@ -2954,7 +2954,7 @@ UnregisterEventHandler("", EventType.RequestPickUp, "")
 RegisterEventHandler(EventType.RequestPickUp, "", HandleRequestPickUp)
 
 OverrideEventHandler(
-	"default:player",
+	"player",
 	EventType.UserLogin,
 	"",
 	function(loginType)
