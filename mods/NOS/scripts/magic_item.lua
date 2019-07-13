@@ -1,4 +1,4 @@
-require 'magic_item_helpers'
+require 'NOS:magic_item_helpers'
 
 RegisterSingleEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 	function()

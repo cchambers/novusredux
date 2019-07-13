@@ -1,4 +1,4 @@
-require 'base_ai_settings'
+require 'NOS:base_ai_settings'
 
 function GenerateName()
     local newName = nil

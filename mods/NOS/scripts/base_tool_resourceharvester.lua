@@ -1,4 +1,4 @@
-require 'incl_resource_source'
+require 'NOS:incl_resource_source'
 
 -- NOTE: any resource tool can set HarvestDelay objvar to override the default
 ResourceHarvester = 

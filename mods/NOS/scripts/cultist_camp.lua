@@ -1,1 +1,1 @@
-require 'camp'
+require 'NOS:camp'

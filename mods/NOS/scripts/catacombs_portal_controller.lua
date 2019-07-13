@@ -1,5 +1,5 @@
-require 'base_ai_settings'
-require 'base_ai_state_machine'
+require 'NOS:base_ai_settings'
+require 'NOS:base_ai_state_machine'
 
 local bonesForRitual = 10
 

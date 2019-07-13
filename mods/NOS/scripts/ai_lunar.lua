@@ -1,4 +1,4 @@
-require 'incl_gametime'
+require 'NOS:incl_gametime'
 
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(60), "StillNightTime")
 

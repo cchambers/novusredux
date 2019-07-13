@@ -1,7 +1,7 @@
-require 'base_ai_mob'
-require 'base_ai_intelligent'
-require 'base_ai_casting'
-require 'incl_regions'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_casting'
+require 'NOS:incl_regions'
 
 SkeleCooldown = true
 AI.Settings.CanFlee = false

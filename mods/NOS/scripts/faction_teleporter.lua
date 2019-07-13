@@ -1,4 +1,4 @@
-require 'teleporter'
+require 'NOS:teleporter'
 
 -- override do teleport
 function DoTeleport(playerObj,targetLoc)

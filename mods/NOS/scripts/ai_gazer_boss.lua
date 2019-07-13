@@ -1,4 +1,4 @@
-require 'base_ai_intelligent'
+require 'NOS:base_ai_intelligent'
 
 quotes = {
 	 "There's a sight for sore bones",

@@ -1,5 +1,5 @@
 -- mobs can't age because the rider wont fit correctly so they do not use default_animal
-require 'base_ai_mob'
+require 'NOS:base_ai_mob'
 
 -- Combat AI settings
 AI.Settings.ChargeSpeed = 5.0

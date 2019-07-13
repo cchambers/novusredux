@@ -1,4 +1,4 @@
-require 'map_markers'
+require 'NOS:map_markers'
 MobsSlain = 0
 --TaskInfo = nil
 --Hireling = nil

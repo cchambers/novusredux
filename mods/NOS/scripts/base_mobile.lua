@@ -1,12 +1,12 @@
 -- most basic mobile script for animals that do not have loot
 
-require 'weapon_cache'
+require 'NOS:weapon_cache'
 -- this module handles derived stats and adding and removing stat modifiers
-require 'base_mobilestats'
+require 'NOS:base_mobilestats'
 -- allows us to add temporary modifiers to this mobile.
-require 'base_mobile_mods'
+require 'NOS:base_mobile_mods'
 -- allows this item to be used.
-require 'use_object'
+require 'NOS:use_object'
 
 mInvisibilityEffects = {}
 mInvisEffectsCount = 0

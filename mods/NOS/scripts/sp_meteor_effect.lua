@@ -1,4 +1,4 @@
---require 'base_magic_sys'
+--require 'NOS:base_magic_sys'
 local METOR_IMPACT_RANGE = 5
 local mTargetLoc = nil
 local function ValidateMeteor(targetLoc)

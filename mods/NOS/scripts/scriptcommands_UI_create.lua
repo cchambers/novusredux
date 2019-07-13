@@ -1,4 +1,4 @@
-require 'base_template_list_window'
+require 'NOS:base_template_list_window'
 
 local createAmountStr = "1"
 createAmount = 1

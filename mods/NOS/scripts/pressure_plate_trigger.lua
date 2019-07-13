@@ -1,6 +1,6 @@
-require 'pressure_plate'
+require 'NOS:pressure_plate'
 
-OverrideEventHandler("pressure_plate",EventType.EnterView, "Activate", 
+OverrideEventHandler("NOS:pressure_plate",EventType.EnterView, "Activate", 
     function (user)
         if (IsDead(user) or user:HasModule("npe_magical_guide")) then
             return

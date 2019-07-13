@@ -1,4 +1,4 @@
-require 'base_idol_player_script'
+require 'NOS:base_idol_player_script'
 
 --Make them really clumsy, failing to hit or harvest anything
 function AttachDebuff()

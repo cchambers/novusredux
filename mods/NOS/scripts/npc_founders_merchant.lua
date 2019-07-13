@@ -1,4 +1,4 @@
-require 'npc_founders_vip_merchant'
+require 'NOS:npc_founders_vip_merchant'
 
 CanBuyItem = function (buyer,item)
     return IsFounder(buyer)

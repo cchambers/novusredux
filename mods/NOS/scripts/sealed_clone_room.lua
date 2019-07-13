@@ -1,8 +1,8 @@
-require 'sealed_room'
+require 'NOS:sealed_room'
 
 REWARD_RESPAWN_TIME = 20
 
-OverrideEventHandler("sealed_room",EventType.Timer,"CheckEventComplete",function ()
+OverrideEventHandler("NOS:sealed_room",EventType.Timer,"CheckEventComplete",function ()
 	if (not PlayersInRoom()) then 
 		this:FireTimer("ResetEvent") 
 		return 
@@ -36,7 +36,7 @@ OverrideEventHandler("sealed_room",EventType.Timer,"CheckEventComplete",function
 	end
 end)
 
-OverrideEventHandler("sealed_room",EventType.Timer,"ResetEvent",function ( ... )
+OverrideEventHandler("NOS:sealed_room",EventType.Timer,"ResetEvent",function ( ... )
 		if (PlayersInRoom()) then 
 			this:ScheduleTimerDelay(TimeSpan.FromSeconds(3),"ResetEvent") 
 			return 
@@ -88,7 +88,7 @@ function GetPlayers()
 	return players
 end
 
-OverrideEventHandler("sealed_room",EventType.Timer,"SpawnMobs",function ( ... )
+OverrideEventHandler("NOS:sealed_room",EventType.Timer,"SpawnMobs",function ( ... )
 	if (not PlayersInRoom()) then 
 		this:FireTimer("ResetEvent") 
 		return 

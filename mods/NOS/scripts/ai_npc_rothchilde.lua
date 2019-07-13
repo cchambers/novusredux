@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.EnableTrain = false
 AI.Settings.EnableMerchant = false
@@ -693,4 +693,4 @@ function Dialog.OpenLastNameDialog(user)
 	DialogReturnMessage(this,user,"[$1330]","That's great...")
 end
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

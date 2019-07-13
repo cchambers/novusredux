@@ -1,6 +1,6 @@
-require 'ai_cultist'
-require 'incl_faction'
-require 'base_npc_extensions'
+require 'NOS:ai_cultist'
+require 'NOS:incl_faction'
+require 'NOS:base_npc_extensions'
 
 DebugMessageA(this,"Module loaded")
 

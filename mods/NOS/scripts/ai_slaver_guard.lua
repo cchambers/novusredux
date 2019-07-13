@@ -1,7 +1,7 @@
-require 'base_ai_mob'
-require 'base_ai_casting'
-require 'base_ai_intelligent'
-require 'base_ai_conversation'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_casting'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_conversation'
 
 --npc's should all have this
 function IsFriend(target)
@@ -25,7 +25,7 @@ thingsToSay =
 	"The Bandit Guild forbids me from speaking on duty.",
 }
 
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", 
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", 
 	function (user,usedType)
     	if(usedType ~= "Interact") then return end
   		this:NpcSpeech(thingsToSay[math.random(1,#thingsToSay)])

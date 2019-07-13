@@ -1,4 +1,4 @@
-require 'base_ai_mob'
+require 'NOS:base_ai_mob'
 
 AI.Settings.CanConverse = true
 AI.ConversationCooldown = true --True if I should talk, false if not

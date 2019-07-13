@@ -1,4 +1,4 @@
-require 'incl_gametime'
+require 'NOS:incl_gametime'
 
 AI.Settings.SleepTime = 18
 AI.Settings.WakeTime = 6

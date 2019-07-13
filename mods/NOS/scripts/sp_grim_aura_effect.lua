@@ -1,4 +1,4 @@
---require 'base_magic_sys'
+--require 'NOS:base_magic_sys'
 local GRIMAURA_DAMAGE_RANGE = 3.5
 local mTargetLoc = nil
 local function ValidateGrimAura(targetLoc)

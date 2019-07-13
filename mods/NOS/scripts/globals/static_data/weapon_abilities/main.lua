@@ -1,12 +1,12 @@
 
 WeaponAbilitiesData = {}
 
-require 'globals.static_data.weapon_abilities.weapons'
-require 'globals.static_data.weapon_abilities.bows'
-require 'globals.static_data.weapon_abilities.shields'
-require 'globals.static_data.weapon_abilities.npc'
-require 'globals.static_data.weapon_abilities.skills'
-require 'globals.static_data.weapon_abilities.tools'
+require 'NOS:globals.static_data.weapon_abilities.weapons'
+require 'NOS:globals.static_data.weapon_abilities.bows'
+require 'NOS:globals.static_data.weapon_abilities.shields'
+require 'NOS:globals.static_data.weapon_abilities.npc'
+require 'NOS:globals.static_data.weapon_abilities.skills'
+require 'NOS:globals.static_data.weapon_abilities.tools'
 
 
 --[[  all possible options

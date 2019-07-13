@@ -1,4 +1,4 @@
-require 'account_functions'
+require 'NOS:account_functions'
 
 RegisterEventHandler(
 	EventType.Message,

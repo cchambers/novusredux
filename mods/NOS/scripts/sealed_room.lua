@@ -1,4 +1,4 @@
-require 'incl_regions'
+require 'NOS:incl_regions'
 
 REWARD_RESPAWN_TIME = 20
 

@@ -1,4 +1,4 @@
-require 'incl_gametime'
+require 'NOS:incl_gametime'
 
 function HandleInit() 
 	this:SendClientMessage("TimeUpdate", {5000, 10000, 0})

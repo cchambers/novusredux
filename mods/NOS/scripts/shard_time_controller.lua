@@ -1,4 +1,4 @@
-require 'incl_gametime'
+require 'NOS:incl_gametime'
 
 function BroadcastTimeUpdate()		
 	local loggedOnUsers = FindPlayersInRegion()

@@ -1,4 +1,4 @@
-require 'base_tool_resourceharvester'
+require 'NOS:base_tool_resourceharvester'
 DEPLETION_AVOIDANCE_SKILL_THRESHOLD = 40
 DEPLETION_INCREASE_SKILL_THRESHOLD = 30
 BASE_HARVEST_CHANCE = 10

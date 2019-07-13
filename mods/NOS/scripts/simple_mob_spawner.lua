@@ -8,7 +8,7 @@
         spawnCount - how many of this mob should be spawned (default 1)
 --]]
 
-require 'incl_gametime'
+require 'NOS:incl_gametime'
 
 isDungeon = IsDungeonMap()
 

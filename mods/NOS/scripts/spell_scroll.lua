@@ -1,4 +1,4 @@
-require 'incl_magic_sys'
+require 'NOS:incl_magic_sys'
 
 function ValidateUse(user)
 	if( user == nil or not(user:IsValid()) ) then

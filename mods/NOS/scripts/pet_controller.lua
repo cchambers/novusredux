@@ -1,8 +1,8 @@
 mSkipAddCombatModule = true -- prevent base_mobile from attaching combat module
-require 'base_mobile'
-require 'combat'
-require 'loop_effect'
--- require 'base_pet_casting'
+require 'NOS:base_mobile'
+require 'NOS:combat'
+require 'NOS:loop_effect'
+-- require 'NOS:base_pet_casting'
 
 
 
@@ -192,7 +192,7 @@ function ClearTarget()
 		Stay()
 	end
 end
-OverrideEventHandler("combat", EventType.Message, "ClearTarget", ClearTarget)
+OverrideEventHandler("NOS:combat", EventType.Message, "ClearTarget", ClearTarget)
 
 function PathToTarget(target, distance, speed)
 	ClearPath()

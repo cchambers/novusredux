@@ -1,43 +1,43 @@
 -- The login region uses a custom player script (for character creation and starting region selection)
 if(ServerSettings.WorldName=="Login") then
-	require 'login_player'
+	require 'NOS:login_player'
 	return
 end
 
-require 'base_mobile_advanced'
-require 'base_mobile_restregen'
-require 'base_skill_sys'
-require 'base_mission_sys'
-require 'base_player_hotbar'
-require 'base_skill_tracker'
-require 'base_player_charwindow'
-require 'base_skill_window'
-require 'base_prestige_window'
-require 'base_allegiance_window'
-require 'base_player_titles'
-require 'base_player_achievement'
-require 'base_player_quest_window'
-require 'base_player_godwindow'
-require 'base_player_mapwindow'
-require 'base_player_keyring'
-require 'base_player_death'
-require 'base_player_buff_debuff'
-require 'base_player_weather'
-require 'base_player_guild'
-require 'base_player_guild_UI'
-require 'scriptcommands'
-require 'incl_player_group'
-require 'incl_gametime'
-require 'incl_mobile_helpers'
-require 'incl_resource_source'
-require 'incl_player_names'
-require 'incl_player_friend'
+require 'NOS:base_mobile_advanced'
+require 'NOS:base_mobile_restregen'
+require 'NOS:base_skill_sys'
+require 'NOS:base_mission_sys'
+require 'NOS:base_player_hotbar'
+require 'NOS:base_skill_tracker'
+require 'NOS:base_player_charwindow'
+require 'NOS:base_skill_window'
+require 'NOS:base_prestige_window'
+require 'NOS:base_allegiance_window'
+require 'NOS:base_player_titles'
+require 'NOS:base_player_achievement'
+require 'NOS:base_player_quest_window'
+require 'NOS:base_player_godwindow'
+require 'NOS:base_player_mapwindow'
+require 'NOS:base_player_keyring'
+require 'NOS:base_player_death'
+require 'NOS:base_player_buff_debuff'
+require 'NOS:base_player_weather'
+require 'NOS:base_player_guild'
+require 'NOS:base_player_guild_UI'
+require 'NOS:scriptcommands'
+require 'NOS:incl_player_group'
+require 'NOS:incl_gametime'
+require 'NOS:incl_mobile_helpers'
+require 'NOS:incl_resource_source'
+require 'NOS:incl_player_names'
+require 'NOS:incl_player_friend'
 
-require 'player_say_commands'
-require 'player_starting_screen'
+require 'NOS:player_say_commands'
+require 'NOS:player_starting_screen'
 
 if(IsGod(this)) then
-	require 'base_player_mobedit'
+	require 'NOS:base_player_mobedit'
 end
 
 -- WEIGHT SYSTEM NOT REALLY IMPLEMENTED YET
@@ -92,7 +92,7 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 end
 
 --On resurrection
-OverrideEventHandler("base_mobile",EventType.Message, "Resurrect", 
+OverrideEventHandler("NOS:base_mobile",EventType.Message, "Resurrect", 
 	function (statPercent, resurrector, force)
 		if( not(IsDead(this)) ) then return end
 
@@ -127,173 +127,173 @@ OverrideEventHandler("base_mobile",EventType.Message, "Resurrect",
 
 
 -- this function checks range of the topmost object from this player
-function IsInRange(targetObj)
-	Verbose("Player", "IsInRange", targetObj)
-	local userPos = this:GetLoc()
-	local dropLoc = nil
+-- function IsInRange(targetObj)
+-- 	Verbose("Player", "IsInRange", targetObj)
+-- 	local userPos = this:GetLoc()
+-- 	local dropLoc = nil
 
-	local topmostObj = targetObj:TopmostContainer() or targetObj
+-- 	local topmostObj = targetObj:TopmostContainer() or targetObj
 
-	local dropRange = topmostObj:GetObjVar("DropRange")
-	if(topmostObj:GetLoc():Distance(userPos) > (dropRange or OBJECT_INTERACTION_RANGE) ) then		
-		return false
-	end
+-- 	local dropRange = topmostObj:GetObjVar("DropRange")
+-- 	if(topmostObj:GetLoc():Distance(userPos) > (dropRange or OBJECT_INTERACTION_RANGE) ) then		
+-- 		return false
+-- 	end
 
-	return true
-end
+-- 	return true
+-- end
 
-function CanPickUp(targetObj,quiet,isQuickLoot)
-	Verbose("Player", "CanPickUp", targetObj,quiet,isQuickLoot)
-	--DebugMessage("It is calling this function")	
-	if (IsDead(this)) then return false end
+-- function CanPickUp(targetObj,quiet,isQuickLoot)
+-- 	Verbose("Player", "CanPickUp", targetObj,quiet,isQuickLoot)
+-- 	--DebugMessage("It is calling this function")	
+-- 	if (IsDead(this)) then return false end
 
-	if not(IsInRange(targetObj)) then
-		if(IsImmortal(this)) then
-			this:SystemMessage("Your godly powers allow you to reach that.","info")
-		else
-			if not(quiet) then
-				this:SystemMessage("You cannot reach that.","info")
-			end
-			return false
-		end
-	end
+-- 	if not(IsInRange(targetObj)) then
+-- 		if(IsImmortal(this)) then
+-- 			this:SystemMessage("Your godly powers allow you to reach that.","info")
+-- 		else
+-- 			if not(quiet) then
+-- 				this:SystemMessage("You cannot reach that.","info")
+-- 			end
+-- 			return false
+-- 		end
+-- 	end
 
-	-- dont even let gods pick these up since it can mess up the object
-	if( IsLockedDown(targetObj) or targetObj:GetSharedObjectProperty("DenyPickup") == true) then
-		if not(quiet) then
-			this:SystemMessage("You cannot pick that up.","info")
-		end
-		return false
-	end	
+-- 	-- dont even let gods pick these up since it can mess up the object
+-- 	if( IsLockedDown(targetObj) or targetObj:GetSharedObjectProperty("DenyPickup") == true) then
+-- 		if not(quiet) then
+-- 			this:SystemMessage("You cannot pick that up.","info")
+-- 		end
+-- 		return false
+-- 	end	
 
-	if (mapWindowOpen) then
-		if (targetObj == this:GetObjVar("ActiveMap")) then
-			CloseMap()
-		end
-	end
+-- 	if (mapWindowOpen) then
+-- 		if (targetObj == this:GetObjVar("ActiveMap")) then
+-- 			CloseMap()
+-- 		end
+-- 	end
 
-	-- and we can pick it up
-	local weight = targetObj:GetSharedObjectProperty("Weight")
+-- 	-- and we can pick it up
+-- 	local weight = targetObj:GetSharedObjectProperty("Weight")
 
-	-- note: even gods should not be able to pick up -1 weight items normally	
-	if( weight == nil or weight == -1 ) then
-		if not(quiet) then
-			this:SystemMessage("You cannot pick that up.","info")
-		end
-		return false
-	end
+-- 	-- note: even gods should not be able to pick up -1 weight items normally	
+-- 	if( weight == nil or weight == -1 ) then
+-- 		if not(quiet) then
+-- 			this:SystemMessage("You cannot pick that up.","info")
+-- 		end
+-- 		return false
+-- 	end
 
-	--DFB HACK: Pickpocketing checks
-	local topCont = targetObj:TopmostContainer() or this
-	--if it's a mailbox and it's locked down then
-	--DebugMessage(1)
-	if (topCont:HasObjVar("IsMailbox") and topCont:GetObjVar("LockedDown")) then
-	--if I'm not the owner
-		--DebugMessage(2)
-		if (not Plot.IsOwnerForLoc(this,topCont:GetLoc())) then
-			--DebugMessage(3)
-			this:SystemMessage("You can't pick up someone else's mail.","info")
-			return false
-		end
-	end 
+-- 	--DFB HACK: Pickpocketing checks
+-- 	local topCont = targetObj:TopmostContainer() or this
+-- 	--if it's a mailbox and it's locked down then
+-- 	--DebugMessage(1)
+-- 	if (topCont:HasObjVar("IsMailbox") and topCont:GetObjVar("LockedDown")) then
+-- 	--if I'm not the owner
+-- 		--DebugMessage(2)
+-- 		if (not Plot.IsOwnerForLoc(this,topCont:GetLoc())) then
+-- 			--DebugMessage(3)
+-- 			this:SystemMessage("You can't pick up someone else's mail.","info")
+-- 			return false
+-- 		end
+-- 	end 
 
-	--Used for stealing skill
-	if (targetObj:HasObjVar("StealingDifficulty")) then
-		this:SystemMessage("This object does not belong to you.","info")
-		return false
-	end
-	--DebugMessage("topCont is "..tostring(topCont:GetName()))
-	--if (not this:HasModule("ska_pickpocket")) then
-	--DebugMessage("Really big check:",topCont ~= nil,topCont:IsMobile(),(topCont:IsPlayer() or not(IsDead(topCont))),topCont ~= this,not(IsDemiGod(this)))
-	if(topCont ~= nil and topCont:IsMobile()
-			and (topCont:IsPlayer() or not(IsDead(topCont)))
-			and topCont ~= this and not(IsDemiGod(this))) then
+-- 	--Used for stealing skill
+-- 	if (targetObj:HasObjVar("StealingDifficulty")) then
+-- 		this:SystemMessage("This object does not belong to you.","info")
+-- 		return false
+-- 	end
+-- 	--DebugMessage("topCont is "..tostring(topCont:GetName()))
+-- 	--if (not this:HasModule("ska_pickpocket")) then
+-- 	--DebugMessage("Really big check:",topCont ~= nil,topCont:IsMobile(),(topCont:IsPlayer() or not(IsDead(topCont))),topCont ~= this,not(IsDemiGod(this)))
+-- 	if(topCont ~= nil and topCont:IsMobile()
+-- 			and (topCont:IsPlayer() or not(IsDead(topCont)))
+-- 			and topCont ~= this and not(IsDemiGod(this))) then
 
-		local isOwner = IsController(this,topCont)		
-		if( not(isOwner) or GetHirelingOwner(topCont) == this) then
-			isOwner = IsHiredMerchant(this,topCont)
-		end
+-- 		local isOwner = IsController(this,topCont)		
+-- 		if( not(isOwner) or GetHirelingOwner(topCont) == this) then
+-- 			isOwner = IsHiredMerchant(this,topCont)
+-- 		end
 
-		if not(isOwner) then
-			if not(quiet) then
-					--DebugMessage("Yep that's it.")
-				this:SystemMessage("You cannot pick that up.","info")
-			end		
-			return false
-		end
-	end
-	--elseif (this:HasModule("ska_pickpocket") and topCont:IsMobile() and (not IsDead(topCont)) and (not (topCont == this))) then
-	--	this:SendMessage("PickPocketRoll")
-		--DebugMessage("Pick pocket roll")
-	--end
-	--DebugMessage("Result: ",this:HasModule("ska_pickpocket"),topCont:IsMobile(),(not IsDead(topCont)),(topCont == this))
-	if ( targetObj:HasObjVar("noloot") ) then
-		if IsGod(this) == false then
-			this:SystemMessage("You cannot pick that up.","info")
-			return false
-		end
-		this:SystemMessage("Your godly powers allow you to loot a noloot.","info")
-	end
+-- 		if not(isOwner) then
+-- 			if not(quiet) then
+-- 					--DebugMessage("Yep that's it.")
+-- 				this:SystemMessage("You cannot pick that up.","info")
+-- 			end		
+-- 			return false
+-- 		end
+-- 	end
+-- 	--elseif (this:HasModule("ska_pickpocket") and topCont:IsMobile() and (not IsDead(topCont)) and (not (topCont == this))) then
+-- 	--	this:SendMessage("PickPocketRoll")
+-- 		--DebugMessage("Pick pocket roll")
+-- 	--end
+-- 	--DebugMessage("Result: ",this:HasModule("ska_pickpocket"),topCont:IsMobile(),(not IsDead(topCont)),(topCont == this))
+-- 	if ( targetObj:HasObjVar("noloot") ) then
+-- 		if IsGod(this) == false then
+-- 			this:SystemMessage("You cannot pick that up.","info")
+-- 			return false
+-- 		end
+-- 		this:SystemMessage("Your godly powers allow you to loot a noloot.","info")
+-- 	end
 
-	if ( ( topCont:HasObjVar("noloot") or topCont:HasObjVar("guardKilled") ) and not(IsHiredMerchant(this,topCont)) and (IsDemiGod(this) == false)) then
-		this:SystemMessage("You can't pick that up.","info")
-		return false
-	end
+-- 	if ( ( topCont:HasObjVar("noloot") or topCont:HasObjVar("guardKilled") ) and not(IsHiredMerchant(this,topCont)) and (IsDemiGod(this) == false)) then
+-- 		this:SystemMessage("You can't pick that up.","info")
+-- 		return false
+-- 	end
 
-	--DebugMessage("topCont is "..tostring(topCont))
-	if (not this:HasLineOfSightToObj(topCont,ServerSettings.Combat.LOSEyeLevel)) then
-		this:SystemMessage("Cannot see that.","info")
-		return false
-	end
+-- 	--DebugMessage("topCont is "..tostring(topCont))
+-- 	if (not this:HasLineOfSightToObj(topCont,ServerSettings.Combat.LOSEyeLevel)) then
+-- 		this:SystemMessage("Cannot see that.","info")
+-- 		return false
+-- 	end
 
-	-- make sure this item is not in a container that is for sale
-	local inSaleContainer = false
-    ForEachParentContainerRecursive(targetObj,false,
-        function (parentObj)
-            if(parentObj:HasModule("hireling_merchant_sale_item")) then                
-                inSaleContainer = true
-                return false
-            end
-            return true
-        end)
+-- 	-- make sure this item is not in a container that is for sale
+-- 	local inSaleContainer = false
+--     ForEachParentContainerRecursive(targetObj,false,
+--         function (parentObj)
+--             if(parentObj:HasModule("hireling_merchant_sale_item")) then                
+--                 inSaleContainer = true
+--                 return false
+--             end
+--             return true
+--         end)
 
-    if(inSaleContainer) then
-        this:SystemMessage("[$2402]","info")
-        return false
-    end
+--     if(inSaleContainer) then
+--         this:SystemMessage("[$2402]","info")
+--         return false
+--     end
 
-    -- make sure it's not in a locked container
-    local lockedContainer = nil
-    ForEachParentContainerRecursive(targetObj,false,
-        function (parentObj)
-            if( parentObj:HasObjVar("locked") ) then                
-                lockedContainer = parentObj
-                return false
-            end
-            return true
-        end)
+--     -- make sure it's not in a locked container
+--     local lockedContainer = nil
+--     ForEachParentContainerRecursive(targetObj,false,
+--         function (parentObj)
+--             if( parentObj:HasObjVar("locked") ) then                
+--                 lockedContainer = parentObj
+--                 return false
+--             end
+--             return true
+--         end)
 
-    if( lockedContainer ~= nil ) then
-		if ( not lockedContainer:HasObjVar("SecureContainer") or not Plot.HasObjectControl(this, lockedContainer, lockedContainer:HasObjVar("FriendContainer")) ) then
-	        this:SystemMessage("That is in a locked container.","info")
-	        return false
-    		end
-    	end
+--     if( lockedContainer ~= nil ) then
+-- 		if ( not lockedContainer:HasObjVar("SecureContainer") or not Plot.HasObjectControl(this, lockedContainer, lockedContainer:HasObjVar("FriendContainer")) ) then
+-- 	        this:SystemMessage("That is in a locked container.","info")
+-- 	        return false
+--     		end
+--     	end
 
-    -- only block items inside containers inside the trade window
-    local isTrade, depth = IsInTradeContainer(targetObj)
-    if(isTrade and depth > 0) then
-    	return false
-    end
+--     -- only block items inside containers inside the trade window
+--     local isTrade, depth = IsInTradeContainer(targetObj)
+--     if(isTrade and depth > 0) then
+--     	return false
+--     end
 
-	return true
-end
+-- 	return true
+-- end
 
-function UpdateName()
-	Verbose("Player", "UpdateName")
-	local charName = ColorizePlayerName(this, this:GetName() .. GetNameSuffix())
-	this:SetSharedObjectProperty("DisplayName", charName)
-end
+-- function UpdateName()
+-- 	Verbose("Player", "UpdateName")
+-- 	local charName = ColorizePlayerName(this, this:GetName() .. GetNameSuffix())
+-- 	this:SetSharedObjectProperty("DisplayName", charName)
+-- end
 
 function UpdateTitle()
 	Verbose("Player", "UpdateTitle")
@@ -336,6 +336,9 @@ function UpdateChatChannels()
 	local groupId = GetGroupId(this)
 	if ( groupId ~= nil and GetGroupVar(groupId, "Leader") ~= nil ) then
 		table.insert(chatChannels,{ "Group", "group" })
+	end
+	if ( Allegiance.GetId(this) ) then
+		table.insert(chatChannels,{ "Allegiance", "a" })
 	end
 
 	local friendChatChannel = this:GetObjVar("FriendChatChannel")
@@ -420,86 +423,87 @@ function UpdateTooltip()
 	SetTooltipEntry(this,"pvp_stats", tooltipStr)
 end
 
-function HandleRequestPickUp(pickedUpObject)
-	--DebugMessage("Tried to pick up "..pickedUpObject:GetName())
-	local carriedObject = this:CarriedObject()
-	if( carriedObject ~= nil and carriedObject:IsValid() and pickedUpObject ~= carriedObject) then
-		this:SystemMessage("You are already carrying something.","info")
-		this:SendPickupFailed(pickedUpObject)
-		return
-	end
+-- function HandleRequestPickUp(pickedUpObject)
+-- 	--DebugMessage("Tried to pick up "..pickedUpObject:GetName())
+-- 	local carriedObject = this:CarriedObject()
+-- 	if( carriedObject ~= nil and carriedObject:IsValid() and pickedUpObject ~= carriedObject) then
+-- 		this:SystemMessage("You are already carrying something.","info")
+-- 		this:SendPickupFailed(pickedUpObject)
+-- 		return
+-- 	end
 
-	if not(CanPickUp(pickedUpObject)) then
-		this:SendPickupFailed(pickedUpObject)
-		return
-	end
-	--DebugMessage("Pick up here")
-	this:SendMessage("BreakInvisEffect", "Pickup")
+-- 	if not(CanPickUp(pickedUpObject)) then
+-- 		this:SendPickupFailed(pickedUpObject)
+-- 		return
+-- 	end
+-- 	--DebugMessage("Pick up here")
+-- 	this:SendMessage("BreakInvisEffect", "Pickup")
 
-	if ( pickedUpObject:IsContainer() ) then
-		CloseContainerRecursive(this, pickedUpObject)
-	end
+-- 	if ( pickedUpObject:IsContainer() ) then
+-- 		CloseContainerRecursive(this, pickedUpObject)
+-- 	end
 
-	-- keep track of the source location so we can undo the pickup
-	local sourceContainer = pickedUpObject:ContainedBy()
-	local sourceTopmost = pickedUpObject:TopmostContainer() or sourceContainer
-	local sourceLoc = pickedUpObject:GetLoc()
-	local sourceEquipSlot = nil
-	local equipSlot = GetEquipSlot(pickedUpObject)
-	--check to see if the containers have noloot on them
-	if (sourceContainer ~= nil) then 
-		if (sourceContainer:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false)) then			
-			this:SystemMessage("You can't pick that up.","info")
-			this:SendPickupFailed(pickedUpObject)
-			return
-		end
-	end
-	if sourceTopmost ~= nil then
-		if sourceTopmost:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false) then			
-			this:SystemMessage("You can't pick that up.","info")
-			this:SendPickupFailed(pickedUpObject)
-			return
-		end
-		if ( CheckKarmaLoot(this, sourceTopmost) == false ) then
-			this:SendPickupFailed(pickedUpObject)
-			return
-		end
-	end
+-- 	-- keep track of the source location so we can undo the pickup
+-- 	local sourceContainer = pickedUpObject:ContainedBy()
+-- 	local sourceTopmost = pickedUpObject:TopmostContainer() or sourceContainer
+-- 	local sourceLoc = pickedUpObject:GetLoc()
+-- 	local sourceEquipSlot = nil
+-- 	local equipSlot = GetEquipSlot(pickedUpObject)
+-- 	--check to see if the containers have noloot on them
+-- 	if (sourceContainer ~= nil) then 
+-- 		if (sourceContainer:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false)) then			
+-- 			this:SystemMessage("You can't pick that up.","info")
+-- 			this:SendPickupFailed(pickedUpObject)
+-- 			return
+-- 		end
+-- 	end
+-- 	if sourceTopmost ~= nil then
+-- 		if sourceTopmost:HasObjVar("noloot") and not(IsHiredMerchant(this,sourceContainer)) and (IsDemiGod(this) == false) then			
+-- 			this:SystemMessage("You can't pick that up.","info")
+-- 			this:SendPickupFailed(pickedUpObject)
+-- 			return
+-- 		end
+-- 		if ( CheckKarmaLoot(this, sourceTopmost) == false ) then
+-- 			this:SendPickupFailed(pickedUpObject)
+-- 			return
+-- 		end
+-- 	end
 	
-	--GW we may have just died instantly due to insta whack guards, and the karma check above
-	if( IsDead(this)) then
-		this:SendPickupFailed(pickedUpObject)
-		return
-	end
-	if (sourceContainer == nil or sourceContainer ~= this:GetEquippedObject("Backpack")) then
-		local weight = pickedUpObject:GetSharedObjectProperty("Weight")
-		local canAdd,weightCont,maxWeight = CanAddWeightToContainer(this:GetEquippedObject("Backpack"),weight)
-		if ( not canAdd) then
-			if not (IsImmortal(this)) then
-				this:SystemMessage("You are carrying too much (Max: " .. tostring(maxWeight) .. " stones)","info")
-				SetMobileMod(this, "Disable", "OverweightPickup", true)
-				AddBuffIcon(this,"Overweight","Overweight","steal","Cannot move again until item is dropped.")
-				this:SendMessage("Overweight")
-			end
-		end
-	end
-	if(equipSlot ~= nil and this:GetEquippedObject(equipSlot) == pickedUpObject) then
-		sourceEquipSlot = equipSlot
-	end
+-- 	--GW we may have just died instantly due to insta whack guards, and the karma check above
+-- 	if( IsDead(this)) then
+-- 		this:SendPickupFailed(pickedUpObject)
+-- 		return
+-- 	end
+-- 	if (sourceContainer == nil or sourceContainer ~= this:GetEquippedObject("Backpack")) then
+-- 		local weight = pickedUpObject:GetSharedObjectProperty("Weight")
+-- 		local canAdd,weightCont,maxWeight = CanAddWeightToContainer(this:GetEquippedObject("Backpack"),weight)
+-- 		if ( not canAdd) then
+-- 			if not (IsImmortal(this)) then
+-- 				this:SystemMessage("You are carrying too much (Max: " .. tostring(maxWeight) .. " stones)","info")
+-- 				SetMobileMod(this, "Disable", "OverweightPickup", true)
+-- 				AddBuffIcon(this,"Overweight","Overweight","steal","Cannot move again until item is dropped.")
+-- 				this:SendMessage("Overweight")
+-- 			end
+-- 		end
+-- 	end
+-- 	if(equipSlot ~= nil and this:GetEquippedObject(equipSlot) == pickedUpObject) then
+-- 		sourceEquipSlot = equipSlot
+-- 	end
 
-	if( pickedUpObject:MoveToContainer(this,Loc(0,0,0)) ) then
-		if(pickedUpObject:DecayScheduled()) then
-			pickedUpObject:RemoveDecay()
-		end
+-- 	if( pickedUpObject:MoveToContainer(this,Loc(0,0,0)) ) then
+-- 		if(pickedUpObject:DecayScheduled()) then
+-- 			pickedUpObject:RemoveDecay()
+-- 		end
 
-		carriedObjectSource = sourceContainer
-		carriedObjectSourceLoc = sourceLoc
-		carriedObjectSourceEquipSlot = sourceEquipSlot
-		if(sourceEquipSlot ~= nil) then
-			pickedUpObject:SendMessage("WasUnequipped", this)
-		end
-	end
-end
+-- 		carriedObjectSource = sourceContainer
+-- 		carriedObjectSourceTopmost = sourceTopmost
+-- 		carriedObjectSourceLoc = sourceLoc
+-- 		carriedObjectSourceEquipSlot = sourceEquipSlot
+-- 		if(sourceEquipSlot ~= nil) then
+-- 			pickedUpObject:SendMessage("WasUnequipped", this)
+-- 		end
+-- 	end
+-- end
 
 -- will attempt to return the carried object back to its source container and location
 function UndoPickup()
@@ -555,79 +559,17 @@ function HandleRequestDrop(droppedObject, dropLocation, dropObject, dropLocation
 				dropObject:SendMessage("HandleDrop",this,droppedObject)
 			end
 		elseif( dropObject:IsContainer() ) then
-	        -- mortals and immortals can't drop into another mobile's pack	  
-			local topCont = dropObject:TopmostContainer() or dropObject
-
-			if ( topCont:IsMobile() and not(IsInPetPack(dropObject,this,topCont,true)) ) then
-				if ( not IsDemiGod(this) or TestMortal(this) ) then
-					if ( IsDead(topCont) ) then
-						if ( topCont == dropObject ) then
-							-- disallow dropping stuff directly onto a corpse
-							this:SystemMessage("Cannot drop items onto a corpse.", "info")
-							return
-						end
-					elseif( topCont ~= this ) then
-						if ( topCont:HasObjVar("HasPetPack") ) then
-							dropObject = topCont:GetEquippedObject("Backpack")
-							if ( dropObject == nil ) then
-								this:SystemMessage("That pet does not have a pack.","info")
-								return
-							end
-						else
-							this:SystemMessage("Cannot drop that onto someone else's pack.","info")
-							return
-						end
-					end
-				end
-			end
-
-			local grant = false
-			-- check if the container we are dropping onto is locked
-			if( dropObject:HasObjVar("locked") ) then
-				-- allow plot secure containers to work like unlocked containers only for those with permission
-				if ( dropObject:HasObjVar("SecureContainer") ) then
-					grant = Plot.HasObjectControl(this, dropObject, dropObject:HasObjVar("FriendContainer"))
-					end
-			else
-				grant = true
-				end
-
-			-- also apply the same check to the topmost container
-			if ( grant and topCont ~= dropObject and topCont:HasObjVar("locked") ) then
-				grant = false
-				if ( topCont:HasObjVar("SecureContainer") ) then
-					grant = Plot.HasObjectControl(this, topCont, topCont:HasObjVar("FriendContainer"))
-				end
-			end
-
-			if not( grant ) then
-				this:SystemMessage("Container is Locked.", "info")
-				return
-			end
-
-			-- stop players from putting things other than food into a cooking pot
-			if ( dropObject:HasModule("cooking_crafting") and not IsIngredient(droppedObject) ) then
-				this:SystemMessage("That cannot be cooked.", "info")
-				return
-			end
-
-			if( not(IsDemiGod(this)) and dropObject:HasObjVar("merchantContainer") ) then
-				this:SystemMessage("You are not allowed to do that.","info")
-				return
-			end
-
-			-- if we got a nil drop pos we pick a random position in the container
+	       	-- if we got a nil drop pos we pick a random position in the container
 			if not(dropLocationSpecified) then
 				-- didnt stack so put in random location
 				dropLocation = GetRandomDropPosition(dropObject)
 			end
-			local canHold, reason = TryPutObjectInContainer(droppedObject, dropObject, dropLocation, IsDemiGod(this) and not TestMortal(this), not(wasDroppedInto))
+			local canHold, reason = TryPutObjectInContainer(droppedObject, dropObject, dropLocation, IsDemiGod(this) and not TestMortal(this), not(wasDroppedInto),false,carriedObjectSourceTopmost,this)
 			if( not canHold ) then
 				-- DAB TODO: Distinguish between full container and not a container
 				this:SystemMessage("You cannot drop that there. "..(reason or ""),"info")
 				return
 			end
-		
 		else
 			local dropContainer = dropObject:ContainedBy()
 			if( dropContainer ~= nil ) then
@@ -635,7 +577,7 @@ function HandleRequestDrop(droppedObject, dropLocation, dropObject, dropLocation
 					dropLocation = dropObject:GetLoc()
 				end
 				if (dropObject ~= nil) then
-					local canHold, reason = TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this) and not TestMortal(this), false, true)
+					local canHold, reason = TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this) and not TestMortal(this), false, true,carriedObjectSourceTopmost,this)
 					if( not canHold ) then
 						this:SystemMessage("You cannot drop that there. "..(reason or ""),"info")
 						return
@@ -643,7 +585,7 @@ function HandleRequestDrop(droppedObject, dropLocation, dropObject, dropLocation
 					if( CanStack(dropObject,droppedObject) ) then
 						RequestStackOnto(dropObject,droppedObject)
 					else
-						TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this) and not TestMortal(this), false)
+						TryPutObjectInContainer(droppedObject, dropContainer, dropLocation, IsDemiGod(this) and not TestMortal(this), false,false,carriedObjectSourceTopmost,this)
 					end
 				end
 			else
@@ -675,19 +617,6 @@ function HandleRequestEquip(equipObject, equippedOn)
 	end
 	DoEquip(equipObject,equippedOn,this)
 end
-
---[[function UpdateFactions()
-	local friendlyFactions = ""
-	for i,faction in pairs(Factions) do
-		local minFriendlyLevel = faction.MinFriendlyLevel
-		local curFaction = this:GetObjVar(faction.InternalName .. "Favorability") or 0
-		if (curFaction >= minFriendlyLevel) then
-			friendlyFactions = friendlyFactions ..",".. faction.InternalName
-		end
-	end
-    --DebugMessage("FriendlyFactions"..friendlyFactions)
-	this:SetSharedObjectProperty("FriendlyFactions",friendlyFactions)
-end]]
 
 -- DAB TODO: We should make locking other objects stats as a separate function since it should
 -- be for GOD characters only
@@ -1016,8 +945,7 @@ function AutolootItem(objRef,quiet)
 		return
 	end
 
-	local dropLocation = GetRandomDropPosition(targetContainer)
-	local canHold, reason = TryPutObjectInContainer(objRef, targetContainer, dropLocation, IsDemiGod(this) and not TestMortal(this), false)
+	local canHold, reason = TryPutObjectInContainer(objRef, targetContainer, objRef:GetLoc(), IsDemiGod(this) and not TestMortal(this), false)
 	if( not canHold ) then
 		if not(quiet) then
 			this:SystemMessage("You cannot drop that there. "..(reason or ""),"info")
@@ -1320,7 +1248,7 @@ RegisterEventHandler(EventType.ClientUserCommand, "lootall", HandleLootAllComman
 RegisterEventHandler(EventType.ClientUserCommand, "equip", HandleEquipCommand)
 RegisterEventHandler(EventType.ClientUserCommand, "stuck", HandleStuckCommand)
 
-OverrideEventHandler("base_mobile", EventType.Message, "UpdateName", UpdateName)
+OverrideEventHandler("NOS:base_mobile", EventType.Message, "UpdateName", UpdateName)
 RegisterEventHandler(EventType.Message, "PickupObject", HandleRequestPickUp)
 RegisterEventHandler(EventType.Message, "UpdateTitle", UpdateTitle)
 RegisterEventHandler(EventType.Message, "VictimKilled", CheckKillAchievements)
@@ -1339,27 +1267,27 @@ RegisterEventHandler(EventType.Message, "TryHarvest",
 		TryHarvestItem(objRef)
 	end)
 
-RegisterEventHandler(EventType.StartMoving,"",
-	function (speedModifier)
-		if( this:GetObjVar("IsHarvesting") ) then		
-			-- this is a messy hack since the tool itself does the gathering right now
-			local weapon = this:GetEquippedObject("RightHand")
-			if( weapon ~= nil and weapon:HasObjVar("ToolType") ) then
-				weapon:SendMessage("CancelHarvesting",this)
-			end
-			this:SendMessage("CancelHarvesting",this)
-		end
+-- RegisterEventHandler(EventType.StartMoving,"",
+-- 	function (speedModifier)
+-- 		if( this:GetObjVar("IsHarvesting") ) then		
+-- 			-- this is a messy hack since the tool itself does the gathering right now
+-- 			local weapon = this:GetEquippedObject("RightHand")
+-- 			if( weapon ~= nil and weapon:HasObjVar("ToolType") ) then
+-- 				weapon:SendMessage("CancelHarvesting",this)
+-- 			end
+-- 			this:SendMessage("CancelHarvesting",this)
+-- 		end
 
-		if( this:HasTimer("autolootitem")) then
-			this:RemoveTimer("autolootitem")
-			ProgressBar.Cancel("Looting",this)
-		end
-		if( this:HasTimer("autolootall")) then
-			this:RemoveTimer("autolootall")
-			this:RemoveTimer("autolootall_timeout")
-			ProgressBar.Cancel("Looting",this)
-		end		
-	end)
+-- 		if( this:HasTimer("autolootitem")) then
+-- 			this:RemoveTimer("autolootitem")
+-- 			ProgressBar.Cancel("Looting",this)
+-- 		end
+-- 		if( this:HasTimer("autolootall")) then
+-- 			this:RemoveTimer("autolootall")
+-- 			this:RemoveTimer("autolootall_timeout")
+-- 			ProgressBar.Cancel("Looting",this)
+-- 		end		
+-- 	end)
 
 --If the player stands near a camfire, they will set down after a delay
 RegisterEventHandler(EventType.StopMoving,"",
@@ -1421,31 +1349,31 @@ RegisterEventHandler(EventType.Message,"DynamicWindowRangeCheck",
 		AddDynamicWindowRangeCheck(...)
 	end)
 
-RegisterEventHandler(EventType.Message,"OpenBank",
-	function (bankSource)
-		local bankObj = this:GetEquippedObject("Bank")
-		this:SetObjVar("BankSource",bankSource)
-		if( bankObj ~= nil ) then
-			WarnContainerOverflow(bankObj, this)
-			bankObj:SendOpenContainer(this)					
-		end
+-- RegisterEventHandler(EventType.Message,"OpenBank",
+-- 	function (bankSource)
+-- 		local bankObj = this:GetEquippedObject("Bank")
+-- 		this:SetObjVar("BankSource",bankSource)
+-- 		if( bankObj ~= nil ) then
+-- 			WarnContainerOverflow(bankObj, this)
+-- 			bankObj:SendOpenContainer(this)					
+-- 		end
 
-		local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(OBJECT_INTERACTION_RANGE))
-		--DebugMessage("OBJECT_INTERACTION_RANGE is "..tostring(OBJECT_INTERACTION_RANGE))
-		--DebugMessage("BankSource is "..tostring(bankSource))
-		AddView("BankCloseCheck",searchDistanceFromBank,1.0)
-		RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck",
-			function()
-				-- close their bank window
-				-- DebugMessage("Exited View")
-				local bankObj = this:GetEquippedObject("Bank")
-				if( bankObj ~= nil ) then
-					--DebugMessage("Bank closed")
-					CloseContainerRecursive(this,bankObj)
-					CloseMap()
-				end
-			end)
-	end)
+-- 		local searchDistanceFromBank = SearchSingleObject(bankSource,SearchObjectInRange(OBJECT_INTERACTION_RANGE))
+-- 		--DebugMessage("OBJECT_INTERACTION_RANGE is "..tostring(OBJECT_INTERACTION_RANGE))
+-- 		--DebugMessage("BankSource is "..tostring(bankSource))
+-- 		AddView("BankCloseCheck",searchDistanceFromBank,1.0)
+-- 		RegisterSingleEventHandler(EventType.LeaveView,"BankCloseCheck",
+-- 			function()
+-- 				-- close their bank window
+-- 				-- DebugMessage("Exited View")
+-- 				local bankObj = this:GetEquippedObject("Bank")
+-- 				if( bankObj ~= nil ) then
+-- 					--DebugMessage("Bank closed")
+-- 					CloseContainerRecursive(this,bankObj)
+-- 					CloseMap()
+-- 				end
+-- 			end)
+-- 	end)
 
 RegisterEventHandler(EventType.Message,"BindToLocation",
 	function(targetLoc,quiet)
@@ -1459,6 +1387,8 @@ RegisterEventHandler(EventType.Message,"BindToLocation",
 
 -- Move to globals
 -----
+
+
 
 function CreateStartingItems(playerObj)
 	-- build the list first so we don't create duplicates
@@ -1547,8 +1477,9 @@ function InitializePlayer()
 		if(ServerSettings.NewPlayer.InitiateSystemEnabled) then		
 			this:SetObjVar("InitiateMinutes", ServerSettings.NewPlayer.InitiateDurationMinutes)
 			this:AddModule("npe_player")
-			AddSubMapByName(this, ServerSettings.SubregionName)
 		end		
+
+			AddSubMapByName(this, ServerSettings.SubregionName)
 	else
 		this:SetObjVar("Invulnerable",true)
 	    -- show the welcome dialog here since 
@@ -1599,13 +1530,6 @@ function OnLoad(isPossessed)
 			else
 				this:SetWorldPosition(spawnPosition:GetLoc())
 			end
-		end
-
-		-- DAB TODO: When the attached object can change we might need to change this
-		this:SetObjectTag("AttachedUser")
-
-		if(isPossessed) then
-			this:SetSharedObjectProperty("Title","")
 		end
 
 		this:SetObjVar("LoginTime",DateTime.UtcNow)
@@ -1662,6 +1586,8 @@ function OnLoad(isPossessed)
 			})
 	end
 
+	this:SetObjectTag("AttachedUser")
+
 	-- send skill values to player
 	SendSkillList()
 
@@ -1695,18 +1621,17 @@ function OnLoad(isPossessed)
 				BuildHotbar(initializer.HotbarActions)
 			end
 
-			-- this technically does not need to be called every time you come from the backup
-			UpdateFixedAbilitySlots()						
 
 			-- These functions are found in globals/dynamic_window/hud
 			UpdateHotbar(this)
 			UpdateSpellBar(this)
 			UpdateItemBar(this)
 			ShowStatusElement(this,{IsSelf=true,ScreenX=10,ScreenY=10})
+			-- this technically does not need to be called every time you come from the backup
+			UpdateFixedAbilitySlots()						
 
-			InitializeClientConflicts(this)
-
-			if not(IsPossessed(this)) then
+			if not(isPossessed) then
+				InitializeClientConflicts(this)
 				UpdateName()
 
 				if ( IsMounted(this) and this:IsInRegion("NoMount") ) then
@@ -1732,8 +1657,9 @@ function OnLoad(isPossessed)
 	end
 
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()),"UpdateChatChannels")
+	Allegiance.UpdatePlayerVars(this)
 end
-RegisterEventHandler(EventType.Message,"OnLoad",function(...) OnLoad(...) end)
+-- RegisterEventHandler(EventType.Message,"OnLoad",function(...) OnLoad(...) end)
 
 function CheckStartingQuest()
 	local worldName = ServerSettings.WorldName
@@ -1761,7 +1687,7 @@ RegisterSingleEventHandler(EventType.LoadedFromBackup,"",
 	function()
 		local isPossessed = IsPossessed(this)
 		if(isPossessed and not(this:GetAttachedUserId())) then
-			EndPossession(this)
+			EndPossess(this)
 		end
 
 		OnLoad(isPossessed)
@@ -1846,35 +1772,44 @@ RegisterEventHandler(EventType.UserLogout,"",
 		DoLogout(logoutType)
 	end)
 
-RegisterEventHandler(EventType.UserLogin,"",
-	function(loginType)
+-- RegisterEventHandler(EventType.UserLogin,"",
+-- 	function(loginType)
 
-		if not( IsPossessed(this) ) then
-			local clusterController = GetClusterController()
-			if ( clusterController ) then
-				clusterController:SendMessage("UserLogin",this,loginType)			
-			end
-			if ( loginType == "Connect" ) then
-				Guild.Initialize()
-				-- warn about their plot taxes
-				Plot.DailyTaxWarn(this)
-			end
-		end
+-- 		if not( IsPossessed(this) ) then
+-- 			local clusterController = GetClusterController()
+-- 			if ( clusterController ) then
+-- 				clusterController:SendMessage("UserLogin",this,loginType)			
+-- 			end
+-- 			if ( loginType == "Connect" ) then
+-- 				Guild.Initialize()
+-- 				-- warn about their plot taxes
+-- 				Plot.DailyTaxWarn(this)
+-- 			end
+-- 		end
 
-		if(loginType == "ChangeWorld") then
-			if (ServerSettings.WorldName == "Catacombs") then
-				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
-			end
-			return
-		end
+-- 		if(loginType == "ChangeWorld") then
+-- 			if (ServerSettings.WorldName == "Catacombs") then
+-- 				CheckAchievementStatus(this, "Activity", "Dungeon", 1)
+-- 			end
 
-		if(ServerSettings.WorldName == "Catacombs") then
-			local sendto = GetRegionAddressesForName("SouthernHills")
-			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
-				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
-			end			
-		end
-	end)
+-- 			-- Close their BANK if they change worlds
+-- 			local bankObj = this:GetEquippedObject("Bank")
+-- 			if( bankObj ~= nil ) then
+-- 				--DebugMessage("Bank closed")
+-- 				CloseContainerRecursive(this,bankObj)
+-- 				CloseMap()
+-- 			end
+
+-- 			return
+-- 		end
+
+-- 		if(ServerSettings.WorldName == "Catacombs") then
+-- 			local sendto = GetRegionAddressesForName("SouthernHills")
+-- 			if not(#sendto == 0 or not IsClusterRegionOnline(sendto[1])) then
+-- 				TeleportUser(this,this,MapLocations.NewCelador["Southern Hills: Catacombs Portal"],sendto[1], 0, true)	
+-- 			end			
+-- 		end
+-- 	end)
 
 RegisterEventHandler(EventType.Message,"UpdateChatChannels",
 	function()
@@ -1890,6 +1825,25 @@ RegisterEventHandler(EventType.Timer,"UpdateChatChannels",
 --- the event a player would login, kill some stuff (thus being a part of death events) and server crashed there would be no
 -- player record and since we need to parse chronologically we can't continue without the player record.
 EventTracking.UpdatePlayerRecord(this)
+
+
+RegisterEventHandler(EventType.Message,"UpdateAllegianceObjVars",
+	function()
+		Allegiance.UpdatePlayerVars(this)
+	end)
+
+RegisterEventHandler(EventType.Message,"AllegianceEventMessage",
+	function(message)
+		this:SystemMessage(message, "event")
+	end)
+RegisterEventHandler(EventType.Message,"Allegiance.Chat",
+	function(name,rank,line)
+		if(name and rank ) then
+			this:SystemMessage( "[ff9900][Allegiance] " .. name .."(Rank "..rank.."): " .. line.."[-]","custom")
+		else
+			this:SystemMessage( "[ff9900][Allegiance] " .. line.."[-]","custom")
+		end
+	end)
 
 function UpdateFixedAbilitySlots()
 	-- setup initial weapon abilites.
@@ -1915,31 +1869,31 @@ RegisterEventHandler(EventType.Message, "AddPrestigeXP", function(amount)
 	AddPrestigeXP(this,tonumber(amount))
 end)
 
--- This is the player tick, it's performed once per minute.
--- It's the alternative to having multiple systems all updating under their own timers.
-function PerformPlayerTick(notFirst)
-	-- prevent logins and reloads taking minutes away from initiate status
-	if ( notFirst ) then
-		-- check initiate
-		CheckInitiate(this)
-	else
-		-- give daily login bonus
-		DailyLogin(this)
-	end
+-- -- This is the player tick, it's performed once per minute.
+-- -- It's the alternative to having multiple systems all updating under their own timers.
+-- function PerformPlayerTick(notFirst)
+-- 	-- prevent logins and reloads taking minutes away from initiate status
+-- 	if ( notFirst ) then
+-- 		-- check initiate
+-- 		CheckInitiate(this)
+-- 	else
+-- 		-- give daily login bonus
+-- 		DailyLogin(this)
+-- 	end
 
-	VitalityCheck(this)
+-- 	VitalityCheck(this)
 
-	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+-- 	-- check allegiance titles always
+-- 	Allegiance.UpdateTitlele(this)
 
-	CheckBidRefund()
+-- 	CheckBidRefund()
 
-	local gmMessages = GlobalVarRead("AccountMessages."..this:GetAttachedUserId())
+-- 	local gmMessages = GlobalVarRead("AccountMessages."..this:GetAttachedUserId())
 
-	if (gmMessages and not this:HasModule("base_gm_message_responsewindow")) then
-		this:AddModule("base_gm_message_responsewindow")
-	end
-end
+-- 	if (gmMessages and not this:HasModule("base_gm_message_responsewindow")) then
+-- 		this:AddModule("base_gm_message_responsewindow")
+-- 	end
+-- end
 
 function PerformPlayerShortTick()
 	UpdatePlayerProtection(this)
@@ -1954,6 +1908,7 @@ function PerformPlayerShortTick()
 end
 
 function PerformPlayerFourTick()
+	-- CheckCorpseValid(this)
 
 	friendList = this:GetObjVar("FriendList")
 
@@ -2064,12 +2019,12 @@ RegisterEventHandler(EventType.Timer,"PlayerFourTick", function ( ... )
 end)
 -- end player guard stuff
 
-RegisterEventHandler(EventType.StartMoving,"",function (success)
-	if (this:HasObjVar("IsHarvesting")) then
-		local harvestingTool = this:GetObjVar("HarvestingTool")
-		harvestingTool:SendMessage("CancelHarvesting",this)
-	end
-end)
+-- RegisterEventHandler(EventType.StartMoving,"",function (success)
+-- 	if (this:HasObjVar("IsHarvesting")) then
+-- 		local harvestingTool = this:GetObjVar("HarvestingTool")
+-- 		harvestingTool:SendMessage("CancelHarvesting",this)
+-- 	end
+-- end)
 
 RegisterEventHandler(EventType.Message,"ShowTutorialUI",
 	function ( ... )
@@ -2099,7 +2054,7 @@ RegisterEventHandler(EventType.ClientUserCommand,"OpenStore",function ( ... )
 -- POST 8.5 PLAYER.lua
 
 if (IsDemiGod(this)) then
-	require "base_player_mobedit"
+	require "NOS:base_player_mobedit"
 end
 -- Overriding the base_mobile apply damage to check for pvp rules
 local BaseHandleApplyDamage = HandleApplyDamage
@@ -2136,44 +2091,6 @@ function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked
 		end
 
 		this:PlayLocalEffect(this, "BloodSplatter" .. choice .. "Effect", 1)
-	end
-
-	return newHealth
-end
-
-function HandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	Verbose("Player", "HandleApplyDamage", damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-
-	-- if we are being attacked by a player
-	if (IsPlayerCharacter(damager) or IsPet(damager)) then
-		if (ServerSettings.PlayerInteractions.PlayerVsPlayerEnabled ~= true and damager ~= this and not IsGod(damager)) then
-			-- if pvp enabled, not damaging ourselves, and the damager is not a god, stop here (disabled PVP)
-			return true
-		end
-	else
-		-- autodefend against NPCs (auto defending against players could result in guard whack for both attacker and victim)
-		this:SendMessage("ForceCombat", damager)
-	end
-
-	local newHealth = BaseHandleApplyDamage(damager, damageAmount, damageType, isCrit, wasBlocked, isReflected)
-	if (newHealth and newHealth > 0) then
-		local magnitude = math.clamp(damageAmount / 3, 1, 4)
-
-		--DebugMessage("Choice = "..tostring(choice))
-		local doNotShakeScreenOnHit = this:GetObjVar("doNotShakeScreenOnHit")
-
-		if (doNotShakeScreenOnHit) then
-		else
-			--this:PlayLocalEffect(this,"ScreenShakeEffect", 0.3,"Magnitude="..magnitude)
-		end
-
-		local healthRatio = (newHealth / GetMaxHealth(this))
-		local choice = 1
-		if (healthRatio <= 0.2) then
-			choice = 2
-		end
-
-	-- this:PlayLocalEffect(this,"BloodSplatter"..choice.."Effect", 1)
 	end
 
 	return newHealth
@@ -2777,8 +2694,11 @@ function OnLoad(isPossessed)
 		end
 	)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(5 + math.random()), "UpdateChatChannels")
-	UpdateAllegiancePlayerVars(this)
+
+	Allegiance.UpdatePlayerVars(this)
 end
+
+
 RegisterEventHandler(
 	EventType.Message,
 	"OnLoad",
@@ -2854,7 +2774,7 @@ function PerformPlayerTick(notFirst)
 	VitalityCheck(this)
 
 	-- check allegiance titles always
-	CheckAllegianceTitle(this)
+	Allegiance.UpdateTitlele(this)
 
 	-- CheckBidRefund()
 

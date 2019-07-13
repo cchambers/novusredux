@@ -1,4 +1,4 @@
-require 'account_functions'
+require 'NOS:account_functions'
 
 this:ScheduleTimerDelay(TimeSpan.FromMilliseconds(60000), "decayObject");
 

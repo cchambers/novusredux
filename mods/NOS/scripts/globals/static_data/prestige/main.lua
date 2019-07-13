@@ -9,13 +9,13 @@ function PrestigePostCastBow(player, target)
     PerformClientArrowShot(player, target)
 end
 
-require 'globals.static_data.prestige.fighter'
-require 'globals.static_data.prestige.rogue'
-require 'globals.static_data.prestige.mage'
---require 'globals.static_data.prestige.monk'
-require 'globals.static_data.prestige.crafter'
-require 'globals.static_data.prestige.npc'
-require 'globals.static_data.prestige.skills'
+require 'NOS:globals.static_data.prestige.fighter'
+require 'NOS:globals.static_data.prestige.rogue'
+require 'NOS:globals.static_data.prestige.mage'
+--require 'NOS:globals.static_data.prestige.monk'
+require 'NOS:globals.static_data.prestige.crafter'
+require 'NOS:globals.static_data.prestige.npc'
+require 'NOS:globals.static_data.prestige.skills'
 
 -- DAB NOTE: This is a wierd place to do this but we need sorted lists of this data and this makes sure it only sorts once
 PrestigeDataSorted = {}

@@ -1,4 +1,4 @@
-require 'npc_founders_bartender'
+require 'NOS:npc_founders_bartender'
 
 CanBuyItem = function (buyer,item)
     return IsCollector(buyer)
@@ -6,7 +6,7 @@ end
 CanUseNPC = CanBuyItem
 
 -- me
-OverrideEventHandler("npc_founders_bartender",EventType.DynamicWindowResponse,"merchant_interact", 
+OverrideEventHandler("NOS:npc_founders_bartender",EventType.DynamicWindowResponse,"merchant_interact", 
 	function (user,menuIndex)
 	    if( menuIndex == 0 ) then return end
 	    if( user == nil or not(user:IsValid())) then return end

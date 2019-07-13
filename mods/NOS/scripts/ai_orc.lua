@@ -1,4 +1,4 @@
-require 'ai_default_human'
+require 'NOS:ai_default_human'
 
 AI.Settings.ChaseRange = 20.0
 AI.Settings.LeashDistance = 30

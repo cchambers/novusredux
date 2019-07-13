@@ -1,6 +1,6 @@
-require 'ai_goon'
-require 'incl_faction'
-require 'incl_ai_stabled'
+require 'NOS:ai_goon'
+require 'NOS:incl_faction'
+require 'NOS:incl_ai_stabled'
 
 --Function that determine's what team I'm on. Override this for custom behaviour.
 function IsFriend(target)
@@ -112,7 +112,7 @@ function IsFriend(target)
 end
 
 --Open mob window messages on interact
-OverrideEventHandler("base_ai_conversation",EventType.Message,"UseObject",
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message,"UseObject",
 	function(user,useType)
         --DebugMessage(useType)
 		if (useType ~= "Interact") then return end

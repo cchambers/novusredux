@@ -2,64 +2,64 @@
 -- NOTE: Do not modify variables in the space in object behavior modules
 
 -- lua extensions
-require 'globals.lua.extensions'
-require 'globals.lua.statemachine'
-require 'globals.lua.email'
+require 'NOS:globals.lua.extensions'
+require 'NOS:globals.lua.statemachine'
+require 'NOS:globals.lua.email'
 
 xml = LoadExternalModule("LuaXml")
 json = LoadExternalModule("cjson")
 
 -- server settings
-require 'globals.server_settings.main'
+require 'NOS:globals.server_settings.main'
 -- server data files
-require 'globals.static_data.main'
+require 'NOS:globals.static_data.main'
 
-require 'globals.event_tracking.main'
-require 'globals.skill_system'
-require 'globals.equipment'
-require 'globals.equipment_functions'
-require 'globals.items'
-require 'globals.crafting'
-require 'globals.colors'
-require 'globals.regions'
-require 'globals.cluster_helpers'
-require 'globals.badwords'
-require 'globals.speech_helpers'
-require 'globals.currency_helpers'
-require 'globals.use_cases'
+require 'NOS:globals.event_tracking.main'
+require 'NOS:globals.skill_system'
+require 'NOS:globals.equipment'
+require 'NOS:globals.equipment_functions'
+require 'NOS:globals.items'
+require 'NOS:globals.crafting'
+require 'NOS:globals.colors'
+require 'NOS:globals.regions'
+require 'NOS:globals.cluster_helpers'
+require 'NOS:globals.badwords'
+require 'NOS:globals.speech_helpers'
+require 'NOS:globals.currency_helpers'
+require 'NOS:globals.use_cases'
 
 -- global defines (these can be used in template initializers)
-require 'defines_templates'
+require 'NOS:defines_templates'
 
-require 'defines_crafting_orders'
+require 'NOS:defines_crafting_orders'
 
 -- Lua gameobj extensions
-require 'globals.mobile_extensions_misc'
-require 'globals.mobile_extensions_stats'
-require 'globals.mobile_extensions_skills'
+require 'NOS:globals.mobile_extensions_misc'
+require 'NOS:globals.mobile_extensions_stats'
+require 'NOS:globals.mobile_extensions_skills'
 
 -- Dynamic window helpers
-require 'globals.dynamic_window.main'
+require 'NOS:globals.dynamic_window.main'
 
-require 'globals.debug'
+require 'NOS:globals.debug'
 
 -- Contains functions that are called directly from the game engine
-require 'globals.engine_callbacks'
+require 'NOS:globals.engine_callbacks'
 
 NEW_PLAYER_GUILD_ID = "0000"
 
 
 
 if(ServerSettings.EditMode == true) then
-	require 'globals.editmode'
+	require 'NOS:globals.editmode'
 end
 
-require 'globals.htmlwindows.gmui'
+require 'NOS:globals.htmlwindows.gmui'
 
-require 'globals.helpers.main'
-require 'globals.mobile_effects.main'
-require 'globals.special_effects.main'
-require 'globals.autofix.main'
+require 'NOS:globals.helpers.main'
+require 'NOS:globals.mobile_effects.main'
+require 'NOS:globals.special_effects.main'
+require 'NOS:globals.autofix.main'
 
 -- Common global variables
 -- Lua Helpers
@@ -503,7 +503,7 @@ Statistics = {
 	ItemsCrafted = "ItemsCrafted"
 }
 
-require 'globals.states.main'
+require 'NOS:globals.states.main'
 
 -- uncomment this on test map to run tests
---require 'globals.tests.main'
+--require 'NOS:globals.tests.main'

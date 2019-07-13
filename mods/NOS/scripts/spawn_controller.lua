@@ -1,5 +1,5 @@
-require 'incl_regions'
-require 'incl_gametime'
+require 'NOS:incl_regions'
+require 'NOS:incl_gametime'
 
 Time = 0
 NightStart = 18

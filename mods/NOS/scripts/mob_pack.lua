@@ -1,4 +1,4 @@
-require 'container'
+require 'NOS:container'
 
 local base_CanOpen = CanOpen
 function CanOpen(user)

@@ -1,4 +1,4 @@
-require 'spawn_controller'
+require 'NOS:spawn_controller'
 MAX_ROOM_SIZE = 15
 SPAWN_TIME = 9
 

@@ -1,4 +1,4 @@
-require 'scriptcommands_UI_goto'
+require 'NOS:scriptcommands_UI_goto'
 
 RegisterEventHandler(EventType.ClientTargetLocResponse, "jump", 
 	function(success,targetLoc)

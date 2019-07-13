@@ -1,6 +1,6 @@
-require 'incl_humanloot'
-require 'incl_combatai'
-require 'base_ai_npc'
+require 'NOS:incl_humanloot'
+require 'NOS:incl_combatai'
+require 'NOS:base_ai_npc'
 
 if (this:GetObjVar("MyPath") ~= nil) then
     path = GetPath(this:GetObjVar("MyPath"))

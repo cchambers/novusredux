@@ -1,4 +1,4 @@
-require "container"
+require "NOS:container"
 
 if (initializer ~= nil) then
     if (initializer.ResourceTypes ~= nil) then

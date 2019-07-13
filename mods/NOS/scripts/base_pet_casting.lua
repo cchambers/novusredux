@@ -1,4 +1,4 @@
-require "base_ai_mob"
+require "NOS:base_ai_mob"
 
 --Set to cast
 AI.SetSetting("CanCast", true)

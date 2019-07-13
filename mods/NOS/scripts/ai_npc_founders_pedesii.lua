@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.MerchantEnabled = false
 AI.Settings.EnableTrain = false
@@ -222,4 +222,4 @@ function Dialog.OpenLastNameDialog(user)
 	DialogReturnMessage(this,user,"We are Pedesii. We have no last name.","Oh, okay...")
 end
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

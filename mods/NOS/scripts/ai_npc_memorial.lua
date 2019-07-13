@@ -1,4 +1,4 @@
-require 'ai_villager'
+require 'NOS:ai_villager'
 
 MemorialSpeech = {
         "I could take you and then just like you in my day!",
@@ -27,4 +27,4 @@ function HandleInteract(user,usedType)
 end
 
 this:SetObjVar("DoesNotNeedPath",true)
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)

@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.EnableTrain = false
@@ -129,4 +129,4 @@ function Dialog.OpenTalkDialog(user)
     QuickDialogMessage(this,user,"We all have many questions, perhaps you should bother the Gods with your troubles.")
 end
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

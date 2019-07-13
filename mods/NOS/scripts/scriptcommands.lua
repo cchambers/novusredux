@@ -1,4 +1,4 @@
--- require "account_functions"
+-- require "NOS:account_functions"
 
 -- This list is populated with the RegisterCommand function, all built in commands are
 -- registered at the bottom of this file
@@ -174,15 +174,15 @@ RegisterEventHandler(EventType.Message,"transfer",
 		this:TransferRegionRequest(targetRegion,Loc(0,0,0))
 	end)
 
-require 'scriptcommands_mortal'
+require 'NOS:scriptcommands_mortal'
 if(IsImmortal(this)) then
-	require 'scriptcommands_immortal'
+	require 'NOS:scriptcommands_immortal'
 end
 if(IsDemiGod(this)) then
-	require 'scriptcommands_demigod'
+	require 'NOS:scriptcommands_demigod'
 end
 if(IsGod(this)) then
-	require 'scriptcommands_god'
+	require 'NOS:scriptcommands_god'
 end
 
 

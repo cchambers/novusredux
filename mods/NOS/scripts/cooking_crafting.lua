@@ -1,4 +1,4 @@
-require 'container'
+require 'NOS:container'
 
 function CanOpen(user)
     if (IsImmortal(user)) then
@@ -59,7 +59,7 @@ function DoCook(user,heatSource)
 	StartCooking(user, heatSource)
 end
 ]]--
-OverrideEventHandler("container",EventType.Message, "UseObject", 
+OverrideEventHandler("NOS:container",EventType.Message, "UseObject", 
 	function (user,usedType)
 		if(usedType == "Open" or usedType == "Use") then   
             if( CanOpen(user) ) then

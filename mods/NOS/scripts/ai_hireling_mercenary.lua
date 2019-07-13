@@ -1,7 +1,7 @@
 -- TODO: Handle when an item is release or removed from a lcoked down container. Must remove all items for sale
 
-require 'ai_follower'
-require 'incl_faction'
+require 'NOS:ai_follower'
+require 'NOS:incl_faction'
 
 AI.Settings.CanWander = false
 AI.Settings.ChaseSpeed = 3.5
@@ -283,7 +283,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse, "Responses",
         DecideIdleState()
     end)
 
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 
 
 function OnHirelingMerchantLoad()

@@ -1,6 +1,6 @@
-require 'base_ai_mob'
-require 'incl_combatai'
-require 'incl_regions'
+require 'NOS:base_ai_mob'
+require 'NOS:incl_combatai'
+require 'NOS:incl_regions'
 
 -- Combat AI settings
 AI.Settings.AggroChanceAnimals = 5 --1 out of this number chance to attack other animals

@@ -1,4 +1,4 @@
-require 'stackable_helpers'
+require 'NOS:stackable_helpers'
 
 -- This script aids with trade of resources for an item/template
 -- It ensures that the transaction completes on both sides

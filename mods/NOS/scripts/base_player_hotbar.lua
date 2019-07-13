@@ -1,6 +1,6 @@
-require 'incl_combat_abilities'
-require 'incl_skill_animalken'
-require 'incl_magic_sys'
+require 'NOS:incl_combat_abilities'
+require 'NOS:incl_skill_animalken'
+require 'NOS:incl_magic_sys'
 
 -- we store the 
 local carriedAction = nil

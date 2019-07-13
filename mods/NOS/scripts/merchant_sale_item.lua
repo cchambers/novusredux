@@ -1,4 +1,4 @@
-require 'stackable_helpers'
+require 'NOS:stackable_helpers'
 
 RegisterEventHandler(EventType.Timer, "check_valid", 
 	function ()

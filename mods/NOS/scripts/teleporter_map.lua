@@ -2,7 +2,7 @@
 -- a user to any region server running the DestinationMap. If there is more than one,
 -- it opens a UI window
 
-require 'teleporter'
+require 'NOS:teleporter'
 
 function ShowRegionSelectWindow(user,validDestinations)
 	local title = this:GetObjVar("WindowTitle") or "Select Universe"		

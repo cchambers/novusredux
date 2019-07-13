@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.MerchantEnabled = false
 AI.Settings.EnableTrain = false
@@ -276,4 +276,4 @@ function HandleConsumeResourceResponse(success,transactionId,buyer)
 	activeTransactions[transactionId] = nil
 end
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

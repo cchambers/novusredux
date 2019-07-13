@@ -1,4 +1,4 @@
-require 'scriptcommands'
+require 'NOS:scriptcommands'
 
 local isGodWindowOpen = false
 local commandArgs = ""

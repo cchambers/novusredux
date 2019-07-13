@@ -1,9 +1,9 @@
-require 'incl_celador_locations'
-require 'incl_regions'
-require 'base_ai_mob'
-require 'base_ai_intelligent'
-require 'base_ai_conversation' 
---require 'base_ai_sleeping'
+require 'NOS:incl_celador_locations'
+require 'NOS:incl_regions'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_conversation' 
+--require 'NOS:base_ai_sleeping'
 
 table.insert(AI.IdleStateTable,{StateName = "Wander",Type = "nothing"})
 table.insert(AI.IdleStateTable, {StateName = "GoLocation",Type = "nothing"})

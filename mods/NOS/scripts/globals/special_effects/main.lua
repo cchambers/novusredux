@@ -26,4 +26,4 @@ function DoReveal(mobile)
     StartSpecialEffect(mobile, effectName)
 end
 
-require "globals.special_effects.reveals.main"
+require "NOS:globals.special_effects.reveals.main"

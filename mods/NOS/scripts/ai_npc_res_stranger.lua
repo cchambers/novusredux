@@ -1,6 +1,6 @@
-require 'base_mobile_advanced'
-require 'incl_combat_abilities'
-require 'incl_magic_sys'
+require 'NOS:base_mobile_advanced'
+require 'NOS:incl_combat_abilities'
+require 'NOS:incl_magic_sys'
 
 this:SetCloak(true)
 this:SetObjVar("VisibleToDeadOnly",true)

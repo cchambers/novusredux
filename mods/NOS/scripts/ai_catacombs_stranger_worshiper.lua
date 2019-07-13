@@ -1,11 +1,11 @@
-require 'incl_catacombs_locations'
-require 'base_ai_mob'
-require 'base_ai_conversation'
-require 'base_ai_intelligent'  
-require 'guard_protect'
-require 'incl_ai_patrolling'
-require 'incl_faction'
---require 'base_ai_sleeping'
+require 'NOS:incl_catacombs_locations'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_conversation'
+require 'NOS:base_ai_intelligent'  
+require 'NOS:guard_protect'
+require 'NOS:incl_ai_patrolling'
+require 'NOS:incl_faction'
+--require 'NOS:base_ai_sleeping'
 
 table.insert(AI.IdleStateTable,{StateName = "Wander",Type = "nothing"})
 table.insert(AI.IdleStateTable,{StateName = "ReturnToPath",Type = "pleasure"})
@@ -382,7 +382,7 @@ RegisterEventHandler(EventType.Message,"EndPrayMessage",
     end)
 
 RegisterEventHandler(EventType.Timer,"DecideIdle",DecideIdleState)
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 RegisterEventHandler(EventType.Arrived, "GoLocation",AI.StateMachine.AllStates.GoLocation.OnArrived)
 RegisterEventHandler(EventType.Arrived, "GoPray",AI.StateMachine.AllStates.GoPray.OnArrived)
 

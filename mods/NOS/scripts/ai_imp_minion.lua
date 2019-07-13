@@ -1,4 +1,4 @@
-require 'ai_follower'
+require 'NOS:ai_follower'
 
 RegisterEventHandler(EventType.Message, "HasDiedMessage",
     function(killer)

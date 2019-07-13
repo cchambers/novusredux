@@ -1,5 +1,5 @@
 
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.MerchantEnabled = false
 AI.Settings.EnableTrain = false
@@ -330,5 +330,5 @@ function Dialog.OpenAttackDialog(user)
     this:NpcSpeech("Not by my watch. KHO'S WILL BE DONE!!!")
     this:SendMessage("AttackEnemy",user,true)
 end
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
 

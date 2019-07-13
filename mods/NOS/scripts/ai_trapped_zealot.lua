@@ -1,5 +1,5 @@
-require 'ai_follower'
-require 'incl_faction'
+require 'NOS:ai_follower'
+require 'NOS:incl_faction'
 
 AI.KilledMonsterMessages = {
   "Death to you!",
@@ -68,7 +68,7 @@ function(newOwner)
 		AI.StateMachine.ChangeState("Follow")
 end)
 
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", 
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", 
 	function (user,usedType)
     	if(usedType ~= "Interact") then return end
 		--DebugMessage("user is "..tostring(user))

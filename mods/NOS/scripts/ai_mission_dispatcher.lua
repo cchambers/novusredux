@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.EnableMissions = true
 
@@ -110,7 +110,7 @@ function OpenMissionDetailsDialog(user, selectedMissionIndex)
     GetAttention(user)
 end
 
-OverrideEventHandler("base_ai_npc", EventType.DynamicWindowResponse,"Responses", 
+OverrideEventHandler("NOS:base_ai_npc", EventType.DynamicWindowResponse,"Responses", 
 	function (user,buttonId)
 		if ( Dialog["Open"..buttonId.."Dialog"] ~= nil) then 
         	Dialog["Open"..buttonId.."Dialog"](user)

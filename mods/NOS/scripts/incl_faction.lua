@@ -1,4 +1,4 @@
-require 'incl_player_titles'
+require 'NOS:incl_player_titles'
 
 --[[
 	All of this functionallity needs to be CLEANED UP! -KH 2/3/18

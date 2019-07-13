@@ -1,3 +1,3 @@
 KarmaActions = {}
-require 'globals.static_data.karma.negative_actions'
-require 'globals.static_data.karma.positive_actions'
+require 'NOS:globals.static_data.karma.negative_actions'
+require 'NOS:globals.static_data.karma.positive_actions'

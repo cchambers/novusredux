@@ -1,5 +1,5 @@
-require 'base_mobile_advanced'
-require 'incl_player_names'
+require 'NOS:base_mobile_advanced'
+require 'NOS:incl_player_names'
 
 --module that attaches that opens the character customization window.
 mInitializer = initializer

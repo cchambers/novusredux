@@ -1,4 +1,4 @@
-require 'ai_void_worshiper'
+require 'NOS:ai_void_worshiper'
 
 AI.Settings.SpeechTable = "Berserker"   
 

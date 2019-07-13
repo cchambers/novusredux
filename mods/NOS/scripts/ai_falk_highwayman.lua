@@ -1,4 +1,4 @@
-require 'ai_bandit'
+require 'NOS:ai_bandit'
 
 AI.Settings.ShouldFlee = false
 

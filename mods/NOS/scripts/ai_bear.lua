@@ -1,5 +1,5 @@
-require 'base_ai_mob'
-require 'incl_regions'
+require 'NOS:base_ai_mob'
+require 'NOS:incl_regions'
 
 AI.Settings.MaxAgeScale = 1.5 --Maximum scale that a mob can age.
 

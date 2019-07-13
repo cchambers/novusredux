@@ -1,6 +1,6 @@
-require 'base_ai_mob'
-require 'base_ai_intelligent'
-require 'base_ai_casting'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_casting'
 
 -- set charge speed and attack range in combat ai
 AI.Settings.CanFlee = false

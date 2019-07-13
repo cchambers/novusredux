@@ -1,4 +1,4 @@
-require 'stackable'
+require 'NOS:stackable'
 
 activeSplit = false
 
@@ -302,7 +302,7 @@ function HandleLoaded()
 	end	
 end
 
-OverrideEventHandler("stackable",EventType.CreatedObject,"stack_created",
+OverrideEventHandler("NOS:stackable",EventType.CreatedObject,"stack_created",
 	function (success,objRef,stackAmounts,user)
 		activeSplit = false
 
@@ -346,7 +346,7 @@ OverrideEventHandler("stackable",EventType.CreatedObject,"stack_created",
 		objRef:SendMessage("SetCoins",stackAmounts)
 	end)
 
-OverrideEventHandler("stackable",EventType.Message,"StackOnto",
+OverrideEventHandler("NOS:stackable",EventType.Message,"StackOnto",
 	function (otherObj)
 		if(not(pendingStack) and otherObj:IsValid() and otherObj:GetObjVar("ResourceType") == "coins" and otherObj ~= this) then					
 			-- in bank we automatically change up
@@ -414,7 +414,7 @@ function OpenSplitWindow(user,fieldAmounts)
 	user:OpenDynamicWindow(newWindow,this)
 end
 
-OverrideEventHandler("stackable",EventType.DynamicWindowResponse,"StackSplit",
+OverrideEventHandler("NOS:stackable",EventType.DynamicWindowResponse,"StackSplit",
 	function (user,buttonId,fieldData)
 		local result = StringSplit(buttonId,"|")
 		local action = result[1]

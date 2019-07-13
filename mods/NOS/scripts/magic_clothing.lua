@@ -1,4 +1,4 @@
-require 'magic_item'
+require 'NOS:magic_item'
 
 function UpdateInfo()
 	local name, color = GetNameColor()

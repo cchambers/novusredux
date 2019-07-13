@@ -1,4 +1,4 @@
-require 'base_tool_resourceharvester'
+require 'NOS:base_tool_resourceharvester'
 
 QUALITY_IMPROVEMENT_SKILL_THRESHOLD = 40
 FAIL_CHANCE_SKILL_THRESHOLD = 30

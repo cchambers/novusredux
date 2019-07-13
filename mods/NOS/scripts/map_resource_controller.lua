@@ -1,5 +1,5 @@
-require 'incl_resource_source'
-require 'incl_regions'
+require 'NOS:incl_resource_source'
+require 'NOS:incl_regions'
 
 RESOURCE_SPAWN_RATE_SECS = 1
 DEPLETION_UPDATE_FREQ = 10

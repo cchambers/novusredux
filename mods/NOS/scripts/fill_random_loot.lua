@@ -1,4 +1,4 @@
-require 'incl_loottables'
+require 'NOS:incl_loottables'
 
 RegisterSingleEventHandler(EventType.ModuleAttached, "fill_random_loot", 
 	function ()

@@ -1,6 +1,6 @@
-require 'ai_follower'
-require 'incl_faction'
-require 'map_markers'
+require 'NOS:ai_follower'
+require 'NOS:incl_faction'
+require 'NOS:map_markers'
 
 AI.Settings.CanWander = false
 AI.Settings.ChaseSpeed = 3.5
@@ -379,7 +379,7 @@ RegisterEventHandler(EventType.CreatedObject,"dismiss_portal_created",
         end
     end)
 
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 RegisterEventHandler(EventType.DynamicWindowResponse, "Responses",
     function (user,buttonId)
         if(buttonId == "BeginHire") then

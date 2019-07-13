@@ -14,4 +14,4 @@ end
 SetInCombat(false)
 SetCurrentTarget(nil)
 
-OverrideEventHandler("combat", EventType.Message, "SetCurrentTarget", SetCurrentTarget)
+OverrideEventHandler("NOS:combat", EventType.Message, "SetCurrentTarget", SetCurrentTarget)

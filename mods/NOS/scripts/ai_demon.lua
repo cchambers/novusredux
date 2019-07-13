@@ -1,8 +1,8 @@
-require 'loop_effect'
+require 'NOS:loop_effect'
 
-require 'base_ai_mob'
-require 'base_ai_casting'
-require 'base_ai_intelligent'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_casting'
+require 'NOS:base_ai_intelligent'
 
 AI.Settings.ChaseRange = 20
 AI.Settings.LeashDistance = 30

@@ -1,9 +1,9 @@
 CraftingOrderTable = nil
 
-require 'base_ai_mob'
-require 'base_ai_settings'
-require 'base_transaction'
-require 'merchant_helpers'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_settings'
+require 'NOS:base_transaction'
+require 'NOS:merchant_helpers'
 
 function IsFriend(target)
     --My only enemy is the enemy

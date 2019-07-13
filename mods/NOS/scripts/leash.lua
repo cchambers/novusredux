@@ -1,4 +1,4 @@
-require 'incl_combatai'
+require 'NOS:incl_combatai'
 
 DEFAULT_LEASHDISTANCE = 25
 

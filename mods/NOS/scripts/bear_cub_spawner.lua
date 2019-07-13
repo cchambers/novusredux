@@ -1,4 +1,4 @@
-require 'base_ai_settings'
+require 'NOS:base_ai_settings'
 
 BEAR_CUB_CHANCE = 0.3
 MAX_CUBS = 3

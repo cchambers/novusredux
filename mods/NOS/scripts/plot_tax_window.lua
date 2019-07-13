@@ -1,4 +1,4 @@
-require 'currency'
+require 'NOS:currency'
 
 
 local controller

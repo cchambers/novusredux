@@ -1,5 +1,5 @@
-require 'base_ai_npc'
-require 'incl_mining_locations'
+require 'NOS:base_ai_npc'
+require 'NOS:incl_mining_locations'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.EnableTrain = false
@@ -416,4 +416,4 @@ AI.StateMachine.AllStates.Mining = {
         end,
     }
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

@@ -1,7 +1,7 @@
-require 'base_ai_npc'
-require 'incl_ai_patrolling'
-require 'incl_regions'
-require 'incl_player_titles'
+require 'NOS:base_ai_npc'
+require 'NOS:incl_ai_patrolling'
+require 'NOS:incl_regions'
+require 'NOS:incl_player_titles'
 
 --table.insert(AI.IdleStateTable, {StateName = "GoLocation",Type = "pleasure"})
 

@@ -1,4 +1,4 @@
-require 'base_ai_settings'
+require 'NOS:base_ai_settings'
 
 --Spawns an obj var specified unit that acts as a goon/henchman and sets it's superior to the object this module is attached to
 --In the script the MySuperior should be utilized as the superior of the goon

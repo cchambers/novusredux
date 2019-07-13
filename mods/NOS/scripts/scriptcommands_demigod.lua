@@ -1,9 +1,9 @@
-require 'scriptcommands_UI_edit'
-require 'scriptcommands_UI_info'
-require 'scriptcommands_UI_create'
-require 'scriptcommands_UI_createcustom'
-require 'scriptcommands_UI_search'
-require 'scriptcommands_UI_globalvar'
+require 'NOS:scriptcommands_UI_edit'
+require 'NOS:scriptcommands_UI_info'
+require 'NOS:scriptcommands_UI_create'
+require 'NOS:scriptcommands_UI_createcustom'
+require 'NOS:scriptcommands_UI_search'
+require 'NOS:scriptcommands_UI_globalvar'
 
 newScale = nil
 newColor = nil

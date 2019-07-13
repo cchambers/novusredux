@@ -1,6 +1,6 @@
 -- TODO Handle Defending if attacked
-require 'base_ai_intelligent' 
-require 'base_ai_conversation' 
+require 'NOS:base_ai_intelligent' 
+require 'NOS:base_ai_conversation' 
 
 AI.SetSetting("CanConverse",true)
 AI.SetSetting("CanWander",true)

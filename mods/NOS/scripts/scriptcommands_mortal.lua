@@ -1,10 +1,10 @@
-require "incl_player_titles"
-require "incl_gametime"
-require "scriptcommands_UI_customcommand"
-require "base_player_guild"
-require "base_allegiance_window"
-require "base_player_emotes"
-require "base_bug_report"
+require "NOS:incl_player_titles"
+require "NOS:incl_gametime"
+require "NOS:scriptcommands_UI_customcommand"
+require "NOS:base_player_guild"
+require "NOS:base_allegiance_window"
+require "NOS:base_player_emotes"
+require "NOS:base_bug_report"
 
 MortalCommandFuncs = {
 	-- Mortal Commands

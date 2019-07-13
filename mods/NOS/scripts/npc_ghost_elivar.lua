@@ -1,6 +1,6 @@
-require 'base_mobile_advanced'
-require "incl_dialogwindow"
-require 'incl_gametime'
+require 'NOS:base_mobile_advanced'
+require "NOS:incl_dialogwindow"
+require 'NOS:incl_gametime'
 
 --has the variable Visible to All set to true so he isn't really cloaked, it just appears like that.
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"SetColor")

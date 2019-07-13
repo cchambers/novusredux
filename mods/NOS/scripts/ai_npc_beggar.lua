@@ -1,4 +1,4 @@
-require 'ai_villager'
+require 'NOS:ai_villager'
 
 AI.CustomSpeech.BeggarSpeech = {
     IdleSpeech = { 

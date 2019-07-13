@@ -1,4 +1,4 @@
-require 'incl_fishing'
+require 'NOS:incl_fishing'
 
 RegisterSingleEventHandler(EventType.ModuleAttached, "tool_fishing_rod", 
     function()

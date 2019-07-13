@@ -1,11 +1,11 @@
-require 'base_ai_mob'
-require 'base_ai_casting'
-require 'incl_regions'
-require 'base_ai_intelligent'
-require 'base_ai_conversation'
-require 'incl_faction'
-require 'incl_run_path'
---require 'base_ai_sleeping'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_casting'
+require 'NOS:incl_regions'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_conversation'
+require 'NOS:incl_faction'
+require 'NOS:incl_run_path'
+--require 'NOS:base_ai_sleeping'
 
 AI.Settings.Debug = false
 -- set charge speed and attack range in combat ai

@@ -1,6 +1,6 @@
-require 'incl_humanloot'
-require 'incl_combatai'
-require 'base_ai_mob'
+require 'NOS:incl_humanloot'
+require 'NOS:incl_combatai'
+require 'NOS:base_ai_mob'
 
 currentDestinaion = nil
 AI.Settings.Debug = false

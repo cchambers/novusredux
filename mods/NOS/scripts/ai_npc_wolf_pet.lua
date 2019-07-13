@@ -1,4 +1,4 @@
-require 'base_ai_mob' 
+require 'NOS:base_ai_mob' 
 
 AI.Settings.Leash = true
 AI.Settings.StationedLeash = true

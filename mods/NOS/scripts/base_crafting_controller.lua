@@ -1,5 +1,5 @@
-require 'incl_resource_source'
-require 'incl_magic_sys'
+require 'NOS:incl_resource_source'
+require 'NOS:incl_magic_sys'
 	
 USAGE_DISTANCE = 5
 RESOURCE_DIVISOR = 3

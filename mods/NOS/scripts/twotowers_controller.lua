@@ -1,7 +1,7 @@
 -- DISABLED!
 do return end
 
-require 'base_ai_state_machine'
+require 'NOS:base_ai_state_machine'
 
 DefaultSettings = {
 	MatchTypes = {

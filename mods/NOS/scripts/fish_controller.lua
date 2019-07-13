@@ -1,6 +1,6 @@
 -- This module handles spawning schools of fish and also maintains a resource grid so you can't fish the same location forever
 
-require 'incl_fishing'
+require 'NOS:incl_fishing'
 
 DEFAULT_SCHOOl_COUNT = 20
 SCHOOL_MIN_SKILL_CUTOFF = 10

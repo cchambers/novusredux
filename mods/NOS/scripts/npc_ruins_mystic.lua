@@ -1,8 +1,8 @@
-require 'base_ai_mob'
-require 'base_ai_intelligent'
---require 'base_ai_sleeping'
-require 'incl_faction'
-require 'base_npc_extensions'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent'
+--require 'NOS:base_ai_sleeping'
+require 'NOS:incl_faction'
+require 'NOS:base_npc_extensions'
 
 AI.Settings.Leash = true
 AI.Settings.StationedLeash = true

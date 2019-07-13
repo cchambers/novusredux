@@ -1,4 +1,4 @@
-require 'base_ai_mob'
+require 'NOS:base_ai_mob'
 
 -- We do not want super guards going to sleep on spawn
 AI.InitialState = "Idle"

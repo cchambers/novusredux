@@ -10,7 +10,7 @@ local _FieldAmounts = {}
 _Controller = this:GetObjVar("BidController")
 _Loc = _Controller:GetLoc()
 
-require 'plot_bid_shared'
+require 'NOS:plot_bid_shared'
 
 function CleanUp()
     -- close the window for all viewers

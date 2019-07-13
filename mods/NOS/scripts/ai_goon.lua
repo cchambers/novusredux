@@ -1,7 +1,7 @@
-require 'base_ai_mob'
-require 'base_ai_casting'
-require 'base_ai_intelligent'
-require 'base_ai_conversation'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_casting'
+require 'NOS:base_ai_intelligent'
+require 'NOS:base_ai_conversation'
 
 --npc's should all have this
 function IsFriend(target)

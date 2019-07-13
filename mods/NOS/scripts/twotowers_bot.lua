@@ -1,5 +1,5 @@
-require 'base_mobile_advanced'
---require 'base_ai_conversation'
+require 'NOS:base_mobile_advanced'
+--require 'NOS:base_ai_conversation'
 
 thingsToSay = { "Welcome to Uaran!", 
                 "Lovely weather we are having.", 

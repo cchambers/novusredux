@@ -1,8 +1,8 @@
-require 'base_mobile'
+require 'NOS:base_mobile'
 -- helper functions
-require 'incl_humanloot'
+require 'NOS:incl_humanloot'
 -- this module gives the mobile skills
-require 'base_skill_sys'
+require 'NOS:base_skill_sys'
 
 --[[ General Helper functions ]]--
 

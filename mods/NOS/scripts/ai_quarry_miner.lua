@@ -1,4 +1,4 @@
-require 'ai_npc_worker'
+require 'NOS:ai_npc_worker'
 
 thingsToSay = {
     "Do not disturb, no? I'm working.",

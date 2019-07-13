@@ -1,6 +1,6 @@
-require 'base_ai_mob'
-require 'base_ai_casting'
-require 'base_ai_intelligent'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_casting'
+require 'NOS:base_ai_intelligent'
 
 AI.Settings.Debug = false
 AI.Settings.AggroRange = 10.0

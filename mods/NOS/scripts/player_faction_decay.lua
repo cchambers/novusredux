@@ -1,4 +1,4 @@
-require 'incl_faction'
+require 'NOS:incl_faction'
 
 -- DAB NOTE: This should be changed before alpha, for playtesters in pre-alpha we can speed this up
 -- For now pulse the decay every 10 minutes and regain 10 faction each time

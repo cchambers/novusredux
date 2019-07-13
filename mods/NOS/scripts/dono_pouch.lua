@@ -1,4 +1,4 @@
-require "container"
+require "NOS:container"
 
 RegisterEventHandler(
 	EventType.ContainerItemAdded,

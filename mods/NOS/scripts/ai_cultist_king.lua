@@ -1,4 +1,4 @@
-require 'ai_cultist'
+require 'NOS:ai_cultist'
 AI.Settings.Debug = false
 AI.Settings.AggroRange = 15.0
 AI.Settings.ChaseRange = 20.0
@@ -132,7 +132,7 @@ end)
         end
     end
 end
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 
 RegisterEventHandler(EventType.DynamicWindowResponse, "Question",
     function (user,buttonId)

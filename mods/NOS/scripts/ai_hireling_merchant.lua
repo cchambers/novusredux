@@ -1,9 +1,9 @@
 -- TODO: Handle when an item is release or removed from a lcoked down container. Must remove all items for sale
 
-require 'ai_follower'
-require 'base_transaction'
-require 'incl_faction'
-require 'merchant_helpers'
+require 'NOS:ai_follower'
+require 'NOS:base_transaction'
+require 'NOS:incl_faction'
+require 'NOS:merchant_helpers'
 
 AI.Settings.CanWander = false
 AI.Settings.NoSpeakOnInteract = true

@@ -9,11 +9,11 @@ function GetTimerLabelString(timespan,shortened)
 	return "["..timerStr..":"..timespan:ToString("hh\\:mm\\:ss").."]"
 end
 
-require 'globals.dynamic_window.hud'
-require 'globals.dynamic_window.dialog'
-require 'globals.dynamic_window.prestige'
-require 'globals.dynamic_window.tabwindow'
-require 'globals.dynamic_window.tutorialbook'
+require 'NOS:globals.dynamic_window.hud'
+require 'NOS:globals.dynamic_window.dialog'
+require 'NOS:globals.dynamic_window.prestige'
+require 'NOS:globals.dynamic_window.tabwindow'
+require 'NOS:globals.dynamic_window.tutorialbook'
 
 
 -- some ui static data

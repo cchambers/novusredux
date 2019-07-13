@@ -51,7 +51,7 @@ function ChanceToControlCreature(master, creature)
     if(IsGod(master)) then return 1 end
 	if ( creature == nil or not creature:IsValid() or IsDead(creature) ) then return 0 end
 	-- prevent any chance to control on players and if the master somehow has too many pets.
-	if ( IsPlayerCharacter(creature) ) then return 0 end
+	if ( creature:IsPlayer() ) then return 0 end
 	if ( GetRemainingActivePetSlots(master) < 0 ) then
 		if ( IsPlayerCharacter(master) ) then
 			master:SystemMessage("Too many pets to control.", "info")
@@ -96,6 +96,10 @@ function CheckControlSuccess(master, creature)
 	return Success(chance)
 end
 
+function GetOwnerTitleString(owner)
+	return EnglishPossessive(StripColorFromString(owner:GetName())).." Pet"
+end
+
 function SyncPetsToOwner(owner)
 	ForeachActivePet(owner, function(pet)
 		SyncPetToOwner(owner, pet)
@@ -134,11 +138,15 @@ function SyncPetToOwner(owner, pet)
 		end
 	end
 	
+	local guild = owner:GetObjVar("Guild")
+	if(guild) then
+		pet:SetObjVar("Guild",guild)
+	end
 	-- allegiance
-    local allegianceId = GetAllegianceId(owner)
+    local allegianceId = Allegiance.GetId(owner)
     local allegianceData = nil
     if ( allegianceId ) then
-        allegianceData = GetAllegianceDataById(allegianceId)
+        allegianceData = Allegiance.GetDataById(allegianceId)
     end
     UpdatePetAllegiance(pet, allegianceId, allegianceData)
 end
@@ -331,11 +339,11 @@ end
 
 function IsController(controller,mobileObj)
     Verbose("Pet", "IsController", controller,mobileObj)
-	return controller ~= nil and (mobileObj:GetObjectOwner() == controller or mobileObj:GetObjVar("controller") == controller)
+	return controller ~= nil and mobileObj:GetObjVar("controller") == controller
 end
 
 function GetPetOwner(mobileObj)
-	return (mobileObj:GetObjectOwner() or mobileObj:GetObjVar("controller"))
+	return (mobileObj:GetObjVar("controller"))
 end
 
 function GetPetStance(mobileObj)

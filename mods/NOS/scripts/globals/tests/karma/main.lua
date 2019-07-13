@@ -31,5 +31,5 @@ KarmaTest = {
     end,
 }
 
-require 'globals.tests.karma.negative_actions'
-require 'globals.tests.karma.guard_protect'
+require 'NOS:globals.tests.karma.negative_actions'
+require 'NOS:globals.tests.karma.guard_protect'

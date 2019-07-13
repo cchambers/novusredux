@@ -6,7 +6,7 @@ PatchNotes = {
     Patches = {}
 }
 
-require 'globals.patch_notes.6.0.1.25'
+require 'NOS:globals.patch_notes.6.0.1.25'
 
 function ShowPatchNotes(user, checked)
     if ( user ) then

@@ -1,12 +1,12 @@
-require 'incl_celador_locations'
-require 'base_ai_mob'
-require 'base_ai_intelligent' 
-require 'base_ai_conversation' 
-require 'guard_protect'
-require 'incl_ai_patrolling'
-require 'incl_faction'
-require 'incl_gametime'
---require 'base_ai_sleeping'
+require 'NOS:incl_celador_locations'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent' 
+require 'NOS:base_ai_conversation' 
+require 'NOS:guard_protect'
+require 'NOS:incl_ai_patrolling'
+require 'NOS:incl_faction'
+require 'NOS:incl_gametime'
+--require 'NOS:base_ai_sleeping'
 
 table.insert(AI.IdleStateTable,{StateName = "Wander",Type = "nothing"})
 table.insert(AI.IdleStateTable,{StateName = "ReturnToPath",Type = "pleasure"})

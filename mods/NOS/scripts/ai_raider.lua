@@ -1,5 +1,5 @@
-require 'ai_default_human'
-require 'incl_faction'
+require 'NOS:ai_default_human'
+require 'NOS:incl_faction'
 
 AI.Settings.SpeechTable = "Nomad"
 AI.Settings.Debug = false

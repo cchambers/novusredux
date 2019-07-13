@@ -1,7 +1,7 @@
-require 'destroyable_object'
+require 'NOS:destroyable_object'
 
 
-OverrideEventHandler("destroyable_object",EventType.Message, "DamageInflicted", 
+OverrideEventHandler("NOS:destroyable_object",EventType.Message, "DamageInflicted", 
 	function (damager,damageAmt)    
 		if (this:HasObjVar("ControllerTemplate")) then
 			local controller = FindObject(SearchTemplate(this:GetObjVar("ControllerTemplate"),50))

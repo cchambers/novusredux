@@ -1,4 +1,4 @@
-require 'destroyable_object'
+require 'NOS:destroyable_object'
 
 this:SetObjVar("IsTrap",true)
 

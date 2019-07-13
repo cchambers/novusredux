@@ -3,17 +3,17 @@ AutoFixes = {}
 
 -- This relies on the table size and ordering, never delete/reorder anything required below!!
 
-require 'globals.autofix.1_karma_reset'
-require 'globals.autofix.2_secure_house_containers'
-require 'globals.autofix.3_books_containers_and_bless'
-require 'globals.autofix.4_secure_toggle_friends'
-require 'globals.autofix.5_allegiance_friendly_factions'
-require 'globals.autofix.6_jewelry_durability'
-require 'globals.autofix.7_tax_interval'
-require 'globals.autofix.8_full_tooltip_update'
-require 'globals.autofix.9_full_tooltip_update'
-require 'globals.autofix.10_tooltips'
-require 'globals.autofix.11_many_fixes'
+require 'NOS:globals.autofix.1_karma_reset'
+require 'NOS:globals.autofix.2_secure_house_containers'
+require 'NOS:globals.autofix.3_books_containers_and_bless'
+require 'NOS:globals.autofix.4_secure_toggle_friends'
+require 'NOS:globals.autofix.5_allegiance_friendly_factions'
+require 'NOS:globals.autofix.6_jewelry_durability'
+require 'NOS:globals.autofix.7_tax_interval'
+require 'NOS:globals.autofix.8_full_tooltip_update'
+require 'NOS:globals.autofix.9_full_tooltip_update'
+require 'NOS:globals.autofix.10_tooltips'
+require 'NOS:globals.autofix.11_many_fixes'
 
 function DoPlayerAutoFix(player)
     if ( player and player:IsValid() ) then

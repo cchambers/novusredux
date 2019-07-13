@@ -1,4 +1,4 @@
-require 'destroyable_object'
+require 'NOS:destroyable_object'
 
 mCurTarget = nil
 mContinuousSpawns = this:GetObjVar("ContinuousSpawns") or false
@@ -20,7 +20,7 @@ RegisterEventHandler(EventType.Timer, "ContinuousSpawn",
 		this:ScheduleTimerDelay(TimeSpan.FromSeconds(SPAWN_TIME), "ContinuousSpawn")
 	end)
 
-OverrideEventHandler("destroyable_object", EventType.Message, "DamageInflicted", 
+OverrideEventHandler("NOS:destroyable_object", EventType.Message, "DamageInflicted", 
 	function(damager,damageAmt)
 		HandleDamage(damager,damageAmt)
 

@@ -1,5 +1,5 @@
-require 'incl_regions'
-require 'incl_player_titles'
+require 'NOS:incl_regions'
+require 'NOS:incl_player_titles'
 
 function ValidateUse(user)
 	if( user == nil or not(user:IsValid()) ) then

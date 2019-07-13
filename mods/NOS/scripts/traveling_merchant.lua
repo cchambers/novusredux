@@ -1,5 +1,5 @@
-require 'base_merchant'
-require 'base_skill_trainer'
+require 'NOS:base_merchant'
+require 'NOS:base_skill_trainer'
 
 SPEAK_DELAY = 15000			-- 5 second interval between greetings
 lastHelloTime = 0

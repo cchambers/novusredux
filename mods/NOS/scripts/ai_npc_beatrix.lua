@@ -1,5 +1,5 @@
-require 'base_ai_npc'
-require 'incl_celador_locations'
+require 'NOS:base_ai_npc'
+require 'NOS:incl_celador_locations'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.EnableTrain = false
@@ -585,4 +585,4 @@ RegisterEventHandler(EventType.Arrived, "GoLocation",AI.StateMachine.AllStates.G
 table.insert(AI.IdleStateTable,{StateName = "Wander",Type = "nothing"})
 --table.insert(AI.IdleStateTable,{StateName = "ReturnToPath",Type = "pleasure"})
 --table.insert(AI.IdleStateTable, {StateName = "GoLocation",Type = "pleasure"})
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)

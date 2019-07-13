@@ -47,4 +47,4 @@ Test = {
     }
 }
 
-require 'globals.tests.karma.main'
+require 'NOS:globals.tests.karma.main'

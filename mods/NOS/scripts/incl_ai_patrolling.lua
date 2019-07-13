@@ -1,5 +1,5 @@
-require 'base_ai_state_machine'
-require 'incl_regions'
+require 'NOS:base_ai_state_machine'
+require 'NOS:incl_regions'
 
 if(initializer ~= nil) then
     this:SetObjVar("curPathIndex", 1)

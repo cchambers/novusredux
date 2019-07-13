@@ -1,5 +1,5 @@
-require 'ai_cultist'
-require 'incl_run_path'
+require 'NOS:ai_cultist'
+require 'NOS:incl_run_path'
 
 currentDestinaion = nil
 STOP_CHANCE = 0

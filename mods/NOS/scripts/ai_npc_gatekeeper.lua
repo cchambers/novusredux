@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 RUNE_PURCHASE_FEE = 100
 
@@ -70,7 +70,7 @@ RegisterEventHandler(EventType.ModuleAttached,"ai_npc_gatekeeper",
         this:SetObjVar("IsGuard",true)
     end)
 
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",
     function ( user,buttonId )    
         if(buttonId == nil or buttonId == "") then return end
 
@@ -120,7 +120,7 @@ OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",
         end
     end)
 
-OverrideEventHandler("base_ai_mob",EventType.Message,"AddThreat",
+OverrideEventHandler("NOS:base_ai_mob",EventType.Message,"AddThreat",
     function (targetObj,amount)
         if(targetObj:DistanceFrom(this) <= ServerSettings.PlayerInteractions.GatekeeperProtectionRange) then
             table.insert(nukeTargets,targetObj)

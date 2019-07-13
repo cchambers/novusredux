@@ -1,12 +1,12 @@
-require 'incl_celador_locations'
-require 'incl_regions'
-require 'base_ai_mob'
-require 'base_ai_intelligent' 
-require 'base_ai_conversation' 
-require 'base_merchant'
-require 'base_skill_trainer'
-require 'incl_faction'
-require 'incl_crafting_orders'
+require 'NOS:incl_celador_locations'
+require 'NOS:incl_regions'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent' 
+require 'NOS:base_ai_conversation' 
+require 'NOS:base_merchant'
+require 'NOS:base_skill_trainer'
+require 'NOS:incl_faction'
+require 'NOS:incl_crafting_orders'
 
 Dialog = {}
 QuestDialog = {}
@@ -19,7 +19,7 @@ AI.Settings.DoNotBoast = true
 AI.Settings.EnableRepair = false
 AI.Settings.SpeechTable = "Villager"
 
-require 'incl_npc_tasks'
+require 'NOS:incl_npc_tasks'
 
 AI.TradeMessages = 
 {
@@ -586,7 +586,7 @@ if ( this:GetObjVar("ImportantNPC") ) then
     SetMobileMod(this, "AttackTimes", "ImportantNPC", 3.5)
 end
 
-OverrideEventHandler("base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
+OverrideEventHandler("NOS:base_ai_conversation",EventType.Message, "UseObject", HandleInteract)
 RegisterEventHandler(EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
 RegisterEventHandler(EventType.Message,"DamageInflicted",function (damager,damageAmount)
     if (damager:IsPlayer()) then

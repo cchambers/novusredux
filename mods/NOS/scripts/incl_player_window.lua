@@ -1,5 +1,5 @@
-require 'incl_magic_sys'
-require 'incl_combat_abilities'
+require 'NOS:incl_magic_sys'
+require 'NOS:incl_combat_abilities'
 
 actionTypeOrder = {
 	CombatAbility=1,

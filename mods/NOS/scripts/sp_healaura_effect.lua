@@ -1,4 +1,4 @@
-require "incl_magic_sys"
+require "NOS:incl_magic_sys"
 
 FLAMEAURA_DAMAGE_RANGE = 3.5
 --local ignoreView = true

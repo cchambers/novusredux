@@ -1,1 +1,1 @@
-require 'globals.mobile_effects.shields.shieldpush'
+require 'NOS:globals.mobile_effects.shields.shieldpush'

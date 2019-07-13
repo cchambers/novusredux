@@ -1,6 +1,6 @@
-require 'incl_combat_abilities'
-require 'incl_player_window'
-require 'incl_player_names'
+require 'NOS:incl_combat_abilities'
+require 'NOS:incl_player_window'
+require 'NOS:incl_player_names'
 
 charWindowData = {}
 

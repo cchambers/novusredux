@@ -1,5 +1,5 @@
 --simple script that creates spawns from a template then spawns a reward/boss/something when done
-require 'incl_regions'
+require 'NOS:incl_regions'
 
 RegisterEventHandler(EventType.Timer,"CheckEnemyContent",function()
 	--DebugMessage(mSet)

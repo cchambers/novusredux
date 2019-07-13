@@ -1,5 +1,5 @@
-require 'base_ai_mob'
-require 'base_ai_intelligent'
+require 'NOS:base_ai_mob'
+require 'NOS:base_ai_intelligent'
 
 AI.Settings.ChaseRange = 25.0
 AI.Settings.LeashDistance = 35

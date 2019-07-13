@@ -1,4 +1,4 @@
-require 'base_ai_npc'
+require 'NOS:base_ai_npc'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.EnableTrain = false
@@ -495,5 +495,5 @@ end
 --    end
 --    this:ScheduleTimerDelay(TimeSpan.FromSeconds(0.1),"ComeDownFromSky")
 --end)
-OverrideEventHandler("base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
+OverrideEventHandler("NOS:base_ai_npc",EventType.DynamicWindowResponse, "Responses",ResponsesDialog)
 

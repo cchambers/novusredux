@@ -1,5 +1,5 @@
-require 'cultist_camp_spawner'
-require 'incl_gametime'
+require 'NOS:cultist_camp_spawner'
+require 'NOS:incl_gametime'
 
 SPAWN_DELAY_SECS = TimeSpan.FromSeconds(45)
 

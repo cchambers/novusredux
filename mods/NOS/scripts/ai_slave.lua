@@ -1,6 +1,6 @@
-require 'ai_default'
-require 'incl_faction'
-require 'incl_ai_stabled'
+require 'NOS:ai_default'
+require 'NOS:incl_faction'
+require 'NOS:incl_ai_stabled'
 
 AI.SlaveAsk={
     "Please, I beg of you, set me free!",

@@ -1,6 +1,6 @@
-require 'npc_smuggler_b'
+require 'NOS:npc_smuggler_b'
 
-OverrideEventHandler("npc_smuggler_b",EventType.DynamicWindowResponse,"Responses",function (user,buttonID)
+OverrideEventHandler("NOS:npc_smuggler_b",EventType.DynamicWindowResponse,"Responses",function (user,buttonID)
 	if( user == nil or not user:IsValid()) then return end
 	if (not CanUseNPC(user)) then return end
 	if (buttonID == "SpawnPortal") then

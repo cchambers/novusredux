@@ -1,7 +1,7 @@
-require 'base_mobile_advanced'
-require 'incl_magic_sys'
-require 'god_mobile_controlpanel'
---require 'base_ai_conversation'
+require 'NOS:base_mobile_advanced'
+require 'NOS:incl_magic_sys'
+require 'NOS:god_mobile_controlpanel'
+--require 'NOS:base_ai_conversation'
 
 lastTarget = nil
 this:ScheduleTimerDelay(TimeSpan.FromSeconds(1),"pulse")

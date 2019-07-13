@@ -1,4 +1,4 @@
-require 'incl_keyhelpers'
+require 'NOS:incl_keyhelpers'
 
 debugLogging = false
 resetTimer = nil

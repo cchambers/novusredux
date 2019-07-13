@@ -1,5 +1,5 @@
-require "base_magic_sys"
-require "weapon_cache"
+require "NOS:base_magic_sys"
+require "NOS:weapon_cache"
 
 mInCombatState = this:GetSharedObjectProperty("CombatMode")
 mCurrentTarget = this:GetObjVar("CurrentTarget")

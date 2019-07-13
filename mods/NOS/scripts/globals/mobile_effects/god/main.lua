@@ -1,1 +1,1 @@
-require 'globals.mobile_effects.god.godfreeze'
+require 'NOS:globals.mobile_effects.god.godfreeze'

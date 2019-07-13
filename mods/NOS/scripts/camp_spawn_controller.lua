@@ -1,6 +1,6 @@
 -- NOTE: Since all spawn controllers use the objvar "SpawnInfo" you can not have two different spawn controller modules on the same object
 
-require 'spawn_controller'
+require 'NOS:spawn_controller'
 
 local campRegion = GetRegion("DynamicCamp")
 local prefabControllerTemplate = GetTemplateData("prefab_camp_controller")

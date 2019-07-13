@@ -1,6 +1,6 @@
-require 'base_ai_state_machine'
-require 'incl_regions'
-require 'incl_ai_patrolling'
+require 'NOS:base_ai_state_machine'
+require 'NOS:incl_regions'
+require 'NOS:incl_ai_patrolling'
 
 this:SetObjVar("stopChance", 0)
 

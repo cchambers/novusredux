@@ -1,1 +1,1 @@
-require 'globals.mobile_effects.rares.ancient_relic'
+require 'NOS:globals.mobile_effects.rares.ancient_relic'

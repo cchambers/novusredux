@@ -1,4 +1,4 @@
-require 'cultist_camp'
+require 'NOS:cultist_camp'
 
 DifficultySettings = 
 {

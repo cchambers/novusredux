@@ -1,7 +1,7 @@
 
-require 'combat'
-require 'brain_inc' -- must come after combat, before mobile
-require 'base_mobile_advanced'
+require 'NOS:combat'
+require 'NOS:brain_inc' -- must come after combat, before mobile
+require 'NOS:base_mobile_advanced'
 
 local fsm
 

@@ -2,7 +2,7 @@
 _Controller = this
 _Window = this:GetObjVar("BidWindow")
 
-require 'plot_bid_shared'
+require 'NOS:plot_bid_shared'
 
 function Save()
     this:SetObjVar("BidControllerData", _BidData)

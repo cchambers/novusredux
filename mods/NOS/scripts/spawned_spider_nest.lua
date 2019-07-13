@@ -1,4 +1,4 @@
-require 'incl_regions'
+require 'NOS:incl_regions'
 
 local mTarget = nil
 

@@ -1,4 +1,4 @@
-require 'base_warchief' 
+require 'NOS:base_warchief' 
 
 --Collection of random names for NPCs
 npcNames = {  "Ash",

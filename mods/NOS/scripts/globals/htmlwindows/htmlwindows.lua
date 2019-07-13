@@ -23,5 +23,5 @@ function GetObjectCreationParams(object)
 end
 
 -- need to require each lua controller here so the server can execute them.
-require 'globals.htmlwindows.controllers.seedobjects'
-require 'globals.htmlwindows.controllers.test'
+require 'NOS:globals.htmlwindows.controllers.seedobjects'
+require 'NOS:globals.htmlwindows.controllers.test'

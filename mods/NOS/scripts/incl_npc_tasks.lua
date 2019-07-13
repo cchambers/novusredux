@@ -1,6 +1,6 @@
-require 'base_ai_settings'
-require 'incl_resource_source'
-require 'incl_faction'
+require 'NOS:base_ai_settings'
+require 'NOS:incl_resource_source'
+require 'NOS:incl_faction'
 
 
 CHECK_MOBILE_RANGE = 10

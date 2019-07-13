@@ -1,6 +1,6 @@
-require 'base_merchant'
-require 'base_skill_trainer'
-require 'base_npc_extensions'
+require 'NOS:base_merchant'
+require 'NOS:base_skill_trainer'
+require 'NOS:base_npc_extensions'
 
 SPEAK_DELAY = 15000			-- 5 second interval between greetings
 lastHelloTime = 0

@@ -1,5 +1,5 @@
 
-require 'clusterglobal_request_response'
+require 'NOS:clusterglobal_request_response'
 
 -- is the master controller currently in the process of taxing all plots?
 local m_Taxing = false

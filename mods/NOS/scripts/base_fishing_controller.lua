@@ -1,4 +1,4 @@
-require 'incl_fishing'
+require 'NOS:incl_fishing'
 
 MIN_FISHING_TIME = 6
 MAX_FISHING_TIME = 30

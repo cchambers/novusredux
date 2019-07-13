@@ -9,7 +9,7 @@ else
 	this:RemoveTimer("PlayerProtectionCheck")
 end
 
-require 'editmode_scriptcommands'
+require 'NOS:editmode_scriptcommands'
 
 function OpenToolbar()
 	local newWindow = DynamicWindow("editmode_toolbar","",0,0,50,50,"Transparent","TopLeft")

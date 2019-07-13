@@ -208,24 +208,24 @@ function ClearDebuffs(mobileObj)
 	end
 end
 
-require 'globals.mobile_effects.general.main'
-require 'globals.mobile_effects.buffs.main'
-require 'globals.mobile_effects.debuffs.main'
-require 'globals.mobile_effects.skills.main'
-require 'globals.mobile_effects.npc.main'
-require 'globals.mobile_effects.shields.main'
-require 'globals.mobile_effects.bows.main'
-require 'globals.mobile_effects.weapons.main'
-require 'globals.mobile_effects.potions.main'
-require 'globals.mobile_effects.items.main'
-require 'globals.mobile_effects.objects.main'
-require 'globals.mobile_effects.god.main'
-require 'globals.mobile_effects.mounts.main'
-require 'globals.mobile_effects.spells.main'
-require 'globals.mobile_effects.rares.main'
+require 'NOS:globals.mobile_effects.general.main'
+require 'NOS:globals.mobile_effects.buffs.main'
+require 'NOS:globals.mobile_effects.debuffs.main'
+require 'NOS:globals.mobile_effects.skills.main'
+require 'NOS:globals.mobile_effects.npc.main'
+require 'NOS:globals.mobile_effects.shields.main'
+require 'NOS:globals.mobile_effects.bows.main'
+require 'NOS:globals.mobile_effects.weapons.main'
+require 'NOS:globals.mobile_effects.potions.main'
+require 'NOS:globals.mobile_effects.items.main'
+require 'NOS:globals.mobile_effects.objects.main'
+require 'NOS:globals.mobile_effects.god.main'
+require 'NOS:globals.mobile_effects.mounts.main'
+require 'NOS:globals.mobile_effects.spells.main'
+require 'NOS:globals.mobile_effects.rares.main'
 
 -- NOS EDITS
 
 
-require 'globals.mobile_effects.nos.main'
-require 'globals.mobile_effects.potions.main'
+require 'NOS:globals.mobile_effects.nos.main'
+require 'NOS:globals.mobile_effects.potions.main'

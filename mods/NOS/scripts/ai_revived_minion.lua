@@ -1,4 +1,4 @@
-require 'ai_follower'
+require 'NOS:ai_follower'
 
 REVIVED_LIFETIME = 30
 

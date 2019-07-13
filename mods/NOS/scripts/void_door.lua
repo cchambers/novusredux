@@ -1,4 +1,4 @@
-require 'trapped_object'
+require 'NOS:trapped_object'
 
 RegisterEventHandler(EventType.Message, "UseObject", 
     function(user,usedType)

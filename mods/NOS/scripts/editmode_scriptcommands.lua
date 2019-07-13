@@ -1,5 +1,5 @@
-require 'scriptcommands_UI_goto'
-require 'editmode_scriptcommands_manage'
+require 'NOS:scriptcommands_UI_goto'
+require 'NOS:editmode_scriptcommands_manage'
 
 -- This list is populated with the RegisterCommand function, all built in commands are
 -- registered at the bottom of this file

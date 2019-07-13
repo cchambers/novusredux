@@ -1,4 +1,4 @@
-require 'scriptcommands'
+require 'NOS:scriptcommands'
 
 function DoCommand(commandStr)	
 	commandArgs = StringSplit(commandStr," ")

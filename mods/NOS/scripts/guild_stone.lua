@@ -1,4 +1,4 @@
-require "base_player_guild"
+require "NOS:base_player_guild"
 
 function createGuild(user)
 	DebugMessage("User clicked stone: " .. user.Id)

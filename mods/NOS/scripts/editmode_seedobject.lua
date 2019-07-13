@@ -1,4 +1,4 @@
-require 'editmode_seedobject_UI'
+require 'NOS:editmode_seedobject_UI'
 
 customCreateHandlers = 
 {

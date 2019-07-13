@@ -1,5 +1,5 @@
 
-require 'base_mobile'
+require 'NOS:base_mobile'
 
 RegisterEventHandler(EventType.EnterView, "ClearCorpseData", function(mobile)
     local backpackOwner = this:GetObjVar("BackpackOwner")

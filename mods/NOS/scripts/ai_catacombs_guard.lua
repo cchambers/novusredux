@@ -1,5 +1,5 @@
-require 'ai_guard'
-require 'incl_faction'
+require 'NOS:ai_guard'
+require 'NOS:incl_faction'
 
 AI.Settings.CanConverse = false
 

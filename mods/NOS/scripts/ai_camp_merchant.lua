@@ -1,4 +1,4 @@
-require 'merchant_generic'
+require 'NOS:merchant_generic'
 
 AI.Settings.EnableBuy = true
 
@@ -248,7 +248,7 @@ RegisterEventHandler(EventType.ModuleAttached, GetCurrentModule(),
 	end)
 	]]--
 
-OverrideEventHandler("merchant_generic", EventType.EnterView, "MerchantNearbyPlayer", 
+OverrideEventHandler("NOS:merchant_generic", EventType.EnterView, "MerchantNearbyPlayer", 
 	function(target)
 	    --DebugMessage("npc:HandleEnterView(" .. tostring(target) .. ")")
 

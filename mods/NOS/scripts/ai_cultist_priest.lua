@@ -1,4 +1,4 @@
-require 'ai_cultist'
+require 'NOS:ai_cultist'
 
 SnakeCooldown = true
 

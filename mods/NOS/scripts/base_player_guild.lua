@@ -1,4 +1,4 @@
-require 'base_player_guild_UI'
+require 'NOS:base_player_guild_UI'
 
 -- Internal structure of the guild
 -- the memberinfo table keeps track of the member

@@ -1,4 +1,4 @@
-require 'base_uicommon'
+require 'NOS:base_uicommon'
 
 curEditTab = nil
 

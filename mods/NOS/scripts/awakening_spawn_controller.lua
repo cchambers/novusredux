@@ -1,4 +1,4 @@
-require 'spawn_controller'
+require 'NOS:spawn_controller'
 
 mAwakeningController = nil
 mAwakeningStage = nil
