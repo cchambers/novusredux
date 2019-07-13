@@ -4,7 +4,7 @@ SCREEN_WIDTH = 4096
 SCREEN_HEIGHT = 2160
 NextTutorialDepth = 11000
 
-TutPageTitles = { "", "Know Your Character", "Manage Your Inventory", "Manage Your Action Bar", "Equipped Item Abilities", "Know Your Way", "", "" }
+TutPageTitles = { "", "Know Your Character", "Manage Your Inventory", "Manage Your Action Bar", "Equipped Item Abilities", "Know Your Way", "", "", "" }
 
 -- elements that go behind the BG
 TutBGFuncs = {
@@ -54,8 +54,17 @@ TutBGFuncs = {
 		OpenTutItemWindow(playerObj)
 		OpenTutActionWindow(playerObj)
 		OpenTutAbilityWindow(playerObj)
+
 		return {"TutItem","TutAction","TutAbility"}
-	end
+	end,	
+	-- Page 9: Mage Combat
+	function (playerObj)
+		OpenTutItemWindow(playerObj)
+		OpenTutActionWindow(playerObj)
+		OpenTutAbilityWindow(playerObj)
+
+		return {"TutItem","TutAction","TutAbility"}
+	end,
 }
 
 TutPageFuncs = {
@@ -77,7 +86,7 @@ TutPageFuncs = {
 		dynamicWindow:AddLabel(
 	        0, --(number) x position in pixels on the window
 	        -30, --(number) y position in pixels on the window
-	        "[FFFFFF]Welcome to Novus Redux!", --(string) text in the label
+	        "[FFFFFF]Welcome to Legends of Aria!", --(string) text in the label
 	        0, --(number) width of the text for wrapping purposes (defaults to width of text)
 	        0, --(number) height of the label (defaults to unlimited, text is not clipped)
 	        48, --(number) font size (default specific to client)

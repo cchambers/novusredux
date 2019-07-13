@@ -1,0 +1,19 @@
+extends inc/base
+
+block title
+	| Hello world!
+
+block content
+	h4 The request was of type: #{type}
+	br
+	if query
+		h5= query.getparam
+		button Test!
+		input(type='text')
+	br
+	if lua
+		each val,index in lua
+			h4=index
+			h1=val
+	else
+		h1 no lua was returned.

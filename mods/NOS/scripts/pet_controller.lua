@@ -192,7 +192,7 @@ function ClearTarget()
 		Stay()
 	end
 end
--- OverrideEventHandler("combat", EventType.Message, "ClearTarget", ClearTarget)
+OverrideEventHandler("combat", EventType.Message, "ClearTarget", ClearTarget)
 
 function PathToTarget(target, distance, speed)
 	ClearPath()

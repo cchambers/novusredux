@@ -187,7 +187,7 @@ RegisterEventHandler(EventType.DynamicWindowResponse,"JukeBoxWindow",function (u
 		ClientDialog.Show{
 			    TargetUser = user,
 			    TitleStr = "Confirm Queue",
-			    DescStr = "Do you wish to queue the song "..tostring(trackInfo.DisplayName).."? [D7D700]"..this:GetObjVar("QueueCost").." gold)",
+			    DescStr = "Do you wish to queue the song "..tostring(trackInfo.DisplayName).."? [D7D700]"..this:GetObjVar("QueueCost").." Copper)",
 			    Button1Str = "Confirm",
 			    Button2Str = "Cancel",
 			    ResponseObj = this,

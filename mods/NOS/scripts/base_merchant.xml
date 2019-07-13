@@ -1,0 +1,51 @@
+<Initializer>
+	<Key name="Stats" valueType="dictdict">
+		<Key valueType="number"/>
+	</Key>
+	<Key name="Skills" valueType="dictdict">
+		<Key valueType="number"/>
+	</Key>
+	<Key name="EquipTable" valueType="dictdict">
+		<Key name="BodyPartHead" valueType="dictdict">
+			<Key valueType="string"/>
+		</Key>
+		<Key name="BodyPartHair" valueType="dictdict">
+			<Key valueType="dictdict">
+				<Key valueType="string"/>
+			</Key>
+		</Key>
+		<Key name="Chest" valueType="dictdict">
+			<Key valueType="dictdict">
+				<Key valueType="string"/>
+			</Key>
+		</Key>
+		<Key name="leggings" valueType="dictdict">
+			<Key valueType="dictdict">
+				<Key valueType="string"/>
+			</Key>
+		</Key>
+		<Key name="Backpack" valueType="dictdict">
+			<Key valueType="dictdict">
+				<Key valueType="string"/>
+			</Key>
+		</Key>
+	</Key>
+	<Key name="MerchantContainers" valueType="dictdict">
+		<Key valueType="dict" desc="A container the merchant uses to hold goods">
+			<Key name="Name" required="True" valueType="string"/>
+			<Key name="DisplayName" required="True" valueType="string"/>
+		</Key>
+	</Key>
+	<Key name="ItemInventory" valueType="dictdict">
+		<Key valueType="dict" desc="Items the merchant has for sale">
+			<Key name="Template" required="True" valueType="string"/>
+			<Key name="Price" required="True" valueType="number"/>
+			<Key name="Amount" valueType="number" desc="Set amount to -1 for unlimited stock"/>
+			<Key name="Loc" valueType="string"/>
+			<Key name="RelativeLoc" valueType="string"/>
+			<Key name="Rotation" valueType="string"/>
+			<Key name="Container" valueType="string"/>	
+			<Key name="UnlimitedStock" valueType="bool"/>		
+		</Key>
+	</Key>	
+</Initializer>

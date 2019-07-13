@@ -1,0 +1,389 @@
+extends inc/base
+
+block title
+	| SeedObject Editor
+
+block content
+	include inc/treelist
+	style.
+		body {
+			background-color:#FFF;
+		}
+		#list {
+			border-top:2px solid #000;
+		}
+		#info {
+			line-height: 30px;
+		}
+		#info input {
+			width:100%;
+		}
+		#toolbar button {
+			padding:2px;
+			margin:2px;
+		}
+		#groupSelect{
+			position:absolute;
+			width: 220px;
+			background-color:#FFF;
+			border:1px solid #000;
+			padding: 8px;
+			z-index:999;
+		}
+	.row#toolbar
+		.col-xs-10
+			button(action='add') Add New
+			#groupSelect.hidden In&nbsp;
+				select
+				if InGame
+					button(action='addtarget') Add Target
+				button(action='addblank') Add Blank
+				button(action='addcancel') Cancel
+		.col-xs-70.new.hideable.hidden
+			button(action='update') Save
+		.col-xs-20.new.hidden
+			button(action='delete') Cancel
+		.col-xs-20.exiting.hideable.hidden
+			if InGame
+				button(action='goto') Go To
+			button(action='delete') Delete
+	.row
+		.col-xs-100.scroll#info
+	.row
+		.col-xs-100.tree.scroll#list
+			| 
+	#infoTemplate(style='display:none;').hidden
+		.row
+			.row.hidden
+				.col-xs-20.isnew False
+				.col-xs-10 Group:
+				.col-xs-10.group
+				.col-xs-10 Mod:
+				.col-xs-10.mod
+				.col-xs-10 Group Id:
+				.col-xs-10.groupid
+			.row
+				.col-xs-25 Name:
+				.col-xs-75
+					input(name='name')
+			.row
+				.col-xs-100#objcreationparams
+					include seedobject_editor/objectcreationparams
+					input(name='objcreationparams', type='hidden')
+			.row
+				.col-xs-50 Object Variable Overrides
+				.col-xs-50
+					button.objvarrowadd Add Override
+			.row#objvaroverrides
+	#objvaroverridesTemplate.hidden
+		.row.objvarrow
+			.col-xs-4
+			.col-xs-20
+				select(name='variable')
+					option StringVariable
+					option DoubleVariable
+					option BooleanVariable
+			.col-xs-3
+			.col-xs-30
+				input(type='text', name='name')
+			.col-xs-3
+			.col-xs-30
+				input(type='text', name='value')
+			.col-xs-10
+				button.objvarremove Remove
+	script.
+		function makeCall(data, cb, datatype){
+			if(typeof(datatype)=="undefined"){datatype="text";}
+			spin(true);
+			data.world = "!{lua[0]}";
+			if ( data.world.length < 1 ){
+				data.world = "NewCelador";
+			}
+			$.ajax({
+				url: "!seedobjects_call", //- routes to the HtmlWindowServer that start with ! will not execute any lua on the server.
+				type: "post",
+				data: data,
+				dataType: datatype,
+				success: function(data){
+					cb(data);
+					spin(false);
+				}
+			});
+			$("#groupSelect").hide();
+		}
+		function makeCall_Lua(data, cb){
+			spin(true);
+			$.ajax({
+				url: "seedobjects_lua/"+data,
+				success: function(data){
+					cb(data);
+					spin(false);
+				}
+			});
+		}
+		function SelectionGroup(){
+			return $("#info").find(".group").html();
+		}
+		function SelectionMod(){
+			return $("#info").find(".mod").html();
+		}
+		//- get the data for currently selected object, including all edits.
+		function SelectionToObject(){
+			var objvaroverrides = {};
+			$("#objvaroverrides .objvarrow").each(function(){
+				var variable = $(this).find("select[name='variable']").val(),
+				name = $(this).find("input[name='name']").val(),
+				value = $(this).find("input[name='value']").val();
+				if(name.length > 0 && value.length > 0){
+					if(!objvaroverrides.hasOwnProperty(variable)){
+						objvaroverrides[variable] = [];
+					}
+					objvaroverrides[variable].push({
+						$:{
+							Name: name,
+						},
+						_: value
+					});
+				}
+			});
+			return {
+				Name: $("#info").find("input[name='name']").val(),
+				Id: $("#info").find(".groupid").html(),
+				ObjectCreationParams: $("#info").find("input[name='objcreationparams']").val(),
+				ObjVarOverrides: [objvaroverrides]
+			}
+		}
+		function populateObjectCreationParams(element, raw){
+			element.find("input[name='objcreationparams']").val(raw);
+			var spli = raw.split(" "),
+				ofs = ["position", "rotation", "scale"],
+				bys = ["x", "y", "z"];
+			var j = 0;
+			element.find("input[name='ocpinput']").val(spli[0]);
+			for(var i=1;i<spli.length;i+=3){
+				for(var r=0;r<3;r++){
+					element.find(".row[of='"+ofs[j]+"'] input[by='"+bys[r]+"']").val(spli[i+r]);
+				}
+				j++;
+			}
+		}
+		//listen for object creation params changing.
+		$("body").on("keyup change", ".ocpinput, input[name='ocpinput']", function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var elem = $("#objcreationparams");
+			var ocp = elem.find("input[name='ocpinput']").val();
+			var inputs = elem.find(".ocpinput").each(function(){
+				ocp += " " + $(this).val();
+			});
+			elem.find("input[name='objcreationparams']").val(ocp);
+		});
+		function populateObjVarOverrides(element, data){
+			for(var t in data){
+				for(var i in data[t]){
+					var row = $($("#objvaroverridesTemplate").html());
+					row.find("select[name='variable']").val(t);
+					row.find("input[name='name']").val(data[t][i].$.Name);
+					row.find("input[name='value']").val(data[t][i]._);
+					element.find("#objvaroverrides").append(row);
+				}
+			}
+		}
+		$("body").on("click", ".objvarremove, .objvarrowadd", function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			if($(this).hasClass("objvarremove")){
+				$(this).parent().parent().remove();
+			}
+			if($(this).hasClass("objvarrowadd")){
+				$("#info #objvaroverrides").append($("#objvaroverridesTemplate").html());
+			}
+		});
+		$("body").on("treeclosed", function(e, closed){
+			var selectionGrp = SelectionGroup();
+			closed.each(function(){
+				if ( selectionGrp == $(this).attr('group') ){
+					ClearSelection();
+					return false; //end the loop
+				}
+			});
+		});
+		function ClearSelection(){
+			var selectionGrp = SelectionGroup();
+			$("ul[group='"+selectionGrp+"'] .active").removeClass("active");
+			$("#info").html("");
+			$("#toolbar .new").hide();
+			$("#toolbar .hideable").hide();
+		}
+		$(function(){
+			$("#toolbar").css('height', (__WindowHeight*0.05) + "px");
+			$("#info").css('height', (__WindowHeight*0.35) + "px");
+			$("#list").css('height', ((__WindowHeight*0.60)-40)+ "px");
+
+			//- load the list for the first time.
+			makeCall({
+				type:"list"
+			}, function(data){
+				$("#list").html(data);
+				TreeList();
+			});
+
+			//- bind click events on stuff in our list.
+			$("#list").on('click', '.selectable', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+
+				$(".active").removeClass("active");
+				$(this).addClass("active");
+
+				$("#toolbar .hideable").fadeIn();
+
+				var group = $(this).parent().attr("group"),
+				groupId = $(this).attr('gid'),
+				mod = $(this).parent().attr('mod');
+
+				makeCall({
+					type: "info",
+					mod: mod,
+					group: group,
+					id: groupId
+				}, function(res){
+					if(res.err) return alert(res.err);
+					
+					var info = $($("#infoTemplate").html());
+					info.find("input[name='name']").val(res.data.Name);
+					populateObjectCreationParams(info, res.data.ObjectCreationParams[0]);
+					if(res.data.hasOwnProperty("ObjVarOverrides")){
+						populateObjVarOverrides(info, res.data.ObjVarOverrides[0]);
+					}
+					info.find(".groupid").html(res.data.Id);
+					info.find(".group").html(group);
+					info.find(".mod").html(mod);
+					$("#info").html(info);
+				}, "json");
+			});
+
+			//- bind toolbar actions
+			$("#toolbar").on('click', 'button', function(e){
+				e.preventDefault(); //-stop button doing what it would normally, mostly a precaution.
+				e.stopPropagation();
+
+				var action = $(this).attr("action");
+				switch(action){
+					case "goto":
+						var objCreationParams = $("#info").find("input[name='objcreationparams']");
+						if ( objCreationParams.length !== 0){//check that the element exists.
+							objCreationParams = objCreationParams.val();
+							var spli = objCreationParams.split(" "), x = spli[1], y = spli[2], z = spli[3];
+							makeCall_Lua("s/sendto/g/"+__ObjectId+"/n/"+x+"/n/"+y+"/n/"+z, function(lua){
+								//alert(lua);
+							});
+						}else{
+							alert("Please make a selection first.");
+						}
+						break;
+					case "update":
+						var mod = SelectionMod(),
+						obj = SelectionToObject(),
+						group = SelectionGroup(),
+						call = "update";
+						if($("#info").find(".isnew").html() === "True"){
+							call = "add";
+						}
+						makeCall({
+							type: call,
+							mod: mod,
+							group: group,
+							object: JSON.stringify(obj)
+						}, function(res){
+							if ( res.err ) return alert(res.err);
+							
+							if ( call == "update" ){
+								//successful, update our client side list.
+								$("ul[group='"+group+"']").find("li[gid='"+res.data.Id+"']").html("<a>"+res.data.Name+"</a>");
+							}
+							//append a new item to the list.
+							//TODO: auto move the scroll to the position of item after opening group (if closed)
+							if ( call == "add" ){
+								$("ul[group='"+group+"']").append("<li class='selectable' gid='"+res.data.Id+"'><a>"+res.data.Name+"</a></li>");
+								$("#info").find(".isnew").html("False");
+								$("#info").find(".groupid").html(res.data.Id);
+								$("#toolbar .new").hide();
+								$("#toolbar .hideable").show();
+							}
+						}, "json");
+						break;
+					case "delete":
+						if($("#info").find(".isnew").html() == "True"){
+							return ClearSelection();
+						}
+						var mod = SelectionMod(),
+						group = SelectionGroup(),
+						obj = SelectionToObject();
+						if( confirm("Permanently delete "+obj.Name+" Id: "+obj.Id+" Group: "+group+"?") ){
+							makeCall({
+								type: "delete",
+								mod: mod,
+								group: group,
+								id: obj.Id
+							}, function(res){
+								if(res.err) return alert(res.err);
+								
+								//update the local client list.
+								var ulgroup = $("ul[group='"+group+"']");
+								var len = ulgroup.find("li").length;
+								var c = 1;
+								for(var i=1;i<=len;i++){
+									var li = ulgroup.find("li[gid='"+i+"']");
+									if ( li.attr("gid") == res.data.Id ){
+										//- found the one we are deleting, remove it.
+										li.remove();
+									}else{
+										li.attr("gid", c+""); //reorder the elements as we loop
+										c++;
+									}
+								}
+								ClearSelection();
+							}, "json");
+						}
+						break;
+					case "add":
+						var elem = $("#groupSelect").find("select");
+						elem.html("");
+						$("#list > ul ul").each(function(){
+							var group = $(this).attr('group');
+							elem.append("<option>"+group+"</option>");
+						});
+						elem = $("#groupSelect");
+						var pos = $(this).position();
+						elem.css({
+							top: pos.top+"px",
+							left: pos.left+"px"
+						}).show();
+						break;
+					case "addtarget":
+					case "addblank":
+						ClearSelection();
+						var info = $($("#infoTemplate").html()),
+						group = $("#groupSelect").find("select").val();
+						info.find(".group").html(group);
+						info.find(".isnew").html("True");
+						$("#toolbar .new").show();
+						$("#info").html(info);
+						$("#groupSelect").hide();
+						if(action=="addtarget"){
+							makeCall_Lua("s/targetocp/g/"+__ObjectId, function(lua){
+								//alert(lua);
+							});
+						}
+						break;
+					case "addcancel":
+						$("#groupSelect").hide();
+						break;
+				}
+			});
+		});
+		//setup some functions that will receive the results from lua ExecuteJavascript
+		function ocptarg(objcreationparams){
+			populateObjectCreationParams($("#info"), objcreationparams);
+		}
