@@ -52,7 +52,7 @@ function PickCraftingOrder(user)
 		for i = 1, #availableOrders, 1 do
 			local order = availableOrders[i]
 			--Add Skill Weight
-			weightScores[i] = (weightScores[i] or 0) + GetRecipeSkillRequired(user, order.Recipe, order.Material)
+			weightScores[i] = (weightScores[i] or 0) + GetRecipeSkillRequired(order.Recipe, order.Material)
 
 			--Add Material Weight
 			weightScores[i] = weightScores[i] + GetCraftingOrderMaterialWeight(user, order)
