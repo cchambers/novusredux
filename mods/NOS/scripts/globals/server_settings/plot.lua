@@ -83,3 +83,6 @@ ServerSettings.Plot = {
 
     }
 }
+
+
+ServerSettings.Plot.SearchSize = math.ceil(CalculateHypotenuse(ServerSettings.Plot.MaximumSize, ServerSettings.Plot.MaximumSize))
