@@ -115,6 +115,7 @@
 
 						--Room21
 						{ Count = 2, TemplateId = "zombie_dragon", Region = "RoomB21", DelayMin=4 },
+
 						--[[
 						{ Count = 2, TemplateId = "ruin_servant", Region = "RoomB21", DelayMin=4 },
 						{ Count = 4, TemplateId = "skeleton", Region = "RoomB21", DelayMin=4 },

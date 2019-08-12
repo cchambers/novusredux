@@ -244,7 +244,7 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		-- we need the REAL skill level (minus any buffs) to do an accurate gain check 
 		-- (where as non-real is used for our chance)
 		local skillTable = skillDictionary[skillName] or {}
-		skillTable.SkillLevel = skillTable.SkillLevel or 0
+		skillTable.SkillLevel = skillTable.SkillLevel or 0.1
 
 		-- early exit cause anti macro stopped us
 		if not( AntiMacroAllow(mobileObj, skillName, skillLevel) ) then

@@ -7,7 +7,7 @@ ServerSettings.Skills = {
 	},
 
 	-- multiplies all gain chances by this amount, set to 1 for no effect, lower for slower gains, higher for quicker gains.
-	GainFactor = 1,
+	GainFactor = 1.5,
 	-- upon a successful gain attempt, this amount will be added to the skill level.
 	GainAmount = 0.1,
 	-- the gain chance will be multiplied by this amount if they are attempting to gain a skill point they have gained before but used the artifical cap to lower.
