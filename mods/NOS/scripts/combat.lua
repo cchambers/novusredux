@@ -859,7 +859,10 @@ function SetInCombat(inCombat, force)
 	if (mInCombatState ~= inCombat or force) then
 		mInCombatState = inCombat
 		this:SendMessage("CombatStatusUpdate", inCombat)
-		this:SetSharedObjectProperty("CombatMode", inCombat)
+
+		if (this:HasSharedObjectProperty('CombatMode')) then
+			this:SetSharedObjectProperty("CombatMode", inCombat)
+		end
 
 		if (mInCombatState == true) then
 			ArcherMinDelay()
