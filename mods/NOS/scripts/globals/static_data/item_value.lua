@@ -48,6 +48,11 @@ CustomItemValues = {
 	armor_leather_leggings = 20,
 	armor_leather_helm = 15,
 	
+	robe_padded_tunic = 20,
+	robe_padded_leggings = 15,
+	robe_padded_helm = 10,
+
+	
 	animalparts_human_skull = 10,
 	animalparts_leather_hide = 15,
 

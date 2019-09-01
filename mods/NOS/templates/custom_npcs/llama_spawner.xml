@@ -1,6 +1,6 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>Demon Horse Spawner</Name>
+	<Name>Demon Llama Spawner</Name>
 	<ObjectVariableComponent>	
 	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
@@ -12,15 +12,11 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 20, Template = "chestnut_horse" },
-						{ Weight = 20, Template = "desert_horse" },
-						{ Weight = 20, Template = "bay_horse" },
-						{ Weight = 20, Template = "cultist_horse" },
-						{ Weight = 10, Template = "black_horse" },
-						{ Weight = 4, Template = "void_horse" },
-						{ Weight = 0.33, Template = "horse_nightmare" },
-						{ Weight = 0.33, Template = "horse_silver_steed" },
-						{ Weight = 0.33, Template = "horse_brazen_bronco" },
+						{ Weight = 40, Template = "llama" },
+						{ Weight = 40, Template = "llama_blonde" },
+						{ Weight = 20, Template = "white" },
+						{ Weight = 10, Template = "llama_black" },
+						{ Weight = 0.5, Template = "llama_la" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

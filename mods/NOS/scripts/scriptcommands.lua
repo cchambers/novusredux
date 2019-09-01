@@ -51,8 +51,11 @@ RegisterCommand {
     Category = "God Power",
     AccessLevel = AccessLevel.Immortal,
     Func = function()
-        this:PlayEffect("BodyExplosion")
-        CallFunctionDelayed(TimeSpan.FromSeconds(0.1), ImmortalCommandFuncs.Cloak)
+        this:PlayEffectWithArgs("DevilHandEffect", 0.0,"Bone=Ground")
+        CallFunctionDelayed(TimeSpan.FromSeconds(0.4), function ()
+            this:PlayEffectWithArgs("BodyExplosion", 0.0,"Bone=Ground")
+        end)
+        CallFunctionDelayed(TimeSpan.FromSeconds(0.42), ImmortalCommandFuncs.Cloak)
     end,
     Desc = "Exit in a cool cool way."
 }

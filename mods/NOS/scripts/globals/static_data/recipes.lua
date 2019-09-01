@@ -4247,7 +4247,7 @@ InscriptionSkill = {
 			Category = "Scrolls",
 			Subcategory = "Circle 4",
 			Resources = {
-				Lemongrass = 1,
+				LemonGrass = 1,
 				AncientScroll = 1,
 			},
 		},
@@ -4261,7 +4261,7 @@ InscriptionSkill = {
 			Category = "Scrolls",
 			Subcategory = "Circle 4",
 			Resources = {
-				Lemongrass = 1,
+				LemonGrass = 1,
 				AncientScroll = 1,
 			},
 		},

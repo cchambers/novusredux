@@ -5,6 +5,11 @@ RegisterEventHandler(
         if (usedType ~= "Use" and usedType ~= "Examine") then
             return
         end
+        
+		if(not user:HasLineOfSightToObj(this)) then
+			user:SystemMessage("You cannot see that.", "info")
+			return
+		end
 
         if(this:HasTimer("NoSpam")) then 
             user:SystemMessage("Let it breathe, man.", "info")

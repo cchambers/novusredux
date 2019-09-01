@@ -1,0 +1,89 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Name>Decessus</Name>
+	<Hue>811</Hue>
+	<ScaleModifier>1.25</ScaleModifier>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="Title" type="string" value="Snake Charmer"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">25000</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
+		<DoubleVariable Name="Attack">65</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{
+				MobTraits =
+					{
+						Might = 3,
+					},
+				Stats = { Str=50, Agi=50, Int=21, Wis=10, Wil=10 },
+				Skills = 
+					{ 
+					Brawling = 100,  
+					},	
+					EquipTable = {
+					  RightHand = {
+					   {
+					    "weapon_staff",
+					    775,
+					   },
+					  },
+					  BodyPartHead = {
+					   {
+					    "head_cultist"
+					   },
+					  },
+					  BodyPartHair = {
+					   {
+					    "hair_male_long",
+					    4,
+					   },
+					  },
+					  Chest = {
+					   {
+					    "armor_bone_chest_nohue",
+					    0,
+					   },
+					  },
+					  Backpack = {
+					   "backpack",
+					  },
+					  Legs = {
+					   {
+					    "armor_bone_leggings_nohue",
+					    0,
+					   },
+					  },
+					 },
+				LootTables =
+					{
+						TemplateDefines.LootTable.LittleBoss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MapsBoss,
+						{
+							NumCoins = math.random(2000,4000),
+						},
+					},
+				ScavengeTables =
+					{
+					},
+				AvailableSpells = {},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

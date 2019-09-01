@@ -16,8 +16,9 @@ ServerSettings.Skills = {
 	PowerHourMultiplier = 2,
 	-- these are bonuses to skill gain, given the threshold criteria is met, GainAmount will be increased, respectively.
 	LowerLevelGains = {
+		-- skills under this level will always gain when they would gain.
+		GuaranteedGainThreshold = 15,
 		-- under this level, UpperThresholdGainAmount will be applied.
-		GuaranteedGainThreshold = 10,
 		UpperThreshold = 20,
 		UpperThresholdGainAmount = 0.2,
 		-- under this level, LowerThresholdGainAmount will be applied.

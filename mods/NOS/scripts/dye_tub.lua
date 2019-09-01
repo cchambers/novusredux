@@ -78,6 +78,10 @@ RegisterEventHandler(
 	EventType.Message,
 	"UseObject",
 	function(user, usedType)
+		if(not user:HasLineOfSightToObj(this) and not (IsInBackpack(this, user))) then
+			user:SystemMessage("You cannot see that.", "info")
+			return
+		end
 		local hue = this:GetHue()
 		local name = HueNames["hue" .. hue]
 		if (not (name)) then

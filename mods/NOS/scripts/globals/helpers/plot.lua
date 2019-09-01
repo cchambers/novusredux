@@ -1,5 +1,13 @@
 require 'default:globals.helpers.plot'
 
+local PointsToString = {
+    "South",
+    "East",
+    "North",
+    "West",
+    "Center",
+}
+
 --- Validate the plot bound with error output to player
 -- @param playerObj
 -- @param bound AABox2

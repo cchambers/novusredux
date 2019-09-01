@@ -50,11 +50,11 @@ function CreateArrowsInPack()
     if (ArrowCount) then
         local backpackObj = this:GetEquippedObject("Backpack")
         for k, v in pairs(ArrowCount) do
-            -- There is a disjoint between template and resourceType.
-            -- This next line removes an "s" to correct that.  "Arrows" to "Arrow".
-            k = k:sub(1, -2)
-            local template = AllRecipes["WoodsmithSkill"][k].CraftingTemplateFile
             if (v > 0) then
+                -- There is a disjoint between template and resourceType.
+                -- This next line removes an "s" to correct that.  "Arrows" to "Arrow".
+                k = k:sub(1, -2)
+                local template = AllRecipes["WoodsmithSkill"][k].CraftingTemplateFile
                 CreateStackInBackpack(this, template, v)
             end
         end

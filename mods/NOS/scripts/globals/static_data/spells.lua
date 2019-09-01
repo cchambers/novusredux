@@ -484,7 +484,7 @@ SpellData = {
 			Icon = "Arcane Arrow",
 			manaCost = 15,
 			upkeepCost = 0,
-			DamageType = "Cold",
+			DamageType = "Energy",
 			effectType = "InstantHitSpell",
 			SpellPower = 10,
 			critChance = 10,
@@ -1416,7 +1416,7 @@ SpellData = {
 			SpellPotencySkill = "MagerySkill",
 			SpellPrimeSFX = "event:/magic/water/magic_water_cast_water",
 			SpellHitSFX = "event:/magic/misc/magic_water_restoration",
-			SpellTooltipString = "Heals targets in range.",
+			SpellTooltipString = "Casts Protection on targets in range.",
 			SpellFXArgs = "Bone=Ground",
 			requireLineOfSight = true,
 			Skill = "MagerySkill",
@@ -1593,7 +1593,7 @@ SpellData = {
 			Circle = 5,
 			manaCost = 30,
 			upkeepCost = 0,
-			DamageType = "Frost",
+			DamageType = "Energy",
 			effectType = "Projectile",
 			SpellPower = 30,
 			critChance = 1,
@@ -1641,7 +1641,7 @@ SpellData = {
 					manaCost = 12
 				}
 			},
-			TargetMobileEffect = "Frost",
+			TargetMobileEffect = "Chilled",
 			Reagents = {
 				"Mandrake",
 				"Ginseng"
@@ -1766,7 +1766,7 @@ SpellData = {
 			MinTravelTime = 0,
 			manaCost = 40,
 			upkeepCost = 0,
-			DamageType = "Cold",
+			DamageType = "Energy",
 			effectType = "InstantHitSpell",
 			SpellPower = 40,
 			critChance = 1,

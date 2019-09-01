@@ -197,7 +197,7 @@ end
 -- @param min Minimum difficulty
 -- @param max Maximum difficulty
 function SkillValueMinMax(value, min, max)
-	return ( value - min ) / ( max - min )
+	return ( math.max(value, 0.1) - min ) / ( max - min )
 end
 
 --- Give a success / failure on a skill by skillName and a difficulty setting, also does a gain chance check.
@@ -244,11 +244,11 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 		-- we need the REAL skill level (minus any buffs) to do an accurate gain check 
 		-- (where as non-real is used for our chance)
 		local skillTable = skillDictionary[skillName] or {}
-		skillTable.SkillLevel = skillTable.SkillLevel or 0.1
+		skillTable.SkillLevel = skillTable.SkillLevel or 0
 
-		-- early exit cause anti macro stopped us
-		if not( AntiMacroAllow(mobileObj, skillName, skillLevel) ) then
-			return Success(chance)
+		if(skillTable.SkillLevel == 0) then
+			SetSkillLevel(mobileObj, skillName, 0.3, true)
+			return true
 		end
 
 		local effects = {"LowVitality"}
@@ -311,7 +311,8 @@ function CheckSkillChance( mobileObj, skillName, skillLevel, chance, skipGains )
 				realStatLevel < ss.Stats.IndividualPlayerStatCap
 				and
 				-- "arbitrary check to insure that players stats are just scaling to some degree with the age of the character a little bit" - Miphon
-				( i ~= 2 or (realStatLevel*2 <= skillTable.SkillLevel) )
+				-- used to say realStatLevel*2, wtf -- khi // how to get 100 secondary stats, remove that
+				( i ~= 2 or (realStatLevel <= skillTable.SkillLevel) )
 			) then
 				-- (increasing difficulty near stat cap)
 				local gainFactor = m.max(0.025, 1 - (realStatLevel / ss.Stats.TotalPlayerStatsCap))
@@ -345,6 +346,7 @@ function GenerateGainChance(level, chance, gainFactor, gc)
 	-- if you have no chance at success or full chance at success, can no longer gain
 	if (chance <= 0 or chance >= 1) then return 0 end
 	local ss = ServerSettings.Skills
+	if ( level < ss.LowerLevelGains.GuaranteedGainThreshold ) then return 1 end
 
 	gainFactor = gainFactor or 1
 	gc = gc or 0.5
