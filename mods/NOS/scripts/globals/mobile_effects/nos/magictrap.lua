@@ -8,7 +8,7 @@ MobileEffectLibrary.MagicTrap =
 		end
 		
 		if (target:IsEquipped()) then
-			self.ParentObj:SystemMessage("Nice try, but I saw that one coming!", "info")
+			self.ParentObj:SystemMessage("Nice try... I saw that one coming!", "info")
 			EndMobileEffect(root)
 			return
 		end
