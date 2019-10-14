@@ -1318,7 +1318,7 @@ RegisterEventHandler(EventType.ClientUserCommand, "useresource", HandleUseResour
 RegisterEventHandler(EventType.ClientUserCommand, "autoloot", HandleLootAllCommand)
 RegisterEventHandler(EventType.ClientUserCommand, "lootall", HandleLootAllCommand)
 RegisterEventHandler(EventType.ClientUserCommand, "equip", HandleEquipCommand)
-RegisterEventHandler(EventType.ClientUserCommand, "stuck", HandleStuckCommand)
+-- RegisterEventHandler(EventType.ClientUserCommand, "stuck", HandleStuckCommand)
 
 OverrideEventHandler("base_mobile", EventType.Message, "UpdateName", UpdateName)
 RegisterEventHandler(EventType.Message, "PickupObject", HandleRequestPickUp)

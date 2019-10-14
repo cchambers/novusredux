@@ -23,7 +23,7 @@ MobileEffectLibrary.MagicLock =
 		end
 
 		target:SetObjVar("Locked", true)
-		target:SetObjVar("MagicLock", level)
+		target:SetObjVar("MagicLock", lockLevel)
 		target:PlayObjectSound("event:/objects/doors/door/door_lock",false)
 		EndMobileEffect(root)
 	end

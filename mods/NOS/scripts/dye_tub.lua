@@ -78,8 +78,9 @@ RegisterEventHandler(
 	EventType.Message,
 	"UseObject",
 	function(user, usedType)
-		if(not user:HasLineOfSightToObj(this) and not (IsInBackpack(this, user))) then
-			user:SystemMessage("You cannot see that.", "info")
+		local dist = user:DistanceFrom(this) <= 1.6
+		if(not dist and not (IsInBackpack(this, user))) then
+			user:SystemMessage("That is too far away.", "info")
 			return
 		end
 		local hue = this:GetHue()

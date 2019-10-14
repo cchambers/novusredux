@@ -54,7 +54,13 @@ function HarvestParts(user)
 				local count = partInfo.Count or 1
 				if (count > 0) then
 					resource = ResourceData.ResourceInfo[partInfo.ResourceType]
-					local templateId = ResourceData.ResourceInfo[partInfo.ResourceType].Template
+					if (resource == nil) then
+						user:SystemMessage("Hey! This is bugged, please send a screenshot to Khi! <3", "info")
+						DebugMessage("KHI! NIL RESOURCE")
+						DebugMessage(partInfo.ResourceType)
+						return false
+					end
+					local templateId = resource.Template
 					local dropPos = GetRandomDropPosition(backpackObj)
 
 					-- Used to see if any extra's are given thanks to the harvesting skill.

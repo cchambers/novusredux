@@ -21,8 +21,7 @@ MobileEffectLibrary.MagicTrap =
 			trapLevel = 3
 		end
 
-		target:SetObjVar("Locked", true)
-		target:SetObjVar("Trapped", level)
+		target:SetObjVar("Trapped", trapLevel)
 		target:PlayObjectSound("event:/objects/doors/door/door_lock",false)
 		EndMobileEffect(root)
 	end

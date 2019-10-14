@@ -40,9 +40,16 @@
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
+                        TemplateDefines.LootTable.Prestige,
+                        TemplateDefines.LootTable.ExecutionerTubs,
 						{
 							NumItems = 1,
-							NumCoins = math.random(400,600),
+							NumCoins = math.random(2500,6000),
+							LootItems =
+                            {
+                                { Weight = 80, Template = "furniture_box", Unique = true },
+                                { Weight = 20, Template = "furniture_box_rare", Unique = true },
+                            }
 						},
 					},		
 				ScavengeTables =

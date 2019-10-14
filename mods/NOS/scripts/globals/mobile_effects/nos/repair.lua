@@ -91,6 +91,7 @@ MobileEffectLibrary.Repair = {
                 else
                     user:SystemMessage("You fail to repair the item.", "info")
                 end
+                EndMobileEffect(root)
             end
         end
         return

@@ -1,18 +1,20 @@
 <ObjectTemplate>
 	<ClientId>2</ClientId>
-	<Name>Corruption Demon Spawner</Name>
+	<Name>Troll Spawner</Name>
 	<ObjectVariableComponent>	
-	<StringVariable Name="spawnRegion">EndRoom</StringVariable>
-	<DoubleVariable Name="spawnDelay">240</DoubleVariable>
+	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
 	<DoubleVariable Name="spawnCount">13</DoubleVariable>
+	<BoolVariable Name="NoReset">True</BoolVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="simple_mob_spawner">
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 92, Template = "demon" },
-						{ Weight = 8, Template = "demon_hq" },
+						{ Weight = 20, Template = "broken_troll" },
+						{ Weight = 20, Template = "broken_troll" },
+						{ Weight = 2, Template = "broken_troll" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

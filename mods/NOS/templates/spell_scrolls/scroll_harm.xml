@@ -1,10 +1,10 @@
 <ObjectTemplate>
-  <Name>[00FF00]Wall of Fire[-]</Name>
+  <Name>[00FF00]Harm Scroll[-]</Name>
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="Spell">Walloffire</StringVariable>
-		<StringVariable Name="ResourceType">Walloffire</StringVariable>
+		<StringVariable Name="Spell">Ruin</StringVariable>
+		<StringVariable Name="ResourceType">Ruin</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>
