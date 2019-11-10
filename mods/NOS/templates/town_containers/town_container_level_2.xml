@@ -29,24 +29,63 @@
 					{	
 					    -- Gold
 					    {
-					    	NumCoins = math.random(30,45),
+					    	NumCoins = math.random(35,75),
 				    	},
-						
+
 						--ingredients
 						{
-							NumItems = math.random(0,6),
+							NumItemsMin = 1,
+							NumItemsMax = 2,
 							LootItems = 
 							{									
-								{ Chance = 10,Template = "tool_hunting_knife", Unique = true },
-								{ Chance = 5, Template = "tool_cookingpot", Unique = true },
-								{ Chance = 5, Template = "tool_shovel", Unique = true },
-								{ Chance = 15, Template = "bandage", Unique = true },
-								{ Chance = 5, Template = "ingredient_lemongrass", Unique = true },
-								{ Chance = 5, Template = "ingredient_mushroom", Unique = true },
-								{ Chance = 5, Template = "ingredient_ginsengroot", Unique = true },
+								{ Chance = 35,Template = "lesser_health_potion", Unique = true },
+								{ Chance = 35,Template = "lesser_mana_potion", Unique = true },
+								{ Chance = 35,Template = "lesser_stamina_potion", Unique = true },
+								{ Chance = 35, Template = "bandage", Unique = true, StackCountMin = 2, StackCountMax = 5 },
+								{ Chance = 25, Template = "arrow", Unique = true, StackCountMin = 2, StackCountMax = 5},
 							}
 						},
-					},
+
+						--Jewelery
+						{
+							NumItems = 1,
+					    	LootItems = {
+					    		{ Chance = 25, Template = "random_flawed_jewelry", Unique = true },
+				    		}
+						},
+
+						--regs
+						{
+							NumItemsMin = 1,
+							NumItemsMax = 2,
+							LootItems = {									
+								{ Chance = 35, Template = "ingredient_bloodmoss", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_garlic", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_nightshade", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_sulfurousash", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_blackpearl", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_spidersilk", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_mandrakeroot", Unique = true, StackCountMin = 5, StackCountMax = 8},
+								{ Chance = 35, Template = "ingredient_ginsengroot", Unique = true, StackCountMin = 5, StackCountMax = 8},
+							}
+						},
+
+						--ScrollsLow
+						{
+							NumItemsMin = 0,
+							NumItemsMax = 1,	
+
+							LootItems = 
+							{ 
+								{ Chance = 10, Template = "lscroll_heal", Unique = true },
+								{ Chance = 10, Template = "lscroll_cure", Unique = true },
+								{ Chance = 10, Template = "lscroll_poison", Unique = true },
+								{ Chance = 10, Template = "lscroll_ruin", Unique = true },
+								{ Chance = 10, Template = "lscroll_mana_missile", Unique = true },
+
+							}
+						},
+					}
 				}
 			</Initializer>
 		</LuaModule>
