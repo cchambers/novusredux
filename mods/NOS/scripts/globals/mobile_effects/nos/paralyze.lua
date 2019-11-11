@@ -12,7 +12,7 @@ MobileEffectLibrary.Paralyze =
 		local length = (casterEval/10) - (targetResist/10)
 
 		if (length <= 0) then
-			caster:SystemMessage("Target resist is too strong.","info")
+			caster:SystemMessage("Target resist is too strong.")
 			EndMobileEffect(root)
 			return
 		end

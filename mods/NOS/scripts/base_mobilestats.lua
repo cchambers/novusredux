@@ -66,7 +66,7 @@ function RecalculateManaRegen()
 			end
 
 			-- get the lowest armor mana regen mod from equipped armor
-			local armorModifier = 0 -- start at the max mod possible
+			local armorModifier = 1 -- start at the max mod possible
 			local matMod = 0
 			for i,slot in pairs(ARMORSLOTS) do
 				local item = this:GetEquippedObject(slot)

@@ -3,8 +3,8 @@
 	<ClientId>1109</ClientId>
 	<SharedStateEntry name="Weight" type="int" value="1"/>
 	<ObjectVariableComponent>		
-		<StringVariable Name="Spell">FireWall</StringVariable>
-		<StringVariable Name="ResourceType">FireWall</StringVariable>
+		<StringVariable Name="Spell">Walloffire</StringVariable>
+		<StringVariable Name="ResourceType">Walloffire</StringVariable>
 	</ObjectVariableComponent>	
 	<ScriptEngineComponent>
 		<LuaModule Name="spell_scroll"/>

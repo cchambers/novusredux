@@ -57,3 +57,4 @@ require 'globals.mobile_effects.potions.mana'
 
 require 'globals.mobile_effects.mounts.nomount'
 require 'globals.mobile_effects.mounts.dismiss'
+require 'globals.mobile_effects.mounts.summon'

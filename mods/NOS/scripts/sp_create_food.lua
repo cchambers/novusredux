@@ -3,8 +3,8 @@ foods = {
 	"item_cheese_slice",
 	-- "item_cheese_plate",
 	-- "item_cheese_wheel",
-	"item_mead",
-	-- "item_meat_slices",
+	-- "item_mead",
+	"item_meat_loaf",
 	-- "item_meat_leg_bone_grilled",
 	-- "item_meat_bone_grilled_plate"
 }

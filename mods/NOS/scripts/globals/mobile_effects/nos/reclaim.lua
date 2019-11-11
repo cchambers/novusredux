@@ -77,6 +77,15 @@ MobileEffectLibrary.Reclaim = {
         local target = self.Target
         local skillLevel = GetSkillLevel(user, "MetalsmithSkill")
 
+        
+        -- local metallic = (GetArmorSoundType(GetArmorType(target)) == "Plate")
+
+        -- if (not(metallic)) then
+        --     user:SystemMessage("That's not metallic.")
+        --     EndMobileEffect(root)
+        --     return false
+        -- end
+
         local reclaim = {0, 100}
         if (skillLevel < 30) then
             reclaim = {10, 30}

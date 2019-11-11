@@ -41,7 +41,7 @@ function InitiatePoisonField(caster)
 		end
 		curProj = curProj + 1
 	end
-	this:PlayObjectSound("event:/magic/fire/magic_fire_wall_of_fire", false)
+	this:PlayObjectSound("event:/magic/fire/magic_fire_wall_of_fire", false, 6)
 	this:ScheduleTimerDelay(TimeSpan.FromSeconds(10), "PoisonFieldRemoveTimer")
 	this:FireTimer("PoisonFieldTickTimer")
 end

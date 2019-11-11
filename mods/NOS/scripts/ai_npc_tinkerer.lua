@@ -2,14 +2,14 @@ require 'base_ai_npc'
 
 AI.Settings.MerchantEnabled = true
 AI.Settings.SetIntroObjVar = false
-AI.Settings.EnableBuy = true
 AI.Settings.EnableTrain = true
+AI.Settings.EnableBuy = true
 AI.Settings.StationedLeash = true
 
 fixPrice = 20
 AI.IntroMessages =
 { --note that this is a single string on multiple lines
-    "I sell all the tool's you'll need to live off of the land. Want to chop wood? Buy a hatchet. Want to make bandages? Better get yourself a hunting knife. Want to mine stone and metals? You'll probablly need a mining pick. Open your coin purse, and gear up friend!"
+    "I sell all the tools you'll need to live off of the land. Want to chop wood? Buy a hatchet. Want to make bandages? Better get yourself a hunting knife. Want to mine stone and metals? You'll probablly need a mining pick. Open your coin purse, and gear up friend!"
 } 
 
 AI.GreetingMessages = 

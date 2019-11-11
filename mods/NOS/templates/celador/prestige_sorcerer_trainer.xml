@@ -24,6 +24,7 @@
 					MagicAffinity = 100, 
 					Magery = 100,
 					Channeling = 100,
+					SpiritSpeak = 100,
 					},	
 					MobTraits =
 					{

@@ -13,10 +13,10 @@ ServerSettings.Plot = {
     -- multiply the resource cost of building a house by this amount
     HouseResourceCostModifier = 1,
     HouseBlueprintCostModifier = 2,
-    CostCoefficient = 2.2,
+    CostCoefficient = 1.7,
 
     -- replaced in 8.6
-    CommitCostMultiplier = 5,
+    CommitCostMultiplier = 3,
 
     Tax = {
         -- disable for free plot tax.
@@ -83,3 +83,6 @@ ServerSettings.Plot = {
 
     }
 }
+
+
+ServerSettings.Plot.SearchSize = math.ceil(CalculateHypotenuse(ServerSettings.Plot.MaximumSize, ServerSettings.Plot.MaximumSize))

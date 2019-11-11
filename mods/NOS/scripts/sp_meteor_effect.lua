@@ -36,7 +36,7 @@ function()
 					SearchMobile()}), GameObj(0))
 	for i,v in pairs(mobiles) do
 		if ( ValidCombatTarget(this, v, true) ) then
-			this:SendMessage("RequestMagicalAttack", v, this, true)
+			this:SendMessage("RequestMagicalAttack", "Meteor" v, this, true)
 		end
 	end
 	PlayEffectAtLoc("ImpactWaveEffect", mTargetLoc, 5)

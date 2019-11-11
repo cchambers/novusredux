@@ -8,7 +8,7 @@ MobileEffectLibrary.MagicTrap =
 		end
 		
 		if (target:IsEquipped()) then
-			self.ParentObj:SystemMessage("Nice try, but I saw that one coming!", "info")
+			self.ParentObj:SystemMessage("Nice try... I saw that one coming!", "info")
 			EndMobileEffect(root)
 			return
 		end
@@ -21,8 +21,7 @@ MobileEffectLibrary.MagicTrap =
 			trapLevel = 3
 		end
 
-		target:SetObjVar("Locked", true)
-		target:SetObjVar("Trapped", level)
+		target:SetObjVar("Trapped", trapLevel)
 		target:PlayObjectSound("event:/objects/doors/door/door_lock",false)
 		EndMobileEffect(root)
 	end

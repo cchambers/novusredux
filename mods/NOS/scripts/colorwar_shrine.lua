@@ -20,6 +20,10 @@ end
 
 RegisterEventHandler(EventType.Message, "UseObject", 
     function(user,usedType)
+		if(not user:HasLineOfSightToObj(this)) then
+			user:SystemMessage("You cannot see that.", "info")
+			return
+		end
         if(usedType ~= "Resurrect") then return end
         if (not ValidateUse(user)) then return end
         if (IsDead(user)) then

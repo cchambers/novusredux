@@ -1,6 +1,28 @@
 require 'default:globals.helpers.container'
 
 
+MagicContainerItems = {
+	reagents = {
+		"Blackpearl",
+		"Bloodmoss",
+		"Mandrake",
+		"Garlic",
+		"Ginseng",
+		"Spidersilk",
+		"Sulfurousash",
+		"Nightshade",
+		"LemonGrass",
+		"Moss",
+		"Mushrooms"
+	},
+	arrows = {
+		"Arrows",
+		"AshArrows",
+		"BlightwoodArrows",
+		"BroodwoodArrows",
+	},
+}
+
 function TryPutObjectInContainer(obj, container, locInContainer, canOverfill, tryStack, testOnly, source, dropper)
 
 	local ResourceTypes = container:GetObjVar("ResourceTypes")

@@ -1293,8 +1293,8 @@ RegisterCommand{ Command="nuke", Category = "God Power", AccessLevel = AccessLev
 RegisterCommand{ Command="freeze", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Freeze, Desc="Freeze/Unfreeze a mobile in place."}
 RegisterCommand{ Command="createcoins", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.CreateCoins, Usage="<amount>", Desc="Create a bag of coins in your backpack" }
 RegisterCommand{ Command="teleportplayer", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.TeleportPlayer, Usage="<name|id>", Desc="Teleport a player to your location", Aliases={"tp"}}	
-RegisterCommand{ Command="broadcast", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.Broadcast, Usage="<message>", Desc="Send a message to every player on the server", Aliases={"bcast"}}	
-RegisterCommand{ Command="localbroadcast", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.LocalBroadcast, Usage="<message>", Desc="Send a message to every player on this server region", Aliases={"localbcast"}}	
+RegisterCommand{ Command="broadcast", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=DemigodCommandFuncs.Broadcast, Usage="<message>", Desc="Send a message to every player on the server", Aliases={"bcast"}}	
+RegisterCommand{ Command="localbroadcast", Category = "God Power", AccessLevel = AccessLevel.Immortal, Func=DemigodCommandFuncs.LocalBroadcast, Usage="<message>", Desc="Send a message to every player on this server region", Aliases={"localbcast"}}	
 RegisterCommand{ Command="push", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.PushObject, Desc="[$2482]"}	
 RegisterCommand{ Command="settime", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.SetTime, Usage="<newtime>", Desc="Sets the current game time (24 hour format)" }
 RegisterCommand{ Command="addtitle", Category = "God Power", AccessLevel = AccessLevel.DemiGod, Func=DemigodCommandFuncs.AddTitle, Usage="<name|id> <title>", Desc="Grant a title to a player" }

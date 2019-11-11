@@ -7,7 +7,7 @@ ServerSettings.Skills = {
 	},
 
 	-- multiplies all gain chances by this amount, set to 1 for no effect, lower for slower gains, higher for quicker gains.
-	GainFactor = 1,
+	GainFactor = 1.5,
 	-- upon a successful gain attempt, this amount will be added to the skill level.
 	GainAmount = 0.1,
 	-- the gain chance will be multiplied by this amount if they are attempting to gain a skill point they have gained before but used the artifical cap to lower.
@@ -16,8 +16,9 @@ ServerSettings.Skills = {
 	PowerHourMultiplier = 2,
 	-- these are bonuses to skill gain, given the threshold criteria is met, GainAmount will be increased, respectively.
 	LowerLevelGains = {
+		-- skills under this level will always gain when they would gain.
+		GuaranteedGainThreshold = 15,
 		-- under this level, UpperThresholdGainAmount will be applied.
-		GuaranteedGainThreshold = 10,
 		UpperThreshold = 20,
 		UpperThresholdGainAmount = 0.2,
 		-- under this level, LowerThresholdGainAmount will be applied.

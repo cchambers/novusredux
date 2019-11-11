@@ -4,16 +4,17 @@
 	<ObjectVariableComponent>
 	<StringVariable Name="spawnRegion">RoomA15</StringVariable>
 	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
-	<DoubleVariable Name="spawnCount">5</DoubleVariable>
+	<DoubleVariable Name="spawnCount">6</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>
 		<LuaModule Name="simple_mob_spawner">
 			<Initializer>
 				{
 					SpawnTable = {
+						{ Weight = 67, Template = "wyrmling_fire" },
 						{ Weight = 20, Template = "drake_fire" },
-						{ Weight = 78, Template = "wyrmling_fire" },
-						{ Weight = 2, Template = "dread_serpent" },
+						{ Weight = 10, Template = "baby_tarrasque" },
+						{ Weight = 3, Template = "dread_serpent" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

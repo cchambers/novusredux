@@ -1,0 +1,87 @@
+<ObjectTemplate>
+	<ClientId>1</ClientId>
+	<Name>Diagodas</Name>
+	<Hue>813</Hue>
+	<ScaleModifier>1.25</ScaleModifier>
+    <SharedStateEntry name="IsBoss" type="bool" value="true"/>
+	<SharedStateEntry name="BodyOffset" type="double" value=".5"/>
+	<SharedStateEntry name="Title" type="string" value="Arch Mage"/>
+	<MobileComponent>			
+		<BaseRunSpeed>0.9</BaseRunSpeed>
+		<MobileType>Monster</MobileType>
+	</MobileComponent>
+	<ObjectVariableComponent>		
+		<DoubleVariable Name="BaseHealth">20000</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Cultist</StringVariable>
+		<StringVariable Name="MobileKind">Humanoid</StringVariable>
+		<DoubleVariable Name="Armor">70</DoubleVariable>
+		<DoubleVariable Name="Attack">60</DoubleVariable>
+		<DoubleVariable Name="Karma">0</DoubleVariable>
+		<DoubleVariable Name="Power">50</DoubleVariable>
+		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
+		<DoubleVariable Name="PrestigeXP">500</DoubleVariable>
+		<BoolVariable Name="DoNotEquip">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="ai_skeleton">
+			<Initializer>
+				{
+				Stats = { Str=50, Agi=50, Int=21, Wis=10, Wil=10 },
+				MobTraits =
+					{
+						MagicResistance = 2,
+						Might = 3,
+					},
+				Skills = 
+					{ 
+					Brawling = 100,  
+					Evocation = 100,
+					MagicAffinity=100, 
+					},	
+EquipTable = {
+  BodyPartHead = {
+   {
+    "head_cultist",
+   },
+  },
+  RightHand = {
+   {
+    "weapon_staff_bone",
+    0,
+   },
+  },
+  Chest = {
+   {
+    "robe_robe",
+    872,
+   },
+  },
+  BodyPartHair = {
+   {
+    "hair_male_rougish",
+    8,
+   },
+  },
+  Backpack = {
+   "backpack",
+  },
+ },
+				LootTables =
+					{
+						TemplateDefines.LootTable.LittleBoss,
+						TemplateDefines.LootTable.ScrollsBoss,
+						TemplateDefines.LootTable.MageBoss,
+						TemplateDefines.LootTable.MapsBoss,
+						{
+							NumCoins = math.random(2000,4000),
+						},
+					},
+				ScavengeTables =
+					{
+					},
+				AvailableSpells = {"Meteor"},	
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

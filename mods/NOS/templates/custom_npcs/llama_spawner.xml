@@ -1,0 +1,30 @@
+<ObjectTemplate>
+	<ClientId>2</ClientId>
+	<Name>Demon Llama Spawner</Name>
+	<ObjectVariableComponent>	
+	<DoubleVariable Name="spawnRadius">40</DoubleVariable>
+	<DoubleVariable Name="spawnDelay">180</DoubleVariable>
+	<DoubleVariable Name="spawnCount">3</DoubleVariable>
+	<BoolVariable Name="NoReset">True</BoolVariable>
+	</ObjectVariableComponent>
+	<ScriptEngineComponent>
+		<LuaModule Name="simple_mob_spawner">
+			<Initializer>
+				{
+					SpawnTable = {
+						{ Weight = 40, Template = "llama" },
+						{ Weight = 40, Template = "llama_blonde" },
+						{ Weight = 20, Template = "white" },
+						{ Weight = 10, Template = "llama_black" },
+						{ Weight = 0.5, Template = "llama_la" },
+					},
+					SpawnObjVars = {
+						["AI-StationedLeash"] = false,
+						["AI-LeashDistance"] = 40,
+						["AI-CanWander"] = true,
+					}
+				}
+			</Initializer>
+		</LuaModule>
+	</ScriptEngineComponent>
+</ObjectTemplate>

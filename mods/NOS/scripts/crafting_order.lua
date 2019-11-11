@@ -13,7 +13,6 @@ function InitCraftingOrder()
 	end
 
 	local orderInfo = this:GetObjVar("OrderInfo")
-	DebugMessage("TEST")
 	local recipe = GetRecipeFromEntryName(orderInfo.Recipe)
 	this:SetObjVar("OrderRecipe", recipe)
 	this:SetObjVar("OrderAmount", orderInfo.Amount)

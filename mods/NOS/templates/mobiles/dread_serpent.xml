@@ -51,15 +51,21 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.DeceptionMob,
 						TemplateDefines.LootTable.MageRich,
 						TemplateDefines.LootTable.ScrollsHigh,
 						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
-						TemplateDefines.LootTable.VileBlood,
+                        TemplateDefines.LootTable.Prestige,
+                        TemplateDefines.LootTable.ExecutionerTubs,
 						{
-							NumCoins = math.random(1000,4000),
+							NumItems = 1,
+							NumCoins = math.random(2500,6000),
+							LootItems =
+                            {
+                                { Weight = 80, Template = "furniture_box", Unique = true },
+                                { Weight = 20, Template = "furniture_box_rare", Unique = true },
+                            }
 						},
 					},	
 				ScavengeTables =

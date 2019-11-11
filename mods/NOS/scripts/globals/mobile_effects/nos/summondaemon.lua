@@ -40,7 +40,7 @@ MobileEffectLibrary.SummonDaemon = {
 	end,
 	Summon = function(self, root)
 		CreateObj(self.Template, self.Location, "Summon.Daemon")
-		AdjustKarma(self.ParentObj, -500)
+		AdjustKarma(self.ParentObj, -200)
 	end,
 	OnExitState = function(self, root)
 		return
