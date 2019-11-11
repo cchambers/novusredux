@@ -12,9 +12,9 @@
 			<Initializer>
 				{
 					SpawnTable = {
-						{ Weight = 20, Template = "broken_troll" },
-						{ Weight = 20, Template = "broken_troll" },
-						{ Weight = 2, Template = "broken_troll" },
+						{ Weight = 50, Template = "giant" },
+						{ Weight = 45, Template = "troll" },
+						{ Weight = 5, Template = "mountable_troll" },
 					},
 					SpawnObjVars = {
 						["AI-StationedLeash"] = false,

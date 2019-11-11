@@ -1,24 +1,30 @@
 <ObjectTemplate>
 	<ClientId>1585</ClientId>
-	<Name>Tarrasque</Name>
+	<Name>Baby Tarrasque</Name>
 	<SharedStateEntry name="BodyOffset" type="double" value="3"/>
-	<Color>0xFFFF681F</Color>
+  	<ScaleModifier>0.3</ScaleModifier>
+	<Color>0xFFFF9511</Color>
 	<MobileComponent>			
-		<BaseRunSpeed>1</BaseRunSpeed>
+		<BaseRunSpeed>2</BaseRunSpeed>
 		<MobileType>Monster</MobileType>
 	</MobileComponent>
 	<ObjectVariableComponent>
-		<StringVariable Name="MobileTeamType">Dragon</StringVariable>
+	<BoolVariable Name="AI-Leash">False</BoolVariable>
+		<BoolVariable Name="AI-RandomizeScale">False</BoolVariable>
+		<BoolVariable Name="AI-CanUseCombatAbilities">True</BoolVariable>
+		<BoolVariable Name="AI-ScaleToAge">False</BoolVariable>
+		<BoolVariable Name="AI-CanFlee">True</BoolVariable>
 		<StringVariable Name="MobileKind">Dragon</StringVariable>
-		<DoubleVariable Name="BaseHealth">8000</DoubleVariable>
-		<DoubleVariable Name="Armor">120</DoubleVariable>
+		<DoubleVariable Name="BaseHealth">4300</DoubleVariable>
+		<StringVariable Name="MobileTeamType">Reptile</StringVariable>
+		<DoubleVariable Name="Armor">100</DoubleVariable>
 		<DoubleVariable Name="Attack">50</DoubleVariable>
 		<DoubleVariable Name="Karma">-10000</DoubleVariable>
 		<DoubleVariable Name="BardingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="FameXP">1500</DoubleVariable>
+		<DoubleVariable Name="FameXP">1000</DoubleVariable>
 		<DoubleVariable Name="PrestigeXP">200</DoubleVariable>
-		<DoubleVariable Name="TamingDifficulty">100</DoubleVariable>
-		<DoubleVariable Name="PetSlots">9</DoubleVariable>
+		<DoubleVariable Name="TamingDifficulty">97</DoubleVariable>
+		<DoubleVariable Name="PetSlots">4</DoubleVariable>
 	</ObjectVariableComponent>
 	<ScriptEngineComponent>		
 		<LuaModule Name="ai_demon">
@@ -36,21 +42,12 @@
 					},
 				LootTables =
 					{
-						TemplateDefines.LootTable.MageRich,
-						TemplateDefines.LootTable.ScrollsHigh,
-						TemplateDefines.LootTable.MapsHigh,
 						TemplateDefines.LootTable.FilthyRich,
 						TemplateDefines.LootTable.PotionsHigh,
-                        TemplateDefines.LootTable.Prestige,
-                        TemplateDefines.LootTable.ExecutionerTubs,
+						TemplateDefines.LootTable.DeceptionMobLow,
 						{
 							NumItems = 1,
-							NumCoins = math.random(2500,6000),
-							LootItems =
-                            {
-                                { Weight = 80, Template = "furniture_box", Unique = true },
-                                { Weight = 20, Template = "furniture_box_rare", Unique = true },
-                            }
+							NumCoins = math.random(600,2000),
 						},
 					},		
 				ScavengeTables =

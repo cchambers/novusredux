@@ -1,7 +1,16 @@
 require 'container'
 
 RegisterEventHandler(EventType.ContainerItemAdded, "", 
-    function(addedObj)
+	function(addedObj)
+		
+		if (addedObj:IsContainer()) then
+			local objects = FindItemsInContainerRecursive(addedObj)
+			for i, j in pairs(objects) do
+				local randomLoc = GetRandomDropPosition(this)
+				j:MoveToContainer(this, randomLoc)
+			end
+		end
+		
 		-- coins
 		local worth = addedObj:GetObjVar("DonationWorth")
 		if(addedObj:GetObjVar("ResourceType") == "coins") then

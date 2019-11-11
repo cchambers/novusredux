@@ -55,7 +55,7 @@ function HarvestParts(user)
 				if (count > 0) then
 					resource = ResourceData.ResourceInfo[partInfo.ResourceType]
 					if (resource == nil) then
-						user:SystemMessage("Hey! This is bugged, please send a screenshot to Khi! <3", "info")
+						-- user:SystemMessage("Hey! This is bugged, please send a screenshot to Khi! <3", "info")
 						DebugMessage("KHI! NIL RESOURCE")
 						DebugMessage(partInfo.ResourceType)
 						return false

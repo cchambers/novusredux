@@ -19,8 +19,10 @@ function AddRune(rune, user)
 		return
 	end
 
+	local name = tostring(rune:GetName())
+
 	local RuneData = {
-		Name = tostring(rune:GetName()),
+		Name = string.gsub(name, "\n", ""),
 		Rune = rune
 	}
 

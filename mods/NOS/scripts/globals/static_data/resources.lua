@@ -376,6 +376,51 @@ ResourceData = {
 				Max = 125
 			}
 		},
+		BottleEmptySmall = {
+			Template = "empty_bottle_1",
+			DisplayName = "Small Empty Bottle",
+			SkillGainDifficultyMultiplier = 1,
+			Difficulty = {
+				Min = 0,
+				Max = 20
+			}
+		},
+		BottleEmptyMedium = {
+			Template = "empty_bottle_2",
+			DisplayName = "Medium Empty Bottle",
+			SkillGainDifficultyMultiplier = 1,
+			Difficulty = {
+				Min = 20,
+				Max = 40
+			}
+		},
+		BottleEmptyRegular = {
+			Template = "empty_bottle_3",
+			DisplayName = "Regular Empty Bottle",
+			SkillGainDifficultyMultiplier = 1,
+			Difficulty = {
+				Min = 40,
+				Max = 55
+			}
+		},
+		BottleEmptyLarge = {
+			Template = "empty_bottle_4",
+			DisplayName = "Large Empty Bottle",
+			SkillGainDifficultyMultiplier = 1,
+			Difficulty = {
+				Min = 55,
+				Max = 70
+			}
+		},
+		BottleEmptyXLarge = {
+			Template = "empty_bottle_5",
+			DisplayName = "Empty Cauldron",
+			SkillGainDifficultyMultiplier = 1,
+			Difficulty = {
+				Min = 70,
+				Max = 95
+			}
+		},
 		LeatherScraps = {
 			Template = "resource_leatherscraps",
 			DisplayName = "Leather Scraps",

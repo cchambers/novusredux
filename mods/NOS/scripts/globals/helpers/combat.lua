@@ -124,8 +124,11 @@ end
 
 function DonateItem(obj) 
     local obj = obj or this
-    local value = GetItemValue(obj) or 10
-    if (value < 10) then value = 10 end
+    local value = GetItemValue(obj) or 5
+    if (value < 5) then value = 5 end
+    if (obj:HasObjVar("StackCount")) then
+        value = value * obj:GetObjVar("StackCount")
+    end
     go = coroutine.create(function()
         PowerHourDonate(value)
     end)
